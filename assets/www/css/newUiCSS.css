@@ -1,0 +1,1035 @@
+body.sa {
+	direction:rtl;
+}
+/*=================
+			Nav Font Size Declare 
+					====================*/
+.app_navigation_diamond .smallNav a span{font-size: 18px ;}
+.app_navigation_diamond .mediumNav a span{font-size: 22px ;}
+.app_navigation_diamond .largeNav a span{font-size: 24px ;}
+.app_navigation_diamond .xlargeNav a span{font-size: 26px ;}
+
+.app_navigation_halflist .smallNav a span{font-size: 14px ;}
+.app_navigation_halflist .mediumNav a span{font-size: 16px ;}
+.app_navigation_halflist .largeNav a span{font-size: 18px ;}
+.app_navigation_halflist .xlargeNav a span{font-size: 20px ;}
+
+.app_navigation_grid.smallNav a span{font-size: 14px ;}
+.app_navigation_grid.mediumNav a span{font-size: 16px ;}
+.app_navigation_grid.largeNav a span{font-size: 18px ;}
+.app_navigation_grid.xlargeNav a span{font-size: 20px ;}
+
+.app_navigation_skew.smallNav a span{font-size: 14px ;}
+.app_navigation_skew.mediumNav a span{font-size: 16px ;}
+.app_navigation_skew.largeNav a span{font-size: 18px ;}
+.app_navigation_skew.xlargeNav a span{font-size: 20px ;}
+
+.app_navigation_colorlist.smallNav a span{font-size: 14px ;}
+.app_navigation_colorlist.mediumNav a span{font-size: 16px ;}
+.app_navigation_colorlist.largeNav a span{font-size: 18px ;}
+.app_navigation_colorlist.xlargeNav a span{font-size: 20px ;}
+
+.app_navigation_matrix.smallNav a span , .app_navigation_matrix2.smallNav  a span{font-size: 14px ;}
+.app_navigation_matrix.mediumNav a span, .app_navigation_matrix2.mediumNav a span{font-size: 16px ;}
+.app_navigation_matrix.largeNav a span, .app_navigation_matrix2.largeNav a span {font-size: 18px ;}
+.app_navigation_matrix.xlargeNav a span, .app_navigation_matrix2.xlargeNav a span {font-size: 20px ; line-height:28px;}
+
+.app_navigation_list.smallNav a span{font-size: 18px ;}
+.app_navigation_list.mediumNav a span{font-size: 22px ;}
+.app_navigation_list.largeNav a span{font-size: 24px ;}
+.app_navigation_list.xlargeNav a span{font-size: 26px ;}
+
+.app_navigation_newLayout_list.smallNav a span{font-size: 18px ;}
+.app_navigation_newLayout_list.mediumNav a span{font-size: 22px ;}
+.app_navigation_newLayout_list.largeNav a span{font-size: 24px ;}
+.app_navigation_newLayout_list.xlargeNav a span{font-size: 26px ;}
+
+.app_navigation_bottom.smallNav a span, .app_navigation_bottom_carousel.smallNav a span{font-size: 8px ;}
+.app_navigation_bottom.mediumNav a span, .app_navigation_bottom_carousel.mediumNav a span{font-size: 10px ;}
+.app_navigation_bottom.largeNav a span, .app_navigation_bottom_carousel.largeNav a span{font-size: 12px ;}
+.app_navigation_bottom.xlargeNav a span, .app_navigation_bottom_carousel.xlargeNav a span{font-size: 13px ;}
+
+.app_navigation_slidemenu.smallNav a span{font-size: 18px ;}
+.app_navigation_slidemenu.mediumNav a span{font-size: 20px ;}
+.app_navigation_slidemenu.largeNav a span{font-size: 22px ;}
+.app_navigation_slidemenu.xlargeNav a span{font-size: 24px ;}
+
+.app_navigation_imglist.smallNav a span{font-size: 18px ;}
+.app_navigation_imglist.mediumNav a span{font-size: 22px ;}
+.app_navigation_imglist.largeNav a span{font-size: 24px ;}
+.app_navigation_imglist.xlargeNav a span{font-size: 26px ;}
+
+.app_navigation_imgmatrix.smallNav a span{font-size: 18px ;}
+.app_navigation_imgmatrix.mediumNav a span{font-size: 22px ;}
+.app_navigation_imgmatrix.largeNav a span{font-size: 24px ;}
+.app_navigation_imgmatrix.xlargeNav a span{font-size: 26px ;}
+
+.compress .app_navigation_slidemenu.smallNav a span { font-size:9px; }
+.compress .app_navigation_slidemenu.mediumNav a span { font-size: 11px; } 
+.compress .app_navigation_slidemenu.largeNav a span { font-size: 13px; } 
+.compress .app_navigation_slidemenu.xlargeNav a span { font-size: 15px;} 
+
+.app_navigation_newLayout_matrix.smallNav a span{font-size: 14px ;}
+.app_navigation_newLayout_matrix.mediumNav a span{font-size: 16px ;}
+.app_navigation_newLayout_matrix.largeNav a span{font-size: 18px ;}
+.app_navigation_newLayout_matrix.xlargeNav a span{font-size: 20px ;}  
+
+.app_navigation_newLayout_imgmatrix.smallNav a span{font-size: 18px ;}
+.app_navigation_newLayout_imgmatrix.mediumNav a span{font-size: 22px ;}
+.app_navigation_newLayout_imgmatrix.largeNav a span{font-size: 24px ;}
+.app_navigation_newLayout_imgmatrix.xlargeNav a span{font-size: 26px ;}
+
+.app_navigation_fixedmatrix.smallNav a span{font-size: 14px ;}
+.app_navigation_fixedmatrix.mediumNav a span{font-size: 16px ;}
+.app_navigation_fixedmatrix.largeNav a span{font-size: 18px ;}
+.app_navigation_fixedmatrix.xlargeNav a span{font-size: 20px ;} 
+
+.app_navigation_crossmatrix.smallNav a span{font-size: 14px ;}
+.app_navigation_crossmatrix.mediumNav a span{font-size: 16px ;}
+.app_navigation_crossmatrix.largeNav a span{font-size: 18px ;}
+.app_navigation_crossmatrix.xlargeNav a span{font-size: 20px ;} 
+
+.app_navigation_slidemenu3d.smallNav a span{font-size: 14px ;}
+.app_navigation_slidemenu3d.mediumNav a span{font-size: 16px ;}
+.app_navigation_slidemenu3d.largeNav a span{font-size: 18px ;}
+.app_navigation_slidemenu3d.xlargeNav a span{font-size: 20px ;} 
+
+.app_navigation_slideshutter.smallNav a {font-size: 18px ;}
+.app_navigation_slideshutter.mediumNav a {font-size: 22px ;}
+.app_navigation_slideshutter.largeNav a {font-size: 24px ;}
+.app_navigation_slideshutter.xlargeNav a {font-size: 26px ;}
+
+.app_navigation_slidemore.smallNav a span { font-size:9px; }
+.app_navigation_slidemore.mediumNav a span { font-size: 11px; } 
+.app_navigation_slidemore.largeNav a span { font-size: 13px; } 
+.app_navigation_slidemore.xlargeNav a span { font-size: 15px;} 
+
+/*=================
+Content Font Size Declare 
+====================*/
+
+
+.smallContent { font-size: 10px ;}
+.mediumContent { font-size: 12px ; }
+.largeContent { font-size: 14px ;}
+.xlargeContent { font-size: 17px ;}
+
+
+/*=================
+			header Font Size Declare 
+					====================*/
+					
+.smallHeaderBar { font-size: 18px!important;}
+.mediumHeaderBar { font-size: 22px!important;}
+.largeHeaderBar { font-size: 26px!important;}
+.xlargeHeaderBar { font-size: 31px !important;}
+
+
+/*=================
+			Main Heading Font Size Declare 
+					====================*/
+
+.smallHeading { font-size: 14px !important;}
+.mediumHeading { font-size: 16px !important;}
+.largeHeading { font-size: 18px !important;}
+.xlargeHeading{ font-size: 23px !important;}
+
+/*=================
+			sub Heading Font Size Declare 
+					====================*/
+					
+.smallSubHeading { font-size: 12px !important;}
+.mediumSubHeading { font-size: 14px !important;}
+.largeSubHeading { font-size: 16px !important;}
+.xlargeSubHeading { font-size: 19px !important;}
+
+
+
+/*=================
+			Navigation Icons  Declare 
+					====================*/
+
+.app_navigation_matrix i, .app_navigation_newLayout_matrix i{	color: #fff; display: block; font-size:45px; overflow: hidden; text-align: center; text-overflow: ellipsis; text-transform: capitalize; width: 100%; 	border:0px;}
+.app_navigation_matrix2 i{	color: #fff; display: block; font-size:45px; overflow: hidden; text-align: center; text-overflow: ellipsis; text-transform: capitalize; width: 100%;	border:0px;}
+
+
+.app_navigation_matrix a,.app_navigation_matrix2 a, .app_navigation_newLayout_matrix a {    box-sizing:border-box;    border:solid 1px #ccc;    background:none !important;   overflow:hidden; }
+.app_navigation_matrix a span,.app_navigation_matrix2 a span, .app_navigation_newLayout_matrix  a span {    margin:0%;    padding:0 5%;    width:90%;    display:inline-block;}
+
+
+.app_navigation_newLayout_matrix [class^="icon-"]:before,.app_navigation_newLayout_matrix [class*=" icon-"]:before,.app_navigation_newLayout_matrix [class^="iconz-"]:before,.app_navigation_newLayout_matrix [class*=" iconz-"]:before,.app_navigation_newLayout_matrix [class^="iconzu-"]:before,.app_navigation_newLayout_matrix [class*=" iconzu-"]:before,.app_navigation_newLayout_matrix [class^="appyicon-"]:before,.app_navigation_newLayout_matrix [class*=" appyicon-"]:before,   .app_navigation_matrix [class^="icon-"]:before,.app_navigation_matrix [class*=" icon-"]:before,.app_navigation_matrix [class^="iconz-"]:before,.app_navigation_matrix [class*=" iconz-"]:before,.app_navigation_matrix [class^="iconzu-"]:before,.app_navigation_matrix [class*=" iconzu-"]:before,.app_navigation_matrix [class^="appyicon-"]:before,.app_navigation_matrix [class*=" appyicon-"]:before,
+.app_navigation_matrix2 [class^="icon-"]:before,.app_navigation_matrix2 [class*=" icon-"]:before,.app_navigation_matrix2 [class^="iconz-"]:before,.app_navigation_matrix2 [class*=" iconz-"]:before,.app_navigation_matrix2 [class^="iconzu-"]:before,.app_navigation_matrix2 [class*=" iconzu-"]:before,.app_navigation_matrix2 [class^="appyicon-"]:before,.app_navigation_matrix2 [class*=" appyicon-"]:before{ line-height:1.6em }
+.app_navigation_list i, .app_navigation_newLayout_list i{ color: #fff; display: inline-block; font-size:40px; overflow: hidden; text-align: center; text-overflow: ellipsis; width: 50px; float:left;}
+.app_navigation_list [class^="icon-"]:before,.app_navigation_list [class*=" icon-"]:before,.app_navigation_list [class^="iconz-"]:before,.app_navigation_list [class*=" iconz-"]:before,.app_navigation_list [class^="iconzu-"]:before,.app_navigation_list [class*=" iconzu-"]:before,.app_navigation_list [class^="appyicon-"]:before,.app_navigation_list [class*=" appyicon-"]:before,       .app_navigation_newLayout_list [class^="icon-"]:before,.app_navigation_newLayout_list [class*=" icon-"]:before,.app_navigation_newLayout_list [class^="iconz-"]:before,.app_navigation_newLayout_list [class*=" iconz-"]:before,.app_navigation_newLayout_list [class^="iconzu-"]:before,.app_navigation_newLayout_list [class*=" iconzu-"]:before,.app_navigation_newLayout_list [class^="appyicon-"]:before,.app_navigation_newLayout_list [class*=" appyicon-"]:before{ line-height:1.2em }
+.app_navigation_bottom i{ color: #fff; display: block; font-size:22px; overflow: hidden; text-align: center; text-overflow: ellipsis;  width:100%;}
+.app_navigation_bottom [class^="icon-"]:before,.app_navigation_bottom [class*=" icon-"]:before,.app_navigation_bottom [class^="iconz-"]:before,.app_navigation_bottom [class*=" iconz-"]:before,.app_navigation_bottom [class^="iconzu-"]:before,.app_navigation_bottom [class*=" iconzu-"]:before,.app_navigation_bottom [class^="appyicon-"]:before,.app_navigation_bottom [class*=" appyicon-"]:before{  line-height: 1.4em }
+.app_navigation_bottom_carousel i{ color: #fff; display: block; font-size:22px; overflow: hidden; text-align: center; text-overflow: ellipsis;  width:100%;}
+.app_navigation_bottom_carousel [class^="icon-"]:before,.app_navigation_bottom_carousel [class*=" icon-"]:before,.app_navigation_bottom_carousel [class^="iconz-"]:before,.app_navigation_bottom_carousel [class*=" iconz-"]:before,.app_navigation_bottom_carousel [class^="iconzu-"]:before,.app_navigation_bottom_carousel [class*=" iconzu-"]:before,.app_navigation_bottom_carousel [class^="appyicon-"]:before,.app_navigation_bottom_carousel [class*=" appyicon-"]:before{  line-height: 1.4em }
+
+/*=================
+			Pages Icons  Declare 
+					====================*/
+
+.page_innerIcon i{ color: #fff; display: block; font-size: 30px;; overflow: hidden; text-align: center; text-overflow: ellipsis; text-transform: capitalize; width: 100%;}
+.page_innerIcon img{display: block;  overflow: hidden; text-align: center;  width: 35px;}
+.page_innerIcon [class^="icon-"]:before,.page_innerIcon [class*=" icon-"]:before,.page_innerIcon [class^="iconz-"]:before,.page_innerIcon [class*=" iconz-"]:before,.page_innerIcon [class^="iconzu-"]:before,.page_innerIcon [class*=" iconzu-"]:before,.page_innerIcon [class^="appyicon-"]:before,.page_innerIcon [class*=" appyicon-"]:before{ line-height:1.2em }
+
+.brack-word{float: left; width: calc(100% - 90px); -webkit-width: calc(100% - 90px); -moz-width: calc(100% - 90px); }
+
+/*=================
+			Page Sub Icons/Inner cat icon images Declare 
+					====================*/		
+					
+.audio_list i, .appypie-list i, .education_list i{color: #fff; display:inline-block; font-size:90px; overflow: hidden; text-align: center; text-overflow: ellipsis; text-transform: /*capitalize*/; width: 133px;overflow: hidden;height: 133px;box-shadow: 0px 0px 3px #FFFFFF;border-radius: 4px;-moz-border-radius: 4px;-webkit-border-radius: 4px;}					
+.audio_list [class^="icon-"]:before,.audio_list [class*=" icon-"]:before,.audio_list [class^="iconz-"]:before,.audio_list [class*=" iconz-"]:before,.audio_list [class^="iconzu-"]:before,.audio_list [class*=" iconzu-"]:before,.audio_list [class^="appyicon-"]:before,.audio_list [class*=" appyicon-"]:before, .appypie-list [class^="icon-"]:before,.appypie-list [class*=" icon-"]:before,.appypie-list [class^="iconz-"]:before,.appypie-list [class*=" iconz-"]:before,.appypie-list [class^="appyicon-"]:before,.appypie-list [class*=" appyicon-"]:before,.appypie-list [class^="iconzu-"]:before,.appypie-list [class*=" iconzu-"]:before, .education_list [class^="icon-"]:before,.education_list [class*=" icon-"]:before,.education_list [class^="iconz-"]:before,.education_list [class*=" iconz-"]:before,.education_list [class^="iconzu-"]:before,.education_list [class*=" iconzu-"]:before,.education_list [class^="appyicon-"]:before,.education_list [class*=" appyicon-"]:before,.audio_list [class^="appyslim-"]:before,.audio_list [class*=" appyslim-"]:before, .appypie-list [class^="appyslim-"]:before,.appypie-list [class*=" appyslim-"]:before,  .education_list [class^="appyslim-"]:before,.education_list [class*=" appyslim-"]:before
+{ line-height:133px }					
+.audio_list, .appypie-list, .education_list { margin:15px calc((50% - 133px)/2)  0  }
+
+
+.hideBorder .audio_list i,
+.hideBorder .appypie-list i,
+.hideBorder .education_list i,
+.hideBorder .appypie-list img {
+	box-shadow: 0px 0px 0 #FFFFFF;
+}
+/*=================
+			loaylty Icons / images Declare 
+					====================*/	
+					
+.loyalty-numb [class^="icon-"]:before,.loyalty-numb [class*=" icon-"]:before,.loyalty-numb [class^="iconz-"]:before,.loyalty-numb [class*=" iconz-"]:before,.loyalty-numb [class^="iconzu-"]:before,.loyalty-numb [class*=" iconzu-"]:before{ position: absolute;display: block;text-align: center;width: 80px;height: 80px;line-height: 80px;font-size: 400%; z-index:1;}					
+.loyalStemp i{ display: block; font-size:5em; text-align: center; width: 80px; height:80px; margin:0 auto; border:2px solid #fff; border-radius:100px;-moz-border-radius:100px;-webkit-border-radius:100px; line-height:80px;}
+span[class^="icon"].freeicon-btn{font-size: 25px; line-height:48px;}
+span[class^="icon"].freeicon-btn:before{ display:block !important;}
+
+/*=================
+ Navigation Option Hide Show  Declare
+ ====================*/
+.app_navigation_matrix.hide-border a, .app_navigation_matrix2.hide-border  a, .app_navigation_imglist.hide-border a, .app_navigation_imgmatrix.hide-border a, .app_navigation_list.hide-border a, .app_navigation_matrix.hide-border i,.app_navigation_matrix.hide-border img, .app_navigation_slide_list.hide-border a, .app_navigation_slide.hide-border a,.app_navigation_newLayout_matrix.hide-border a, .app_navigation_newLayout_list.hide-border a, .app_navigation_newLayout_imglist.hide-border a, .app_navigation_newLayout_imgmatrix.hide-border a{ border-width:0px !important;}
+.app_navigation_matrix.hide-text span, .app_navigation_matrix2.hide-text span, .app_navigation_bottom_carousel.hide-text span,  .app_navigation_bottom.hide-text span,  .app_navigation_slide_list.hide-text span, .app_navigation_newLayout_matrix.hide-text span, .app_navigation_newLayout_list.hide-text span, .app_navigation_diamond.hide-text span{ display:none;}
+.app_navigation_imglist.hide-text a span, .app_navigation_imgmatrix.hide-text a span, app_navigation_newLayout_imglist.hide-text a span, .app_navigation_newLayout_imgmatrix.hide-text a span	{ text-indent:2000px; overflow:hidden;}
+.app_navigation_matrix.hide-text i, .app_navigation_newLayout_matrix.hide-text i{font-size:57px;}
+.app_navigation_matrix.hide-text a, .app_navigation_newLayout_matrix.hide-text a{ border-radius:20px; -webkit-border-radius:20px; -moz-border-radius:20px; overflow:hidden;}
+/*.app_navigation_matrix.hide-text a img, .app_navigation_matrix2.hide-text a img{  max-width:90px;  max-height:90px;}	*/
+.app_navigation_bottom_carousel.hide-text i,  .app_navigation_bottom.hide-text i{ font-size:30px;  }
+.app_navigation_list.hide-icon i, .app_navigation_list.hide-icon a img, .app_navigation_newLayout_list.hide-icon i, .app_navigation_newLayout_list.hide-icon a img, .hide-icon a i{ display:none;}
+.app_navigation_list.hide-icon a span, .app_navigation_list.rounded-option.hide-icon a span, .app_navigation_list.centered-option.hide-icon a span, .app_navigation_newLayout_list.hide-icon a span, .app_navigation_newLayout_list.rounded-option.hide-icon a span, .app_navigation_newLayout_list.centered-option.hide-icon a span{width:calc(100% - 30px);line-height:40px;padding:0 15px}
+.app_navigation_matrix.hide-background a span, .app_navigation_matrix2.hide-background a span, .app_navigation_list.hide-background a, .app_navigation_list.hide-background span, .app_navigation_matrix.hide-background  i, .app_navigation_matrix.hide-background  img, .app_navigation_matrix.hide-background  i, .app_navigation_matrix.hide-background img,          .app_navigation_newLayout_matrix.hide-background a span, .app_navigation_newLayout_list.hide-background a, .app_navigation_newLayout_list.hide-background span, .app_navigation_newLayout_matrix.hide-background  i, .app_navigation_newLayout_matrix.hide-background  img, .app_navigation_newLayout_matrix.hide-background  i, .app_navigation_newLayout_matrix.hide-background img{ background-color:rgba(0,0,0,0) !important;}
+/*.app_navigation_matrix.hide-background  img, .app_navigation_matrix2.hide-background  img{max-width:70px;  max-height:70px;}*/
+/*.app_navigation_matrix.hide-background.xlargeNav  img, .app_navigation_matrix2.hide-background.xlargeNav  img{max-width:68px;  max-height:68px;}*/
+/*.app_navigation_matrix.hide-background  img, .app_navigation_matrix2.hide-background img{max-width:90px;  max-height:90px;}*/
+/*.app_navigation_matrix.hide-background.xlargeNav img, .app_navigation_matrix2.hide-background.xlargeNav img{max-width:68px;  max-height:68px;}*/
+.app_navigation_matrix.hide-background img {
+	background-color:rgba(0,0,0,0) !important;
+}
+
+/* New Ui's
+,,,.app_navigation_list.centered-option.rounded-option.hideBorder a,{border:0}*/
+
+
+/*=================
+			Font addeding  Declare 
+					====================*/
+@font-face {font-family:'gadugiregular'; src:  url('../fonts/gadugi-webfont.ttf') format('truetype');font-weight: normal;font-style: normal;}
+@font-face {font-family:'source_sans_proregular';src: url('../fonts/sourcesanspro-regular-webfont.ttf') format('truetype');font-weight: normal;font-style: normal;}
+@font-face {font-family:'open_sansregular';src:  url('../fonts/OpenSans-Regular-webfont.ttf') format('truetype');font-weight: normal;font-style: normal;}
+@font-face {font-family:'oswaldLight';src: url('../fonts/oswald-light-webfont.ttf') format('truetype');font-weight:normal;font-style:normal;}
+@font-face {font-family:'Comic Sans MS';src: url('../fonts/Comic-Sans-MS.ttf') format('truetype');font-weight:normal;font-style:normal;}
+@font-face {font-family:'Georgia';src: url('../fonts/georgia.ttf') format('truetype');font-weight:normal;font-style:normal;}
+
+/*=================
+			font css  Declare 
+					====================*/
+					
+.verdana, h1.verdana, div[class*="app_navigation"].verdana a span {font-family: Verdana, Geneva, sans-serif  }
+.georgia, h1.georgia, div[class*="app_navigation"].georgia a span {font-family: Georgia, "Times New Roman", Times, serif  }
+.courierNew, h1.courierNew, div[class*="app_navigation"].courierNew a span {font-family: "Courier New", Courier, monospace }
+.arial, h1.arial, div[class*="app_navigation"].arial a span {font-family: Arial, Helvetica, sans-serif }
+.tahoma, h1.tahoma, div[class*="app_navigation"].tahoma a span {font-family: Tahoma, Geneva, sans-serif  }
+.trebuchetMS, h1.trebuchetMS, div[class*="app_navigation"].trebuchetMS a span {font-family: "Trebuchet MS", Arial, Helvetica, sans-serif ;}
+.arialBlack, h1.arialBlack, div[class*="app_navigation"].arialBlack a span {font-family: "Arial Black", Gadget, sans-serif}
+.timesNewRoman, h1.timesNewRoman, div[class*="app_navigation"].timesNewRoman a span {font-family: "Times New Roman", Times, serif }
+.palatinoLinotype, h1.palatinoLinotype, div[class*="app_navigation"].palatinoLinotype a span {font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif }
+.lucidaSansUnicode, h1.lucidaSansUnicode, div[class*="app_navigation"].lucidaSansUnicode a span {font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif }
+.msSerif, h1.msSerif, div[class*="app_navigation"].msSerif a span {font-family: "MS Serif", "New York", serif }
+.lucidaConsole, h1.lucidaConsole, div[class*="app_navigation"].lucidaConsole a span {font-family: "Lucida Console", Monaco, monospace}
+.comicSansMS, h1.comicSansMS, div[class*="app_navigation"].comicSansMS a span {font-family: "Comic Sans MS", cursive }
+
+
+/*=================
+ Google Fonts Declare
+ ====================*/
+
+.permanentmarker, h1.permanentmarker, div[class*="app_navigation"].permanentmarker a span{ font-family: 'Permanent Marker', cursive; }
+.lobster, h1.lobster, div[class*="app_navigation"].lobster a span{ font-family: 'Lobster', cursive; }
+.indieflower, h1.indieflower, div[class*="app_navigation"].indieflower a span{ font-family: 'Indie Flower', cursive; }
+.pacifico, h1.pacifico, div[class*="app_navigation"].pacifico a span{ font-family: 'Pacifico', cursive; }
+.orbitron, h1.orbitron, div[class*="app_navigation"].orbitron a span{ font-family: 'Orbitron', sans-serif; }
+.dancingscript, h1.dancingscript, div[class*="app_navigation"].dancingscript a span{ font-family: 'Dancing Script', cursive; }
+.dosis, h1.dosis, div[class*="app_navigation"].dosis a span{ font-family: 'Dosis', sans-serif; }
+.poiretone, h1.poiretone, div[class*="app_navigation"].poiretone a span{ font-family: 'Poiret One', cursive;}
+.kaushanscript, h1.kaushanscript, div[class*="app_navigation"].kaushanscript a span{font-family: 'Kaushan Script', cursive;}
+.satisfy, h1.satisfy, div[class*="app_navigation"].satisfy a span{ font-family: 'Satisfy', cursive; }
+.courgette, h1.courgette, div[class*="app_navigation"].courgette a span{ font-family: 'Courgette', cursive; }
+.seaweedscript, h1.seaweedscript, div[class*="app_navigation"].seaweedscript a span{ font-family: 'Seaweed Script', cursive; }
+.navbar .center.kaushanscript{padding-right:10px;}
+
+
+/*=================
+ Google AR Fonts Declare
+ ====================*/
+ 
+.rakkas, h1.rakkas, div[class*="app_navigation"].rakkas a span{font-family: 'Rakkas', cursive;}
+.lemonada, h1.lemonada, div[class*="app_navigation"].lemonada a span{font-family: 'Lemonada', cursive;}
+.cairo, h1.cairo, div[class*="app_navigation"].cairo a span{font-family: 'Cairo', sans-serif;}
+.amiri, h1.amiri, div[class*="app_navigation"].amiri a span{font-family: 'Amiri', serif;}
+.changa, h1.changa, div[class*="app_navigation"].changa a span{font-family: 'Changa', sans-serif;}
+.lateef, h1.lateef, div[class*="app_navigation"].lateef a span{font-family: 'Lateef', cursive;}
+.reemkufi, h1.reemkufi, div[class*="app_navigation"].reemkufi a span{font-family: 'Reem Kufi', sans-serif;}
+.scheherazade, h1.scheherazade, div[class*="app_navigation"].scheherazade a span{font-family: 'Scheherazade', serif;}
+.elmessiri, h1.elmessiri, div[class*="app_navigation"].elmessiri a span{font-family: 'El Messiri', sans-serif;}
+.harmattan, h1.harmattan, div[class*="app_navigation"].harmattan a span{font-family: 'Harmattan', sans-serif;}
+.mirza, h1.mirza, div[class*="app_navigation"].mirza a span{font-family: 'Mirza', cursive;}
+.katibeh, h1.katibeh, div[class*="app_navigation"].katibeh a span{font-family: 'Katibeh', cursive;}
+
+
+/*=================
+			Header Option  Declare 
+					====================*/
+					
+.headerColor{background-image:none;}			
+.headerImage{background-size:100% 100%;background-repeat:no-repeat;background-position:center;  background-color:#000;}	
+.headerNoBG{background-image:none;}
+
+h1#pageTitle.ui-title{ text-shadow:none;}
+.navbar-inner.navHeader {padding:0 !important;}
+
+
+/*=================
+			Custom color  Declare 
+					====================*/
+
+.custom-color{color:inherit !important; } .custom-color *{color:inherit  !important; }
+
+/*=================
+			Background animation classes 
+					====================*/
+.bg-images {
+ 	display:none;
+}
+.animated-bg{ transition: background-image 3s ease 1s; -webkit-transition: background-image 3s ease 1s; -moz-transition: background-image 3s ease 1s;}
+.animated-bg{ background-repeat:no-repeat  !important; background-size:100% 100%  !important; background-color:#000 !important}
+
+/*=================
+			Chat Icons  Declare 
+					====================*/
+
+.chat-room .chat-pic i{ display: block; font-size: 45px; overflow: hidden; text-align: center; text-overflow: ellipsis; text-transform: capitalize; width: 100%;}
+.chat-room .chat-pic [class^="icon-"]:before,.chat-room .chat-pic [class*=" icon-"]:before,.chat-room .chat-pic [class^="iconz-"]:before,.chat-room .chat-pic [class*=" iconz-"]:before,.chat-room .chat-pic [class^="iconzu-"]:before,.chat-room .chat-pic [class*=" iconzu-"]:before,.chat-room .chat-pic [class^="appyicon-"]:before,.chat-room .chat-pic [class*=" appyicon-"]:before{ line-height:1.2em }
+
+
+
+/*=================
+ Dirctory Page new icons
+ ====================*/
+.dirctroy-inner-icon i{ color: #fff; display: inline-block; font-size: 20px; overflow: hidden; text-align: center; text-overflow: ellipsis; text-transform: capitalize;width: 25px; margin: 0 5px 0 0;line-height: 25px !important; float:left;}
+.dirctroy-inner-icon [class^="icon-"]:before,.page_innerIcon [class*=" icon-"]:before,.page_innerIcon [class^="iconz-"]:before,.page_innerIcon [class*=" iconz-"]:before,.page_innerIcon [class^="iconzu-"]:before,.page_innerIcon [class*=" iconzu-"]:before,.page_innerIcon [class^="appyicon-"]:before,.page_innerIcon [class*=" appyicon-"]:before{ line-height:1.2em }
+.directory-newTab i{ font-size: 25px;; overflow: hidden; line-height:38px; height:38px; width:33%}	
+.directory-newTab [class^="icon-"]:before,.directory-newTab [class*=" icon-"]:before,.directory-newTab [class^="iconz-"]:before,.directory-newTab [class*=" iconz-"]:before,.directory-newTab [class^="iconzu-"]:before,.directory-newTab [class*=" iconzu-"]:before,.directory-newTab [class^="appyicon-"]:before,.directory-newTab [class*=" appyicon-"]:before{ line-height:1em }
+	
+
+
+/*=================
+ Video Page new icons
+ ====================*/
+.custom-video i{ display: block; font-size: 45px; overflow: hidden; text-align: center; text-overflow: ellipsis; text-transform: capitalize; width: 100px; float:left; line-height:100px;margin: 0 10px 0 0;}
+
+
+
+
+/*=================
+			E-reader Page new icons
+					====================*/
+.e-readerimage[class^="icon-"]:before,.directory-newTab [class*=" icon-"]:before,.directory-newTab [class^="iconz-"]:before,.directory-newTab [class*=" iconz-"]:before,.directory-newTab [class^="iconzu-"]:before,.directory-newTab [class*=" iconzu-"]:before,.directory-newTab [class^="appyicon-"]:before,.directory-newTab [class*=" appyicon-"]:before{ line-height:1em }
+
+/*=================
+			Header  new icons
+					====================*/
+.headerIcon{ width:30px; height:30px; display:block; text-indent:-1px }
+.headerIcon[class^="icon-"]:before,.headerIcon [class*=" icon-"]:before,.headerIcon [class^="iconz-"]:before,.headerIcon [class*=" iconz-"]:before,.headerIcon [class^="iconzu-"]:before,.headerIcon [class*=" iconzu-"]:before,.headerIcon [class^="appyicon-"]:before,.headerIcon [class*=" appyicon-"]:before{ line-height:1em }
+.headerIcon i{ font-size: 25px; overflow: hidden; line-height:30px;width:30px; height:30px;  }	
+.headerIcon img{ width:30px; height:30px; }
+
+
+
+/* =======================
+							Global Theme  ==============*/
+
+
+/* === 
+		GREEN THEME ==== */		
+.green{	
+	background: -moz-linear-gradient(top,  rgba(139,198,45,0.2) 0%, rgba(100,147,31,0.6) 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(139,198,45,0.2)), color-stop(100%,rgba(100,147,31,0.6)));
+	background:linear-gradient(to bottom,  rgba(139,198,45,0.2) 0%,rgba(100,147,31,0.6) 100%);
+}
+
+/* === 
+		BLUE THEME ==== */	
+.blue{
+	background: -moz-linear-gradient(top,  rgba(33,133,171,0.2) 0%, rgba(51,126,154,0.6) 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(33,133,171,0.2)), color-stop(100%,rgba(51,126,154,0.6)));
+	background: linear-gradient(to bottom,  rgba(33,133,171,0.2) 0%,rgba(51,126,154,0.6) 100%);
+}
+
+/* === 
+		YELLOW THEME ==== */
+.yellow{
+	background: -moz-linear-gradient(top,  rgba(248,180,5,0.2) 0%, rgba(238,140,11,0.6) 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(248,180,5,0.2)), color-stop(100%,rgba(238,140,11,0.6)));
+	background: linear-gradient(to bottom,  rgba(248,180,5,0.2) 0%,rgba(238,140,11,0.6) 100%);
+}
+
+/* === 
+		ORANGE THEME ==== */
+.orange{
+	background: -moz-linear-gradient(top,  rgba(255,94,30,0.2) 0%, rgba(255,94,30,0.27) 17%, rgba(192,56,2,0.6) 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,94,30,0.2)), color-stop(17%,rgba(255,94,30,0.27)), color-stop(100%,rgba(192,56,2,0.6)));
+	background: linear-gradient(to bottom,  rgba(255,94,30,0.2) 0%,rgba(255,94,30,0.27) 17%,rgba(192,56,2,0.6) 100%);
+}
+
+/* === 
+		RED THEME ==== */
+.red{
+	background: -moz-linear-gradient(top,  rgba(217,2,0,0.2) 0%, rgba(217,2,0,0.27) 18%, rgba(139,42,37,0.6) 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(217,2,0,0.2)), color-stop(18%,rgba(217,2,0,0.27)), color-stop(100%,rgba(139,42,37,0.6)));
+	background: linear-gradient(to bottom,  rgba(217,2,0,0.2) 0%,rgba(217,2,0,0.27) 18%,rgba(139,42,37,0.6) 100%);
+}
+
+/* === 
+		BLACK THEME ==== */
+.black{
+	background: -moz-linear-gradient(top,  rgba(70,70,70,0.2) 0%, rgba(70,70,70,0.27) 17%, rgba(23,23,23,0.6) 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(70,70,70,0.2)), color-stop(17%,rgba(70,70,70,0.27)), color-stop(100%,rgba(23,23,23,0.6)));
+	background: linear-gradient(to bottom,  rgba(70,70,70,0.2) 0%,rgba(70,70,70,0.27) 17%,rgba(23,23,23,0.6) 100%);
+}
+
+/* === 
+		transparent THEME ==== */
+.transparent {
+	background: none;
+	height: 100%
+}
+
+/* === 
+		for appypie icon list view ==== */
+
+.appypie-list {width:50%; float:left; height:176px; padding:15px 0 0 0; text-align:center; margin:0;}
+.appypie-list img{ border-radius:4px; -moz-border-radius:4px; -webkit-border-radius:4px; width:133px; height:133px; box-shadow: 0px 0px 3px #FFFFFF;}
+.appypie-list span{ text-align:center; line-height:21px;  margin:5px 0 0; width:100%; float:left;}
+@media (min-width: 420px){ .appypie-list { width:33.33% } }
+@media (min-width: 600px){  .appypie-list { width:25% } }
+@media (min-width: 740px){ .appypie-list { width:20% } }
+@media (min-width: 880px){ .appypie-list { width:16.66% } }
+@media (min-width: 1020px){ .appypie-list { width:14.28% } }
+@media (min-width: 1160px){ .appypie-list { width:12.5% } }
+
+					
+
+/* ------------------------------------------------------------------- App Bg Animation ------------- */
+.backgroundAnimation {
+    
+    height: 100%;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+.backgroundAnimation .background-image{height: 100%; width: 100%; position:absolute; z-index: 10; top: 0; background-size: 100% 100%; background-repeat: no-repeat;}
+.backgroundAnimation .background-theme{ height: 100%; width: 100%; position:absolute; z-index: 11; top: 0;  }
+.backgroundAnimation .background-overlay{ height: 100%; width: 100%; position: fixed; z-index: 12; top: 0 }
+.backgroundAnimation {
+    
+    height: 100%;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+.backgroundAnimation img {  -webkit-animation-name: cf4FadeInOut;  -webkit-animation-timing-function: ease-in-out;  -webkit-animation-iteration-count: infinite;  -webkit-animation-duration: 8s;  -moz-animation-name: cf4FadeInOut;  -moz-animation-timing-function: ease-in-out;  -moz-animation-iteration-count: infinite;  -moz-animation-duration: 8s;  -o-animation-name: cf4FadeInOut;  -o-animation-timing-function: ease-in-out;  -o-animation-iteration-count: infinite;  -o-animation-duration: 8s;  animation-name: cf4FadeInOut;  animation-timing-function: ease-in-out;  animation-iteration-count: infinite;  animation-duration: 8s; position:absolute; width:100%; height:100%; }
+.backgroundAnimation img:nth-of-type(1) {  -webkit-animation-delay: 6s;  -moz-animation-delay: 6s;  -o-animation-delay: 6s;  animation-delay: 6s;}
+.backgroundAnimation img:nth-of-type(2) {  -webkit-animation-delay: 4s;  -moz-animation-delay: 4s;  -o-animation-delay: 4s;  animation-delay: 4s;}
+.backgroundAnimation img:nth-of-type(3) {  -webkit-animation-delay: 2s;  -moz-animation-delay: 2s;  -o-animation-delay: 2s;  animation-delay: 2s;}
+.backgroundAnimation img:nth-of-type(4) {  -webkit-animation-delay: 0;  -moz-animation-delay: 0;  -o-animation-delay: 0;  animation-delay: 0;}
+
+@-webkit-keyframes cf4FadeInOut {0% { opacity:1;}17% {opacity:1;}25% {opacity:0;}92% {opacity:0;}100% {opacity:1;}}
+@-moz-keyframes cf4FadeInOut {0% {opacity:1;}17% {opacity:1;}25% {opacity:0;}92% {opacity:0;}100% {opacity:1;}}
+@-o-keyframes cf4FadeInOut {0% {  opacity:1;} 17% {opacity:1;}25% {opacity:0;}92% {opacity:0;}100% {opacity:1;}}
+@keyframes cf4FadeInOut {0% {   opacity:1; } 17% {   opacity:1; } 25% {   opacity:0; } 92% {   opacity:0; } 100% {   opacity:1; }}
+
+/*------------------notification------------------*/
+.notificationWrapper{}.notification{display:inline-block;float:left;width:100%;position:relative;margin:0;padding:0}.notification li{background: rgba(0,0,0,0.1) none repeat scroll 0 0;display: inline-block;float: left;position: relative;width: 100%;border-bottom: 1px solid rgba(0,0,0,0.1);min-height: 36px;word-wrap: break-word;     padding: 10px;
+    box-sizing: border-box;}.notification li a{color:#c1d7ff}.notificationImageWrapper{background:rgba(0,0,0,0.2);border:0 solid #f0f0f0;border-radius:0;float:left;font-size:30px!important;height:54px;line-height:55px;margin-bottom:0;margin-right:10px;padding:0;text-align:center;width:54px}.notificationImageWrapper img{background-size:cover!important;display:inline-block;height:100%;width:100%}.notificationText{font-style: italic; margin: 0; text-indent: 0; width: calc(100% - 64px); float: left;}.noti-full .notificationText{width:100%;}.btn{border:1px solid rgba(0,0,0,0.1);border-radius:5px;box-sizing:border-box;color:#fff;display:block;font-size:14px;margin:20px 0 0;padding:10px 30px;text-align:center;width:48%}.btnLeft{float:left}.btnRight{float:right}.bodypan{box-sizing:border-box;display:inline-block;float:left;padding:15px;position:relative;width:100%}h1{border-bottom:1px solid rgba(0,0,0,0.1);font-weight:700;margin:0 0 10px;padding:0 0 5px}p{font-weight:400;margin:0;padding:0}.dropdown-content{background-color:#f9f9f9;border-radius:2px;box-shadow:0 8px 16px 0 rgba(0,0,0,0.2);display:none;min-width:120px;padding:0;position:absolute;right:5px;top:44px; z-index:7001; width:130px}.dropdown-content .before{bottom:100%;right:5px;border:solid transparent;content:" ";height:0;width:0;position:absolute;pointer-events:none;border-color:rgba(136,183,213,0);border-bottom-color:#fff;border-width:7px;margin-left:-20px}.dropdown-content a{border-top:1px solid;display:inline-block;float:left;font-size:13px!important;margin:0!important;padding:10px!important;text-align:left;vertical-align:middle;width:100%;box-sizing:border-box}.dropdown-content a.first{border:0px}.notificationProfile input,.notificationProfile select,.notificationProfile textarea{width:100%;background-color:#fff;outline:0;border:0;border-bottom:solid 1px #94c7df;padding:9px;font-size:14px;box-sizing:border-box;-webkit-appearance:none;-moz-appearance:none;background:url(../images/border-input.png) left bottom no-repeat,url(../images/border-input.png) right bottom no-repeat;margin-bottom:7px}.margin-top-50{margin-top:50px}
+
+.dropdown-content a.first span {
+    background: red;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    position: absolute;
+    right: 5px;
+    top: 10px;
+    line-height: 20px;
+    text-align: center;
+    border-radius: 100%;
+}
+
+.dropdown-content .login.none,
+.dropdown-content .logout.yes,
+.dropdown-content .profile.yes {
+    display:block;
+    
+}
+
+.dropdown-content .login.yes,
+.dropdown-content .logout.none,
+.dropdown-content .profile.none,
+.dropdown-content .rate.none,
+.dropdown-content .share.none,
+  .dropdown-content .myfiles.none {
+     display:none;
+ }
+
+.profile_wp{max-width: 100px;
+    margin: 10px auto 20px;
+    border-radius: 60%;
+    height: 100px;
+    border: 5px solid #fff;
+    width: 100px;
+      position:relative;}
+.ProfileImg4Notification{width: 100%; box-sizing: border-box; background-size:cover !important;background-repeat: no-repeat;background-position:center; border-radius: 100%;}
+
+.profile_wp .editProfilebutton{position:absolute; right:-10px; top:-10px; font-size:18px;}
+.notificationEditProTxt{margin:0 0 15px 0;}
+.notificationProfile ::-webkit-input-placeholder {
+    color: #fff;
+}
+.notificationEditProTxt{margin:0 0 15px 0;}
+.notificationProfile ::-webkit-input-placeholder {
+    color: #fff;
+}
+.notificationProfile :-moz-placeholder{
+    color: #fff;
+}
+.notificationProfile ::-moz-placeholder {
+    color: #fff;
+}
+.notificationProfile :-ms-input-placeholder {
+    color: #fff;
+}
+	.imgIcon { border-radius: 50%; height: 250px; width: 250px;}
+
+.submit-button a{ margin:auto;}
+
+.msg-code { left: 0; padding: 10px; position: relative; text-align: center; top: 0; position: relative; box-sizing: border-box; height: 100%;}
+.msg-code.msgbtn{padding-bottom:50px;}
+.msg-container{
+    left: 0;
+    position: absolute;
+    top: 50%;
+    margin: -121px 0 0 0;
+    width: 100%;
+}
+.msg-code .icon {
+    border-radius: 50%;
+    box-shadow: -1px -5px rgba(0, 0, 0, 0.2);
+    display: block;
+    font-size: 148px;
+    height: 160px;
+    line-height: 160px;
+    margin: 0 auto;
+    padding: 31px;
+    text-shadow: -1px -5px rgba(0, 0, 0, 0.2);
+    width: 160px;}
+
+.msg-container .icon.icon-cart:after {
+    background: red none repeat scroll 0 0;
+    border: 1px solid red;
+    content: "";
+    height: 230px;
+    left: 50%;
+    position: absolute;
+    top: 3px;
+    transform: rotate(20deg);
+    width: 8px;
+}
+.msg-container .icon{border-style: solid; border-width: 10px;}
+.msg-container.icon {border-style: solid; border-width: 10px;}
+.msg-container h2 {
+    text-align: center;
+    padding: 0 15px;
+    box-sizing: border-box;
+    margin: 10px 0;
+}
+.msg-code h2 {  text-shadow: 2px 2px rgba(0,0,0,0.2); }
+.msg-code > span {font-size: 14px;}
+
+
+.error-page { left: 0; padding: 10px; position: relative; text-align: center; top: 0; background: #f5f8f6 url("../images/no-data.png") no-repeat scroll center center; box-sizing: border-box; height: 100%; min-height: 370px;}
+
+.error-content {transform: translate(-50%, -30%); top: 50%; position: absolute; left: 50%; width: 130px; color: #fff;}
+.msg-button {background: #CC6200;
+    color: #ffffff;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    width: calc(100% - 20px);
+    -webkit-width: calc(100% - 20px);
+     -moz-width: calc(100% - 20px);
+}
+/* Portrait and Landscape */
+@media screen and (orientation:portrait) {
+    .portrait{display:block;}
+    .landscape{display:none;}
+}
+@media screen and (orientation:landscape) {
+    .portrait{display:none;}
+    .landscape{display:block;}
+}
+
+.page-search-box {
+    width:100%;
+    float:left;
+    padding:10px;
+    box-sizing:border-box;
+    position:relative;
+}
+
+.page-search-box input {
+    float: left;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px 10px 10px 40px;
+    border: 0px;
+    outline: 0px;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.4);
+    color: #333;
+}
+
+.page-search-box input::-webkit-input-placeholder { 
+   color: #333;
+}
+.page-search-box input::-moz-placeholder { 
+   color: #333;
+}
+.page-search-box input:-ms-input-placeholder { 
+   color: #333;
+}
+.page-search-box input:-moz-placeholder { 
+   color: #333;
+}
+input[type='search']::-webkit-search-cancel-button {
+  display: none;
+}
+
+.search-nodata {
+    width:100%;
+    line-height:50px;
+    text-align:center;
+}
+
+.page-search-box a {
+    position:absolute;
+    left:10px;
+    top:10px;
+    text-align:center;
+    line-height:40px;
+    width:40px;
+    color:#333;
+}
+
+/*for SA*/
+.sa .appypie-list {
+    float:right;
+}
+
+.navbar a {
+    font-size:22px;
+}
+.navbar a.menu-down,
+.navbar a .icon-menu {
+    font-size:28px;
+}
+
+.navbar-inner {
+    background-repeat:no-repeat;
+    background-size:100% 100%;
+    background-position:center center;
+}
+
+small {
+    font-size: .75em!important;
+}
+
+.dropdown-overlay {
+    position:fixed;
+    left:0px;
+    top:0px;
+    width:100%;
+    height:100%;
+    z-index:6000;
+    display:none;
+}
+
+.sa .dropdown-content {
+    left: 5px;
+    right: inherit;
+}
+.sa .dropdown-content .before {left: 7px; right: inherit;  margin-right: -20px; margin-left: inherit;}
+.bottom_height {
+    height:calc(100% - 44px);
+    -webkit-height:calc(100% - 44px);
+    moz-height:calc(100% - 44px)
+}
+.bottom_height .toolbar-through .page-content{padding-bottom:0px;}
+
+/* ----- Zopim chat -----  */
+.zohochat {
+    position: absolute;
+    right: 10px;
+    bottom: 10px !important;
+    width: 126px;
+    height: 30px;
+    background-Color: #008FC8;
+    color: #ffffff;
+    border-radius: 5px;
+    font-size: 14px;
+    line-height: 33px;
+    z-index: 6000;
+}
+
+.zohochat.zopimbottom{
+   bottom: 65px !important;
+}
+
+.zohochat.zopimbottomwithads{
+   bottom: 50% !important;
+}
+
+.zohochat b {
+  width: 30px;
+    height: 30px;
+    float: left;
+    margin: 0 6px 0 0;
+    background: #027fbc;
+    overflow: hidden;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.zohochat input {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    right: -2px;
+    top: -10px;
+    background: #fff;
+    text-align: center;
+    padding: 0;
+    border-radius: 100%;
+    border: 0px;
+    margin: 0px;
+    line-height: 22px;
+    color: #027fbc;
+    border: solid 2px #027fbc;
+}
+
+.zohochat i {
+ color: #FFF;
+    font-size: 18px;
+    text-align: center;
+    line-height: 36px;
+}
+.zohochat a { color: #ffffff ; font-size:14px; line-height:30px;}
+a.rate.none, a.share.none {  display: none;}
+
+.navbar .left a.back,
+.navbar .right a.back {
+	padding:0 12px;
+	font-size: 26px;
+}
+
+.app_navigation_bottom a,
+.app_navigation_list a,
+.app_navigation_imglist a,
+.app_navigation_imgmatrix a,
+.app_navigation_slidemenu a,
+.app_navigation_matrix a {
+	opacity:0;
+}
+
+.folderPage .app_navigation_bottom a,
+.folderPage .app_navigation_list a,
+.folderPage .app_navigation_imglist a,
+.folderPage .app_navigation_imgmatrix a,
+.folderPage .app_navigation_slidemenu a,
+.folderPage .app_navigation_matrix a,
+.app_navigation_list.pageSearch a {
+	opacity:1;
+}
+
+.app_navigation_bottom.done a,
+.app_navigation_list.done a,
+.app_navigation_imglist.done a,
+.app_navigation_imgmatrix.done a,
+.app_navigation_slidemenu.done a,
+.app_navigation_matrix.done a,
+.app_navigation_bottom.animation-0 a,
+.app_navigation_list.animation-0 a,
+.app_navigation_imglist.animation-0 a,
+.app_navigation_imgmatrix.animation-0 a,
+.app_navigation_slidemenu.animation-0 a,
+.app_navigation_matrix.animation-0 a {
+	opacity:1;
+}
+
+.layout-preloader,
+.layout-disabled {
+	position:fixed;
+	z-index:100000;
+	width:100%;
+	height:100%;
+	left:0px;
+	top:0px;
+	background:rgba(0,0,0,0.4);
+}
+
+.layout-disabled {
+	background:rgba(0,0,0,0);
+}
+
+.layout-preloader .preloader {
+	width:50px;
+	height:50px;
+	position:absolute;
+	left:50%;
+	top:50%;
+	margin:-25px 0 0 -25px;
+}
+
+ 
+.cardStorage {
+    margin:0 0 10px 0;
+}
+
+.cardStorage,
+.cardStorage .cardRow {
+    float:left;
+    width:100%;
+}
+
+.cardStorage .cardRow {
+    margin:0 0 0 0;
+    border-bottom:solid 1px #CCC;
+    position:relative;
+}
+
+.cardStorage .cardRow b {
+    width: 100%;
+    margin: 0 0;
+    float: left;
+    line-height: 30px;
+    padding: 10px;
+    background: #F00;
+    color: #FFF;
+    box-sizing: border-box;
+
+}
+
+.cardStorage .cardRow:first-child b {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.cardStorage .cardRow:last-child b {
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.cardStorage .cardRow:last-child {
+    border-bottom:solid 0px #CCC;
+}
+.cardStorage .cardRow .text,
+.cardStorage .cardRow .icons {
+    float:left;
+    width:100%;
+}
+
+.cardStorage .cardRow .icons .last {
+    margin:0 10px 0 0;
+}
+
+.save-card {
+    float:left;
+    width:100%;
+    padding:5px 0;
+    margin:0 0 5px 0;
+}
+
+.save-card input {
+    width: auto;
+    margin: 0 5px 0 0;
+    float: none;
+    position: relative;
+    top: 3px;
+    padding: 8px;
+}
+
+.save-card span {
+    float:none;
+}
+
+.cardStorage-divider {
+    width:100%;
+    width:calc(100% + 24px);
+    float:left;
+    height:0px;
+    border-bottom:solid 2px #F00;
+    margin:15px 0;
+    position:relative;
+    left:-12px;
+}
+
+.cardStorage .cardRow .delete {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    line-height: 30px;
+    height: 30px;
+    background: #fff;
+    width: 30px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+
+.navbar .left a.menu-down {
+	margin:0px;
+}
+
+.navbar .left .menu-down i.appyicon-sort-down {
+	font-size:24px;
+	padding:0 4px;
+}
+
+.navbar .left .menu-down i.icon-angle-double-down {
+	padding:0;
+}
+
+.user-files {
+    float:left;
+    width:100%;
+    margin:0px;
+    padding:0px;
+    padding:8px;
+    color:#333;
+    box-sizing: border-box;
+}
+
+.user-files li {
+    float:left;
+    width:100%;
+    padding:8px 8px 8px 66px;
+    position:relative;
+    background:#f1f1f1;
+    box-sizing: border-box;
+    margin:0 0 8px 0;
+    box-shadow: 0 0 3px #333;
+    border-radius: 3px
+}
+
+.user-files li i {
+    height: 50px;
+    font-size: 30px;
+    background: #e1e1e1;
+    color: #333;
+    position: absolute;
+    left: 8px;
+    top: 8px;
+    width: 50px;
+    text-align: center;
+    line-height: 50px;
+}
+
+.user-files li h4 {
+    font-weight:normal;
+    float:left;
+    width:100%;
+    line-height:30px;
+    font-size:18px;
+    margin:0px;
+    padding:0px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+
+}
+
+.user-files li span {
+    float:left;
+    width:100%;
+    line-height:20px;
+    font-size:14px;
+}
+
+.location-search {
+	float:left;
+	width:100%;
+	position:relative;
+    height: 44px;
+}
+.location-search a,
+.location-search i {
+    position: absolute !important;
+    left: 0;
+    top: 3px;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 24px;
+    text-align: center;
+}
+
+.location-search i {
+    left: 25px;
+    font-size: 16px;
+    top: 0;
+}
+
+.location-search div {
+    width: calc(100% - 45px);
+    margin: 0 0 0 35px;
+	border: 0;
+    border-bottom: solid 1px #FFF;
+    height: 36px;
+}
+.location-search input {
+	height: 40px;
+    padding: 10px 10px 10px 25px;
+    width: 100%;
+    background: none;
+	border: 0;
+    box-sizing: border-box;
+}
+.popup.modal-in.not-animated {
+  -webkit-transition-duration: 0ms;
+  transition-duration: 0ms;
+}
+
+.popup.modal-out.not-animated {
+  -webkit-transition-duration: 0ms;
+  transition-duration: 0ms;
+}

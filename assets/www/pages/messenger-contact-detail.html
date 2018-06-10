@@ -1,0 +1,105 @@
+<div class="navbar">
+    <div class="navbar-inner" style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+        <div class="left sliding">
+            <a href="index" class="link" onclick="updateMediaFileStatus();" style="color:{{@global.style.headerBarIconColor}};"> <i class="icon icon-left-open-2"></i> </a>
+        </div>
+        <div class="center sliding {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">{{#if this.isExist}}{{getDeviceName this.userData.phoneno}}{{else}}{{getDeviceName this.phoneno}}{{/if}}</div>
+    </div>
+</div>
+<div data-page="messenger-contact-detail" class="page navbar-through">
+    <div class="backgroundAnimation">{{> innerBackground}}</div>
+    <div class="page-content ">
+        <style>
+           .userProfileImage { position: relative; } .userProfileImg { width: 100%; height: 100%; background-repeat: no-repeat; background-size: cover; margin: 0px; padding: 0px; clear: both; } .userProfileNo { position: absolute; bottom: 5px; left: 0px; height: 40px; background: {{@global.styleAndNavigation.profile[1]}} ; color: {{@global.styleAndNavigation.profile[0]}} ; width: 97%; width:-webkit-calc(100% - 20px); padding: 10px; } .userProfileIcon { display: block; height: 40px; width: 40px; font-size: 28px; float: right } .list-block { margin: 0px; } .list-block ul { background: none; border-radius: 0px; } .list-block ul:after, .list-block ul:before { background-color: transparent; } .list-block ul li { border-top:1px solid {{@global.styleAndNavigation.borderColor}} } .list-block ul li:first-child { border-top: 0px; } .list-block .item-inner:after { background: none } .list-block ul li { padding: 0px; } .list-block ul li .icon { padding: 0 5px }.list-block .item-title{color: {{@global.styleAndNavigation.contact[2]}} }
+            .list-block ul li .icon{color: {{@global.styleAndNavigation.contact[3]}}}
+        </style> {{#if this.isExist}}
+        <div class="userProfileImage"> {{#if this.userData.profilepic}} <img src="images/image-1x1.png" class="userProfileImg" style="background-image:url('{{this.userData.profilepic}}');"> {{else}} <img src="images/image-1x1.png" class="userProfileImg" style="background-image:url('{{@global.style.reseller}}/newui/images/user-pic-news.png');"> {{/if}}
+            <div class="userProfileNo {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" userid="{{this.userData.userId}}" id="sendmessagephoneno"><big>{{this.userData.phoneno}}</big> <i id="sendmessageicondetail" userid="{{this.userData.userId}}" class="icon-chat-1 userProfileIcon" onclick="openChatWindow('{{this.userData.name}}','{{this.userData.profilepic}}','{{this.userData.userId}}','{{this.userData.country}}','false',this)" style="color:{{@global.styleAndNavigation.profile[2]}};"></i>
+                <br><span id="contaildetaillastseen" style="color:{{@global.styleAndNavigation.profile[2]}};"></span></div>
+        </div>
+        <div class="content-block-title  {{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="{{@global.styleAndNavigation.heading[2]}}">{{@global.pageLanguageSetting.action}}</div>
+        <div class="list-block">
+            <ul>
+                <li class="item-content" onclick="openChatWindow('{{this.userData.name}}','{{this.userData.profilepic}}','{{this.userData.userId}}','{{this.userData.country}}','false',this)" id="sendmessagedetail">
+                    <div class="item-inner">
+                        <div class="item-title"><i class="icon icon-chat-1"></i>{{@global.pageLanguageSetting.User_Profile_Action_Sendmessage}}</div>
+                    </div>
+                </li>
+                <li class="item-content" onclick="openClearChatDetail('{{this.userData.name}}','{{this.userData.profilepic}}','{{this.userData.userId}}','{{this.userData.country}}','false',this)">
+                    <div class="item-inner">
+                        <div class="item-title"><i class="icon icon-trash"></i>{{@global.pageLanguageSetting.User_Profile_Action_Clearchat}}</div>
+                    </div>
+                </li>
+                <li class="item-content" id="clearallmediabtn" onclick="openClearMediaActionSheetChat('{{this.userData.userId}}')">
+                    <div class="item-inner">
+                        <div class="item-title"><i class="icon icon-trash"></i>{{@global.pageLanguageSetting.Messenger_Clear_Media_Files}}</div>
+                    </div>
+                </li>
+                <li class="item-content" id="addcontactinlistdetail" onclick="addContactMessenger('{{this.userData.phoneno}}','{{this.userData.name}}',this)" style="display:none">
+                    <div class="item-inner">
+                        <div class="item-title"><i class="icon icon-user-add"></i>{{@global.pageLanguageSetting.Messenger_Add_To_Contact}}</div>
+                    </div>
+                </li>
+                <li class="item-content" onclick="blockUserDetail('{{this.userData.userId}}','{{this.userData.name}}','{{this.userData.userId}}','{{this.userData.profilepic}}','{{this.userData.country}}',this)">
+                    <div class="item-inner">
+                        <div class="item-title"><i class="icon icon-block-4" ></i><span id="blockuserdetail">{{#js_compare "this.isBlockUser == 'true'"}}  {{@global.pageLanguageSetting.User_Profile_Action_UnBlock_User}} {{else}} {{@global.pageLanguageSetting.User_Profile_Action_Block_User}} {{/js_compare}} </span></div>
+                    </div>
+                </li>
+            </ul>
+        </div> {{else}}
+        <div class="userProfileImage"> <img src="images/image-1x1.png" class="userProfileImg" style="background-image:url('{{@global.style.reseller}}/newui/images/user-pic-news.png');">
+            <div class="userProfileNo {{@global.styleAndNavigation.nav[0]}} {{@global.styleAndNavigation.nav[1]}}">{{decodephonenumber this.phoneno}}</div>
+        </div>
+        <div class="content-block-title skydark">{{@global.pageLanguageSetting.action}}</div>
+        <div class="list-block messengerUserDetails">
+            <ul>
+                <li class="item-content" onclick="Appyscript.inviteUser('{{this.phoneno}}')">
+                    <div class="item-inner">
+                        <div class="item-title"><i class="icon appyicon-send"></i>{{@global.pageLanguageSetting.inviteTo}} {{@global.name}}</div>
+                    </div>
+                </li>
+            </ul>
+        </div> {{/if}}
+        <div id="recentImageList"  style="display:none">
+            <div class="list-block" >
+                <ul>
+                    <li class="item-content" >
+                        <div class="item-inner">
+                            <div class="item-title"><i class="icon iconz-picture"></i>{{@global.pageLanguageSetting.Messenger_Recent_Media}}</div>
+                        </div>
+                    </li></ul>
+            </div>
+            <div class="buttons-row messenger-tab-link">
+                <a href="#tab1" class="tab-link button active">{{@global.pageLanguageSetting.Messenger_images}}</a><a href="#tab2" class="tab-link button">{{@global.pageLanguageSetting.Messenger_Videos}}</a><a href="#tab3" class="tab-link button">{{@global.pageLanguageSetting.Messenger_Audios}}</a>
+            </div>
+            <div class="tabs-animated-wrap messenger-tab">
+                <div class="tabs">
+                    <div id="tab1" class="tab active ">
+                        <div class="swiper-container messenger_media">
+                            <div class="swiper-wrapper" id="messengerSwiper">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div id="tab2" class="tab">
+                        <div class="swiper-container messenger_media_video">
+                            <div class="swiper-wrapper" id="messengerSwipervideo">
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="tab3" class="tab">
+                        <div class="swiper-container messenger_media_audio">
+                            <div class="swiper-wrapper" id="messengerSwiperaudio">
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,74 @@
+<div class="navbar">
+    <div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+        <div class="left sliding">
+            <a href="index" class="link back" style="color:{{@global.style.headerBarIconColor}};">
+                <i class="icon icon-left-open-2"></i>
+            </a>
+        </div>
+        <div class="center sliding">
+            <div class="topHeader {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">{{data.userData.name}}</div>
+        </div>
+    </div>
+</div>
+
+
+<div data-page="dating-ViewProfile" class="page navbar-through toolbar-fixed toolbar-through dating hideBorder-{{@global.styleAndNavigation.hideBorder}}">
+
+    <!-- Page content-->
+    <div class="page-content" style="background-color:{{@global.styleAndNavigation.pageBackroundColor}};">
+
+
+        <div class="view-profile">
+            <div data-pagination=".swiper-pagination" data-next-button=".swiper-button-next" data-loop="true" data-prev-button=".swiper-button-prev" data-preload-images="false" data-lazy-loading="true" class="swiper-container">
+                <div class="swiper-wrapper">
+                    {{#data.userPics}}
+                    {{#js_compare "this.imgUrl != false"}}
+
+                    <div class="swiper-slide" id="datingimageslide" >
+                        <img src="images/image-1x1.png" ontouchstart="return false" id="userprofilepic" style="background:url({{imgUrl}})" class="swiper-lazy"  class="img"/>
+
+
+
+                        <div class="preloader"></div>
+
+                    </div>
+                    {{else}}
+
+                    {{/js_compare}}
+                    {{/data.userPics}}
+                </div>
+                <div class="swiper-pagination "></div>
+            </div>
+            <div class="profile-des">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h2 class="user-name {{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}}; text-align:{{@global.styleAndNavigation.heading[3]}};">{{data.userData.name}}, {{data.age}}</h2>
+                        <p class="user-des {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="color:{{@global.styleAndNavigation.content[2]}}; text-align:{{@global.styleAndNavigation.content[3]}}">{{data.userDescription.jobTitle}}<br>
+                            {{data.userData.company}} </p>
+                        <b class=" {{@global.styleAndNavigation.heading[0]}}" style="color:{{@global.styleAndNavigation.heading[2]}}; text-align:{{@global.styleAndNavigation.heading[3]}}; border-color:{{@global.styleAndNavigation.fieldBorderColor}};" >{{@global.pageLanguageSetting.goal}}<b>
+                            <p class="distance {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="color:{{@global.styleAndNavigation.content[2]}}; text-align:{{@global.styleAndNavigation.content[3]}};white-space: normal;
+                            word-wrap: break-word">{{data.userDescription.goal}} </p>
+
+                            <!--<p class="distance">{{data.userInterests.distance}} Miles</p>-->
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="margin:0px;">
+                <div class="col-md-12"><center>
+                    <div class="button">
+                        <a class="red-bg like-btn trigger small-btn " style="background-color: {{@global.styleAndNavigation.secondaryButton[2]}}; color: {{@global.styleAndNavigation.secondaryButton[3]}};" onclick="Appyscript.userunlike({{data.userData.id}},'{{data.userData.name}}','{{data.userData.profile_image}}');" ><span class="icon-cancel"></span></a>
+                    </div>
+                    <div class="button">
+                        <a class="like-btn trigger small-btn " style="background-color: {{@global.styleAndNavigation.button[2]}}; color: {{@global.styleAndNavigation.button[3]}};" onclick="Appyscript.userlike({{data.userData.id}},'{{data.userData.name}}','{{data.userData.profile_image}}');"><span class="icon-heart-1"></span></a>
+                    </div>
+
+                </center>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+

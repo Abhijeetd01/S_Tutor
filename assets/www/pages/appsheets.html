@@ -1,0 +1,48 @@
+<div class="navbar"><div class="navbar-inner" style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+    <div class="left sliding">
+   		{{getSlideBack "common"}}
+    </div>
+    <div class="center sliding {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">{{pageTitle}}</div>
+    <div class="right"></div>
+</div></div>
+
+
+<div data-page="appsheets-page" class="page navbar-through no-toolbar">
+    <!-- Page content-->
+    {{#if this.sheetPermissions.add}}
+    <a href="#" onClick= "Appyscript.appypieAddList(this);" class="floating-button {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" style="background-color: {{@global.styleAndNavigation.button[2]}}; color: {{@global.styleAndNavigation.button[3]}};"><i class="icon-plus-3"></i></a>
+    {{/if}}
+    <div class="backgroundAnimation">{{> innerBackground}}</div>
+    <div class="zrq-head" style="top:42px">
+        <input type="text" id= "app_sheet_search"placeholder="{{@global.pageLanguageSetting.Search}}" class="zrq-search" style="background:{{@global.styleAndNavigation.fieldBgColor}}; color:{{@global.styleAndNavigation.fieldTextColor}}"/> <a onclick="filterSheetData()" class="zrq-sr-btn icon-search" style="color:{{@global.styleAndNavigation.iconColor}}"></a>
+        <div class="zrq-right" style="display:none;">
+            <select class="zrq-entrie" id="app_sheet_select_box">
+                <option value="20">20</option>
+                <option value="30">30</option>
+                <option value="40">40</option>
+                <option value="60">60</option>
+            </select> entries</div>
+    </div>
+    <div id="app_sheet_page_content" class="page-content {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="color:{{@global.styleAndNavigation.content[2]}}; background:{{@global.styleAndNavigation.pageBgColor}}">
+    <style>
+	.zrq-head ::-webkit-input-placeholder {color:{{@global.styleAndNavigation.fieldTextColor}}; opacity:.6;}
+	.zrq-head :-moz-placeholder {color:{{@global.styleAndNavigation.fieldTextColor}}; opacity:.6; }
+	.zrq-head ::-moz-placeholder {color:{{@global.styleAndNavigation.fieldTextColor}}; opacity:.6;}
+	.zrq-head :-ms-input-placeholder {color:{{@global.styleAndNavigation.fieldTextColor}}; opacity:.6;}
+	</style>
+        <div class="zrq-sheet">
+
+
+            <div class="zrq-container" id="app_sheet_row">
+                {{#values}}
+                <div class="zrq-row  icon-angle-right" onclick="Appyscript.appypieDetailSheet({{@index}});" >
+
+                    <div class='zrq-cell'> {{firstVal}}</div><div class='zrq-cell'> {{secondVal}}</div>
+
+                </div>
+                {{/values}}
+            </div>
+            <a class="add-list iconz-plus {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" style="background-color: {{@global.styleAndNavigation.button[2]}}; color: {{@global.styleAndNavigation.button[3]}}; display:none" onclick="Appyscript.appypieAddList(this);"></a>
+        </div>
+    </div>
+</div>

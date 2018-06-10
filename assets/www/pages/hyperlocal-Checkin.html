@@ -1,0 +1,29 @@
+<div class="navbar"><div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+            <div class="left sliding">
+              <a href="index" class="link back" style="color:{{@global.style.headerBarIconColor}};">
+                <i class="icon icon-left-open-2"></i>
+              </a>
+            </div>
+           <div class="center sliding">
+              <div class="topHeader {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}" id="headerdetail">{{header}}
+              </div>
+            </div>
+            
+          </div></div>
+
+<div data-page="hyperlocal-checkinPage" class="page navbar-through no-toolbar hideBorder-{{@global.styleAndNavigation.hideBorder}}" style="background-color: {{@global.styleAndNavigation.pageBgColor}}">
+            <!-- Page content-->
+            <div class="page-content">
+<!-- Search code-->
+
+<div class="hyper-map">
+    <span href="#">{{languageSetting.Checkins_Dir}} <b id="checkintotalcounts">{{chekinCount}}</b></span>
+    <div class="map" id="googleMapcheckin" style="width:100%;height:200px;">
+    </div>
+
+<a href="#"  id="checkedinbutton"  onclick="Appyscript.checkinPageHyperLocal({{jobId}},{{catId}},'{{dirPageId}}',{{serlatitude}},{{serlongitude}},'{{serAddressFull}}','{{header}}',{{openMapWithThirdParty}},'add')"  >{{languageSetting.Check_In_Dir}}</a>
+</div>
+
+
+            </div>
+          </div>

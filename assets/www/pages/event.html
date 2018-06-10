@@ -1,0 +1,217 @@
+<div class="navbar"><div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+    <div class="left sliding">
+   		{{getSlideBack "common"}}
+    </div>
+    <div class="center sliding {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">{{name}}</div>
+    <div class="right"></div>
+
+
+    {{#js_compare "this.identifire == 'eventbrite'"}}
+    <div class="subnavbar sliding">
+        <div class="tabs" off="{{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" on="{{@global.styleAndNavigation.secondaryButton[0]}} {{@global.styleAndNavigation.secondaryButton[1]}} on">
+            <a onclick="Appyscript.eventTabs(0)" class="{{@global.styleAndNavigation.secondaryButton[0]}} {{@global.styleAndNavigation.secondaryButton[1]}} on">Upcoming Events</a>
+            <a onclick="Appyscript.eventTabs(1)" class="{{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}">Past Events</a>
+        </div>
+    </div>
+    {{/js_compare}}
+</div>
+
+</div>
+
+<div data-page="event-page" class="page navbar-through no-toolbar {{#js_compare "this.identifire == 'eventbrite'"}} with-subnavbar {{/js_compare}}">
+<!-- Page content-->
+<div class="backgroundAnimation">{{> innerBackground}}</div>
+<div class="page-content" style="background:{{@global.styleAndNavigation.pageBackroundColor}}; color:{{@global.styleAndNavigation.content[2]}}">
+    <style type="text/css">
+.tabs a {
+    background:{{@global.styleAndNavigation.secondaryButton[2]}};
+    color:{{@global.styleAndNavigation.secondaryButton[3]}};
+}
+.tabs a.on {
+      background:{{@global.styleAndNavigation.button[2]}};
+      color:{{@global.styleAndNavigation.button[3]}};
+}
+</style>
+
+    <div id= "moreLoadEvent" class="event-list {{identifire}}  {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}} content-{{@global.styleAndNavigation.content[3]}} heading-{{@global.styleAndNavigation.heading[3]}}" onscroll="Appyscript.moreEventDataonBottom (this);">
+        <ul>
+            {{#list}}
+
+            {{#js_compare "this.pageidentname== 'google'"}}
+
+            <li  data-index="{{@index}}" class="{{type}}" style="background:{{@global.styleAndNavigation.listColor}}">
+                <div class="eventVanue">
+                    <div class="eventTime">
+                        <span class="month">{{formatetimegooglecalender datetime "2"}}</span>
+                        <span class="day">{{formatetimegooglecalender datetime "1"}}</span>
+                        <span class="year">{{formatetimegooglecalender datetime "3"}}</span>
+                        <span class="time" style="border-color:{{@global.styleAndNavigation.borderColor}}">{{formatetimegooglecalender datetime "4"}}</span>
+                    </div>
+                </div>
+                <h3 class="{{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}}">{{title}}</h3>
+                <div class="gEventbx">
+                    <p>{{formatetimegooglecalender datetime "0"}},{{formatetimegooglecalender datetime "2"}} {{formatetimegooglecalender datetime "1"}} {{formatetimegooglecalender datetime "3"}}  {{formatetimegooglecalender datetime "4"}} {{@global.dateFormt}}</p>
+                    <p>{{formatetimegooglecalender datetimeend "0"}},{{formatetimegooglecalender datetimeend "2"}} {{formatetimegooglecalender datetimeend "1"}} {{formatetimegooglecalender datetimeend "3"}}  {{formatetimegooglecalender datetimeend "4"}} {{@global.dateFormt}}</p>
+                    <p>{{location}}</p>
+                </div>
+                <div class="eventImp">
+
+                    <a onclick="Appyscript.googlepushdate(this)" indexValue="{{@index}}"  class="ui-link" style="color:{{@global.styleAndNavigation.iconColor}}"><i class="icon-calendar-4"></i></a>
+
+                    <a onclick="Appyscript.openWebViewcalender(this)"   indexValue="{{@index}}" gtitle='{{title}}'  gcurl='{{url}}' class="ui-link" style="color:{{@global.styleAndNavigation.iconColor}}"><i class="icon-info-circle"></i></a>
+                </div>
+            </li>
+            {{/js_compare}}
+            {{#js_compare "this.pageidentname== 'facebook'"}}
+
+            <li  data-index="{{@index}}" class="{{type}}" style="background:{{@global.styleAndNavigation.listColor}}">
+                <div class="eventVanue">
+
+                    <div class="eventTime">
+                        <span class="month">{{formatetimegooglecalender datetime "2"}}</span>
+                        <span class="day">{{formatetimegooglecalender datetime "1"}}</span>
+                        <span class="year">{{formatetimegooglecalender datetime "3"}}</span>
+
+
+                            <span class="time" style="border-color:{{@global.styleAndNavigation.borderColor}}">{{formatetimegooglecalender datetime "4"}}
+                            </span>
+
+                    </div>
+                </div>
+                <h3 class="{{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}}">{{title}}</h3>
+
+                <div class="gEventbx">
+
+                    <p>{{formatetimegooglecalender datetime "0"}},{{formatetimegooglecalender datetime "2"}} {{formatetimegooglecalender datetime "1"}}, {{formatetimegooglecalender datetime "3"}}, {{formatetimegooglecalender datetime "4"}}</p>
+                    <p>{{formatetimegooglecalender datetimeend "0"}},{{formatetimegooglecalender datetimeend "2"}} {{formatetimegooglecalender datetimeend "1"}}, {{formatetimegooglecalender datetimeend "3"}},  {{formatetimegooglecalender datetimeend "4"}}</p>
+                    <p class="withplace" >{{fbString}}</p>
+                    <p  class="wtplace">{{venue}}</p>
+                </div>
+                <div class="eventImp">
+
+                    <a onclick="Appyscript.googlepushdate(this)" indexValue="{{@index}}"  class="ui-link" style="color:{{@global.styleAndNavigation.iconColor}}"><i class="icon-calendar-4"></i></a>
+
+                    <a  onclick="Appyscript.openMapView('{{latitude}},'+'{{longitude}}','{{title}}')" class="ui-link maphide" style="color:{{@global.styleAndNavigation.iconColor}}"><i class="icon-location-2"></i></a>
+
+                </div>
+            </li>
+
+            {{/js_compare}}
+
+            {{#js_compare "this.pageidentname== 'meetup'"}}
+            <li  data-index="{{@index}}" class="{{type}}" style="background:{{@global.styleAndNavigation.listColor}};">
+                <div onclick="Appyscript.eventDetail(this)"  data-index="{{@index}}" class="meetupEvent" >
+                    <div class="eventVanue">
+                        <div class="eventTime">
+                            <span class="month">{{formatetimegooglecalender datetime "2"}}</span>
+                            <span class="day">{{formatetimegooglecalender datetime "1"}}</span>
+                            <span class="year">{{formatetimegooglecalender datetime "3"}}</span>
+                            <span class="time" style="border-color:{{@global.styleAndNavigation.borderColor}}">{{formatetimegooglecalender datetime "4"}}</span>
+                        </div>
+                    </div>
+
+                    <h3 class="{{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}}">{{title}}</h3>
+                    <p class="location">{{venue}}</p>
+                </div>
+                <div class="eventImp" style="z-index:9">
+                    <a onclick="Appyscript.openWebView('{{url}}','{{title}}')" class="ui-link {{#urlHide this.url}}{{/urlHide}}" style="color:{{@global.styleAndNavigation.iconColor}}"><i class="iconz-ticket"></i></a>
+                    <a onclick="Appyscript.openMapView('{{latitude}},'+'{{longitude}}','{{title}}')"class="ui-link {{#mapHideHelper this.latitude this.longitude}}{{/mapHideHelper}}" style="color:{{@global.styleAndNavigation.iconColor}}"><i class="icon-location-2"></i></a>
+                </div>
+            </li>
+            {{/js_compare}}
+            {{#js_compare "this.pageidentname== 'event'"}}
+            <li onclick="Appyscript.eventDetail(this)" data-index="{{@index}}" class="{{type}}" style="background:{{@global.styleAndNavigation.listColor}}">
+                <div class="eventVanue">
+
+                    <div class="eventTime">
+                        <span class="month">{{formatetimegooglecalender datetime "2"}}</span>
+                        <span class="day">{{formatetimegooglecalender datetime "1"}}</span>
+                        <span class="year">{{formatetimegooglecalender datetime "3"}}</span>
+                        <span class="time" style="border-color:{{@global.styleAndNavigation.borderColor}}">{{formatetimegooglecalender datetime "4"}}</span>
+                    </div>
+                </div>
+
+                <h3 class="{{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}}">{{title}}</h3>
+                <p class="location">{{location}}</p>
+
+                <div class="eventImp">
+                    <a class="ui-link" style="color:{{@global.styleAndNavigation.iconColor}}"><i class="iconz-ticket"></i></a>
+                    <a class="ui-link" style="color:{{@global.styleAndNavigation.iconColor}}"><i class="icon-location-2"></i></a>
+                </div>
+            </li>
+            {{/js_compare}}
+            {{#js_compare "this.pageidentname== 'eventbrite'"}}
+            <li onclick="Appyscript.eventDetail(this)" data-index="{{@index}}" class="{{type}}" style="background:{{@global.styleAndNavigation.listColor}}">
+                <div class="eventVanue">
+
+                    <div class="eventTime">
+                        <span class="month">{{formatetimegooglecalender datetime "2"}}</span>
+                        <span class="day">{{formatetimegooglecalender datetime "1"}}</span>
+                        <span class="year">{{formatetimegooglecalender datetime "3"}}</span>
+                        <span class="time" style="border-color:{{@global.styleAndNavigation.borderColor}}">{{formatetimegooglecalender datetime "4"}}</span>
+                    </div>
+                </div>
+
+                <h3 class="{{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}}">{{title}}</h3>
+                 <p class="location">{{description}}</p> 
+
+                <div class="eventImp">
+                    <a class="ui-link" style="color:{{@global.styleAndNavigation.iconColor}}"><i class="iconz-ticket"></i></a>
+                 <!--   <a class="ui-link" style="color:{{@global.styleAndNavigation.iconColor}}"><i class="icon-location-2"></i></a>  --->
+                </div>
+            </li>
+            {{/js_compare}}
+            {{#js_compare "this.pageidentname== 'bandsintown'"}}
+            <li onclick="Appyscript.eventDetail(this)" data-index="{{@index}}" class="{{type}}" style="background:{{@global.styleAndNavigation.listColor}}">
+                <div class="eventVanue">
+
+                    <div class="eventTime">
+                        <span class="month">{{formatetimegooglecalender datetime "2"}}</span>
+                        <span class="day">{{formatetimegooglecalender datetime "1"}}</span>
+                        <span class="year">{{formatetimegooglecalender datetime "3"}}</span>
+                        <span class="time" style="border-color:{{@global.styleAndNavigation.borderColor}}">{{formatetimegooglecalender datetime "4"}}</span>
+                    </div>
+                </div>
+
+                <h3 class="{{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}}">{{title}}</h3>
+                <p class="location">{{location}}</p>
+
+                <div class="eventImp">
+                    <a class="ui-link" style="color:{{@global.styleAndNavigation.iconColor}}"><i class="iconz-ticket"></i></a>
+                    <a class="ui-link" style="color:{{@global.styleAndNavigation.iconColor}}"><i class="icon-location-2"></i></a>
+                </div>
+            </li>
+            {{/js_compare}}
+            {{#js_compare "this.pageidentname== 'bookmyshow'"}}
+            <li onclick="Appyscript.eventDetail(this)" data-index="{{@index}}" class="{{type}}" style="background:{{@global.styleAndNavigation.listColor}}">
+                <div class="eventVanue">
+
+                    <div class="eventTime">
+                        <span class="month">{{formatetimegooglecalender datetime "2"}}</span>
+                        <span class="day">{{formatetimegooglecalender datetime "1"}}</span>
+                        <span class="year">{{formatetimegooglecalender datetime "3"}}</span>
+                        <span class="time" style="border-color:{{@global.styleAndNavigation.borderColor}}">{{formatetimegooglecalender datetime "4"}}</span>
+                    </div>
+                </div>
+
+                <h3 class="{{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}}">{{title}}</h3>
+                <p class="location">{{location}}</p>
+
+                <div class="eventImp">
+                    <a class="ui-link" style="color:{{@global.styleAndNavigation.iconColor}}"><i class="iconz-ticket"></i></a>
+                    <a class="ui-link" style="color:{{@global.styleAndNavigation.iconColor}}"><i class="icon-location-2"></i></a>
+                </div>
+            </li>
+            {{/js_compare}}
+            {{/list}}
+        </ul>
+
+
+        <div class="msg-container" style="display:none">
+            <div class="msg-code">{{> errorpage errorIcon="appyicon-no-data"}}</div>
+        </div>
+
+    </div>
+
+</div>
+</div>

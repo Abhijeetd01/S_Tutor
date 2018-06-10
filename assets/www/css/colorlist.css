@@ -1,0 +1,324 @@
+ .app_navigation_colorlist{
+     -webkit-backface-visibility:hidden;
+     -webkit-transform:translateZ(0);
+     width:auto;
+     padding:0;
+     outline:0;
+     clear:both;
+}
+ .app_navigation_colorlist a{
+     display: block;
+     float: left;
+     padding: 5px 20px;
+     width:100%;
+     cursor: pointer;
+     margin:0px;
+     box-sizing: border-box;
+
+}
+ .app_navigation_colorlist a:last-child{
+     border: 0px;
+}
+ .app_navigation_colorlist a img{
+     border-radius:150px;
+    line-height: 23px;
+     width: 35px;
+     height: 35px;
+     display: block;
+     margin-top:8px;
+}
+ .app_navigation_colorlist a .right_icon {
+     line-height: 23px;
+     width: 30px;
+     height: 30px;
+     display: block;
+     float:right;
+}
+ .app_navigation_colorlist a span{
+     font-size: large;
+     width: 80%;
+     text-overflow: ellipsis;
+     white-space: nowrap;
+     overflow: hidden;
+     float: left;
+     line-height: 3.6;
+     text-align: left;
+}
+
+/*Centered*/
+ .app_navigation_colorlist.centered-option, .app_navigation_colorlist.centered-option.rounded-option{
+     float:none;
+     margin:10px;
+     padding:10px;
+     width:auto;
+     clear:both;
+     background:rgba(0,0,0,0.3);
+     height:calc(100% - 40px)
+}
+ .app_navigation_colorlist.centered-option a{
+     margin: 2px 0;
+}
+/*Centered rounded-option*/
+ .app_navigation_colorlist.centered-option .scroll, .app_navigation_list.centered-option.rounded-option .scroll{
+     width:100%;
+     height:100%;
+     overflow-y:scroll;
+     float:left;
+     -webkit-backface-visibility:hidden;
+     -webkit-transform:translateZ(0);
+     -webkit-overflow-scrolling: touch;
+     -webkit-transition: width 0.3s ease;
+     -moz-transition: width 0.3s ease;
+     -ms-transition: width 0.3s ease;
+     -o-transition: width 0.3s ease;
+     transition: width 0.3s ease;
+     padding:0;
+}
+ .app_navigation_colorlist.centered-option.rounded-option a{
+     border-radius: 100px;
+     margin:2px 0;
+     border: 1px solid;
+}
+ .app_navigation_colorlist a i{
+     font-size:xx-large;
+     line-height: 23px;
+     width: 30px;
+     height: 30px;
+     display: block;
+}
+ .app_navigation_colorlist a i:before , .app_navigation_colorlist a .right_icon img:before {
+     line-height:57px  !important;
+     float:left;
+     width:100%;
+}
+ .app_navigation_colorlist.centered-option.rounded-option a img, .app_navigation_list.centered-option.rounded-option a i{
+     border-radius: 100px;
+}
+/*rounded-option list*/
+ .app_navigation_colorlist.rounded-option a{
+     margin:2px 0;
+     border-radius:100px;
+     padding:8px 0;
+     clear:both;
+     width:100%;
+     float:left;
+     position:relative;
+     border:solid 1px #FFF;
+     box-sizing:border-box
+}
+ .app_navigation_colorlist.rounded-option a span{
+     line-height:42px;
+     padding:0;
+}
+ .app_navigation_colorlist.rounded-option a img,.app_navigation_colorlist.rounded-option a i{
+     border-radius:100px;
+     margin:0 8px;
+     line-height:42px;
+     width: 42px;
+}
+ .app_navigation_colorlist.rounded-option a i:before {
+     line-height:42px !important;
+}
+ .app_navigation_colorlist.rounded-option .scroll {
+     padding:5px;
+     box-sizing:border-box;
+     float:left;
+     width:100%;
+}
+ .swiper-slide {
+     background-repeat: no-repeat;
+     background-size: cover;
+     float: left;
+     position: relative;
+     width: 100%;
+}
+ .swiper-slide img {
+     float: left;
+     width: 100%;
+}
+
+ .app_navigation_colorlist.animation a {
+     transition-property: all;
+     transition-duration: 0.5s;
+     transition-timing-function: linear;
+     transform-origin: 50% 50%;
+     position:relative;
+     z-index:2;
+}
+ .app_navigation_colorlist.animation[animation='left'] a {
+     opacity:0;
+     transform: translate(-100%, 0);
+}
+ .app_navigation_colorlist.animation[animation='left'] a.on {
+     opacity:1;
+     transform: translate(0, 0);
+}
+ .app_navigation_colorlist.animation[animation='right'] a {
+     opacity:0;
+     transform: translate(100%, 0);
+}
+ .app_navigation_colorlist.animation[animation='right'] a.on {
+     opacity:1;
+     transform: translate(0, 0);
+}
+ .app_navigation_colorlist.animation[animation='top'] a {
+     opacity:0;
+     transform: translate(0, -100px);
+}
+ .app_navigation_colorlist.animation[animation='top'] a.on {
+     opacity:1;
+     transform: translate(0, 0);
+}
+ .app_navigation_colorlist.animation[animation='bottom'] a {
+     opacity:0;
+     transform: translate(0, 100px);
+}
+ .app_navigation_colorlist.animation[animation='bottom'] a.on {
+     opacity:1;
+     transform: translate(0, 0);
+}
+ .app_navigation_colorlist.animation[animation='max'] a {
+     opacity:0;
+     transform: scale(2);
+}
+ .app_navigation_colorlist.animation[animation='max'] a.on {
+     opacity:1;
+     transform: scale(1);
+}
+ .app_navigation_colorlist.animation[animation='min'] a {
+     opacity:0;
+     transform: scale(0);
+}
+ .app_navigation_colorlist.animation[animation='min'] a.on {
+     opacity:1;
+     transform: scale(1);
+}
+ .app_navigation_colorlist.animation a.on0 {
+     transition-delay: 0.0s;
+}
+ .app_navigation_colorlist.animation a.on1 {
+     transition-delay: 0.1s;
+}
+ .app_navigation_colorlist.animation a.on2 {
+     transition-delay: 0.2s;
+}
+ .app_navigation_colorlist.animation a.on3 {
+     transition-delay: 0.3s;
+}
+ .app_navigation_colorlist.animation a.on4 {
+     transition-delay: 0.4s;
+}
+ .app_navigation_colorlist.animation a.on5 {
+     transition-delay: 0.5s;
+}
+ .app_navigation_colorlist.animation a.on6 {
+     transition-delay: 0.7s;
+}
+ .app_navigation_colorlist.animation a.on7 {
+     transition-delay: 0.8s;
+}
+ .app_navigation_colorlist.animation a.on8 {
+     transition-delay: 0.9s;
+}
+ .app_navigation_colorlist.animation a.on9 {
+     transition-delay: 1.0s;
+}
+ .app_navigation_colorlist.animation a.on10 {
+     transition-delay: 1.1s;
+}
+ .app_navigation_colorlist.animation a.on11 {
+     transition-delay: 1.2s;
+}
+ .app_navigation_colorlist.animation a.on12 {
+     transition-delay: 1.3s;
+}
+ .app_navigation_colorlist.animation a.on13 {
+     transition-delay: 1.4s;
+}
+ .app_navigation_colorlist.animation a.on14 {
+     transition-delay: 1.5s;
+}
+ .app_navigation_colorlist.animation a.on15 {
+     transition-delay: 1.6s;
+}
+ .app_navigation_colorlist.animation a.on16 {
+     transition-delay: 1.7s;
+}
+ .app_navigation_colorlist.animation a.on17 {
+     transition-delay: 1.8s;
+}
+ .app_navigation_colorlist.animation a.on18 {
+     transition-delay: 1.9s;
+}
+ .app_navigation_colorlist.animation a.on19 {
+     transition-delay: 2.0s;
+}
+ .app_navigation_colorlist.animation a.on20 {
+     transition-delay: 2.1s;
+}
+ .app_navigation_colorlist.animation a.on21 {
+     transition-delay: 2.2s;
+}
+ .app_navigation_colorlist.animation a.on22 {
+     transition-delay: 2.3s;
+}
+ .app_navigation_colorlist.animation a.on23 {
+     transition-delay: 2.4s;
+}
+ .app_navigation_colorlist.animation a.on24 {
+     transition-delay: 2.5s;
+}
+ .app_navigation_colorlist.animation a.on25 {
+     transition-delay: 2.6s;
+}
+ .app_navigation_colorlist.animation a.on26 {
+     transition-delay: 2.7s;
+}
+ .app_navigation_colorlist.animation a.on27 {
+     transition-delay: 2.8s;
+}
+ .app_navigation_colorlist.animation a.on28 {
+     transition-delay: 2.9s;
+}
+ .app_navigation_colorlist.animation a.on29 {
+     transition-delay: 3.0s;
+}
+ .app_navigation_colorlist.animation a.on30 {
+     transition-delay: 3.1s;
+}
+ .app_navigation_colorlist.animation a.on31 {
+     transition-delay: 3.2s;
+}
+ .app_navigation_colorlist.animation a.on32 {
+     transition-delay: 3.3s;
+}
+ .app_navigation_colorlist.animation a.on33 {
+     transition-delay: 3.4s;
+}
+ .app_navigation_colorlist.animation a.on34 {
+     transition-delay: 3.5s;
+}
+ .app_navigation_colorlist.animation a.on35 {
+     transition-delay: 3.6s;
+}
+
+ .app_navigation_colorlist.hide-icon i,
+ .app_navigation_colorlist.hide-icon a img,
+ .hide-icon a i
+ {    display: none;}
+
+.app_navigation_colorlist.hide-background {
+    border-color: transparent;
+  }
+
+/*.app_navigation_colorlist.hide-text a span {
+   display: none;
+
+  }  */
+
+  .sa .app_navigation_colorlist a .right_icon{
+      float: left;
+ }
+  .sa .app_navigation_colorlist a span{
+      float: right;text-align: right;
+ }

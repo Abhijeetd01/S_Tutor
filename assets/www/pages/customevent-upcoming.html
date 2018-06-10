@@ -1,0 +1,90 @@
+<div class="navbar"><div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}}; font-size: {{@global.style.headerBarSize}} ">
+            <div class="left sliding">
+              <a href="index" class="link back" style="color:{{@global.style.headerBarTextColor}};">
+                <i class="icon icon-left-open-2"></i>
+              </a>
+            </div>
+           <div class="center sliding">
+           	<div class="topHeader">{{@global.pageLanguageSetting.my_bookings}}
+            </div>
+              
+
+            </div> 
+            <div class="right">
+            <a  style="color:{{@global.style.headerBarTextColor}};">
+                <i class="icon iconz-location-chat--r"></i>
+              </a>
+            </div>
+          </div></div>
+
+<div data-page="customevent-upcoming" class="page navbar-through no-toolbar {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="color:{{@global.styleAndNavigation.content[2]}}; background:{{@global.styleAndNavigation.pageBackroundColor}}">
+<style>
+.receipt-page .content p, .receipt-page .content p.time{border-color:{{@global.styleAndNavigation.borderColor}}} .event-page .content li {
+            border-color: {
+                {
+                    @global.styleAndNavigation.borderColor
+                }
+            }
+        }
+</style>
+<!-- Page content-->
+    <div class="listing-tabs">
+        <div id="tabList" class="customevent-tab tabs-click">
+            <a class="active tab-link" href="#tabTicket">{{@global.pageLanguageSetting.ticket}}</a>
+            <a class="tab-link" href="#tabinfo" onclick="myBooking_loadDetail('{{eventId}}','{{expired}}')">{{@global.pageLanguageSetting.info}}</a>
+        </div>
+    </div>
+    <div class="page-content">	
+    
+    <div class="mybooking-mode">
+
+            <div class="tabs-animated-wrap">
+            <div class="wrap">
+            <div class="tabs">
+            <div class="event-tab tabs-view tab active" id="tabTicket"> 
+                <section class="section-events receipt-page event-back">
+<div class="content" style="border-color:{{@global.styleAndNavigation.borderColor}}">
+    <h2 id="ticketId" class="{{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}}; border-color:{{@global.styleAndNavigation.borderColor}}"><a onclick="shareMyTicket('{{qrImage}}','{{eventName}}','{{eventVenue}}','{{bookingDate}}','{{eventStartTime}}')" class="icon-share-1" style="float:right; color:{{@global.styleAndNavigation.iconColor}}; border-color:{{@global.styleAndNavigation.borderColor}}"></a>{{@global.pageLanguageSetting.booking_id}} : {{bookingId}}</h2>
+    <h3 id="ticketEvent"  class="{{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}};">{{eventName}}</h3>
+    <p id="ticketVenue">{{eventVenue}}</p>
+    <!-- Radical Critical -->
+    <div style="display:flex; float:left; width: 100%;">
+        <p id="ticketDate" class="date"><strong>{{getMonthName bookingDate}} {{getDate bookingDate}}, {{getYear bookingDate}}</strong>{{getDayName bookingDate}}</p>
+<p id="ticketTime" class="time date"> <strong>{{getTimeF eventStartTime}}</strong>{{getAmPm eventStartTime}} ({{timeZone}})</p>
+        </div>
+<p>{{totalTicket}} {{@global.pageLanguageSetting.tickets}}</p>
+{{#js_compare "this.paymentType == 'pac'"}}
+<p>{{@global.pageLanguageSetting.pay_at_counter}}</span></p>
+{{/js_compare}}
+<div class="image-view">
+<span>{{@global.pageLanguageSetting.scan_and_enter}}</span>
+<img src="{{qrImage}}">
+<!--<span class="bold">WSDRTFG</span>-->
+</div>
+<div class="btContainerFull btn-wrap-booking" style="border-color:{{@global.styleAndNavigation.borderColor}}">
+<a href="#" id="btn-atc" class="col-45 pull-left {{@global.styleAndNavigation.secondaryButton[0]}} {{@global.styleAndNavigation.secondaryButton[1]}}" style="color:{{@global.styleAndNavigation.secondaryButton[3]}};background:{{@global.styleAndNavigation.secondaryButton[2]}}; border-color:{{@global.styleAndNavigation.borderColor}}" onclick="addEventToCalender();">{{@global.pageLanguageSetting.add_to_calendar}}</a>
+<a href="#" id="btn-st" class="col-45 pull-right {{@global.styleAndNavigation.secondaryButton[0]}} {{@global.styleAndNavigation.secondaryButton[1]}}" style="color:{{@global.styleAndNavigation.secondaryButton[3]}};background:{{@global.styleAndNavigation.secondaryButton[2]}}; border-color:{{@global.styleAndNavigation.borderColor}}" onclick="saveTicket()">{{@global.pageLanguageSetting.save_to_gallery}}</a>
+</div>
+</div>
+
+ 
+
+</section>
+            </div>
+             <div class="event-tab tabs-view  tab" id="tabinfo">
+               <section id="infoTabBooked" class="section-events event-page event-detail">
+ 
+</section>
+				
+            </div>           
+            </div>
+            </div>
+            </div>
+        </div>
+        
+        
+     
+    
+    
+    </div>
+</div>

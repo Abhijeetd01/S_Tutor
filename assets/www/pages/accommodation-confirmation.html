@@ -1,0 +1,167 @@
+<div class="navbar">
+	<div class="navbar-inner" style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+            
+            <div class="left sliding">
+                <a class="navs" onclick="Appyscript.popupPage('accommodation-menu')" style="color:{{@global.style.headerBarIconColor}};">
+                    <i class="icon icon-menu"></i>
+                </a>
+            </div>
+            
+             <div class="center sliding">
+               <div class="topHeader {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">
+
+ {{@global.pageLanguageSetting.bookingstatus}}
+ 
+ 
+              </div>
+            </div>
+
+            <div class="right">
+                
+            </div>
+	</div>
+</div>
+
+<div data-page="accommodation-confirmation-page" class="page navbar-through  no-toolbar">
+  <!-- Page content-->
+    <div class="page-content {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}} hideBorder-{{@global.styleAndNavigation.hideBorder}}" style="color:{{@global.styleAndNavigation.content[2]}}; background:{{@global.styleAndNavigation.pageBgColor}}">  
+    <style>
+	.hotelListCommen li{border-color:{{@global.styleAndNavigation.borderColor}}}
+	</style>
+
+    	<ul class="hotelListCommen">
+        	<li>
+            	<h3 class="{{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}" style="color:{{@global.styleAndNavigation.subheading[2]}};">  {{@global.pageLanguageSetting.confirmedhotel}} </h3>
+                <p style="font-size:12px;">Booking Reference no: {{data.orderId}}</p>
+            </li>
+            <li>
+            	<h3 class="{{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}" style="color:{{@global.styleAndNavigation.subheading[2]}};">{{data.accommodationName}}</h3>
+                <p>{{data.accommodationAddress}}</p>
+                
+                
+                <div class="timeContainer forConfirmPage highlightBg">
+                    <div class="checkIn {{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}" style="color:{{@global.styleAndNavigation.subheading[2]}};" onclick="" >
+                        <span>{{@global.pageLanguageSetting.Check_In_Dir}} {{data.checkInTime}}</span>
+                        {{data.bookStartDate}}
+                   
+                    </div>
+                    <div class="checkOut {{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}" style="color:{{@global.styleAndNavigation.subheading[2]}};" onclick="" >
+                        <span>{{@global.pageLanguageSetting.check_out}} {{data.checkOutTime}}</span>
+                 {{data.bookEndDate}}
+            
+                    </div>
+            	</div>
+                
+            </li>
+             <li> 
+            	<h3 class="{{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}" style="color:{{@global.styleAndNavigation.subheading[2]}};">{{@global.pageLanguageSetting.roomdetail}} </h3>
+                <p class="row">
+                    <span class="col-50">{{@global.pageLanguageSetting.room_type}}  </span>
+                    <span class="col-50 text-right"> {{@global.pageLanguageSetting.bookingstatus}}</span>
+                </p> 
+                <p class="row">
+                    <span class="col-50">{{data.roomType}}</span>
+                    
+                 <span class="col-50 text-right">{{#js_compare "this.data.order_status == '1'"}} {{@global.pageLanguageSetting.confirmed}}  {{else}} {{#js_compare "this.data.order_status == '2'"}} {{@global.pageLanguageSetting.store_cancelled}}  {{else}} {{@global.pageLanguageSetting.pending}}{{/js_compare}}{{/js_compare}}   </span>
+                    
+                    
+               
+                </p>
+                <p class="offsetbottom25"></p> 
+                 <p class="row">
+                    <span class="col-50"> {{@global.pageLanguageSetting.noofroom}}</span>
+                    <span class="col-50 text-right"> {{@global.pageLanguageSetting.Occupancy}}</span>
+                </p>                 
+                <p class="row">
+                    <span class="col-50">{{data.totalRooms}}</span>
+                    <span class="col-50 text-right"> {{accomadationroocounthelper data.roomDetails}} </span>
+                </p>
+               
+                
+             </li>
+            <li>
+            	<h3 class="{{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}" style="color:{{@global.styleAndNavigation.subheading[2]}};">{{@global.pageLanguageSetting.travellerdetails}} </h3>
+           <p>		{{data.title}} {{data.firstName}} {{data.lastName}}      </p>
+            </li>
+            <li>
+            	<h3 class="{{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}" style="color:{{@global.styleAndNavigation.subheading[2]}};">{{@global.pageLanguageSetting.paysummary}} </h3>
+                <p class="row">
+                <span class="col-50">{{@global.pageLanguageSetting.roomcost}}<span style="font-size: 70%;
+                    display: block;
+                    line-height: 12px;
+                    margin-bottom: 8px;"> ({{data.totalNights}} {{@global.pageLanguageSetting.night}}, {{data.totalRooms}} {{@global.pageLanguageSetting.room}}) </span></span>
+                <span class="col-50 text-right">{{format_currency data.currencyCode}} {{js "this.data.price * this.data.totalNights * this.data.totalRooms"}}
+                </span>
+                </p>
+                   {{#js_compare "this.data.misTax != 0"}}
+                <p class="row">
+                <span class="col-50">{{@global.pageLanguageSetting.OtherTax}}   </span>
+              <span class="col-50 text-right">{{format_currency data.currencyCode}} {{data.misTax}}</span>
+                </p> {{else}} {{/js_compare}}
+                
+                 {{#js_compare "this.data.taxAmount != 0"}}
+                <p class="row">
+                <span class="col-50">  {{@global.pageLanguageSetting.tax_food}}</span>
+                <span class="col-50 text-right">{{format_currency data.currencyCode}} {{data.taxAmount}}</span>
+                </p> {{else}} {{/js_compare}}
+                  {{#js_compare "this.data.ruleDiscountAmount != 0"}}
+                  
+                <p class="row">
+                <span class="col-50"> {{@global.pageLanguageSetting.discount_food}}</span>
+               <span class="col-50 text-right">-{{format_currency data.currencyCode}} {{data.ruleDiscountAmount}}</span>
+                </p>
+     {{else}} {{/js_compare}}
+     
+                    {{#js_compare "this.data.offer == 'true'"}}
+                    
+                    <p class="row">
+                    <span class="col-50"> {{@global.pageLanguageSetting.offers_mcom}}</span>
+                    <span class="col-50 text-right">-{{format_currency data.currencyCode}} {{data.offerAmount}}</span>
+                    </p>
+                    
+                    {{else}} {{/js_compare}}
+                
+                {{#js_compare "this.data.coupon != ''"}}
+                
+                <p class="row">
+                <span class="col-50"> Coupon( {{data.coupon}} )</span>
+                <span class="col-50 text-right">-{{@global.hotelcurency}} {{data.couponDiscountAmount}}</span>
+                </p>
+                
+                {{else}} {{/js_compare}}
+                
+                <p class="row">
+                    <span class="col-50"> {{@global.pageLanguageSetting.Youpay}}</span>
+                 <span class="col-50 text-right">{{format_currency data.currencyCode}} {{data.grandTotal}}</span>
+                </p>
+            </li>
+            <li class="highlightBg">
+            	<h3 class="row {{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}" style="color:{{@global.styleAndNavigation.subheading[2]}};">
+                	<span class="col-50">{{@global.pageLanguageSetting.gtotal}} </span>
+                    <span class="col-50 text-right highlightText"><strong>{{@global.hotelcurency}} {{data.grandTotal}}</strong> </span>
+                </h3>
+                <h3 class="row {{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}" style="color:{{@global.styleAndNavigation.subheading[2]}};">
+                    <span class="col-50">{{@global.pageLanguageSetting.payment_status}} </span>
+                    <span class="col-50 text-right highlightText receivePayment"><strong>
+                        <!--{{#js_compare "this.data.payment_type == 'COD'"}}-->
+                            <!--{{@global.pageLanguageSetting.pending}}(via Pay at hotel)-->
+                        <!--{{/js_compare}}-->
+                        {{#js_compare "this.data.payment_status == 1"}}
+                            {{@global.pageLanguageSetting.dining_paid}}(via {{data.payment_type}})
+                        {{/js_compare}}
+                        {{#js_compare "this.data.payment_status == 0"}}
+                            {{@global.pageLanguageSetting.pending}}(via {{data.payment_type}})
+                        {{/js_compare}} </strong> </span>
+                </h3>
+         
+            </li>
+            
+            <li class="highlightBg">
+                <a href="#" onclick="addtocalhotelevent('{{data.accommodationName}}','{{data.accommodationAddress}}','{{data.orderId}}','{{data.bookStartDate}}','{{data.bookEndDate}}','{{data.roomType}}')" class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="color:{{@global.styleAndNavigation.content[2]}};font-weight:bold"><i class="icon-calendar-4" style="color:{{@global.styleAndNavigation.icon[1]}}"></i> {{@global.pageLanguageSetting.addtocal}} </a>
+            </li>
+        </ul>
+    </div>
+    </div>
+
+
+

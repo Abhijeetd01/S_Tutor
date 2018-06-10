@@ -1,0 +1,71 @@
+<div class="navbar"><div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}}; font-size: {{@global.style.headerBarSize}} ">
+            <div class="left sliding">
+              <a href="index" class="link back" style="color:{{@global.style.headerBarTextColor}};">
+                <i class="icon icon-left-open-2"></i>
+              </a>
+            </div>
+           <div class="center sliding">
+               Reviews
+            </div> 
+            <div class="right"></div>
+          </div></div>
+
+<div data-page="customevent-review" class="page navbar-through no-toolbar {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="color:{{@global.styleAndNavigation.content[2]}}; background:{{@global.styleAndNavigation.pageBackroundColor}}">
+<style>
+.ratingView i{color:{{@global.styleAndNavigation.ratingColor}}}
+.ratingView i.on{color: {{@global.styleAndNavigation.ratingActiveColor}}}
+</style>
+<!-- Page content-->
+    <div class="page-content">	
+    	<div class="bodypan">
+        	<div class="filter-row short-by">
+                <h3 class="{{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}};">{{@global.pageLanguageSetting.ratings_reviews}}</h3>
+                <div class="tabs-animated-wrap">
+                    <ul class="ratingList last-review-bx">
+                        <li>
+                            <span class="ratingView" style="float:left; margin-bottom:15px; margin-left:0px; padding-left:0px;">
+                                <i id="star1" onclick="rateStars(1,false)" class="iconz-star"></i>
+                                <i id="star2" onclick="rateStars(2,false)" class="iconz-star"></i>
+                                <i id="star3" onclick="rateStars(3,false)" class="iconz-star"></i>
+                                <i id="star4" onclick="rateStars(4,false)" class="iconz-star"></i>
+                                <i id="star5" onclick="rateStars(5,false)" class="iconz-star"></i>
+                            </span>
+                        </li>
+                        <li><textarea id="reviewTextArea" placeholder="{{@global.pageLanguageSetting.post_a_review}}" class="review-bx" style="background:{{@global.styleAndNavigation.fieldBgColor}}; color:{{@global.styleAndNavigation.fieldTextColor}}; border:0px;"></textarea></li></ul>
+                     <div class="review-btn-wrapper">
+                        <a class="btn {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" style="background-color: {{@global.styleAndNavigation.button[2]}}; color: {{@global.styleAndNavigation.button[3]}};" onclick="postMyReview('{{paraEvtId}}')">{{@global.pageLanguageSetting.post_a_review}}</a>
+                    </div>
+
+
+
+                    <div id="readonly-Reviews" class="reviews">
+                        <div class="top">
+                            <a href="#" class="{{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}};">{{@global.pageLanguageSetting.user_reviews}}</a>
+                        </div>
+                        {{#reviewList}}
+
+                        <div class="review">
+                            {{#js_compare "this.profileImage == ''"}}
+                            <img src="{{@global.style.reseller}}/newui/images/user-pic-news.png" style="{{@global.styleAndNavigation.borderColor}}">
+                            {{else}}
+                            <img src="{{profileImage}}" style="{{@global.styleAndNavigation.borderColor}}">
+                            {{/js_compare}}
+
+
+                            <h4 class="{{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}};">{{name}}</h4>
+
+                            <p>{{review}}</p>
+                            <div class="bottom"><time>{{addedon}}</time></div>
+                        </div>
+
+                        {{/reviewList}}
+
+
+
+
+                    </div>
+                </div>
+        </div>
+    </div>
+     
+</div>

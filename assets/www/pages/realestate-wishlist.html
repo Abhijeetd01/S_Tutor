@@ -1,0 +1,61 @@
+<div class="navbar"><div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}}; font-size: {{@global.style.headerBarSize}} ">
+            <div class="left sliding">
+              <a href="index" class="link back" style="color:{{@global.style.headerBarTextColor}};">
+                <i class="icon icon-left-open-2"></i>
+              </a>
+            </div>
+           <div class="center sliding">
+           	<div class="topHeader">
+
+                {{@global.pageLanguageSetting.REAL_ESTATE}}
+              <!--<span class="locate icon-location cursor-pointer" onclick="Appyscript.popupPage('location')">{{@global.CurrentCityreal}}</span>-->
+            </div>
+              
+
+            </div> 
+            <div class="right">
+            
+          
+            </div>
+          </div></div>
+ 
+<div data-page="realestate-wishlist" class="page navbar-through no-toolbar" style="background:{{@global.styleAndNavigation.pageBgColor}};">
+<!-- Page content-->
+    <div class="page-content" rentout="{{@global.configuration.rentoutSetting}}" soldout="{{@global.configuration.soldoutSetting}}">
+
+        <style>
+		.filter-box{color:{{@global.styleAndNavigation.nav[2]}}; background:{{@global.styleAndNavigation.nav[3]}} }
+    	.distance-km, .real-estate-addons a{background:{{@global.styleAndNavigation.title[2]}}; color:{{@global.styleAndNavigation.title[3]}} }
+		.shorDetail, .price, .address, .forSale { color:{{@global.styleAndNavigation.title[3]}} }
+		.shorDetail i, .price i, .addPan i, .real-estate-addons a:before, .search-view i, .like-btn, .share-btn { color:{{@global.styleAndNavigation.icon[1]}} }
+		.forSale:before{ background:{{@global.styleAndNavigation.icon[1]}}; border-color:{{@global.styleAndNavigation.borderColor}} }
+		.search-view input{ background:{{@global.styleAndNavigation.fieldBgColor}} }
+		.filter-box span:first-child {border-color:{{@global.styleAndNavigation.borderColor}} }
+		.like-btn.on, .share-btn.on {color:{{@global.styleAndNavigation.activeColor}} }
+    </style>
+        {{#if pageList.length}}
+
+<section class="real-estate">
+
+<ul class="real-estate-cat-listing">
+    {{#pageList}}
+
+    {{> favrealstateListing}}
+    {{/pageList}}
+</ul>
+
+</section>
+
+
+{{else}}
+        <div class="msg-code">
+            <div class="msg-container">
+                <span class="icon appyicon-no-data" style="color:{{@global.styleAndNavigation.content[2]}}; border-color:{{@global.styleAndNavigation.content[2]}}">  </span>
+            </div>
+        </div>
+
+        {{/if}}
+
+    
+    </div>
+</div>

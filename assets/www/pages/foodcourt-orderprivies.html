@@ -1,0 +1,119 @@
+<div class="navbar"><div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+    <div class="left sliding">
+        <a href="index" class="link back" style="color:{{@global.style.headerBarIconColor}};">
+            <i class="icon icon-left-open-2"></i>
+        </a>
+    </div>
+    <div class="center sliding {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">
+        <div class="topHeader">{{@global.pageLanguageSetting.order_preview}} </div>
+    </div>
+</div>
+</div>
+
+
+<div data-page="foodcourt-orderprivies" class="page navbar-through no-toolbar toolbar-through  no-toolbar">
+    <div class="toolbar ">
+        <div class="toolbar-inner toolbar-bottom">
+            <a data-animate="true" data-back="back" onclick="foodCourtPayment();" class="checkout {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" style="color:{{@global.styleAndNavigation.button[3]}};background:{{@global.styleAndNavigation.button[2]}};">{{@global.pageLanguageSetting.checkout_food}}</a>
+        </div>
+    </div>
+
+
+    <div class="page-content {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}} content-{{@global.styleAndNavigation.content[3]}} heading-{{@global.styleAndNavigation.heading[3]}}" style="color:{{@global.styleAndNavigation.content[2]}}; background:{{@global.styleAndNavigation.pageBgColor}}">
+        <section class="food-Order orer-confirm">
+            <div class="detail-outer"><h3 class="mainHead {{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}"   style="color:{{@global.styleAndNavigation.subheading[2]}}; border-color:{{@global.styleAndNavigation.borderColor}}"> {{@global.pageLanguageSetting.order_preview}}</h3></div>
+            <div class="discription {{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}"  style="color:{{@global.styleAndNavigation.subheading[2]}}">{{@global.pageLanguageSetting.items_mcom}} </div>
+            <div class="detail-outer hyper-bottBdr">
+                <ul class="order-detailTab">
+                    {{#productList}}
+                        {{#if offered}}
+                            {{#if offeredDiscount}}
+                                {{#js_compare "this.custom_optioncart != ''"}}
+                                         <li>{{name}} x {{orderQuantity}} <span class="box"> {{format_currency currency}} {{js "parseFloat((this.price *  this.orderQuantity)).toFixed(2)"}} </span></li>
+                                         <li class="mainItem mainItem2">{{foodcourthelpercourt custom_optioncart}}</li>
+                    {{else}}
+                                    <li>{{name}} x {{orderQuantity}} <span class="box"> {{format_currency currency}} {{js "parseFloat((this.price - this.price *  this.offeredDiscount / 100) * this.orderQuantity).toFixed(2)"}} </span></li>
+                                        <li class="mainItem mainItem2">{{foodcourthelpercourt custom_optioncart}}</li>
+                    {{/js_compare}}
+                            {{else}}
+                                <li>{{name}} x {{orderQuantity}} <span class="box">{{format_currency currency}}{{js " parseFloat(this.price *  this.orderQuantity).toFixed(2)"}} </span></li>
+                    <li class="mainItem mainItem2">{{foodcourthelpercourt custom_optioncart}}</li>
+                    {{/if}}
+                        {{else}}
+                            <li>{{name}} x {{orderQuantity}} <span class="box">{{format_currency currency}}{{js " parseFloat(this.price *  this.orderQuantity).toFixed(2)"}} </span></li>
+                    <li class="mainItem mainItem2">{{foodcourthelpercourt custom_optioncart}}</li>
+                    {{/if}}
+                    {{/productList}}
+                    <h3 class="order-heading {{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}"  style="color:{{@global.styleAndNavigation.subheading[2]}}; border-color:{{@global.styleAndNavigation.borderColor}}"> {{@global.pageLanguageSetting.payment_details_food}}</h3>
+                    <li >{{@global.pageLanguageSetting.subtotal_food}}<span class="box">{{format_currency currency}}{{subTotal}}</span></li>
+                    {{#root_Compare @root.discountPrice "!=" "0.00"}}
+                    <li  id="discountecom">{{@global.pageLanguageSetting.discount_food}} <span> {{format_currency currency}}{{discountPrice}}</span></li>
+                    {{/root_Compare}}
+                    {{#js_compare "this.couponDiscount != '0.00'"}}
+                        <li   id="coupanPrice">{{@global.pageLanguageSetting.coupon_food}}  <span>{{format_currency currency}}{{couponDiscount}}</span></li>
+                    {{/js_compare}}
+                    {{#root_Compare @root.vendordiscount "!=" "0.00"}}
+                    <li  id="vendordiscount">{{@global.pageLanguageSetting.restaurant_discount}} <span> {{format_currency currency}}{{vendordiscount}}</span></li>
+                    {{/root_Compare}}
+                    {{#js_compare "thanksjson.paymentMethodKe != 'pickup'"}}
+                        {{#root_Compare @root.deliveryPrice "!=" "0.00"}}
+                        <li  id="deliverychargeecom">{{@global.pageLanguageSetting.delivery_food}} <span> {{format_currency currency}}{{deliveryPrice}}</span></li>
+                        {{/root_Compare}}
+                    {{/js_compare}}
+                    {{#root_Compare @root.taxPrice "!=" "0.00"}}
+                    <li  id="taxecomecom">{{@global.pageLanguageSetting.tax_food}}  <span> {{format_currency currency}}{{taxPrice}}</span></li>
+                    {{/root_Compare}}
+                    {{#if miscTax.list}}{{#miscTax.list}}
+                    {{#root_Compare @root.taxAmount "!=" "0.00"}}
+                    <li  id="miscTaxecom">{{taxType}} <span> {{format_currency currency}}{{taxAmount}}</span></li>
+                    {{/root_Compare}}
+                    {{/miscTax.list}}{{/if}}
+                    {{#root_Compare @root.tipamount "!=" "0.00"}}
+                    <li  id="tipvalue">{{@global.pageLanguageSetting.Tip}} <span> {{format_currency currency}}{{tipamount}}</span></li>
+                    {{/root_Compare}}
+                    <li class="total-amount" style="border-color:{{@global.styleAndNavigation.borderColor}}"><strong>{{@global.pageLanguageSetting.grand_total_food}}</strong><span class="box"><strong>{{format_currency currency}}{{grandTotal}}</strong></span></li>
+                </ul>
+            </div>
+            <div class="discription detail-outer">
+                 {{#root_Compare @root.payType "!=" "pickup"}}
+                    <h3 class="order-heading {{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}"  style="color:{{@global.styleAndNavigation.subheading[2]}}; border-color:{{@global.styleAndNavigation.borderColor}}">{{@global.pageLanguageSetting.delivery_details}}</h3>
+                    {{#if billing.checkship}}
+                            <li>{{@global.pageLanguageSetting.name_food}}  : <span>{{shipping.name}}</span></li>
+                            <li> Date : <span>{{@global.dlvrydate}}</span></li>
+                            <li> Time : <span>{{@global.dlvrytime}}</span></li>
+                            <li>Mob No  :  <span>{{shipping.phone}}</span></li>
+                            <li>{{@global.pageLanguageSetting.email_id_food}}  :  <span>{{billing.email}}</span></li>
+                            <li>{{@global.pageLanguageSetting.billing_address_food}}  : <span>{{shipping.address}},{{shipping.city}},{{shipping.state}},{{shipping.country}}-{{shipping.zip}}</span></li>
+                        {{else}}
+                            <li>{{@global.pageLanguageSetting.name_food}}  : <span>{{billing.name}}</span></li>
+                            <li> Date : <span>{{@global.dlvrydate}}</span></li>
+                            <li> Time : <span>{{@global.dlvrytime}}</span></li>
+                            <li>{{@global.pageLanguageSetting.fc_mobile}}  :  <span>{{billing.phone}}</span></li>
+                            <li>{{@global.pageLanguageSetting.email_id_food}}  :  <span>{{billing.email}}</span></li>
+                            <li>{{@global.pageLanguageSetting.billing_address_food}}  : <span>{{billing.address}},{{billing.city}},{{billing.state}},{{billing.country}}-{{billing.zip}}</span></li>
+                        {{/if}}
+                {{else}}
+                        {{#if billing.billpickup}}
+                            <h3 class="order-heading {{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}" style="color:{{@global.styleAndNavigation.subheading[2]}}; border-color:{{@global.styleAndNavigation.borderColor}}">{{@global.pageLanguageSetting.default_billing_address_food}}</h3>
+                                <li>{{@global.pageLanguageSetting.name_food}}  : <span>{{billing.name}}</span></li>
+                                <li> Date : <span>{{@global.dlvrydate}}</span></li>
+                                <li> Time : <span>{{@global.dlvrytime}}</span></li>
+                                <li>{{@global.pageLanguageSetting.fc_mobile}}  :  <span>{{billing.phone}}</span></li>
+                                <li>{{@global.pageLanguageSetting.email_id_food}}  :  <span>{{billing.email}}</span></li>
+                                <li>{{@global.pageLanguageSetting.billing_address_food}}  : <span>{{billing.address}},{{billing.city}},{{billing.state}},{{billing.country}} {{#js_compare "this.billing.zip == ''"}} {{else}}-{{billing.zip}}{{/js_compare}}</span></li>
+                        {{/if}}
+                {{/root_Compare}}
+                {{#root_Compare @root.payType "!=" "pickup"}}
+                    <h3 class="order-heading {{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}"  style="color:{{@global.styleAndNavigation.subheading[2]}}; border-color:{{@global.styleAndNavigation.borderColor}}">{{@global.pageLanguageSetting.restaurant_details}}</h3>
+                {{else}}
+                    <h3 class="order-heading {{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}"  style="color:{{@global.styleAndNavigation.subheading[2]}}; border-color:{{@global.styleAndNavigation.borderColor}}">Pickup Address</h3>
+                {{/root_Compare}}
+                <li>{{@global.pageLanguageSetting.name_food}} :  <span>{{vendorName}}</span></li>
+                <li>{{@global.pageLanguageSetting.fc_mobile}} :   <span>{{store_mobile}}</span></li>
+                <li>{{@global.pageLanguageSetting.email_id_food}} :  <span>{{store_email}}</span></li>
+                <li>{{@global.pageLanguageSetting.address_food}} :  <span>{{address}}</span></li>
+            </div>
+
+        </section>
+    </div>
+</div>

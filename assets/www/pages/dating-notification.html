@@ -1,0 +1,58 @@
+<div class="navbar">
+    <div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+        <div class="left sliding">
+            <a href="index" class="link back" style="color:{{@global.style.headerBarIconColor}};">
+                <i class="icon icon-left-open-2"></i>
+            </a>
+        </div>
+        <div class="center sliding">
+            <div class="topHeader {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">{{@global.pageLanguageSetting.pageNotification}}</div>
+        </div>
+        <div class="right">
+			<div class="chat_dating_wp"><a href="#" style="color:{{@global.style.headerBarIconColor}};"><i onclick="Appyscript.datingchatProfile({{@global.pageLanguageSetting.countmsg}});" class="icon-chat-1"><span class="count"  style="background-color: {{@global.styleAndNavigation.button[2]}}; color: {{@global.styleAndNavigation.button[3]}};" >{{@global.pageLanguageSetting.countmsg}}</span></i></a></div>
+
+        </div>
+    </div>
+</div>
+
+
+<div data-page="dating-Notification" class="page navbar-through toolbar-fixed no-toolbar dating hideBorder-{{@global.styleAndNavigation.hideBorder}}">
+    <!-- Page content-->
+    <div class="page-content" style="background:{{@global.styleAndNavigation.pageBackroundColor}}">
+        <div class="bodypan people-result {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="color:{{@global.styleAndNavigation.content[2]}}">
+            <div class="row">
+                <div class="col-md-12">
+                     <ul class="notification_list">
+                         {{#notificationData}}
+                        <li onclick="Appyscript.viewuserProfile({{userId}});">
+                            <div class="nf-profile" style="border-color:{{@global.styleAndNavigation.fieldBorderColor}};">
+                                <img src="images/image-1x1.png" style="background:url({{profileImage}})" alt="" class="img-style">
+                            </div>
+                            <div class="nf-profile-info">
+                                <h2 class="{{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}}; text-align:{{@global.styleAndNavigation.heading[3]}};"><span class="trunkTxt">{{name}}</span>  <div class="nf-time">
+                                    <i class="icon-back-in-time" style="color:{{@global.styleAndNavigation.content[2]}}"></i> {{time}}
+                                    </div></h2>
+                                <p class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="color:{{@global.styleAndNavigation.content[2]}}">{{message}}</p>
+                             
+                            </div>
+                        </li>
+                       {{/notificationData}}
+ 
+<!--                        "notificationData": [{-->
+<!--                        "profileImage": "http:\/\/angularml.pbodev.info\/media\/user_space\/52f0d861148e\/dating\/dating_1470755604_4558.png",-->
+<!--                        "name": "",-->
+<!--                        "message": "Congratulations! You and have liked each other",-->
+<!--                        "time": "5 minutes ago"-->
+<!--                        }, {-->
+<!--                        "profileImage": "",-->
+<!--                        "name": "",-->
+<!--                        "message": "Congratulations! You and have liked each other",-->
+<!--                        "time": "one minute ago"-->
+<!--                        }]-->
+<!--                        }-->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

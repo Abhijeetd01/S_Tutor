@@ -1,0 +1,154 @@
+<div class="navbar">
+    <div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+        <div class="left sliding">
+            <a href="index" class="link back" style="color:{{@global.style.headerBarIconColor}};">
+                <i class="icon icon-left-open-2"></i>
+            </a>
+        </div>
+        <div class="center sliding {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">
+            <div class="topHeader">{{name}} </div>
+        </div>
+        <div class="right">
+            <a onclick="foodcourtCartPage('cart')" class="localHeaderIconRight ui-link" style="color:{{@global.style.headerBarIconColor}};"> <span class="subValue" style="color:{{@global.styleAndNavigation.button[3]}};background:{{@global.styleAndNavigation.button[2]}};">{{@global.foodCartCount}}</span><div class="headerIcon"><i class="icon-cart"></i></div></a>
+        </div>
+    </div>
+</div>
+
+<div data-page="foodcourt-hotelinfo"  class="page navbar-through no-toolbar toolbar-through">
+    <div class="toolbar ">
+        <div class="toolbar-inner toolbar-bottom"  style="background-color:{{@global.styleAndNavigation.button[2]}}; color:{{@global.styleAndNavigation.button[3]}}">
+            <button class="hotel-sent-btn2 {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" onclick="hotelMenuPage(this,id);">{{@global.pageLanguageSetting.view_menu}}</button>
+        </div>
+    </div>
+
+    <!-- Page content-->
+    <div class="page-content {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}} content-{{@global.styleAndNavigation.content[3]}} heading-{{@global.styleAndNavigation.heading[3]}}" style="color:{{@global.styleAndNavigation.content[2]}}; background:{{@global.styleAndNavigation.pageBgColor}}">
+        <section class="food-Order">
+            <ul class="foodOrder-cat-listing" >
+                <div data-pagination=".swiper-pagination" data-preload-images="false" data-lazy-loading="true" class="swiper-banner swiper-banner-{{@index}} swiper-container swiper-init">
+                    <div class="swiper-wrapper">
+                        {{#imgList}}
+                        <div class="swiper-slide">
+
+
+                            {{#js_compare "this.type == 'video'"}}
+                            {{#js_compare "this.videoType == 'custom'"}}
+                            <div class="swiper-slide" onclick="openVideoStreamFoodCourt('{{name}}','{{@root.name}}');">
+                                <img src="images/transparent-bg.png" class="swiper-lazy" />
+                                <div class="video-icon icon-play-circle2-1"></div>
+                                <div class="preloader"></div>
+                            </div>
+                            {{else}}
+                            <div class="swiper-slide" onclick="openYouTubeVedioFoodCourt('{{name}}','{{@root.name}}');">
+                                <img src="images/transparent-bg.png" class="swiper-lazy" style="background-image:url(http://img.youtube.com/vi/{{youtubeID name}}/default.jpg); "/>
+                                <div class="video-icon icon-play-circle2-1"></div>
+                                <div class="preloader"></div>
+                            </div>
+                            {{/js_compare}}
+                            {{else}}
+                            <div class="swiper-slide"  onclick="foodcourtviewimage('vdetails','{{@index}}');">
+                                <li class="dashboard-image" style="background-image:url({{name}})"><img src="images/transparent-bg.png" alt=""></li>
+                            </div>
+                            {{/js_compare}}
+                        </div>
+                        {{/imgList}}
+                    </div>
+                    <div  class="swiper-pagination banner-pagination-{{@index}}"></div>
+                </div>
+            </ul>
+            <div class="top-list-icon" style="color:{{@global.styleAndNavigation.iconColor}};">
+                {{#if @global.setting.share_restra}}<span class="like-btn" onclick="shareVenderDetails(this,'{{id}}');"><i class="iconz-share-alt"></i></span>{{/if}}
+                {{#js_compare "this.favoriteList != '1'"}}
+                <span class="share-btn" onclick="addVenderFavourites(this,'{{id}}','add');"><i class="appyicon-like" ></i></span>
+                {{else}}
+                <span class="share-btn" onclick="addVenderFavourites(this,'{{id}}','remove');"><i class="icon-heart-1" ></i></span>
+                {{/js_compare}}
+            </div>
+            <div class="hotelDetail-page">
+                <div class="hotelDetail-div" style="border-color:{{@global.styleAndNavigation.borderColor}}">
+                    {{#js_compare "this.rating != '0'"}}
+                    <strong onclick="Foodcourtreviewlist(this);"  class="hotel-rating {{@global.styleAndNavigation.secondaryButton[0]}} {{@global.styleAndNavigation.secondaryButton[1]}}" style="background-color:{{@global.styleAndNavigation.secondaryButton[2]}}; color:{{@global.styleAndNavigation.secondaryButton[3]}}">{{rating}}</strong>
+                    {{/js_compare}}
+                    <h3 class="hotel-heading {{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}}"> {{name}} </h3>
+                    <h3 class="hotel-Add {{@global.styleAndNavigation.heading[0]}}" style="color:{{@global.styleAndNavigation.activeColor}}; "><i class="icon icon-location" style="color:{{@global.styleAndNavigation.iconColor}}"></i> {{address}}</h3>
+                </div>
+
+                <div class="hotel-wide hotel-bottBdr" style="border-color:{{@global.styleAndNavigation.borderColor}}">
+                    <ul class="hotel-detailTab htTab {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="color:{{@global.styleAndNavigation.content[2]}} ">
+                        {{#if storetime}}
+                        {{#storetime}}
+                        <li onclick="Appyscript.popupPage('foodcourt-timining')" ><span class="{{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}" style="color:{{@global.styleAndNavigation.subheading[2]}}">{{@global.pageLanguageSetting.store_time_food}} </span><span class="box"> {{todaystime}} </span></li>
+                        {{/storetime}}
+                        {{else}}
+                        {{/if}}
+                        {{#storetime}}
+                        <li><span class="iconTb" ><i class="icon iconz-phone1" onclick="PhoneCallFoodcourt('{{store_mobile}}');" style="color:{{@global.styleAndNavigation.iconColor}}"></i>
+                        {{/storetime}}
+                        {{#root_Compare storecontactus.contactus_chat "!=" ""}}<i class="icon icon-chat-empty"  firebaseurl="{{storecontactus.contactus_chat.chatroom_link}}" chatname="{{storecontactus.contactus_chat.chatroom_name}}"   onclick="chatroomfoodcourt(this,'check','hotelinfo');" style="color:{{@global.styleAndNavigation.iconColor}}"></i>{{/root_Compare}}</span></li>
+                    </ul>
+                </div>
+
+                <div class="hotel-wide" style="border-color:{{@global.styleAndNavigation.borderColor}}; border-top:none;">
+                    <ul class="hotel-detailTab {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="color:{{@global.styleAndNavigation.content[2]}} ">
+
+
+                        <li><span class="{{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}" style="color:{{@global.styleAndNavigation.subheading[2]}}">{{@global.pageLanguageSetting.time_to_deliver}}</span>
+                            <span class="box">{{#configList}}
+                                {{#configList}}
+                                {{#js_compare "this.ConfigKey == 'delivery_min_duration'"}}
+                                {{ConfigValue}} {{@global.pageLanguageSetting.var_minutes}}
+                                {{/js_compare}}
+                                {{/configList}}
+                            </span>
+                        </li>
+
+                        <li  class="secondDiv" ><span class="{{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}" style="color:{{@global.styleAndNavigation.subheading[2]}}">{{@global.pageLanguageSetting.home_restaurant_min_order}} </span>
+                            <span class="box">
+                                {{#configList}}{{#js_compare "this.ConfigKey == 'currency_code'"}}{{format_currency ConfigValue}}{{/js_compare}}{{/configList}} {{js "parseFloat(this.min_order).toFixed(2)"}}
+                            </span>
+                        </li>
+
+                        {{#payment_method}}
+
+                        <li id="paymentmethodfoodcourt"><span class="{{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}" style="color:{{@global.styleAndNavigation.subheading[2]}}">{{@global.pageLanguageSetting.payment_method_food}}</span><span class="box">
+
+
+
+
+                            {{andsymbolhelper COD Online}}
+
+
+
+                            </span></li>
+
+
+
+
+                        {{/payment_method}}
+
+
+
+
+                    </ul>
+                </div>
+                {{#if cuilength}}{{#js_compare "this.cuilength != '0'"}}
+                <div class="hotel-wide" style="border-color:{{@global.styleAndNavigation.borderColor}}; border-top:none;">
+                    <ul class="hotel-detailTab {{#js_compare "this.vendor_discount == ''"}} cuisine {{else}} cuisine2 {{/js_compare}}{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="color:{{@global.styleAndNavigation.content[2]}} ">
+                    <li><span class="cuisine_align {{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}" style="color:{{@global.styleAndNavigation.subheading[2]}}">{{@global.pageLanguageSetting.filter_page_cuisine}}</span><span class="type-content cuisine_align">{{cusinelisthelper cousinList}} </span> <a href="#" class="type-button" style="color:{{@global.styleAndNavigation.activeColor}}"> {{@global.pageLanguageSetting.show_more_social_network}}</a></li>
+                    </ul>
+                </div>
+                {{/js_compare}}{{/if}}
+
+
+                <div class="hotel-Chargtab {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="color:{{@global.styleAndNavigation.content[2]}}">
+                    <p>{{description}}</p>
+                    {{#js_compare "this.vendor_discount != '0'"}}{{#js_compare "this.vendor_discount != ''"}}
+                    <button class="hotel-sent-btn" style="background-color:{{@global.styleAndNavigation.offerButton.offerBgColor}}; color:{{@global.styleAndNavigation.offerButton.offerTextColor}}">{{vendor_discount}} % {{@global.pageLanguageSetting.off}}</button>
+                    <p style="color:{{@global.styleAndNavigation.activeColor}}">{{@global.pageLanguageSetting.auto_applies_during_checkout}} </p>
+                    {{/js_compare}} {{/js_compare}}
+                </div>
+
+            </div>
+        </section>
+    </div>
+</div>

@@ -1,0 +1,159 @@
+<div class="navbar"><div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+    <div class="left sliding">
+            <a href="index" class="link back" style="color:{{@global.style.headerBarIconColor}};">
+                <i class="icon icon-left-open-2"></i>
+            </a>
+        </div>
+        <div class="center sliding {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">
+            <div class="topHeader">{{@global.pageLanguageSetting.payment_method_food}}
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div data-page="foodcourt-PaymentPage" class="page navbar-through toolbar-fixed no-toolbar">
+    <!--<div class="toolbar"><div class="toolbar-inner"><a href="#" class="paynowbtn">PLACE ORDER</a></div></div>-->
+    <!-- Page content-->
+    <div class="page-content {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}} content-{{@global.styleAndNavigation.content[3]}} heading-{{@global.styleAndNavigation.heading[3]}}" style="color:{{@global.styleAndNavigation.content[2]}}; background:{{@global.styleAndNavigation.pageBgColor}}">
+		<style type="text/css">
+        .payment-mode .payment-nav a {
+            color:{{@global.styleAndNavigation.tab[1]}};
+            background-color:{{@global.styleAndNavigation.tab[0]}};        
+        }
+        .payment-mode .payment-nav a.active {
+            color:{{@global.styleAndNavigation.tab[1]}};
+            background-color:{{@global.styleAndNavigation.tab[2]}};
+        }
+        </style>
+        <div class="payment-mode">
+            <div class="listing-tabs">
+                <div class="payment-nav tabs-click" style="border-bottom:{{@global.styleAndNavigation.borderColor}}">
+                    {{#list}}
+                    {{if method}}
+                    <a href="#tab{{method}}" class="{{tabClassId}}{{tabActive}} tab-link ">{{label}}</a>
+                    {{/if}}
+                    {{/list}}
+                </div>
+            </div>
+            <div class="tabs-animated-wrap">
+                <div class="wrap" id="paymentTabs">
+                    <div class="tabs">
+                        {{#list}}
+
+                        {{#js_compare "this.method == 'card' "}}
+                        <div class="tab{{tabActive}} clearfix" id="tab{{method}}">
+                            <form id="creditCardThroughPaypal">
+                                <p>{{label}}</p>
+
+                                <div class="login-feald">
+                                    <input type="number" id="cnumber" name="cardNumber" placeholder="XXXX-XXXX-XXXX-XXXX" class="numberlength numberValidation" maxlength="20">
+                                </div>
+                                <div class="expiry-date">
+                                    <span>
+                                        <input type="number" id="ExpairyMonth" name="expairyMonth" placeholder="MM" class="numberlength numberValidation" maxlength="2">
+                                        <b>{{@global.pageLanguageSetting.expiry_month_food}}</b>
+                                    </span><span class="mid"> &nbsp; </span>
+                                    <span>
+                                        <input type="number" id="ExpairyYear" name="expairyYear" placeholder="YYYY" class="numberlength numberValidation" maxlength="4">
+                                        <b>{{@global.pageLanguageSetting.expiry_year_food}}</b>
+                                    </span>
+                                </div>
+                                <div class="login-feald" style="display:none">
+                                    <label>Card Security Code</label>
+                                </div>
+                                <div class="cvv">
+                                    <input type="number" id="cvvCode" name="cvvCode" placeholder="CVV"  class="numberlength numberValidation" maxlength="4">
+                                    <p>check the back of your credit card for cvv</p>
+                                </div>
+                                <div class="login-feald">
+                                    <input type="text" id="cHolder" name="cardHolder" placeholder="Card Holder Name" class="card-number card-name">
+                                </div>
+
+                                <footer id="footer-nav" data-label="{{label}}" data-key="{{paymentMethodKey}}"  data-clientId="{{clientId}}" data-secretKey="{{secretKey}}">
+
+                                    <a class="payment-btn {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" style="color:{{@global.styleAndNavigation.button[3]}};background:{{@global.styleAndNavigation.button[2]}};" onClick="foodPaymentRegistrationInfo(this);">{{@global.pageLanguageSetting.place_order_food}}</a>
+
+                                </footer>
+                            </form>
+                        </div>
+                        {{/js_compare}}
+
+                        {{#js_compare "this.method == 'obp' "}}
+                        <div class="tab{{tabActive}}" id="tab{{method}}" data-value="{{tabClassId}}" data-label="{{label}}" data-key="{{paymentMethodKey}}" data-phoneNo="{{phoneNo}}">
+                            <p>{{label}} <a href="callto:{{phoneNo}}">{{phoneNo}}</a><span>{{phoneText}}</span></p>
+                            <a class="BtText {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" style="color:{{@global.styleAndNavigation.button[3]}};background:{{@global.styleAndNavigation.button[2]}};"  onClick="foodPaymentRegistrationInfo(this);">{{@global.pageLanguageSetting.call_now_food}} </a>
+
+                        </div>
+                        {{/js_compare}}
+
+                        {{#js_compare "this.method == 'payu' "}}
+                        <div class="tab{{tabActive}}" id="tab{{method}}" data-label="{{label}}" data-key="{{paymentMethodKey}}" data-merchantId="{{merchantId}}" data-saltKey="{{saltKey}}">
+                            <p>{{label}}</p>
+                            <a class="BtText {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" style="color:{{@global.styleAndNavigation.button[3]}};background:{{@global.styleAndNavigation.button[2]}};" onClick="foodPaymentRegistrationInfo(this);">{{@global.pageLanguageSetting.confirm_food}}</a>
+                        </div>
+                        {{/js_compare}}
+
+                        {{#js_compare "this.method == 'paypal' "}}
+                        <div class="tab{{tabActive}}" id="tab{{method}}" data-label="{{label}}" data-key="{{paymentMethodKey}}" data-paypalId="{{paypalId}}">
+                            <p>{{label}}</p>
+                            <a class="BtText {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" style="color:{{@global.styleAndNavigation.button[3]}};background:{{@global.styleAndNavigation.button[2]}};" onClick="foodPaymentRegistrationInfo(this);">{{@global.pageLanguageSetting.confirm_food}}</a>
+                        </div>
+                        {{/js_compare}}
+
+                        {{#js_compare "this.method == 'cod' "}}
+                        <div class="tab{{tabActive}}" id="tab{{method}}" data-label="{{label}}" data-key="{{paymentMethodKey}}">
+                            <p>{{label}}</p>
+                            <a class="BtText {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" style="color:{{@global.styleAndNavigation.button[3]}};background:{{@global.styleAndNavigation.button[2]}};" onClick="foodPaymentRegistrationInfo(this);">{{@global.pageLanguageSetting.confirm_food}}</a>
+                        </div>
+                        {{/js_compare}}
+
+                        {{#js_compare "this.method == 'stripe' "}}
+                        <div class="tab{{tabActive}} clearfix" id="tab{{method}}">
+                            <form id="creditCardThroughStripe">
+                                <p>{{label}}</p>
+
+                                <div class="login-feald">
+                                    <input type="number" id="cnumber" name="cardNumber" placeholder="XXXX-XXXX-XXXX-XXXX" class="card-number numberlength numberValidation"   maxlength="20">
+                                </div>
+                                <div class="expiry-date">
+                                    <span>
+                                        <input type="number" id="ExpairyMonth" name="expairyMonth" placeholder="MM" class="numberlength numberValidation" maxlength="2">
+                                         <b>{{@global.pageLanguageSetting.expiry_month_food}}</b>
+                                    </span>
+                                    <span class="mid"> &nbsp; </span>
+                                    <span>
+                                        <input type="number" id="ExpairyYear" name="expairyYear" placeholder="YYYY" class="numberlength numberValidation" maxlength="4">
+                                        <b> {{@global.pageLanguageSetting.expiry_year_food}}</b>
+                                    </span>
+                                </div>
+                                <div class="login-feald" style="display:none">
+                                    <label>Card Security Code</label>
+                                </div>
+                                <div class="cvv">
+                                    <input type="number" id="cvvCode" name="cvvCode" placeholder="CVV" class="numberlength numberValidation" maxlength="4">
+                                    <p>check the back of your credit card for cvv</p>
+                                </div>
+                                <div class="login-feald">
+                                    <input type="text" id="cHolder" name="cardHolder" placeholder="Card Holder Name" class="card-number card-name">
+                                </div>
+
+                                <footer id="footer-nav" data-label="{{label}}" data-key="{{paymentMethodKey}}"  data-clientId="{{clientId}}" data-secretKey="{{secretKey}}">
+
+                                    <a class="payment-btn {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" style="color:{{@global.styleAndNavigation.button[3]}};background:{{@global.styleAndNavigation.button[2]}};" onClick="foodPaymentRegistrationInfo(this);">{{@global.pageLanguageSetting.place_order_food}}</a>
+
+                                </footer>
+                            </form>
+                        </div>
+
+
+                        {{/js_compare}}
+
+                        {{/list}}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

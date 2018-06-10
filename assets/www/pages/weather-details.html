@@ -1,0 +1,102 @@
+<div class="navbar"><div class="navbar-inner" style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+    <div class="left sliding">
+        {{#root_Compare @global.style.layout "==" "slidemenu"}}
+        {{#if @root.innerLayout}}
+        <a href="index" class="link back" style="color:{{@global.style.headerBarIconColor}};">
+            <i class="icon icon-left-open-2"></i>
+        </a>
+        {{else}}
+        <a onclick="Appyscript.openSlide()" style="color:{{@global.style.headerBarIconColor}};">
+            <i class="icon icon-menu"></i>
+        </a>
+        {{/if}}
+        {{else}}
+        <a href="index" class="link back" style="color:{{@global.style.headerBarIconColor}};">
+            <i class="icon icon-left-open-2"></i>
+        </a>
+        {{/root_Compare}}
+    </div>
+    <div class="center sliding {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">{{city}}</div>
+    <div class="right"></div>
+</div></div>
+
+<div data-page="weather-deatils" class="page navbar-through no-toolbar " >
+    <style>.page[data-page="weather-deatils"] {
+        
+        color: {{@global.style.pageTextColor}};
+        font-family:{{@global.style.appPageFont}}
+    
+    }.detail-city {
+        margin-top: 20px;
+        font-size: 31px;
+        text-align: center;
+        font-weight: 300;
+    }
+    .detail-condition {
+        text-align: center;
+    }
+    .detail-temp {
+        font-size: 81px;
+        line-height: 81px;
+        font-weight: 100;
+        text-align: center;
+    }
+    .list-block.forecast-list {
+        font-weight: 300;
+    }
+    @media all and (min-width: 600px) {
+        .list-block.forecast-list {
+            width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+    .list-block.forecast-list ul {
+        background: rgba(0, 0, 0, 0.2);
+    }
+    .list-block.forecast-list ul:before,
+    .list-block.forecast-list ul:after {
+        display: none;
+    }
+    .list-block.forecast-list .item-inner:after {
+        background: rgba(0, 0, 0, 0.3);
+    }
+    .list-block.forecast-list span {
+        display: inline-block;
+    }
+    .list-block.forecast-list span.state {
+        color: {{@global.style.pageTextColor}};
+        font-size: 14px;
+    }
+    .list-block.forecast-list span.temps {
+        width: 70px;
+        margin-left: 15px;
+        display: inline-block;
+        text-align: right;
+    }
+    .list-block.forecast-list span.temps span {
+        width: 40px;
+        color: {{@global.style.pageTextColor}};
+    }
+    .list-block.forecast-list span.temps span.high {
+       color: {{@global.style.pageTextColor}};
+    }
+    </style><div class="backgroundAnimation">{{> innerBackground}}</div>
+    <div class="page-content">
+        <!--div class="detail-city">{{city}}</div-->
+        <div class="detail-condition">{{condition.text}}</div>
+        <div class="detail-temp">{{condition.temp}}&deg;<small>{{@root.weatherType}}</small></div>
+        <div class="list-block forecast-list">
+            <ul>{{#each forecast}}
+                <li class="item-content">
+                    <div class="item-inner">
+                        <div class="item-title">{{dayOfWeek date}}</div>
+                        <div class="item-after"> <span class="state">{{text}}</span><span class="temps"><span class="high">{{high}}&deg;<small>{{@root.weatherType}}</small></span><span class="low">{{low}}&deg;<small>{{@root.weatherType}}</small></span></span></div>
+                    </div>
+                </li>{{/each}}
+            </ul>
+        </div>
+    </div>
+</div>
+
+

@@ -1,0 +1,49 @@
+<div class="navbar"><div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+    <div class="left sliding">
+		{{getSlideBack "common"}}   
+    </div>
+    <div class="center sliding {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">{{name}}</div>
+            <div class="right">
+            </div>
+          </div></div>
+
+
+<div data-page="tools-Notes" class="page navbar-through no-toolbar">
+    <!-- Page content-->
+<div class="backgroundAnimation">{{> innerBackground}}</div>
+<div class="page-content {{@global.style.appPageCsize}} {{@global.style.appPageFont}}">
+	<style>
+    .notes .notes-list li h4,
+    .notes .notes-list li p,
+    .notes .notes-list li date,
+    .notes .notes-list li div {
+     	color:{{@global.styleAndNavigation.content[2]}}
+    }
+	.notes .notes-list li h4 {
+		color:{{@global.styleAndNavigation.heading[2]}}
+	}
+    .add-notes {
+		background:{{@global.style.primaryButtonBgColor}};
+        color:{{@global.style.buttonTextColor}};
+    }
+	
+	.notes .notes-list li {
+		border-color:{{@global.styleAndNavigation.borderColor}};
+	}
+    </style>
+    
+    
+    <div class="notes">
+    	<ul class="notes-list">
+        	{{#list}}
+        	<li onclick="Appyscript.editNote({{@index}})">
+            <h4 class="{{@global.style.appPageHsize}}">{{title}}</h4>
+            <div>{{description}}</div>
+            <date>{{notesDate date}}</date>
+            </li>
+           	{{/list}}
+        </ul>
+        <a class="add-notes" onclick="Appyscript.editNote('none')">+</a>
+    </div>
+</div>
+</div>

@@ -1,0 +1,29 @@
+<div class="navbar"><div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+    <div class="left sliding">
+        		{{getSlideBack ""}}
+    </div>
+    <div class="center sliding {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">{{pageTitle}}</div>
+    <div class="right"></div>
+</div></div>
+
+
+<div data-page="commanPage" class="page navbar-through no-toolbar">
+    <!-- Page content-->
+    <div class="page-content {{@global.style.appPageFont}} {{@global.style.appPageCsize}}">
+     {{#js_compare "this.list.length == '1' "}}
+        {{else}}
+        {{#list}}
+        <a class="appypie-list" onclick="Appyscript.commanPage(this)" data-page="{{@root.pageId}}" data-identifire="{{identifire}}" data-value="{{value}}" data-index="{{@index}}" >
+            <span>
+            {{#js_compare "this.iconType == 'img' "}}
+                <img src="{{iconName}}" />
+            {{else}}
+                <i class="{{iconName}}" style="color:{{@global.style.pageIconColor}}"></i>
+            {{/js_compare}}
+            </span>
+            <span style="color:{{@global.style.pageTextColor}}">{{name}}</span>
+        </a>
+        {{/list}}
+        {{/js_compare}}
+    </div>
+</div>

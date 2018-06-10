@@ -1,0 +1,99 @@
+<div class="navbar">
+    <div class="navbar-inner" style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+        <div class="left sliding">
+            <a href="index" class="link back" style="color:{{@global.style.headerBarTextColor}};">
+                <i class="icon icon-left-open-2"></i>
+            </a>
+        </div>
+        <div class="center sliding  {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">
+            <div class="topHeader">
+                {{@global.pageLanguageSetting.gpa_claculator}}
+            </div>
+        </div>
+        <!--<div class="right">-->
+            <!--<a class="link" style="color:{{@global.style.headerBarIconColor}};">-->
+                <!--<i class="icon-dot-3 cursor-pointer"></i>-->
+            <!--</a>-->
+        <!--</div>-->
+    </div>
+</div>
+
+<div data-page="gpa-Page" class="page navbar-through no-toolbar">
+    <!-- Page content-->
+    <div class="page-content" style="background:#fff;">
+        <div class="calculatorPage">
+
+            <h2 class="heading_mortgage">{{@global.pageLanguageSetting.gpa_claculator}}</h2>
+
+            <div class="bmr">
+                <div class="divTable">
+                    <div class="divTableBody" id="rows">
+
+                        <!--Headings Section -->
+                        <div class="divTableRow headRow">
+                            <div class="divTableCell">{{@global.pageLanguageSetting.subject}}</div>
+                            <div class="divTableCell">{{@global.pageLanguageSetting.credit}}</div>
+                            <div class="divTableCell">{{@global.pageLanguageSetting.grade}}</div>
+                        </div>
+
+                        <!--input Fields Section -->
+
+                            <div class="divTableRow">
+                                <div class="divTableCell"><input type="text" id="subject0" placeholder="{{@global.pageLanguageSetting.subject}}"/></div>
+                                <div class="divTableCell"><input type="number" id="subject0credit" placeholder="{{@global.pageLanguageSetting.credit}}"/></div>
+                                <div class="divTableCell"><select id="subject0grade">
+                                    <option selected="selected" value="10">{{@global.pageLanguageSetting.grade}}</option>
+                                    <option value="4.3">{{@global.pageLanguageSetting.a_plus}}</option>
+                                    <option value="4">{{@global.pageLanguageSetting.a_gpa}}</option>
+                                    <option value="3.7">{{@global.pageLanguageSetting.a_minus}}</option>
+                                    <option value="3.33">{{@global.pageLanguageSetting.b_plus}}</option>
+                                    <option value="3.0">{{@global.pageLanguageSetting.b_gpa}}</option>
+                                    <option value="2.67">{{@global.pageLanguageSetting.b_minus}}</option>
+                                    <option value="2.33">{{@global.pageLanguageSetting.c_plus}}</option>
+                                    <option value="2.0">{{@global.pageLanguageSetting.c_gpa}}</option>
+                                    <option value="1.67">{{@global.pageLanguageSetting.c_minus}}</option>
+                                    <option value="1.33">{{@global.pageLanguageSetting.d_plus}}</option>
+                                    <option value="1.0">{{@global.pageLanguageSetting.d_gpa}}</option>
+                                    <option value=".67">{{@global.pageLanguageSetting.d_minus}}</option>
+                                    <option value="0">{{@global.pageLanguageSetting.f_gpa}}</option>
+                                    <option value="0">{{@global.pageLanguageSetting.s_gpa}}</option>
+                                    <option value="0">{{@global.pageLanguageSetting.w_gpa}}</option>
+                                    <option value="0">{{@global.pageLanguageSetting.fw_gpa}}</option>
+                                    <option value="0">{{@global.pageLanguageSetting.fn_gpa}}</option>
+
+                                </select></div>
+                            </div>
+
+                    </div>
+
+                    <!--GPA Section -->
+                    <div class="divTableRow totalAmnt">
+                        <div class="divTableCell">{{@global.pageLanguageSetting.total}}</div>
+                        <div class="divTableCell" id="creditsum">1</div>
+                        <div class="divTableCell">{{@global.pageLanguageSetting.na_gpa}}</div>
+                    </div>
+
+                    <!--Total Section -->
+                    <div class="divTableRow totalAmnt">
+                        <div class="divTableCell">{{@global.pageLanguageSetting.gpa}}</div>
+
+                        <div class="divTableCell" id="gpcalc">2</div>
+                        <div class="divTableCell"></div>
+                    </div>
+
+                </div>
+
+                <!--add and delete Section -->
+                <span class="deleteMore" onclick="deletemorediv()" id="deltbtn">{{@global.pageLanguageSetting.delete}}</span>
+                <span class="addMore" onclick="addmorediv()">{{@global.pageLanguageSetting.add_more}}</span>
+
+                <center class="calc">
+                    <button type="button" name="calculate" value="Calculate" onclick="Calgpa()" class="calculate_mor_button">{{@global.pageLanguageSetting.calculate}}</button>
+                </center>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+

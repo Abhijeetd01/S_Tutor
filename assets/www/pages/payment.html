@@ -1,0 +1,376 @@
+<div class="navbar">
+    <div class="navbar-inner" style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+        <div class="left sliding">
+            <a href="index" class="link back" style="color:{{@global.style.headerBarIconColor}};">
+                <i class="icon icon-left-open-2"></i>
+            </a>
+        </div>
+        <div class="center sliding {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">
+            <div class="topHeader">{{#if @root.innerlanguage}}{{innerlanguagedata.payment_method}} {{else}} {{@global.commonLanguageSetting.common_payment_method}}{{/if}}
+            </div>
+        </div>
+    </div>
+</div>
+
+<div data-page="paymentPage" class="page navbar-through toolbar-fixed no-toolbar">
+    <!-- Page content-->
+    <div class="page-content {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}} content-{{@global.styleAndNavigation.content[3]}} heading-{{@global.styleAndNavigation.heading[3]}}" style="color:{{@global.styleAndNavigation.content[2]}}; background:{{@global.styleAndNavigation.pageBgColor}}">
+        <style type="text/css">
+            .payment-mode .payment-nav a {
+            color:{{@global.styleAndNavigation.tab[1]}};
+            background-color:{{@global.styleAndNavigation.tab[0]}};
+            }
+            .payment-mode .payment-nav a.active {
+            color:{{@global.styleAndNavigation.tab[1]}};
+            background-color:{{@global.styleAndNavigation.tab[2]}};
+            }
+
+
+
+    .pay-field ::-webkit-input-placeholder {
+		color:{{@global.styleAndNavigation.content[2]}};
+		opacity:0.6;
+    }
+    .pay-field :-moz-placeholder {
+		color:{{@global.styleAndNavigation.content[2]}};
+		opacity:0.6;
+    }
+    .pay-field ::-moz-placeholder {
+		color:{{@global.styleAndNavigation.content[2]}};
+		opacity:0.6;
+    }
+    .pay-field :-ms-input-placeholder {
+    	color:{{@global.styleAndNavigation.content[2]}};
+		opacity:0.6;
+    }
+
+	.pay-field input[type="text"], .pay-field select, .pay-field textarea{
+		color:{{@global.styleAndNavigation.content[2]}};
+		border-color:{{@global.styleAndNavigation.borderColor}}
+	}
+
+        </style>
+        <div class="payment-mode">
+            <div class="listing-tabs">
+                <div class="payment-nav tabs-click" style="border-bottom:{{@global.styleAndNavigation.borderColor}}">
+                    {{#list}}
+                    {{if method}}
+                    <a href="#tab{{method}}" class="{{getPayment tabClassId}} {{tabClassId}}{{tabActive}} tab-link " label="{{label}}"></a>
+                    {{/if}}
+                    {{/list}}
+                </div>
+            </div>
+            <div class="tabs-animated-wrap">
+                <div class="wrap" id="paymentTabs">
+                    <div class="tabs">
+                        {{#list}}
+                        {{#js_compare "this.method == 'card' "}}
+                        <div class="tab{{tabActive}} clearfix" id="tab{{method}}">
+                            <form id="creditCardThroughPaypal">
+                                <p>{{label}}</p>
+                                <div class="login-feald">
+                                    <input type="number" id="cnumber" name="cardNumber" placeholder="XXXX-XXXX-XXXX-XXXX" class="card-number numberlength numberValidation" maxlength="20">
+                                </div>
+                                <div class="expiry-date">
+                                    <span><input type="number" id="ExpairyMonth" name="expairyMonth" placeholder="MM" class="numberlength numberValidation" maxlength="2">{{#if @root.innerlanguage}}{{@root.innerlanguagedata.expiry_month}} {{else}}  {{@global.commonLanguageSetting.common_expiry_month}}{{/if}} </span><span class="mid"> &nbsp; </span><span><input type="number" id="ExpairyYear" name="expairyYear" placeholder="YYYY" class="numberlength numberValidation" maxlength="4"> {{#if @root.innerlanguage}}{{@root.innerlanguagedata.expiry_year}} {{else}}  {{@global.commonLanguageSetting.common_expiry_year}}{{/if}} </span>
+                                </div>
+                                <div class="login-feald" style="display:none">
+                                    <label>Card Security Code</label>
+                                </div>
+                                <div class="cvv">
+                                    <input type="number" id="cvvCode" name="cvvCode" placeholder="CVV"  class="numberlength numberValidation" maxlength="4">
+                                    <p>{{#if @root.innerlanguage}}{{@root.innerlanguagedata.cvv_code}} {{else}}{{@global.commonLanguageSetting.common_check_the_back_of_your_credit_card_for_cvv}}{{/if}}</p>
+                                </div>
+                                <div class="login-feald">
+                                    <input type="text" id="cHolder" name="cardHolder" placeholder="{{#if @root.innerlanguage}}{{@root.innerlanguagedata.card_holder_name}} {{else}} {{@global.commonLanguageSetting.common_card_holder_name}}{{/if}}" class="card-number card-name">
+                                </div>
+                                <footer id="footer-nav" data-label="{{label}}" data-key="{{paymentMethodKey}}"  data-clientId="{{clientId}}" data-secretKey="{{secretKey}}">
+                                    <a class="paynowbtn {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" style="color:{{@global.styleAndNavigation.button[3]}};background:{{@global.styleAndNavigation.button[2]}};" onClick="Appyscript.paymentRegistrationInfo(this,'{{page}}');">{{#if @root.innerlanguage}}{{@root.innerlanguagedata.place_order}} {{else}} {{@global.commonLanguageSetting.common_place_order}}{{/if}}</a>
+                                </footer>
+                            </form>
+                        </div>
+                        {{/js_compare}}
+
+                        {{#js_compare "this.method == 'obp' "}}
+                        <div class="tab{{tabActive}}" id="tab{{method}}" data-value="{{tabClassId}}" data-label="{{label}}" data-key="{{paymentMethodKey}}" data-phoneNo="{{phoneNo}}">
+                            <p>{{label}}&nbsp; <a href="callto:{{phoneNo}}">{{phoneNo}}</a>&nbsp; <span>{{phoneText}}</span></p>
+                            <a class="BtText {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" style="color:{{@global.styleAndNavigation.button[3]}};background:{{@global.styleAndNavigation.button[2]}};"  onClick="Appyscript.paymentRegistrationInfo(this,'{{page}}');">{{#if @root.innerlanguage}}{{@root.innerlanguagedata.call_now}} {{else}} {{@global.commonLanguageSetting.common_call_now}}{{/if}} </a>
+
+                        </div>
+                        {{/js_compare}}
+
+                        {{#js_compare "this.method == 'payu' "}}
+                        <div class="tab{{tabActive}}" id="tab{{method}}" data-label="{{label}}" data-key="{{paymentMethodKey}}" data-merchantId="{{merchantId}}"  data-saltKey="{{saltKey}}">
+                            <p>{{label}}</p>
+                            <a class="BtText {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" style="color:{{@global.styleAndNavigation.button[3]}};background:{{@global.styleAndNavigation.button[2]}};" onClick="Appyscript.paymentRegistrationInfo(this,'{{page}}');">{{#if @root.innerlanguage}}{{@root.innerlanguagedata.confirm}} {{else}} {{@global.commonLanguageSetting.common_confirm}}{{/if}}</a>
+                        </div>
+                        {{/js_compare}}
+
+                        {{#js_compare "this.method == 'paypal' "}}
+                        <div class="tab{{tabActive}}" id="tab{{method}}" data-label="{{label}}" data-key="{{paymentMethodKey}}" data-paypalId="{{paypalId}}">
+                            <p>{{label}}</p>
+                            <a class="BtText {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" style="color:{{@global.styleAndNavigation.button[3]}};background:{{@global.styleAndNavigation.button[2]}};" onClick="Appyscript.paymentRegistrationInfo(this,'{{page}}');">{{#if @root.innerlanguage}}{{@root.innerlanguagedata.confirm}} {{else}} {{@global.commonLanguageSetting.common_confirm}}{{/if}}</a>
+                        </div>
+                        {{/js_compare}}
+
+                        {{#js_compare "this.method == 'payfast' "}}
+                        <div class="tab{{tabActive}}" id="tab{{method}}" data-label="{{label}}" data-key="{{paymentMethodKey}}" data-payfastmerId="{{merchantId}}" data-merchantKey="{{merchantKey}}">
+                            <p>{{label}}</p>
+                            <a class="BtText {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" style="color:{{@global.styleAndNavigation.button[3]}};background:{{@global.styleAndNavigation.button[2]}};" onClick="Appyscript.paymentRegistrationInfo(this,'{{page}}');">{{#if @root.innerlanguage}}{{@root.innerlanguagedata.confirm}} {{else}} {{@global.commonLanguageSetting.common_confirm}}{{/if}}</a>
+                        </div>
+                        {{/js_compare}}
+
+
+                        {{#js_compare "this.method == 'cod' "}}
+                        <div class="tab{{tabActive}}" id="tab{{method}}" data-label="{{label}}" data-key="{{paymentMethodKey}}">
+                            <p>{{label}}</p>
+                            <a class="BtText {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" style="color:{{@global.styleAndNavigation.button[3]}};background:{{@global.styleAndNavigation.button[2]}};" onClick="Appyscript.paymentRegistrationInfo(this,'{{page}}');">{{#if @root.innerlanguage}}{{@root.innerlanguagedata.confirm}} {{else}} {{@global.commonLanguageSetting.common_confirm}}{{/if}}</a>
+                        </div>
+                        {{/js_compare}}
+
+                        {{#js_compare "this.method == 'pickup' "}}
+                        <div class="tab{{tabActive}}" id="tab{{method}}" data-label="{{label}}" data-key="{{paymentMethodKey}}">
+                            <p>{{label}}</p>
+                            <a class="BtText {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" style="color:{{@global.styleAndNavigation.button[3]}};background:{{@global.styleAndNavigation.button[2]}};" onClick="Appyscript.paymentRegistrationInfo(this,'{{page}}');">{{#if @root.innerlanguage}}{{@root.innerlanguagedata.confirm}} {{else}} {{@global.commonLanguageSetting.common_confirm}}{{/if}}</a>
+                        </div>
+                        {{/js_compare}}
+
+                        {{#js_compare "this.method == 'stripe' "}}
+                        <div class="tab{{tabActive}} clearfix" id="tab{{method}}">
+                            {{#if @global.cardLast4ecom}}
+                            <div class="cardStorage"  >
+                                <div class="cardRow" style="border-color:{{@global.styleAndNavigation.borderColor}}">
+                                    <b class="{{@global.styleAndNavigation.secondaryButton[0]}} {{@global.styleAndNavigation.secondaryButton[1]}}" style="color:{{@global.styleAndNavigation.tab[1]}};background:{{@global.styleAndNavigation.tab[2]}};" onClick="openCvv(this);">
+                                        <span class="text"><input type="checkbox" id="savecardcheck" onClick="openCvvCheckBox(this)" /> {{@global.pageLanguageSetting.pay_with_this_card}}</span>
+                                        <span class="icons">
+                                            <i class="icon-circle"></i>
+                                            <i class="icon-circle"></i>
+                                            <i class="icon-circle"></i>
+                                            <i class="icon-circle last"></i>
+
+                                            <i class="icon-circle"></i>
+                                            <i class="icon-circle"></i>
+                                            <i class="icon-circle"></i>
+                                            <i class="icon-circle last"></i>
+
+                                            <i class="icon-circle"></i>
+                                            <i class="icon-circle"></i>
+                                            <i class="icon-circle"></i>
+                                            <i class="icon-circle last"></i>
+
+                                            <span>{{@global.cardLast4ecom}}</span>
+                                        </span>
+                                    </b>
+                                    <a class="delete" id="savecardcheckDelete" style="color:{{@global.styleAndNavigation.tab[2]}};background:{{@global.styleAndNavigation.tab[1]}};" onClick="deleteCardEcomm(this)">X</a>
+                                </div>
+                            </div>
+
+
+                            <div class="cardStorage-divider" style="border-color:{{@global.styleAndNavigation.borderColor}}"></div>
+
+
+                            <form id="creditCardThroughStripeCvv" style="display:none;">
+
+
+                                <div class="cvv" style="margin:15px auto;">
+                                    <input type="number" id="cvvCodeSave" name="cvvCode" placeholder="CVV" class="numberlength numberValidation" maxlength="4">
+                                    <p>{{#if @root.innerlanguage}}{{@root.innerlanguagedata.cvv_code}} {{else}}{{@global.commonLanguageSetting.common_check_the_back_of_your_credit_card_for_cvv}}{{/if}}</p>
+                                </div>
+
+                                <footer id="footer-nav" data-label="{{label}}" data-key="{{paymentMethodKey}}"  data-clientId="{{clientId}}" data-secretKey="{{secretKey}}" style="margin-top: 20px;">
+
+                                    <a class="paynowbtn {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" style="color:{{@global.styleAndNavigation.button[3]}};background:{{@global.styleAndNavigation.button[2]}};" onClick="Appyscript.paymentRegistrationInfo(this,'{{page}}');">{{#if @root.innerlanguage}}{{@root.innerlanguagedata.place_order}} {{else}} {{@global.commonLanguageSetting.common_place_order}}{{/if}}</a>
+                                </footer>
+                            </form>
+                            {{/if}}
+
+
+                            {{#if @global.cardLast4food}}
+                            <div class="cardStorage"  >
+                                <div class="cardRow" style="border-color:{{@global.styleAndNavigation.borderColor}}">
+                                    <b class="{{@global.styleAndNavigation.secondaryButton[0]}} {{@global.styleAndNavigation.secondaryButton[1]}}" style="color:{{@global.styleAndNavigation.tab[1]}};background:{{@global.styleAndNavigation.tab[2]}};" onClick="openCvv(this);">
+                                        <span class="text"><input type="checkbox" id="savecardcheck" onClick="openCvvCheckBox(this)" /> {{@global.pageLanguageSetting.pay_with_this_card}}</span>
+                                        <span class="icons">
+                                             <i class="icon-circle"></i>
+                                             <i class="icon-circle"></i>
+                                             <i class="icon-circle"></i>
+                                             <i class="icon-circle last"></i>
+
+                                             <i class="icon-circle"></i>
+                                             <i class="icon-circle"></i>
+                                             <i class="icon-circle"></i>
+                                             <i class="icon-circle last"></i>
+
+                                             <i class="icon-circle"></i>
+                                             <i class="icon-circle"></i>
+                                             <i class="icon-circle"></i>
+                                             <i class="icon-circle last"></i>
+
+                                             <span>{{@global.cardLast4food}}</span>
+                                         </span>
+                                    </b>
+                                    <a class="delete" id="savecardcheckDelete" style="color:{{@global.styleAndNavigation.tab[2]}};background:{{@global.styleAndNavigation.tab[1]}};" onClick="deleteCardFood(this)">X</a>
+                                </div>
+                            </div>
+
+
+                            <div class="cardStorage-divider" style="border-color:{{@global.styleAndNavigation.borderColor}}"></div>
+
+
+                            <form id="creditCardThroughStripeCvv" style="display:none;">
+
+
+                                <div class="cvv" style="margin:15px auto;top:40px;">
+                                    <input type="number" id="cvvCodeSave" name="cvvCode" placeholder="CVV" class="numberlength numberValidation" maxlength="4">
+                                    <p>{{#if @root.innerlanguage}}{{@root.innerlanguagedata.cvv_code}} {{else}}{{@global.commonLanguageSetting.common_check_the_back_of_your_credit_card_for_cvv}}{{/if}}</p>
+                                </div>
+
+                                <footer id="footer-nav" data-label="{{label}}" data-key="{{paymentMethodKey}}"  data-clientId="{{clientId}}" data-secretKey="{{secretKey}}" style="margin-top: 70px;">
+
+                                    <a class="paynowbtn {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" style="color:{{@global.styleAndNavigation.button[3]}};background:{{@global.styleAndNavigation.button[2]}};" onClick="Appyscript.paymentRegistrationInfo(this,'{{page}}');">{{#if @root.innerlanguage}}{{@root.innerlanguagedata.place_order}} {{else}} {{@global.commonLanguageSetting.common_place_order}}{{/if}}</a>
+                                </footer>
+                            </form>
+                            {{/if}}
+
+                            {{#if @global.cardLast4foodCourt}}
+                            <div class="cardStorage"  >
+                                <div class="cardRow" style="border-color:{{@global.styleAndNavigation.borderColor}}">
+                                    <b class="{{@global.styleAndNavigation.secondaryButton[0]}} {{@global.styleAndNavigation.secondaryButton[1]}}" style="color:{{@global.styleAndNavigation.tab[1]}};background:{{@global.styleAndNavigation.tab[2]}};" onClick="openCvv(this);">
+                                        <span class="text"><input type="checkbox" id="savecardcheck" onClick="openCvvCheckBox(this)" /> {{@global.pageLanguageSetting.pay_with_this_card}}</span>
+                                        <span class="icons">
+                                             <i class="icon-circle"></i>
+                                             <i class="icon-circle"></i>
+                                             <i class="icon-circle"></i>
+                                             <i class="icon-circle last"></i>
+
+                                             <i class="icon-circle"></i>
+                                             <i class="icon-circle"></i>
+                                             <i class="icon-circle"></i>
+                                             <i class="icon-circle last"></i>
+
+                                             <i class="icon-circle"></i>
+                                             <i class="icon-circle"></i>
+                                             <i class="icon-circle"></i>
+                                             <i class="icon-circle last"></i>
+
+                                             <span>{{@global.cardLast4foodCourt}}</span>
+                                         </span>
+                                    </b>
+                                    <a class="delete" id="savecardcheckDelete" style="color:{{@global.styleAndNavigation.tab[2]}};background:{{@global.styleAndNavigation.tab[1]}};" onClick="deleteCardFoodCourt(this)">X</a>
+                                </div>
+                            </div>
+
+
+                            <div class="cardStorage-divider" style="border-color:{{@global.styleAndNavigation.borderColor}}"></div>
+
+                            <form id="creditCardThroughStripeCvv" style="display:none;">
+
+
+                                <div class="cvv" style="margin:15px auto;top:20px;">
+                                    <input type="number" id="cvvCodeSave" name="cvvCode" placeholder="CVV" class="numberlength numberValidation" maxlength="4">
+                                    <p>{{#if @root.innerlanguage}}{{@root.innerlanguagedata.cvv_code}} {{else}}{{@global.commonLanguageSetting.common_check_the_back_of_your_credit_card_for_cvv}}{{/if}}</p>
+                                </div>
+
+                                <footer id="footer-nav" data-label="{{label}}" data-key="{{paymentMethodKey}}"  data-clientId="{{clientId}}" data-secretKey="{{secretKey}}" style="margin-top: 40px;">
+
+                                    <a class="paynowbtn {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" style="color:{{@global.styleAndNavigation.button[3]}};background:{{@global.styleAndNavigation.button[2]}};" onClick="Appyscript.paymentRegistrationInfo(this,'{{page}}');">{{#if @root.innerlanguage}}{{@root.innerlanguagedata.place_order}} {{else}} {{@global.commonLanguageSetting.common_place_order}}{{/if}}</a>
+                                </footer>
+                            </form>
+                            {{/if}}
+
+                            <form id="creditCardThroughStripe">
+                                <p>{{label}}</p>
+
+                                <div class="login-feald">
+                                    <input type="number" id="cnumber" name="cardNumber" placeholder="XXXX-XXXX-XXXX-XXXX" class="card-number numberlength numberValidation"   maxlength="20">
+                                </div>
+                                <div class="expiry-date">
+                                    <span><input type="number" id="ExpairyMonth" name="expairyMonth" placeholder="MM" class="numberlength numberValidation" maxlength="2"> {{#if @root.innerlanguage}}{{@root.innerlanguagedata.expiry_month}} {{else}}  {{@global.commonLanguageSetting.common_expiry_month}}{{/if}} </span><span class="mid"> &nbsp; </span><span><input type="number" id="ExpairyYear" name="expairyYear" placeholder="YYYY" class="numberlength numberValidation" maxlength="4"> {{#if @root.innerlanguage}}{{@root.innerlanguagedata.expiry_year}} {{else}}  {{@global.commonLanguageSetting.common_expiry_year}}{{/if}}</span>
+                                </div>
+                                <div class="login-feald" style="display:none">
+                                    <label>Card Security Code</label>
+                                </div>
+                                <div class="cvv">
+                                    <input type="number" id="cvvCode" name="cvvCode" placeholder="CVV" class="numberlength numberValidation" maxlength="4">
+                                    <p>{{#if @root.innerlanguage}}{{@root.innerlanguagedata.cvv_code}} {{else}}{{@global.commonLanguageSetting.common_check_the_back_of_your_credit_card_for_cvv}}{{/if}}</p>
+                                </div>
+                                <div class="login-feald">
+                                    <input type="text" id="cHolder" name="cardHolder" placeholder="{{#if @root.innerlanguage}}{{@root.innerlanguagedata.card_holder_name}} {{else}} {{@global.commonLanguageSetting.common_card_holder_name}}{{/if}}" class="card-number card-name">
+                                </div>
+                                <div class="login-feald" style="margin:0 0 15px 0; float: left;width: 100%;">
+                                    <label class="save-card" ><input type="checkbox" id="issavecardcheck" /><span>{{@global.pageLanguageSetting.save_this_card_for_faster_checkout}}</span></label>
+                                </div>
+                                <footer id="footer-nav" data-label="{{label}}" data-key="{{paymentMethodKey}}"  data-clientId="{{clientId}}" data-secretKey="{{secretKey}}">
+
+                                    <a class="paynowbtn {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" style="color:{{@global.styleAndNavigation.button[3]}};background:{{@global.styleAndNavigation.button[2]}};" onClick="Appyscript.paymentRegistrationInfo(this,'{{page}}');">{{#if @root.innerlanguage}}{{@root.innerlanguagedata.place_order}} {{else}} {{@global.commonLanguageSetting.common_place_order}}{{/if}}</a>
+
+                                </footer>
+                            </form>
+                        </div>
+                        {{/js_compare}}
+                        {{#js_compare "this.method == 'hubtel' "}}
+                        <div class="tab{{tabActive}}" id="tab{{method}}" data-label="{{label}}" data-key="{{paymentMethodKey}}">
+                            <div class="pay-field pr" style="border-bottom:1px solid {{@global.styleAndNavigation.borderColor}}; font-size:20px; padding-bottom:8px;">
+                                <label style="width:100%;display:inline-block !important; font-weight:bold; text-align:center; color:{{@global.styleAndNavigation.content[2]}};
+		">{{@global.pageLanguageSetting.price_mcom}}: {{format_currency @global.grndtotal.currency}}<span>{{@global.grndtotal.grandtaotal}}</span></label>
+                            </div>
+                                <div class="pay-field">
+                                    <label>{{@global.pageLanguageSetting.customer_name_foodcourt}}*</label>
+                                    <input id="paymentcustomer_name" placeholder="{{@global.pageLanguageSetting.customer_name_foodcourt}}*" type="text" name="CustomerName"  value="{{@global.billingdata.name}}" />
+                                </div>
+                                <div class="pay-field" style="display:none">
+                                    <label>{{@global.pageLanguageSetting.email_id_mcom}}</label>
+                                    <input id="paymentemail" placeholder="{{@global.pageLanguageSetting.email_id_mcom}}" type="text"  name="CustomerEmail"  />
+                                </div>
+                                <div class="pay-field" style="display:none">
+                                    <label>{{@global.pageLanguageSetting.price_mcom}}</label>
+                                    <input type="text" id="paymentprice"  name="{{@global.pageLanguageSetting.price_mcom}}" value="{{@global.grndtotal}}" readonly />
+                                </div>
+                                <div class="pay-field">
+                                    <label>{{@global.pageLanguageSetting.fc_mobile}}*</label>
+                                    <input type="text" id="paymentmobileno" placeholder ="{{@global.pageLanguageSetting.fc_mobile}}*" name="CustomerMsisdn" value="{{@global.billingdata.phone}}"  />
+                                </div>
+
+                            <div class="pay-field">
+                                <label>{{@global.pageLanguageSetting.mobile_payment}}*</label>
+                                <div class="se_option">
+                                    <select name = "Channel" id="paymentmobile" onchange="showhidevocher()">
+                                        <option value = "" >{{@global.pageLanguageSetting.select_mobile_wallet}}</option>
+                                        <option value = "mtn-gh">{{@global.pageLanguageSetting.MTN_ghana}}</option>
+                                        <option value = "vodafone-gh">{{@global.pageLanguageSetting.vodafone_ghana}}</option>
+                                        <option value = "tigo-gh">{{@global.pageLanguageSetting.tigo_ghana}}</option>
+                                        <option value = "airtel-gh">{{@global.pageLanguageSetting.airtel_ghana}}</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div style="display:none" id="vouchercodefld">
+                            <div class="pay-field" style="margin: 10px 0 30px 0;">
+                                <strong>{{@global.pageLanguageSetting.instructions_mcom}} </strong> <br>
+                                {{@global.pageLanguageSetting.vodaphone_intraction}}
+
+                            </div>
+
+
+                                <div class="pay-field"  >
+                                    <label>{{@global.pageLanguageSetting.voucher_code}}*</label>
+                                    <input type="text" id="vouchercode" placeholder ="{{@global.pageLanguageSetting.voucher_code}}*" name="Token" />
+                                </div>
+                            </div>
+                                <!--<div class="pay-field">-->
+                                    <!--<label>{{@global.pageLanguageSetting.please_enter_the_review_text_mcom}}</label>-->
+                                    <!--<textarea id="paymentdescription" name="description"   maxlength="500" required></textarea>-->
+                                <!--</div>-->
+
+                                <footer id="footer-nav" onClick="Appyscript.paymentRegistrationInfo(this,'{{page}}');">
+                                    <a  class="paynowbtn {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" style="color:{{@global.styleAndNavigation.button[3]}};background:{{@global.styleAndNavigation.button[2]}};">{{@global.pageLanguageSetting.paybyhubtel}}</a>
+                                </footer>
+                        </div>
+                        {{/js_compare}}
+                        {{/list}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

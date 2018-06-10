@@ -1,0 +1,73 @@
+<div class="navbar"><div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+    <div class="left sliding">
+        {{#if @global.singleFoodCategoryPages}}
+        {{getNavigation @global.style.layout "menu"}}
+        {{else}}
+        <a href="index" class="link back" style="color:{{@global.style.headerBarIconColor}};">
+            <i class="icon icon-left-open-2"></i>
+        </a>
+        {{/if}}
+		</div>
+		<div class="center sliding {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">
+			<div class="topHeader">
+				{{categoryName}}
+			</div>
+		</div>
+        
+		<div class="right">		
+        <a onclick="Appyscript.foodcardview(this)" class="localHeaderIconRight ui-link" style="color:{{@global.style.headerBarIconColor}};"> <span class="subValue" style="color:{{@global.styleAndNavigation.button[3]}};background:{{@global.styleAndNavigation.button[2]}};">{{@global.foodCartCount}}</span><div class="headerIcon"><i class="icon-cart"></i></div></a>
+		</div>
+	</div>
+</div>
+
+<div data-page="foodordering-Category" class="page navbar-through no-toolbar">
+<style type="text/css"> 
+	div[data-page="foodordering-Category"] .categories.theme-2 .categories-list li.category {height: auto; border-bottom:2px solid {{@global.styleAndNavigation.borderColor}}}
+</style>
+	<!-- Page content-->    
+    <div class="page-content infinite-scroll {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}} content-{{@global.styleAndNavigation.content[3]}} heading-{{@global.styleAndNavigation.heading[3]}} hideBorder-{{@global.styleAndNavigation.hideBorder}}" style="color:{{@global.styleAndNavigation.content[2]}}; background:{{@global.styleAndNavigation.pageBgColor}}" data-distance="200" data-page="{{categoryPage}}" data-id="{{categoryId}}">
+    	<div class="categories theme-{{@global.styleAndNavigation.layout}}">
+        	<ul class="categories-list">
+                {{#if subCategories}}
+                {{#subCategories}}
+                <li class="category">
+                    {{#root_Compare @global.styleAndNavigation.layout "==" "1"}}
+                    	<img src="images/image-2x1.png" style="background-image:url({{image}})" />
+                    {{/root_Compare}}
+                    {{#root_Compare @global.styleAndNavigation.layout "==" "2"}}
+                    	<img src="images/image-1x1.png" style="background-image:url({{image}})" />
+                    {{/root_Compare}}
+                    {{#root_Compare @global.styleAndNavigation.layout "==" "3"}}
+                    	<img src="images/image-1x1.png" style="background-image:url({{image}})" />
+                    {{/root_Compare}}
+                    {{#root_Compare @global.styleAndNavigation.layout "==" "5"}}
+                    	<img src="images/image-1x1.png" />
+                    	<img src="images/image-1x1.png" style="background-image:url({{image}})" class="icon-view" />
+                    {{/root_Compare}}
+                    <div class="details" style="background:{{@global.styleAndNavigation.title[2]}};">
+                    	<h3 class="{{@global.styleAndNavigation.title[0]}} {{@global.styleAndNavigation.title[1]}}" style="color:{{@global.styleAndNavigation.title[3]}}">{{name}}<span class="icon-right-open"></span></h3>
+                    </div>
+            <div class="overlay" onclick="Appyscript.foodSubcatProductList(this);" subcat-id="{{id}}" data-head="{{name}}" dataimage="{{image}}"></div>
+                </li>                        
+                {{/subCategories}}
+                {{/if}}
+                        
+                {{#if productList}}
+                {{#productList}}
+	                {{> foodcatProduct}}
+                {{/productList}}
+                {{/if}}   
+            </ul>
+            <div class="infinite-scroll-preloader" style="display:none">
+            	<div class="preloader-view"><div class="preloader"></div></div>            	
+            </div>
+        </div>
+		{{#js_compare "this.subCategories.length == '0' "}}
+        {{#js_compare "this.productList.length == '0' "}}
+        <div class="msg-code">{{> errorpage errorIcon="appyicon-no-data"}}</div>
+        {{/js_compare}}
+        {{/js_compare}}
+	</div>
+</div>
+
+        

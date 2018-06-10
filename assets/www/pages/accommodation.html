@@ -1,0 +1,84 @@
+<div class="navbar">
+    <div class="navbar-inner" style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+        
+        <div class="left sliding">
+             {{getNavigation @global.style.layout "menu"}}
+         
+        </div>
+        
+        
+        <div class="center sliding">
+            <div class="topHeader {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">{{@global.accomtitle}}
+                <span   style="color: {{@global.style.headerBarTextColor}}; display:none" class="locate icon-location cursor-pointer" onclick="Appyscript.popupPage('accommodation-location');"  id="cityhotelselected">
+                    <span style="color: {{@global.style.headerBarTextColor}}; display:none">
+                    
+                    {{@global.pageLanguageSetting.select_city}}
+                </span>
+                
+                </span>
+            </div>
+        </div>
+        
+        <div class="right">
+            <a href="#" style="color:{{@global.style.headerBarIconColor}};" class="icon icon-exchange-1 cursor-pointer short-by-icon" onclick="Appyscript.popupPage('accommodation-short-by');"></a>
+            <a href="#" style="color:{{@global.style.headerBarIconColor}};" class="icon iconz-filter cursor-pointer ft18" onclick="Appyscript.hotelFilter(this);"></a>
+        </div>
+    </div>
+</div>
+
+<div data-page="accommodation-page" class="page navbar-through no-toolbar">
+    <div class="backgroundAnimation">{{> innerBackground}}</div>
+    <style>
+        .ratingStar label.half {color:{{@global.styleAndNavigation.ratingColor}}}
+        .ratingStar label.full{color:{{@global.styleAndNavigation.ratingColor}}}
+        .ratingStar label.on {color:{{@global.styleAndNavigation.ratingActiveColor}} !important}
+        .hotelSearchToggleDrop li{border-color:{{@global.styleAndNavigation.borderColor}}}
+        .anytimeField ::-webkit-input-placeholder {color:{{@global.styleAndNavigation.fieldTextColor}}}
+        .anytimeField :-moz-placeholder {color:{{@global.styleAndNavigation.fieldTextColor}}}
+        .anytimeField::-moz-placeholder {color:{{@global.styleAndNavigation.fieldTextColor}}}
+        .anytimeField :-ms-input-placeholder {color:{{@global.styleAndNavigation.fieldTextColor}}}
+        </style>
+    <!-- Page content-->
+    {{#js_compare "this.pageList.length != '0' "}}
+    <div class="search-box hideBorder-{{@global.styleAndNavigation.hideBorder}}">
+
+            <div   onclick="hotelSearchToggle(this);" id="hotelSearch" class="hotelSearchField on" style="background:{{@global.styleAndNavigation.fieldBgColor}}; color:{{@global.styleAndNavigation.fieldTextColor}};">
+                
+                <span id="hotelanywhere" style="max-width: 150px; display: inline; white-space: nowrap; text-overflow: ellipsis; overflow: hidden;" >{{@global.pageLanguageSetting.anywhere}} </span>
+                . <span id="hotelanytime"> {{@global.pageLanguageSetting.Im_flexible_Any_Time_hyp}} </span>
+                .<span id="hotelanyguest" >1 {{@global.pageLanguageSetting.guest}} </span>
+            </div>
+            <a class="icon-search" id="hotelclearsearchshow"   style="color:{{@global.styleAndNavigation.icon[1]}}"></a>
+                        <a  id="hotelclearsearch" onclick="clearfilterhotel()" class="" style="color:{{@global.styleAndNavigation.icon[1]}};font-size: 12px;z-index:10">Clear</a>
+
+
+        <div class="searchToggleWp">
+            <div class="hotelSearchToggleDrop-overlay" ontouchstart="hotelSearchToggle()"></div>
+            <ul class="hotelSearchToggleDrop off" style="background:{{@global.styleAndNavigation.fieldBgColor}}; color:{{@global.styleAndNavigation.fieldTextColor}};">
+                <li id="hotelanywheredrop" class="icon-right-open no-fastclick" onclick="Appyscript.popupPage('accommodation-location');" ><i class="icon-globe-3" style="color:{{@global.styleAndNavigation.icon[1]}}"></i>{{@global.pageLanguageSetting.anywhere}} </li>
+                <li class="icon-right-open anytimeField"><i class="icon-calendar-4" style="color:{{@global.styleAndNavigation.icon[1]}}"></i>  <input type="text" placeholder="{{@global.pageLanguageSetting.select_date}}" readonly id="hotelcalendar-range" style="color:{{@global.styleAndNavigation.fieldTextColor}};"> </li>
+                <li id="hotelanyguestdrop" class="icon-right-open" onclick="Appyscript.guesthotelclick(this);" ><i class="iconz-user" style="color:{{@global.styleAndNavigation.icon[1]}}"></i>{{@global.pageLanguageSetting.guest}}  </li>
+            </ul>
+        </div>
+    </div>
+    
+    {{/js_compare}}
+    <div class="page-content accommodationLayout-1 {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}} {{#if @global.styleAndNavigation.hideTitleBackground}}hideTitleBackground{{/if}} {{#if @global.styleAndNavigation.hideTitleText}}hideTitleText{{/if}} title-{{@global.styleAndNavigation.titleHAlign}} title-{{@global.styleAndNavigation.titleVAlign}} hideBorder-{{@global.styleAndNavigation.hideBorder}}" style="color:{{@global.styleAndNavigation.content[2]}}; background:{{@global.styleAndNavigation.pageBgColor}}"   id="hotepageloadmorediv" onscroll="Appyscript.hotepageloadmoredivfun(this);">
+        
+        
+        <ul class="main-cat-listing" id="hotelisting">
+            {{accommodationSubcatgoryList pageList}}
+            
+            
+        </ul>
+        
+        {{#js_compare "this.pageList.length == '0' "}}
+        
+        <div class="msg-code">{{> errorpage errorIcon="appyicon-no-data"}} </div>
+        
+        {{/js_compare}}
+    </div>
+    
+    <!-- End Page content-->
+</div>
+

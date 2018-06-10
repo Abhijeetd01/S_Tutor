@@ -1,0 +1,62 @@
+<div class="navbar"><div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+    <div class="left sliding">
+        <a href="index" class="link back" style="color:{{@global.style.headerBarIconColor}};">
+            <i class="icon icon-left-open-2"></i>
+        </a>
+    </div>
+    <div class="center sliding">
+        <div class="topHeader {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">{{Send_Request}}</div>
+    </div>
+</div></div>
+
+<div data-page="hyperlocal-Request" class="page navbar-through no-toolbar hideBorder-{{@global.styleAndNavigation.hideBorder}}" style="background-color: {{@global.styleAndNavigation.pageBgColor}}">
+<style>
+ul.hyper-request-form li input, ul.hyper-request-form li select, ul.hyper-request-form li textarea{border:1px solid {{@global.styleAndNavigation.borderColor}}!important;}
+</style>
+    <!-- Page content-->
+    <div class="page-content">
+
+        <form name="huperRequest" class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="color:{{@global.styleAndNavigation.content[2]}}">
+            <ul class="hyper-request-form">
+
+
+                <li class="timing"><i class="icon-clock-4" style="color:{{@global.styleAndNavigation.icon[1]}}"></i><strong class="{{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}" style="color:{{@global.styleAndNavigation.subheading[2]}}">{{@global.pageLanguageSetting.When_should_they_start_hyp}}</strong>
+                    <span><input type="radio" onclick="Appyscript.set_time();" value="flexible"  name="servicetime">{{@global.pageLanguageSetting.Im_flexible_Any_Time_hyp}}</span>
+                    <span><input type="radio" value="hours" onclick="Appyscript.set_time();" name="servicetime" >{{@global.pageLanguageSetting.Within_48_hours}}  </span>
+                    <span><input type="radio" onclick="Appyscript.set_time();" value="date-time"  name="servicetime">{{@global.pageLanguageSetting.At_a_specific_date_and_time_hyp}} </span>
+                    <div id="dtime" style="display:none" >
+                        <span class="dateinput"><input id="request_date" type="date" data-date-format="DD MMMM YYYY" placeholder="Date" style="color:{{@global.styleAndNavigation.content[2]}}"> <small class="pic-select"> <i class="icon-down-open"></i></small></span>
+<span class="timeinput"><input id="request_time" type="time" name="time" placeholder="Time"  class="inputs time" style="color:{{@global.styleAndNavigation.content[2]}}"><small class="pic-select">
+    <i class="icon-down-open"></i></small></span>
+                    </div>
+                </li>
+                <li class="locate"><i class="icon-map" style="color:{{@global.styleAndNavigation.icon[1]}}"></i><strong class="{{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}" style="color:{{@global.styleAndNavigation.subheading[2]}}">{{@global.pageLanguageSetting.Where_do_you_need_them}}</strong>
+                    <span><input class="font-family:{{@global.styleAndNavigation.content[0]}}; font-size:{{@global.styleAndNavigation.content[1]}}" type="text" id="address" name="place" placeholder="{{@global.pageLanguageSetting.hyp_Enter_your_postal_zip_code_or_full_address}}" style="border-color:{{@global.styleAndNavigation.borderColor}}; color:{{@global.styleAndNavigation.content[2]}}"></small></span>
+                    <span><input type="checkbox" id="jobremotely">{{@global.pageLanguageSetting.Job_can_be_performed_remotely_hyp}}</span>
+                </li>
+                <li class="msg"><i class="icon-edit-2" style="color:{{@global.styleAndNavigation.icon[1]}}"></i><strong class="{{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}" style="color:{{@global.styleAndNavigation.subheading[2]}}">{{@global.pageLanguageSetting.What_do_you_need_done_hyp}}</strong>
+                    <span><textarea class="font-family:{{@global.styleAndNavigation.content[0]}}; font-size:{{@global.styleAndNavigation.content[1]}}" id="discription" name="discription" placeholder="{{@global.pageLanguageSetting.job_descripion_hyp}}" style="border-color:{{@global.styleAndNavigation.borderColor}}; color:{{@global.styleAndNavigation.content[2]}}"></textarea></small></span>
+                    <!--                  <span class="attch-pht">-->
+                    <!--                      <p class="pink iconz-picture {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="color:{{@global.styleAndNavigation.content[2]}}">{{Attach_photos}}</p>{{about_this_job}}</span>-->
+                </li>
+
+                <li class="locate">
+                    <i style="color:{{@global.styleAndNavigation.icon[1]}}"></i>
+                    <strong class="{{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}" style="color:{{@global.styleAndNavigation.subheading[2]}}">Name</strong>
+                    <span><input class="font-family:{{@global.styleAndNavigation.content[0]}}; font-size:{{@global.styleAndNavigation.content[1]}}" type="text" id="nameHyper" name="namHyper" placeholder="Name"  style="border-color:{{@global.styleAndNavigation.borderColor}}; color:{{@global.styleAndNavigation.content[2]}}"></small></span>
+                </li>
+
+
+                <li class="locate">
+                    <i style="color:{{@global.styleAndNavigation.icon[1]}}"></i>
+                    <strong class="{{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}" style="color:{{@global.styleAndNavigation.subheading[2]}}">{{@global.pageLanguageSetting.email_hyp}}</strong>
+                    <span><input class="font-family:{{@global.styleAndNavigation.content[0]}}; font-size:{{@global.styleAndNavigation.content[1]}}" type="email" id="emailHyper" name="hyperEmail" placeholder="{{@global.pageLanguageSetting.please_enter_valid_email_ecom}}" value="{{@global.reqUserHyperEmail}}" style="border-color:{{@global.styleAndNavigation.borderColor}}; color:{{@global.styleAndNavigation.content[2]}}"></small></span>
+                </li>
+
+            </ul>
+
+        </form>
+        `
+        <div class="hyper-gray-wrapper"><button class="hyper-sent-btn"  style="background-color:{{@global.styleAndNavigation.button[2]}}; color:{{@global.styleAndNavigation.button[3]}}" onclick="Appyscript.sendrequestHyperLocal()" >{{@global.pageLanguageSetting.bt_Send_Request_hyp}}</button></div>
+    </div>
+</div>

@@ -1,0 +1,51 @@
+<div class="navbar"><div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}}; font-size: {{@global.style.headerBarSize}} ">
+            <div class="left sliding">
+              <a href="index" class="link back" style="color:{{@global.style.headerBarTextColor}};">
+                <i class="icon icon-left-open-2"></i>
+              </a>
+            </div>
+           <div class="center sliding">
+               Gift Card
+            </div> 
+            <div class="right"></div>
+          </div></div>
+
+<div data-page="CustomEventGiftcard" class="page navbar-through no-toolbar" style="background-color: {{@global.style.appPageBackgroundColor}}" >
+<!-- Page content-->
+    <div class="page-content">	
+    
+    <section class="section-events gift-card">
+	<div class="gift-image">
+    	<img src="http://3.bp.blogspot.com/-8neIonBgTg4/VBB2bBQAS6I/AAAAAAAAAPw/WTxIEPJBaao/s1600/1036-large.png">
+    </div>
+    <div class="gift-select">
+    <h3>Select Denominations</h3>
+    <ul>
+    	<li><span>300</span> <div class="number-input"><a class="decrease none">-</a><input type="text"><a class="increase">+</a></div></li>
+    	<li><span>500</span> <div class="number-input"><a class="decrease none">-</a><input type="text"><a class="increase">+</a></div></li>
+    	<li><span>1000</span> <div class="number-input"><a class="decrease none">-</a><input type="text"><a class="increase">+</a></div></li>
+    </ul>
+    </div>
+    
+    <div class="gift-form">
+    	<h3>Place Order</h3>
+        <p>Is this gift card for some one else? </p>
+        <p class="checkbox"><span><input type="checkbox" checked> Yes</span> <span><input type="checkbox"> No</span></p>
+        <div class="input">
+        <span class="iconz-user"></span>
+        <input type="text" placeholder="Recipient Name">
+        </div>
+        <div class="input">
+        <span class="icon-email"></span>
+        <input type="text" placeholder="Personal Message">
+        </div>
+        <div class="input">
+        <span class="icon-location"></span>
+        <textarea placeholder="Delivery Address with Pincode"></textarea>
+        </div>
+        <a onclick="Appyscript.customeventGiftcardOrder(this)">Submit</a>		
+    </div>
+</section>
+    
+    </div>
+</div>

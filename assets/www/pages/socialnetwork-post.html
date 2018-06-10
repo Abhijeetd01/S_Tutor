@@ -1,0 +1,65 @@
+
+
+<div class="navbar">
+    <div class="navbar-inner" style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+        <div class="left sliding">
+            <a href="index" class="link back" style="color:{{@global.style.headerBarIconColor}};">
+                <i class="icon icon-left-open-2"></i>
+            </a>
+        </div>
+        <div class="center sliding  {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">{{@global.socialpagetitle}}</div>
+        <div class="right">
+            
+        </div>
+    </div>
+</div>
+<div data-page="socialnetwork-Post" class="page navbar-through toolbar-fixed no-toolbar">
+    <div class="backgroundAnimation">{{> innerBackground}}</div>
+    <!-- Page content-->
+    <style>
+        .theam-4 .counter{background: {{@global.styleAndNavigation.iconColor}} !important;}
+        </style>
+    
+    <div class="page-content theam-{{@global.styleAndNavigation.layout}} hideBorder-{{@global.styleAndNavigation.hideBorder}}">
+        <div class="masonry">
+            <div class='post-container' id='container{{data.id}}'><div class='title-container'> <div class='post-title'> <div class='profile-snap'> <img src='{{data.avatar}}' alt='' style='background:url({{data.avatar}}) no-repeat center center'/> </div> <a href='#' class='{{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}' style='color:{{@global.styleAndNavigation.heading[2]}}; text-align:{{@global.styleAndNavigation.heading[3]}}'>{{data.username}}</a><div class='post-time trnkTxt icon icon-clock-4 {{@global.styleAndNavigation.content[0]}}' style='color:{{@global.styleAndNavigation.content[2]}}; text-align:{{@global.styleAndNavigation.heading[3]}}'>{{data.addedon}}</div> </div> <div class='post-ban'>
+                 <a  class='iconz-option-vertical'  style='color:{{@global.styleAndNavigation.iconColor}};'  postidval="{{data.id}}"  postuserid="{{data.userId}}" id='popblock' ></a>
+                </div></div>
+           
+
+
+                <div class='post-feed' id="individulaposts">
+                    
+                     <p class='{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}' style='color:{{@global.styleAndNavigation.content[2]}}; text-align:{{@global.styleAndNavigation.content[3]}}'>{{data.message}}</p>
+                    {{socialindividualpost data.image}}
+                    
+                   <ul class='post-share for-theam-4-only {{@global.styleAndNavigation.linkFont}}' style='border-color:{{@global.styleAndNavigation.fieldBorderColor}}'><li><a href='javascript:void(0);' class='iconz-heart' onclick='Appyscript.SocialNetDataHeartLike(this);' style='color:{{@global.styleAndNavigation.iconColor}};'><span class='counter' style='color:{{@global.styleAndNavigation.linkColor}};'></span> <span class='counter-text' style='color:{{@global.styleAndNavigation.linkColor}};'>Likes</span></a></li> <li><a href='javascript:void(0);' class='iconz-share-alt' style='color:{{@global.styleAndNavigation.iconColor}};'><span class='counter' style='color:{{@global.styleAndNavigation.linkColor}};'></span><span class='counter-text' style='color:{{@global.styleAndNavigation.linkColor}};'> Share</span></a></li> <li><a href='javascript:void(0);' class='iconz-comments' onclick='Appyscript.SocialNetComment({{data.id}});' style='color:{{@global.styleAndNavigation.iconColor}};'><span class='counter' style='color:{{@global.styleAndNavigation.linkColor}};'></span><span class='counter-text' style='color:{{@global.styleAndNavigation.linkColor}};'> Chat</span></a></li> <li></li> </ul> </div> <div class='post-history  {{@global.styleAndNavigation.linkFont}}' style='border-color:{{@global.styleAndNavigation.fieldBorderColor}}'> <a href='javascript:void(0);' class='like-history wid50 pull-left' onclick='Appyscript.SocialNetDataHeartLike({{data.id}});' style='color:{{@global.styleAndNavigation.linkColor}};'><i class='iconz-heart' style='color:{{@global.styleAndNavigation.iconColor}};'></i> <span id='iuserlikescount{{data.id}}' userlike='{{data.like}}'>{{data.countLike}}</span> {{@global.pageLanguageSetting.likes_social_network}}</a> <a href='javascript:void(0);' class='like-history wid50 pull-right text-right' onclick='Appyscript.SocialNetComment({{data.id}});' style='color:{{@global.styleAndNavigation.linkColor}};'><i class='iconz-comments' style='color:{{@global.styleAndNavigation.iconColor}};'></i>
+                       
+                       
+                       <span id='iusercommentcounts{{data.id}}'>{{data.countComment}}</span>
+                        {{@global.pageLanguageSetting.comments_social_network}}</a> </div>
+            
+            
+            <ul class='post-share  {{@global.styleAndNavigation.linkFont}}' style='border-color:{{@global.styleAndNavigation.fieldBorderColor}}'>
+                <li>
+                    
+                    
+                   
+                    
+                    {{#js_compare "this.data.like == '1'"}}
+                    
+                    
+                     <a href='javascript:void(0);' class='iconz-heart' id='iuserlikeunlike{{data.id}}' onclick='Appyscript.SocialindividualLike({{data.id}});' style='color:green;'></a>{{else}}  <a href='javascript:void(0);' class='iconz-heart' id='iuserlikeunlike{{data.id}}' onclick='Appyscript.SocialindividualLike({{data.id}});' style='color:{{@global.styleAndNavigation.iconColor}};'></a> {{/js_compare}}
+                    
+                    
+                </li>
+                <li><a href='javascript:void(0);'  data-msg="{{escape data.message}}" onclick='Appyscript.socialsharingimagetag("{{data.image}}","{{@global.socialpagetitle}}",this);'  class='iconz-share-alt' style='color:{{@global.styleAndNavigation.iconColor}};'><span class='counter' style='color:{{@global.styleAndNavigation.linkColor}};'></span><span class='counter-text' style='color:{{@global.styleAndNavigation.linkColor}};'> Share</span></a>
+                </li>
+                <li><a href='javascript:void(0);' class='iconz-comments' onclick='Appyscript.SocialNetComment({{data.id}});' style='color:{{@global.styleAndNavigation.iconColor}};'><span class='counter' style='color:{{@global.styleAndNavigation.linkColor}};'></span><span class='counter-text' style='color:{{@global.styleAndNavigation.linkColor}};'> Chat</span></a>
+                </li>
+            </ul></div>
+            
+        </div>
+    </div>
+</div>
+</div>

@@ -1,0 +1,50 @@
+<div class="navbar"><div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}}; font-size: {{@global.style.headerBarSize}} ">
+            <div class="left sliding">
+              <a href="index" class="link back" style="color:{{@global.style.headerBarTextColor}};">
+                <i class="icon icon-left-open-2"></i>
+              </a>
+            </div>
+           <div class="center sliding">
+              <div class="topHeader">Review & Rating</div>
+            </div> 
+          </div></div>
+
+<div data-page="reviewAndRatingPage" class="page navbar-through no-toolbar" style="background-color: {{@global.style.appPageBackgroundColor}}" >
+            <!-- Page content-->
+      <div class="page-content">
+          <div class="hyper-review">
+              <div class="review-bx">
+                  <ul class="ratingList">
+                                  <li>
+                                      <div class="pull-left">
+                                          <span onclick="Appyscript.starClk(this)" class="iconz-star"></span>
+                                          <span onclick="Appyscript.starClk(this)" class="iconz-star"></span>
+                                          <span onclick="Appyscript.starClk(this)" class="iconz-star"></span>
+                                          <span onclick="Appyscript.starClk(this)" class="iconz-star"></span>
+                                          <span onclick="Appyscript.starClk(this)" class="iconz-star"></span>
+                                      </div>
+                                  </li>
+                                  <li><textarea id="rnrTextArea"  placeholder="Please post your review."></textarea></li></ul>
+
+                  <button onclick="Appyscript.submitReviewAndRating()" class="hyper-sent-btn" >Submit</button>
+
+
+              </div>
+
+                <ul class="review">
+                {{#reviewList}}
+                    <li><span class="hyper-comt-pic"><img src="http://snappy.appypie.com/media/user_space/dacf3940cbc5/directory/service_1465471302_3899.jpg" alt=""/></span>
+                        <p class="hyper-comt-txt"><strong>{{name}} <span>{{addedon}}</span></strong>
+                        <small class="email">{{email}}</small>
+                        {{review}}
+                        <span class="head_rating" ratting={{rating}}> </span>
+
+                        </p>
+                    </li>
+                {{/reviewList}}
+                </ul>
+
+              </div>
+			</div>
+
+</div>

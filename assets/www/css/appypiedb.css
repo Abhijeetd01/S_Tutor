@@ -1,0 +1,278 @@
+.bg{background:#fff;}
+.notification{display:inline-block; float:left; width:100%; position:relative; margin:0px; padding:0px;}
+.notification li {
+    background: rgba(0, 0, 0, 0.1) none repeat scroll 0 0;
+    display: inline-block;
+    float: left;
+    position: relative;
+    width: 100%;
+	border-bottom:1px solid rgba(0, 0, 0, 0.1);
+	min-height:54px;   
+}
+.notification li a{color: #c1d7ff;}
+.notificationImageWrapper{  background: rgba(0, 0, 0, 0.2);
+    border: 0 solid #f0f0f0;
+    border-radius: 0;
+    float: left;
+    font-size: 30px !important;
+    height: 54px;
+    line-height: 55px;
+    margin-bottom: 0;
+    margin-right: 10px;
+    padding: 0;
+    text-align: center;
+    width: 54px;}
+.notificationImageWrapper img {
+    background-size: cover !important;
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+}
+.notificationText {  
+    font-style: italic;
+    margin:10px;
+    text-indent: 0; 
+}
+.viewmore {
+    border-radius: 5px;
+    box-sizing: border-box;
+    clear: both;
+    color: #f00;
+    display: inline-block;
+    font-size: 14px;
+    margin: 10px 0 0;
+    text-align: right;
+    width: 100%;
+}
+.viewmore i{  background: #f00;
+    border-radius: 100%;
+    color: #fff;
+    display: inline-block;
+    height: 20px;
+    line-height: 20px;
+    margin: 0 2px;
+    text-align: center;
+    width: 20px;}
+
+h1 {
+border:0px !important;
+}
+p {
+    font-weight: normal;
+    margin: 0;
+    padding: 0;
+}
+
+.bodypan {
+    box-sizing: border-box;
+    display: inline-block;
+    margin: 0;
+    padding: 15px;
+	position:relative; width:100%;
+}
+.header{margin:0px; padding:0px; display:inline-block; width:100%; border-bottom:1px solid rgba(0, 0, 0, 0.1); margin-bottom:15px; padding-bottom:10px;}
+.header img{background-size: cover !important;
+    border-radius: 10px;
+    width: 100%;}
+.info-left{   box-sizing: border-box;
+    float: left;
+    padding-right: 15px;
+    width:100px;}
+.info-right{overflow:hidden; word-wrap: break-word;
+    word-break: break-all;}
+.info-right ul {
+    list-style: outside none none;
+    margin: 0;
+    padding:3px 0;
+}
+.info-right ul  li {
+	margin-bottom: 5px;
+    width: 100%;
+    display: inline-block;
+    float: left;
+}
+.info-right li,.info-right li span {
+}
+.name {
+     font-weight:normal;
+}
+.info-right span {
+display: inline-block;
+    width: 110px;
+    font-weight: bold;
+	float:left;
+}
+span.rtRight { 
+    word-wrap: break-word;
+    word-break: break-word;
+	float:left;
+	font-weight:normal;
+    width:calc(100% - 110px);
+}
+.socialShare{width:100%; display:inline-block;  margin-top: 10px;}
+.socialShare a {
+background: #f00;
+    border-radius: 100%;
+    color: #fff;
+    display: inline-block;
+    float: left;
+    height: 26px;
+    margin: 0 2px;
+    overflow: hidden;
+    text-align: center;
+    width: 26px;
+    line-height: 28px;}
+.bodyText{margin:0px; padding:0px; display:inline-block; width:100%;}
+.content{margin-bottom:15px; padding-bottom:15px; border-bottom:1px solid rgba(0, 0, 0, 0.1); border:0px;}
+.content h1{color:black}
+.content p{word-wrap: break-word;}
+/*
+.theam-1 h1 {
+  box-sizing: border-box;
+    float: left;
+    padding: 0 15px 0 0;
+     
+}
+.theam-1 p {
+   
+}
+
+
+.theam-2 .info-right span {
+    color: rgba(0, 0, 0, 1);
+    display: none;
+    width: 60px;
+}
+
+.theam-3 .info-right span {
+    color: rgba(0, 0, 0, 1);
+    display: block;
+    width: 60px;
+}*/
+
+
+.search-view {
+    box-sizing: border-box;
+    float: left;
+    left: 0;
+    padding: 0 12px;
+    position: fixed;
+    top: 48px;
+    width: 100%;
+    z-index: 102;
+}
+.no-navbar .search-view {top:8px;}
+.search-view input {
+    background: rgba(0, 0, 0, 0.5) none repeat scroll 0 0;
+    border: 0 none;
+    border-radius: 40px;
+    box-sizing: border-box;
+    color: #fff;
+    font-size: 14px;
+    height: 40px;
+    margin: 0;
+    outline: 0 none;
+    padding: 8px 8px 8px 38px;
+    transition: all 0.5s ease 0s;
+    width: 100%;
+}
+::-webkit-input-placeholder {
+   color: #fff !important;
+   opacity:1
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   color: #fff  !important;
+   opacity:1
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   color: #fff  !important; 
+   opacity:1
+}
+
+:-ms-input-placeholder {  
+   color: #fff  !important; 
+   opacity:1
+}
+
+.search-view input.on {
+    padding: 8px 0 8px 40px;
+    width: 40px;
+	background: rgba(0, 0, 0, 0.2) none repeat scroll 0 0;
+}
+.search-view button[type="button"] {
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    border: 0 none;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+    height: 40px;
+    left: 12px;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    top: -1px;
+    width: 40px;
+    z-index: 100000;
+}
+.dbListView {
+    margin: 0;
+    padding: 10px;
+    list-style: none;
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    box-sizing: border-box;
+}
+.dbListView li{    border-radius: 5px;
+    padding: 9px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    float: left;
+    width: 100%;
+}
+.dbListView li:last-child{margin-bottom:0px; border-bottom:0px;}
+.dbListView li li{    border-radius: 0px;
+    padding: 0 0 0px 0;
+    margin-bottom: 5px;
+    box-sizing: border-box;
+    float: left;
+    width: 100%;
+    display: inline-block;}
+
+.img-style {
+    background-position: center top !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+    width: 100%;
+	    display: block;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.dbListView li .info-right p{height:55px; overflow:auto; overflow-x:hidden;}
+.dbListView li .info-right h1{margin-bottom:5px;}
+
+
+.hideBorder-1 * {
+	border:0px !important;
+}
+
+/*==========FOR SA===========*/
+.sa .info-left {
+    float: right;
+    padding-left: 15px; 
+    padding-right: 0;
+}
+.sa .info-right span {
+    float: right;
+}
+.sa .socialShare a {
+    float: right;
+}
+.sa .search-view button[type="button"] {
+    left: inherit;
+    right: 12px;
+}

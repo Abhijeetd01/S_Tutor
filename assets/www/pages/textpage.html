@@ -1,0 +1,101 @@
+<div class="navbar"><div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+    <div class="left sliding">
+				{{getSlideBack ""}}
+    </div>
+    <div class="center sliding {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">{{escape pageTitle}}</div>
+    <div class="right"></div>
+</div></div>
+
+<div data-page="textpage" class="page navbar-through no-toolbar " >
+       <!-- Page content-->
+<div class="backgroundAnimation">{{> innerBackground}}</div>
+      <div class="page-content">
+
+          <div class="service-details" style="color:{{@global.style.pageTextColor}}">
+          <h2 class="{{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}}; text-align:{{@global.styleAndNavigation.heading[3]}}"> {{escape header}}</h2>
+           {{#js_compare "this.textPageStyle == 'bottom' "}}
+
+            {{#TextpageList}}
+                 <div class="textPara {{@global.styleAndNavigation.content[0]}}
+                  {{@global.styleAndNavigation.content[1]}}" style="color:{{@global.styleAndNavigation.content[2]}};
+                  text-align:{{@global.styleAndNavigation.content[3]}}">{{summary}}</div>
+                    {{#js_compare "this.fileType == 'image' "}}
+                    <center>
+                        <img src="{{image}}" class="textParaImg" /></center>
+                    {{/js_compare}}
+
+
+                    {{#js_compare "this.fileType == 'video' "}}
+              <div class="youtube icon-play-1" onclick="AppyPieNative.playDefaultVideo('{{video}}','','','','','','','','')">
+                  <img src="images/image-2x1.png">
+              </div>
+<!--
+    <video src="{{video}}"  class="text-video" onclick=" AppyPieNative.playDefaultVideo('{{video}}','','','','','','','')" webkitallowfullscreen mozallowfullscreen allowfullscreen > </video>
+-->
+                    {{/js_compare}}
+
+                    {{#js_compare "this.fileType == 'youtube' "}}
+                    <div class="youtube icon-play-1" onclick="Appyscript.playYoutubeWatch('{{youtubeID videoUrl}}')">
+                     <img src="http://img.youtube.com/vi/{{youtubeID videoUrl}}/hqdefault.jpg" >
+                    </div>
+                    {{/js_compare}}
+
+
+                    {{#js_compare "this.fileType == 'vimeo' "}}
+              <iframe height="200" width="100%" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen src="{{videoUrl}}"></iframe>
+                    {{/js_compare}}
+					<div class="textPara">
+					{{#js_compare "this.share == '1' "}}
+                        <a href="#" onclick="Appyscript.textShareProduct(this);"
+                           summary="{{escape shareSummary}}" imageValue="{{image}}" videoValue="{{video}}" videoUrlValue="{{videoUrl}}" class="iconz-share-alt txtShare" style="background:{{@global.styleAndNavigation.icon[0]}}; color:{{@global.styleAndNavigation.icon[1]}};"></a> {{/js_compare}}
+					</div>
+
+             {{/TextpageList}}
+
+           {{else}}
+            {{#TextpageList}}
+            {{#js_compare "this.fileType == 'image' "}}
+              <!-- onclick="Appyscript.openGallary('{{image}}','0','','','','','');"-->
+   <center><img src="{{image}}" class="textParaImg"/></center>
+                    {{/js_compare}}
+
+
+                    {{#js_compare "this.fileType == 'video' "}}
+              <div class="youtube icon-play-1" onclick=" AppyPieNative.playDefaultVideo('{{video}}','','','','','','','','')" style="background: #999;">
+                  <img src="images/image-2x1.png">
+              </div>
+         <!--     <video src="{{video}}"  class="text-video" onclick=" AppyPieNative.playDefaultVideo('{{video}}','','','','','','','')" webkitallowfullscreen mozallowfullscreen allowfullscreen > </video>-->
+                    {{/js_compare}}
+
+                    {{#js_compare "this.fileType == 'youtube' "}}
+              <div class="youtube icon-play-1" onclick="Appyscript.playYoutubeWatch('{{youtubeID videoUrl}}')">
+                  <img src="http://img.youtube.com/vi/{{youtubeID videoUrl}}/hqdefault.jpg" >
+              </div>
+                    {{/js_compare}}
+
+
+                    {{#js_compare "this.fileType == 'vimeo' "}}
+              <iframe height="200" width="100%" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen src="{{videoUrl}}"></iframe>
+                    {{/js_compare}}
+                <div class="textPara {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="color:{{@global.styleAndNavigation.content[2]}};  text-align:{{@global.styleAndNavigation.content[3]}}">{{summary}}</div>
+				<div class="textPara">
+					{{#js_compare "this.share == '1' "}}
+					<a href="#" onclick="Appyscript.textShareProduct(this);"
+					summary="{{escape shareSummary}}" imageValue="{{image}}" videoValue="{{video}}" videoUrlValue="{{videoUrl}}" class="iconz-share-alt txtShare" style="background:{{@global.styleAndNavigation.icon[0]}}; color:{{@global.styleAndNavigation.icon[1]}};"></a> {{/js_compare}}
+				</div>
+                  {{/TextpageList}}
+
+           {{/js_compare}}
+
+
+
+
+
+
+
+         </div>
+
+     </div>
+
+
+</div>

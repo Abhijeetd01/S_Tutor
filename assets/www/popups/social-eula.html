@@ -1,0 +1,47 @@
+<div class="popup menu-popup tablet-fullscreen">
+    <div class="view">
+        <div class="pages">
+            <div class="navbar">
+                <div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+                    <div class="left sliding">
+                        <!--            <a href="index" class="link back" style="color:{{@global.style.headerBarIconColor}};">-->
+                        <!--                <i class="icon icon-left-open-2"></i>-->
+                        <!--            </a>-->
+                    </div>
+                    <div class="center sliding">
+                        
+                        <div class="topHeader {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">{{@global.socialheaderbartitle}}</div>
+                    </div>
+                    <div class="right">
+                        <a href="#" style="color:{{@global.style.headerBarIconColor}};" class="chat-icon"></a>
+                    </div>
+                </div>
+            </div>
+            
+            
+            <div class="page navbar-through toolbar-through hideBorder-{{@global.styleAndNavigation.hideBorder}}">
+                <div class="toolbar">
+                    
+                    
+                    <div class="toolbar-inner social-eula-button">
+                        <a href="#" class="{{@global.style.appPageFont}} {{@global.style.appPageCsize}}" style="background-color: {{@global.style.primaryButtonBgColor}}; color:{{@global.style.buttonTextColor}};" onclick="Appyscript.socialeulaaccept();">   {{@global.socialAcceptButton}}</a>
+                    </div>
+                </div>
+
+                <div class="backgroundAnimation">
+                <div class="view background-view">{{> mainBackground}}</div>
+				</div>
+                <div class="page-content {{@global.style.appPageFont}} {{@global.style.appPageCsize}}" style="color:{{@global.style.pageTextColor}};">
+                    <div style="padding:15px !important;">
+                        <h1 class="{{@global.style.appPageHsize}}" style="color:{{@global.style.pageTextColor}};">   {{@global.socialheading}}</h1>
+                        <div class="content-view">                        
+                        {{@global.socialeulacontent}}
+                        </div>                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

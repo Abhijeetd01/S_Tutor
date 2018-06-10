@@ -1,0 +1,78 @@
+<div class="navbar"><div class="navbar-inner" style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+  <div class="left sliding">
+      {{#root_Compare @global.style.layout "==" "slidemenu"}}
+      {{#if @root.innerLayout}}
+      <a href="index" class="link back" style="color:{{@global.style.headerBarIconColor}};">
+          <i class="icon icon-left-open-2"></i>
+      </a>
+      {{else}}
+      <a onclick="Appyscript.openSlide()" style="color:{{@global.style.headerBarIconColor}};">
+          <i class="icon icon-menu"></i>
+      </a>
+      {{/if}}
+      {{else}}
+      <a href="index" class="link back bottom " style="color:{{@global.style.headerBarIconColor}};">
+          <i class="icon icon-left-open-2"></i>
+      </a>
+      {{/root_Compare}}
+  </div>
+  <div class="center sliding {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">{{pageTitle}}</div>
+  <div class="right"></div>
+</div></div>
+
+
+<div data-page="messenger-phoneVerfication" class="page navbar-through no-toolbar">
+<!-- Page content-->
+<!-- Scrollable page content -->
+<div class="backgroundAnimation">
+    <div class="view background-view">{{> mainBackground}}</div>
+</div>
+<div class="backgroundAnimation">
+    {{#if @global.loginData.loginStyleAndNavigation.loginBackground}}{{#@global.loginData.loginStyleAndNavigation}}{{#js_compare "this.loginBackgroundType == 'color'"}}<div class="background-image" style="background-color:{{loginBackground}}"></div>{{/js_compare}}{{#js_compare "this.loginBackgroundType == 'img'"}}<div class="background-image portrait" style="background-image:url({{loginBackground}})"></div><div class="background-image landscape" style="background-image:url({{loginIpadBackground}})"></div>{{/js_compare}}<div class="background-theme {{@global.style.appTheme}}"></div>{{/@global.loginData.loginStyleAndNavigation}}{{/if}}
+</div>
+
+     <div class="page-content">
+         <style type="text/css">
+             .appypie-login ::-webkit-input-placeholder {
+                 color:{{@global.loginData.loginStyleAndNavigation.loginFieldBgColor[1]}};
+             }
+         .appypie-login :-moz-placeholder {
+             color:{{@global.loginData.loginStyleAndNavigation.loginFieldBgColor[1]}};
+         }
+         .appypie-login ::-moz-placeholder {
+             color:{{@global.loginData.loginStyleAndNavigation.loginFieldBgColor[1]}};
+         }
+         .appypie-login :-ms-input-placeholder {
+             color:{{@global.loginData.loginStyleAndNavigation.loginFieldBgColor[1]}};
+         }
+         </style>
+
+
+
+
+         <form id="phoneVerfication">
+        <div class="appypie-login signup-page theme-{{@global.loginData.loginStyleAndNavigation.loginLayout}} {{@global.loginData.loginStyleAndNavigation.loginContent[0]}} {{@global.loginData.loginStyleAndNavigation.loginContent[1]}} content-{{@global.loginData.loginStyleAndNavigation.loginContent[3]}} heading-{{@global.loginData.loginStyleAndNavigation.loginHeading[3]}}" style="color:{{@global.loginData.loginStyleAndNavigation.loginContent[2]}};">
+
+
+            <h2 class="heading {{@global.loginData.loginStyleAndNavigation.loginHeading[0]}} {{@global.loginData.loginStyleAndNavigation.loginHeading[1]}}" style="color:{{@global.loginData.loginStyleAndNavigation.loginHeading[2]}}; ">{{@global.pageLanguageSetting.Messenger_Select_Country_Code}}</h2>
+
+            <ul>
+                <li class="input">
+                    <span  class='{{getICON "state"}}' style="background-color:{{@global.loginData.loginStyleAndNavigation.loginIcon[0]}};color:{{@global.loginData.loginStyleAndNavigation.loginIcon[1]}}; border-color:{{@global.loginData.loginStyleAndNavigation.loginBorderColor}}"></span>
+                    <input type="text" onclick="Appyscript.openCountryCodePopup()" name="scountrycode" id="scountrycode" value="+1 USA" readonly style="border-color:{{@global.loginData.loginStyleAndNavigation.loginBorderColor}}; background-color:{{@global.loginData.loginStyleAndNavigation.loginFieldBgColor[0]}};color:{{@global.loginData.loginStyleAndNavigation.loginFieldBgColor[1]}}">
+                        <b class="arrow" style="border-right-color:{{@global.loginData.loginStyleAndNavigation.loginIcon[0]}}"></b>
+                        </li>
+                <li class="input">
+                    <span class='{{getICON "phone"}}' style="background-color:{{@global.loginData.loginStyleAndNavigation.loginIcon[0]}};color:{{@global.loginData.loginStyleAndNavigation.loginIcon[1]}}; border-color:{{@global.loginData.loginStyleAndNavigation.loginBorderColor}}"></span>
+                    <input type="tel" name="lnumber" placeholder="{{@global.pageLanguageSetting.Login_Page_Phone_Field_Text}}" class="numberlength numberValidation" id="lphonenumber" maxlength="15" style="border-color:{{@global.loginData.loginStyleAndNavigation.loginBorderColor}}; background-color:{{@global.loginData.loginStyleAndNavigation.loginFieldBgColor[0]}};color:{{@global.loginData.loginStyleAndNavigation.loginFieldBgColor[1]}}">
+                        <b class="arrow" style="border-right-color:{{@global.loginData.loginStyleAndNavigation.loginIcon[0]}}"></b>
+                        </li>
+                <li class="login-btn"><a onclick="Appyscript.goLogin();" class="{{@global.loginData.loginStyleAndNavigation.loginButton[0]}} {{@global.loginData.loginStyleAndNavigation.loginButton[1]}}" style="background-color:{{@global.loginData.loginStyleAndNavigation.loginButton[2]}}; color:{{@global.loginData.loginStyleAndNavigation.loginButton[3]}}">{{@global.pageLanguageSetting.Login_Page_Login_Button}}</a></li>
+
+   </ul>
+
+            </div>
+    </form>
+
+    </div>
+</div>

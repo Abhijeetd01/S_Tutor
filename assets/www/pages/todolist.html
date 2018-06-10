@@ -1,0 +1,94 @@
+<div class="navbar"><div class="navbar-inner" style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+    <div class="left sliding">
+        {{getSlideBack ""}} 
+    </div>
+    <div class="center sliding {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">{{name}}</div>
+    <div class="right"></div>
+</div></div>
+
+<div data-page="todolist-page" class="page navbar-through toolbar-through">
+    <!-- Page content-->
+
+<style>
+.listMenu li input[type="checkbox"]:checked + label:before{border-color:{{@global.styleAndNavigation.checkBoxActiveColor}}}
+.listMenu li input[type="checkbox"] + label:before{border-color:{{@global.styleAndNavigation.checkBoxColor}}}
+.listMenu li[data-checked='true']{background-color: {{@global.styleAndNavigation.list[4]}} !important}
+.listMenu label{color: {{@global.styleAndNavigation.checkBoxColor}}}
+.listMenu li[data-checked='true'] label{color: {{@global.styleAndNavigation.checkBoxActiveColor}}}
+.listMenu .action-icon {background-color:{{@global.styleAndNavigation.icon[0]}}; color: {{@global.styleAndNavigation.icon[1]}}} 
+ .listMenu li[data-note='true'] i.icon-chat-3{background-color:{{@global.styleAndNavigation.icon[3]}}; color: {{@global.styleAndNavigation.icon[1]}}}
+.location-searchtodolist ::-webkit-input-placeholder {
+	color:{{@global.styleAndNavigation.fieldTextColor}};
+	opacity:0.6;
+}
+.location-searchtodolist :-moz-placeholder {
+	color:{{@global.styleAndNavigation.fieldTextColor}};
+	opacity:0.6;
+}
+.location-searchtodolist ::-moz-placeholder {
+	color:{{@global.styleAndNavigation.fieldTextColor}};
+	opacity:0.6;
+}
+.location-searchtodolist :-ms-input-placeholder {
+	color:{{@global.styleAndNavigation.fieldTextColor}};
+	opacity:0.6;
+}
+</style>
+
+    <div class="backgroundAnimation">{{> innerBackground}}</div>
+    {{#root_Compare @global.styleAndNavigation.hideSearchBox "==" "0"}}
+        <div class="location-searchtodolist">
+        <a class="icon-search" style="color: {{@global.styleAndNavigation.fieldTextColor}}"></a>
+        <input type="text" id="todoSearchbox" placeholder="Search Task" onkeyup="todoSearch()" style="background-color: {{@global.styleAndNavigation.inputBackgroundColor}}; color: {{@global.styleAndNavigation.fieldTextColor}};border-color:{{@global.styleAndNavigation.borderColor}}"">
+    </div>
+    {{/root_Compare}}
+    
+    <div class="page-content {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="background-color: {{@global.styleAndNavigation.pageBgColor}}; color:{{@global.styleAndNavigation.content[2]}};">
+<div class="page_height"{{#root_Compare @global.styleAndNavigation.hideSearchBox "==" "1"}} style="margin:0px"  {{/root_Compare}}>
+        <div class="homeDepotList">
+
+			<h1 class="{{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}}; width:100%; float:left;">{{taskHeading}}</h1>
+               
+            <ul id="todoSearchWrapper" class="listMenu">
+                {{#data}} 
+                <li data-note={{note}} data-checked={{checked}} class="{{@global.styleAndNavigation.list[0]}} {{@global.styleAndNavigation.list[1]}}" style="color: {{@global.styleAndNavigation.list[2]}}; background-color: {{@global.styleAndNavigation.list[3]}}; border-color:{{@global.styleAndNavigation.borderColor}}"><input class="cheked" type="checkbox" {{#if checked}}checked{{/if}} id="for{{@index}}" name="listName" data-index={{@index}} />
+                    <label for="for{{@index}}" ><span style="color: {{@global.styleAndNavigation.list[2]}}">{{taskDesc}}</span></label>
+                    <i class="action-icon icon-edit" data-index={{@index}}></i>
+                    <i class="action-icon icon-chat-3" data-index={{@index}}></i>
+                </li>
+                {{/data}}
+            </ul>
+	 
+            <!-- Pop Up -->
+        
+
+        </div>
+        
+        
+        
+</div>
+{{#root_Compare @root.data.length "==" "0"}}
+        <div class="msg-code">{{> errorpage errorIcon="appyicon-no-data"}}</div>
+{{/root_Compare}}
+<div class="searchbar-not-found msg-code" style="display:none">
+    {{> errorpage errorIcon="appyicon-no-data"}}
+</div>
+    </div>
+
+<div id="dialog-background">
+        <div class="dialog-loading-wrapper">
+        <span class="dialog-loading-icon">
+            <div class="popHeading">Add Note <i class="icon-cancel"></i></div>
+        <textarea id="textbox" placeholder="Text here"></textarea>
+        <button class="okbtn">OK</button>
+        </span>
+                </div>
+            </div> 
+    <div class="toolbar">
+           <div class="toolbar-inner">
+                 <div class="submit {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" style="background-color: {{@global.styleAndNavigation.button[2]}}; color: {{@global.styleAndNavigation.button[3]}};" onclick="resetTodolist()">Reset</div>
+            </div>
+        </div>
+</div>
+
+

@@ -1,0 +1,148 @@
+<div class="navbar"><div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}}; font-size: {{@global.style.headerBarSize}} ">
+    <div class="left sliding">
+        <a href="index" class="link back" style="color:{{@global.style.headerBarTextColor}};">
+            <i class="icon icon-left-open-2"></i>
+        </a>
+    </div>
+    <div class="center sliding">
+        {{@global.pageLanguageSetting.ADD_MEDIA}}
+
+    </div>
+    <!--<div class="right">-->
+    <!--<a class="link" style="color:{{@global.style.headerBarTextColor}};" onclick="Appyscript.realestatePreview(this)">Preview</a>           -->
+    <!--</div>-->
+</div></div>
+
+
+
+
+<div data-page="realestate-addMedia" class="page navbar-through no-toolbar toolbar-through" style="background:{{@global.styleAndNavigation.pageBgColor}};">
+    <!-- Page content-->
+
+
+    <div class="toolbar">
+        <div class="toolbar-inner" style="background-color:{{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}}; ">
+            <a class="done-btn" onclick="Appyscript.realestateAddListingDone(this)">{{@global.pageLanguageSetting.done_food}}</a>
+        </div>
+    </div>
+
+
+    <div class="page-content">
+        <style>
+    	.filter-page .amenities-list ul li i, .filter-page .swiper .on, ul.hyper-request-form li input, ul.hyper-request-form li select, ul.hyper-request-form li textarea, .ameBtn {border-color:{{@global.styleAndNavigation.borderColor}}; color:{{@global.styleAndNavigation.content[2]}} }
+
+		.listing-tabs a.active{background-color:{{@global.styleAndNavigation.activeColor}}; border-color:{{@global.styleAndNavigation.borderColor}} }
+		.listing-tabs a { border-color:{{@global.styleAndNavigation.borderColor}}; color:{{@global.styleAndNavigation.nav[2]}};
+		background:{{@global.styleAndNavigation.nav[3]}}}
+		.listing-tabs, .listing-tabs-view{border-color:{{@global.styleAndNavigation.borderColor}} }
+		ul.hyper-request-form li li {outline-color:{{@global.styleAndNavigation.borderColor}}}
+		.amen_btn i{color:{{@global.styleAndNavigation.icon[1]}}}
+		.add-more, .listing-tabs-view li a {background-color:{{@global.styleAndNavigation.iconBackgroundColor}}; color:{{@global.styleAndNavigation.icon[1]}} }
+    </style>
+
+        <section class="filter-page sell-Pro">
+
+            <ul class="hyper-request-form add-media">
+                <li class="timing"><h3 class="{{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}"><i class="iconz-bed"></i>{{@global.pageLanguageSetting.EXPECTED_RENT}} ({{@global.currencycode}})</h3>
+                    <span>
+                <input type="number" placeholder="{{@global.pageLanguageSetting.ENTER_RENT}}" id="rent"></span>
+                    <!--<span>
+          <select id="amount_currency"><option value="0" label="USD">{{@global.currencycode}}</option></select>-->
+
+                    <!--<small class="pic-select"><i class="icon-up-open-big icon"></i></small></span>-->
+
+                </li>
+
+                <li class="timing"><h3 class="{{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}"><i class="iconz-bed"></i>{{@global.pageLanguageSetting.Deposit}} ({{@global.currencycode}})</h3>
+                    <span><input type="number" placeholder="{{@global.pageLanguageSetting.ENTER_DEPOSIT}}" id="deposit" class="autoScroll" scroll-rang="100"></span>
+                    <!-- <span>
+                 <select id=""><option value="0" label="USD">{{@global.currencycode}}</option></select>-->
+
+                    <!--<small class="pic-select"><i class="icon-up-open-big icon"></i></small></span>-->
+
+                </li>
+
+                <li class="timing"><h3 class="{{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}"><i class="icon-back-in-time"></i>{{@global.pageLanguageSetting.LEASE_DURATION}}</h3>
+                    <span class="unit"><select id="leaseduratn" onchange="selectoptn('lease')">
+                <option value="0">{{@global.pageLanguageSetting.DONT_SPEC_LEASE_DURATION}}</option>
+                <option value="1">{{@global.pageLanguageSetting.MIN_LEASE_DURATION}}</option>
+                </select>
+            <small class="pic-select"><i class="icon-up-open-big icon"></i></small></span>
+                </li>
+
+                <li class="timing" id="lease"><h3 class="{{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}"><i class="icon-back-in-time" ></i>{{@global.pageLanguageSetting.LEASE_DURATION}}</h3>
+                    <input type="number" placeholder="{{@global.pageLanguageSetting.ENTER_MONTH}}" id="month" class="autoScroll" scroll-rang="100">
+                </li>
+
+
+                <li class="timing"><h3 class="{{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}"><i class="icon-back-in-time"></i>{{@global.pageLanguageSetting.Availability}}</h3>
+                    <span class="unit"><select id="availability" onchange="selectoptn('avail')">
+                <option value="0">{{@global.pageLanguageSetting.DONT_SPEC_MOVE_IN_DATE}}</option>
+                <option value="1">{{@global.pageLanguageSetting.WHEN_AVAILABLE}}</option>
+                <option value="2">{{@global.pageLanguageSetting.PREFERED_DATE}}</option>
+                </select>
+            <small class="pic-select"><i class="icon-up-open-big icon"></i></small></span>
+                </li>
+
+                <li class="timing" id="availble"><h3 class="{{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}"><i class="icon-calendar-1"></i>{{@global.pageLanguageSetting.WHEN_IS_AVAILABLE}}</h3>
+                    <div class="amen_btn"><input type="date" placeholder="" id="date" class="autoScroll" scroll-rang="100"><i class="icon-calendar-1"></i></div>
+                </li>
+
+                <li class="timing" onclick="amenitiesselect('media')">
+                    <div class="amen_btn ameBtn" id="btnamenits">{{@global.pageLanguageSetting.Amenties}} <i class="icon-right-open"></i></div>
+
+
+                </li>
+
+                <li>
+                    <div class="listing-tabs"><a href="#tab1" class="images active" value="image"><i class="icon-picture-3"></i></a><a href="#tab3" class="videos" value="video"><i class="icon-video"></i> </a><a href="#tab2" class="videos" value="youtube"><i class="icon-youtube"></i> </a></div>
+                    <div class="listing-tabs-view" id="tab1">
+                        <h3 class="{{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}">{{@global.pageLanguageSetting.UPLOAD_IMAGE_MSG}}</h3>
+                        <ul>
+                            <div class="items-scroller" id="addlist">
+                                <li class="items"><div class="scrollDiv">
+                                    <div class="scrollBar">
+
+                                    </div>
+                                </div>
+                                    <span class="add-more" id="addmoreupdate" onclick="addMoreClick3(this)" index="0" addimg="plus">+</span>
+                                </li>
+                            </div>
+                            <li class="foundadd">
+                                <div class="scrollDiv">
+                                    <div class="scrollBar">
+
+                                    </div>
+                                </div>
+                                <span class="add-more" onclick="addMoreClick3(this)" index="0" addimg="plus">+</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="listing-tabs-view" style="display:none" id="tab2">
+                        <h3 class="{{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}">{{@global.pageLanguageSetting.ADD_VIDEO}}</h3>
+                        <input type="text" placeholder="{{@global.pageLanguageSetting.YOUTUBE_URL}}" id="youtubetext">
+
+                    </div>
+
+                    <div class="listing-tabs-view" id="tab3">
+                        <ul id="realestatevideo">
+                            <li id="addvideoreal">
+                                <span class="add-more" onclick="uploadvideoreal()" addimg="plus" >+</span>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <h3 class="{{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}"><i class="icon-edit-1"></i>{{@global.pageLanguageSetting.PROPERTY_DESC}}<b class="mend">*</b></h3>
+                    <textarea placeholder="{{@global.pageLanguageSetting.please_enter_review_food}}" id="prprtydescrptn" class="autoScroll" scroll-rang="100"></textarea>
+                </li>
+            </ul>
+        </section>
+
+
+
+
+
+    </div>
+</div>

@@ -1,0 +1,39 @@
+<div class="navbar"><div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+    <div class="left sliding">
+        {{getSlideBack "common"}}
+    </div>
+    <div class="center sliding {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">{{pageTitle}}</div>
+    <div class="right"></div>
+</div></div>
+
+<div data-page="testimonial-Page" class="page navbar-through no-toolbar">
+    <!-- Page content-->
+    <div class="backgroundAnimation">{{> innerBackground}}</div>
+    <div class="page-content hideBorder-{{@global.styleAndNavigation.hideBorder}}">
+        <div {{#@global.styleAndNavigation}} class="testimonials theme-{{layout}} {{comment[0]}} {{comment[1]}} content-{{comment[3]}}" style="color:{{comment[2]}};" {{/@global.styleAndNavigation}}>
+        {{#@global.styleAndNavigation}}{{#js_compare "this.layout == '4' "}}
+        <style>.swiper-pagination-bullet-active{background-color:{{@global.styleAndNavigation.icon}} } </style>
+        <div data-pagination=".swiper-pagination" data-next-button=".swiper-button-next" data-loop="true" data-prev-button=".swiper-button-prev" data-preload-images="false" data-lazy-loading="true" class="swiper-container swiper-init">
+            {{/js_compare}}{{/@global.styleAndNavigation}}
+            <ul class="list {{#js_compare "this.styleAndNavigation.layout == '4' "}} swiper-wrapper {{/js_compare}}">
+            {{#testimonialList}}
+            <li class="{{#js_compare "this.image == 'none' "}} no-image {{/js_compare}} swiper-slide" style="background: {{@global.styleAndNavigation.commentBgColor}}; border-color:{{@global.styleAndNavigation.borderColor}}">
+            <i class="before-quote" style="color:{{@global.styleAndNavigation.icon}}">&ldquo;</i>
+            {{#js_compare "this.image != 'none' "}}
+            <img src="{{image}}" style="border-color:{{@global.styleAndNavigation.borderColor}}" />
+            {{/js_compare}}
+            <p>{{comment}}</p>
+			<i class="after-quote" style="color:{{@global.styleAndNavigation.icon}}">&rdquo;</i>
+            <span class="{{@global.styleAndNavigation.name[0]}} {{@global.styleAndNavigation.name[1]}}" style="color:{{@global.styleAndNavigation.name[2]}}; {{#root_Compare @global.styleAndNavigation.layout "==" "2"}} border-color:{{@global.styleAndNavigation.borderColor}}{{/root_Compare}} ">{{name}}</span>
+            <b class="arrow" style="border-top-color: {{@global.styleAndNavigation.commentBgColor}}"></b>
+            
+            </li>
+            {{/testimonialList}}
+            </ul>
+            {{#js_compare "this.styleAndNavigation.layout == '4' "}}
+            <div class="swiper-pagination"></div>
+        </div>
+        {{/js_compare}}
+    </div>
+</div>
+</div>

@@ -1,0 +1,26 @@
+<div class="navbar"><div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+    <div class="left sliding">
+				{{getSlideBack ""}}      
+    </div>
+    <div class="center sliding {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">{{pageTitle}}</div>
+    <div class="right"></div>
+</div></div>
+
+
+<div data-page="callme" class="page navbar-through no-toolbar ">
+    <!-- Page content-->
+<div class="backgroundAnimation">{{> innerBackground}}</div>
+    <div class="page-content">
+    <div class="call-me {{appPageFont}} {{appPageCsize}}" style="color: {{@global.style.pageTextColor}}">
+<!--    	<h1 style="text-align:{{pageIndentation}}">{{title}}</h1>
+ -->        <ul>
+        {{#list}}
+        <li onclick="Appyscript.call('{{subtext}}');">
+        <span style="color: {{@global.style.pageIconColor}}"><i class="{{imgurl}}" ></i><b style="color: {{@global.style.pageTextColor}}">{{text}}</b></span>
+        <p style="color: {{@global.style.pageTextColor}}">{{subtext}}</p>
+        </li>
+        {{/list}}
+        </ul>
+    </div>
+    </div>     
+    </div>

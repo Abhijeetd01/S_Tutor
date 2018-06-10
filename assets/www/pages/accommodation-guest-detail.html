@@ -1,0 +1,76 @@
+<div class="navbar">
+    <div class="navbar-inner" style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+        
+        <div class="left sliding">
+            <a href="index" class="link back icon icon-left-open-2" style="color:{{@global.style.headerBarIconColor}};"></a>
+        </div>
+        
+        <div class="center sliding">
+            <div class="topHeader {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">
+                {{@global.accomtitle}}
+            </div>
+        </div>
+        
+        <div class="right">
+            
+        </div>
+    </div>
+</div>
+
+<div data-page="accommodation-guest-detail-page" class="page navbar-through toolbar-fixed no-toolbar">
+    <style>
+        .hotel-form ::-webkit-input-placeholder {color:{{@global.styleAndNavigation.fieldTextColor}}; opacity:.6;}
+        .hotel-form :-moz-placeholder {color:{{@global.styleAndNavigation.fieldTextColor}} opacity:.6;}
+        .hotel-form ::-moz-placeholder {color:{{@global.styleAndNavigation.fieldTextColor}} opacity:.6;}
+        .hotel-form :-ms-input-placeholder {color:{{@global.styleAndNavigation.fieldTextColor}} opacity:.6;}
+        .hotel-form .hotelForm-row::before{border-right:1px solid {{@global.styleAndNavigation.borderColor}}}
+        </style>
+    <!-- Page content-->
+    <div class="page-content {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}} " style="color:{{@global.styleAndNavigation.content[2]}}; background:{{@global.styleAndNavigation.pageBgColor}}">
+        <div class="scrolling-bottom">
+            <div class="bodypan">
+                <div class="hotel-form">
+                    <div class="offsetbottom25">
+                        <h2 class="text-left {{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}}; text-align:{{@global.styleAndNavigation.heading[3]}};">{{@global.pageLanguageSetting.guest_name}}  <i class="icon-star" style="
+                            color: {{@global.styleAndNavigation.icon[1]}};
+                            font-size: 12px;
+                            /* margin-top: 0px; */
+                            /* line-height: 5px; */
+                            position: absolute;"></i>   </h2>
+                        <select id="hotelguesttitle" style="border-bottom:1px solid {{@global.styleAndNavigation.fieldBgColor}} !important; color:{{@global.styleAndNavigation.fieldTextColor}}; -webkit-appearance: none;
+                            border-radius:0px;background-image: linear-gradient(45deg, transparent 50%, gray 50%), linear-gradient(135deg, gray 50%, transparent 50%);
+                            background-position: calc(100% - 10px) calc(1.2em + 2px), calc(100% - 5px) calc(1.2em + 2px), calc(100% - 2em) 0.3em;
+                            background-size: 5px 5px, 5px 6px, 1px 1.5em;
+                            background-repeat: no-repeat;"><option value="Select title">{{@global.pageLanguageSetting.selecttitle}} </option>
+                            <option>Mr.</option>
+                            <option>Mrs.</option>
+                            <option>Ms.</option>
+                    
+                            
+                        </select>
+                        <input id="hotelguestfname"  type="text" placeholder="{{@global.pageLanguageSetting.first_name_food}}" style="border-color:{{@global.styleAndNavigation.fieldBgColor}}; color:{{@global.styleAndNavigation.fieldTextColor}}; "/>
+                        <input id="hotelguestlname" type="text" placeholder="{{@global.pageLanguageSetting.last_name_food}}" style="border-bottom:1px solid {{@global.styleAndNavigation.fieldBgColor}}; color:{{@global.styleAndNavigation.fieldTextColor}}; "/>
+                    </div>
+                    <div class="offsetbottom25">
+                        <h2 class="text-left {{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}}; text-align:{{@global.styleAndNavigation.heading[3]}};">{{@global.pageLanguageSetting.contact_details}} <i class="icon-star" style="
+                            color: {{@global.styleAndNavigation.icon[1]}};
+                            font-size: 12px;
+                            /* margin-top: 0px; */
+                            /* line-height: 5px; */
+                            position: absolute;"></i> </h2>
+                        <div class="hotelForm-row" style="color:{{@global.styleAndNavigation.icon[1]}}"><input  id="hotelguestemail" type="email" placeholder="{{@global.pageLanguageSetting.email_hyp}}" class="border-bottom-none" style="border-bottom:1px solid {{@global.styleAndNavigation.fieldBgColor}} !important; color:{{@global.styleAndNavigation.fieldTextColor}}; "/></div>
+                        <div class="hotelForm-row" style="color:{{@global.styleAndNavigation.icon[1]}}"><input  id="hotelguestphone" type="number" placeholder="{{@global.pageLanguageSetting.phone_hyp}}" style="border-color:{{@global.styleAndNavigation.fieldBgColor}}; color:{{@global.styleAndNavigation.fieldTextColor}}; "/></div>
+                        <p style="margin-top:10px;">{{@global.pageLanguageSetting.bookingguestalert}} </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Page content-->
+    <div class="toolbar ">
+        <div class="toolbar-inner">
+            <a href="#"  class="toolbarButton {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" style="background-color: {{@global.styleAndNavigation.button[2]}}; color: {{@global.styleAndNavigation.button[3]}};" onclick="HotelPaymentMethod(this)">{{@global.pageLanguageSetting.pay_now_food}} </a>
+        </div>
+    </div>
+</div>
+

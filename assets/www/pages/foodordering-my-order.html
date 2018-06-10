@@ -1,0 +1,112 @@
+<div class="navbar"><div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+    <div class="left sliding">
+			<a href="index" class="link back" style="color:{{@global.style.headerBarIconColor}};">
+			<i class="icon icon-left-open-2"></i>
+			</a>
+		</div>
+		<div class="center sliding  {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">
+			<div class="topHeader">{{@global.pageLanguageSetting.My_Orders_food}}</div>
+		</div>
+		<div class="right">
+            <a onclick="Appyscript.foodcardview(this)" class="localHeaderIconRight ui-link" style="color:{{@global.style.headerBarIconColor}};"> <span class="subValue" style="color:{{@global.styleAndNavigation.button[3]}};background:{{@global.styleAndNavigation.button[2]}};">{{@global.foodCartCount}}</span><div class="headerIcon"><i class="icon-cart"></i></div></a>
+		</div>
+	</div>
+</div>
+
+
+<div data-page="foodordering-MyOrderPage" class="page navbar-through toolbar-fixed no-toolbar">
+    <!-- Page content-->
+    <div class="page-content {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}} content-{{@global.styleAndNavigation.content[3]}} heading-{{@global.styleAndNavigation.heading[3]}} hideBorder-{{@global.styleAndNavigation.hideBorder}}" style="color:{{@global.styleAndNavigation.content[2]}}; background:{{@global.styleAndNavigation.pageBgColor}}">
+	<style type="text/css">
+	.myOrders .order-row ul li {
+		border-color:{{@global.styleAndNavigation.borderColor}};
+	}
+	</style>
+        {{#if orderList.length}}
+
+        <div class="myOrders">
+            <div class="accordion-list">
+                {{#orderList}} <div class="accordion-item">
+                <a class="order-id item-link {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" style="color:{{@global.styleAndNavigation.button[3]}};background:{{@global.styleAndNavigation.button[2]}};">{{orderId}} <span>({{@global.pageLanguageSetting.total_food}} {{noOfProducts}} items)</span></a>
+                <div class="accordion-item-content order-row">
+                    <div class="accordion-item">
+
+                        <a class="item-link heading {{@global.styleAndNavigation.secondaryButton[0]}} {{@global.styleAndNavigation.secondaryButton[1]}}" style="color:{{@global.styleAndNavigation.secondaryButton[3]}};background:{{@global.styleAndNavigation.secondaryButton[2]}};">{{@global.pageLanguageSetting.order_detail_food}}</a>
+                        <div class="accordion-item-content">
+                            <ul>
+                                <li class="first"><label>{{@global.pageLanguageSetting.order_date_food}} </label><span>{{orderDate}}</span></li>
+                                <li><label>{{@global.pageLanguageSetting.payment_method_food}}  </label><span>{{paymentMethod}}</span></li>
+                                <li><label>OrderType</label><span>{{orderType}}</span></li>
+                                {{#if transactionId}}
+                                    <li><label>{{@global.pageLanguageSetting.transaction_id_food}}  </label><span>{{transactionId}}</span></li>
+                                {{/if}}
+                                <li><label>{{@global.pageLanguageSetting.order_status_food}} </label><span>{{status}}</span></li>
+                                <li><label>Items</label><span>{{noOfProducts}}</span></li>
+                                {{#js_compare "this.discount != '0.00'"}}
+                                <li><label>{{@global.pageLanguageSetting.discount_food}} </label><span>{{format_currency currency}}{{discount}}</span></li>
+                                {{/js_compare}}
+                                {{#js_compare "this.coupon != '0.00'"}}
+                                <li><label>{{@global.pageLanguageSetting.coupon_food}} </label><span>{{format_currency currency}}{{coupon}}</span></li>
+                                {{/js_compare}}
+                                {{#js_compare "this.delivery != '0.00'"}}
+                                <li><label>{{@global.pageLanguageSetting.shipping_food}} </label><span>{{format_currency currency}}{{delivery}}</span></li>
+                                {{/js_compare}}
+                                {{#js_compare "this.tax != '0.00'"}}
+                                <li><label>{{@global.pageLanguageSetting.tax_food}} </label><span>{{format_currency currency}}{{tax}}</span></li>
+                                {{/js_compare}}
+                                {{#js_compare "this.tip != '0.00'"}}
+                                <li><label>Tip </label><span>{{format_currency currency}}{{tip}}</span></li>
+                                {{/js_compare}}
+                                {{#misctax}}
+                                {{#js_compare "this.taxAmount != '0.00'"}}
+                                <li amount="{{tax}}"><label>{{taxType}} </label><span>{{format_currency currency}}{{taxAmount}}</span></li>
+                                {{/js_compare}}
+                                {{/misctax}}
+                                <li class="total"><label>{{@global.pageLanguageSetting.subtotal_food}}</label><span>{{format_currency currency}}{{subtotal}}</span></li>
+                                <li class="total" ><label>{{@global.pageLanguageSetting.grand_total_food}}</label><span>{{format_currency currency}}{{gtotal}}</span></li>
+                                <li><a class="viewItem {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" style="color:{{@global.styleAndNavigation.button[3]}};background:{{@global.styleAndNavigation.button[2]}};" data-animate="true" onclick="foodViewOrderedItems(this,'{{orderId}}')" data-back="back" data-catid="{{orderId}}">View items</a></li>
+                                <li><label>{{@global.pageLanguageSetting.instructions_foodorder}}</label><span> {{pickupComment}} </span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        {{#billing}}
+                        <a class="item-link heading {{@global.styleAndNavigation.secondaryButton[0]}} {{@global.styleAndNavigation.secondaryButton[1]}}" style="color:{{@global.styleAndNavigation.secondaryButton[3]}};background:{{@global.styleAndNavigation.secondaryButton[2]}};">{{@global.pageLanguageSetting.billing_address_food}}</a>
+                        <div class="accordion-item-content">
+                            <ul>
+                                <li class="first"><label>{{@global.pageLanguageSetting.billing_address_food}}</label>
+                                    <p>{{name}} , {{address}} ,{{city}} ,{{state}} ,{{country}} <br>
+                                        Telephone :{{phone}}
+                                    </p>
+                                </li>
+                            </ul>
+                        </div>
+                        {{/billing}}
+                    </div>
+					 {{#js_compare "this.orderType != 'pickup'"}}
+                    <div class="accordion-item">
+                        {{#shipping}}
+                        <a class="item-link heading {{@global.styleAndNavigation.secondaryButton[0]}} {{@global.styleAndNavigation.secondaryButton[1]}}" style="color:{{@global.styleAndNavigation.secondaryButton[3]}};background:{{@global.styleAndNavigation.secondaryButton[2]}};">{{@global.pageLanguageSetting.shipping_address_food}}</a>
+                        <div class="accordion-item-content">
+                            <ul>
+                                <li class="first"><label>{{@global.pageLanguageSetting.shipping_address_food}}</label>
+                                    <p>{{name}} , {{address}} ,{{city}} ,{{state}} ,{{country}}<br>
+                                        Telephone :{{phone}}
+                                    </p>
+                                </li>
+                            </ul>
+                        </div>
+                        {{/shipping}}
+                    </div>
+				 {{/js_compare}}
+                </div>
+            </div>
+                {{/orderList}}
+
+            </div>
+        </div>
+        {{else}}
+            <div class="msg-code">{{> errorpage errorIcon="appyicon-no-data"}}</div>
+        {{/if}}
+    </div>
+</div>

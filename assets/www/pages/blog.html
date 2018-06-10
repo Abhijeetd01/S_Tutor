@@ -1,0 +1,100 @@
+<div class="navbar"><div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+    <div class="left sliding">
+		{{getSlideBack "common"}}
+    </div>
+    <div class="center sliding {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">{{title}}</div>
+    	<div class="right"></div>
+    </div>
+</div>
+<div data-page="blog-Page" class="page navbar-through no-toolbar">
+<div class="backgroundAnimation">{{> innerBackground}}</div>
+  <div class="page-content">
+  <style type="text/css">
+  .blog-list.theme-3 ul li,
+  .blog-list.theme-4 ul li {
+	  background:none !important;
+  }
+  .blog-list.theme-3 ul li .text-detail,
+  .blog-list.theme-4 ul li .text-detail,
+  .blog-list.theme-2 .blog-banner h1 {
+	 background:{{@global.styleAndNavigation.listColor}}
+  }
+  
+  .blog-list.theme-3 ul li span {
+	  border-color: {{@global.styleAndNavigation.borderColor}};
+  }
+  </style>
+  {{#if list.length}}{{else}}<div class="msg-code">{{> errorpage errorIcon="appyicon-no-data"}}</div>{{/if}}
+   <div class="blog-list theme-{{@global.styleAndNavigation.layout}} content-{{@global.styleAndNavigation.content[3]}} {{#if @global.styleAndNavigation.hideImage}}hide-image{{/if}} hideBorder-{{@global.styleAndNavigation.hideBorder}}">   		
+       {{#root_Compare @global.styleAndNavigation.layout "==" "2"}}
+       {{#list}}
+       {{#if featured}}
+    	<div class="blog-banner">        
+			<img src="images/image-3x2.png" style="background-image:url({{contentImg}})" />
+			<h1 class="{{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}}; text-align:{{@global.styleAndNavigation.heading[3]}}">{{title}}</h1>
+        </div>
+        {{/if}}
+        {{/list}}
+        {{/root_Compare}}
+    	<ul class="list">
+        	{{#list}}
+
+            <li onclick="Appyscript.BlogDetailsPage({{@index}})" link="{{link}}" data-accessStatus="{{accessStatus}}" class="{{#if contentImg}}{{else}}no-image{{/if}}" style="background:{{@global.styleAndNavigation.listColor}}">
+                {{#js_compare "this.contentImg == '' "}}
+                <img src="http://snappy.appypie.com/images/no-image.jpg" old-style="background-image:url('http://snappy.appypie.com/images/no-image.jpg')" />
+                {{else}}
+                {{#if @global.styleAndNavigation.hideImage}}
+                {{else}}
+                {{#root_Compare @global.styleAndNavigation.layout "==" "1"}}
+                <img src="{{contentImg}}" old-style="background-image:url({{contentImg}})" />
+                {{/root_Compare}}
+                {{#root_Compare @global.styleAndNavigation.layout "==" "2"}}
+                <img src="{{contentImg}}" old-style="background-image:url({{contentImg}})" />
+                {{/root_Compare}}
+                {{/if}}
+                {{#root_Compare @global.styleAndNavigation.layout "==" "4"}}
+                <img src="{{contentImg}}" old-style="background-image:url({{contentImg}})" />
+                {{/root_Compare}}
+                {{/js_compare}}
+
+                {{#root_Compare @global.styleAndNavigation.layout "==" "3"}}
+                {{#js_compare "this.contentImg == '' "}}
+                <img src="http://snappy.appypie.com/images/no-image.jpg" old-style="background-image:url('http://snappy.appypie.com/images/no-image.jpg')" />
+                {{else}}
+                <img src="images/image-1x1.png" style="background-image:url({{contentImg}})" />
+                <img src="images/image-1x1.png" style="background-image:url({{contentImg}})" />
+                {{/js_compare}}
+                {{/root_Compare}}
+
+                <div class="text-detail">
+                    {{#root_Compare @global.styleAndNavigation.layout "==" "1"}}
+                    {{#if @global.styleAndNavigation.hideDate}}
+                    {{else}}
+                    {{#if pubdate}}
+                    <span class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="color:{{@global.styleAndNavigation.content[2]}};">{{blogDate pubdate}}</span>
+                    {{/if}}
+                    {{/if}}
+                    {{/root_Compare}}
+                    <h4  class="{{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}}; text-align:{{@global.styleAndNavigation.heading[3]}}">{{title}}</h4>
+                    {{#root_Compare @global.styleAndNavigation.layout "==" "1"}}
+                    <div class="desc {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="color:{{@global.styleAndNavigation.content[2]}}; text-align:{{@global.styleAndNavigation.content[3]}}">{{smalldesc}}</div>
+                    {{/root_Compare}}
+                    {{#root_Compare @global.styleAndNavigation.layout "==" "1"}}
+                    {{else}}
+                    {{#if @global.styleAndNavigation.hideDate}}
+                    {{else}}
+                    {{#if pubdate}}
+                    <span class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="color:{{@global.styleAndNavigation.content[2]}};">{{blogDate pubdate}}</span>
+                    {{/if}}
+                    {{/if}}
+                    {{/root_Compare}}
+
+                </div>
+            </li>
+            
+            {{/list}}        	
+        </ul>        
+    </div>
+   
+  </div>
+</div>

@@ -1,0 +1,80 @@
+<div class="popup menu-popup tablet-fullscreen">
+    <div class="view toolbar-through">
+        <div class="pages">
+            <div class="page">
+                <div class="toolbar">
+                    <div class="toolbar-inner"  style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};"> 
+                        <div class="searchBxContainer">                            
+                            <div class="searchBx">
+                            <i class="icon-search-3" style="color:{{@global.style.headerBarIconColor}}"></i>
+                            <input type="search" id="foodtxtSearch" placeholder="{{@global.pageLanguageSetting.Search_Result_for_food}}" onkeyup="foodSearchFunction(event, this)"  onblur="foodSearchFunction(event, this)" onclick="foodSearchFunction(event, this)"> </div>
+                        </div>
+                         
+                    </div>
+                </div>
+                <div class="page-content hideBorder-{{@global.styleAndNavigation.hideBorder}}" style="background:{{@global.styleAndNavigation.menu[0]}}">
+                    <div class="profile-image" >
+                        {{#if @global.profileImagecheck}}
+                        <div class="profileBackground" style="background:url({{@global.profileImage}})"></div>
+                        {{else}}
+                        <div class="profileBackground" ></div>
+                        {{/if}}
+                        <div class="profileContentBx">
+                        	<a class="close icon-cancel link close-popup" style="color:{{@global.styleAndNavigation.menu[2]}}"></a>
+                            {{#if @global.loginCheck}}
+                            <a href="#" data-animate="true"  data-back="back" class="editProfilebutton icon-cog "  style="color:{{@global.styleAndNavigation.menu[2]}}" onClick="Appyscript.FoodEditProfile(this)"></a>
+                            {{/if}}
+                            <div class="profileBx" onClick="Appyscript.FoodEditProfile(this)">
+                                {{#if @global.loginCheck}}
+                                <span class="image"><img src="images/image-1x1.png" alt="" style="border-color:{{@global.styleAndNavigation.borderColor}}; background-image:url({{@global.profileImage}})"></span>
+                                {{else}}
+                                <span onclick="Appyscript.loginPage('true');" class="image"><img src="images/image-1x1.png" alt="" style="border-color:{{@global.styleAndNavigation.borderColor}};background-image:url({{@global.style.reseller}}/newui/images/user-pic-news.png)"></span>
+                                {{/if}}
+                            </div>
+                            {{#if @global.email}}
+                            <span class="name" id="userName" style="color:{{@global.styleAndNavigation.menu[1]}}">{{@global.Name}}</span>
+                            {{/if}}
+                            <span class="location" id="userLocation" style="color:{{@global.styleAndNavigation.menu[1]}}" >{{@global.CurrentCity}}</span>
+                        </div>
+                    </div>
+                    <div class="sub-menu hyperlocal-menu"  id="menuservice">
+                    	<ul class="leftMenu">        
+                        {{#if @global.setting.homeButtonStatus}}{{else}}                 
+                            <li style="border-color:{{@global.styleAndNavigation.borderColor}}"><a class="close-tutorial" onclick="Appyscript.clickHome();" style="color:{{@global.styleAndNavigation.menu[2]}}"><i class="icon-indent-left" style="color:{{@global.styleAndNavigation.menu[1]}}"></i>{{@global.pageLanguageSetting.home_food}}</a></li>
+							{{/if}}
+                            <li style="border-color:{{@global.styleAndNavigation.borderColor}}"><a class="close-tutorial"  style="color:{{@global.styleAndNavigation.menu[2]}}"><i class="iconz-home" style="color:{{@global.styleAndNavigation.menu[1]}}"></i>{{@global.pageLanguageSetting.my_shop_food}}</a></li>
+                            <li style="border-color:{{@global.styleAndNavigation.borderColor}}"><a onclick="Appyscript.foodcardview(this);" style="color:{{@global.styleAndNavigation.menu[2]}}"><i class="icon-cart" style="color:{{@global.styleAndNavigation.menu[1]}}"></i>{{@global.pageLanguageSetting.cart_food}}</a></li>
+                            {{#if @global.featuredAvailable}}
+                                <li style="border-color:{{@global.styleAndNavigation.borderColor}}"><a data-animate="true" onclick="foodFeaturedOffered('featured');" style="color:{{@global.styleAndNavigation.menu[2]}}"><i class="iconz-star" style="color:{{@global.styleAndNavigation.menu[1]}}"></i>{{@global.pageLanguageSetting.featured_product_food}}</a></li>
+                            {{/if}}
+                            {{#if @global.offeredAvailable}}
+                                <li style="border-color:{{@global.styleAndNavigation.borderColor}}"><a data-animate="true" onclick="foodFeaturedOffered('offered');" style="color:{{@global.styleAndNavigation.menu[2]}}"><i class="iconz-gift" style="color:{{@global.styleAndNavigation.menu[1]}}"></i>{{@global.pageLanguageSetting.offer_product_food}}</a></li>
+                            {{/if}}
+
+
+                            {{#if @global.loginCheck}}
+                                <li style="border-color:{{@global.styleAndNavigation.borderColor}}"><a data-animate="true" onclick="foodMyOrders(this);" style="color:{{@global.styleAndNavigation.menu[2]}}"><i class="iconz-cart-in" style="color:{{@global.styleAndNavigation.menu[1]}}"></i>{{@global.pageLanguageSetting.My_Orders_food}}</a></li>
+                                <li style="border-color:{{@global.styleAndNavigation.borderColor}}"><a data-animate="true" onclick="foodMyAccount(this);" style="color:{{@global.styleAndNavigation.menu[2]}}"><i class="iconz-user" style="color:{{@global.styleAndNavigation.menu[1]}}"></i>{{@global.pageLanguageSetting.my_account_food}}</a></li>
+                                <li style="border-color:{{@global.styleAndNavigation.borderColor}}"><a data-animate="true" onclick="foodWishList(this);" style="color:{{@global.styleAndNavigation.menu[2]}}"><i class="icon-heart-1" style="color:{{@global.styleAndNavigation.menu[1]}}"></i>{{@global.pageLanguageSetting.wishlist_mcom}}</a></li>
+                            {{/if}}
+
+
+                            {{#if @global.terms_and_conditionsfood}}
+                                <li style="border-color:{{@global.styleAndNavigation.borderColor}}"><a data-animate="true" onclick="foodTermsAndPrivacy('terms_and_conditions');" style="color:{{@global.styleAndNavigation.menu[2]}}"><i class="iconz-newspaper" style="color:{{@global.styleAndNavigation.menu[1]}}"></i>{{@global.pageLanguageSetting.Terms_and_Conditions}}</a></li>
+                            {{/if}}
+                            {{#if @global.privacy_policyfood}}
+                                <li style="border-color:{{@global.styleAndNavigation.borderColor}}"><a data-animate="true" onclick="foodTermsAndPrivacy('privacy_policy');" style="color:{{@global.styleAndNavigation.menu[2]}}"><i class="icon-book-2" style="color:{{@global.styleAndNavigation.menu[1]}}"></i>{{@global.pageLanguageSetting.privacy_policy_food}}</a></li>
+                            {{/if}}
+
+                            {{#if @global.loginCheck}}
+                                <li style="border-color:{{@global.styleAndNavigation.borderColor}}"><a onclick="Appyscript.AppLogout();" class="close-tutorial" style="color:{{@global.styleAndNavigation.menu[2]}}"><i class="iconz-login" style="color:{{@global.styleAndNavigation.menu[1]}}"></i>{{@global.pageLanguageSetting.logout_food}}</a></li>
+                            {{else}}
+                                <li style="border-color:{{@global.styleAndNavigation.borderColor}}"><a onclick="Appyscript.loginPage('true');" style="color:{{@global.styleAndNavigation.menu[2]}}"><i class="iconz-login" style="color:{{@global.styleAndNavigation.menu[1]}}"></i>{{@global.pageLanguageSetting.login_food}}</a>
+                            {{/if}}
+                        </ul>
+            		</div>
+        </div>
+    </div>
+</div>
+	</div>
+</div>

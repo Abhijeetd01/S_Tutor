@@ -1,0 +1,5 @@
+.f-left{ float: left;  }
+.f-right{ float: right;  }
+a[data-identifire="sticker"]{
+    display:none;
+}

@@ -1,0 +1,43 @@
+<div class="navbar"><div class="navbar-inner" style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};{{#root_Compare @global.style.headerBarType "==" "image"}} background-image:url({{@global.style.nav_header_image_name}}){{/root_Compare}}">
+   <div class="center sliding {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}" {{#root_Compare @global.style.headerBarType "==" "image"}}style="visibility:hidden;"{{/root_Compare}}>{{#root_Compare @global.style.headerBarTitle "==" ""}}{{@global.style.appName}}{{else}}{{@global.style.headerBarTitle}}{{/root_Compare}}</div>
+    <div class="right">
+        
+    </div>
+    </div>
+</div>
+
+
+<div data-page="matrix" class="page no-toolbar {{#js_compare "this.home.appData.headerBarType === 'none' "}} no-navbar{{else}} navbar-through  {{/js_compare}}">
+
+
+    
+	<div class="page-content {{@global.style.appTheme}}">    
+    
+    <!--  Swiper    -->
+   
+  {{#if @global.style.layoutHeader}}
+   <div {{#root_Compare @global.style.navigationSlider.length ">" "1"}} data-pagination=".swiper-pagination" {{/root_Compare}}  data-next-button=".swiper-button-next" {{#root_Compare @global.style.navigationSlider.length ">" "1"}} data-loop="true" {{/root_Compare}}  data-prev-button=".swiper-button-prev" data-preload-images="false" data-lazy-loading="true" {{#root_Compare @global.style.navigationSlider.length ">" "1"}}  data-autoplay="3000" {{/root_Compare}} data-speed="600" class="navigationSlider swiper-container swiper-init">  
+        <div class="swiper-wrapper">
+            {{#@global.style.navigationSlider}}
+              <div class="swiper-slide" style="background-image:url({{this}});">
+              <img data-src="images/transparent-bg.png" class="swiper-lazy"/>
+              <div class="preloader"></div>
+              </div>
+            {{/@global.style.navigationSlider}}
+        </div>
+        <div class="swiper-pagination "></div>
+    </div>
+{{/if}}
+    
+<!--  Main Container -->
+        <div  id="app_navigation" class="{{@global.style.navigationSize}} {{#home.appData.layoutOption}} {{this}}-option {{/home.appData.layoutOption}}  {{#home.appData.hideLayout}} hide-{{this}} {{/home.appData.hideLayout}}  {{@global.style.navigationFont}} app_navigation_{{@global.style.layout}} showMatrix-{{@global.style.showMatrixBackgrondText}}">
+        {{#home.home}}
+        	<a href="#" data-productid="{{pageid}}"  data-productidentifier="{{pageIdentifierBecon}}" class="page-link" style="border-color:{{@global.style.navBorderColor}}; {{#if @global.style.showMatrixBackgrondText}} {{else}} background-color:{{@global.style.navBackgroundColor}}{{/if}}">
+            {{#js_compare "this.pageiconType === 'img' "}} <img src="{{@global.homeIconPath}}{{iconName}}" style="border-color:{{@global.style.navBorderColor}};{{#if @global.style.showMatrixBackgrondText}} {{else}} background-color:{{@global.style.navBackgroundColor}}{{/if}}">{{else}}
+            <img src="images/image-1x1.png" style="border-color:rgba(0,0,0,0);background-color:rgba(0,0,0,0)" />
+            <i class="{{iconName}}" style="border-color:{{@global.style.navBorderColor}};color:{{@global.style.navIconColor}}; {{#if @global.style.showMatrixBackgrondText}} {{else}} background-color:{{@global.style.navBackgroundColor}}{{/if}}"></i>{{/js_compare}} <span style="background-color:{{@global.style.navBackgroundColor}}; color:{{@global.style.navTextColor}}">{{pageNewid}}</span></a>
+        {{/home.home}}                
+        </div>
+    </div>
+</div>
+

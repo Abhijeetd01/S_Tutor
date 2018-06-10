@@ -1,0 +1,229 @@
+.app_navigation_matrix a {
+	cursor:pointer;
+	margin:18px calc(2% - 4px) 0px calc(2% - 4px);
+	-webkit-margin:18px calc(2% - 4px) 0px calc(2% - 4px);
+	display:inline-block;
+	width:13%;
+	border:solid 1px;
+	float:left;
+	position:relative;
+	background:none;
+}
+.app_navigation_matrix a span {background:#fff; position:absolute; left:0px; bottom:0px; width:90%; font-size:12px; line-height:20px;text-align:center; color:#333; /*text-transform:capitalize;*/ text-overflow: ellipsis; overflow: hidden; white-space: nowrap;}
+.app_navigation_matrix img {
+	margin:0 auto;
+	display:block;
+	background-size:contain;
+	background-position:center center;
+    background-repeat: no-repeat;
+}
+
+.app_navigation_matrix a i {
+	position:absolute;
+	left:0px;
+	top:0px;
+	width:100%;
+	height:100%;
+	text-align:center;
+}
+
+.app_navigation_matrix a i:before {
+	width:60px;
+	height:60px;
+	line-height:60px;
+	position:absolute;
+	left:50%;
+	top:50%;
+	margin:-30px 0 0 -30px;
+}
+
+
+/* for matrix layoutOption:circle */
+.app_navigation_matrix.rounded-option{width:100%;margin:0;padding:0;float:left;-webkit-backface-visibility:hidden;-webkit-transform:translateZ(0)}
+.app_navigation_matrix.rounded-option. .item{-webkit-backface-visibility:hidden;-webkit-transform:translateZ(0)}
+.app_navigation_matrix.rounded-option a{border:0; height:auto;}
+.app_navigation_matrix.rounded-option a img,
+.app_navigation_matrix.rounded-option a i,
+.app_navigation_matrix.rounded-option.hide-text a img,
+.app_navigation_matrix.rounded-option.hide-text a i{padding:0;margin:auto;font-size:45px; border:1px solid; background-color:#13a5f0;  border-radius: 100%;box-sizing: border-box;background-size:100% 100%;}
+.app_navigation_matrix.rounded-option a i {
+	height: calc(100% - 26px);
+}
+
+.app_navigation_matrix.rounded-option.hide-text a i {
+	height: 100%;
+}
+    
+.app_navigation_matrix a img,.app_navigation_matrix a i, .app_navigation_matrix.hide-text a img{height: 100%;
+    width: 100%; float:none;     text-transform: inherit;}
+.app_navigation_matrix.rounded-option a span{background:none!important;position:relative;top:1px}
+
+.app_navigation_matrix.matrix-size-2 a,.app_navigation_matrix2.matrix-size-2 a{width:46%;margin:9px 2%}
+.app_navigation_imgmatrix.imgmatrix-size-2 a{width:50%}
+.app_navigation_imgmatrix.imgmatrix-size-3 a{width:33.33%}
+.app_navigation_matrix.matrix-size-3 a,.app_navigation_matrix2.matrix-size-3 a{width:31.33%;margin:9px 1%}
+.app_navigation_imgmatrix.imgmatrix-size-4 a{width:25%}
+.app_navigation_matrix.matrix-size-4 a,.app_navigation_matrix2.matrix-size-4 a{width:23%;margin:9px 1%}
+.app_navigation_imgmatrix.imgmatrix-size-4 a{width:20%}
+.app_navigation_imgmatrix.imgmatrix-size-max a{width:16.66%}
+.app_navigation_matrix.matrix-size-5 a,.app_navigation_matrix2.matrix-size-5 a{width:18%;margin:9px 1%}
+.app_navigation_matrix.matrix-size-max a,.app_navigation_matrix2.matrix-size-max a{width:14.66%;margin:9px 1%}
+
+
+.app_navigation_matrix.hide-text a img{ max-height:none;  max-width:none; }
+
+.swiper-slide{background-repeat: no-repeat;
+    background-size: cover;
+    float: left;
+    position: relative;
+    width: 100%;background-position: center top;}
+.swiper-slide img { width:100%; float:left;}    
+
+@media only screen and (max-width: 1024px) {
+	.app_navigation_matrix a { width: 14%; margin: 18px calc(4% - 0px) 0; }	
+}
+
+@media only screen and (max-width: 979px) {
+	.app_navigation_matrix a {width: 17%;}
+	.app_navigation_matrix i:before {
+		height: 120px;
+		line-height: 120px;
+		width: 120px;
+		margin:-60px 0 0 -60px;
+	}
+}
+@media only screen and (max-width: 640px) {
+	.app_navigation_matrix a { width: 25%;}
+	.app_navigation_matrix.rounded-option a i,
+	.app_navigation_matrix.rounded-option.hide-text a img { 
+		border-radius: 100%;
+	}
+}
+@media only screen and (max-width: 480px) {
+	.app_navigation_matrix a { width: 25%;}
+}
+
+.app_navigation_matrix .swiper-slide a {
+    width:90px;
+    margin:18px calc(16.66% - 45px) 0 calc(16.66% - 45px);
+    float:left;
+    box-sizing:border-box;
+}
+
+/*
+.app_navigation_matrix .swiper-slide a img[src='images/image-1x1.png'] {
+	display:none;
+}
+
+.app_navigation_matrix .swiper-slide a i {
+	position:relative;
+}
+*/
+
+.app_navigation_matrix.swiper-container a img,
+.app_navigation_matrix.swiper-container a i,
+.app_navigation_matrix.swiper-container.rounded-option.hide-text a img,
+.app_navigation_matrix.swiper-container.rounded-option.hide-text a i {
+	height: 88px;
+	line-height: 88px;
+	width: 88px;
+}  
+
+.app_navigation_matrix.hide-text .swiper-pagination-bullet {
+	display:inline-block;
+}
+
+.app_navigation_matrix.swiper-container.rounded-option a img,
+.app_navigation_matrix.swiper-container.rounded-option a i {
+	height: 68px;
+	line-height: 68px;
+	width: 68px;
+} 
+
+.app_navigation_matrix.swiper-container.rounded-option.hide-text a img,
+.app_navigation_matrix.swiper-container.rounded-option.hide-text a i {
+	height: 88px;
+	line-height: 88px;
+	width: 88px;
+}
+
+.app_navigation_matrix.swiper-container.rounded-option a {
+	width:33.33%;
+ 	margin:18px 0 0 0;
+  	float:left;
+}
+
+.app_navigation_matrix.showMatrix-0 a span {
+	background-color:rgba(0,0,0,0) !important;
+}
+
+/*List*/
+ 
+.app_navigation_list{-webkit-backface-visibility:hidden;-webkit-transform:translateZ(0); width:auto;padding:0;outline:0;clear:both;}
+.app_navigation_list a{ display: block; float: left; padding: 5px; position: relative; width: calc(100% - 10px);-webkit-width: calc(100% - 10px);-moz-width: calc(100% - 10px); cursor: pointer; margin:0px; border:0px;  border-bottom: 1px solid #fff; }
+.app_navigation_list a:last-child{ border-bottom: 1px solid #fff; }
+.app_navigation_list a img{color: #fff; display: inline-block; float: left; width: 50px; margin:0px;}
+.app_navigation_list a span{ color: #fff; display: inline-block; font-size: 18px ;  line-height: 48px; padding: 0 10px; float:left; background:none !important;}
+
+/*Centered*/
+.app_navigation_list.centered-option, .app_navigation_list.centered-option.rounded-option{float:none;margin:10px;padding:10px;width:auto;clear:both;background:rgba(0,0,0,0.3); height:calc(100% - 40px)}
+.app_navigation_list.centered-option a{margin: 2px 0;}
+
+/*Centered rounded-option*/
+.app_navigation_list.centered-option .scroll, .app_navigation_list.centered-option.rounded-option .scroll{width:100%;height:100%;overflow-y:scroll;float:left;-webkit-backface-visibility:hidden;-webkit-transform:translateZ(0); -webkit-overflow-scrolling: touch;  -webkit-transition: width 0.3s ease;     -moz-transition: width 0.3s ease; -ms-transition: width 0.3s ease;-o-transition: width 0.3s ease;transition: width 0.3s ease; padding:0;}
+.app_navigation_list.centered-option.rounded-option a{border-radius: 100px; margin:2px 0; border: 1px solid;} 
+.app_navigation_list a i{font-size:30px}
+.app_navigation_list.centered-option.rounded-option a img, .app_navigation_list.centered-option.rounded-option a i{border-radius: 100px;}
+
+/*rounded-option list*/
+.app_navigation_list.rounded-option a{margin:2px 0;border-radius:100px;padding:8px 0;clear:both;width:100%;float:left;position:relative;border:solid 1px #FFF;box-sizing:border-box}
+.app_navigation_list.rounded-option a span{line-height:40px;padding:0;}
+.app_navigation_list.rounded-option a img,.app_navigation_list.rounded-option a i{border-radius:100px;margin:0 8px; }
+.app_navigation_list.rounded-option .scroll {padding:5px; box-sizing:border-box; float:left; width:100%;}
+
+
+
+/*Images List*/
+ 
+.app_navigation_imglist{margin:0;width:100%;float:left;padding:0;clear:both;overflow:visible;-webkit-backface-visibility:hidden;-webkit-transition:translate3d(0,0,0)}
+.app_navigation_imglist a{margin:0;width:100%;padding:0;outline:0;float:left;overflow:hidden;position:relative;border-bottom:solid 2px #fff;background-size:cover;background-position:center;background-repeat:no-repeat; background:none !important;}
+.app_navigation_imglist a img,.app_navigation_imglist a i{width:100%;float:left;margin:0;padding:0;font-size:90px; background-size: contain;background-position: center; background-repeat: no-repeat;}
+.app_navigation_imglist a span{position:absolute;left:0;bottom:0;width:100%;float:left;margin:0;padding:8px 10px;line-height:20px;box-sizing:border-box;text-overflow:ellipsis;overflow:hidden;white-space:nowrap;float:left;-webkit-backface-visibility: hidden;-webkit-transition: translate3d(0,0,0);}
+
+/*Hide*/
+.app_navigation_imglist.hide-text a span{text-indent:9999px;}
+.app_navigation_imglist.hide-background a span{background:none !important;} 
+
+/*Left : Center : Right : Top : Middle : Bottom*/
+.app_navigation_imglist.center-align a span{text-align:center}
+.app_navigation_imglist.right-align span{text-align:right}
+.app_navigation_imglist.top-align span{bottom:auto;top:0}
+.app_navigation_imglist.middle-align span{bottom:calc(50% - 18px)}
+.app_navigation_imglist.left-align span{text-align:left}
+
+
+/*Images Matrix*/
+ 
+.app_navigation_imgmatrix{width:100%;margin:0;padding:0;margin:0;float:left;clear:both;overflow:visible;-webkit-backface-visibility:hidden;-webkit-transform:translateZ(0)}
+.app_navigation_imgmatrix a{border:0;position:relative;width:50%;float:left;box-shadow:0 0 0 #fff inset;outline:solid 0 #fff;border:solid 1px #fff;overflow:hidden;margin:0;padding:0;box-sizing:border-box;background-size:cover;background-position:center;background-repeat:no-repeat}
+.app_navigation_imgmatrix a img,.app_navigation_imgmatrix a i{padding:0;margin:auto;width:100%;font-size:80px; background-size: contain;background-position: center; background-repeat: no-repeat;}
+.app_navigation_imgmatrix a i{text-align:center;line-height:150px;vertical-align:middle}
+.app_navigation_imgmatrix a span{position:absolute;left:0;bottom:0;text-align:left;text-indent:0;padding:8px 10px;width:100%;text-align:center;box-sizing:border-box;text-overflow:ellipsis;overflow:hidden;white-space:nowrap;float:left}
+.app_navigation_imgmatrix a img{ float:left;}
+
+/*Hide*/
+.app_navigation_imgmatrix.hide-text a span{text-indent:9999px;}
+.app_navigation_imgmatrix.hide-background a span{background:none !important;} 
+
+/*Left : Center : Right : Top : Middle : Bottom*/
+.app_navigation_imgmatrix.center-align a span{text-align:center}
+.app_navigation_imgmatrix.right-align span{text-align:right}
+.app_navigation_imgmatrix.top-align span{bottom:auto;top:0}
+.app_navigation_imgmatrix.middle-align span{bottom:calc(50% - 18px)}
+.app_navigation_imgmatrix.left-align span{text-align:left}
+
+
+/* for SA */
+.sa .app_navigation_matrix a {
+ 	float:right;
+}

@@ -1,0 +1,66 @@
+<div class="navbar">
+    <div class="navbar-inner" style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+
+        <div class="left sliding">
+            <a class="link back" href="" style="color:{{@global.style.headerBarTextColor}};">
+                <i class="icon icon-left-open-2"></i>
+            </a>
+        </div>
+        <div class="center sliding  {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">{{@global.pageLanguageSetting.more_alert_options}}</div>
+        <div class="right">
+
+        </div>
+
+    </div></div>
+
+
+<div data-page="news-Setting" class="page navbar-through no-toolbar">
+    <!-- Page content-->
+<div class="backgroundAnimation">{{> innerBackground}}</div>
+<div class="page-content content-{{@global.styleAndNavigation.content[3]}} heading-{{@global.styleAndNavigation.heading[3]}} " style="background:{{@global.styleAndNavigation.pageBgColor}}">
+
+
+
+        <div class="setting-contents news-setting {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="color:{{@global.styleAndNavigation.content[2]}}">
+            <p>{{@global.pageLanguageSetting.choose_which_push_alerts_you_would_like_to_receive}}</p>
+            <h4 class="{{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}}">{{@global.pageLanguageSetting.alert_needed}}</h4>
+            <ul class="list radio" style="border-color:{{@global.styleAndNavigation.borderColor}};">
+                <li style="border-color:{{@global.styleAndNavigation.borderColor}};"><span>
+                    <input name="alert_recieve" data-role="none" id="alert_recieve1" type="radio" value="none">
+                        </span> {{@global.pageLanguageSetting.None}} </li>
+                <li style="border-color:{{@global.styleAndNavigation.borderColor}};"><span>
+                    <input name="alert_recieve" data-role="none" id="alert_recieve1" type="radio" value="all">
+                        </span> {{@global.pageLanguageSetting.All}} </li>
+                <li style="border-color:{{@global.styleAndNavigation.borderColor}};"><span>
+                    <input name="alert_recieve" data-role="none" id="alert_recieve1" type="radio" value="4-5">
+                        </span>
+                    <input name="perday" data-role="none" id="perday" type="text" value="5" class="text_day">
+                    {{@global.pageLanguageSetting.Messages_Per_Day}} </li>
+            </ul>
+            <h4 class="{{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}}">{{@global.pageLanguageSetting.dont_send_alert_between}}</h4>
+            <div class="time-mode" style="border-color:{{@global.styleAndNavigation.borderColor}};"> <span>
+                <input name="dontSend" type="checkbox" value="" id="do_not_disturb" data-role="none">
+                    </span>
+                <input data-role="none" type="time" name="startcurrenttime" id="txtTime1" style="border-color:{{@global.styleAndNavigation.borderColor}};">
+                <input data-role="none" type="time" name="endcurrenttime" id="txtTime2" style="border-color:{{@global.styleAndNavigation.borderColor}};">
+            </div>
+            <h4 class="{{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}}">{{@global.pageLanguageSetting.more_alert_options}}</h4>
+            <p>{{@global.pageLanguageSetting.You_can_also_choose_any_of_the_following_categories_to_get_alerts_based_on_your_interests}}</p>
+            <h4 class="{{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}}">{{@global.pageLanguageSetting.categories}}</h4>
+            <ul class="list checkbox" style="border-color:{{@global.styleAndNavigation.borderColor}};">
+                {{#categoryList}}
+                <li style="border-color:{{@global.styleAndNavigation.borderColor}};"><span>
+                    <input name="alert_recieve2" id="alert_recieve2" type="checkbox" data-catId="{{catId}}">
+                        </span> {{catName}} </li>
+                {{/categoryList}}
+            </ul>
+            <div class="savebtn {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" style="background-color:{{@global.styleAndNavigation.button[2]}};color:{{@global.styleAndNavigation.button[3]}}" onClick="Appyscript.setSetting(this)"><span id="save-button"> {{@global.pageLanguageSetting.save}} </span></div>
+        </div>
+
+    </div>
+    
+    
+    
+    
+    
+    

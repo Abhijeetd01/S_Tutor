@@ -1,0 +1,131 @@
+
+          
+          
+<div class="navbar"><div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}}; font-size: {{@global.style.headerBarSize}} ">
+            <div class="left sliding">
+              <a href="index" class="link back" style="color:{{@global.style.headerBarTextColor}};">
+                <i class="icon icon-left-open-2"></i>
+              </a>
+            </div>
+           <div class="center sliding">
+           	<div class="topHeader">{{@global.pageLanguageSetting.my_bookings}}
+            </div>
+              
+
+            </div> 
+            <div class="right">
+            <a  style="color:{{@global.style.headerBarTextColor}};">
+                <i class="icon iconz-location-chat--r"></i>
+              </a>
+             
+            </div>
+          </div></div>
+
+<div data-page="customevent-myBooking" class="page navbar-through no-toolbar {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="color:{{@global.styleAndNavigation.content[2]}}; background:{{@global.styleAndNavigation.pageBackroundColor}}">
+<style>
+.customevent-tab a{
+background:{{@global.styleAndNavigation.tab[0]}};
+color:{{@global.styleAndNavigation.tab[1]}};							
+}
+.customevent-tab a.active {
+	background:{{@global.styleAndNavigation.tab[2]}};
+	color:{{@global.styleAndNavigation.tab[1]}};							
+}
+</style>						
+<!-- Page content-->
+    <div class="listing-tabs">
+        <div class="customevent-tab tabs-click">
+            <a class="active tab-link" href="#tabUpcoming">{{@global.pageLanguageSetting.Upcoming}}</a>
+            <a class="tab-link" href="#tabAttended">{{@global.pageLanguageSetting.attended}}</a>
+        </div>
+    </div>
+    <div class="page-content">	
+    
+    <div class="mybooking-mode">
+
+            <div class="tabs-animated-wrap">
+            <div class="wrap">
+            <div class="tabs">
+            <div class="event-tab tabs-view tab active" id="tabUpcoming" style="width:100%;">
+                <ul class="event-booking-history" style="width:100%;">
+                    {{#list}}
+                     {{#js_compare "this.upcoming.length != 0"}}
+                        {{#upcoming}}
+                        <li>
+                            <div class="row" onclick="Appyscript.customeventUpcoming('{{orderId}}')">
+                                <img src="images/image-2x1.png" style="background-image:url({{images}})" class="img-style">
+                                    
+                                    </div>
+                            <div class="row event-booking-detail" onclick="Appyscript.customeventUpcoming('{{orderId}}')" style="border-color:{{@global.styleAndNavigation.borderColor}}">
+                                <div class="event-icon-date" style="border-color:{{@global.styleAndNavigation.borderColor}}">{{getDayName bookingDate}}<strong style="color:{{@global.styleAndNavigation.activeColor}}">{{getDate bookingDate}}</strong>{{getMonthName bookingDate}}</div>
+                                <div class="htTimeWp">
+                                    <h3 class="{{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}};">{{eventName}}</h3>
+                                    <p>{{eventVenue}}</p>
+                                </div>
+                            </div>
+                            <div class="btn-wrap-booking">
+                                <a class="event-book-btn col-45 rebook-btn {{@global.styleAndNavigation.secondaryButton[0]}} {{@global.styleAndNavigation.secondaryButton[1]}}" style="color:{{@global.styleAndNavigation.secondaryButton[3]}};background:{{@global.styleAndNavigation.secondaryButton[2]}}; border-color:{{@global.styleAndNavigation.borderColor}}" href="#" onclick="getVenuesByEvent('{{eventId}}')">{{@global.pageLanguageSetting.re_book}}</a>
+                                <a class="event-book-btn col-45 stc-btn-up {{@global.styleAndNavigation.secondaryButton[0]}} {{@global.styleAndNavigation.secondaryButton[1]}}" style="color:{{@global.styleAndNavigation.secondaryButton[3]}};background:{{@global.styleAndNavigation.secondaryButton[2]}}; border-color:{{@global.styleAndNavigation.borderColor}}" onclick="addEventToCalender(true, '{{bookingDate}}', '{{eventStartTime}}', '{{eventVenue}}', '{{eventName}}', '{{orderId}}' )">{{@global.pageLanguageSetting.add_to_calendar}}</a>
+
+                            </div>
+                        </li>
+                        {{/upcoming}}
+                        {{else}}
+                        <div class="msg-code" style="width:100%; height:300px">{{> errorpage errorIcon="appyicon-no-data"}}</div>
+                        {{/js_compare}}
+                    {{/list}}
+             	
+                 
+                  
+             </ul>
+            </div>
+            <div class="event-tab tabs-view  tab" id="tabAttended" style="width:100%;">
+               <ul class="event-booking-history" style="width:100%;">
+                   
+                   {{#list}}
+                   {{#js_compare "this.previous.length != 0"}}
+                   {{#previous}}
+                   <li>
+                       <div class="row" onclick="Appyscript.customeventPrevious('{{orderId}}')">
+                           <img src="images/image-2x1.png" style="background-image:url({{images}})" class="img-style">
+                               
+                               </div>
+                       <div class="row event-booking-detail" onclick="Appyscript.customeventPrevious('{{orderId}}')" style="border-color:{{@global.styleAndNavigation.borderColor}}">
+                           <div class="event-icon-date" style="border-color:{{@global.styleAndNavigation.borderColor}}">{{getDayName bookingDate}}<strong style="color:{{@global.styleAndNavigation.activeColor}}">{{getDate bookingDate}}</strong>{{getMonthName bookingDate}}</div>
+                           <div class="htTimeWp">
+                               <h3 class="{{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}};">{{eventName}}</h3>
+                               <p>{{eventVenue}}</p>
+                           </div>
+                       </div>
+                       <div class="btn-wrap-booking">
+
+                           {{#js_compare "this.expired != 1"}}
+                           <a class="event-book-btn col-45 rebook-btn {{@global.styleAndNavigation.secondaryButton[0]}} {{@global.styleAndNavigation.secondaryButton[1]}}" style="color:{{@global.styleAndNavigation.secondaryButton[3]}};background:{{@global.styleAndNavigation.secondaryButton[2]}}; border-color:{{@global.styleAndNavigation.borderColor}}" href="#" onclick="getVenuesByEvent('{{eventId}}')">{{@global.pageLanguageSetting.re_book}}</a>
+                           <a class="event-book-btn col-45 post-review-btn {{@global.styleAndNavigation.secondaryButton[0]}} {{@global.styleAndNavigation.secondaryButton[1]}}" style="color:{{@global.styleAndNavigation.secondaryButton[3]}};background:{{@global.styleAndNavigation.secondaryButton[2]}}; border-color:{{@global.styleAndNavigation.borderColor}}" onclick="Appyscript.postReviewLoadScreen('{{eventId}}')" >{{@global.pageLanguageSetting.post_a_review}}</a>
+                           {{else}}
+                           <a class="event-book-btn col-100 post-review-btn {{@global.styleAndNavigation.secondaryButton[0]}} {{@global.styleAndNavigation.secondaryButton[1]}}" style="color:{{@global.styleAndNavigation.secondaryButton[3]}};background:{{@global.styleAndNavigation.secondaryButton[2]}}; border-color:{{@global.styleAndNavigation.borderColor}}" onclick="Appyscript.postReviewLoadScreen('{{eventId}}')" >{{@global.pageLanguageSetting.post_a_review}}</a>
+                           {{/js_compare}}
+
+                       </div>
+                   </li>
+                   {{/previous}}
+                   {{else}}
+                   <div class="msg-code" style="width:100%; height:300px">{{> errorpage errorIcon="appyicon-no-data"}}</div>
+                   {{/js_compare}}
+                   {{/list}}
+             	
+                 
+                  
+             </ul>
+            </div>           
+            </div>
+            </div>
+            </div>
+        </div>
+        
+        
+     
+    
+    
+    </div>
+</div>

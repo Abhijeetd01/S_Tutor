@@ -1,0 +1,64 @@
+<div class="navbar"><div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}}; font-size: {{@global.style.headerBarSize}} ">
+    <div class="left sliding">
+        <!--              <a onclick="Appyscript.popupPage('customevent-menu')" style="color:{{@global.style.headerBarTextColor}};">-->
+        <!--                <i class="icon icon-menu-1"></i>-->
+        <!--              </a>-->
+    </div>
+    <div class="center sliding">
+        {{@global.pageLanguageSetting.ticket_details_header}}
+    </div>
+    <div class="right"><a  style="color:{{@global.style.headerBarTextColor}};">
+        <i class="icon iconz-location-chat--r"></i>
+    </a>
+    </div>
+</div></div>
+
+<div data-page="customevent-receipt" class="page navbar-through  toolbar-through   toolbar-bottom  {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="color:{{@global.styleAndNavigation.content[2]}}; background:{{@global.styleAndNavigation.pageBackroundColor}}">
+    <style>
+.receipt-page .content p,.receipt-page .content h2, .receipt-page .content h3,.btContainerFull,.btContainerFull a, .receipt-page h2 a, .content{border-color:{{@global.styleAndNavigation.borderColor}} !important}
+.receipt-page h2 a{color:{{@global.styleAndNavigation.iconColor}}}
+</style>
+    <!-- Page content-->
+    <div class="page-content">
+
+
+
+        <section class="section-events receipt-page event-back">
+            <div class="content">
+                <!--    shareMyTicket('{{qrUrl}}','{{eventName}}','{{venue}}','{{date}}','{{time}} {{shift}}')-->
+                <h2 id="ticketId" class="{{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}};"><a onclick="shareMyTicket('{{qrUrl}}','{{eventName}}','{{venue}}','{{date}}','{{time}} {{shift}}')" class="icon-share-1" style="float:right"></a>{{@global.pageLanguageSetting.booking_id}} : {{ticketId}}</h2>
+                <h3 id="ticketEvent" >{{eventName}}</h3>
+                <p id="ticketVenue">{{venue}}</p>
+                <div style="display:flex; float:left;  width: 100%;">
+                    <p id="ticketDate" class="date"><strong>{{date}}</strong>{{day}}</p>
+                    <p id="ticketTime" class="time date"> <strong>{{time}}</strong>{{shift}} ({{timeZone}})</p>
+                </div>
+                <p>{{quantity}} {{@global.pageLanguageSetting.tickets}}</span></p>
+                {{#js_compare "this.isPaid == 'unpaid'"}}
+                <p>{{@global.pageLanguageSetting.pay_at_counter}}</span></p>
+                {{/js_compare}}
+                <div class="image-view">
+                    <span>{{@global.pageLanguageSetting.scan_and_enter}}</span>
+                    <img src="{{qrUrl}}">
+
+
+                </div>
+                <div class="btContainerFull">
+                    <a href="#" onclick="addEventToCalender()" class="col-45 pull-left {{{@global.styleAndNavigation.secondaryButton[0]}} {{@global.styleAndNavigation.secondaryButton[1]}}" style="color:{{@global.styleAndNavigation.secondaryButton[3]}};background:{{@global.styleAndNavigation.secondaryButton[2]}}; border-color:{{@global.styleAndNavigation.borderColor}}" >{{@global.pageLanguageSetting.add_to_calendar}}</a>
+                    <a href="#" onclick="saveTicket()" class="col-45 pull-right {{@global.styleAndNavigation.secondaryButton[0]}} {{@global.styleAndNavigation.secondaryButton[1]}}" style="color:{{@global.styleAndNavigation.secondaryButton[3]}};background:{{@global.styleAndNavigation.secondaryButton[2]}}; border-color:{{@global.styleAndNavigation.borderColor}}" >{{@global.pageLanguageSetting.save_to_gallery}}</a>
+                </div>
+            </div>
+
+
+        </section>
+
+
+
+
+    </div>
+    <div id="continueBtn" class="toolbar">
+        <div class="toolbar-inner">
+            <a class="btn" style="background:#60a32e; border-bottom: solid 3px #60a32e;" onclick="back2Home()">{{@global.pageLanguageSetting.continue_food}}</a>
+        </div>
+    </div>
+</div>

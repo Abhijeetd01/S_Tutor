@@ -1,0 +1,90 @@
+<div class="popup menu-popup tablet-fullscreen">
+    <div class="view">
+        <div class="navbar"><div class="navbar-inner " style="background-color:{{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}}; ">
+            <div class="left sliding">
+                <a href="" class="close link icon-left-open-2 close-popup" style="color:{{@global.style.headerBarIconColor}};" >
+                </a>
+            </div>
+            <div class="center sliding">
+                <div class="topHeader {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}"> {{@global.pageLanguageSetting.store_time_food}} </div>
+            </div>
+            <div class="right"></div>
+        </div></div>
+
+        <div class="pages {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="background-color: {{@global.styleAndNavigation.settingPage.settingPageBgColor}}; color:{{@global.styleAndNavigation.settingPage.settingPageContent}}">
+            <div data-page="foodcourt-timing" class="page navbar-through no-toolbar">
+                <div class="page-content">
+
+                    <div class="bodypan">
+                        {{#if storetime}}
+
+                        {{#storetime}}
+
+                        <div id="foodPopupfoodcourt">
+                            <div class="time-view">
+                                <h2 class="{{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.settingPage.settingPageheading}}; border-color:{{@global.styleAndNavigation.settingPage.settingPageBorderColor}}">{{@global.pageLanguageSetting.opening_time_food}}</h2>
+                                <ul>
+                                    {{#storetimeopen.day}}
+                                    <li style="border-color:{{@global.styleAndNavigation.settingPage.settingPageBorderColor}}">
+                                        <div class="openingHour">
+                                            {{#js_compare "this.indexval == '7'"}} <span class="day">{{@global.pageLanguageSetting.Sunday}} </span> {{/js_compare}}
+                                            {{#js_compare "this.indexval == '1'"}} <span class="day">{{@global.pageLanguageSetting.Monday}} </span> {{/js_compare}}
+                                            {{#js_compare "this.indexval == '2'"}} <span class="day">{{@global.pageLanguageSetting.Tuesday}} </span> {{/js_compare}}
+                                            {{#js_compare "this.indexval == '3'"}} <span class="day">{{@global.pageLanguageSetting.Wednesday}} </span> {{/js_compare}}
+                                            {{#js_compare "this.indexval == '4'"}} <span class="day">{{@global.pageLanguageSetting.Thursday}} </span> {{/js_compare}}
+                                            {{#js_compare "this.indexval == '5'"}} <span class="day">{{@global.pageLanguageSetting.Friday}} </span> {{/js_compare}}
+                                            {{#js_compare "this.indexval == '6'"}} <span class="day">{{@global.pageLanguageSetting.Saturday}} </span> {{/js_compare}}
+                                            <span class="time-slot">
+                                            {{#if isOpen}}
+                                                {{#storeTime}}
+                                                    <span class="time"> {{HStart}}:{{MStart}} {{#js_compare "this.AMStart == 'AM'"}} {{@global.pageLanguageSetting.AM}} {{else}} {{@global.pageLanguageSetting.PM}} {{/js_compare}}  {{@global.pageLanguageSetting.fc_to}}   {{HEnd}}:{{MEnd}} {{#js_compare "this.AMEnd == 'AM'"}} {{@global.pageLanguageSetting.AM}} {{else}} {{@global.pageLanguageSetting.PM}} {{/js_compare}} </span>
+                                                {{/storeTime}}
+                                                {{else}}
+                                                    <span class="time"> {{@global.pageLanguageSetting.closed}}</span>
+                                             {{/if}}
+                                            </span>
+                                        </div>
+                                    </li>
+                                    {{/storetimeopen.day}}
+                                </ul>
+
+                                <h2 class="{{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.settingPage.settingPageheading}}; border-color:{{@global.styleAndNavigation.settingPage.settingPageBorderColor}}">{{@global.pageLanguageSetting.customer_time_food}}</h2>
+                                <ul>
+                                    {{#storeServiceingtime.day}}
+                                    <li style="border-color:{{@global.styleAndNavigation.settingPage.settingPageBorderColor}}">
+                                        <div class="openingHour">
+
+                                            {{#js_compare "this.indexval == '7'"}} <span class="day">{{@global.pageLanguageSetting.Sunday}} </span> {{/js_compare}}
+                                            {{#js_compare "this.indexval == '1'"}} <span class="day">{{@global.pageLanguageSetting.Monday}} </span> {{/js_compare}}
+                                            {{#js_compare "this.indexval == '2'"}} <span class="day">{{@global.pageLanguageSetting.Tuesday}} </span> {{/js_compare}}
+                                            {{#js_compare "this.indexval == '3'"}} <span class="day">{{@global.pageLanguageSetting.Wednesday}} </span> {{/js_compare}}
+                                            {{#js_compare "this.indexval == '4'"}} <span class="day">{{@global.pageLanguageSetting.Thursday}} </span> {{/js_compare}}
+                                            {{#js_compare "this.indexval == '5'"}} <span class="day">{{@global.pageLanguageSetting.Friday}} </span> {{/js_compare}}
+                                            {{#js_compare "this.indexval == '6'"}} <span class="day">{{@global.pageLanguageSetting.Saturday}} </span> {{/js_compare}}
+                                            <span class="time-slot">
+                                                {{#if isOpen}}
+                                                    {{#storeTime}}
+                                                        <span class="time"> {{HStart}}:{{MStart}} {{#js_compare "this.AMStart == 'AM'"}} {{@global.pageLanguageSetting.AM}} {{else}} {{@global.pageLanguageSetting.PM}} {{/js_compare}}   {{@global.pageLanguageSetting.fc_to}}   {{HEnd}}:{{MEnd}} {{#js_compare "this.AMEnd == 'AM'"}} {{@global.pageLanguageSetting.AM}} {{else}} {{@global.pageLanguageSetting.PM}} {{/js_compare}}</span>
+                                                    {{/storeTime}}
+                                                {{else}}
+                                                    <span class="time">    {{@global.pageLanguageSetting.closed}} </span>
+                                                {{/if}}
+                                            </span>
+                                        </div>
+                                    </li>
+                                    {{/storeServiceingtime.day}}
+                                </ul>
+                            </div>
+                        </div>
+                        {{/storetime}}
+                        {{/if}}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+

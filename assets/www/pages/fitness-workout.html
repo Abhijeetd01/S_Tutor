@@ -1,0 +1,61 @@
+<div class="navbar">
+	<div class="navbar-inner" style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+		<div class="left sliding">
+			<a href="index" class="link back" style="color:{{@global.style.headerBarIconColor}};">
+				<i class="icon icon-left-open-2"></i>
+			</a>
+		</div>
+		<div class="center sliding  {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">
+			<div class="topHeader">
+				{{list[0].languageSetting.fitness_workouts}}
+			</div>
+		</div>
+		<div class="right">
+			<a class="link" style="color:{{@global.style.headerBarIconColor}};">
+
+				<i class="iconz-option-vertical" onclick="toggle_menu(this);"></i>
+			</a>
+		</div>
+	</div>
+</div>
+
+<div data-page="fitness-workout" class="page navbar-through no-toolbar" style="background-color: {{@global.styleAndNavigation.pageBgColor}}">
+	<!-- Page content-->
+	<div class="page-content">
+		<style>
+    	.workoutSubhead > span, .difficultySec{color:{{@global.styleAndNavigation.activeColor}}}
+		.workoutSubhead h1, .workoutSubhead{color:{{@global.styleAndNavigation.listmenu[2]}}}
+		.difficultySec i{color:{{@global.styleAndNavigation.iconColor}}}
+    </style>
+		<div class="workoutPage">
+			<ul>
+				{{#each fitness_workout.list}}
+				<li onclick="Exercise_On_Categories_Bases('{{workout_id}}')" class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}">
+					<div class="workoutSubhead"> <span>{{workout_goals}}</span> <h1 class="{{@global.styleAndNavigation.listmenu[0]}} {{@global.styleAndNavigation.listmenu[1]}}">{{workout_title}}</h1> <small class="{{@global.styleAndNavigation.listmenu[0]}} {{@global.styleAndNavigation.listmenu[1]}}">{{workout_duration}}</small> </div>
+					<img src="images/image-3x1.png" style="background-image:url({{workout_cover}})">
+					<div class="difficultySec">{{workout_diffculty}}
+						<div class="diffIcon">
+							<i class="appyslim-weather-thunderbolt-3"></i>
+							<i class="appyslim-weather-thunderbolt-3"></i>
+
+							{{#js_compare "this.workout_diffculty == 'Intermediate'"}}
+							<i class="appyslim-weather-thunderbolt-3"></i>
+							{{/js_compare}}
+
+							{{#js_compare "this.workout_diffculty == 'Advanced'"}}
+							<i class="appyslim-weather-thunderbolt-3"></i>
+							<i class="appyslim-weather-thunderbolt-3"></i>
+							<i class="appyslim-weather-thunderbolt-3"></i>
+							{{/js_compare}}
+						</div>
+					</div>
+
+					<span class="workoutPage-overlay"></span>
+				</li>
+				{{/each}}
+			</ul>
+		</div>
+	</div>
+</div>
+
+

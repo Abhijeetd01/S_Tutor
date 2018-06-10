@@ -1,0 +1,71 @@
+<div class="popup menu-popup">
+    <div class="view">
+        <div class="navbar"><div class="navbar-inner " style="background-color:{{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+            <div class="left sliding">
+                <a href="index" class="link back" style="color:{{@global.style.headerBarIconColor}};">
+                    <i class="icon icon-left-open-2"></i>
+                </a>
+            </div>
+            <div class="center sliding">
+                <div class="topHeader {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">{{languageSetting.listNameRnR}}</div>
+            </div>
+            <div class="right"></div>
+        </div></div>
+        <div class="pages" >
+            <div class="page navbar-through no-toolbar hideBorder-{{@global.styleAndNavigation.hideBorder}}" data-page="services-reviewAndRating"  style="background-color: {{@global.styleAndNavigation.pageBgColor}}">
+                <div class="page-content">
+                    <style>
+                        ::-webkit-input-placeholder {
+                            color:{{@global.styleAndNavigation.content[2]}} !important;
+                        }
+                    :-moz-placeholder {
+                        color:{{@global.styleAndNavigation.content[2]}} !important;
+                    }
+                    ::-moz-placeholder {color:{{@global.styleAndNavigation.content[2]}} !important;
+                    }
+                    :-ms-input-placeholder {
+                        color:{{@global.styleAndNavigation.content[2]}} !important;
+                    }
+					.hideBorder-1 .review-bx {
+						border: 1px solid {{@global.styleAndNavigation.borderColor}} !important;
+					}
+                    
+                        </style>
+                    <div class="filter-page">
+                        <div class="filter-row short-by">
+                            <h3 class="{{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}" style="color:{{@global.styleAndNavigation.subheading[2]}}">{{languageSetting.user_reviews_ratings_dir}}</h3>
+                            <div class="tabs-animated-wrap">
+                                <ul class="ratingList last-review-bx">
+                                    <li>
+                                        <div class="pull-left">
+                                            <span class="iconz-star" onclick="Appyscript.starClk(this)"></span>
+                                            <span class="iconz-star" onclick="Appyscript.starClk(this)"></span>
+                                            <span class="iconz-star" onclick="Appyscript.starClk(this)"></span>
+                                            <span class="iconz-star" onclick="Appyscript.starClk(this)"></span>
+                                            <span class="iconz-star" onclick="Appyscript.starClk(this)"></span>
+                                        </div>
+                                    </li>
+                                    <li><textarea placeholder="{{languageSetting.enter_your_review}}" id="rnrTextArea" class="review-bx {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="border-color:{{@global.styleAndNavigation.borderColor}}; color:{{@global.styleAndNavigation.content[2]}}"></textarea></li></ul>
+                                 <div class="hyper-gray-wrapper">
+                                    <button class="hyper-sent-btn {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" style="background-color: {{@global.styleAndNavigation.button[2]}}; color: {{@global.styleAndNavigation.button[3]}};" onclick="Appyscript.submitReviewAndRating()">{{languageSetting.post_your_ratingreview_dir}}</button>
+                                </div>
+                                {{#if list}} <h3>{{languageSetting.total_reviews}}: {{totalReview}}</h3>{{/if}}
+                                 <ul class="review" id="RnRId">
+                                     {{#list}}
+                                     <li style="border-color:{{@global.styleAndNavigation.borderColor}}"><span class="hyper-comt-pic">  {{#js_compare "this.profileImage == '' "}}
+                                          <img class="dirImgReview" src="images/image-1x1.png" style="background:url({{@global.style.reseller}}/newui/images/user-pic-news.png)">
+                                             {{else}}
+                                             <img class="dirImgReview" src="images/image-1x1.png" style="background:url({{profileImage}})">
+                                                 {{/js_compare}}</span><p class="hyper-comt-txt"><strong class="{{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}" style="color:{{@global.styleAndNavigation.subheading[2]}}">{{name}}</strong><span class="reviewTxt {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="color:{{@global.styleAndNavigation.content[2]}}">{{reviewText}}</span>
+                                         <div class="head_rating" ratting={{rating}}></div>  </p><small class="rrdate {{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}" style="color:{{@global.styleAndNavigation.subheading[2]}}">{{date}}</small></li>
+                                     {{/list}}
+                                 </ul>
+                            </div>    
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>

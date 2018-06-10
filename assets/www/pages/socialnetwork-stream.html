@@ -1,0 +1,100 @@
+
+<div class="navbar">
+    <div class="navbar-inner" style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+        <div class="left sliding">
+            <a href="index" class="link back" style="color:{{@global.style.headerBarIconColor}};">
+                <i class="icon icon-left-open-2"></i>
+            </a>
+        </div>
+        <div class="center sliding  {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">{{@global.socialpagetitle}}</div>
+        <div class="right">
+            
+        </div>
+    </div>
+</div>
+<div data-page="socialnetwork-Stream" class="page navbar-through toolbar-fixed no-toolbar">
+    <div class="backgroundAnimation">{{> innerBackground}}</div>
+    <!-- Page content-->
+   <div class="page-content theam-{{@global.styleAndNavigation.layout}} hideBorder-{{@global.styleAndNavigation.hideBorder}}" onscroll="Appyscript.Socialscrollpostpagelikes(this);"  id="socialmylikespage" >
+        <style>
+            .theam-4 .counter{background: {{@global.styleAndNavigation.iconColor}} !important;}
+            .streamList li.active a {
+                border-bottom: 2px solid  {{@global.styleAndNavigation.iconColor}} !important;
+                color:  {{@global.styleAndNavigation.iconColor}} !important;
+            }
+        </style>
+        <div class="profile-image" id="profile_image">
+            
+        </div>
+        <div class="bodypan">
+            <div class="">
+                <div class="tab_list_container swiper-container">
+                    <ul class="streamList list-view-5 swiper-wrapper">
+                        
+                        <li class="swiper-slide"><a href="#tab1" class="icon-edit"></a></li>
+                        <li class="swiper-slide"><a href="#tab2" class="icon-heart-1"></a></li>
+                        <li class="swiper-slide"><a href="#tab3" class="icon-camera"></a></li>
+                        <li class="swiper-slide"><a href="#tab4" class="icon-cog"></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="autoslidetab">
+                <div class="tab_data_container swiper-container">
+                    <div class="tabs swiper-wrapper social-autoheight">
+                        <div class="tab swiper-slide active" id="tab1">
+                            <div class="row streamContainer">
+                                <h1 class="page-title {{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}}; text-align:{{@global.styleAndNavigation.heading[3]}}" id="streampostcount"></h1>
+                            </div>
+                            
+                            <div class="masonry" id="socialmypost">
+                                
+                                
+                            </div>
+                        </div>
+                        
+                        <div class="swiper-slide" id="tab2">
+                            <div class="row streamContainer">
+                                <h1 class="page-title {{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}}; text-align:{{@global.styleAndNavigation.heading[3]}}" id="streampostcountlike"></h1>
+                            </div>
+                            
+                            <div class="masonry" id="socialmypostlike">
+                                
+                            </div>
+                            
+                        </div>
+                        
+                        <div class="swiper-slide" id="tab3">
+                            <div class="row streamContainer">
+                                <ul class="streambxList list-view-3" id="socialstreamimage">
+                                    
+                                    <div id="socialnolikedpostimg" > 
+                                        <div class="msg-code">
+                                            <div class="msg-container  msg-code-inner">
+                                                <span class="icon appyicon-no-data" style="color: {{@global.styleAndNavigation.iconColor}}; border-color:{{@global.styleAndNavigation.iconColor}};">  </span>
+                                                
+                                            </div>
+                                        </div>
+                                         
+                                    </div>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="swiper-slide" id="tab4">
+                            
+                            <ul class="setting-list {{@global.styleAndNavigation.content[0]}}" style="color:{{@global.styleAndNavigation.content[2]}}; text-align:{{@global.styleAndNavigation.content[3]}}">
+                                <li class="heading-setting {{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}}; text-align:{{@global.styleAndNavigation.heading[3]}}; border-color:{{@global.styleAndNavigation.fieldBorderColor}}"><strong>{{@global.pageLanguageSetting.account_social_network}}</strong></li>
+                                <li style="border-color:{{@global.styleAndNavigation.fieldBorderColor}}"><a onclick="Appyscript.SocialEditProfileSetting();"  style="color:{{@global.styleAndNavigation.content[2]}};"><strong>{{@global.pageLanguageSetting.edit_profile_social_network}}</strong></a>
+                                    
+                                </li>
+                                                                <li style="border-color:{{@global.styleAndNavigation.fieldBorderColor}}"><a onclick="Appyscript.SocialNotificationSetting();" href="#" style="color:{{@global.styleAndNavigation.content[2]}};"><strong>{{@global.pageLanguageSetting.email_notification_social_net}}</strong></a>
+                                                                    
+                                                                </li>
+                                <li style="border-color:{{@global.styleAndNavigation.fieldBorderColor}}"><a onclick="Appyscript.socialnetworlogout();" style="color:{{@global.styleAndNavigation.content[2]}};"><strong>{{@global.pageLanguageSetting.logout_social_network}}</strong></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

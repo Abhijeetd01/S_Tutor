@@ -1,0 +1,109 @@
+
+
+<div class="navbar">
+    <div class="navbar-inner" style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+        <div class="left sliding">
+            {{getNavigation @global.style.layout "menu"}}
+        </div>
+        <div class="center sliding  {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}" id="socialnetworkheader"> {{#if pageTitle}} {{pageTitle}} {{else}} {{@global.socialpagetitle}}  {{/if}}</div>
+     
+    </div>
+</div>
+
+
+<div data-page="socialnetwork-Page" data-dom-cache="false"  class="page navbar-through toolbar-fixed no-toolbar">
+    <!-- Page content-->
+    <style>
+        .theam-4 .counter{background: {{@global.styleAndNavigation.iconColor}} !important;}
+        .theam-2 .profile-key li.active a, .theam-4 .profile-key li.active a{border-color:{{@global.styleAndNavigation.iconColor}} !important;}
+        .search-view ::-webkit-input-placeholder,.status-bx textarea::-webkit-input-placeholder{
+            color:{{@global.styleAndNavigation.fieldTextColor}} !important;
+        }
+    .search-view :-moz-placeholder,.status-bx textarea:-moz-placeholder{
+        color:{{@global.styleAndNavigation.fieldTextColor}} !important;
+    }
+    .search-view  ::-moz-placeholder,.status-bx textarea::-moz-placeholder{color:{{@global.styleAndNavigation.fieldTextColor}} !important;
+    }
+    .search-view  :-ms-input-placeholder,.status-bx textarea:-ms-input-placeholder{
+        color:{{@global.styleAndNavigation.fieldTextColor}} !important;
+    }
+    .public_condition label {
+        background:{{@global.styleAndNavigation.fieldBgColor}}
+    }
+    .public_condition label:after {
+        border-color:{{@global.styleAndNavigation.fieldTextColor}};
+    }
+    </style>
+    <div class="backgroundAnimation">{{> innerBackground}}</div>
+    <div class="page-content theam-{{@global.styleAndNavigation.layout}} pull-to-refresh-content hideBorder-{{@global.styleAndNavigation.hideBorder}} {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" id="socialpagepostcontent" onscroll="Appyscript.Socialscrollpostpage(this);" style="color:{{@global.styleAndNavigation.content[2]}}">
+        <div class="pull-to-refresh-layer">
+            <div class="preloader"></div>
+            <div class="pull-to-refresh-arrow"></div>
+        </div>
+        <div class="search-view">
+            <input type="search" class="searchstarts" style="background:{{@global.styleAndNavigation.fieldBgColor}}; color:{{@global.styleAndNavigation.fieldTextColor}};"  id="socialusersearch" placeholder="{{@global.pageLanguageSetting.Search}}" data-role="none" id="txtSearch">
+                <!--<input type="button" onclick="Appyscript.Socialsearchpage()" data-role="none" id="btnSearch">-->
+                <button type="button" onclick="Appyscript.Socialsearchpage()" data-role="none" id="btnSearch" class="srButton"><span class="iconz-search" style="color:{{@global.styleAndNavigation.iconColor}};"></span></button>
+                </div>
+        <div class="row-center post-header">
+            <div class="profile-containt">
+                <div class="status-bx">
+                    <textarea  id="statusbox" class="commentBx" style="background:{{@global.styleAndNavigation.fieldBgColor}}; color:{{@global.styleAndNavigation.fieldTextColor}}; border-color:{{@global.styleAndNavigation.fieldBorderColor}}" placeholder="{{@global.pageLanguageSetting.Update_Status_Social_Network}}" ></textarea>
+                    
+                </div>
+                <div class="public_condition">
+                    <input type="checkbox" value="None" id="checkbox_Public" name="check"  />
+                    <label for="checkbox_Public"></label>
+                    <label for="checkbox_Public" class="public_text">{{@global.pageLanguageSetting.private}}</label>
+                </div>
+                <div class="socialNetTagWp"  style="display:none" id="photoupload">
+                    <ul class="socialNetUpload" >
+                        <div id="muploadpic">
+                            
+                        </div>
+                        <li onclick="Appyscript.Socialactionshee();" style="border-color:{{@global.styleAndNavigation.fieldBorderColor}};">
+                            <img src="images/image-1x1.png" alt="" class="img-style">
+                                <!--                            <img src="images/image-1x1.png" alt="" class="img-style"/>-->
+                                <button class="icon-plus" style="color:{{@global.styleAndNavigation.iconColor}};"></button>
+                                
+                                </li>
+                    </ul>
+                </div>
+                
+                <div class="socialNetTagWp"  style="display:none" id="videoupload">
+                    <ul class="socialNetUpload" >
+                        <div id="muploadvid">
+                            
+                        </div>
+                        <li id="addsocialvideo" onclick="Appyscript.Socialactionvidshee();" style="border-color:{{@global.styleAndNavigation.fieldBorderColor}};">
+                            <img src="images/image-1x1.png" alt="" class="img-style"/>
+                            <button class="icon-plus" style="color:{{@global.styleAndNavigation.iconColor}};"></button>
+                            
+                        </li>
+                    </ul>
+                </div>
+                {{#@global.styleAndNavigation}}
+                <ul class="profile-key {{@global.styleAndNavigation.linkFont}}">
+                    <li class="active" id="socialstatus" onclick="Appyscript.Socialhidepic();" {{#js_compare "this.layout == '2' || this.layout == '4'"}} style="background:{{button[2]}}"{{/js_compare}}><a href="#" {{#js_compare "this.layout == '2' || this.layout == '4'"}} style="border-color:{{button[2]}}"{{/js_compare}}><i class="iconz-edit" {{#js_compare "this.layout == '2' || this.layout == '4'"}} style="color:{{button[3]}}" {{else}} style="color:{{@global.styleAndNavigation.iconColor}}"{{/js_compare}}></i><span {{#js_compare "this.layout == '2' || this.layout == '4'"}}class="{{button[0]}}" style="color:{{button[3]}}" {{else}}  style="color:{{@global.styleAndNavigation.linkColor}};" class="{{@global.styleAndNavigation.linkFont}}"{{/js_compare}}>{{@global.pageLanguageSetting.status}}</span></a></li>
+                    <li id="socialimage"  onclick="Appyscript.Socialshowpic();" {{#js_compare "this.layout == '2' || this.layout == '4'"}} style="background:{{button[2]}}"{{/js_compare}}><a href="#" {{#js_compare "this.layout == '2' || this.layout == '4'"}} style="border-color:{{button[2]}}"{{/js_compare}}><i class="iconz-camera"{{#js_compare "this.layout == '2' || this.layout == '4'"}} style="color:{{button[3]}}" {{else}} style="color:{{@global.styleAndNavigation.iconColor}}"{{/js_compare}}></i><span {{#js_compare "this.layout == '2' || this.layout == '4'"}}class="{{button[0]}}" style="color:{{button[3]}}" {{else}}  style="color:{{@global.styleAndNavigation.linkColor}};" class="{{@global.styleAndNavigation.linkFont}}"{{/js_compare}}>{{@global.pageLanguageSetting.photos}}</span></a></li>
+                    <li id="socialvideo" onclick="Appyscript.Socialshowvid();" {{#js_compare "this.layout == '2' || this.layout == '4'"}} style="background:{{button[2]}}"{{/js_compare}}><a href="#" {{#js_compare "this.layout == '2' || this.layout == '4'"}} style="border-color:{{button[2]}}"{{/js_compare}}><i class="iconz-video" {{#js_compare "this.layout == '2' || this.layout == '4'"}} style="color:{{button[3]}}" {{else}} style="color:{{@global.styleAndNavigation.iconColor}}"{{/js_compare}}></i><span {{#js_compare "this.layout == '2' || this.layout == '4'"}}class="{{button[0]}}" style="color:{{button[3]}}" {{else}}  style="color:{{@global.styleAndNavigation.linkColor}};" class="{{@global.styleAndNavigation.linkFont}}"{{/js_compare}}>{{@global.pageLanguageSetting.videos}}</span></a></li>
+                </ul>
+                {{/@global.styleAndNavigation}}
+                <a onclick="Appyscript.Socialsendtoserver();" class="btn {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" style="background-color: {{@global.styleAndNavigation.button[2]}}; color: {{@global.styleAndNavigation.button[3]}};">{{@global.pageLanguageSetting.Post}}</a>
+                
+                <!--                <ul class="profile-key">-->
+                <!--                    <li onclick="Appyscript.Socialhidepic();"><a href="#" ><i class="iconz-edit" ></i><span>Status</span></a></li>-->
+                <!--                    <li class="active" onclick="Appyscript.Socialshowpic();" ><a href="#" ><i class="iconz-camera"></i><span>Photos</span></a></li>-->
+                <!--                    <li onclick="Appyscript.Socialshowvid();"><a href="#" ><i class="iconz-video"></i><span>Videos</span></a></li>-->
+                <!--                </ul>-->
+                
+                <!--                <a onclick="Appyscript.Socialsendtoserver();" class="btn">Post</a>-->
+            </div>
+        </div>
+        
+        
+        <div class="masonry" id="sociappostappend" >
+            
+            
+        </div>
+    </div>

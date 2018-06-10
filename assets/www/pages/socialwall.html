@@ -1,0 +1,75 @@
+<div class="navbar"><div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}}; font-size: {{@global.style.headerBarSize}} ">
+    <div class="left sliding">
+       		{{getSlideBack ""}}
+    </div>
+            <div class="center sliding">{{pageTitle}}</div>
+            <div class="right"></div>
+          </div></div>
+
+<div data-page="SocialWallPage" class="page navbar-through no-toolbar " style="background-color:{{@global.style.appPageBackgroundColor}}">
+    <!-- Page content-->
+    <div class="page-content {{@global.style.appPageFont}}" style="background:{{@root.styleAndNavigation.background}};">
+   		<div class="main-wrapper theam-{{styleAndNavigation.layout}}">
+    
+    <div class="row-center post-header">
+    	 <img src="images/image-2x1.png" alt="" class="profile-bg" style="background:url(http://snappy.appypie.com/media/splash/1351667928.jpg) no-repeat center center"/>
+         <a class="editProfilebutton icon-cog" href="#"></a>
+    	<div class="profile-wrapper">
+            <div class="profile-snap"> 
+                 <img src="images/image-1x1.png" alt="" style="background:url(http://snappy.appypie.com/media/splash/1351667928.jpg) no-repeat center center"/>
+            </div>
+        </div>
+       
+        <div class="profile-description margin-top-10">
+        	<h1>John Doe</h1>
+            <p>@Lorem Ipsum is simply...</p>
+        </div>
+        
+        <div class="profile-containt">
+        	<ul class="profile-key">            	
+                <li><a href="#"><i class="icon-edit"></i><span>Status</span></a></li>
+            	<li><a href="#"><i class="iconz-camera"></i><span>Add Photo</span></a></li>
+                <li><a href="#"><i class="iconz-video"></i><span>Upload Video</span></a></li> 
+            </ul>
+        </div>
+        <div class="status-bx">
+        	<textarea class="commentBx" id="postid"></textarea>
+            <a href="#" data-index="{{@index}}" onclick="Appyscript.postData(this)" class="btn margin-top-10">Post</a>
+         </div>   
+    </div>
+    
+    
+   <div class="masonry"> 
+   {{#list}}
+    <div class="post-container" id="{{postId}}">  
+    	<div class="title-container">
+        	<div class="post-title">
+            	<div class="profile-snap"> 
+                    <img src="images/image-1x1.png" alt="" style="background:url(http://snappy.appypie.com/media/splash/1351667928.jpg) no-repeat center center"/>
+                </div>
+                <a href="#" class="{{@root.styleAndNavigation.heading[0]}} {{@root.styleAndNavigation.heading[1]}}" style="color:{{@root.styleAndNavigation.heading[2]}}">John Doe John Doe John Doe</a>
+            </div>
+            <div class="post-time">
+               	<span class="icon-clock-4"> 20m</span> <a class="shareicon"></a>
+            </div>
+        </div>
+        <div class="post-feed">
+			<!--{{#js_compare "this.postType === 'image' "}}<img src="{{image}}">{{else if "this.postType === 'text' "}}<p>{{message}}</p>{{else "this.postType === 'video' "}}<img src="{{video}}">{{/js_compare}}-->
+            {{#js_compare "this.postType === 'image' "}}<div class="imgCenter"><img src="{{image}}"></div>{{/js_compare}}
+            {{#js_compare "this.postType === 'text' "}}<p class="{{@root.styleAndNavigation.content[0]}} {{@root.styleAndNavigation.content[1]}}" style="color:{{@root.styleAndNavigation.content[2]}}">{{message}}</p>{{/js_compare}}
+            {{#js_compare "this.postType === 'video' "}}<img src="{{video}}">{{/js_compare}}
+        </div>
+   
+         <ul class="post-share">
+        	<li><a href="#" class="iconz-thumbs-up" onclick="LikebuttonClick(this);"> <span class="counter">{{likes}}</span> <span class="counter-text">Likes</span></a></li>
+            <li><a href="#" class="icon-chat-empty pageToPopup" onclick="Appyscript.socialwallComment(this);"> <span class="counter">{{comments}}</span> <span class="counter-text"> Comments</span></a></li>           
+            <li><a href="#" class="icon-flag  report-abuse"> <span class="counter"></span><span class="counter-text">  Report Abuse</span></a></li>
+        </ul>        
+    </div>
+    {{/list}}
+   
+   </div>
+    
+</div>
+    </div>
+</div>

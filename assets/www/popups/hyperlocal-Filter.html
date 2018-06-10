@@ -1,0 +1,139 @@
+<div class="popup menu-popup tablet-fullscreen">
+    <div class="view">
+        <div class="navbar"><div class="navbar-inner " style="background-color:{{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}}; font-size: {{@global.style.headerBarSize}} ">
+            <div class="left sliding">
+                <a href="" class="close link icon-left-open-2 close-popup" style="color:{{@global.style.headerBarTextColor}};" >
+
+                </a>
+            </div>
+            <div class="center sliding">
+                <div class="topHeader"> {{@global.pageLanguageSetting.search_job_hyp}}</div>
+            </div>
+            <div class="right">
+                <div class="topHeader" style="margin-right:5px !important;" onclick="hl_resetFilter();">{{@global.pageLanguageSetting.fc_reset}} </div>
+            </div>
+        </div></div>
+        <div class="pages hideBorder-{{@global.styleAndNavigation.hideBorder}}" style="background-color: {{@global.styleAndNavigation.pageBgColor}}">
+            <style>
+                .filter-page .short-by a,.filter-page #distance-slider-tab a, .listing-tabs-view .providers .selectEveBlo li a {
+                    background-color: {{@global.styleAndNavigation.secondaryButton[2]}};
+                    color: {{@global.styleAndNavigation.secondaryButton[3]}};
+                }
+            .noUi-connect {
+                background-color: {{@global.styleAndNavigation.secondaryButton[2]}};
+            }
+            .filter-page .short-by a.active,.filter-page #distance-slider-tab a.active {
+                background-color: {{@global.styleAndNavigation.button[2]}};
+                color: {{@global.styleAndNavigation.button[3]}};
+            }
+            .listing-tabs a {
+                border-color:{{@global.styleAndNavigation.borderColor}}
+            }
+            .tabs .active {
+                border-color:{{@global.styleAndNavigation.borderColor}}
+            }
+            .filter-page #distance-slider-tab {
+                border-color:{{@global.styleAndNavigation.borderColor}}
+            }
+            .filter-page h2{ font-size: 14px;line-height: 30px; float: left;color:{{@global.styleAndNavigation.content[2]}} }
+            .filter-page #distance-slider-tab{ margin: 0 0 5px 0; }
+            .filter-page .short-by a.width50{width:50%;}
+            .listing-tabs{border-bottom-left-radius: 4px; border-bottom-right-radius: 4px; }
+            #distance-slider{padding: 10px 0 0 0; clear: both; position: relative;}
+            .filter-row.short-by {padding: 10px 0 0; clear: both;}
+            .ratingView i{color:{{@global.styleAndNavigation.content[2]}}}
+            .ratingView i.on{color: {{@global.styleAndNavigation.activeColor}}}
+            .filter-page .short-by a {padding:15px;}
+            .ratingView{ font-size: 20px; clear: both; display: block; }
+                </style>
+            <div data-page="hyperlocal-Filter" class="page navbar-through no-toolbar">
+                <div class="page-content touch-none">
+                    <div class="filter-page bodypan">
+                        <div class="filter-row short-by">
+                            <h2 class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" >{{@global.pageLanguageSetting.distance_Hyper}}</h2>  <div id="distance-slider-tab">
+
+                            {{#root_Compare @global.setting.defaultDistance "==" "MI"}}
+                            <a onclick="hl_distanceToggle(this)" class="distKM {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}">{{@global.pageLanguageSetting.KM_Hyper}}</a>
+                            <a onclick="hl_distanceToggle(this)" class="active distMI {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}">{{@global.pageLanguageSetting.Miles_Hyper}}</a>
+                            {{else}}
+                            <a onclick="hl_distanceToggle(this)" class="active distKM {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}">{{@global.pageLanguageSetting.KM_Hyper}}</a>
+                            <a onclick="hl_distanceToggle(this)" class="distMI {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}">{{@global.pageLanguageSetting.Miles_Hyper}}</a>
+                            {{/root_Compare}}
+
+                        </div>
+                            <ul class="listing-tabs" style="border-color:{{@global.styleAndNavigation.borderColor}}">
+
+                                <a href="" class="dist-all width50 active tab-link {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" value="All" onclick="hl_customDistance(this);">{{@global.pageLanguageSetting.All}}</a>
+                                <a href="" class="dist-range width50 tab-link {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" value="Cutsom" onclick="hl_customDistance(this);">{{@global.pageLanguageSetting.hyperlocal_custom_range}}</a>
+
+
+
+                            </ul>
+                            <div id="distance-slider" class="hl-distSlider">
+                                <span class="min {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="color:{{@global.styleAndNavigation.content[2]}}" id="hyperDistValue1">0{{#root_Compare @global.setting.defaultDistance "==" "MI"}}{{@global.pageLanguageSetting.Miles_Hyper}}{{else}}{{@global.pageLanguageSetting.KM_Hyper}}{{/root_Compare}}</span><span class="max {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="color:{{@global.styleAndNavigation.content[2]}}" id="hyperDistValue2">{{@global.setting.defaultRangeSearch}}{{#root_Compare @global.setting.defaultDistance "==" "MI"}}{{@global.pageLanguageSetting.Miles_Hyper}}{{else}}{{@global.pageLanguageSetting.KM_Hyper}}{{/root_Compare}}</span>
+
+                                <input id="hyperlocalDistanceMin" type="text" min ="0" max="1000" step ="10" value ="{{@global.setting.defaultRangeSearch}}" style="width:100%;" />
+                                <input id="hyperlocalDistanceMax" type="text" min ="0" max="1000" step ="10" value ="{{@global.setting.defaultRangeSearch}}" style="width:100%;" />
+                                <div id="hyperlocalDistanceGet"></div>
+                            </div>
+
+
+
+                        </div>
+
+
+                        <div class="filter-row short-by">
+                            <h2 class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}">{{@global.pageLanguageSetting.Availability}}</h2>
+                            <ul class="listing-tabs" style="border-color:{{@global.styleAndNavigation.borderColor}}">
+
+                                <a href onclick="hl_setDay(this)" class="tab-link active aval {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" value="Any">{{@global.pageLanguageSetting.hyp_any}}</a>
+                                <a href onclick="hl_setDay(this)" class="tab-link aval {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" value="Today">{{@global.pageLanguageSetting.hyp_today}}</a>
+                                <a href onclick="hl_setDay(this)" class="tab-link aval {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" value="Tomo">{{@global.pageLanguageSetting.hyp_tomorrow}}</a>
+                                <a href onclick="hl_setDay(this)" class=" tab-link aval {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" value="Custom">{{@global.pageLanguageSetting.CustomDir}}</a>
+
+
+                            </ul>
+                        </div>
+
+                        <div class="filter-row short-by date-filter">
+                            <input type="date" id="dateFilter" value="{{@global.todayDate}}" min="{{@global.todayDate}}" class="hyper-date {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" onchange="hl_dateChanged(this)">
+                        </div>
+
+
+
+                        <div class="filter-row short-by">
+                            <h2 class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}">{{@global.pageLanguageSetting.Price}}</h2>
+
+                            <div class="filter-row">
+                                <div id="distance-slider" style="color:{{@global.styleAndNavigation.content[2]}}">
+                                    <span class="min {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" id="hyperPriceValue1">10{{@global.setting.currency}}</span><span class="max {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" id="hyperPriceValue2">100000{{@global.setting.currency}}</span>
+                                    <input id="hyperlocalPriceMin" type="text" min ="10" max="100000" step="10" value ="100" style="width:100%; " />
+                                    <input id="hyperlocalPriceMax" type="text" min ="10" max="100000" step="10" value ="100" style="width:100%; " />
+                                    <div id="hyperlocalPriceGet"></div>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                        <div class="filter-row short-by">
+                            <h2 class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}">{{@global.pageLanguageSetting.ratting_Hyper}}</h2>
+                            <span class="ratingView">
+                                <i id="hl_star1" onclick="hl_rateStars(1,true)" class="iconz-star"></i>&nbsp;
+                                <i id="hl_star2" onclick="hl_rateStars(2,true)" class="iconz-star"></i>&nbsp;
+                                <i id="hl_star3" onclick="hl_rateStars(3,true)" class="iconz-star"></i>&nbsp;
+                                <i id="hl_star4" onclick="hl_rateStars(4,true)" class="iconz-star"></i>&nbsp;
+                                <i id="hl_star5" onclick="hl_rateStars(5,true)" class="iconz-star"></i>
+                            </span>
+                        </div>
+
+                        <div class="hyper-gray-wrapper">
+                            <button class="hyper-sent-btn {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}"  style="background:{{@global.styleAndNavigation.button[2]}}; color:{{@global.styleAndNavigation.button[3]}}" onclick="hl_filterData()">{{@global.pageLanguageSetting.Filter}}</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

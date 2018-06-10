@@ -1,0 +1,38 @@
+.main2 {  
+    margin: 0;
+    padding:0 0 7px 0;
+    width: 100%;
+    float:left;
+}
+.main2 li {
+ 	float:left;
+	width:33.33%;
+ 	padding:7px 7px 0 7px;
+	box-sizing:border-box;
+	text-align:center;
+	list-style:none;
+ 	margin:0px;
+}
+.main2 li span {display:block; font-size:12px; font-family:Arial; text-align:center; line-height:15px; }
+.main2 li img {
+	width: 80px;
+	height: 110px;
+ 	margin:5px auto;
+}
+
+.main2 li i{
+	font-size: 60px;
+	overflow: hidden;
+	line-height:120px;
+	width:90px;
+	height:120px;
+}
+.book_name{font:italic bold 12px Arial, Helvetica, sans-serif;color:#ffffff;}
+.author_name{font:10px Arial, Helvetica, sans-serif; color:#ffffff;margin-bottom:5px;} 
+.main2 li.active{border:1px solid #556666; position:relative;margin:4px 7px;}
+.main2 li.active:before{ position:absolute; height:20px; width:100%; top:0px; left:-38px; z-index:2; content:''; display:block; background:#556666; border-bottom:1px solid #fff; transform:rotate(-45deg); -moz-transform:rotate(-45deg); -webkit-transform:rotate(-45deg); -o-transform:rotate(-45deg) } 
+@media (min-width: 420px) {.main2 li {width:25%}}
+@media (min-width: 600px) {.main2 li {width:20%} }
+@media (min-width: 740px) {.main2 li {width:16.66%} }
+@media (min-width: 880px) {.main2 li {width:14.28%} }
+@media (min-width: 1020px){.main2 li {width:12.5%} }

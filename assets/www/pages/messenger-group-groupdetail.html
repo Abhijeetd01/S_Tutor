@@ -1,0 +1,71 @@
+
+<div class="navbar"><div class="navbar-inner" style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+
+    <div class="left sliding">
+        <a href="index" class="link back "  style="color:{{@global.style.headerBarIconColor}};">
+            <i class="icon icon-left-open-2"></i>
+        </a>
+    </div>
+
+    <div class="center sliding {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}" id="grp_name">{{this.data.name}}</div>
+
+    <div class="right">
+        <a href="index" class="link back " onclick="changeGroupName()" style="color:#2388be;">
+            <i class="icon icon-edit" style="transform: translate3d(0px, 0px, 0px);"></i>
+        </a>
+    </div>
+
+</div></div>
+
+
+<div data-page="messenger-group-groupdetail" class="page navbar-through">
+    <div class="backgroundAnimation">{{> innerBackground}}</div>
+    <div class="page-content">
+        <style>.userProfileImage{ position:relative;}
+            .userProfileImg{ width: 100%; height: 100%; background-repeat: no-repeat; background-size: cover; margin: 0px; padding: 0px; clear: both;}
+
+            .list-block{margin: 0px;}
+            .list-block ul{background: none;border-radius: 0px;}
+            .list-block ul:after, .list-block ul:before{  background-color:transparent;}
+            .list-block ul li{border-top:1px solid {{@global.styleAndNavigation.borderColor}}}
+            .list-block ul li:first-child{border-top:0px; }
+            .list-block .item-inner:after{background:none }
+            .list-block ul li{ padding:0px; }
+            .list-block ul li .icon{ padding:0 5px}
+            .exitBtn{line-height:40px; width:100%; text-align:center; display:block;}
+            .exitBtn-1{width:50%; margin:0 auto;}
+            </style>
+
+
+
+        <div class="userProfileImage" id="groupimage{{this.groupId}}" onclick="openActionSheetUpdate('{{this.groupId}}')">
+            {{#if this.data.profilepic}}
+            <img src="images/image-1x1.png" class="userProfileImg"  style="background-image:url('{{this.data.profilepic}}');">
+            {{else}}
+            <img src="images/image-1x1.png" class="userProfileImg"  style="background-image:url('{{@global.style.reseller}}/newui/images/user-pic-news.png');">
+            {{/if}}
+        </div>
+        <div class="content-block-title  {{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="{{@global.styleAndNavigation.heading[2]}} center">{{@global.pageLanguageSetting.Group_Info_Participants}}<span style="float:right" onclick="addGroupToUser('{{this.groupId}}')">Add</span></div>
+        <div class="list-block media-list">
+            <ul id="grp_users"> {{#members}} {{#hasCurrentUser this.userId}}{{else}}
+                <li class=" item-content"list-userid="{{this.userId}}">
+
+                    <div class="item-media">
+                        <img src="{{#if this.profilepic}} {{this.profilepic}}{{else}}{{@global.style.reseller}}/newui/images/user-pic-news.png{{/if}}" class="avatar avatar-rounded chatlistimgprofile">
+                    </div>
+
+                    <div class="item-inner" onclick="openUserModal('{{this.name}}','{{this.profilepic}}','{{this.userId}}','{{filterCountryName this.country}}','{{this.phoneno}}','group')">
+                        <div class="item-title-row {{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}}" >
+                            <div class="item-title">{{name}}</div>
+                        </div>
+                        <div class="item-subtitle {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="color:{{@global.styleAndNavigation.content[2]}}" >{{filterCountryName this.country}}</div>
+                    </div>
+
+                    <span onclick= "deleteUserFromGrp('{{this.userId}}','{{@index}}','{{this.phoneno}}')" style="float:right;padding:10px;">Delete</span>
+
+                </li> {{/hasCurrentUser}} {{/members}} </ul>
+
+            <a onclick="deleteGroup('{{this.groupId}}')" class="exitBtn exitBtn-{{@global.styleAndNavigation.smallButton}} {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" style="background-color:{{@global.styleAndNavigation.button[2]}}; color:{{@global.styleAndNavigation.button[3]}};">{{@global.pageLanguageSetting.Group_Info_Exit}}</a>
+        </div>
+    </div>
+</div>

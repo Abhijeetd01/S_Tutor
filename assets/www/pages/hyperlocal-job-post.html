@@ -1,0 +1,82 @@
+<div class="navbar"><div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+            <div class="left sliding">
+              <a href="index" class="link back" style="color:{{@global.style.headerBarIconColor}};">
+                <i class="icon icon-left-open-2"></i>
+              </a>
+            </div>
+           <div class="center sliding">
+              <div class="topHeader {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">{{@global.pageLanguageSetting.hyp_Send_Request}}</div>
+            </div> 
+          </div></div>
+
+<div data-page="hyperlocal-Request" class="page navbar-through no-toolbar hideBorder-{{@global.styleAndNavigation.hideBorder}}" style="background-color: {{@global.styleAndNavigation.pageBgColor}}">
+<style>
+.hideBorder-1 ul.add-listing li input, .hideBorder-1 ul.add-listing li select, .hideBorder-1 ul.add-listing li textarea {
+    border: 1px solid {{@global.styleAndNavigation.borderColor}} !important;
+}
+</style>
+            <!-- Page content-->
+            <div class="page-content">
+
+            <div class="hyper-request-box">
+              <span class="request-profile-pic"><img src="http://snappy.appypie.com/media/user_space/dacf3940cbc5/directory/service_1465471302_3899.jpg" alt=""/></span>
+              <span class="request-profile-txt">
+              <strong class="hyper-pink-txt"> Montgomery McCormick</strong>
+              </span>
+              <span class="hyper-addons">
+                            <a href="#" class="icon-ok-4"></a>
+                            <a href="#" class="icon-location-2"></a>
+                            <a href="#" class="iconz-phone1"></a>
+                            <a href="#" class="icon-share-1"></a>
+                            <a href="#" class="rating-icon"><br>{{@global.pageLanguageSetting.rating}}</a>
+                            </span> 
+
+              <div class="form-header"> <h1 class="hyper-big-ttle">{{@global.pageLanguageSetting.Post_Job}}</h1>
+                   <p class="hyper-big-sub-title">{{@global.pageLanguageSetting.Post_your_jobs_request_to_service_providers}}</p>
+              </div>
+            </div>
+            	
+              <form name="huperRequest">
+                <ul class="hyper-request-form hyperpost-job">
+
+                  <li class="timing"><i class="icon-layers"></i><strong>{{@global.pageLanguageSetting.Choose_a_Category}}</strong>
+                  <span>
+                    <select>
+                      <option>Plumber</option>
+                      <option>Electrical</option>
+                      <option>Painter</option>
+                      <option>Gardener</option>
+                    </select>
+                    <small class="pic-select"> <i class="icon-down-open"></i></small>
+                  </span>
+                  </li>
+
+                  <li class="user"><i class="icon-clock-4"></i><strong>Once you place your order, when would you like your service delivered?</strong>
+                  <span class="hyper-search-txt active">24 Hours</span>
+                  <span class="hyper-search-txt">3 Days</span>
+                  <span class="hyper-search-txt">7 Days</span>
+                  <span class="hyper-search-txt">{{@global.pageLanguageSetting.Others}}</span>
+                  </li>
+
+                  <li class="locate"><i class="icon-dollar"></i><strong>{{@global.pageLanguageSetting.What_is_your_budget_for_this_service}}? ({{@global.pageLanguageSetting.Optional}})</strong>
+                  <span><input type="text" name="place" placeholder="$ 5 Minimum"></small></span>
+                  </li>
+
+                  <li class="msg"><i class="icon-map"></i><strong>{{@global.pageLanguageSetting.Where_do_you_need_them}}?</strong>
+                  <span><input type="text" name="place"></small></span>
+                  <span><input type="checkbox"> {{@global.pageLanguageSetting.Job_can_be_performed_remotely}}</span>
+                  </li>
+
+                  <li class="msg"><i class="icon-edit-2"></i><strong>Describe the service you are searching for</strong>
+                  <span><textarea name="discription"></textarea></small></span>
+                  <span>
+                  <p class="pink iconz-picture"> {{@global.pageLanguageSetting.Attach_photos}}</p>{{@global.pageLanguageSetting.about_this_job}}</span>
+                  </li>
+
+                </ul>
+
+                </form>
+
+                <div class="hyper-gray-wrapper"><button class="hyper-sent-btn" onclick="popupFunction()">{{@global.pageLanguageSetting.Post_Request}}</button></div>
+			</div>
+      </div>

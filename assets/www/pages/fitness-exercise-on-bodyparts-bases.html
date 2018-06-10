@@ -1,0 +1,41 @@
+<div class="navbar">
+	<div class="navbar-inner" style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+		<div class="left sliding">
+            <a href="index" class="link back" style="color:{{@global.style.headerBarIconColor}};">
+                <i class="icon icon-left-open-2"></i>
+            </a>
+        </div>
+        
+		<div class="center sliding  {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">
+			<div class="topHeader">
+				{{list[0].languageSetting.fitness_exercise_guide}}
+			</div>
+		</div>
+		<div class="right">
+			<a class="link" style="color:{{@global.style.headerBarIconColor}};">
+
+                <i class="iconz-option-vertical"onclick="toggle_menu(this);"></i>
+			</a>
+		</div>
+	</div>
+</div>
+
+<div data-page="fitness-exercise-on-bodyparts-bases" class="page navbar-through no-toolbar" style="background-color: {{@global.styleAndNavigation.pageBgColor}}">
+	<!-- Page content-->
+	<div class="page-content">
+
+
+
+
+                    	<div class="exerciseGuide">
+            <ul>
+                {{#Exercises}}
+                    <li  onclick="fitnessDetails('3.1','{{exercise_id}}')"><img src="images/2X1.png" style="background:url({{@global.fitnessURL}}{{this.exercise_image}})"/> <div class="exHead">{{exercise_title}}</div> </li>
+                {{/Exercises}}
+            </ul>
+        </div>
+                
+    </div>
+</div>
+
+        

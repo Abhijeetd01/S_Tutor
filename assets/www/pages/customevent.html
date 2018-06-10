@@ -1,0 +1,113 @@
+<div data-page="customevent-head" class="navbar"><div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}}; font-size: {{@global.style.headerBarSize}} ">
+    <div class="left sliding">
+        
+        {{getNavigation @global.style.layout "menu"}}
+    </div>
+    <div class="center sliding">
+        <div class="topHeader">
+            <div id="pageTitle"  class="customEventTrue" onclick="loadLocationModal()">{{@global.ce_pageTitle}}</div>
+            <span id="CE_locationName" class="locate icon-location cursor-pointer customEventTrue" onclick="loadLocationModal()">{{@global.pageLanguageSetting.select_location}}</span>
+        </div>
+        
+        
+    </div>
+    <div class="right">
+        <a onclick="startMap()" style="color:{{@global.style.headerBarTextColor}};" class="customEventTrue">
+            <i class="icon iconz-location-chat"></i>
+        </a>
+        <a onclick="Appyscript.popupPage('customevent-filter');ce_activeFilter();" style="color:{{@global.style.headerBarTextColor}};" class="customEventTrue">
+            <i class="icon iconz-filter"></i>
+        </a>
+    </div>
+</div></div>
+
+<div data-page="customevent-page" class="page navbar-through no-toolbar {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="color:{{@global.styleAndNavigation.content[2]}}; background:{{@global.styleAndNavigation.pageBackroundColor}}">
+    <style>
+        .ratingView i{color:{{@global.styleAndNavigation.ratingColor}}}
+        .ratingView i.on{color: {{@global.styleAndNavigation.ratingActiveColor}}}
+        .header-list .swiper-slide.swiper-slide-active {
+            color:{{@global.styleAndNavigation.activeColor}};
+        }
+    </style>
+    <!-- Page content-->
+    
+    <div class="search-box">
+        <input id="txtSearch" data-role="none" type="search" placeholder="{{@global.pageLanguageSetting.Search}}" onkeydown="if(event.keyCode == 13) searchKeyword('txtSearch')" name="search" class="off" style="background:{{@global.styleAndNavigation.fieldBgColor}}; color:{{@global.styleAndNavigation.fieldTextColor}}">
+            <a class="icon-search customEventTrue" id="ce_btnSearch" data-role="none"  onclick="ce_handleSearchBar()" style="color:{{@global.styleAndNavigation.iconColor}}"></a>
+            </div>
+    
+    
+    <div class="page-content">
+        <div class="location-based-data">
+            
+            <header class="header-list" style="background:{{@global.styleAndNavigation.nav[3]}}; border-color:{{@global.styleAndNavigation.borderColor}}; color:{{@global.styleAndNavigation.nav[2]}}">
+                <div class="swiper-container swiper-category infinite-scroll">
+                    <ul class="swiper-wrapper">
+                        <li class="swiper-slide" data-type="all" data-index="none">All</li>
+                        {{#catlist}}
+                        <li class="swiper-slide" data-type="{{_id}}" data-index="{{@index}}">{{name}}</li>
+                        {{/catlist}}
+                    </ul>
+                </div>
+            </header>
+            
+            <section class="section-events list-view ">
+                <div class="swiper-container swiper-list">
+                    <div class="swiper-wrapper">
+                        
+                        <div class="swiper-slide">
+                            <ul class="events-list">
+                                {{#catlist}}
+                                {{#subCatList}}
+                                <li onclick="Appyscript.customeventSubcategoryList(this)" data-id="{{_id}}" name="{{name}}">
+                                    <img src="images/image-2x1.png" style="background-image:url({{categoryImage}});" data-id="{{_id}}">
+                                        <div class="{{@global.styleAndNavigation.title[0]}} {{@global.styleAndNavigation.title[1]}}" style="background:{{@global.styleAndNavigation.title[2]}}; color:{{@global.styleAndNavigation.title[3]}};">
+                                            <h2  class="icon-right-open">{{name}}</h2>
+                                        </div>
+                                        </li>
+                                {{/subCatList}}
+                                
+                                {{/catlist}}
+                                {{#catlist}}
+                                {{#eventlist}}
+                                <li>
+                                    <div class="event-item-price {{@global.styleAndNavigation.title[0]}} {{@global.styleAndNavigation.title[1]}}" style="background:{{@global.styleAndNavigation.title[2]}}; color:{{@global.styleAndNavigation.title[3]}};" showPrice="{{show_price}}" showPrice="{{show_price}}">$250</div>
+                                    <img src="images/image-2x1.png" style="background-image:url({{imagePath}}{{images[0]}})" index="{{@index}}" onclick="Appyscript.customeventDetails(this)" data-id="{{id}}">
+                                        <div class="{{@global.styleAndNavigation.title[0]}} {{@global.styleAndNavigation.title[1]}}" style="background:{{@global.styleAndNavigation.title[2]}}; color:{{@global.styleAndNavigation.title[3]}};">
+                                            <h2 >{{eventName}}</h2>
+                                            <span class="type">Hindi</span><!--Summary will be come here not cat name-->
+                                            <span class="rating">Rating {{formatRating rating}}</span>
+                                            <a onclick="Appyscript.customeventDetails(this)" index="{{@index}}" data-id="{{id}}">Book</a>
+                                        </div>
+                                        </li>
+                                {{/eventlist}}
+                                {{/catlist}}
+                            </ul>
+                        </div>
+                        
+                        {{#catlist}}
+                        <div class="swiper-slide">
+                            <ul class="events-list">
+                                {{#eventlist}}
+                                <li>
+                                    <div class="event-item-price {{@global.styleAndNavigation.title[0]}} {{@global.styleAndNavigation.title[1]}}" style="background:{{@global.styleAndNavigation.title[2]}}; color:{{@global.styleAndNavigation.title[3]}};">$250</div>
+                                    <img src="images/image-2x1.png" style="background-image:url({{imagePath}}{{images[0]}})" index="{{@index}}" onclick="Appyscript.customeventDetails(this)" data-id="{{id}}">
+                                        <div class="{{@global.styleAndNavigation.title[0]}} {{@global.styleAndNavigation.title[1]}}" style="background:{{@global.styleAndNavigation.title[2]}}; color:{{@global.styleAndNavigation.title[3]}};">
+                                            <h2>{{eventName}}</h2>
+                                            <span class="type">Hindi</span><!--Summary will be come here not cat name-->
+                                            <span class="rating">Rating {{formatRating rating}}</span>
+                                            <a onclick="Appyscript.customeventDetails(this)" index="{{@index}}" data-id="{{id}}">Book</a>
+                                        </div>
+                                        </li>
+                                {{/eventlist}}
+                            </ul>
+                        </div>
+                        {{/catlist}}
+                        
+                    </div>
+                </div>
+                
+            </section>
+        </div>
+    </div>
+</div>

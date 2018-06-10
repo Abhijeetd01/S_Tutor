@@ -1,0 +1,71 @@
+<div class="navbar"><div class="navbar-inner" style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};{{#root_Compare @global.style.headerBarType "==" "image"}} background-image:url({{@global.style.nav_header_image_name}}){{/root_Compare}}">
+   <div class="center sliding {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}" {{#root_Compare @global.style.headerBarType "==" "image"}}style="visibility:hidden;"{{/root_Compare}}>{{#root_Compare @global.style.headerBarTitle "==" ""}}{{@global.style.appName}}{{else}}{{@global.style.headerBarTitle}}{{/root_Compare}}</div>
+    <div class="right">
+        
+    </div>
+    </div>
+</div>
+<!-- content section  -->
+<div data-page="imgmatrix" class="page {{#js_compare "this.home.appData.headerBarType === 'none' "}}no-navbar {{else}} navbar-through  {{/js_compare}} no-toolbar">
+
+{{#if @global.style.moreNavigation}} 
+{{#root_Compare @global.style.moreNavigation.layout "==" "slidemenu"}} 
+	<div class="app_navigation_slidemore_btn  icon-menu-1" style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarIconColor}}"  navbar="{{home.appData.headerBarType}}"></div>
+ {{/root_Compare}}
+{{/if}}   
+
+<div class="page-content {{@global.style.appTheme}}"> 
+
+{{#if @global.style.moreNavigation}} 
+{{#root_Compare @global.style.moreNavigation.layout "==" "slidemenu"}} 
+	<div class="slidemore-overlay"></div>
+	 <div id="app_navigation" class="app_navigation_slidemore {{@global.style.navigationSize}}  {{@global.style.navigationFont}} {{#home.appData.moreNavigation.layoutOption}} {{this}} {{/home.appData.moreNavigation.layoutOption}} {{#home.appData.moreNavigation.hideLayout}} hide-{{this}} {{/home.appData.moreNavigation.hideLayout}}  newLayoutSliderMenu" style="background:{{@global.style.navBackgroundColor}};"  navbar="{{home.appData.headerBarType}}">
+    {{#home.home}}
+          <a href="#" data-productid="{{pageid}}" data-productIdentifier="{{pageIdentifierBecon}}" class="page-link" style="border-color:{{@global.style.navBorderColor}}">
+               {{#js_compare "this.pageiconType === 'img' "}} <img src="images/transparent-bg_1x1.png" style="background-image:url({{@global.homeIconPath}}{{iconName}});"/>
+                    {{else}}
+                     <i class="{{iconName}}" style="color: {{@global.style.navIconColor}}; "></i> 
+               {{/js_compare}} 
+               <span class="" style="color:{{@global.style.navTextColor}};">{{pageNewid}}</span>
+           </a>
+    {{/home.home}}
+    </div> 
+{{/root_Compare}}
+{{/if}}
+    
+
+    <div  id="app_navigation" class="{{@global.style.navigationSize}} {{#home.appData.layoutOption}} {{this}} {{/home.appData.layoutOption}}   {{#home.appData.layoutAlign}} {{this}}-align {{/home.appData.layoutAlign}} {{#home.appData.hideLayout}} hide-{{this}} {{/home.appData.hideLayout}}  {{@global.style.navigationFont}} app_navigation_{{@global.style.layout}} animation-{{@global.style.animation}} {{#if @global.style.moreNavigation}}{{#root_Compare @global.style.moreNavigation.layout "==" "slidemenu"}}moreslidelist{{/root_Compare}}{{/if}}" animation="{{@global.style.animationEffect}}">
+    {{#if @global.style.moreNavigation}} 
+    {{#root_Compare @global.style.moreNavigation.layout "==" "slidemenu"}} 
+        {{#home.home}}
+           <a href="#" data-productid="{{pageid}}" data-productIdentifier="{{pageIdentifierBecon}}" class="page-link" style="border-color:{{@global.style.navBorderColor}}">
+               {{#js_compare "this.pageiconType === 'img' "}} <img src="images/transparent-bg_1x1.png" style="background-image:url({{@global.homeIconPath}}{{iconName}});"/>
+                    {{else}}
+                     <i class="{{iconName}}" style="color: {{@global.style.navIconColor}}; "></i> 
+               {{/js_compare}} 
+               <span class="" style="color:{{@global.style.navTextColor}}; background:{{@global.style.navBackgroundColor}}">{{pageNewid}}</span>
+           </a>
+        {{/home.home}}
+    {{/root_Compare}}
+    {{else}}
+    {{#home.home}}
+          <a href="#" data-productid="{{pageid}}" data-productIdentifier="{{pageIdentifierBecon}}" class="page-link" style="border-color:{{@global.style.navBorderColor}}">
+               {{#js_compare "this.pageiconType === 'img' "}} <img src="images/transparent-bg_1x1.png" style="background-image:url({{@global.homeIconPath}}{{iconName}});"/>
+                    {{else}}
+                     <i class="{{iconName}}" style="color: {{@global.style.navIconColor}}; "></i> 
+               {{/js_compare}} 
+               <span class="" style="color:{{@global.style.navTextColor}}; background:{{@global.style.navBackgroundColor}}">{{pageNewid}}</span>
+           </a>
+    {{/home.home}}
+{{/if}} 
+    </div>
+
+{{#if @global.style.animation}}
+<div class="layout-preloader"><span class="preloader preloader-white"></span></div>
+<div class="layout-disabled" ontouchstart="return false;" ontouchmove="return false;" ontouchend="return false;"></div>
+{{/if}}
+
+</div>
+</div>
+
+   

@@ -1,0 +1,49 @@
+<div class="navbar"><div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+    <div class="left sliding">
+        {{#root_Compare @global.style.layout "==" "slidemenu"}}
+        {{#if @root.innerLayout}}
+        <a href="index" class="link back" style="color:{{@global.style.headerBarIconColor}};">
+            <i class="icon icon-left-open-2"></i>
+        </a>
+        {{else}}
+        <a onclick="Appyscript.openSlide()" style="color:{{@global.style.headerBarIconColor}};">
+            <i class="icon icon-menu"></i>
+        </a>
+        {{/if}}
+        {{else}}
+        <a href="index" class="link back bottomBack" style="color:{{@global.style.headerBarIconColor}};">
+            <i class="icon icon-left-open-2"></i>
+        </a>
+        {{/root_Compare}}
+    </div>
+    <div class="center sliding {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">{{@global.commonLanguageSetting.new_file_update}}</div>
+    <div class="right"></div>
+</div></div>
+
+<div data-page="user-Files" class="page navbar-through no-toolbar">
+    <!-- Page content-->
+    <div class="page-content">
+    	<ul class="user-files">
+        {{#list}}
+            {{#js_compare "this.status == '1' "}}
+          <li onclick="Appyscript.openuserfile({{@index}});"  status="{{status}}">
+
+        	<i class="appyicon-pdf"></i>
+
+            <h4>{{id}}</h4>
+            <span>{{addedon}}</span>
+            {{/js_compare}}
+        </li>
+        {{/list}}
+
+        </ul>
+        {{#list}}{{else}}
+        <div class="msg-code">
+            <div class="msg-container">
+                <span class="icon appyicon-no-data">  </span>
+            </div>
+        </div>
+        {{/list}}
+
+    </div>
+</div>

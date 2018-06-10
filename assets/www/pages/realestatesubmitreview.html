@@ -1,0 +1,74 @@
+<div class="navbar"><div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}}; font-size: {{@global.style.headerBarSize}} ">
+    <div class="left sliding">
+        <a href="index" class="link back" style="color:{{@global.style.headerBarTextColor}};">
+            <i class="icon icon-left-open-2"></i>
+        </a>
+    </div>
+    <div class="center sliding">
+        <div class="topHeader">
+
+            {{@global.pageLanguageSetting.REAL_ESTATE}}
+            <!--<span class="locate icon-location cursor-pointer" onclick="Appyscript.popupPage('location')">{{@global.CurrentCityreal}}</span>-->
+        </div>
+
+
+    </div>
+    <div class="right">
+
+
+    </div>
+</div></div>
+
+<div data-page="realestate-details" class="page navbar-through no-toolbar" style="background:{{@global.styleAndNavigation.pageBgColor}};">
+    <!-- Page content-->
+    <div class="page-content">
+
+        <style>
+		.like-btn.on, .share-btn.on {color:{{@global.styleAndNavigation.activeColor}} }
+		.labelEstate {border-top-color:{{@global.styleAndNavigation.badgeBackground}};  border-bottom-color:{{@global.styleAndNavigation.badgeBackground}};
+		color:{{@global.styleAndNavigation.badgeColor}} }
+		.add-listing .add-details input[type='text'], .add-listing .add-details textarea {background:{{@global.styleAndNavigation.fieldBgColor}};
+			color:{{@global.styleAndNavigation.fieldTextColor}} }
+		.hyper-sent-btn{background:{{@global.styleAndNavigation.button[2]}}; color:{{@global.styleAndNavigation.button[3]}} }
+		.real-estate h2 span, .real-estate-addons a:before, .estat-bottom-wrapper .pull-left span.iconz-star {color:{{@global.styleAndNavigation.icon[1]}} }
+		.real-estate h2 {color:{{@global.styleAndNavigation.heading[2]}} }
+		.hyper-comt-txt{color:{{@global.styleAndNavigation.content[2]}} }
+		.real-estate-review ul.review li p strong { color:{{@global.styleAndNavigation.subheading[2]}} }
+		.estat-bottom-wrapper .pull-left span.on { color:{{@global.styleAndNavigation.activeColor}} }
+		.real-estate-review ul.review li {border-color:{{@global.styleAndNavigation.borderColor}} }
+		.real-estate-addons a{background:{{@global.styleAndNavigation.title[2]}} }
+		.estat-bottom-wrapper textarea {background:{{@global.styleAndNavigation.fieldBgColor}}; color:{{@global.styleAndNavigation.fieldTextColor}} }
+		.hyper-comt-rating i{color:{{@global.styleAndNavigation.icon[1]}} }
+		.hyper-comt-rating i.on{color:{{@global.styleAndNavigation.activeColor}} }
+
+	</style>
+
+
+
+        <section class="real-estate">
+           <div class="estat-bottom-wrapper">
+                <ul class="ratingList last-review-bx">
+                    <li>
+                        <div class="pull-left">
+                            <span class="iconz-star" onclick="Appyscript.starClkrealestate(this)"></span>
+                            <span class="iconz-star" onclick="Appyscript.starClkrealestate(this)"></span>
+                            <span class="iconz-star" onclick="Appyscript.starClkrealestate(this)"></span>
+                            <span class="iconz-star" onclick="Appyscript.starClkrealestate(this)"></span>
+                            <span class="iconz-star" onclick="Appyscript.starClkrealestate(this)"></span>
+                        </div>
+                    </li>
+                </ul>
+                <textarea name="" cols="" rows="4" id="realestatereview" maxlength="100"></textarea>
+                <button class="hyper-sent-btn {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" onclick="submitreview()">{{@global.pageLanguageSetting.Submit}}</button>
+            </div>
+
+
+
+        </section>
+
+
+
+
+
+    </div>
+</div>

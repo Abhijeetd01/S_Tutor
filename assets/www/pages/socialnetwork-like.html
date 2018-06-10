@@ -1,0 +1,44 @@
+
+<div class="navbar">
+    <div class="navbar-inner" style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+        <div class="left sliding">
+            <a href="index" class="link back" style="color:{{@global.style.headerBarIconColor}};">
+                <i class="icon icon-left-open-2"></i>
+            </a>
+        </div>
+        <div class="center sliding  {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">{{@global.socialpagetitle}}</div>
+        <div class="right">
+            
+        </div>
+    </div>
+</div>
+
+<div data-page="socialnetwork-Like" class="page navbar-through toolbar-fixed no-toolbar">
+    <!-- Page content-->
+    <div class="backgroundAnimation">{{> innerBackground}}</div>
+    <!-- Page content-->
+    <div class="page-content theam-{{@global.styleAndNavigation.layout}} hideBorder-{{@global.styleAndNavigation.hideBorder}}">
+        
+        <div class="bodypan">
+            <div class="row">
+                <ul class="SearchResult">
+                    {{#likes}}
+                    <li style="border-color:{{@global.styleAndNavigation.fieldBorderColor}}">
+                        <div class="title-container likeList">
+                            <div class="profile-snap">
+                                <img style="background:url({{avatar}}) no-repeat center center" alt="" src="images/image-1x1.png">
+                                    </div>
+                            <!--                            {{avatar}}-->
+                            <div class="profile-content">
+                                <a href="#" class="{{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}};"> {{username}}</a> <span class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="color:{{@global.styleAndNavigation.content[2]}};"></span>
+                            </div>
+                        </div> 
+                    </li>
+                    {{/likes}}
+                    
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

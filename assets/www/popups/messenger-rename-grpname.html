@@ -1,0 +1,31 @@
+<div class="popup menu-popup tablet-fullscreen">
+    
+    <div class="navbar"><div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+        <div class="left sliding">
+            <a href="index" class="link close-popup" style="color:{{@global.style.headerBarIconColor}};">
+                <i class="icon icon-left-open-2"></i>
+            </a>
+        </div>
+        <div class="center sliding {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">Change Name</div>
+        <div class="right">
+        </div>
+    </div></div>
+    
+    
+    <div class="page navbar-through no-toolbar">
+        <div class="backgroundAnimation">
+            <div class="view background-view">{{> mainBackground}}</div>
+        </div>
+        <div class="page-content">
+            <input id= "change_grp_name" type="text" value="{{grp_name}}" style="width: 80%;
+    margin-left: 10%;"/>
+
+            <div>
+                <button onclick="saveGroupName()" style="margin-left: 30%;width: 30%;"> Save </button>
+            </div>
+        </div>
+
+
+     </div>
+</div>
+<!--popup-->

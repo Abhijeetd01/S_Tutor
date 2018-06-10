@@ -1,0 +1,41 @@
+<div class="navbar"><div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+    <div class="left sliding">
+     	{{getSlideBack "common"}}       
+    </div>
+    <div class="center sliding {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">{{pageTitle}}</div>
+    <div class="right"></div>
+</div></div>
+
+<div data-page="twitter-Page" class="page navbar-through no-toolbar" >
+    <!-- Page content-->
+<div class="backgroundAnimation">{{> innerBackground}}</div>
+    <div class="page-content">
+        <div class="twitter-feeds">
+            <div class="tweet-user">	
+			{{#if totalCount}}
+                <div class="tweet-user-image"><img src="{{twitterData[0].user.profile_image_url}}"></div>
+                <a onclick="Appyscript.followTwitter('{{twitterData[0].user.screen_name}}','{{@root.pageTitle}}');" class="tweet_follow_btn" style="background:{{@global.style.primaryButtonBgColor}};color:{{@global.style.buttonTextColor}}">View</a>
+                <div class="tweet-user-details"> <h3><span>@{{twitterData[0].user.screen_name}}</span></h3>
+                    <div class="tweet_options"><div class="tweet">{{formateKM twitterData[0].user.statuses_count}}<span>Tweets</span></div>
+                        <div class="follow">{{formateKM twitterData[0].user.followers_count}} <span>followers</span></div>
+                        </div></div></div>
+            {{#twitterData}}
+            <div class="tweet_feeds">
+            <div class="tweet-user-image"><img src="{{user.profile_image_url}}"></div>
+            <div class="feeds_desc">
+                <h3>{{user.name}} <span>@{{user.screen_name}}</span> </h3>
+                <p>{{text}}</p>
+                </div>
+            </div>
+            {{/twitterData}}
+			 {{else}}
+            <div class="tweet-user-image"><img src="{{twitterData.profile_image_url}}"></div>
+            <a onclick="Appyscript.followTwitter('{{twitterData.screen_name}}','{{@root.pageTitle}}');" class="tweet_follow_btn" style="background:{{@global.style.primaryButtonBgColor}};color:{{@global.style.buttonTextColor}}">View</a>
+            <div class="tweet-user-details"> <h3><span>@{{twitterData.screen_name}}</span></h3>
+                <div class="tweet_options"><div class="tweet">{{formateKM twitterData.statuses_count}}<span>Tweets</span></div>
+                    <div class="follow">{{formateKM twitterData.followers_count}} <span>followers</span></div>
+                </div></div></div>
+            {{/if}}
+        </div>
+    </div>
+</div>

@@ -1,0 +1,48 @@
+<div class="navbar"><div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+            <div class="left sliding">
+              <a href="index" class="link back" style="color:{{@global.style.headerBarIconColor}};">
+                <i class="icon icon-left-open-2"></i>
+              </a>
+            </div>
+           <div class="center sliding">
+              <div class="topHeader  {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">{{languageSetting.Bookmarks}}</div>
+            </div> 
+            
+             <!--<div class="right"> <a href="#" style="color:{{@global.style.headerBarIconColor}};">
+                  {{#js_compare "this.setting.dirMapDisplay == \'1\' "}}
+                   {{#if this.setting.isMapData}}
+            	<i class="iconz-location-3" onclick="Appyscript.showServicePageMapNew('{{#listing.list}}{{latitude}},{{/listing.list}}','{{#listing.list}}{{longitude}},{{/listing.list}}','{{#listing.list}}{{@index}},{{/listing.list}}','{{#listing.list}}{{address}},{{/listing.list}}','{{catName}}','0','{{@root.isFromPage}}')"></i>
+                {{/if}}
+                {{/js_compare}}
+            </a>
+            </div>-->
+          </div></div>
+
+<div data-page="services-bookmark" class="page navbar-through no-toolbar {{#root_Compare @global.styleAndNavigation.layout "==" "2"}}{{#if @global.styleAndNavigation.hideImage}}hide-list-img{{/if}}{{/root_Compare}} hideBorder-{{@global.styleAndNavigation.hideBorder}}" style="background-color: {{@global.styleAndNavigation.pageBgColor}}">
+    <!-- Page content-->
+            <div class="page-content serviceLayout-{{dirLayout}} infinite-scroll" data-distance="200">
+<!-- Search code-->
+           
+<ul class="main-cat-listing bookMarkLists" id="listingPageListing">
+    {{#listing.list}}
+    {{#root_Compare @index ">=" "300"}}
+    {{else}}
+    {{> dirListing}}
+    {{/root_Compare}}
+    {{/listing.list}}
+</ul>
+{{#if listing.list}}
+{{#root_Compare listing.list.length ">" "299"}}
+<div class="search-view listMoreSearch">
+    <input id="catList" data-role="none" type="search" placeholder="{{@root.languageSetting.enter_your_search_here_dir}}" onblur="Appyscript.searchAndFilterData('textSearch','catList')" name="search" class="off">
+        </div>
+{{/root_Compare}}
+{{/if}}
+
+
+
+<div class="infinite-scroll-preloader" style="display:none">
+    <div class="preloader"></div>
+</div>
+            </div>
+          </div>

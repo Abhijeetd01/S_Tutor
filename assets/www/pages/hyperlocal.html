@@ -1,0 +1,114 @@
+<div class="navbar"><div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+    <div class="left sliding">
+        {{#js_compare "this.setting.hyperlocalShowHideMenu == \'1\' "}}
+        {{getNavigation @global.style.layout "menu"}}
+        {{else}}
+        {{#root_Compare @global.style.layout "==" "slidemenu"}}
+        <a href="index" class="link back" style="color:{{@global.style.headerBarIconColor}};" onClick="Appyscript.clickHome()">
+            <i class="icon icon-left-open-2"  ></i></a>
+        {{else}}
+        {{#root_Compare @global.style.layout "==" "bottom"}}
+        <a href="index" class="link back" style="color:{{@global.style.headerBarIconColor}};" onClick="Appyscript.clickHome()">
+            <i class="icon icon-left-open-2"  ></i></a>
+        {{else}}
+        <a href="index" class="link back" style="color:{{@global.style.headerBarIconColor}};" onClick="Appyscript.clickHome()">
+            <i class="icon icon-left-open-2"  ></i></a>
+        {{/root_Compare}}
+        {{/root_Compare}}
+        {{/js_compare}}
+
+
+    </div>
+
+    <div class="center sliding">
+        <div class="topHeader {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">{{name}}
+            {{#root_Compare @global.setting.isLocationSearch "==" "true"}}
+            <span class="locate icon-location cursor-pointer" onclick="Appyscript.popupPage('hyperlocal-location')" id="locationHyperLocal"><span style="color: {{@global.style.headerBarTextColor}};">{{@global.CurrentCity}}</span></span>
+            {{/root_Compare}}
+        </div>
+    </div>
+    <div class="right"><a href="#" class="link" style="color:{{@global.style.headerBarIconColor}};">
+        <i class="icon iconz-filter cursor-pointer" onclick="Appyscript.popupPage('hyperlocal-Filter')"></i><!--iconz-location-3-->
+    </a>
+    </div>
+</div>
+</div>
+
+
+<div data-page="hyperlocal-page" class="page navbar-through no-toolbar hideBorder-{{@global.styleAndNavigation.hideBorder}}" style="background-color: {{@global.styleAndNavigation.pageBgColor}}">
+    <!-- Page content-->
+    <style>
+        #search-box.on ul{border-color:{{@global.styleAndNavigation.borderColor}}}
+        #search-box.on ul li{border-color:{{@global.styleAndNavigation.borderColor}}}
+     </style>
+    {{#root_Compare @global.setting.keywordSearch "==" "true"}}
+    {{#js_compare "this.setting.hyperlocalAutoSuggestSearchKey == \'1\' "}}
+    <div id="search-box" class="search-box dir_cat_search">
+        <input id="txtSearch" data-role="none" type="search" placeholder="{{@root.languageSetting.searchBtn_Hyper}}"
+               onkeydown="if(event.keyCode == 13) Appyscript.saerchAndFilterDataHyperLocal('textSearch','mainpagesearch')">
+        <a class="icon-search" style="color:{{@global.styleAndNavigation.icon[1]}}" id="btnSearch" data-role="none"  onclick="Appyscript.saerchAndFilterDataHyperLocal('textSearch','mainpagesearch')"></a>
+        <ul id="resHyper">
+        </ul>
+    </div>
+    {{else}}
+    <div class="search-box">
+        <input id="txtSearch" data-role="none" type="search" placeholder="{{@root.languageSetting.searchBtn_Hyper}}"
+               onblur="Appyscript.saerchAndFilterDataHyperLocal('textSearch','mainpagesearch')"
+               onclick="Appyscript.saerchAndFilterDataHyperLocal('textSearch','mainpagesearch')" onkeydown="if(event.keyCode == 13) Appyscript.saerchAndFilterDataHyperLocal('textSearch','mainpagesearch')" name="search" class="off" >
+        <a class="icon-search" id="btnSearch" data-role="none"  onclick="Appyscript.searchClickHyper('#txtSearch')"></a>
+    </div>
+    {{/js_compare}}
+    {{/root_Compare}}
+
+
+    <div class="page-content serviceLayout-{{@global.styleAndNavigation.layout}} {{#if @global.styleAndNavigation.hideTitleBackground}}hideTitleBackground{{/if}} {{#if @global.styleAndNavigation.hideTitleText}}hideTitleText{{/if}} title-{{@global.styleAndNavigation.titleHAlign}} title-{{@global.styleAndNavigation.titleVAlign}}">
+
+        <style>
+            .serviceLayout-3 .main-cat-listing li {
+                 border-color:{{@global.styleAndNavigation.borderColor}} !important
+            }
+        </style>
+
+        {{#js_compare "this.categoryList != '' "}}
+        <div style="color:{{#if pageTextColor}}{{pageTextColor}}{{else}}{{@global.style.pageTextColor}}{{/if}}" class="{{appPageFont}} {{appPageCsize}}">
+            <!-- Search code-->
+            <ul class="main-cat-listing catOuter clearfix">
+                {{#categoryList}}
+                <li id = "123" onclick="Appyscript.hyperListing(this,'{{catId}}','{{filterAddressString categoryName}}','{{sortBy}}')"  data-index="{{@index}}" data- class="lazy lazy-fadein {{@global.styleAndNavigation.title[0]}} {{@global.styleAndNavigation.title[1]}}" style="{{#root_Compare @root.styleAndNavigation.layout "==" "1"}}{{else}} background:{{@global.styleAndNavigation.title[2]}}; color:{{@global.styleAndNavigation.title[3]}} {{/root_Compare}}">
+                <div class="squareContent">
+                    <div class="innerTable">
+                        <div class="innerTableCell">
+                            {{#root_Compare @global.styleAndNavigation.layout "==" "2"}}
+                            {{#if @global.styleAndNavigation.hideImage}}{{else}}
+                            <img src="images/image-1x1.png" alt="" style="background-image:url({{#if catIcon}}{{catIcon}}{{else}}{{@root.setting.dirDefaultImg}} {{/if}})" class="dirImgMain"/>
+                            {{/if}}
+                            {{else}}
+                            <img src="images/{{#root_Compare @root.styleAndNavigation.layout "==" "1"}}image-2x1.png{{else}}image-1x1.png{{/root_Compare}}" alt="" style="background-image:url({{catIcon}})" class="dirImgMain"/>
+                            {{/root_Compare}}
+
+                            <span class="cat-heading-text {{@global.styleAndNavigation.title[0]}} {{@global.styleAndNavigation.title[1]}} {{#root_Compare @global.styleAndNavigation.layout "==" "2"}}{{#if @global.styleAndNavigation.hideImage}}hide-img-text{{/if}}{{/root_Compare}}" style="background:{{@global.styleAndNavigation.title[2]}}; color:{{@global.styleAndNavigation.title[3]}}">{{categoryName}}
+                            <span class="hyper-catNo {{@global.styleAndNavigation.title[1]}}">{{#if totalDirCat}}{{totalDirCat}}{{/if}}  <i class="icon icon-right-open" style="color: {{@root.styleAndNavigation.title[3]}};"> </i></span>
+                            {{#if categorySummary}}<p class="smallSummary">{{categorySummary}}</p>{{/if}}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                </li>
+                {{/categoryList}}
+            </ul>
+        </div>
+        {{else}}
+        <div class="msg-code">
+            <div class="msg-container">
+                <span class="icon appyicon-no-data" style="color:{{@global.styleAndNavigation.content[2]}}; border-color:{{@global.styleAndNavigation.content[2]}}">  </span>
+                <span class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="color:{{@global.styleAndNavigation.content[2]}}; margin-top:10px; display:block;"></span>
+            </div>
+        </div>
+
+
+        {{/js_compare}}
+
+    </div>
+</div>
+
+

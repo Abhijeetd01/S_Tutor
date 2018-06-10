@@ -1,0 +1,46 @@
+<div class="navbar"><div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+    <div class="left sliding">
+   		{{getSlideBack "common"}}       
+    </div>
+    <div class="center sliding {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">{{pageTitle}}</div>
+    <div class="right"></div>
+</div></div>
+
+
+<div data-page="twitter-Page" class="page navbar-through no-toolbar">
+    <!-- Page content-->
+    <div class="backgroundAnimation">{{> innerBackground}}</div>
+    <div class="page-content  {{@global.style.appPageFont}} {{@global.style.appPageCsize}}">
+        <div class="twitter-feeds">
+            {{#if fbUserData}}
+            <div class="tweet-user">
+                <div class="tweet-user-image"><img src="{{fbUserData.fbUserImage}}"></div>
+
+                <a onclick="Appyscript.followFacebook('{{fbUserData.fbProfileName}}');"
+                   class="tweet_follow_btn" style="background:{{@global.style.primaryButtonBgColor}};color:{{@global.style.buttonTextColor}}">{{@global.commonLanguageSetting.fc_view}}</a>
+                <div class="tweet-user-details"> <h3>{{fbUserData.fbUserName}} <span></span></h3>
+                    <div class="tweet_options"><div class="tweet">{{fbUserData.fbUserLikes}}<span>Likes</span></div>
+                    </div></div></div>
+            {{/if}}
+            {{#fbPostList}}
+            {{#if fbPost}}
+            <div class="tweet_feeds">
+                <div class="feeds_desc" style="width:100%;">
+                    <div class="tweet-user-image"><img src="{{fbImage}}"></div>
+                    <h3>{{fbTitle}} <span></span> </h3>
+                    <p>{{fbPost}}</p>
+                    {{#if fbImages}}
+                    <div style="text-align:center; width:100%;"> <img src="{{fbImages}}"></div>
+                    {{/if}}
+                </div>
+            </div>
+            {{/if}}
+            {{/fbPostList}}
+            {{#if @root.next}}
+            <a id="loadMoreBTn" class="show-more" onclick="Appyscript.loadMoreData()" style="background-color:{{@global.style.primaryButtonBgColor}}; color:{{@global.style.buttonTextColor}}"><span id="loadrr"> Load More</span></a>
+            {{/if}}
+
+        </div>
+
+    </div>
+</div>

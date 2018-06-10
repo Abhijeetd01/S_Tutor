@@ -1,0 +1,5 @@
+var internetconnectionmessage=data.languageSetting.check_internet_connection;
+var appnameglobal_allpages=data.appData.appName;
+var something_went_wrong_please_try_again=data.languageSetting.something_went_wrong_please_try_again;
+
+

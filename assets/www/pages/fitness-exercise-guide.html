@@ -1,0 +1,78 @@
+<div class="navbar">
+	<div class="navbar-inner" style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+		<div class="left sliding">
+            <a href="index" class="link back" style="color:{{@global.style.headerBarIconColor}};">
+                <i class="icon icon-left-open-2"></i>
+            </a>
+        </div>
+        
+		<div class="center sliding  {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">
+			<div class="topHeader">
+				{{languageSetting[0].languageSetting.fitness_exercise_guide}}
+			</div>
+		</div>
+		<div class="right">
+			<a class="link" style="color:{{@global.style.headerBarIconColor}};">
+
+                <i class="iconz-option-vertical"onclick="toggle_menu(this);"></i>
+			</a>
+		</div>
+	</div>
+</div>
+
+<div data-page="fitness-exercise-guide" class="page navbar-through no-toolbar" style="background-color: {{@global.styleAndNavigation.pageBgColor}}" >
+	<!-- Page content-->
+	<div class="page-content">
+
+    <style>
+    	.exerciseGuide ul li{ border-color:{{@global.styleAndNavigation.borderColor}}; color:{{@global.styleAndNavigation.title[3]}}}
+		.tabs-list ul li{background:{{@global.styleAndNavigation.tab[3]}}}
+		.tabs-list ul li.swiper-slide-active{ background:{{@global.styleAndNavigation.tab[4]}}}
+		.tabs-list li a{color:{{@global.styleAndNavigation.tab[2]}}}
+		.exHead{background:{{@global.styleAndNavigation.title[2]}}}
+    </style>
+    
+    <div class="tabs-list">
+                <ul class="swiper-wrapper">
+                    {{#each list}}
+	                <li class="swiper-slide"><a index="{{@index}}" class="{{@global.styleAndNavigation.tab[0]}} {{@global.styleAndNavigation.tab[1]}}">{{this.title}}</a></li>
+
+                    {{/each}}
+                </ul>
+            </div>
+
+
+        <div class="tabs-view swiper-container video-swiper">
+            <div class="swiper-wrapper">
+                {{#each list}}
+                <div class="swiper-slide">
+                    <div class="exerciseGuide">
+                        <ul>
+                            {{#js_compare "this.type == 'Exercises' "}}
+                            {{#each this.list}}
+                            <li onclick="fitnessDetails('1','{{this.exercise_id}}')">
+                            <img src="images/2X1.png" style="background:url({{../../../../url}}{{this.exercise_image}})" /> <div class="exHead {{@global.styleAndNavigation.title[0]}} {{@global.styleAndNavigation.title[1]}}">{{this.exercise_title}}</div> </li>
+                            {{/each}}
+                            {{/js_compare}}
+                            {{#js_compare "this.type == 'Equipments' "}}
+                            {{#each this.list}}
+                            <li onclick="fitnessDetails('2','{{this.equipment_id}}')"> 
+                            <img src="images/2X1.png" style="background:url({{../../../../url}}{{this.equipment_thumbnail}})" /> <div class="exHead {{@global.styleAndNavigation.title[0]}} {{@global.styleAndNavigation.title[1]}}">{{this.equipment_name}}</div> </li>
+                            {{/each}}
+                            {{/js_compare}}
+                            {{#js_compare "this.type == 'BodyParts' "}}
+                            {{#each this.list}}
+                            <li onclick="fitnessDetails('3','{{this.bodypart_id}}')">
+                            <img src="images/2X1.png" style="background:url({{../../../../url}}{{this.bodypart_thumbnail}})" /> <div class="exHead {{@global.styleAndNavigation.title[0]}} {{@global.styleAndNavigation.title[1]}}">{{this.bodypart_name}}</div> </li>
+                            {{/each}}
+                            {{/js_compare}}
+
+                        </ul>
+                    </div>
+                </div>
+                {{/each}}
+
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,125 @@
+<div class="navbar">
+	<div class="navbar-inner" style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+		<div class="left sliding">
+			<a href="index" class="link back" style="color:{{@global.style.headerBarIconColor}};">
+			<i class="icon icon-left-open-2"></i>
+			</a>
+		</div>
+		<div class="center sliding  {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">
+			<div class="topHeader">{{@global.pageLanguageSetting.my_account_mcom}}</div>
+		</div>
+		<div class="right">
+			<a class="link" style="color:{{@global.style.headerBarIconColor}};">
+                <i class="icon-cart cursor-pointer" onclick="Appyscript.ecomAddToCartProduct('cartview');"><span class="cartNotification">{{@root.totalproduct}}</span></i>
+			</a>
+		</div>
+	</div>
+</div>
+
+<div data-page="ecommerce-AccountDetails" class="page navbar-through toolbar-fixed no-toolbar">
+	<!-- Page content-->
+	<div class="page-content {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}} content-{{@global.styleAndNavigation.content[3]}} heading-{{@global.styleAndNavigation.heading[3]}} hideBorder-{{@global.styleAndNavigation.hideBorder}}" style="color:{{@global.styleAndNavigation.content[2]}}; background:{{@global.styleAndNavigation.pageBgColor}}">
+     <style type="text/css">
+    div[data-page='ecommerce-AccountDetails'] ::-webkit-input-placeholder {
+		color:{{@global.styleAndNavigation.content[2]}};
+		opacity:0.6;
+    }
+    div[data-page='ecommerce-AccountDetails'] :-moz-placeholder {
+		color:{{@global.styleAndNavigation.content[2]}};
+		opacity:0.6;
+    }
+    div[data-page='ecommerce-AccountDetails'] ::-moz-placeholder {
+		color:{{@global.styleAndNavigation.content[2]}};
+		opacity:0.6;
+    }
+    div[data-page='ecommerce-AccountDetails'] :-ms-input-placeholder {
+    	color:{{@global.styleAndNavigation.content[2]}};
+		opacity:0.6;
+    }
+
+	.billing-address input,
+	.billing-address select,
+	.shipping-address input,
+	.shipping-address select,
+	#InstructionsTab textarea,
+	.dashboard input {
+		color:{{@global.styleAndNavigation.content[2]}};
+		border-color:{{@global.styleAndNavigation.borderColor}};
+	}
+	</style>
+    	<div class="profile-image">
+                    {{#if @global.profileImagecheck}}
+                        <div class="profileBackground" style="background:url({{@global.profileImage}})"></div>
+                    {{else}}
+                        <div class="profileBackground" ></div>
+                    {{/if}}
+                    <div class="profileContentBx" onClick="Appyscript.StoreEditProfile(this)">
+                        {{#if @global.loginCheck}}
+                        <a href="#" data-animate="true"  data-back="back" class="editProfilebutton icon-cog "  style="color:{{@global.styleAndNavigation.menu[2]}}" onClick="Appyscript.StoreEditProfile(this)"></a>
+                        {{/if}}
+                        <div class="profileBx" onClick="Appyscript.StoreEditProfile(this)">
+                            {{#if @global.loginCheck}}
+                            <span class="image"><img src="{{@global.profileImage}}" alt="" style="border-color:{{@global.styleAndNavigation.borderColor}}"></span>
+
+                            {{else}}
+                            <span onclick="Appyscript.loginPage('true');" class="image"><img src="http://media.appypie.com/pageTheme/imgmatrix/business-loyaltycard.jpg" alt="" style="border-color:{{@global.styleAndNavigation.borderColor}}"></span>
+                            {{/if}}
+                        </div>
+                        {{#if @global.email}}
+                        <span class="name" id="userName">{{@global.Name}}</span>
+                        {{/if}}
+                        <span class="location" id="userLocation">{{@global.CurrentCity}}</span>
+                    </div>
+        </div>
+		<div class="wrap">
+        <div class="billing-address">
+                <form id="contactInfo">
+                    <h2 class="{{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}}">{{@global.pageLanguageSetting.contact_information_mcom}}</h2>
+                    <input id="cfname" type="text" placeholder="{{@global.pageLanguageSetting.please_enter_name_mcom}} *"  name="name" onblur="validate(this);"/>
+                    <input id="cemail" type="text" placeholder="{{@global.pageLanguageSetting.please_enter_email_mcom}} *"  name="email" onblur="validate(this);" readonly/>
+                    <input id="cpNo" type="tel" placeholder="{{@global.pageLanguageSetting.please_enter_telephone_mcom}} *"  name="phone" onblur="validate(this);"/>
+                    <a onclick="updateaccountDeatils('contactinformation');" class="e-user_save {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" style="color:{{@global.styleAndNavigation.button[3]}};background:{{@global.styleAndNavigation.button[2]}};">{{@global.pageLanguageSetting.update_contact_information_mcom}}</a>
+                </form>
+        </div>
+        <div class="shipping-address">
+            <form id="billing">
+                <h2 class="{{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}}">{{@global.pageLanguageSetting.billing_address_mcom}}</h2>
+                <input type="text" id="bfname" placeholder="{{@global.pageLanguageSetting.please_enter_name_mcom}} *"  name="name" onblur="validate(this);"  />
+                <input type="text" id="email" placeholder="{{@global.pageLanguageSetting.please_enter_email_mcom}} *"  name="email" onblur="validate(this);"  />
+                <input type="tel"  id="bpNo" placeholder="{{@global.pageLanguageSetting.please_enter_telephone_mcom}}  *" name="phone" onblur="validate(this);"/>
+                <input type="text" id="bAddress" placeholder="{{@global.pageLanguageSetting.please_enter_address_mcom}}  *" name="address" onblur="validate(this);"/>
+                <input type="text" id="bCity" placeholder="{{@global.pageLanguageSetting.please_enter_city_mcom}}  *" name="city" onblur="validate(this);" />
+                <input type="text" id="bState" placeholder="{{@global.pageLanguageSetting.please_enter_state_mcom}}  *"  name="state" onblur="validate(this);" />
+                <input type="text" id="bZip" placeholder="{{@global.pageLanguageSetting.please_enter_zip_mcom}}  *"  name="zip" onblur="validate(this);" />
+                <div id="bcountryTry">
+                    <select id="bCountry" name="country">
+                         {{getCountry "country"}}
+                    </select>
+                </div>
+				<a onclick="updateaccountDeatils('billinginformation');"class="e-user_save {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" style="color:{{@global.styleAndNavigation.button[3]}};background:{{@global.styleAndNavigation.button[2]}};" >{{@global.pageLanguageSetting.update_billing_information_mcom}}</a>
+                <div class="showBillingAddress {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" style="color:{{@global.styleAndNavigation.button[3]}};background:{{@global.styleAndNavigation.button[2]}};">
+                    <span class="checkbox" onclick="ecomProfileCheckbox(this)"></span>
+                    <input type="checkbox" id="shippingCheckbox"> {{@global.pageLanguageSetting.shipping_address_different_from_billing_address_mcom}}
+                </div>  
+            </form>
+        </div>
+            <div class="shipping-address shippingView" style="display:none">
+            <form id="shipping">
+                <h2 class="{{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}}">{{@global.pageLanguageSetting.shipping_address_mcom}}</h2>
+                <input type="text" id="sfname" placeholder="{{@global.pageLanguageSetting.please_enter_name_mcom}} *"  name="name" onblur="validate(this);"/>
+                <input type="tel" id="spNo" placeholder="{{@global.pageLanguageSetting.please_enter_telephone_mcom}} *" name="phone" onblur="validate(this);"/>
+                <input type="text" id="ssAddress" placeholder="{{@global.pageLanguageSetting.please_enter_address_mcom}} *"  name="address" onblur="validate(this);"/>
+                <input type="text" id="sCity" placeholder="{{@global.pageLanguageSetting.please_enter_city_mcom}} *" name="city"  onblur="validate(this);"/>
+                <input type="text" id="sState" placeholder="{{@global.pageLanguageSetting.please_enter_state_mcom}} *"  name="state" onblur="validate(this);"/>
+                <input type="text" id="sZip" placeholder="{{@global.pageLanguageSetting.please_enter_zip_mcom}} *" name="zip" onblur="validate(this);"/>
+                <div id="scountryTry">
+                    <select id="sCountry" name="country">
+                        {{getCountry "country"}}
+                    </select>
+                </div>
+                <a onclick="updateaccountDeatils('shippinginformation');"class="e-user_save {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" style="color:{{@global.styleAndNavigation.button[3]}};background:{{@global.styleAndNavigation.button[2]}};">{{@global.pageLanguageSetting.update_shipping_information_mcom}} </a>
+            </form>
+        </div>
+	</div>
+	</div>
+</div>

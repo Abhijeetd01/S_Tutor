@@ -1,0 +1,25 @@
+<div class="navbar"><div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+    <div class="left sliding">
+   		{{getSlideBack "common"}}              
+    </div>
+    <div class="center sliding {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">{{title}}</div>
+            <div class="right"></div>
+          </div></div>
+
+<div data-page="education-DictionaryPage" class="page navbar-through no-toolbar ">
+    <!-- Page content-->
+<div class="backgroundAnimation">{{> innerBackground}}</div>
+   <div class="page-content">
+        
+     <div id="education-inner-detail">
+        <span class="dictionary-search">
+          <input data-role="none" type="text" value="" placeholder="Enter the keyword to search" id="search" />
+			<a style="background-color:#db0ac6" onclick="SearchDictionary();" class="button icon-search"></a>
+        </span>
+     </div>
+
+     <div id="result" class="result"></div>
+
+   </div>
+   
+	</div>

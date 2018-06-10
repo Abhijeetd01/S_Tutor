@@ -1,0 +1,48 @@
+<div class="navbar"><div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+    <div class="left sliding">
+        <a href="index" class="link back" style="color:{{@global.style.headerBarIconColor}};">
+            <i class="icon icon-left-open-2"></i>
+        </a>
+    </div>
+    <!--{{#if @global.pageLanguageSetting.searchBtn_Hyper}}-->
+    <!--<div class="center sliding {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">{{@global.pageLanguageSetting.searchBtn_Hyper}}</div>-->
+    <!--{{else}}-->
+    <!--<div class="center sliding {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">{{title}}</div>-->
+    <!--{{/if}}-->
+    <div class="center sliding {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">{{title}}</div>
+    <div class="right"></div>
+</div></div>
+
+
+<div data-page="error-page" class="page navbar-through no-toolbar">
+    <!-- Page content-->
+    <div class="page-content" style="background: {{@global.styleAndNavigation.pageBackroundColor}}; background-color: {{@global.styleAndNavigation.pageBgColor}}">
+<div class="msg-code">
+    {{#if @global.styleAndNavigation}}
+    <div class="msg-container">
+        {{#js_compare "this.hyperNoImg != undefined"}}
+            <img src="{{hyperNoImg}}" class="imgIcon1" style="background-size: cover;
+    width: 100%;">
+        {{else}}
+            <span class="icon {{errorIcon}}" style="color: {{@global.styleAndNavigation.icon[0]}}; border-color:{{@global.styleAndNavigation.icon[0]}};">  </span>
+        {{/js_compare}}
+        {{#if heading}}
+            <h2 clas="{{@global.styleAndNavigation.heading[1]}}" style="color: {{@global.styleAndNavigation.heading[2]}}; display:none">{{heading}}</h2>
+        {{/if}}
+            <span class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="color: {{@global.styleAndNavigation.content[2]}}; margin-top:10px; display:none;">{{errortext}}</span>
+    </div>
+    {{else}}
+    <div class="msg-container">
+        {{#js_compare "this.iconType === 'img' "}}<img src="{{errorIcon}}" class="imgIcon">
+            {{else}}
+            <span class="icon {{errorIcon}}" style="color:{{@global.style.pageIconColor}}; font-family:{{@global.style.appPageFont}};">  </span>
+            {{/js_compare}}
+            {{#if heading}}<h2 class="{{@global.style.appPageShsize}}" style="color:{{@global.style.pageTextColor}}; font-family:{{@global.style.appPageFont}}; display:none">{{heading}}</h2>  {{/if}}
+            <span class="{{@global.style.appPageCsize}}" style="color:{{@global.style.pageTextColor}}; font-family:{{@global.style.appPageFont}}; margin-top:10px; display:none;">{{errortext}}</span>
+            
+            </div>
+    {{/if}}
+</div>
+
+    </div>
+</div>

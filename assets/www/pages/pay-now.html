@@ -1,0 +1,88 @@
+<div class="navbar"><div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}}; font-size: {{@global.style.headerBarSize}} ">
+            <div class="left sliding">
+              <a href="index" class="link back" style="color:{{@global.style.headerBarTextColor}};">
+                <i class="icon icon-left-open-2"></i>
+              </a>
+            </div>
+            <div class="center sliding">{{title}}</div>
+            <div class="right"></div>
+          </div></div>
+
+
+<div data-page="foodordering-page" class="page navbar-through no-toolbar">
+
+    <!-- Page content-->
+<div class="page-content">
+   
+ 
+<div class="payment-mode">
+    <div class="listing-tabs">
+ <div class="payment-nav tabs-click">
+      <a href="#tab1" class="card active tab-link">Card</a>
+        <a href="#tab2" class="obp tab-link">Order by Phone</a>
+        <a href="#tab3" class="payu tab-link" >PayU</a>
+        <a href="#tab4" class="paypal tab-link">Paypal</a>
+        <a href="#tab5" class="cod tab-link">COD</a>
+     </div>
+ </div>
+    <div class="tabs-animated-wrap">
+ <div class="wrap" id="paymentTabs">
+  
+  <div class="tabs">
+  
+  <div class="tab active clearfix" id="tab1">    
+   <div class="login-feald">
+                <input type="number" id="cnumber" placeholder="XXXX-XXXX-XXXX-XXXX" class="card-number">
+   </div>
+   <div class="expiry-date">
+    <span><input type="number" id="ExpairyMonth" placeholder="MM"> Expiry Month </span><span class="mid"> &nbsp; </span><span><input type="number" id="ExpairyYear" placeholder="YYYY"> Expiry Year </span>
+   </div>
+   <div class="login-feald" style="display:none">
+    <label>Card Security Code</label>
+   </div>
+   <div class="cvv">
+    <input type="number" id="cvvCode" placeholder="CVV">
+    <p>check the back of your credit card for cvv</p>
+   </div>
+   <div class="login-feald">
+            <input type="text" id="cHolder" placeholder="Card Holder Name" class="card-number card-name">
+   </div>
+
+   <footer id="footer-nav"><a class="paynowbtn" href="#" onclick="Appyscript.thankyou(this);">Place Order</a></footer>
+
+  </div>
+        
+  <div class="tab" id="tab2">
+   <p>You can order by calling <a href="callto:1234567899">1234567899</a><span> sff</span></p>
+   <a class="BtText">Call Now</a>
+  </div>
+        
+  <div class="tab" id="tab3">
+   <p>Please click on the confirm to pay through PayU</p>
+   <a class="BtText">Confirm</a>
+  </div>
+        
+  <div class="tab" id="tab4">
+   <p>Please click on the confirm to pay through Paypal</p>
+   <a class="BtText">Confirm</a>
+  </div>
+        
+  <div class="tab" id="tab5">
+   <p>Pay using Cash-on-Delivery</p>
+   <p><a class="BtText">Confirm</a></p>
+  </div>
+    </div>    
+ </div>
+    </div>
+    
+    
+    
+     
+ 
+    </div>
+
+
+
+
+</div>
+</div>

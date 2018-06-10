@@ -1,0 +1,1272 @@
+.form-page {
+    float:left;
+    width:100%;
+    min-height:100%;    
+    margin:0px;
+    padding:0px;
+    position:relative;
+    border-radius:0px;
+    box-sizing:border-box;
+    padding:0;
+    background:rgba(0,0,0,0);
+    overflow: hidden;
+}
+.form-page ul {
+    width:100%;
+    list-style:none;
+    float:left;
+    margin:0px;
+    padding:10px;
+    box-sizing:border-box;
+}
+
+
+.form-page li {
+ 	float:left;
+	width:100%;
+ 	margin:0 0 10px 0;
+}
+
+.form-page h2 {
+ 	font-size:16px;
+  	color:#fff;
+   	margin:0px;
+    padding:10px;
+    box-sizing:border-box;
+    float:left;
+    width:100%;
+    border-bottom:solid 1px #FFF;
+}
+
+.form-page .description,
+.form-page .header,
+.form-page .header img {
+ 	float:left;
+	width:100%;
+ 	margin:0px;
+}
+
+.form-page .description {
+ 	box-sizing:border-box;
+  	padding:10px 10px 0 10px;
+}
+
+.form-page.heading-left h2,
+.form-page.content-left .description {
+ 	text-align:left;
+}
+
+.form-page.heading-center h2,
+.form-page.content-center .description {
+ 	text-align:center;
+}
+
+.form-page.heading-right h2,
+.form-page.content-right .description {
+ 	text-align:right;
+}
+
+.form-page.heading-justify h2,
+.form-page.content-justify .description {
+ 	text-align:justify;
+}
+
+.form-page li.input {
+ 	box-sizing:border-box;
+  	padding:0 0 0 50px;
+   	position:relative;
+}
+
+.form-page li.input[type='signature'] {
+ 	margin:50px 0 10px 0;
+  	padding:0px;
+}
+
+.form-page li.input span {
+ 	position:absolute;
+	width:50px; 	
+    top:0;    
+  	left:0px;
+   	height:100%;
+    border-radius:0;
+    text-align:center;
+    line-height:40px;
+    box-sizing:border-box;
+    border:solid 1px #fff;
+    font-size:18px;
+}
+
+.form-page li.customField span {
+ 	font-size:18px;
+}
+
+.form-page input[type='text'],
+.form-page input[type='password'],
+.form-page input[type='tel'] ,
+.form-page input[type='url'],
+.form-page input[type='email'],
+.form-page input[type='date'],
+.form-page input[type='time'],
+.form-page textarea,
+.form-page select,
+.form-page .select-file,
+.form-page .label-head {
+ 	width:100%;
+  	margin:0px;
+	border:0px;
+	outline:0px;
+ 	padding:11px;
+	box-sizing:border-box;
+ 	border-radius:0;
+	background:#fff;
+ 	/*font-family:Verdana, Geneva, sans-serif; 78843*/
+  	font-size:14px;
+   	float:left;
+    border:solid 1px #fff;
+    resize:none;
+}
+
+.form-page select {
+    -webkit-appearance: button;
+    -moz-appearance:button;
+    appearance:button;
+    height:40px;
+}
+
+.form-page textarea {
+ 	height:80px;
+}
+
+.form-page .form-btn a {
+ 	float:left;
+	width:100%;
+ 	line-height:40px;
+	text-align:center;
+ 	border-radius:0px;
+}
+
+.form-page .form-btn.auto-right a {
+	padding:0 10px;
+ 	float:right;
+	box-sizing:border-box;
+}
+
+.form-page li.text {
+ 	padding:5px 0;
+}
+.form-page li.text p {
+    float:left;
+    width:100%;
+    line-height:18px;
+    margin:3px 0;
+}
+
+.form-page li.text a {
+ 	font-weight:bold;
+}
+
+.form-page .label-head  {
+	background:none;
+ 	padding:0 0 0 12px;
+  	line-height:40px;
+   	font-weight:bold;
+    border-radius:0;
+	position: absolute;
+    top: -40px;
+}
+
+.form-page li.input[type='radio'],
+.form-page li.input[type='checkbox'],
+.form-page li.input[type='signature'] {
+ 	background:#fff;
+  	border-radius:0 0 0 0;
+   	padding:0px;
+    position:relative;
+    margin:40px 0 10px 0;
+}
+
+
+.form-page.rounded-1 li.input[type='radio'],
+.form-page.rounded-1 li.input[type='checkbox'],
+.form-page.rounded-1 li.input[type='signature'] {
+	border-radius:0 0 20px 20px;
+}
+
+.form-page li.input[type='radio'] span,
+.form-page li.input[type='checkbox'] span,
+.form-page li.input[type='signature'] span {
+ 	height:40px;
+	border-radius:8px 0 0 0;
+ 	display:none;
+}
+
+.form-page li.input[type='radio'] label,
+.form-page li.input[type='checkbox'] label,
+.form-page li.input[type='signature'] label {
+	width:50%;
+ 	float:left;
+  	padding:0 0 0 30px;
+   	position:relative;
+    line-height:40px;
+    margin:0px;
+    box-sizing:border-box;
+	white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.form-page li.input[type='signature'] label {
+ 	padding:0px;
+	text-align:center;
+}
+
+.form-page li.input[type='radio'] input,
+.form-page li.input[type='checkbox'] input {
+ 	position:absolute;
+  	left:8px;
+   	top:10px;
+
+}
+
+.form-page li.input .arrow {
+    width: 0; 
+    height: 0; 
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;   
+    border-right:8px solid #F00;  
+    border-left:8px solid #F00;  
+    position: absolute;
+    right: 50px;
+    top: 50%;
+    margin: -8px 0 0 0;
+    display:none;
+}
+
+.form-page li.input .label {
+ 	float:left;
+	width:100%;
+ 	line-height:20px;
+  	margin:0 0 5px 0;
+	display:none;
+}
+.form-btn a {border-style:solid; border-width:1px;}
+/* Theme 1 */
+
+.form-page.theme-1 li.input span,
+.form-page.theme-1 .form-btn.smo-button span {
+ 	border-right:solid 1px #F00;
+	border-radius:0px;
+}
+
+.form-page.theme-1 input[type='text'],
+.form-page.theme-1 input[type='password'],
+.form-page.theme-1 input[type='tel'],
+.form-page.theme-1 input[type='url'],
+.form-page.theme-1 input[type='email'],
+.form-page.theme-1 input[type='date'],
+.form-page.theme-1 input[type='time'],
+.form-page.theme-1 textarea,
+.form-page.theme-1 select,
+.form-page.theme-1 .select-file {
+ 	border-left:0px;
+	border-radius:0px;
+}
+
+.form-page.theme-1.icon-right input[type='text'],
+.form-page.theme-1.icon-right input[type='password'],
+.form-page.theme-1.icon-right input[type='tel'],
+.form-page.theme-1.icon-right input[type='url'],
+.form-page.theme-1.icon-right input[type='email'],
+.form-page.theme-1.icon-right input[type='date'],
+.form-page.theme-1.icon-right input[type='time'],
+.form-page.theme-1.icon-right textarea,
+.form-page.theme-1.icon-right select,
+.form-page.theme-1.icon-right .select-file {
+	border-left:1px solid;
+	border-right:0px solid;
+}
+
+.form-page.theme-1.rounded-1 input[type='text'],
+.form-page.theme-1.rounded-1 input[type='password'],
+.form-page.theme-1.rounded-1 input[type='tel'],
+.form-page.theme-1.rounded-1 input[type='url'],
+.form-page.theme-1.rounded-1 input[type='email'],
+.form-page.theme-1.rounded-1 input[type='date'],
+.form-page.theme-1.rounded-1 input[type='time'],
+.form-page.theme-1.rounded-1 textarea,
+.form-page.theme-1.rounded-1 select,
+.form-page.theme-1.rounded-1 .select-file {
+ 	border-radius:0 20px 20px 0;	 
+}
+
+.form-page.theme-1.icon-right.rounded-1 input[type='text'],
+.form-page.theme-1.icon-right.rounded-1 input[type='password'],
+.form-page.theme-1.icon-right.rounded-1 input[type='tel'],
+.form-page.theme-1.icon-right.rounded-1 input[type='url'],
+.form-page.theme-1.icon-right.rounded-1 input[type='email'],
+.form-page.theme-1.icon-right.rounded-1 input[type='date'],
+.form-page.theme-1.icon-right.rounded-1 input[type='time'],
+.form-page.theme-1.icon-right.rounded-1 textarea,
+.form-page.theme-1.icon-right.rounded-1 select,
+.form-page.theme-1.icon-right.rounded-1 .select-file {
+ 	border-radius:20px 0 0 20px;	 
+}
+
+.form-page.theme-1.rounded-1 .label-head {
+	border-radius:20px 20px 0 0;
+}
+
+.form-page.theme-1.rounded-1 li.input span,
+.form-page.theme-1.rounded-1 .form-btn.smo-button span {
+	border-radius:20px 0 0 20px;
+}
+
+.form-page.theme-1.icon-right li.input span, 
+.form-page.theme-1.icon-right .form-btn.smo-button span {
+	border-right:1px #F00 solid;
+	border-left:1px #F00 solid;
+}
+
+.form-page.theme-1.icon-right.rounded-1 li.input span, 
+.form-page.theme-1.icon-right.rounded-1 .form-btn.smo-button span {
+	border-radius:0 20px 20px 0;
+}
+
+.form-page.theme-1.rounded-1 .form-btn a {
+	border-radius:20px;
+}
+
+.form-page.theme-1 li.input .arrow {
+ 	display:block;
+	border:0px;
+	border-radius:0;
+ 	height:20px;
+	width:1px;
+	background:#F00;
+	left: 48px;
+	top: 18px;
+	display:none;
+}
+
+.form-page.theme-1.icon-right li.input .arrow {
+ 	left:auto;
+	right: 48px;
+	top: 18px;
+}
+
+.form-page.theme-1 li[type='textarea'] .arrow,
+.form-page.theme-1 li[type='multiselect'] .arrow {
+	height: 68px;
+}
+
+.form-page.theme-1 li.input[type='radio'] .arrow,
+.form-page.theme-1 li.input[type='checkbox'] .arrow {
+ 	display:none;
+}
+.form-page.theme-1 li .label-head{width: calc(100% + 2px); left: -1px;}
+.form-page.theme-1 li.input[type='radio'], .form-page.theme-1 li.input[type='checkbox']{border-width: 1px; border-style:solid;}
+
+/* Theme 2 */
+.form-page.theme-2 li.input span,
+.form-page.theme-2 .form-btn.smo-button span {
+ 	border:0px;
+	border-radius:0px;
+}
+
+.form-page.theme-2 input[type='text'],
+.form-page.theme-2 input[type='password'],
+.form-page.theme-2 input[type='tel'],
+.form-page.theme-2 input[type='url'],
+.form-page.theme-2 input[type='email'],
+.form-page.theme-2 input[type='date'],
+.form-page.theme-2 input[type='time'],
+.form-page.theme-2 textarea,
+.form-page.theme-2 select,
+.form-page.theme-2 .select-file,
+.form-page.theme-2 .label-head {
+ 	border:0px;
+	border-radius:0px;
+}
+
+.form-page.theme-2 li.input:after {
+    content: " ";
+    border-bottom: solid 1px #F00;
+    position: absolute;
+    left: auto;
+    right:10px;
+    top: 32px;
+    float: left;
+    width: calc(100% - 70px);
+}
+
+.form-page.theme-2.icon-right li.input:after {
+	left:10px;
+	right:auto;
+}
+
+.form-page.theme-2 li.input .arrow {
+ 	display:block;
+}
+
+.form-page.theme-2 li[type='textarea']:after,
+.form-page.theme-2 li[type='multiselect']:after {
+	top: 73px;
+}
+
+.form-page.theme-2 li.input[type='radio'],
+.form-page.theme-2 li.input[type='checkbox'],
+.form-page.theme-2 li.input[type='signature'] {
+ 	border-radius:0;
+  	padding:0px;
+}
+
+.form-page.theme-2 li.input[type='radio'] .arrow,
+.form-page.theme-2 li.input[type='checkbox'] .arrow,
+.form-page.theme-2 li.input[type='radio']:after,
+.form-page.theme-2 li.input[type='checkbox']:after,
+.form-page.theme-2 li.input[type='signature']:after,
+.form-page.theme-2 li.input[type='signature']:after {
+ 	display:none;
+}
+
+/* Theme 3 */
+
+.form-page.theme-3 li.input span,
+.form-page.theme-3 .form-btn.smo-button span {
+ 	border:0px;
+	border-radius:0px;
+	display:none;
+}
+
+.form-page.theme-3 li.input,
+.form-page.theme-3.icon-right li.input {
+ 	padding:0px;
+}
+
+.form-page.theme-3 li.input .label {
+ 	display:block;
+}
+
+.form-page.theme-3 input::-webkit-input-placeholder {color:rgba(0,0,0,0);}
+.form-page.theme-3 input:-moz-placeholder {color:rgba(0,0,0,0);}
+.form-page.theme-3 input::-moz-placeholder {color:rgba(0,0,0,0);}
+.form-page.theme-3 input:-ms-input-placeholder {color:rgba(0,0,0,0);}
+
+.form-page.theme-3 textarea::-webkit-input-placeholder {color:rgba(0,0,0,0);}
+.form-page.theme-3 textarea:-moz-placeholder {color:rgba(0,0,0,0);}
+.form-page.theme-3 textarea::-moz-placeholder {color:rgba(0,0,0,0);}
+.form-page.theme-3 textarea:-ms-input-placeholder {color:rgba(0,0,0,0);}
+.form-page.theme-3 li .label-head{width: calc(100% + 2px); left: -1px;}
+.form-page.theme-3 li.input[type='radio'], 
+.form-page.theme-3 li.input[type='checkbox'],
+.form-page.theme-3 li.input[type='signature'] {
+	border-width: 1px;
+	border-style:solid;
+	border-radius: 0px;
+}
+/* Theme 4 */
+
+.form-page.theme-4 li.input span,
+.form-page.theme-4 .form-btn.smo-button span {
+ 	border:0px;
+	border-radius:0px;
+}
+
+.form-page.theme-4 input[type='text'],
+.form-page.theme-4 input[type='password'],
+.form-page.theme-4 input[type='tel'],
+.form-page.theme-4 input[type='url'],
+.form-page.theme-4 input[type='email'],
+.form-page.theme-4 input[type='date'],
+.form-page.theme-4 input[type='time'],
+.form-page.theme-4 textarea,
+.form-page.theme-4 select,
+.form-page.theme-4 .select-file,
+.form-page.theme-4 .label-head {
+ 	border:0px;
+	border-radius:0px;
+}
+
+.form-page.theme-4 li.input[type='radio'],
+.form-page.theme-4 li.input[type='checkbox'],
+.form-page.theme-4 li.input[type='signature'] {
+ 	border-radius:0;
+  	padding:0px;
+}
+
+
+.form-page.content-left p,
+.form-page.heading-left h2,
+.form-page.label-left .label,
+.form-page.label-left .label-head {
+ 	text-align:left;
+}
+
+.form-page.content-center p,
+.form-page.heading-center h2,
+.form-page.label-center .label,
+.form-page.label-center .label-head {
+ 	text-align:center;
+}
+
+.form-page.content-right p,
+.form-page.heading-right h2,
+.form-page.label-right .label,
+.form-page.label-right .label-head{
+ 	text-align:right;
+}
+
+.form-page.icon-right li.input {
+ 	padding:0 50px 0 0;
+}
+
+.form-page.icon-right li.input span {
+ 	left:auto;
+  	right:0px;
+}
+
+.form-page.icon-1 li.input {
+ 	padding:0px;
+}
+
+.form-page.image-1 .header {
+ 	display:none;
+}
+
+.form-page.button-1 .form-btn a {
+ 	width:50%;
+  	margin:0 25%;
+}
+
+.form-page.icon-1 li.input span,
+.form-page.icon-1 li.input .arrow {
+	display:none;
+}
+
+.form-popup {
+    width:100%;
+    height:100%;
+    background:rgba(0, 0, 0, 0.4);
+    position:fixed;
+    left:0px;
+    top:0px;
+    display:none;
+}
+.form-view {
+	width:300px;
+	box-sizing:border-box;
+    padding:15px;
+    position:fixed;
+    left:50%;
+    top:50%;
+    margin:-120px 0 0 -150px;
+    background:rgba(0,0,0,0.4);/* change by dharam previous #fff   */
+    border-radius:10px;
+    border:solid 0px #ccc;
+
+}
+.form-popup a{
+    position:absolute;
+    background:#333;
+    right:0px;
+    top:0px;
+    color:#fff;
+    width:30px;
+    height:30px;
+    border-radius:0 0 0  10px;
+    font-size:22px;
+    text-align:center;
+    line-height:30px;
+}
+ 
+.form-popup .day {
+    width: 110px;
+    float: left;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.start-end {
+    float: right;
+}
+
+.form-popup h2 {
+	text-align:center;
+	margin:0px;
+	line-height:30px;
+}
+.form-popup ul,
+.form-popup ul li {
+ 	margin:0px;
+  	padding:0px;
+   	float:left;
+    width:100%;
+    float:left;
+    list-style:none;
+    list-style:none;
+}
+.form-popup ul li{
+    border-top: 1px solid #cccccc;
+    line-height:30px;
+}
+.form-popup ul li:first-child{ border-top:none;}
+
+.form-popup ul li.closed {
+ color:#F00;
+}
+
+.form-page .date-hit,
+.form-page .time-hit {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    opacity: 0;
+    background-color: none;
+    border: 0px solid #003f94;
+    min-width: 100%;
+    height:45px
+}
+.form-page li.error input,
+.form-page li.error span,
+.form-page li.error select,
+.form-page li.error textarea,
+.form-page li.error .label-head,
+.form-page li.error .select-file{
+ 	border-color:red !important;
+}
+
+.form-page .select-file {
+	position:relative;
+}
+
+.form-page .select-file font {
+ 	font-size:14px;
+  	font-family:Verdana, Geneva, sans-serif;
+}
+
+.form-page .select-file input {
+	width:100%;
+	height:100%;
+	position:absolute;
+	left:0;
+	top:0;
+	opacity:0;
+}
+
+.form-page li.input[type='amount'] input {
+ 	padding:12px 72px 12px 12px;
+}
+
+.form-page li.input[type='amount'] select {	
+    width: 60px;
+    padding: 12px;
+    border: 0px;
+    position: absolute;
+    bottom: 1px;
+    right: 1px;
+    text-align: center;
+    background:none;
+    height: 40px;
+    border-left:solid 1px #F00;
+}
+
+.form-page.theme-1.icon-left.rounded-1 li.input[type='amount'] select {
+ 	right:1px;
+    border-radius: 0 20px 20px 0
+}
+
+.form-page.theme-1.icon-right.rounded-1 li.input[type='amount'] select {
+ 	right:51px;
+    border-radius: 0 0 0 0
+}
+
+.form-page.icon-right li.input[type='amount'] select {
+ 	right:51px;
+}
+
+.form-page.theme-3.icon-right li.input[type='amount'] select {
+ 	right:1px;
+}
+
+.form-page.theme-2 li.input[type='amount'] select,
+.form-page.theme-4 li.input[type='amount'] select {
+ 	right:0px;
+}
+
+.form-page.theme-2 li.input[type='amount'] select {
+ 	border-left:0px;
+}
+
+.form-page.theme-2 li.input[type='amount'] select,
+.form-page.theme-4 li.input[type='amount'] select {
+ 	right:0px;
+  	bottom:0px;
+}
+
+.form-page.icon-right.theme-2 li.input[type='amount'] select,
+.form-page.icon-right.theme-4 li.input[type='amount'] select {
+ 	right:50px;
+  	bottom:0px;
+}
+
+.scroll-none {
+overflow:hidden !important;
+}
+
+
+.signature-tabs {
+  float:left;
+ width:100%;
+ text-align:center;
+}
+
+.signature-tabs img {
+    max-width: 100%;
+    max-height: 100px;
+    margin: auto;
+}
+
+.signature-tabs b {
+ width: 50%;
+    float: left;
+    text-align: center;
+    box-sizing: border-box;
+    padding: 0 10px;
+    line-height: 40px;
+    font-family:Arial, Helvetica, sans-serif;
+    position:relative;
+}
+.signature-tabs b:first-child {
+  border-right:solid 1px #999;
+}
+
+.signature-tabs input {    
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+ }
+    .signature-pop {
+      position:fixed;
+       width:100%;
+        float:left;
+        height:100%;
+        background:rgba(0,0,0,0.3);
+        left:0px;
+        top:0px;
+  z-index: 10000;
+    }
+    
+    .signature-pop div {
+      margin:0;
+       background:#FFF;
+        position:fixed;
+        left:50%;
+        top:50%;
+ }
+
+
+ .signature-pop div a {
+   position:absolute;
+    width:50%;
+    left:0px;
+    top:-36px;
+    background:#09F;
+    line-height:36px;
+    text-align:center;
+    color:#FFF;
+    border-bottom:solid 1px #333;
+ }
+ .signature-pop div a.clear {
+   left:auto;
+    right:0px;
+    border-left:solid 1px #333;
+ }
+ 
+#signature {
+    border:dashed 2px #333;
+    margin:0 13px;
+    background:rgba(0,0,0,0.1);
+	position:relative;
+	top:50%;
+	transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+  	-ms-transform: translateY(-50%);
+}
+.signature-Div{ width: 100%!important;
+    border-bottom: 1px dashed red;
+}
+.signature-list{padding: 0!important;    margin: 0 0 40px 0!important;}
+.signature-toolbar a.none {
+    opacity:0.5;
+}
+ /*Payment*/
+ .payment-mode .payment-nav a {
+     text-align:center;
+     -webkit-flex: 1;
+     -ms-flex: 1;
+     flex: 1;
+     font-size:26px;
+     white-space:nowrap;
+     padding:0;
+     line-height:46px;
+     height:46px;
+     margin:0 0 0 1px;
+ 	border-radius: 0;
+     box-shadow: none;
+ }
+
+ .payment-mode .payment-nav a:first-child {
+ 	margin:0;
+ }
+ .payment-mode .payment-nav a.active {
+ 	background-color:#f1f1f1;
+ }
+
+
+ .payment-mode .payment-nav {
+     width: 100%;
+     float: left;
+     padding: 0 0;
+     line-height: 27px;
+     border-bottom: solid 3px #2795c8;
+     display: -webkit-flex;
+     display: flex;
+ }
+ .payment-mode{
+     min-height: calc(100% - 40px);
+     margin: 0 0 40px 0;
+ }
+ .payment-mode {
+     text-align: center;
+     margin: 0px !important;
+     padding: 0px !important;
+     width: 100% !important;
+ }
+ #payCard {
+     padding: 0 0 60px 0;
+     margin: 0 0 60px 0;
+ }
+ .payment-mode .payment-tab .login-feald {
+     float: left;
+     width: 100%;
+     width:100%;
+     margin-top: 20px;
+ }
+ .login-feald {
+     clear: both;
+     margin: 10px 0 0 0;
+ }
+ .payment-mode .card-number, .payment-mode .expiry-date, .payment-mode .cvv {
+    float: left;
+     font-size: 16px;
+
+     outline: 0 none;
+
+     text-align: center;
+ }
+ .payment-mode .cvv {
+     margin-top: 15px !important;
+     position: relative;
+     width: 100%;
+ }
+ .payment-mode .expiry-date, .payment-mode .cvv {
+    display: table;
+     float: none;
+     margin: 0 auto;
+     width: auto;
+ }
+
+ .login-feald label {
+     /* clear: both; */
+     display: block;
+     width: 99%;
+ }
+ #card_type {
+     width: 50%;
+ }
+ #payCard input#cnumber {
+      border: 0 none;
+     margin: 0 0 10px;
+     padding: 10px;
+     text-indent: 0;
+ }
+ .payment-mode .expiry-date span {
+   display: inline-block;
+     float: left;
+     font-size: 14px;
+     width: 90px;
+ }
+ .card-number {
+      margin-bottom: 10px !important;
+     padding: 10px !important;
+ }
+ .payment-mode .expiry-date span.mid {
+     width: 30px;
+ 	   height: 90px;
+     background: url(../images/devider.jpg) center center no-repeat;
+ }
+ .payment-mode .cvv input {
+ 	border:0px;
+    border-bottom: 2px solid #ccc;
+     float: left;
+     font-size: 16px;
+     left: 0;
+     padding: 0;
+     position: relative;
+     text-align: center;
+     top: 0;
+     width: 90px;
+ }
+ #payCard #cvvCode {
+     margin: 0 0 10px 0;
+ }
+ .payment-mode .cvv p {
+     background:url("../images/cvv.jpg") no-repeat scroll 0 0;
+     float: left;
+     font-size: 11px;
+     line-height: 12px;
+     margin: 0 0 0 10px;
+     min-height: 24px;
+     padding: 0 0 0 43px;
+     text-align: left;
+     text-transform: uppercase;
+     width: calc(100% - 150px);
+     -moz-width: calc(100% - 150px);
+     -webkit-width: calc(100% - 150px);
+ }
+ .login-feald input {
+     border: 1px solid #9d9d9d;
+     box-sizing: border-box;
+     padding: 5px;
+     width: 100%;
+ }
+ .payment-mode .expiry-date input, .payment-mode .expiry-date select {
+     font-size: 30px;
+     text-align: center;
+     padding: 0px;
+     width: 84px;
+     height: 84px;
+     border: solid 3px #e7ebea;
+     border-radius: 70px;
+     appearance: button;
+     -moz-appearance: button;
+     -webkit-appearance: button;
+     outline: 0px;
+ }
+ .offsettop40{margin-top:40px !important;}
+ .card-name{border:1px solid #9d9d9d !important;}
+ .payment-mode p {
+     margin: 0 0 12px 0;
+     float: left;
+     width: 100%;
+ }
+ .payment-mode a.BtText {
+     text-align: center;
+     width: 100%;
+     padding: 0 0;
+     color: #FFF;
+     background: #1c94b7;
+     text-transform: uppercase;
+     height: 42px;
+     line-height: 42px;
+     font-weight: bold;
+     text-shadow: 1px 1px 0 #000;
+     border-radius: 5px;
+     -moz-border-radius: 5px;
+     -webkit-border-radius: 5px;
+     text-align: center;
+     display: inline-block;
+     margin: 0 0px 0 0;
+ 	cursor:pointer;
+ }
+ #paymentTabs.wrap {
+     padding-top: 10px;
+     margin:15px;
+ }
+
+ #footer-nav a.paynowbtn, .paynowbtn {
+     display: inline-block;
+     font-weight: bold;
+     padding: 0 0;
+     text-align: center;
+     text-decoration: none;
+     text-shadow: 0 0 0 #000;
+     text-transform: none;
+     width: 100%;
+     line-height:51px;
+ }
+
+.signature-toolbar a.save,
+.signature-toolbar a.clear {
+    padding: 0 20px;
+    padding: 0 20px;
+    line-height: 44px;
+    width: 50%;
+    text-align: center;
+    box-sizing: border-box;
+	border-top:solid 1px #FFF;
+}
+
+.signature-toolbar a.clear {
+	border-left:solid 1px #FFF;
+}
+
+.selectArrow {
+    position: relative;
+    clear: both;
+}
+.selectArrow:after {
+    content: '';
+    right: 12px;
+    top: 17px;
+    padding: 0;
+    position: absolute;
+    pointer-events: none;
+    width: 0;
+    height: 0;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-top: 8px solid;
+}
+.selectArrow input, .selectArrow select {
+    padding-right: 36px !important;
+}
+.icon-right .selectArrow input,.icon-right .selectArrow select {
+    padding-left: 36px !important;
+	padding-right: 11px !important;
+}
+.icon-right .selectArrow:after{left: 12px;}
+
+li.input[type='multiselect'] select {
+	position:absolute;
+	left:0px;
+	top:0px;
+	width:100%;
+	height: 40px;
+    opacity: 0;
+}
+
+.hideBorder-1 *,
+.hideBorder-1 .form-page.theme-2 li.input:after {
+	border:0px !important;
+}
+
+.hideBorder-1 .form-page li.input .arrow {
+	border:8px solid transparent !important;
+}
+
+.input i.info {
+    color: red;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    font-size: 18px;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+	z-index:1;
+	display:none;
+}
+
+.input[info='1'] i.info {
+	display:block;
+}
+
+.theme-3 .input i.info {
+	right:5px;
+	top:30px;
+}
+
+.icon-right .input i.info {
+    right: 50px;
+}
+
+.theme-3.icon-right .input i.info {
+    right: 5px;
+    top: 30px;
+}
+
+.input[type='multiselect'] i.info,
+.input[type='select'] i.info,
+.input[type='category'] i.info, 
+.input[type='emailEnquiryList'] i.info,
+.input[type='country'] i.info,
+.input[type='gender'] i.info,
+.input[type='listPrice'] i.info {
+	right:30px;
+}
+
+.input[type='radio'] i.info,
+.input[type='checkbox'] i.info {
+	right:5px;
+	top:-35px;
+}
+
+.icon-right .input[type='multiselect'] i.info,
+.icon-right .input[type='select'] i.info,
+.icon-right .input[type='category'] i.info, 
+.icon-right .input[type='emailEnquiryList'] i.info,
+.icon-right .input[type='country'] i.info,
+.icon-right .input[type='gender'] i.info,
+.icon-right .input[type='listPrice'] i.info {
+	right: 50px;
+}
+
+.theme-3 .input[type='multiselect'] i.info,
+.theme-3 .input[type='select'] i.info,
+.theme-3 .input[type='category'] i.info, 
+.theme-3 .input[type='emailEnquiryList'] i.info,
+.theme-3 .input[type='country'] i.info,
+.theme-3 .input[type='gender'] i.info,
+.theme-3 .input[type='listPrice'] i.info,
+.theme-3.icon-right .input[type='multiselect'] i.info,
+.theme-3.icon-right .input[type='select'] i.info,
+.theme-3.icon-right .input[type='category'] i.info, 
+.theme-3.icon-right .input[type='emailEnquiryList'] i.info,
+.theme-3.icon-right .input[type='country'] i.info,
+.theme-3.icon-right .input[type='gender'] i.info,
+.theme-3.icon-right .input[type='listPrice'] i.info {
+	right: 30px;
+}
+
+
+
+.icon-right .input[type='radio'] i.info,
+.icon-right .input[type='checkbox'] i.info {
+	right:5px;
+	top:-35px;
+}
+
+
+.input i.info:before {
+	line-height:30px;
+}
+
+
+.info-window {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 70002;
+    background: rgba(0, 0, 0, 0.5);
+    left: 0;
+    top: 0;
+}
+.info-details {
+    margin: 15px 10%;
+    width: 80%;
+    height: calc(100% - 30px);
+    background: #fff;
+    float: left;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.info-details h5 {
+    float: left;
+    width: 100%;
+    text-align: center;
+    line-height: 40px;
+    margin: 0;
+    font-size: 16px;
+    border-bottom: solid 1px #ccc !important;
+    z-index: 1;
+    position: relative;
+}
+
+.info-details h5 a {
+	position:absolute;
+	right:0px;
+	width:40px;
+	height:40px;
+	text-align:center;
+	line-height:40px;
+}
+
+.info-details .info-content {
+	height:calc(100% - 60px);
+	float:left;
+	width:calc(100% - 20px);
+	overflow:auto;
+	font-size:14px;
+	line-height:20px;
+	margin:10px;
+}
+
+.form-page li.input[type='radio'] input[type='text'] {
+	display:none;
+	position: absolute;
+    left: 0;
+    bottom: -48px;
+    float: left;
+    resize: auto;
+    top: auto;
+}
+
+.form-page li.input[type='radio'].other {
+	margin:40px 0 58px 0;
+}
+
+.form-page.theme-1.rounded-1 li.input[type='radio'].other input[type='text'],
+.form-page.theme-1.icon-right.rounded-1 li.input[type='radio'].other input[type='text']  {
+	border-radius:20px;
+}
+
+.form-page li.input[type='radio'].other input[type='text'] {
+	display:block;
+}
+ 
+
+/* for SA */
+.sa .form-popup a {
+    left: 0;
+    right: auto;
+    border-radius: 0 0 10px 0;
+}
+
+.sa .form-popup .day {
+	float:right; 	
+}
+
+/*N*/
+.pos_field{position:relative;}
+.scanner_btn{
+    right: 0px !important;
+    left: auto !important;
+    display:block !important;
+}
+.form-page.icon-right .scanner_btn{
+    left: 0px !important;
+    right: auto !important;
+    display:block !important;
+}
+.form-page .scanner_btn {
+    border-radius: 0 !important;
+}
+.form-page.icon-right .scanner_btn {
+    border-radius:0 !important;
+}
+.form-page.theme-1.rounded-1 .scanner_btn {
+    border-radius: 0px 20px 20px 0 !important;
+}
+.form-page.theme-1.rounded-1.icon-right .scanner_btn {
+    border-radius:20px 0px 0px 20px !important;
+}
+.form-page li[type="barcode"] input[type='text'],.form-page li[type="barcode"] input[type='password'], .form-page li[type="barcode"] input[type='tel'],.form-page li[type="barcode"] input[type='url'], .form-page li[type="barcode"] input[type='email'], .form-page li[type="barcode"] input[type='date'], .form-page li[type="barcode"] input[type='time'], .form-page li[type="barcode"] textarea, .form-page li[type="barcode"] select, .form-page li[type="barcode"] .select-file, .form-page li[type="qrcode"] input[type='text'],.form-page li[type="qrcode"] input[type='password'], .form-page li[type="qrcode"] input[type='tel'],.form-page li[type="qrcode"] input[type='url'], .form-page li[type="qrcode"] input[type='email'], .form-page li[type="qrcode"] input[type='date'], .form-page li[type="qrcode"] input[type='time'], .form-page li[type="qrcode"] textarea, .form-page li[type="qrcode"] select, .form-page li[type="qrcode"] .select-file{padding-right:55px; padding-left:10px}
+
+.form-page.icon-right li[type="barcode"] input[type='text'],.form-page.icon-right li[type="barcode"] input[type='password'], .form-page.icon-right li[type="barcode"] input[type='tel'],.form-page.icon-right li[type="barcode"] input[type='url'], .form-page.icon-right li[type="barcode"] input[type='email'], .form-page.icon-right li[type="barcode"] input[type='date'], .form-page.icon-right li[type="barcode"] input[type='time'], .form-page.icon-right li[type="barcode"] textarea, .form-page.icon-right li[type="barcode"] select, .form-page.icon-right li[type="barcode"] .select-file, .form-page.icon-right li[type="qrcode"] input[type='text'],.form-page.icon-right li[type="qrcode"] input[type='password'], .form-page.icon-right li[type="qrcode"] input[type='tel'],.form-page.icon-right li[type="qrcode"] input[type='url'], .form-page.icon-right li[type="qrcode"] input[type='email'], .form-page.icon-right li[type="qrcode"] input[type='date'], .form-page.icon-right li[type="qrcode"] input[type='time'], .form-page.icon-right li[type="qrcode"] textarea, .form-page.icon-right li[type="qrcode"] select, .form-page.icon-right li[type="qrcode"] .select-file{padding-left:55px; padding-right:10px}
+
+.theme-3.icon-right .input[type='multiselect'] i.info, .theme-3.icon-right .input[type='select'] i.info, .theme-3.icon-right .input[type='category'] i.info, .theme-3.icon-right .input[type='emailEnquiryList'] i.info, .theme-3.icon-right .input[type='country'] i.info, .theme-3.icon-right .input[type='gender'] i.info, .theme-3.icon-right .input[type='listPrice'] i.info {
+    right: 5px ;
+}
+
+.form-page.theme-3 .scanner_btn{
+    top: 25px;
+    height: 39px;
+    right: 0px !important;
+}
+.form-page li[type="barcode"] .info,.form-page li[type="qrcode"] .info{right:50px;} 

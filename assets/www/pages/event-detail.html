@@ -1,0 +1,53 @@
+<div class="navbar"><div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+    <div class="left sliding">
+        <a href="index" class="link back" style="color:{{@global.style.headerBarIconColor}};">
+            <i class="icon icon-left-open-2"></i>
+        </a>
+    </div>
+    <div class="center sliding {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">{{title}}</div>
+    <div class="right"></div>
+</div></div>
+
+<div data-page="event-detail" class="page navbar-through no-toolbar">
+    <!-- Page content-->
+    <div class="backgroundAnimation">{{> innerBackground}}</div>
+    <div class="page-content {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}} content-{{@global.styleAndNavigation.content[3]}} heading-{{@global.styleAndNavigation.heading[3]}}" style="background:{{@global.styleAndNavigation.pageBackroundColor}}; color:{{@global.styleAndNavigation.content[2]}}">
+
+        <style type="text/css">
+    	.on {
+      		background:{{@global.styleAndNavigation.button[2]}};
+      		color:{{@global.styleAndNavigation.button[3]}};
+     	}
+        .off {
+	   		background:{{@global.styleAndNavigation.secondaryButton[2]}};
+      		color:{{@global.styleAndNavigation.secondaryButton[3]}};
+     	}
+    </style>
+
+        <div class="event-details-header" style="background-image:url({{image}});color:{{@global.styleAndNavigation.title[3]}}">
+            <div class="event-details-box" style="background:{{@global.styleAndNavigation.title[2]}}">
+                <span class="{{@global.styleAndNavigation.title[0]}} {{@global.styleAndNavigation.title[1]}}">{{formatetimegooglecalender datetime "0"}}, {{formatetimegooglecalender datetime "2"}} {{formatetimegooglecalender datetime "1"}}, {{formatetimegooglecalender datetime "3"}} {{formatetimegooglecalender datetime "4"}}</span>
+
+                <h3 class="{{@global.styleAndNavigation.title[0]}} {{@global.styleAndNavigation.title[1]}}">{{title}}</h3>
+            </div>
+        </div>
+
+        <div class="page-text">
+            <a onclick="Appyscript.openWebView('{{url}}','{{title}}')" class="event-link {{#urlHide this.url}}{{/urlHide}} eventticket ui-link iconz-ticket {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}} on">Event</a>
+            <a onclick="Appyscript.openMapView('{{latitude}},'+'{{longitude}}','{{title}}')" class="event-link eventmap ui-link icon-location-2 {{#mapHideHelper this.latitude this.longitude}}{{/mapHideHelper}} {{@global.styleAndNavigation.secondaryButton[0]}} {{@global.styleAndNavigation.secondaryButton[1]}} off">Map</a>
+            <br clear="all">
+
+            <div class="event-details" style="background:{{@global.styleAndNavigation.listColor}}">
+                {{description}}
+                <div class="event-details-venue" style="border-color:{{@global.styleAndNavigation.borderColor}}">
+                    <div class="vanueDe"><h3 class="{{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}}">Location:</h3>
+                        <p>{{city}}</p></div>
+                    <div class="vanueDe"><h3 class="{{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}}">Venue:</h3>
+                        <p>{{venue}}</p></div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,39 @@
+
+<div class="navbar"><div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+            <div class="left sliding">
+              <a href="index" class="link back" style="color:{{@global.style.headerBarIconColor}};">
+                <i class="icon icon-left-open-2"></i>
+              </a>
+            </div>
+            <div class="center sliding {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">{{name}}</div>
+            <div class="right"></div>
+          </div></div>
+
+<div data-page="foodcourt-chatroom-inner" class="page navbar-through toolbar-through">
+    <!-- Page content-->
+    <style>
+        .appypie-chat .username, .chat-footer a{color:{{@global.style.pageTextColor}} !important}
+    </style>
+     <div class="toolbar">
+        <div class="toolbar-inner toolbar-bottom">
+    <div class="chat-footer ui-footer ui-bar-a ui-footer-fixed slideup" style="background-color:{{@global.style.headerBarBackgroundColor}}">
+        <span class="chat-user"><img data-dom-cache="false" id="updatepic" onclick="Appyscript.foodcortchatroomEdit({{mode}})" src="{{userImage}}">
+        </span><input id="messageInput" type="text" data-role="none" autofocus=""><a onclick="Appyscript.foodcortsendChatMessage()" data-role="none">
+        {{#if @global.pageLanguageSetting.send}}
+        {{@global.pageLanguageSetting.send}}
+        {{else}}
+        send
+        {{/if}}</a></div>
+    </div>
+    </div>
+<div class="backgroundAnimation">{{> innerBackground}}</div>
+    <div class="page-content {{@global.style.appPageFont}} {{@global.style.appPageCsize}}">
+    
+    
+    
+        
+        <div id="appypie-chat" class="appypie-chat">
+        </div>
+        
+    </div>
+</div>

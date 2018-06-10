@@ -1,0 +1,120 @@
+<div class="navbar">
+    <div class="navbar-inner" style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+        <div class="left sliding">
+       	       {{getNavigation @global.style.layout "menu"}}
+        </div>
+        <div class="center sliding  {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">{{pageName}}</div>
+        <div class="right">
+            <a class="settings" onClick="Appyscript.openSetting()" style="color:{{@global.style.headerBarIconColor}};">
+                <i class="icon icon-cog-4"></i>
+            </a>
+        </div>
+    </div>
+</div>
+
+<div data-page="news-Page" class="page navbar-through no-toolbar">
+    <!-- Page content-->
+<div class="backgroundAnimation">{{> innerBackground}}</div>
+<div class="page-content content-{{@global.styleAndNavigation.content[3]}} heading-{{@global.styleAndNavigation.heading[3]}} image-{{@global.styleAndNavigation.hideImage}} hideBorder-{{@global.styleAndNavigation.hideBorder}} theme-{{@global.styleAndNavigation.layout}}" style="background:{{@global.styleAndNavigation.pageBgColor}}">
+<style type="text/css">
+.theme-3 .news-detail ul li .text-detail,
+.theme-4 .news-detail ul li .text-detail {
+	background-color:{{@global.styleAndNavigation.listmenu[3]}}		
+}
+
+.theme-3 .news-detail ul li h4 {
+	border-color:{{@global.styleAndNavigation.borderColor}};
+}
+</style>
+        <div  class="news-page {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="color:{{@global.styleAndNavigation.content[2]}}">
+
+
+            <div class="news-menu {{@global.styleAndNavigation.nav[0]}} {{@global.styleAndNavigation.nav[1]}}" data-snap-ignore="true" style="background-color:{{@global.styleAndNavigation.nav[2]}}">
+                <ul off="{{@global.styleAndNavigation.nav[3]}}" on="{{@global.styleAndNavigation.activeBgColor}}">
+                    {{#homecategories}}
+                    <li><a href="#" rel="{{catId}}" style="color:{{@global.styleAndNavigation.nav[3]}}">{{catName}}</a></li>
+                    {{/homecategories}}
+                </ul>
+                <span class="border" style="width: 75px; left: 5px; background:{{@global.styleAndNavigation.activeBgColor}}"></span>
+            </div>
+            <div  data-preload-images="false" id="news-swiper" data-lazy-loading="true" class="news-container swiper-container">
+                <div class="swiper-wrapper">
+                    {{#homecategories}}
+                    {{#js_compare "this.newsType == '1' "}}
+                    <div class="swiper-slide news-detail" data-index="{{@index}}" index="{{catId}}" index_rss_flag="0">
+                        <ul>
+                            {{#if newsList}}
+                            {{#newsList}}
+                            <li onclick="Appyscript.newsDetailsPage(this)" data-id="{{newsId}}" data-catID="{{../catId}}" data-accessStatus="{{accessStatus}}" index="{{@index}}" style="border-color:{{@global.styleAndNavigation.borderColor}}; background-color:{{@global.styleAndNavigation.listmenu[3]}}">
+							{{#root_Compare @global.styleAndNavigation.layout "==" "3"}}                
+		                	{{#js_compare "this.imageUrl == '' "}}
+		                    <img src="images/image-1x1.png" style="background-image:url(http://snappy.appypie.com/images/no-image.jpg)" />
+        		            <img src="images/image-1x1.png" style="background-image:url(http://snappy.appypie.com/images/no-image.jpg)" />
+                			{{else}}
+		                    <img src="images/image-1x1.png" style="background-image:url({{imageUrl}})" />
+        		            <img src="images/image-1x1.png" style="background-image:url({{imageUrl}})" />
+                                {{/js_compare}}
+                            {{else}}
+                            {{#js_compare "this.imageUrl == '' "}}
+                                <img src="http://snappy.appypie.com/images/no-image.jpg">
+                                {{else}}
+                                <img src="{{imageUrl}}">
+                                {{/js_compare}}
+			                {{/root_Compare}}    
+                            <div class="text-detail">                             
+                                <h4 style="color:{{@global.styleAndNavigation.listmenu[2]}}" class="{{@global.styleAndNavigation.listmenu[0]}} {{@global.styleAndNavigation.listmenu[1]}}">{{newsHeading}}</h4>
+                                <span class="date"> <small>{{newsDate}}</small></span>
+                                </div>
+                            </li>
+
+                            {{/newsList}}
+
+                            {{else}}
+                                {{> errorpage errorIcon="appyicon-no-data"}}
+                            {{/if}}
+                        </ul>
+                    </div>
+                    {{/js_compare}}
+                    {{#js_compare "this.newsType == '2' "}}
+                    <div class="swiper-slide news-detail rss" data-type="rss" data-index="{{@index}}" index="{{catId}}" data-url="{{newsList[0].newsRss}}"  index_rss_flag="1">
+                        <ul>
+                        {{#if item}}
+                        {{#item}}
+                        <li onclick="Appyscript.newsDetailsPageRss(this)" data-id="{{../catName}}" data-catID="Rss" data-index="{}" index="{{@index}}" style="border-color:{{@global.styleAndNavigation.borderColor}}; background-color:{{@global.styleAndNavigation.listmenu[3]}}">
+                        	
+                            {{#root_Compare @global.styleAndNavigation.layout "==" "3"}}                
+		                		{{#js_compare "this.imageUrl == '' "}}
+                                <img src="images/image-1x1.png" style="background-image:url(http://snappy.appypie.com/images/no-image.jpg)" />
+                                <img src="images/image-1x1.png" style="background-image:url(http://snappy.appypie.com/images/no-image.jpg)" />
+	                			{{else}}
+                                <img src="images/image-1x1.png" style="background-image:url({{imageUrl}})" />
+                                <img src="images/image-1x1.png" style="background-image:url({{imageUrl}})" />
+                                {{/js_compare}}
+                            {{else}}
+                            	{{#js_compare "this.imageUrl == '' "}}
+                                <img src="http://snappy.appypie.com/images/no-image.jpg">
+                                {{else}}
+                                <img src="{{imageUrl}}">
+                                {{/js_compare}}
+			                {{/root_Compare}}   
+                            
+                          <div class="text-detail">       
+                            <h4 style="color:{{@global.styleAndNavigation.listmenu[2]}}" class="{{@global.styleAndNavigation.listmenu[0]}} {{@global.styleAndNavigation.listmenu[1]}}">{{title}}</h4>
+                            <span class="date"><small>{{pubDate}}</small></span>
+                            </div>
+                        </li>
+                        {{/item}}
+						 {{else}}
+
+                        {{/if}}
+                        </ul>
+                    </div>
+                    {{/js_compare}}
+                    {{/homecategories}}
+                </div>
+            </div>
+            {{#homecategories}}{{else}}
+            {{> errorpage errorIcon="appyicon-no-data"}}
+            {{/homecategories}}
+        </div>
+    </div>

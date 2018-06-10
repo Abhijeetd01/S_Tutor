@@ -1,0 +1,241 @@
+<div class="navbar">
+    <div class="navbar-inner" style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+
+        <div class="left sliding">
+            <a href="index" onclick = "secondpageback()" class="link back icon icon-left-open-2" style="color:{{@global.style.headerBarIconColor}};"></a>
+        </div>
+
+        <div class="center sliding">
+            <div class="topHeader {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">
+                Add Accommodation Type
+            </div>
+        </div>
+
+        <div class="right">
+
+        </div>
+    </div>
+</div>
+
+<div data-page="accommodation-details3" id="accommodation3display" class="page navbar-through toolbar-fixed  no-toolbar" style="background:{{@global.styleAndNavigation.pageBgColor}}">
+<style type="text/css">
+.room_avai input,.max_alults input,.select_new select, .select_new input,.no_room input {
+    border-color: {{@global.styleAndNavigation.fieldBgColor}} !important;
+	color:{{@global.styleAndNavigation.fieldTextColor}} !important;
+	font-size: 16px !important
+}
+.accomm_form ::placeholder {
+color:{{@global.styleAndNavigation.fieldTextColor}}; opacity:.6;
+}
+.select_country:before{color:{{@global.styleAndNavigation.fieldTextColor}} !important;}
+.listing-tabs a{background-color: {{@global.styleAndNavigation.secondaryButton[2]}}; color: {{@global.styleAndNavigation.secondaryButton[3]}};}
+.item-link{background-color: {{@global.styleAndNavigation.secondaryButton[2]}}; color: {{@global.styleAndNavigation.secondaryButton[3]}}; font-family: {{@global.styleAndNavigation.secondaryButton[0]}}; font-size:{{@global.styleAndNavigation.secondaryButton[1]}}}
+.accordion-closed{border-color:{{@global.styleAndNavigation.secondaryButton[2]}};}
+.listing-tabs a.active{background-color: {{@global.styleAndNavigation.button[2]}}; color: {{@global.styleAndNavigation.button[3]}};}
+</style>
+    <!-- Page content-->
+    <div  id="accomheight" class="page-content {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}} hideBorder-{{@global.styleAndNavigation.hideBorder}}" style="color:{{@global.styleAndNavigation.content[2]}}; background:{{@global.styleAndNavigation.pageBgColor}}">
+        {{#if @global.checkAddUpdatePage}}
+        <section class="addaccom" >
+
+            <div class="accomm_form">
+
+
+                <h1 class="room_head {{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}}; text-align:{{@global.styleAndNavigation.heading[3]}};"> Room Deatils </h1>
+                <form id="addRoomAnotherDynamic0">
+                    <input type="hidden" name="id" id="roomupdateid" class="" value="{{id}}">
+                    <div class="select_country select_new">
+                        <select id="selectroomtype" name="roomTypeId">
+                            <option>Select Room Type *</option>
+                            {{#roomType}}
+                            <option value="{{id}}">{{name}}</option>
+                            {{/roomType}}
+                        </select>
+
+                    </div>
+
+                    <div class="room_avai">
+                        <input type="number" name="rooms" id="accomodationRoomAvail" placeholder="Room Avaliability *">
+                        <span> No. Of Rooms avaliable </span>
+
+                    </div>
+
+                    <div class="check_boxmain" >
+                        <input type="checkbox" name="singleAccom" onclick="accommodation_detail_with_entire_property(0)" id="accomodlistsingle0" style="    top: 3px;
+    position: relative;"/><span onclick="accommodation_detail_with_entire_property(0)">List Entire Property as a Single Accommodation</span>
+                        <div class="check_list"  id="check_list_or_not0" style="display:none">
+                            <div class="no_room">
+                                <label  class="{{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}}; text-align:{{@global.styleAndNavigation.heading[3]}};">No. of Rooms (in the Accommodation) *  </label>
+                                <input id="noOfRoom" name="propertyRooms" type="number" placeholder="0">
+                            </div>
+
+                            <div class="no_room">
+                                <label class="{{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}}; text-align:{{@global.styleAndNavigation.heading[3]}};">No. of Bathrooms *  </label>
+                                <input id="noOfBath" name="propertyBathrooms" type="number" placeholder="0">
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="room_avai">
+                        <input type="number" name="price" id="accomodpricepernight" placeholder="Price/night *">
+                    </div>
+
+                    <div class="max_alults">
+                        <label class="{{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}}; text-align:{{@global.styleAndNavigation.heading[3]}};">Maximum Adults Allowed (Per Room*) </label>
+                        <input type="number" name="guests"  id="accomodmaxadults">
+                    </div>
+
+                    <div class="max_alults">
+                        <label class="{{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}}; text-align:{{@global.styleAndNavigation.heading[3]}};">Maximum Children Allowed (Below 12 years*) </label>
+                        <input type="number" name="guestChild" id="accomodmaxchild">
+                        <input type="hidden" name="roomAmenities" id="roomAmenitiesid0" class="" >
+                    </div>
+
+
+
+                </form>
+
+                <div class="accomm_head {{@global.styleAndNavigation.secondaryButton[0]}} {{@global.styleAndNavigation.secondaryButton[1]}}" style="background-color: {{@global.styleAndNavigation.secondaryButton[2]}}; color: {{@global.styleAndNavigation.secondaryButton[3]}};"  onclick="accommodation_room_amenties('roomAmenties',0)">
+
+                    <a href="#.">Room Amenties  <span class="appyslim-arrows-right-arrow"></span></a>
+                </div>
+
+                <div class="accordion-list tabAddClickAnotherRoom" index="0" id="formaccomtype">
+
+                </div>
+
+                <div id = "addMoreRoom"  class="add_room"  onclick="accommodation_add_another_room_type('addMoreRoom')" ><a href="#." style=" color: {{@global.styleAndNavigation.activeColor}};"><span class="icon-plus-3" ></span>  Add Another Room Type </a></div>
+
+            </div>
+
+
+
+        </section>
+
+        {{else}}
+
+        <section class="addaccom" >
+
+            <div class="accomm_form">
+                <div class="accordion-list tabAddClickAnotherRoom" index="0">
+                    {{#accommodationListEdit[0].accommodationRoomList}}
+                    {{#if roomTypeId}}
+
+                    <div class="accordion-item accordion-closed" id="divId{{@index}}">
+                        <a class="icon-trash remove-acc"></a>
+                        <a class="item-link"> Room Deatils <i class="icon-right-open"></i><i class="icon-down-open"></i></a>
+
+
+                        <div class="accordion-item-content ">
+                            <!--<h1 class="room_head"> Room Deatils </h1>-->
+                            <form id="addRoomAnotherDynamicedit{{@index}}">
+
+                                <input type="hidden" name="id" id="roomupdateeditid" class="" value="{{id}}">
+                                <div class="select_country select_new">
+                                    <select id="selectroomtypeedit" name="roomTypeId">
+
+                                        {{updateoptionhelper roomTypeId}}
+
+                                    </select>
+                                </div>
+
+                                <div class="room_avai" >
+                                    <input type="number" name="rooms" id="accomodationRoomAvailedit" placeholder="Room Avaliability *" value="{{roomsAvailable}}">
+                                    <span> No. Of Rooms avaliable </span>
+
+                                </div>
+
+
+                                <div class="check_boxmain" >
+                                    <input type="checkbox" name="singleAccom" onclick="accommodation_detail_with_entire_property(0)" id="accomodlistsingleedit0" style="    top: 3px;
+    position: relative;"/><span onclick="accommodation_detail_with_entire_property(0)">List Entire Property as a Single Accommodation</span>
+                                    <div class="check_list" id="check_list_or_notedit0" style="display:none">
+                                        <div class="no_room">
+                                            <label class="{{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}}; text-align:{{@global.styleAndNavigation.heading[3]}};">No. of Rooms (in the Accommodation) *  </label>
+                                            <input id="noOfRoomedit" name="propertyRooms" placeholder="0" type="number" value="{{propertyRooms}}">
+                                        </div>
+
+                                        <div class="no_room">
+                                            <label class="{{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}}; text-align:{{@global.styleAndNavigation.heading[3]}};">No. of Bathrooms *  </label>
+                                            <input id="noOfBathedit" name="propertyBathrooms" placeholder="0" type="number" value="{{propertyBathrooms}}">
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="room_avai">
+                                    <input type="number" name="price" id="accomodpricepernightedit" placeholder="Price/night *" value="{{price}}">
+                                </div>
+
+                                <div class="max_alults">
+                                    <label class="{{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}}; text-align:{{@global.styleAndNavigation.heading[3]}};">Maximum Adults Allowed (Per Room*) </label>
+                                    <input type="number" name="guests" id="accomodmaxadultsedit" value="{{adult}}">
+                                </div>
+
+                                <div class="max_alults">
+                                    <label class="{{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}}; text-align:{{@global.styleAndNavigation.heading[3]}};">Maximum Children Allowed (Below 12 years*) </label>
+                                    <input type="number" name="guestChild" id="accomodmaxchildedit" value="{{child}}">
+                                    <input type="hidden" name="roomAmenities" id="roomAmenitieseditid{{@index}}" class="" >
+                                </div>
+
+
+                            </form>
+
+                            <div class="accomm_head {{@global.styleAndNavigation.secondaryButton[0]}} {{@global.styleAndNavigation.secondaryButton[1]}}" style="background-color: {{@global.styleAndNavigation.secondaryButton[2]}}; color: {{@global.styleAndNavigation.secondaryButton[3]}};" onclick="accommodation_room_amenties('roomAmenties',{{@index}})">
+                                <a href="#.">Room Amenties  <span class="appyslim-arrows-right-arrow"></span></a>
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+                    {{/if roomTypeId}}
+                    {{/accommodationListEdit[0].accommodationRoomList}}
+                </div>
+
+
+
+            </div>
+
+
+
+        </section>
+
+        {{/if}}
+    </div>
+    <!-- End Page content-->
+
+    <div class="toolbar">
+        <div class="toolbar-inner">
+            {{#if @global.checkAddUpdatePage}}
+            <div class="nexttab {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" style="background-color: {{@global.styleAndNavigation.button[2]}}; color: {{@global.styleAndNavigation.button[3]}};" onclick="accommodation_submit_data()">
+                <a href="#">Submit</a>
+            </div>
+            {{else}}
+            <div class="nexttab {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" style="background-color: {{@global.styleAndNavigation.button[2]}}; color: {{@global.styleAndNavigation.button[3]}};" onclick="accommodation_submit_data_for_update()">
+                <a href="#">Submit</a>
+            </div>
+
+
+            {{/if}}
+        </div>
+    </div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+

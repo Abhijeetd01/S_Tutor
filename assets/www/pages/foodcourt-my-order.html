@@ -1,0 +1,78 @@
+<div class="navbar">
+    <div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+        <div class="left sliding"> <a href="index" class="link back" style="color:{{@global.style.headerBarIconColor}};">
+            <i class="icon icon-left-open-2"></i>
+        </a> </div>
+        <div class="center sliding  {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">
+            <div class="topHeader">{{@global.pageLanguageSetting.My_Orders_food}}
+            </div>
+        </div>
+        <div class="right"> <a onclick="foodcourtCartPage('cart')" class="localHeaderIconRight ui-link" style="color:{{@global.style.headerBarIconColor}};"> <span class="subValue" style="color:{{@global.styleAndNavigation.button[3]}};background:{{@global.styleAndNavigation.button[2]}};">{{@global.foodCartCount}}</span>
+            <div class="headerIcon"><i class="icon-cart"></i>
+            </div>
+        </a> </div>
+    </div>
+</div>
+<div data-page="foodcourt-MyOrderPage" class="page navbar-through toolbar-fixed no-toolbar">
+    <style>
+        .hyper-order-steps span::before, .hyper-order-steps span::after, .hyper-order-steps.discussed span.discussed::before, .hyper-order-steps.approved span.discussed::before, .hyper-order-steps.approved span.approved::before, .hyper-order-steps.processing span.discussed::before, .hyper-order-steps.processing span.approved::before, .hyper-order-steps.processing span.processing::before{ background-color:{{@global.styleAndNavigation.button[2]}} }
+
+        .myOrders .accordion-item-expanded .order-row, .myOrders .order-row ul li {border-color:{{@global.styleAndNavigation.borderColor}}; }
+        .mainHeading{background-color:{{@global.styleAndNavigation.title[2]}}; color:{{@global.styleAndNavigation.title[3]}} }
+        .order-List .message{border-color:{{@global.styleAndNavigation.borderColor}} }
+        .order-List .message i, .notify {border-color:{{@global.styleAndNavigation.iconColor}}; color:{{@global.styleAndNavigation.iconColor}}}
+        .order-List h2{color:{{@global.styleAndNavigation.subheading[2]}}}
+        .order-List span{color:{{@global.styleAndNavigation.iconColor}}}
+        </style>
+    <!-- Page content-->
+
+
+    <div class="page-content {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}} content-{{@global.styleAndNavigation.content[3]}} heading-{{@global.styleAndNavigation.heading[3]}}" style="color:{{@global.styleAndNavigation.content[2]}}; background:{{@global.styleAndNavigation.pageBgColor}}">
+
+        <div id="pendingHeading" class="mainHeading {{@global.styleAndNavigation.title[0]}} {{@global.styleAndNavigation.title[1]}}">{{@global.pageLanguageSetting.pending}} ({{processingOrders.length}})</div>
+        {{#processingOrders}}
+        <div class="order-List">
+            <div class="message pendingTask" onclick="openFoodStatusPage('{{orderId}}','{{vendorId}}');">
+                <circle class="notify" style="color:{{@global.styleAndNavigation.content[2]}}">{{finedtimefoodcourt deliveryPickupTime}}</circle>
+                <h2 class="{{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}">{{vendorName}}</h2>
+                {{#js_compare "this.status != 'Pending'"}}
+                <div class="foodHead">#{{orderId}}<small><b>({{status}})</b></small></div>
+                {{else}}
+                <div class="foodHead">#{{orderId}}<small></small></div>
+                {{/js_compare}}
+                <p>{{format_currency currency}}{{gtotal}} </p>
+                <div class="date_con">
+                    <div class="orderLabel iconz-calendar"> Order date</div>
+                    <div class="orderDate" style="left:0px;">{{dateonlyfoodcourt orderDate}}</div>
+                </div>
+                <div class="date_con">
+                    <div class="deliveryLabel iconz-calendar"> Delivery date</div>
+                    <div class="orderDate" style="left:0px;">{{dateonlyfoodcourtdlvry deliveryPickupTime}}</div>
+                </div>
+                <span class="icon-right-open-1"></span>
+            </div>
+        </div>
+        {{/processingOrders}}
+
+        <div id="completedHeading" class="mainHeading {{@global.styleAndNavigation.title[0]}} {{@global.styleAndNavigation.title[1]}}">{{@global.pageLanguageSetting.complete}} ({{completedOrders.length}})</div>
+        {{#completedOrders}}
+            <div class="order-List">
+                <div class="message " onclick="openFoodStatusPage('{{orderId}}','{{vendorId}}');">
+                    <i class="icon-ok-4"></i>
+                    <h2 class="{{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}">{{vendorName}}</h2>
+                    {{#js_compare "this.status == 'Cancelled'"}}
+                        <div class="foodHead">#{{orderId}}<b>({{status}})</b><small></small></div>
+                    {{else}}
+                        <div class="foodHead">#{{orderId}}<small></small></div>
+                    {{/js_compare}}
+                    <p>{{format_currency currency}}{{gtotal}} </p>
+                    <div class="orderDate">{{dateonlyfoodcourt orderDate}}</div>
+                    <span class="icon-right-open-1"></span>
+                </div>
+            </div>
+        {{/completedOrders}}
+
+        <!--OrderList Div-->
+
+    </div>
+</div>

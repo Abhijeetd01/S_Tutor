@@ -1,0 +1,26 @@
+<div class="navbar">
+	<div class="navbar-inner" style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+           <!-- <div class="left sliding">
+              <a href="index" class="link back" style="color:{{@global.style.headerBarIconColor}};">
+                <i class="icon icon-left-open-2"></i>
+              </a>
+            </div>-->
+            <div class="center sliding {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">{{@global.pageLanguageSetting.Thank_mcom}}</div>
+            <div class="right"></div>
+          </div></div>
+
+
+<div data-page="ecommerce-thankyou" class="page navbar-through no-toolbar">
+<div class="page-content {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}} content-{{@global.styleAndNavigation.content[3]}} heading-{{@global.styleAndNavigation.heading[3]}} hideBorder-{{@global.styleAndNavigation.hideBorder}}" style="color:{{@global.styleAndNavigation.content[2]}}; background:{{@global.styleAndNavigation.pageBgColor}}">
+
+<div class="thankyou">
+	<h1 style="color:{{@global.styleAndNavigation.heading[2]}}"></h1>
+    <!--{{@global.pageLanguageSetting.Thank_mcom}}-->
+	<!--<p id="message">{{@global.pageLanguageSetting.your_order_was_successful_mcom}}</p>-->
+	<p id="mess">{{@global.pageLanguageSetting.thank_you_for_your_Order_mcom}}<br />
+	<strong id="orderId"></strong><br />
+	<strong id="null"></strong></p>
+	<a onclick="ClearHistryHomePage();" class="continue-shopping {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" style="color:{{@global.styleAndNavigation.button[3]}};background:{{@global.styleAndNavigation.button[2]}};">{{@global.pageLanguageSetting.continue_shopping_mcom}}</a>
+</div>
+</div>
+</div>

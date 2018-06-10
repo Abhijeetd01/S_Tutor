@@ -1,0 +1,824 @@
+<div class="navbar"><div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+    <div class="left sliding">
+        {{getSlideBack "common"}}
+    </div>
+    <div class="center sliding {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">{{pageTitle}}</div>
+    <div class="right"></div>
+</div></div>
+
+<div data-page="formbuilder-Page" class="page navbar-through no-toolbar ">
+    <!-- Page content-->
+    <div class="backgroundAnimation">{{> innerBackground}}</div>
+    <div class="page-content hideBorder-{{@global.styleAndNavigation.hideBorder}}">
+        <style type="text/css">
+.form-page li.input span {
+	background-color:{{formStyle.icon[0]}};
+    color:{{formStyle.icon[1]}};
+    border-color:{{formStyle.field[2]}} !important;
+}
+/*
+.form-page.theme-1 li.input span {
+	 background-color:{{formStyle.field[0]}};
+}
+*/
+.form-page h2 {
+   border-color:{{formStyle.field[2]}};
+}
+
+.form-page input[type='text'],
+.form-page input[type='password'],
+.form-page input[type='tel'],
+.form-page input[type='url'],
+.form-page input[type='email'],
+.form-page input[type='date'],
+.form-page input[type='time'],
+.form-page textarea,
+.form-page select,
+.form-page .select-file,
+.form-page .label-head {
+	border-color:{{formStyle.field[2]}} !important;
+    background-color:{{formStyle.field[0]}};
+    color:{{formStyle.field[1]}};
+}
+
+.form-page.theme-2.icon-left .arrow {
+	border-left-color:{{formStyle.icon[0]}};
+    border-right:0;
+    right:auto;
+    left:50px;
+}
+
+.hideBorder-1 .form-page.theme-2.icon-left .arrow {
+	border-left-color:{{formStyle.icon[0]}} !important;
+}
+
+.form-page.theme-2.icon-right .arrow {
+	left:auto;
+    right:50px;
+    border-left:0;
+	border-right-color:{{formStyle.icon[0]}};
+}
+
+.hideBorder-1 .form-page.theme-2.icon-right .arrow {
+	border-right-color:{{formStyle.icon[0]}} !important;
+}
+
+.form-page.theme-2 li.input:after {
+ 	border-color:{{formStyle.field[2]}};
+}
+.form-page li.input[type='radio'], .form-page li.input[type='checkbox'],.form-page li.input[type='signature'] { background-color:{{formStyle.field[0]}}; color:{{formStyle.field[1]}}; border-color:{{formStyle.field[2]}}}
+
+
+.form-page ::-webkit-input-placeholder {
+color:{{formStyle.field[1]}}!important;
+}
+.form-page :-moz-placeholder {
+color:{{formStyle.field[1]}}!important;
+}
+.form-page ::-moz-placeholder {
+color:{{formStyle.field[1]}}!important;
+}
+.form-page :-ms-input-placeholder {
+color:{{formStyle.field[1]}}!important;
+}
+.input i.info {
+	color:{{formStyle.hintIconColor}};
+}
+</style>
+        <form id="formbuilder">
+            {{#js_compare "this.identifire == 'app'"}}
+            <div class="form-page theme-{{formStyle.layout}} {{formStyle.content[0]}} {{formStyle.content[1]}} content-{{formStyle.content[3]}} label-{{formStyle.label[3]}} heading-{{formStyle.heading[3]}} icon-{{formStyle.icon[2]}} image-{{formStyle.hideImage}} icon-{{formStyle.hideIcon}} rounded-{{formStyle.fieldRounded}} button-{{formStyle.smallButton}}" style="color:{{formStyle.content[2]}};">
+
+                <h2 class="{{formStyle.heading[0]}} {{formStyle.heading[1]}}" style="color:{{formStyle.heading[2]}};">{{appointmentheader}}</h2>
+                <p class="description">{{fieldreqtext}}</p>
+
+                <ul>
+
+
+
+                    {{#if scheduleStatus}}
+                    <li class="form-btn auto-right">
+                        <a onclick="Appyscript.openPopupShedule()" class="{{formStyle.button[0]}} {{formStyle.button[1]}}" style="background-color:{{formStyle.button[2]}}; color:{{formStyle.button[3]}}; border-color:{{formStyle.field[2]}}">{{appointmentChkSchedule}}</a>
+                    </li>
+                    {{/if}}
+
+                    <li class="input">
+                        <label class="label {{@root.formStyle.label[0]}} {{@root.formStyle.label[1]}}" style="color:{{@root.formStyle.label[2]}}">{{appname}}*</label>
+                        <span class='{{getICON "name"}}' ></span>
+                        <input type="text" id="txtName" placeholder="{{appname}}*" value="{{#if @global.username}}{{@global.username}}{{/if}}" >
+                        <b class="arrow" ></b>
+                    </li>
+                    <li class="input">
+                        <label class="label {{@root.formStyle.label[0]}} {{@root.formStyle.label[1]}}" style="color:{{@root.formStyle.label[2]}}">{{appemail}}*</label>
+                        <span class='{{getICON "email"}}' ></span>
+                        <input type="email" id="txtEmail" placeholder="{{appemail}}*" value="{{#if @global.email}}{{@global.email}}{{/if}}">
+                        <b class="arrow" ></b>
+                    </li>
+                    <li class="input">
+                        <label class="label {{@root.formStyle.label[0]}} {{@root.formStyle.label[1]}}" style="color:{{@root.formStyle.label[2]}}">{{appphone}}*</label>
+                        <span class='{{getICON "phone"}}' ></span>
+                        <input type="tel" id="txtPhone" onKeyPress="addDashes(this)" class="numberlength numberValidation" maxlength="15" placeholder="{{appphone}}*" value="{{#if @global.phone}}{{@global.phone}}{{/if}}" >
+                        <b class="arrow" ></b>
+                    </li>
+                    <li class="input" type="date">
+                        <label class="label {{@root.formStyle.label[0]}} {{@root.formStyle.label[1]}}" style="color:{{@root.formStyle.label[2]}}">Appointment Date*</label>
+                        <span class='{{getICON "date"}}'></span>
+                        <div class="selectArrow" style="color:{{@root.formStyle.field[1]}};">
+                            <input type="date" id="txtDate" placeholder="{{appdate}}*" >
+                        </div>
+                        <b class="arrow" ></b>
+                    </li>
+                    <li class="input" type="time">
+                        <label class="label {{@root.formStyle.label[0]}} {{@root.formStyle.label[1]}}" style="color:{{@root.formStyle.label[2]}}">Appointment Time*</label>
+                        <span class='{{getICON "time"}}' ></span>
+                        <div class="selectArrow" style="color:{{@root.formStyle.field[1]}};">
+                            <input type="time" id="txtTime" placeholder="{{apptime}}*" >
+                        </div>
+                        <b class="arrow" ></b>
+                    </li>
+
+                    {{#customData}}
+                    <li class="input customField" type="{{fieldType}}" mandatory="{{mandatory}}">
+                        {{#js_compare "this.fieldType == 'name'"}}
+                        <label class="label {{@root.formStyle.label[0]}} {{@root.formStyle.label[1]}}" style="color:{{@root.formStyle.label[2]}}">{{fieldLebal}} {{#if mandatory}}*{{/if}}</label>
+                        <span class="{{icon}}" ></span>
+                        <input type="text" name="name" id="{{@index}}" placeholder="{{fieldLebal}} {{#if mandatory}}*{{/if}}" style="border-color:{{@root.formStyle.field[2]}}; background-color:{{@root.formStyle.field[0]}};color:{{@root.formStyle.field[1]}}">
+                        <b class="arrow" style="border-right-color:{{@root.formStyle.icon[0]}}"></b>
+                        {{/js_compare}}
+                        {{#js_compare "this.fieldType == 'text'"}}
+                        <label class="label {{@root.formStyle.label[0]}} {{@root.formStyle.label[1]}}" style="color:{{@root.formStyle.label[2]}}">{{fieldLebal}} {{#if mandatory}}*{{/if}}</label>
+                        <span class="{{icon}}" ></span>
+                        <input type="text" name="text" id="{{@index}}" placeholder="{{fieldLebal}} {{#if mandatory}}*{{/if}}" style="border-color:{{@root.formStyle.field[2]}}; background-color:{{@root.formStyle.field[0]}};color:{{@root.formStyle.field[1]}}">
+                        <b class="arrow" style="border-right-color:{{@root.formStyle.icon[0]}}"></b>
+                        {{/js_compare}}
+                        {{#js_compare "this.fieldType == 'state'"}}
+                        <label class="label {{@root.formStyle.label[0]}} {{@root.formStyle.label[1]}}" style="color:{{@root.formStyle.label[2]}}">{{fieldLebal}} {{#if mandatory}}*{{/if}}</label>
+                        <span class="{{icon}}" ></span>
+                        <input type="text" name="state" id="{{@index}}" placeholder="{{fieldLebal}} {{#if mandatory}}*{{/if}}" style="border-color:{{@root.formStyle.field[2]}}; background-color:{{@root.formStyle.field[0]}};color:{{@root.formStyle.field[1]}}">
+                        <b class="arrow" style="border-right-color:{{@root.formStyle.icon[0]}}"></b>
+                        {{/js_compare}}
+                        {{#js_compare "this.fieldType == 'phone'"}}
+                        <label class="label {{@root.formStyle.label[0]}} {{@root.formStyle.label[1]}}" style="color:{{@root.formStyle.label[2]}}">{{fieldLebal}} {{#if mandatory}}*{{/if}}</label>
+                        <span class="{{icon}}" ></span>
+                        <input type="tel" name="state" id="{{@index}}" placeholder="{{fieldLebal}} {{#if mandatory}}*{{/if}}" style="border-color:{{@root.formStyle.field[2]}}; background-color:{{@root.formStyle.field[0]}};color:{{@root.formStyle.field[1]}}">
+                        <b class="arrow" style="border-right-color:{{@root.formStyle.icon[0]}}"></b>
+                        {{/js_compare}}
+                        {{#js_compare "this.fieldType == 'date'"}}
+                        <label class="label {{@root.formStyle.label[0]}} {{@root.formStyle.label[1]}}" style="color:{{@root.formStyle.label[2]}}">{{fieldLebal}} {{#if mandatory}}*{{/if}}</label>
+                        <span class="{{icon}}" ></span>
+                        <input type="date" name="date" id="{{@index}}" placeholder="{{fieldLebal}} {{#if mandatory}}*{{/if}}" style="border-color:{{@root.formStyle.field[2]}}; background-color:{{@root.formStyle.field[0]}};color:{{@root.formStyle.field[1]}}">
+                        <b class="arrow" style="border-right-color:{{@root.formStyle.icon[0]}}"></b>
+                        {{/js_compare}}
+                        {{#js_compare "this.fieldType == 'email'"}}
+                        <label class="label {{@root.formStyle.label[0]}} {{@root.formStyle.label[1]}}" style="color:{{@root.formStyle.label[2]}}">{{fieldLebal}} {{#if mandatory}}*{{/if}}</label>
+                        <span class="{{icon}}" ></span>
+                        <input type="email" name="email" id="{{@index}}" placeholder="{{fieldLebal}} {{#if mandatory}}*{{/if}}" style="border-color:{{@root.formStyle.field[2]}}; background-color:{{@root.formStyle.field[0]}};color:{{@root.formStyle.field[1]}}">
+                        <b class="arrow" style="border-right-color:{{@root.formStyle.icon[0]}}"></b>
+                        {{/js_compare}}
+
+                        {{#js_compare "this.fieldType == 'time'"}}
+                        <label class="label {{@root.formStyle.label[0]}} {{@root.formStyle.label[1]}}" style="color:{{@root.formStyle.label[2]}}">{{fieldLebal}} {{#if mandatory}}*{{/if}}</label>
+                        <span class="{{icon}}" ></span>
+                        <input type="time" name="time" id="{{@index}}" placeholder="{{fieldLebal}} {{#if mandatory}}*{{/if}}" style="border-color:{{@root.formStyle.field[2]}}; background-color:{{@root.formStyle.field[0]}};color:{{@root.formStyle.field[1]}}">
+                        <b class="arrow" style="border-right-color:{{@root.formStyle.icon[0]}}"></b>
+                        {{/js_compare}}
+
+                        {{#js_compare "this.fieldType == 'gender'"}}
+                        <label class="label {{@root.formStyle.label[0]}} {{@root.formStyle.label[1]}}" style="color:{{@root.formStyle.label[2]}}">{{fieldLebal}} {{#if mandatory}}*{{/if}}</label>
+                        <span class="{{icon}}" ></span>
+                        <div class="selectArrow" style="color:{{@root.formStyle.field[1]}};">
+                            <select type="time" name="time" id="{{@index}}" placeholder="{{fieldLebal}} {{#if mandatory}}*{{/if}}" style="border-color:{{@root.formStyle.field[2]}}; background-color:{{@root.formStyle.field[0]}};color:{{@root.formStyle.field[1]}}">
+                                {{#root_Compare @root.formStyle.layout "==" "3"}}
+                                {{#if labelSelect}}
+                                <option selected="selected"  value="0">{{labelSelectValue}}</option>
+                                {{/if}}
+                                {{else}}
+                                <option selected="selected"  value="0">{{fieldLebal}} {{#if mandatory}}*{{/if}}</option>
+                                {{/root_Compare}}
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                            </select>
+                        </div>
+                        <b class="arrow" style="border-right-color:{{@root.formStyle.icon[0]}}"></b>
+                        {{/js_compare}}
+
+
+                        {{#js_compare "this.fieldType == 'country'"}}
+                        <label class="label {{@root.formStyle.label[0]}} {{@root.formStyle.label[1]}}" style="color:{{@root.formStyle.label[2]}}">{{fieldLebal}} {{#if mandatory}}*{{/if}}</label>
+                        <span class="{{icon}}" ></span>
+                        <div class="selectArrow" style="color:{{@root.formStyle.field[1]}};">
+                            <select type="country" name="country" id="{{@index}}" placeholder="{{fieldLebal}} {{#if mandatory}}*{{/if}}" style="border-color:{{@root.formStyle.field[2]}}; background-color:{{@root.formStyle.field[0]}};color:{{@root.formStyle.field[1]}}">
+
+                                {{#root_Compare @root.formStyle.layout "==" "3"}}
+                                {{#if labelSelect}}
+                                <option selected="selected"  value="0">{{labelSelectValue}}</option>
+                                {{/if}}
+                                {{else}}
+                                <option selected="selected"  value="0">{{fieldLebal}} {{#if mandatory}}*{{/if}}</option>
+                                {{/root_Compare}}
+                                {{getCountry fieldType}}
+                            </select>
+                        </div>
+                        <b class="arrow" style="border-right-color:{{@root.formStyle.icon[0]}}"></b>
+                        {{/js_compare}}
+
+                        {{#js_compare "this.fieldType == 'select'"}}
+                        <label class="label {{@root.formStyle.label[0]}} {{@root.formStyle.label[1]}}" style="color:{{@root.formStyle.label[2]}}">{{fieldLebal}} {{#if mandatory}}*{{/if}}</label>
+                        <span class="{{icon}}" ></span>
+                        <div class="selectArrow" style="color:{{@root.formStyle.field[1]}};">
+                            <select type="select" name="select" id="{{@index}}" placeholder="{{fieldLebal}} {{#if mandatory}}*{{/if}}" style="border-color:{{@root.formStyle.field[2]}}; background-color:{{@root.formStyle.field[0]}};color:{{@root.formStyle.field[1]}}">
+                                {{#root_Compare @root.formStyle.layout "==" "3"}}
+                                {{#if labelSelect}}
+                                <option selected="selected"  value="0">{{labelSelectValue}}</option>
+                                {{/if}}
+                                {{else}}
+                                <option selected="selected"  value="0">{{fieldLebal}} {{#if mandatory}}*{{/if}}</option>
+                                {{/root_Compare}}
+                                {{#list}}
+                                <option value="{{subFieldLebal}}" >{{subFieldLebal}}</option>
+                                {{/list}}
+                            </select>
+                        </div>
+                        <b class="arrow" style="border-right-color:{{@root.formStyle.icon[0]}}"></b>
+                        {{/js_compare}}
+
+
+                        {{#js_compare "this.fieldType == 'emailEnquiryList'"}}
+                        <label class="label {{@root.formStyle.label[0]}} {{@root.formStyle.label[1]}}" style="color:{{@root.formStyle.label[2]}}">{{fieldLebal}} {{#if mandatory}}*{{/if}}</label>
+                        <span class="{{icon}}" ></span>
+                        <div class="selectArrow" style="color:{{@root.formStyle.field[1]}};">
+                            <select type="select" name="select" id="{{@index}}" placeholder="{{fieldLebal}} {{#if mandatory}}*{{/if}}" style="border-color:{{@root.formStyle.field[2]}}; background-color:{{@root.formStyle.field[0]}};color:{{@root.formStyle.field[1]}}">
+                                {{#root_Compare @root.formStyle.layout "==" "3"}}
+                                {{#if labelSelect}}
+                                <option selected="selected"  value="0">{{labelSelectValue}}</option>
+                                {{/if}}
+                                {{else}}
+                                <option selected="selected"  value="0">{{fieldLebal}} {{#if mandatory}}*{{/if}}</option>
+                                {{/root_Compare}}
+                                {{#list}}
+                                <option value="{{subFieldValue}}" >{{subFieldLebal}}</option>
+                                {{/list}}
+                            </select>
+                        </div>
+                        <b class="arrow" style="border-right-color:{{@root.formStyle.icon[0]}}"></b>
+                        {{/js_compare}}
+
+
+
+
+
+                        {{#js_compare "this.fieldType == 'textarea'"}}
+                        <label class="label {{@root.formStyle.label[0]}} {{@root.formStyle.label[1]}}" style="color:{{@root.formStyle.label[2]}}">{{fieldLebal}} {{#if mandatory}}*{{/if}}</label>
+                        <span class="{{icon}}" ></span>
+                        <textarea type="textarea" name="textarea" id="{{@index}}" placeholder="{{fieldLebal}} {{#if mandatory}}*{{/if}}" style="border-color:{{@root.formStyle.field[2]}}; background-color:{{@root.formStyle.field[0]}};color:{{@root.formStyle.field[1]}}"></textarea>
+                        <b class="arrow" style="border-right-color:{{@root.formStyle.icon[0]}}"></b>
+                        {{/js_compare}}
+
+                        {{#js_compare "this.fieldType == 'uploadPicture'"}}
+                        <label class="label {{@root.formStyle.label[0]}} {{@root.formStyle.label[1]}}" style="color:{{@root.formStyle.label[2]}}">{{fieldLebal}} {{#if mandatory}}*{{/if}}</label>
+                        <span class="{{icon}}" ></span>
+                        <div class="add-file"><div id="{{@index}}" class="browser select-file" style="border-color:{{@root.formStyle.field[2]}}; background-color:{{@root.formStyle.field[0]}};color:{{@root.formStyle.field[1]}}"><font id="fileLabel01" data-val="{{fieldLebal}} {{#if mandatory}}*{{/if}}">{{fieldLebal}} {{#if mandatory}}*{{/if}}</font><input id="filechosse" type="button"  onclick="selectPhotoDirForm(this);" accept="*/*"></div></div>
+                        <b class="arrow" style="border-right-color:{{@root.formStyle.icon[0]}}"></b>
+                        {{/js_compare}}
+
+                        {{#js_compare "this.fieldType == 'checkbox'"}}
+                        <span class="{{icon}}" ></span>
+                        <div class="label-head {{@root.formStyle.label[0]}} {{@root.formStyle.label[1]}}" style="border-color:{{@root.formStyle.field[2]}}; background-color:{{@root.formStyle.icon[0]}};color:{{@root.formStyle.label[2]}}">{{fieldLebal}} {{#if mandatory}}*{{/if}}</div>
+                        {{#list}}
+                        <label><input name="{{@index}}" id="checkbox{{@index}}" type="checkbox" value="{{subFieldLebal}}" {{#if defaulSetOption}} checked="checked" {{/if}}  />{{subFieldLebal}}</label>
+                        {{/list}}
+                        <b class="arrow" style="border-right-color:{{@root.formStyle.icon[0]}}"></b>
+                        {{/js_compare}}
+
+
+                        {{#js_compare "this.fieldType == 'radio'"}}
+                        <span class="{{icon}}" ></span>
+                        <div class="label-head {{@root.formStyle.label[0]}} {{@root.formStyle.label[1]}}" style="border-color:{{@root.formStyle.field[2]}}; background-color:{{@root.formStyle.icon[0]}};color:{{@root.formStyle.label[2]}}">{{fieldLebal}} {{#if mandatory}}*{{/if}}</div>
+                        {{#list}}
+                        <label><input id="radio{{@index}}" type="radio" value="{{subFieldLebal}}" {{#if defaulSetOption}} checked="checked" {{/if}} />{{subFieldLebal}}</label>
+                        {{/list}}
+                        <b class="arrow" style="border-right-color:{{@root.formStyle.icon[0]}}"></b>
+                        {{/js_compare}}
+
+
+                        {{#js_compare "this.fieldType == 'multiselect'"}}
+                        <label class="label {{@root.formStyle.label[0]}} {{@root.formStyle.label[1]}}" style="color:{{@root.formStyle.label[2]}}">{{fieldLebal}} {{#if mandatory}}*{{/if}}</label>
+                        <span class="{{icon}}" ></span>
+                        <div class="selectArrow" style="color:{{@root.formStyle.field[1]}};">
+                            <input type="text" placeholder="{{fieldLebal}} {{#if mandatory}}*{{/if}}" />
+                            <select type="select" name="select" id="{{@index}}" placeholder="{{fieldLebal}} {{#if mandatory}}*{{/if}}" multiple="multiple" style="border-color:{{@root.formStyle.field[2]}}; background-color:{{@root.formStyle.field[0]}};color:{{@root.formStyle.field[1]}};">
+                                {{#list}}
+                                <option value="{{subFieldLebal}}">{{subFieldLebal}}</option>
+                                {{/list}}
+                            </select>
+                        </div>
+                        <b class="arrow" style="border-right-color:{{@root.formStyle.icon[0]}}"></b>
+                        {{/js_compare}}
+
+                        {{#js_compare "this.fieldType == 'barcode'"}}
+                        <label class="label {{@root.formStyle.label[0]}} {{@root.formStyle.label[1]}}" style="color:{{@root.formStyle.label[2]}}">{{fieldLebal}} {{#if mandatory}}*{{/if}}</label>
+                        <span class="{{icon}}" ></span>
+                        <input type="text" name="text" id="barcode{{@index}}" placeholder="{{fieldLebal}} {{#if mandatory}}*{{/if}}" style="border-color:{{@root.formStyle.field[2]}}; background-color:{{@root.formStyle.field[0]}};color:{{@root.formStyle.field[1]}}">
+                        <b class="arrow" style="border-right-color:{{@root.formStyle.icon[0]}}"></b>
+                        <span class="scanner_btn appyslim-photo-camera" onclick="BarCode_FormBuilder(this)"></span>
+                        {{/js_compare}}
+
+                        {{#js_compare "this.fieldType == 'qrcode'"}}
+                        <label class="label {{@root.formStyle.label[0]}} {{@root.formStyle.label[1]}}" style="color:{{@root.formStyle.label[2]}}">{{fieldLebal}} {{#if mandatory}}*{{/if}}</label>
+                        <span class="{{icon}}" ></span>
+                        <input type="text" name="text" id="qrcode{{@index}}" placeholder="{{fieldLebal}} {{#if mandatory}}*{{/if}}" style="border-color:{{@root.formStyle.field[2]}}; background-color:{{@root.formStyle.field[0]}};color:{{@root.formStyle.field[1]}}">
+                        <b class="arrow" style="border-right-color:{{@root.formStyle.icon[0]}}"></b>
+                        <span class="scanner_btn appyslim-photo-camera" onclick="BarCode_FormBuilder(this)"></span>
+                        {{/js_compare}}
+
+                    </li>
+
+
+                    {{/customData}}
+
+                    <li class="form-btn">
+                        <a onclick="Appyscript.sendAppointment('{{appointmentEmail}}','{{appointmentSubject}}')" class="{{formStyle.button[0]}} {{formStyle.button[1]}}" style="background-color:{{formStyle.button[2]}}; color:{{formStyle.button[3]}}; border-color:{{formStyle.field[2]}}">{{appconfirm}}</a>
+                    </li>
+                </ul>
+            </div>
+
+            {{#if scheduleStatus}}
+            <div id="schedulePopup" class="form-popup {{formStyle.content[0]}} {{formStyle.content[1]}} content-{{formStyle.content[3]}} label-{{formStyle.label[3]}} heading-{{formStyle.heading[3]}}" style="color:{{formStyle.content[2]}};">
+                <div class="form-view">
+                    <h2 class="{{@root.formStyle.label[0]}} {{@root.formStyle.label[1]}}" style="color:{{@root.formStyle.label[2]}}">{{appointmentSchedule}}</h2>
+                    <ul>
+                        {{#appoinmentSchedule}}
+                        {{#if open}}
+                        {{#if @root.appScheduleFormat}}
+                        <li>
+                            <span class="day">{{day}}</span>
+                            <span class="start-end">{{startHour}}:{{startMin}}  - {{endHour}}:{{endMin}} </span>
+                        </li>
+                        {{else}}
+
+                        <li>
+                            <span class="day">{{day}}</span>
+                            <span class="start-end">{{startHour}}:{{startMin}} {{startAMPM}} - {{endHour}}:{{endMin}} {{endAMPM}}</span>
+                        </li>
+                        {{/if}}
+                        {{else}}
+                        <li class="closed">
+                            <span class="day">{{day}}</span>
+                            <span class="start-end">{{@root.appointmentClosed}}</span>
+                        </li>
+                        {{/if}}
+                        {{/appoinmentSchedule}}
+                    </ul>
+                    <a onclick="Appyscript.openPopupShedule()" class="icon-cancel {{formStyle.button[0]}} {{formStyle.button[1]}}" style="background-color:{{formStyle.button[2]}}; color:{{formStyle.button[3]}}"></a>
+                </div></div>
+            {{/if}}
+
+
+
+            {{/js_compare}}
+
+            {{#js_compare "this.identifire == 'quote'"}}
+            <div class="form-page theme-{{formStyle.layout}} {{formStyle.content[0]}} {{formStyle.content[1]}} content-{{formStyle.content[3]}} label-{{formStyle.label[3]}} heading-{{formStyle.heading[3]}} icon-{{formStyle.icon[2]}} image-{{formStyle.hideImage}} icon-{{formStyle.hideIcon}} rounded-{{formStyle.fieldRounded}} button-{{formStyle.smallButton}}" style="color:{{formStyle.content[2]}};">
+                <!--- <h2 class="{{formStyle.heading[0]}} {{formStyle.heading[1]}}" style="color:{{formStyle.heading[2]}};">{{name}}</h2> --->
+                <ul>
+                    <li class="input">
+                        <label class="label {{@root.formStyle.label[0]}} {{@root.formStyle.label[1]}}" style="color:{{@root.formStyle.label[2]}}">{{quoteFname}}</label>
+                        <span class='{{getICON "name"}}' ></span>
+                        <input id="fname" type="text" placeholder="{{quoteFname}}*" value="{{#if @global.firstName}}{{@global.firstName}}{{/if}}" >
+                        <b class="arrow" ></b>
+                    </li>
+
+                    <li class="input">
+                        <label class="label {{@root.formStyle.label[0]}} {{@root.formStyle.label[1]}}" style="color:{{@root.formStyle.label[2]}}">{{quoteLname}}</label>
+                        <span class='{{getICON "name"}}' ></span>
+                        <input id="lname" type="text" placeholder="{{quoteLname}}*" value="{{#if @global.lastName}}{{@global.lastName}}{{/if}}" >
+                        <b class="arrow" ></b>
+                    </li>
+
+                    <li class="input">
+                        <label class="label {{@root.formStyle.label[0]}} {{@root.formStyle.label[1]}}" style="color:{{@root.formStyle.label[2]}}">{{quoteemail}}</label>
+                        <span class='{{getICON "email"}}' ></span>
+                        <input id="email" type="email" placeholder="{{quoteemail}}*" value="{{#if @global.email}}{{@global.email}}{{/if}}">
+                        <b class="arrow" ></b>
+                    </li>
+
+                    <li class="input">
+                        <label class="label {{@root.formStyle.label[0]}} {{@root.formStyle.label[1]}}" style="color:{{@root.formStyle.label[2]}}">{{quoteCompany}}</label>
+                        <span class='{{getICON "company"}}' ></span>
+                        <input id="company" type="text" placeholder="{{quoteCompany}}*" >
+                        <b class="arrow" ></b>
+                    </li>
+
+                    <li class="input">
+                        <label class="label {{@root.formStyle.label[0]}} {{@root.formStyle.label[1]}}" style="color:{{@root.formStyle.label[2]}}">{{quoteMobile}}</label>
+                        <span class='{{getICON "phone"}}' ></span>
+                        <input type="tel" id="telephone" class="numberlength numberValidation" maxlength="15" placeholder="{{quoteMobile}}" value="{{#if @global.phone}}{{@global.phone}}{{/if}}" >
+                        <b class="arrow" ></b>
+                    </li>
+
+                    <li class="input">
+                        <label class="label {{@root.formStyle.label[0]}} {{@root.formStyle.label[1]}}" style="color:{{@root.formStyle.label[2]}}">{{quotephone}}</label>
+                        <span class='{{getICON "phone"}}' ></span>
+                        <input type="tel" id="phone" class="numberlength numberValidation" maxlength="15" placeholder="{{quotephone}}*" >
+                        <b class="arrow" ></b>
+                    </li>
+
+                    <li class="input">
+                        <label class="label {{@root.formStyle.label[0]}} {{@root.formStyle.label[1]}}" style="color:{{@root.formStyle.label[2]}}">{{quoteWebsite}}</label>
+                        <span class='{{getICON "website"}}' ></span>
+                        <input id="website" type="text" placeholder="{{quoteWebsite}}" >
+                        <b class="arrow" ></b>
+                    </li>
+
+                    <li class="input">
+                        <label class="label {{@root.formStyle.label[0]}} {{@root.formStyle.label[1]}}" style="color:{{@root.formStyle.label[2]}}">{{quoteCity}}</label>
+                        <span class='{{getICON "state"}}' ></span>
+                        <input id="city" type="text" placeholder="{{quoteCity}}*" >
+                        <b class="arrow" ></b>
+                    </li>
+
+                    <li class="input">
+                        <label class="label {{@root.formStyle.label[0]}} {{@root.formStyle.label[1]}}" style="color:{{@root.formStyle.label[2]}}">{{quoteCountry}}</label>
+                        <span class='{{getICON "country"}}' ></span>
+                        <div class="selectArrow" style="color:{{@root.formStyle.field[1]}};">
+                            <select type="country" name="country" id="country" placeholder="{{quoteCountry}}*" style="border-color:{{@root.formStyle.field[2]}}; background-color:{{@root.formStyle.field[0]}};color:{{@root.formStyle.field[1]}}">
+                                {{#root_Compare @root.formStyle.layout "==" "3"}}
+                                {{else}}
+                                <option selected="selected" value="0">{{quoteCountry}}*</option>
+                                {{/root_Compare}}
+                                {{getCountry "country"}}
+                            </select>
+                        </div>
+                        <b class="arrow"></b>
+                    </li>
+
+                    <li class="input">
+                        <label class="label {{@root.formStyle.label[0]}} {{@root.formStyle.label[1]}}" style="color:{{@root.formStyle.label[2]}}">{{quotecomment}}</label>
+                        <span class='{{getICON "text"}}' ></span>
+                        <textarea id="comment" placeholder="{{quotecomment}}*" ></textarea>
+                        <b class="arrow" ></b>
+                    </li>
+                    <li class="form-btn">
+                        <a onclick="Appyscript.sendQuoteData(this);" email="{{email}}" subject="{{subject}}" class="{{formStyle.button[0]}} {{formStyle.button[1]}}" style="background-color:{{formStyle.button[2]}}; color:{{formStyle.button[3]}}; border-color:{{formStyle.field[2]}}">{{quotesubmit}}</a>
+                    </li>
+                </ul>
+            </div>
+            {{/js_compare}}
+
+
+
+
+
+
+            {{#js_compare "this.identifire == 'custom'"}}
+            <div class="form-page theme-{{formStyle.layout}} {{formStyle.content[0]}} {{formStyle.content[1]}} content-{{formStyle.content[3]}} label-{{formStyle.label[3]}} heading-{{formStyle.heading[3]}} icon-{{formStyle.icon[2]}} image-{{formStyle.hideImage}} icon-{{formStyle.hideIcon}} rounded-{{formStyle.fieldRounded}} button-{{formStyle.smallButton}}" style="color:{{formStyle.content[2]}};">
+                <!--- <h2 class="{{formStyle.heading[0]}} {{formStyle.heading[1]}}" style="color:{{formStyle.heading[2]}};">{{name}}</h2> --->
+                {{#if headerImage}}
+                <div class="header">
+                    <img src="{{headerImage}}" />
+                </div>
+                {{/if}}
+                <div class="description">
+                    {{formDescription}}
+                </div>
+
+                <ul>
+                    {{#customData}}
+                    <li class="input customField" type="{{fieldType}}" mandatory="{{mandatory}}" info="{{fieldIntroEnable}}">
+                        <i class="info {{@root.hitIcon}}" onclick="formbuilderInfo(this)" index="{{@index}}"></i>
+                        {{#js_compare "this.fieldType == 'name'"}}
+                        <label class="label {{@root.formStyle.label[0]}} {{@root.formStyle.label[1]}}" style="color:{{@root.formStyle.label[2]}}">{{fieldLebal}} {{#if mandatory}}*{{/if}}</label>
+                        <span class="{{icon}}" ></span>
+                        <input type="text" name="name" id="{{fieldType}}{{@index}}" placeholder="{{fieldLebal}} {{#if mandatory}}*{{/if}}" style="border-color:{{@root.formStyle.field[2]}}; background-color:{{@root.formStyle.field[0]}};color:{{@root.formStyle.field[1]}}"  class="{{@root.formStyle.button[0]}} {{@root.formStyle.button[1]}}">
+                        <b class="arrow" style="border-right-color:{{@root.formStyle.icon[0]}}"></b>
+                        {{/js_compare}}
+                        {{#js_compare "this.fieldType == 'text'"}}
+                        <label class="label {{@root.formStyle.label[0]}} {{@root.formStyle.label[1]}}" style="color:{{@root.formStyle.label[2]}}">{{fieldLebal}} {{#if mandatory}}*{{/if}}</label>
+                        <span class="{{icon}}" ></span>
+                        <input type="text" name="text" id="{{fieldType}}{{@index}}" placeholder="{{fieldLebal}} {{#if mandatory}}*{{/if}}" style="border-color:{{@root.formStyle.field[2]}}; background-color:{{@root.formStyle.field[0]}};color:{{@root.formStyle.field[1]}}"  class="{{@root.formStyle.button[0]}} {{@root.formStyle.button[1]}}">
+                        <b class="arrow" style="border-right-color:{{@root.formStyle.icon[0]}}"></b>
+                        {{/js_compare}}
+                        {{#js_compare "this.fieldType == 'state'"}}
+                        <label class="label {{@root.formStyle.label[0]}} {{@root.formStyle.label[1]}}" style="color:{{@root.formStyle.label[2]}}">{{fieldLebal}} {{#if mandatory}}*{{/if}}</label>
+                        <span class="{{icon}}" ></span>
+                        <input type="text" name="state" id="{{fieldType}}{{@index}}" placeholder="{{fieldLebal}} {{#if mandatory}}*{{/if}}" style="border-color:{{@root.formStyle.field[2]}}; background-color:{{@root.formStyle.field[0]}};color:{{@root.formStyle.field[1]}}"  class="{{@root.formStyle.button[0]}} {{@root.formStyle.button[1]}}">
+                        <b class="arrow" style="border-right-color:{{@root.formStyle.icon[0]}}"></b>
+                        {{/js_compare}}
+                        {{#js_compare "this.fieldType == 'phone'"}}
+                        <label class="label {{@root.formStyle.label[0]}} {{@root.formStyle.label[1]}}" style="color:{{@root.formStyle.label[2]}}">{{fieldLebal}} {{#if mandatory}}*{{/if}}</label>
+                        <span class="{{icon}}" ></span>
+                        <input type="tel" name="phone" id="{{fieldType}}{{@index}}" class="numberlength numberValidation {{@root.formStyle.button[0]}} {{@root.formStyle.button[1]}}" maxlength="15" placeholder="{{fieldLebal}} {{#if mandatory}}*{{/if}}" style="border-color:{{@root.formStyle.field[2]}}; background-color:{{@root.formStyle.field[0]}};color:{{@root.formStyle.field[1]}}" >
+                        <b class="arrow" style="border-right-color:{{@root.formStyle.icon[0]}}"></b>
+                        {{/js_compare}}
+                        {{#js_compare "this.fieldType == 'date'"}}
+                        <label class="label {{@root.formStyle.label[0]}} {{@root.formStyle.label[1]}}" style="color:{{@root.formStyle.label[2]}}">{{fieldLebal}} {{#if mandatory}}*{{/if}}</label>
+                        <span class="{{icon}}" ></span>
+                        <input type="date" name="date" id="{{fieldType}}{{@index}}" placeholder="{{fieldLebal}} {{#if mandatory}}*{{/if}}" style="border-color:{{@root.formStyle.field[2]}}; background-color:{{@root.formStyle.field[0]}};color:{{@root.formStyle.field[1]}}"  class="{{@root.formStyle.button[0]}} {{@root.formStyle.button[1]}}">
+                        <b class="arrow" style="border-right-color:{{@root.formStyle.icon[0]}}"></b>
+                        {{/js_compare}}
+                        {{#js_compare "this.fieldType == 'email'"}}
+                        <label class="label {{@root.formStyle.label[0]}} {{@root.formStyle.label[1]}}" style="color:{{@root.formStyle.label[2]}}">{{fieldLebal}} {{#if mandatory}}*{{/if}}</label>
+                        <span class="{{icon}}" ></span>
+                        <input type="email" name="email" id="{{fieldType}}{{@index}}" placeholder="{{fieldLebal}} {{#if mandatory}}*{{/if}}" style="border-color:{{@root.formStyle.field[2]}}; background-color:{{@root.formStyle.field[0]}};color:{{@root.formStyle.field[1]}}"  class="{{@root.formStyle.button[0]}} {{@root.formStyle.button[1]}}">
+                        <b class="arrow" style="border-right-color:{{@root.formStyle.icon[0]}}"></b>
+                        {{/js_compare}}
+
+                        {{#js_compare "this.fieldType == 'time'"}}
+                        <label class="label {{@root.formStyle.label[0]}} {{@root.formStyle.label[1]}}" style="color:{{@root.formStyle.label[2]}}">{{fieldLebal}} {{#if mandatory}}*{{/if}}</label>
+                        <span class="{{icon}}" ></span>
+                        <input type="time" name="time" id="{{fieldType}}{{@index}}" placeholder="{{fieldLebal}} {{#if mandatory}}*{{/if}}" style="border-color:{{@root.formStyle.field[2]}}; background-color:{{@root.formStyle.field[0]}};color:{{@root.formStyle.field[1]}}"  class="{{@root.formStyle.button[0]}} {{@root.formStyle.button[1]}}">
+                        <b class="arrow" style="border-right-color:{{@root.formStyle.icon[0]}}"></b>
+                        {{/js_compare}}
+
+                        {{#js_compare "this.fieldType == 'gender'"}}
+                        <label class="label {{@root.formStyle.label[0]}} {{@root.formStyle.label[1]}}" style="color:{{@root.formStyle.label[2]}}">{{fieldLebal}} {{#if mandatory}}*{{/if}}</label>
+                        <span class="{{icon}}" ></span>
+                        <div class="selectArrow" style="color:{{@root.formStyle.field[1]}};">
+                            <select type="time" name="time" id="{{fieldType}}{{@index}}" placeholder="{{fieldLebal}} {{#if mandatory}}*{{/if}}" style="border-color:{{@root.formStyle.field[2]}}; background-color:{{@root.formStyle.field[0]}};color:{{@root.formStyle.field[1]}}"  class="{{@root.formStyle.button[0]}} {{@root.formStyle.button[1]}}">
+                                {{#root_Compare @root.formStyle.layout "==" "3"}}
+                                {{#if labelSelect}}
+                                <option selected="selected"  value="0">{{labelSelectValue}}</option>
+                                {{/if}}
+                                {{else}}
+                                <option selected="selected"  value="0">{{fieldLebal}} {{#if mandatory}}*{{/if}}</option>
+                                {{/root_Compare}}
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                            </select>
+                        </div>
+                        <b class="arrow" style="border-right-color:{{@root.formStyle.icon[0]}}"></b>
+                        {{/js_compare}}
+                        {{#js_compare "this.fieldType == 'country'"}}
+                        <label class="label {{@root.formStyle.label[0]}} {{@root.formStyle.label[1]}}" style="color:{{@root.formStyle.label[2]}}">{{fieldLebal}} {{#if mandatory}}*{{/if}}</label>
+                        <span class="{{icon}}" ></span>
+                        <div class="selectArrow" style="color:{{@root.formStyle.field[1]}};">
+                            <select type="country" name="country" id="{{fieldType}}{{@index}}" placeholder="{{fieldLebal}} {{#if mandatory}}*{{/if}}" style="border-color:{{@root.formStyle.field[2]}}; background-color:{{@root.formStyle.field[0]}};color:{{@root.formStyle.field[1]}}"  class="{{@root.formStyle.button[0]}} {{@root.formStyle.button[1]}}">
+                                {{#root_Compare @root.formStyle.layout "==" "3"}}
+                                {{#if labelSelect}}
+                                <option selected="selected"  value="0">{{labelSelectValue}}</option>
+                                {{/if}}
+                                {{else}}
+                                <option selected="selected"  value="0">{{fieldLebal}} {{#if mandatory}}*{{/if}}</option>
+                                {{/root_Compare}}
+                                {{getCountry fieldType}}
+                            </select>
+                        </div>
+                        <b class="arrow" style="border-right-color:{{@root.formStyle.icon[0]}}"></b>
+                        {{/js_compare}}
+
+                        {{#js_compare "this.fieldType == 'select'"}}
+                        <label class="label {{@root.formStyle.label[0]}} {{@root.formStyle.label[1]}}" style="color:{{@root.formStyle.label[2]}}">{{fieldLebal}} {{#if mandatory}}*{{/if}}</label>
+                        <span class="{{icon}}" ></span>
+                        <div class="selectArrow" style="color:{{@root.formStyle.field[1]}};">
+                            <select type="select" name="select" id="{{fieldType}}{{@index}}" placeholder="{{fieldLebal}} {{#if mandatory}}*{{/if}}" style="border-color:{{@root.formStyle.field[2]}}; background-color:{{@root.formStyle.field[0]}};color:{{@root.formStyle.field[1]}}"  class="{{@root.formStyle.button[0]}} {{@root.formStyle.button[1]}}">
+                                {{#root_Compare @root.formStyle.layout "==" "3"}}
+                                {{#if labelSelect}}
+                                <option selected="selected"  value="0">{{labelSelectValue}}</option>
+                                {{/if}}
+                                {{else}}
+                                <option selected="selected"  value="0">{{fieldLebal}} {{#if mandatory}}*{{/if}}</option>
+                                {{/root_Compare}}
+
+                                {{#list}}
+                                <option  value="{{subFieldLebal}}">{{subFieldLebal}}</option>
+                                {{/list}}
+                            </select>
+                        </div>
+                        <b class="arrow" style="border-right-color:{{@root.formStyle.icon[0]}}"></b>
+                        {{/js_compare}}
+
+                        {{#js_compare "this.fieldType == 'emailEnquiryList'"}}
+                        <label class="label {{@root.formStyle.label[0]}} {{@root.formStyle.label[1]}}" style="color:{{@root.formStyle.label[2]}}">{{fieldLebal}} {{#if mandatory}}*{{/if}}</label>
+                        <span class="{{icon}}" ></span>
+                        <div class="selectArrow" style="color:{{@root.formStyle.field[1]}};">
+                            <select type="select" name="select" id="{{fieldType}}{{@index}}" placeholder="{{fieldLebal}} {{#if mandatory}}*{{/if}}" style="border-color:{{@root.formStyle.field[2]}}; background-color:{{@root.formStyle.field[0]}};color:{{@root.formStyle.field[1]}}"  class="{{@root.formStyle.button[0]}} {{@root.formStyle.button[1]}}">
+                                {{#root_Compare @root.formStyle.layout "==" "3"}}
+                                {{#if labelSelect}}
+                                <option selected="selected"  value="0">{{labelSelectValue}}</option>
+                                {{/if}}
+                                {{else}}
+                                <option selected="selected"  value="0">{{fieldLebal}} {{#if mandatory}}*{{/if}}</option>
+                                {{/root_Compare}}
+                                {{#list}}
+                                <option value="{{subFieldValue}}" >{{subFieldLebal}}</option>
+                                {{/list}}
+                            </select>
+                        </div>
+                        <b class="arrow" style="border-right-color:{{@root.formStyle.icon[0]}}"></b>
+                        {{/js_compare}}
+
+                        {{#js_compare "this.fieldType == 'textarea'"}}
+                        <label class="label {{@root.formStyle.label[0]}} {{@root.formStyle.label[1]}}" style="color:{{@root.formStyle.label[2]}}">{{fieldLebal}} {{#if mandatory}}*{{/if}}</label>
+                        <span class="{{icon}}" ></span>
+                        <textarea type="textarea" name="textarea" id="{{fieldType}}{{@index}}" placeholder="{{fieldLebal}} {{#if mandatory}}*{{/if}}" style="border-color:{{@root.formStyle.field[2]}}; background-color:{{@root.formStyle.field[0]}};color:{{@root.formStyle.field[1]}}"  class="{{@root.formStyle.button[0]}} {{@root.formStyle.button[1]}}"></textarea>
+                        <b class="arrow" style="border-right-color:{{@root.formStyle.icon[0]}}"></b>
+                        {{/js_compare}}
+
+                        {{#js_compare "this.fieldType == 'uploadPicture'"}}
+                        <label class="label {{@root.formStyle.label[0]}} {{@root.formStyle.label[1]}}" style="color:{{@root.formStyle.label[2]}}">{{fieldLebal}} {{#if mandatory}}*{{/if}}</label>
+                        <span class="{{icon}}" ></span>
+                        <div class="add-file"><div id="{{fieldType}}{{@index}}"  class="browser select-file" style="border-color:{{@root.formStyle.field[2]}}; background-color:{{@root.formStyle.field[0]}};color:{{@root.formStyle.field[1]}}"><font  id="fileLabel01"  data-val="{{fieldLebal}} {{#if mandatory}}*{{/if}}">{{fieldLebal}} {{#if mandatory}}*{{/if}}</font>
+                            <input id="filechosse" type="button"  onclick="selectPhotoDirForm(this);" accept="*/*"></div></div>
+                        <!--<input type="file"  class="formBuilderFileUpload" id="fileUpload_fb" ></div></div>-->
+                        <b class="arrow" style="border-right-color:{{@root.formStyle.icon[0]}}"></b>
+                        {{/js_compare}}
+
+
+                        {{#js_compare "this.fieldType == 'uploadPDF'"}}
+                        <label class="label {{@root.formStyle.label[0]}} {{@root.formStyle.label[1]}}" style="color:{{@root.formStyle.label[2]}}">{{fieldLebal}} {{#if mandatory}}*{{/if}}</label>
+                        <span class="{{icon}}" ></span>
+                        <div class="add-file"><div id="{{fieldType}}{{@index}}"  class="browser select-file" style="border-color:{{@root.formStyle.field[2]}}; background-color:{{@root.formStyle.field[0]}};color:{{@root.formStyle.field[1]}}"><font  id="fileLabel01"  data-val="{{fieldLebal}} {{#if mandatory}}*{{/if}}">{{fieldLebal}} {{#if mandatory}}*{{/if}}</font>
+                            <input id="filechosse" type="button"  onclick="selectPhotoDirForm(this);" accept="*/*">
+                            <!--<input type="file" class="formBuilderFileUpload"  id="fileUpload_fb" ></div></div>-->
+
+                            <b class="arrow" style="border-right-color:{{@root.formStyle.icon[0]}}"></b>
+                            {{/js_compare}}
+
+
+
+
+
+                            {{#js_compare "this.fieldType == 'checkbox'"}}
+                            <span class="{{icon}}" ></span>
+                            <div class="label-head {{@root.formStyle.label[0]}} {{@root.formStyle.label[1]}}" style="border-color:{{@root.formStyle.field[2]}}; background-color:{{@root.formStyle.icon[0]}};color:{{@root.formStyle.label[2]}}">{{fieldLebal}} {{#if mandatory}}*{{/if}}</div>
+                            {{#list}}
+                            <label><input name="{{@index}}" id="{{fieldType}}{{@index}}" type="checkbox" value="{{subFieldLebal}}" {{#if defaulSetOption}} checked="checked" {{/if}}  />{{subFieldLebal}}</label>
+                            {{/list}}
+                            <b class="arrow" style="border-right-color:{{@root.formStyle.icon[0]}}"></b>
+                            {{/js_compare}}
+
+
+                            {{#js_compare "this.fieldType == 'radio'"}}
+                            <span class="{{icon}}" ></span>
+                            <div class="label-head {{@root.formStyle.label[0]}} {{@root.formStyle.label[1]}}" style="border-color:{{@root.formStyle.field[2]}}; background-color:{{@root.formStyle.icon[0]}};color:{{@root.formStyle.label[2]}}">{{fieldLebal}} {{#if mandatory}}*{{/if}}</div>
+                            {{#list}}
+                            <label><input id="radio{{@index}}" type="radio" value="{{subFieldLebal}}" {{#if defaulSetOption}} checked="checked" {{/if}} />{{subFieldLebal}}</label>
+                            {{/list}}
+                            {{#if otherEnable}}
+                            <label class="other"><input id="radioLast" type="radio" value="{{otherText}}" />{{otherText}}</label>
+                            <input type="text" placeholder="{{otherText}}" />
+                            {{/if}}
+                            <b class="arrow" style="border-right-color:{{@root.formStyle.icon[0]}}"></b>
+                            {{/js_compare}}
+
+                            {{#js_compare "this.fieldType == 'multiselect'"}}
+                            <label class="label {{@root.formStyle.label[0]}} {{@root.formStyle.label[1]}}" style="color:{{@root.formStyle.label[2]}}">{{fieldLebal}} {{#if mandatory}}*{{/if}}</label>
+                            <span class="{{icon}}" ></span>
+                            <div class="selectArrow" style="color:{{@root.formStyle.field[1]}};">
+                                <input type="text" placeholder="{{fieldLebal}} {{#if mandatory}}*{{/if}}" />
+                                <select type="select" name="select" id="{{fieldType}}{{@index}}" placeholder="{{fieldLebal}} {{#if mandatory}}*{{/if}}" multiple="multiple" style="border-color:{{@root.formStyle.field[2]}}; background-color:{{@root.formStyle.field[0]}};color:{{@root.formStyle.field[1]}};"  class="{{@root.formStyle.button[0]}} {{@root.formStyle.button[1]}}">
+                                    {{#list}}
+                                    <!-- <option value="{{subFieldLebal}}" {{#if defaulSetOption}} selected="selected" {{/if}}>{{subFieldLebal}}</option> -->
+                                    <option value="{{subFieldLebal}}">{{subFieldLebal}}</option>
+                                    {{/list}}
+                                </select>
+                            </div>
+                            <b class="arrow" style="border-right-color:{{@root.formStyle.icon[0]}}"></b>
+                            {{/js_compare}}
+
+                            {{#js_compare "this.fieldType == 'listPrice'"}}
+                            <label class="label {{@root.formStyle.label[0]}} {{@root.formStyle.label[1]}}" style="color:{{@root.formStyle.label[2]}}">{{fieldLebal}} {{#if mandatory}}*{{/if}}</label>
+                            <span class='{{icon}}' ></span>
+                            <div class="selectArrow" style="color:{{@root.formStyle.field[1]}};">
+                                <select type="select" name="select" id="{{fieldType}}{{@index}}" placeholder="{{fieldLebal}} {{#if mandatory}}*{{/if}}" style="border-color:{{@root.formStyle.field[2]}}; background-color:{{@root.formStyle.field[0]}};color:{{@root.formStyle.field[1]}};">
+                                    {{#root_Compare @root.formStyle.layout "==" "3"}}
+                                    {{#if labelSelect}}
+                                    <option selected="selected"  value="">{{labelSelectValue}}</option>
+                                    {{/if}}
+                                    {{else}}
+                                    <option selected="selected"  value="">{{fieldLebal}} {{#if mandatory}}*{{/if}}</option>
+                                    {{/root_Compare}}
+                                    {{#list}}
+                                    <option value="{{subFieldValue}}" text="{{subFieldLebal}} ({{@root.defaultCurrency}} {{subFieldValue}})">{{subFieldLebal}} ({{@root.defaultCurrency}} {{subFieldValue}})</option>
+                                    {{/list}}
+                                </select>
+                            </div>
+                            <b class="arrow" style="border-right-color:{{@root.formStyle.icon[0]}}"></b>
+                            {{/js_compare}}
+
+
+                            {{#js_compare "this.fieldType == 'category'"}}
+                            <label class="label {{@root.formStyle.label[0]}} {{@root.formStyle.label[1]}}" style="color:{{@root.formStyle.label[2]}}">{{fieldLebal}} {{#if mandatory}}*{{/if}}</label>
+                            <span class='{{icon}}' ></span>
+                            <div class="selectArrow" style="color:{{@root.formStyle.field[1]}};">
+                                <select type="select" name="select" id="{{@index}}" placeholder="{{fieldLebal}} {{#if mandatory}}*{{/if}}" data-rel="{{category.optionType}}" style="border-color:{{@root.formStyle.field[2]}}; background-color:{{@root.formStyle.field[0]}};color:{{@root.formStyle.field[1]}};"  class="{{@root.formStyle.button[0]}} {{@root.formStyle.button[1]}}">
+                                    {{#root_Compare @root.formStyle.layout "==" "3"}}
+                                    {{#if labelSelect}}
+                                    <option selected="selected"  value="0">{{labelSelectValue}}</option>
+                                    {{/if}}
+                                    {{else}}
+                                    <option selected="selected"  value="0">{{fieldLebal}} {{#if mandatory}}*{{/if}}</option>
+                                    {{/root_Compare}}
+                                    {{#category.list}}
+                                    <option value="item{{@index}}">{{catName}}</option>
+                                    {{/category.list}}
+                                </select>
+                            </div>
+                            <b class="arrow" style="border-right-color:{{@root.formStyle.icon[0]}}"></b>
+                            <ul index="{{@index}}" mandatory="{{mandatory}}">
+                                {{#js_compare "this.category.optionType == 'subcat'"}}
+                                <li class="input customField" type="subCategory" data-id="item{{@index}}">
+                                    <label class="label {{@root.formStyle.label[0]}} {{@root.formStyle.label[1]}}" style="color:{{@root.formStyle.label[2]}}">{{catName}}</label>
+                                    <span class='{{icon}}' ></span>
+                                    <div class="selectArrow" style="color:{{@root.formStyle.field[1]}};">
+                                        <select type="select" name="select" id="{{fieldType}}{{@index}}" placeholder="{{catName}}" style="border-color:{{@root.formStyle.field[2]}}; background-color:{{@root.formStyle.field[0]}};color:{{@root.formStyle.field[1]}};"  class="{{@root.formStyle.button[0]}} {{@root.formStyle.button[1]}}">
+                                            <option value="0" style="display:none">Select</option>
+                                        </select>
+                                    </div>
+                                    <b class="arrow" style="border-right-color:{{@root.formStyle.icon[0]}}"></b>
+                                </li>
+
+                                {{/js_compare}}
+
+                                {{#js_compare "this.category.optionType == 'subcatPrice'"}}
+
+                                <li class="input customField" type="subCategoryPrice" data-id="item{{@index}}">
+                                    <label class="label {{@root.formStyle.label[0]}} {{@root.formStyle.label[1]}}" style="color:{{@root.formStyle.label[2]}}">{{catName}}</label>
+                                    <span class='{{icon}}' ></span>
+                                    <div class="selectArrow" style="color:{{@root.formStyle.field[1]}};">
+                                        <select type="select" name="select" id="{{fieldType}}{{@index}}" placeholder="{{catName}}" style="border-color:{{@root.formStyle.field[2]}}; background-color:{{@root.formStyle.field[0]}};color:{{@root.formStyle.field[1]}};"  class="{{@root.formStyle.button[0]}} {{@root.formStyle.button[1]}}">
+                                            <option value="0"  style="display:none">Select</option>
+
+                                        </select>
+                                    </div>
+                                    <b class="arrow" style="border-right-color:{{@root.formStyle.icon[0]}}"></b>
+                                </li>
+
+                                {{/js_compare}}
+                            </ul>
+                            {{/js_compare}}
+
+                            {{#js_compare "this.fieldType == 'barcode'"}}
+                            <label class="label {{@root.formStyle.label[0]}} {{@root.formStyle.label[1]}}" style="color:{{@root.formStyle.label[2]}}">{{fieldLebal}} {{#if mandatory}}*{{/if}}</label>
+                            <span class="{{icon}}" ></span>
+                            <input type="text" name="text" id="{{fieldType}}{{@index}}" placeholder="{{fieldLebal}} {{#if mandatory}}*{{/if}}" style="border-color:{{@root.formStyle.field[2]}}; background-color:{{@root.formStyle.field[0]}};color:{{@root.formStyle.field[1]}}">
+                            <b class="arrow" style="border-right-color:{{@root.formStyle.icon[0]}}"></b>
+                            <span class="scanner_btn appyslim-photo-camera" onclick="BarCode_FormBuilder(this)"></span>
+                            {{/js_compare}}
+
+                            {{#js_compare "this.fieldType == 'qrcode'"}}
+                            <label class="label {{@root.formStyle.label[0]}} {{@root.formStyle.label[1]}}" style="color:{{@root.formStyle.label[2]}}">{{fieldLebal}} {{#if mandatory}}*{{/if}}</label>
+                            <span class="{{icon}}" ></span>
+                            <input type="text" name="text" id="{{fieldType}}{{@index}}" placeholder="{{fieldLebal}} {{#if mandatory}}*{{/if}}" style="border-color:{{@root.formStyle.field[2]}}; background-color:{{@root.formStyle.field[0]}};color:{{@root.formStyle.field[1]}}">
+                            <b class="arrow" style="border-right-color:{{@root.formStyle.icon[0]}}"></b>
+                            <span class="scanner_btn appyslim-photo-camera" onclick="BarCode_FormBuilder(this)"></span>
+                            {{/js_compare}}
+
+                    </li>
+                    {{/customData}}
+
+                    {{#if enableDigitalSign}}
+                    <li class="input signature-list" type="signature">
+                        <span class='{{getICON "name"}}'></span>
+                        <!-- <div class="label-head" style="border-color:{{@root.formStyle.field[2]}}; background-color:{{@root.formStyle.icon[0]}};color:{{@root.formStyle.field[1]}}">Digital Signature</div> -->
+                        <div class="signature-tabs">
+                            <label class="signature-Div iconz-pencil" style="border-color:{{@root.formStyle.field[2]}}">{{signHereText}}*</label>
+                            <!-- <label>Upload from Library<input type="file" accept="image/*" /></label> --->
+                        </div>
+                    </li>
+                    {{/if}}
+
+                    {{#root_Compare @root.payStatus "==" "1"}}
+                    {{#root_Compare @root.paymentMethod "==" "stripePay"}}
+                    <li class="input customField" type="paymentId" style="display:none">
+                        <label class="label {{@root.formStyle.label[0]}} {{@root.formStyle.label[1]}}" style="color:{{@root.formStyle.label[2]}}">{{@global.commonLanguageSetting.transaction_id_food}}</label>
+                        <span class='{{getICON "amount"}}' ></span>
+                        <input type="text" name="paymentId"  placeholder="{{@global.commonLanguageSetting.transaction_id_food}}" style="border-color:{{@root.formStyle.field[2]}}; background-color:{{@root.formStyle.field[0]}};color:{{@root.formStyle.field[1]}}">
+                        <b class="arrow" style="border-right-color:{{@root.formStyle.icon[0]}}"></b>
+                    </li>
+                    {{/root_Compare}}
+                    {{/root_Compare}}
+
+                    {{#js_compare "this.payStatus == '1'"}}
+                    {{#js_compare "this.payOption == 'payAmt'"}}
+
+                    <li class="input" type="amount" style="{{#js_compare "this.payOption == 'totalPay'"}}display:none{{/js_compare}}">
+                    <label class="label {{@root.formStyle.label[0]}} {{@root.formStyle.label[1]}}" style="color:{{@root.formStyle.label[2]}}">{{amountLabel}}</label>
+                    <span class='{{getICON "amount"}}' ></span>
+                    <input type="text" name="amountFixed" id="amountFixed" value="{{paypalAmount}}" readonly="readonly"  placeholder="{{amountLabel}}" currency="{{defaultCurrency}}"  style="border-color:{{@root.formStyle.field[2]}}; background-color:{{@root.formStyle.field[0]}};color:{{@root.formStyle.field[1]}}">
+                    <select id="amount_currency" disabled="disabled"><option value="{{defaultCurrency}}">{{defaultCurrency}}</option></select>
+
+                    <b class="arrow" style="border-right-color:{{@root.formStyle.icon[0]}}"></b>
+                    </li>
+                    {{else}}
+                    <li class="input" type="amount" style="{{#js_compare "this.payOption == 'totalPay'"}}display:none{{/js_compare}}">
+                    <label class="label {{@root.formStyle.label[0]}} {{@root.formStyle.label[1]}}" style="color:{{@root.formStyle.label[2]}}">{{amountLabel}}</label>
+                    <span class='{{getICON "amount"}}' ></span>
+                    <input type="text" name="amount" id="amount"  placeholder="{{amountLabel}}*" currency="{{defaultCurrency}}"  style="border-color:{{@root.formStyle.field[2]}}; background-color:{{@root.formStyle.field[0]}};color:{{@root.formStyle.field[1]}}">
+                    <select id="amount_currency"><option value="0" selected="selected" label="{{defaultCurrency}}">{{defaultCurrency}}</option><option value="1" label="USD">USD</option><option value="1" label="GBP">GBP</option><option value="2" label="EUR">EUR</option><option value="3" label="AUD">AUD</option><option value="4" label="BRL">BRL</option><option value="5" label="CAD">CAD</option><option value="6" label="CHF">CHF</option><option value="7" label="CZK">CZK</option><option value="8" label="DKK">DKK</option><option value="9" label="HKD">HKD</option><option value="10" label="HUF">HUF</option><option value="11" label="ILS">ILS</option><option value="12" label="JPY">JPY</option><option value="13" label="MXN">MXN</option><option value="14" label="MYR">MYR</option><option value="15" label="NOK">NOK</option><option value="16" label="PHP">PHP</option><option value="17" label="PLN">PLN</option><option value="18" label="RUB">RUB</option><option value="19" label="SEK">SEK</option><option value="20" label="SGD">SGD</option><option value="21" label="THB">THB</option><option value="22" label="TWD">TWD</option><option value="23" label="INR">INR</option></select>
+                    <b class="arrow" style="border-right-color:{{@root.formStyle.icon[0]}}"></b>
+                    </li>
+                    {{/js_compare}}
+                    {{/js_compare}}
+                    <li class="form-btn">
+                        <a onclick="Appyscript.sendCustomForm(this,'{{@global.dirPageIdFordirectory}}','{{@global.dirPageIdForHyperlocal}}')" class="{{formStyle.button[0]}} {{formStyle.button[1]}}" class="{{formStyle.button[0]}} {{formStyle.button[1]}}" style="background-color:{{formStyle.button[2]}}; color:{{formStyle.button[3]}}; border-color:{{formStyle.field[2]}}">{{submissionButton}}</a>
+                    </li>
+                </ul>
+            </div>
+            {{/js_compare}}
+        </form>
+
+
+
+    </div>
+</div>

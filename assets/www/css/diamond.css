@@ -1,0 +1,143 @@
+ .app_navigation_diamond{
+    position:fixed;
+     left:50%;
+     top:50%;
+     transform: translate(-50%, -50%);
+     width: 300px;
+     height: 300px;
+     border-radius: 150px;
+}
+ .app_navigation_diamond ul {
+     position:absolute;
+     left: 50%;
+     top: 50%;
+}
+ .app_navigation_diamond ul li {
+    position:absolute;
+
+     text-align: center;
+     list-style:none;
+     width:90px;
+     height:90px;
+     margin: -45px 0 0 -45px; display: flex;
+                               align-items: center;
+                               justify-content: center;
+                                overflow: hidden;
+                                   text-overflow: ellipsis;
+                                   white-space: nowrap;
+                                   display: block;
+}
+
+.app_navigation_diamond ul li:last-child .moreOverlay{
+    background: rgba(0,0,0,0.5);
+}
+
+ .app_navigation_diamond li a{
+
+     text-decoration:none;
+     float:left;
+     width:100%;
+     text-align:center
+}
+ .app_navigation_diamond i {
+    display:block;
+    width: 60px;
+    height: 32px;
+    line-height: 32px;
+    margin: 0 auto;
+    font-size: xx-large;
+}
+ .app_navigation_diamond li span {
+    float:left;
+    width:100%;
+    white-space:nowrap;
+    line-height:30px;
+     text-overflow: ellipsis;
+     overflow: hidden;
+     box-sizing: border-box;
+}
+ .app_navigation_diamond .line {
+    position:absolute;
+    top:50%;
+    left:0px;
+    border:1px solid;
+    width:200px;
+    margin:-1px 0 0 -50px;
+     transform-origin: 100% 100%;
+    display:none;
+}
+.app_navigation_diamond .line2{margin:50% 0 0 -50%; width:100%; }
+
+
+ .app_navigation_diamond ul li.more_btn{
+     border-radius: 100%;
+     border: 1px solid ;
+     box-shadow: 0px 0px 20px rgba(0,0,0,0.5) inset;
+      margin:calc(-50% - 65px) 0 0 calc(-50% - 89px);
+     width: 120px;
+     height: 120px;
+     padding:9px;
+}
+
+ .app_navigation_diamond li a img {
+    width: 45px;
+    display: block;
+    margin: 0 auto;
+     border-radius:100%
+}
+
+ .app_navigation_diamond ul.step-2 li.more_btn{
+  display:none;
+}
+
+ .app_navigation_diamond .hide-text li .navText {
+     display: none;
+}
+ .app_navigation_diamond .hide-icon  li a i,.app_navigation_diamond .hide-icon li a img {
+     display: none;
+}
+
+
+
+.app_navigation_diamond ul li.more_btn:last-child .moreOverlay {
+    background: rgba(0,0,0,0.5);
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    }
+
+.diamondlayout_diamond .layoutbgOverlay.light{
+    background: -moz-radial-gradient(center, ellipse cover, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0) 100%);
+    background: -webkit-radial-gradient(center, ellipse cover, rgba(255,255,255,0.5) 0%,rgba(255,255,255,0) 100%);
+    background: radial-gradient(ellipse at center, rgba(255,255,255,0.5) 0%,rgba(255,255,255,0) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff',GradientType=1 );
+    height:100%;
+    width:100%
+}
+.diamondlayout_diamond .layoutbgOverlay.dark {
+  background: -moz-radial-gradient(center, ellipse cover, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 100%);
+  background: -webkit-radial-gradient(center, ellipse cover, rgba(0,0,0,0.5) 0%,rgba(0,0,0,0) 100%);
+  background: radial-gradient(ellipse at center, rgba(0,0,0,0.5) 0%,rgba(0,0,0,0) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#00000000',GradientType=1 );
+height:100%;
+width:100%
+}
+
+.closeLt{
+    display: inline-block;
+    position: fixed;
+    top: 0;
+    right: 0;
+    padding: 0px 1px 3px 2px;
+    font-size: 30px;
+    z-index: 1;
+    width: 40px;
+    text-align: center;
+    height: 40px;
+    opacity: .8;
+}
+.closeLt i{opacity:1;}
+

@@ -1,0 +1,228 @@
+<div class="navbar">
+    <div class="navbar-inner" style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+
+        <div class="left sliding">
+            <a href="index" class="link back icon icon-left-open-2" style="color:{{@global.style.headerBarIconColor}};"></a>
+        </div>
+
+        <div class="center sliding">
+            <div class="topHeader {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">
+                Preview
+            </div>
+        </div>
+
+        <div class="right">
+
+        </div>
+    </div>
+</div>
+
+<div data-page="accommodation-listing-preview" class="page navbar-through no-toolbar">
+    <div class="backgroundAnimation">{{> innerBackground}}</div>
+
+    <!-- Page content-->
+    <div id="updatelistingdetailoverflow" class="page-content {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}} hideBorder-{{@global.styleAndNavigation.hideBorder}}" style="color:{{@global.styleAndNavigation.content[2]}}; background:{{@global.styleAndNavigation.pageBgColor}}">
+        <div class="">
+
+            <ul class="main-cat-listing">
+
+                <div data-pagination=".swiper-pagination" data-preload-images="false" data-lazy-loading="true" class="swiper-banner swiper-banner-{{@index}} swiper-container swiper-init">
+                    <div class="swiper-wrapper">
+                        {{#data.image}}
+
+                        {{#js_compare "this.type == 'image'"}}
+
+                        <div class="swiper-slide">
+                            <img src="images/transparent-bg.png"   onclick="coommonphotobrowser('{{@index}}','{{@root.data.name}}');" coommonphotobrowser(imageUrls,photoindex,imageTitle) class="swiper-lazy img-style"  style="background-image:url({{image}});"/>
+                            <div class="preloader"></div>
+                        </div>
+                        {{else}}
+
+                        {{#js_compare "this.type == 'video'"}}
+                        <div class="swiper-slide">
+                            <img src="images/transparent-bg.png" onclick="hotelplaycustomvideo('{{video}}','{{@root.data.name}}');"  class="swiper-lazy img-style"  style="background-image:url({{image}});"/>
+                            <div class="preloader"></div>
+                        </div>
+                        {{else}}
+
+                        <div class="swiper-slide" onclick="Appyscript.playYoutubeWatch('{{youtubeID video}}','{{@root.data.name}}','er');">
+                            <img src="images/transparent-bg.png" class="swiper-lazy" style="background-image:url(http://img.youtube.com/vi/{{youtubeID video}}/default.jpg); "/>
+                            <div class="video-icon icon-play-circle2-1"></div>
+                            <div class="preloader"></div>
+                        </div>
+                        {{/js_compare}}
+                        {{/js_compare}}
+
+                        {{/data.image}}
+                    </div>
+
+                    <div class="more-icon-sh">
+
+                        <a href="#"  {{#if data.favourite}} class="icon-heart-1 likeunlikes onlikehotel"    {{else}} class="icon-heart-1 likeunlikes"   {{/if}}  id="{{data.id}}" style="color:{{@global.styleAndNavigation.icon[1]}}"></a>
+
+                        <a href="#"  onclick="sharegoteldetails()"   class="icon-share-1" style="color:{{@global.styleAndNavigation.icon[1]}}"></a>
+                    </div>
+                    <div class="category-detail {{@global.styleAndNavigation.title[0]}} {{@global.styleAndNavigation.title[1]}}" style="background:{{@global.styleAndNavigation.title[2]}}; color:{{@global.styleAndNavigation.title[3]}};">
+                        <h1 class="title {{@global.styleAndNavigation.title[0]}} {{@global.styleAndNavigation.title[1]}}" style="color:{{@global.styleAndNavigation.title[3]}};">
+
+                            <div class="price" style="color:{{@global.styleAndNavigation.activeColor}}" >{{data.currency}}{{percentagecaluclationofferhotel data.lowestPrice @root.data.offerPercent}}</div>{{data.name}}</h1>
+                        <div class="row"><div class="rating">{{data.accomType}}</div></div>
+                        <div class="row">
+                            <div class="rating">
+                                {{Ratinghelperaccomadation data.rating}}
+                            </div>
+                            {{#js_compare "this.data.featured == '1'"}}
+                            <div class="feature-list"><i class="iconz-fire"></i></div>
+                            {{else}}
+                            {{/js_compare}}
+                        </div>
+                    </div>
+                </div>
+
+            </ul>
+
+
+            <div class="facility-list swiper-container" style="border-color:{{@global.styleAndNavigation.borderColor}}">
+                <ul class="facility-type swiper-wrapper" >
+
+                    {{#data.facilities}}
+
+                    <div class="swiper-slide" style="border-color:{{@global.styleAndNavigation.borderColor}}"><i class="{{icon}}" style="color:{{@global.styleAndNavigation.icon[1]}}"></i><span>{{name}}</span></div>
+                    {{/data.facilities}}
+                </ul>
+                <div class="swiper-button-next icon-right-open" style="color:{{@global.styleAndNavigation.borderColor}}"></div>
+                <div class="swiper-button-prev  icon-left-open" style="color:{{@global.styleAndNavigation.borderColor}}"></div>
+            </div>
+
+
+            {{#if data.offer}}
+            <div class="offer-off {{@global.styleAndNavigation.title[0]}} {{@global.styleAndNavigation.title[1]}}" style="background:{{@global.styleAndNavigation.title[2]}}; color:{{@global.styleAndNavigation.title[3]}};"><strong><i class="icon-tags" style="{{@global.styleAndNavigation.icon[1]}}"></i> {{data.offerPercent}} % off on Booking</strong></div>
+            {{else}}
+
+            {{/if}}
+
+
+            <div class="bodypan padding-bottom-0">
+
+                <div class="facility-description">
+                    <h2 class="{{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}}; text-align:left; position: relative;"> {{@global.pageLanguageSetting.discription}} <span  onclick="hotelcallonphone({{data.phone}})"class="icon-phone-squared amcall"  style="color:{{@global.styleAndNavigation.icon[1]}}"></span></h2>
+
+
+                    <p> {{data.content}}</p>
+                    {{#js_compare "this.data.reviewCount != 0"}}
+
+                    <a onclick="Appyscript.hotelreadallreviews(this);"  id="{{data.id}}" class="f-right text-btn" style="color:{{@global.styleAndNavigation.activeColor}}"><i class="icon-right-dir-1" style="color:{{@global.styleAndNavigation.icon[1]}}"></i> {{@global.pageLanguageSetting.read_all_reviews}}</a>
+
+                    {{else}}
+
+                    <a  class="f-right text-btn" style="color:{{@global.styleAndNavigation.activeColor}}"></a>
+                    {{/js_compare}}
+
+
+
+
+                    {{#js_compare "this.data.showEmail == 1"}}
+
+                    <div class="hostedBy">
+                        <div class="hName">
+                            <h3 class="{{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}" style="color:{{@global.styleAndNavigation.subheading[2]}};"> {{@global.pageLanguageSetting.entire_home}} </h3>
+                            <p> {{@global.pageLanguageSetting.hosted_by}} <span class="hotelowner"  onclick="Appyscript.openhotelownerdetail()" style="color:{{@global.styleAndNavigation.activeColor}}">{{data.owner}}</span></p>
+                            <p id="ownerdiscription" style="display:none">{{data.ownerDescription}}</p>
+                        </div>
+
+                        {{#js_compare "this.data.ownerImg != ''"}}
+                        <img  onclick="Appyscript.openhotelownerdetail()" class="img-style" src="images/image-1x1.png" style="background:url({{data.ownerImg}}); border-color:{{@global.styleAndNavigation.borderColor}}"/>
+
+                        {{else}}
+
+                        <img  onclick="Appyscript.openhotelownerdetail()" class="img-style" src="images/image-1x1.png" style="background:url(images/dummy.jpg); border-color:{{@global.styleAndNavigation.borderColor}}"/>
+                        {{/js_compare}}
+                    </div>
+                    {{else}}
+                    {{/js_compare}}
+
+                    <div class="timeContainer">
+
+                        <div class="checkIn {{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}" style="color:{{@global.styleAndNavigation.subheading[2]}};" onclick="" >
+                            <span> {{@global.pageLanguageSetting.Check_In_Dir}}</span>
+                            {{data.checkInTime}}
+                        </div>
+                        <div class="checkOut {{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}" style="color:{{@global.styleAndNavigation.subheading[2]}};" onclick="">
+                            <span> {{@global.pageLanguageSetting.check_out}}</span>
+                            {{data.checkOutTime}}
+
+                        </div>
+
+                    </div>
+
+
+                    <h2 class="{{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}}; text-align:{{@global.styleAndNavigation.heading[3]}};">{{@global.pageLanguageSetting.room_type}}</h2>
+                    <ul class="hotel-list-select">
+                        {{#data.room}}
+
+                        <li id="{{id}}"  price="{{price}}" roomid="{{roomTypeId}}" maxchildcountroom="{{guestChild}}"  maxguestcountroom="{{guest}}"  roomtype="{{roomType}}"  style="border-color:{{@global.styleAndNavigation.borderColor}}">
+                            <div class="room-type-description">
+                                <span class="room-type {{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}" style="color:{{@global.styleAndNavigation.subheading[2]}};">{{roomType}}</span>
+                                <span class="type-content"> {{accomadationarraytostring animities}}</span>
+
+                                {{#js_compare "this.animities.length > 1"}}
+                                <a href="#" onclick="Appyscript.viewallaminitieshotel('{{accomadationarraytostring animities}}')" class="type-button" style="color:{{@global.styleAndNavigation.activeColor}}"> {{@global.pageLanguageSetting.newsstand_view_all}} </a>
+
+                                {{else}}
+
+                                {{/js_compare}}
+                            </div>
+
+                            {{#cheofferpriceonactual @root.data.offerPercent}}
+
+
+                            <div class="facility-dr-right"><span class="room-price {{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}" style="color:{{@global.styleAndNavigation.subheading[2]}};">{{@root.data.currency}}{{percentagecaluclationofferhotel price @root.data.offerPercent}}<br>  <small style="text-decoration: line-through">      {{@root.data.currency}}{{price}}</small></span>
+
+
+                                {{accomadationroomavailbility availableRoom id}}
+
+
+
+                            </div>
+
+                            {{else}}
+                            <div class="facility-dr-right"><span class="{{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}" style="color:{{@global.styleAndNavigation.subheading[2]}};float: left;
+                                padding: 14px 0;">{{@root.data.currency}}{{price}}  </span>
+
+
+                                {{accomadationroomavailbility availableRoom id}}
+
+
+
+                            </div>
+                            {{/cheofferpriceonactual}}
+                        </li>
+                        {{/data.room}}
+
+                    </ul>
+
+                    <div class="hotel-list-wrp">
+                        <h2 class="{{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}};"> {{@global.pageLanguageSetting.details}}</h2>
+                        <ul class="hotel-list-select margin-bottom-0">
+                            {{#data.cms}}
+
+
+                            <li title="{{title}}" description="{{description}}" onclick="Appyscript.hotelpolicypage('accommodation-policydetails',this)" style="border-color:{{@global.styleAndNavigation.borderColor}}"><a href="#" class="icon icon-right-open {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="color:{{@global.styleAndNavigation.content[2]}};">{{title}}</a></li>
+
+                            {{/data.cms}}
+                        </ul>
+                    </div>
+
+                </div>
+
+                <!--       onclick="Appyscript.popupPage('accommodation-fullmap');"-->
+
+            </div>
+            <div id="map2"  onclick="Appyscript.popupPage('accommodation-fullmap')";  style="height:190px;width:100%"><center><img src="images/social_loader.gif" width="50px" height="50px"></center></div>
+        </div>
+        <!-- End Page content-->
+
+    </div>
+
+</div>
+

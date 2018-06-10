@@ -1,0 +1,60 @@
+<div class="popup menu-popup">
+    <div class="view toolbar-through no-toolbar">
+        <div class="pages">
+            <div class="navbar">
+                <div class="navbar-inner" style="background-color:{{@global.style.headerBarBackgroundColor}}; color:{{@global.style.headerBarTextColor}};">
+                    
+                    <div class="left sliding">
+                        <a href="index" class="link back icon icon-left-open-2" style="color:{{@global.style.headerBarIconColor}};"></a>
+                    </div>
+                    
+                    <div class="center sliding">
+                        <div class="topHeader {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">
+               
+               {{@global.pageLanguageSetting.rooms_availability}}
+                        </div>
+                    </div>
+                    
+                    <div class="right">
+                    </div>
+                </div>
+            </div>
+            
+            <div data-page="accommodation-check-availability-page"  class="page navbar-through toolbar-fixed no-toolbar">
+                <div class="page-content checkAvailability {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}} hideBorder-{{@global.styleAndNavigation.hideBorder}}" style="color:{{@global.styleAndNavigation.content[2]}}; background:{{@global.styleAndNavigation.pageBgColor}}">
+                    <div class="timeContainer forConfirmPage margin-top-0 margin-bottom-0">
+                        <div class="checkIn no-fastclick"  onclick="openhotelcaledores('cin')" style="background-color: {{@global.styleAndNavigation.tab[2]}}; color: {{@global.styleAndNavigation.tab[3]}}; border-color:{{@global.styleAndNavigation.borderColor}}">
+                            <span>{{@global.pageLanguageSetting.Check_In_Dir}}</span>
+                            <p id="checkindate">Sat, Dec 10<p>
+                        </div>
+                        <div class="checkOut no-fastclick"  onclick="openhotelcaledores('cout')" style="background-color: {{@global.styleAndNavigation.tab[2]}}; color: {{@global.styleAndNavigation.tab[3]}};">
+                            <span>{{@global.pageLanguageSetting.check_out}}</span>
+                            <p id="checkoutdate">Sat, Dec 40<p>
+                        </div>
+                    </div>
+                    
+                    
+                    
+                    <div class="room-book-list">
+                        <div class="room-book-item" id="HotelAddMoreRooms">
+                            
+                        </div>
+                        <a  onclick="hotelappendRoom();" class="activebutton pull-right" style="color:{{@global.styleAndNavigation.activeColor}}">{{@global.pageLanguageSetting.add_room}}</a>
+                    </div>
+                    
+                    
+                </div>
+                
+                <div class="toolbar ">
+                    <div class="toolbar-inner">
+                        
+                       
+                        <a href="#"  class="toolbarButton {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}} no-fastclick" style="background-color: {{@global.styleAndNavigation.button[2]}}; color: {{@global.styleAndNavigation.button[3]}};" onclick="Appyscript.hotelcheckroomavailbility(this);">{{@global.pageLanguageSetting.check_availbility}}</a>
+                    </div>
+                </div>
+            </div>
+            
+            
+        </div>  
+    </div>
+</div>

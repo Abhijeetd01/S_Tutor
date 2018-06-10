@@ -1,0 +1,106 @@
+<div class="navbar"><div class="navbar-inner" style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+    <div class="left sliding">
+        {{#root_Compare @global.style.layout "==" "slidemenu"}}
+        {{#if @root.innerLayout}}
+        <a href="index" class="link back" style="color:{{@global.style.headerBarIconColor}};">
+            <i class="icon icon-left-open-2"></i>
+        </a>
+        {{else}}
+        <a onclick="Appyscript.openSlide()" style="color:{{@global.style.headerBarIconColor}};">
+            <i class="icon icon-menu"></i>
+        </a>
+        {{/if}}
+        {{else}}
+        <a href="index" class="link back bottomBack" style="color:{{@global.style.headerBarIconColor}};">
+            <i class="icon icon-left-open-2"></i>
+        </a>
+        {{/root_Compare}}
+    </div>
+    <div class="center sliding {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">Dashboards</div>
+    <div class="right"> <a onclick="loadNotification();"><i class=" icon icon-bell-alt">
+        <span class="badge lightredbg" id="notificationcount">{{this.notification}</span>
+    </i></a></div>
+</div></div>
+
+
+<div data-page="messenger-home" class="page navbar-through no-toolbar toolbar-through">
+    <div class="toolbar tabbar">
+        <div class="toolbar-inner messenger-tab {{styleAndNavigation.tab[0]}} {{styleAndNavigation.tab[1]}}" style="background-color:{{@global.style.headerBarBackgroundColor}}">
+            <a href="#friend-chat-list" class="tab-link active"> <i class="icon appyicon-we-chat"> </i><span>Chat</span> </a>
+            <a href="#friend-list" class="tab-link"> <i class="icon iconz-user"></i><span>Contacts</span> </a>
+            <a onclick="logout()" class="tab-link"> <i class="icon icon-cog"></i><span>Logout</span> </a>
+        </div>
+    </div>
+    <!-- Scrollable page content -->
+    <div class="page-content whitebg">
+        <style type="text/css">
+            .toolbar-inner a {
+                color:{{styleAndNavigation.tab[3]}};
+                background:{{styleAndNavigation.tab[2]}};
+            }
+        .toolbar-inner a.active {
+            color:{{styleAndNavigation.tab[3]}};
+            background:{{styleAndNavigation.tab[4]}};
+        }
+        
+            </style>
+        
+        <div class="tabs-animated-wrap">
+            <!-- Tabs, tabs wrapper -->
+            <div class="tabs">
+                <!-- Tab 1, active by default -->
+                <div id="friend-chat-list" class="tab active" style="overflow-y: scroll;">
+                    <br> {{#js_compare "this.allMessage == null"}} {{else}}
+                    <div class="list-block media-list inset" style="margin-left:0px;margin-right:0px;margin-top:0px;">
+                        <ul id="conversationlists"> {{#if this.allMessage.length}} {{#each allMessage}}
+                            <li {{#if this.userId}} list-userid="{{this.userId}}" {{else}} list-groupid="{{this.groupId}}" {{/if}} {{#if this.userId}} onclick="openChatWindow('{{this.name}}','{{this.profilepic}}','{{this.userId}}','{{filterCountryName this.country}}',true,this)" {{else}} onclick="openGroup('{{this.groupId}}','{{this.name}}',this,'')" {{/if}} >
+                                <a href="#" class="item-link item-content">
+                                    <div class="item-media"> {{#if this.profilepic}}
+                                        <div><img src="{{this.profilepic}}" class="avatar avatar-rounded chatlistimgprofile" width="44"> {{#js_compare "this.unread == '0'"}} {{else}} <span  class="badge bg-yellow unreadtextbox">{{this.unread}}</span> {{/js_compare}} </div> {{else}}
+                                        <div class="avatar avatar-lg avatar-rounded pendingrequest {{getRandomColor this.name}}" style="width:44px;height:44px;" title="" data-original-title="a_5mith">{{filterFirstName this.name}} {{#js_compare "this.unread == '0'"}} {{else}} <span id="spanunread{{this.userId}}" class="badge bg-yellow unreadtextbox">{{this.unread}}</span> {{/js_compare}}</div> {{/if}} </div>
+                                    <div class="item-inner">
+                                        <div class="item-title-row">
+                                            <div class="item-title wrap">{{this.name}}</div>
+                                        </div>
+                                        <div class="item-subtitle wrap" style="font-size: 12px;" id="renderdivchathome ">{{#if this.userId}}{{this.content}}{{else}}{{this.message}}{{/if}}</div>
+                                    </div>
+                                </a>
+                            </li> {{/each}} {{else}}{{> errorpage errorIcon="appyicon-no-data"}} {{/if}}</ul>
+                    </div> {{/js_compare}} </div>
+                <!-- Tab 2 -->
+                <div id="friend-list" class="tab" >
+                    <div class="list-block nomargin">
+                        <ul>
+                            <li class="item-content" onclick="openAllContact()">
+                                <div class="item-inner">
+                                    <div class="item-title"><i class="icon icon-users-1"></i>&nbsp;&nbsp;All Contacts</div>
+                                </div>
+                            </li>
+                            <li class="item-content" onclick="openMyContactPage('single')">
+                                <div class="item-inner">
+                                    <div class="item-title"><i class="icon iconz-user" aria-hidden="true"></i>&nbsp;&nbsp;My Contacts</div>
+                                </div>
+                            </li>
+                            <li class="item-content" onclick="openGroupsList()">
+                                <div class="item-inner">
+                                    <div class="item-title"><i class="icon iconz-group-chat" aria-hidden="true"></i>&nbsp;&nbsp;My Groups</div>
+                                </div>
+                            </li>
+                            <li class="item-content" onclick="openPendingRequestPage()">
+                                <div class="item-inner">
+                                    <div class="item-title"><i class="icon icon-align-left" aria-hidden="true"></i>&nbsp;&nbsp;Pending Request</div>
+                                </div>
+                            </li>
+                            <li class="item-content" onclick="openSearchPage()">
+                                <div class="item-inner">
+                                    <div class="item-title"><i class="icon icon-user-add" ></i>&nbsp;&nbsp;Add Contacts</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>

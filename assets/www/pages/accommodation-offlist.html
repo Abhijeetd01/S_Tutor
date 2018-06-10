@@ -1,0 +1,43 @@
+<div class="navbar">
+    <div class="navbar-inner" style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+<!--        -->
+<!--        <div class="left sliding">-->
+<!--            <a href="index" class="link back icon icon-left-open-2" style="color:{{@global.style.headerBarIconColor}};"></a>-->
+<!--        </div>-->
+<div class="left sliding">
+    <a href="index" class="link back icon icon-left-open-2" style="color:{{@global.style.headerBarIconColor}};"></a>
+</div>
+
+        <div class="center sliding">
+            <div class="topHeader {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">{{@global.pageLanguageSetting.offers_mcom}}
+                
+            </div>
+        </div>
+        
+        <div class="right">
+      
+        </div>
+    </div>
+</div>
+
+<div data-page="accommodation-offerpage" class="page navbar-through no-toolbar">
+  
+    <div class="page-content {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}} hideBorder-{{@global.styleAndNavigation.hideBorder}}" style="color:{{@global.styleAndNavigation.content[2]}}; background:{{@global.styleAndNavigation.pageBgColor}}"> 
+      
+    
+        <ul class="main-cat-listing" id="hotelisting">
+            {{accommodationSubcatgoryList pageList}}
+
+
+        </ul>
+        
+        {{#js_compare "this.pageList.length == '0' "}}
+        
+        <div class="msg-code">{{> errorpage errorIcon="appyicon-no-data"}} </div>
+        
+        {{/js_compare}}
+    </div>
+    
+    <!-- End Page content-->
+</div>
+

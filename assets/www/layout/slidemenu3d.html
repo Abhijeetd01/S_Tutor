@@ -1,0 +1,18 @@
+<div data-page="slidemenu3d" class="page no-toolbar no-navbar">
+	<div class="page-content">    
+    
+<!--  Main Container -->
+         <div id="app_navigation" class="{{@global.style.navigationSize}} {{#home.appData.hideLayout}} hide-{{this}} {{/home.appData.hideLayout}}  {{@global.style.navigationFont}} {{@global.style.navigationFont}} app_navigation_slidemenu3d animation-{{@global.style.animation}}" navbar="{{home.appData.headerBarType}}">
+    {{#home.home}}
+           <a href="#" data-productidentifier="{{pageIdentifierBecon}}" data-productid="{{pageid}}" class="page-link">
+               {{#js_compare "this.pageiconType === 'img' "}} <img src="{{@global.iconpath}}{{iconName}}" style="border-color: {{@global.style.navBorderColor}}; background:{{@global.style.navBackgroundColor}}">
+                    {{else}}
+                     <i class="{{iconName}}" style="color: {{@global.style.navIconColor}}; border-color: {{@global.style.navBorderColor}}; background:{{@global.style.navBackgroundColor}}"></i> 
+               {{/js_compare}} 
+               <span {{#js_compare "this.pageiconType === 'img' "}}class="img-txt"{{/js_compare}} style="color: {{@global.style.navTextColor}} ">{{pageNewid}}</span>
+           </a>
+    {{/home.home}}
+    </div>
+    </div>
+</div>
+

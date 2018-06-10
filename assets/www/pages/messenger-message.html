@@ -1,0 +1,100 @@
+<div class="navbar">
+    <div class="navbar-inner" style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};"> {{#hasGroupChat this.name}}
+        <div class="left sliding">
+            <a href="index" class="link" onclick="chatback('{{this.groupid}}');" style="color:{{@global.style.headerBarIconColor}};"> <i class="icon icon-left-open-2"></i> </a>
+        </div>
+        <div class="center sliding {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}" id="grp_name_main" onclick="openGroupDetail('{{this.groupid}}')">{{this.groupname}}</div> {{else}}
+        <div class="left sliding">
+            <a href="index" class="link  " onclick="chatback('');" style="color:{{@global.style.headerBarIconColor}};"> <i class="icon icon-left-open-2"></i> </a>
+        </div>
+        <div class="center sliding {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}" onclick="openUserModal('{{name}}','','{{userid}}','{{name}}','{{phoneno}}','chat')">
+
+            <p style="line-height: 24px;" id="chat_window_name">{{getDeviceName this.phoneno}}
+                <b id="userstatus" style="font-size: 12px;display: block;line-height: 12px;"></b></p>
+        </div> {{/hasGroupChat}}
+        <div class="right">
+            <a onclick="openMediaOption()" style="color:{{@global.style.headerBarIconColor}};"><i class=" icon icon-link"></i></a>
+
+            {{#if this.messengerWithSinch}}
+            <a onclick="openActionSheetCalling('{{userid}}','{{this.phoneno}}')" style="color:{{@global.style.headerBarIconColor}};"><i class="iconz-phone1"></i></a>
+            {{/if}}
+        </div>
+    </div>
+</div>
+<div data-page="messenger-message" class="page toolbar-through">
+    <div class="backgroundAnimation">{{> innerBackground}}</div>
+    <div class="messagebar">
+        <textarea placeholder="{{@global.pageLanguageSetting.type_your_message}}" id="messagechatTextArea"></textarea>{{#hasGroupChat this.name}}<i onclick="sendMessage('{{userid}}','','{{this.groupid}}')" class="icon appyicon-send"></i>{{else}}<i class="icon appyicon-send" onclick="sendMessage('{{userid}}','','')"></i>{{/hasGroupChat}} </div>
+    <div class="page-content">
+        <style>
+         .card-content-inner { padding: 10px; }
+            .card-content-inner i { color: {{@global.styleAndNavigation.submenu[6]}} }
+            .message-sent .message-text { background-color: {{@global.styleAndNavigation.primaryChat[0]}} ; color: {{@global.styleAndNavigation.primaryChat[1]}} ; }
+            .message-received .message-text { background-color: {{@global.styleAndNavigation.secondaryChat[0]}} ; color: {{@global.styleAndNavigation.secondaryChat[1]}} ; }
+            .message .message-text .phonenochat { padding: 2px 0px; color: {{@global.styleAndNavigation.secondaryChat[2]}} }
+            .message.message-pic .message-text .phonenochat { padding: 2px 16px 2px 22px; } .chatinnerimage { background-position: center center; background-repeat: no-repeat; background-size: cover; position: relative; }
+            .chatinnerimage .overlay { background: rgba(0, 0, 0, 0.2); width: 100%; height: 100%; position: absolute; top: 0px; }
+            .chatinnerimage .overlay:before { position: absolute; top: 50%; left: 50%; font-size: 50px; margin: -25px; color: {{@global.styleAndNavigation.secondaryChat[2]}} }
+            .messagebar { position: absolute; bottom: 0px; z-index: 555; padding: 5px; width: 100%; background: {{@global.styleAndNavigation.submenu[2]}} ; color: {{@global.styleAndNavigation.submenu[3]}} ; box-sizing: border-box }
+            .messagebar textarea { width: 85%; float: left; background: {{@global.styleAndNavigation.submenu[4]}} ; border: {{@global.styleAndNavigation.submenu[4]}} ; color: {{@global.styleAndNavigation.submenu[5]}} ; box-sizing: border-box; }
+            .messagebar i { width: 15%; display: inline-block; text-align: center; vertical-align: middle; font-size: 18px; color: {{@global.styleAndNavigation.submenu[3]}}; padding: 0px !important; }
+        </style>
+        <div message-userid="{{userid}}" id="messagechat" onclick="hideOption();" class="messages" style="padding-top: 44px;overflow: hidden"> {{#if message}} {{#each message}}
+            <div class="messages-date" style="color:{{@global.styleAndNavigation.timeColor}}-">{{@key}}</div> {{#each this}} {{#hasCurrentUser this.from}} {{#js_compare "this.type == 'text'"}}
+            <div class="message message-sent" {{#if this.msgPushKey}}{{#if this.msgType}}{{else}}{{#if this.isDeleted}}{{else}}msgPushKey="{{this.msgPushKey}}"{{/if}}{{/if}}{{/if}} {{#if this.receiverPushKey}}{{#if this.isDeleted}}{{else}}receiverPushKey="{{this.receiverPushKey}}"{{/if}}{{/if}} {{#if this.senderPushKey}}senderPushKey="{{this.senderPushKey}}"{{/if}}>
+            <div class="message-text">{{this.content}}{{#if this.isDeleted}}{{else}}<i class="appyicon-double-check-symbol unseenmessageicon" aria-hidden="true"></i>{{/if}}</div>
+        </div> {{else}} {{#js_compare "this.type == 'Audio'"}}
+        <div class="message message-sent message-audio width100" size="{{this.extra.size}}" audioLinkFirebase="{{this.link}}" audioLink="{{this.link}}" {{#if this.msgPushKey}}{{#if this.msgType}}{{else}}{{#if this.isDeleted}}{{else}}msgPushKey="{{this.msgPushKey}}"{{/if}}{{/if}}{{/if}} {{#if this.receiverPushKey}}receiverPushKey="{{this.receiverPushKey}}"{{/if}} {{#if this.senderPushKey}}senderPushKey="{{this.senderPushKey}}"{{/if}}>
+        <div class="message-text width90">
+            {{#if this.isDeleted}}{{else}}<i class="appyicon-double-check-symbol unseenmessageicon" aria-hidden="true"></i>{{/if}}
+            <div class="message-audio-icon"><i class="iconz-music"> </i><span></span></div>
+            <div class="playbtn"> <i class="iconz-downloads playicon"></i> </div>
+            <div id="{{getRandomId this.link}}" class=" message-audio-player"></div>
+        </div>
+    </div> {{else}}
+    {{#if this.isDeleted}}{{else}}<div class="message message-sent message-pic width100" {{#if this.msgPushKey}}{{#if this.msgType}}{{else}}{{#if this.isDeleted}}{{else}}msgPushKey="{{this.msgPushKey}}"{{/if}}{{/if}}{{/if}} {{#if this.receiverPushKey}}receiverPushKey="{{this.receiverPushKey}}"{{/if}} {{#if this.senderPushKey}}senderPushKey="{{this.senderPushKey}}"{{/if}}> {{#js_compare "this.type == 'Map'"}}
+    <div onclick="openLargeMapFromChat('{{this.extra.lat}}','{{this.extra.lng}}')" class="message-text width90"><img data-src="https://maps.googleapis.com/maps/api/staticmap?zoom=13&size=250x250&maptype=roadmap&markers=color:blue%7Clabel:S%7C{{this.extra.lat}},%20{{this.extra.lng}}&key=AIzaSyA779DVaviC6nrz4FqyJMR0N4FN_wLd1Vg" class="lazy lazy-fadeIn" />{{#if this.isDeleted}}{{else}}<i class="appyicon-double-check-symbol unseenmessageicon" aria-hidden="true"></i>{{/if}}</div> {{else}} {{#js_compare "this.type == 'Video'"}}
+    <div class="message-text width90">
+        <div videoLink="{{this.link}}" size="{{this.extra.size}}" class="chatinnerimage lazy lazy-fadeIn videomessenger" data-background="{{this.extra.imageurl}}">{{#if this.isDeleted}}{{else}}<i class="appyicon-double-check-symbol unseenmessageicon" aria-hidden="true"></i>{{/if}}</div>
+    </div> {{else}}
+    <div class="message-text width90">
+        <div data-background="{{this.link}}" imageLiveLink="{{this.link}}" imageLink="{{this.link}}" size="{{this.extra.size}}" class="imagemessenger chatinnerimage lazy lazy-fadeIn">{{#if this.isDeleted}}{{else}}<i class="appyicon-double-check-symbol unseenmessageicon" aria-hidden="true"></i>{{/if}}</div>
+    </div> {{/js_compare}} {{/js_compare}} </div> {{/if}}{{/js_compare}} {{/js_compare}} {{else}} {{#js_compare "this.type == 'text'"}}
+<div class="message message-received"  {{#if this.msgPushKey}}{{#if this.msgType}}{{else}}{{#if this.isDeleted}}{{else}}idkey="{{this.msgPushKey}}"{{/if}}{{/if}}{{else}}idkey="{{this.receiverPushKey}}"{{/if}}>
+<div class="message-text">{{#hasGroupChat this.name}}
+    <p class="phonenochat">{{this.name}}</p>{{/hasGroupChat}}{{this.content}}</div>
+</div> {{else}} {{#js_compare "this.type == 'Audio'"}}
+<div class="message message-received message-audio width100" size="{{this.extra.size}}" audioLinkFirebase="{{this.link}}" audioLink="{{this.link}}" {{#if this.msgPushKey}}{{#if this.msgType}}{{else}}{{#if this.isDeleted}}{{else}}idkey="{{this.msgPushKey}}"{{/if}}{{/if}}{{else}}idkey="{{this.receiverPushKey}}"{{/if}}>
+<div class="message-text width90">
+    <div class="message-audio-icon"><i class="iconz-music"> </i><span></span></div>
+    <div class="playbtn"> <i class="iconz-play-button playicon"></i> </div>
+    <div id="{{getRandomId this.link}}" class=" message-audio-player"></div>
+</div>
+</div> {{else}}
+<div class="message message-received message-pic width100" {{#if this.msgPushKey}}{{#if this.msgType}}{{else}}{{#if this.isDeleted}}{{else}}idkey="{{this.msgPushKey}}"{{/if}}{{/if}}{{else}}idkey="{{this.receiverPushKey}}"{{/if}}> {{#js_compare "this.type == 'Map'"}}
+<div onclick="openLargeMapFromChat('{{this.extra.lat}}','{{this.extra.lng}}')" class="message-text width90">{{#hasGroupChat this.name}}
+    <p class="phonenochat">{{this.name}}</p>{{/hasGroupChat}}<img data-src="https://maps.googleapis.com/maps/api/staticmap?zoom=13&size=250x250&maptype=roadmap&markers=color:blue%7Clabel:S%7C{{this.extra.lat}},%20{{this.extra.lng}}&key=AIzaSyA779DVaviC6nrz4FqyJMR0N4FN_wLd1Vg" class="lazy lazy-fadeIn" /></div> {{else}} {{#js_compare "this.type == 'Video'"}}
+<div class="message-text width90">{{#hasGroupChat this.name}}
+    <p class="phonenochat">{{this.name}}</p>{{/hasGroupChat}}
+    <div videoLink="{{this.link}}" data-background="{{this.extra.imageurl}}" size="{{this.extra.size}}" class="chatinnerimage lazy lazy-fadeIn videomessenger"> </div>
+</div> {{else}}
+<div class="message-text width90">{{#hasGroupChat this.name}}
+    <p class="phonenochat padding10px">{{this.name}}</p>{{/hasGroupChat}}
+    <div data-background="{{this.link}}" imageLiveLink="{{this.link}}" imageLink="{{this.link}}" size="{{this.extra.size}}" class="imagemessenger chatinnerimage lazy lazy-fadeIn"></div>
+</div> {{/js_compare}} {{/js_compare}} </div> {{/js_compare}}{{/js_compare}} {{/hasCurrentUser}} {{/each}} {{/each}} {{/if}} </div>
+</div>
+<div class="card chatmediaoptionmodal" id="mediaoption" style="z-index: 2000;
+        padding: 0px;
+        margin:0px;  background:{{@global.styleAndNavigation.submenu[2]}};
+        color:{{@global.styleAndNavigation.submenu[3]}}; ">
+    <div class="card-content" style="height: 100%;">
+        <div class="card-content-inner">
+            <div class="row">
+                <div class="col col-25 center" {{#hasGroupChat this.name}} onclick="openActionSheetChat('{{this.groupid}}')" {{else}} onclick="openActionSheetChat('')" {{/hasGroupChat}}> <i class="icon-camera-1 fontsize20" aria-hidden="true"></i> </div>
+            <div class="col col-25 center" {{#hasGroupChat this.name}} onclick="openVedioActionSheetChat('{{this.groupid}}')" {{else}} onclick="openVedioActionSheetChat('')" {{/hasGroupChat}}> <i class="iconz-video fontsize20" aria-hidden="true"></i> </div>
+        <div class="col col-25 center" {{#hasGroupChat this.name}} onclick="openGoogleMap('{{this.groupid}}')" {{else}} onclick="openGoogleMap('')" {{/hasGroupChat}}> <i class="icon-location fontsize20" aria-hidden="true"></i> </div>
+    <div class="col col-25 center" {{#hasGroupChat this.name}} onclick="opensoundRecorderMessenger('{{this.groupid}}')" {{else}} onclick="opensoundRecorderMessenger('')" {{/hasGroupChat}}> <i class="iconz-audio fontsize20" aria-hidden="true"></i> </div>
+</div>
+</div>
+</div>
+</div>

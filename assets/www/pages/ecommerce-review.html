@@ -1,0 +1,46 @@
+<div class="navbar">
+	<div class="navbar-inner" style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+		<div class="left sliding">
+			<a href="index" class="link back" style="color:{{@global.style.headerBarIconColor}};">
+			<i class="icon icon-left-open-2"></i>
+			</a>
+		</div>
+		<div class="center sliding  {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">
+			<div class="topHeader"> {{@global.pageLanguageSetting.users_reviews_mcom}} </div>
+		</div>
+		<div class="right">
+			<a href="#" class="link" style="color:{{@global.style.headerBarIconColor}};">
+				<i class="icon-cart cursor-pointer" onclick="Appyscript.ecomAddToCartProduct('cartview');"><span class="cartNotification"></span></i>
+			</a>
+		</div>
+	</div>
+</div>
+
+
+<div data-page="ecommerce-Review" class="page navbar-through toolbar-fixed no-toolbar">
+    <!-- Page content-->
+<div class="page-content {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}} content-{{@global.styleAndNavigation.content[3]}} heading-{{@global.styleAndNavigation.heading[3]}} hideBorder-{{@global.styleAndNavigation.hideBorder}}" style="color:{{@global.styleAndNavigation.content[2]}}; background:{{@global.styleAndNavigation.pageBgColor}}">
+	{{#if reviewList.length}}
+		<div class="reviews">
+			<h2 class="{{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}}">{{@global.pageLanguageSetting.users_reviews_mcom}}</h2>
+			{{#reviewList}}
+			<div class="review-row">
+				<img src="{{profileImage}}" class="profileImage">
+				<div class="profileData">
+					<time></time>
+					<p class="user">{{userName}}</p>
+					<p class="rating"><span data-value="{{rating}}"></span></p>
+				</div>
+				<h4 class="title">{{title}}</h4>
+				<div class="comment">{{review}}</div>
+
+			</div>
+			{{/reviewList}}
+		</div>
+
+	{{else}}
+    	<div class="msg-code">{{> errorpage errorIcon="appyicon-chat-bubble"}}</div>
+		 
+	{{/if}}
+</div>
+</div>

@@ -1,0 +1,50 @@
+
+
+
+
+
+<div class="navbar"><div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}}; font-size: {{@global.style.headerBarSize}} ">
+    <div class="left sliding">
+        <a href="index" class="link back" style="color:{{@global.style.headerBarTextColor}};">
+            <i class="icon icon-left-open-2"></i>
+        </a>
+    </div>
+    <div class="center sliding">
+        {{@global.pageLanguageSetting.location}}
+        
+    </div>
+    <div class="right">
+        
+    </div>
+</div></div>
+
+<div data-page="realestate-locationmap" class="page navbar-through no-toolbar toolbar-through" style="background:{{@global.styleAndNavigation.pageBgColor}};">
+    <!-- Page content-->
+    
+    
+    <div class="toolbar">
+        
+    </div>
+    
+    
+    <div class="page-content">
+        <style type="text/css">
+            #map-canvas {
+                height:800px;
+            }
+        
+        .infowindow-content {
+             width: 275px;
+            padding: 3px;
+            font-size: 15px;
+            font-weight: bold;
+        }
+        </style>
+        
+
+        <div id="map-canvas"></div>
+        
+
+    </div>
+    
+</div>

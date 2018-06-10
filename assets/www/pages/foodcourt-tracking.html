@@ -1,0 +1,188 @@
+<div class="navbar">
+    <div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+        <div class="left sliding">
+            <a href="index" class="link back" style="color:{{@global.style.headerBarIconColor}};">
+                <i class="icon icon-left-open-2"></i>
+            </a>
+        </div>
+        <div class="center sliding  {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">
+            <div class="topHeader">{{@global.pageLanguageSetting.My_Orders_food}}
+                <span class="locate"><span style="color: {{@global.style.headerBarTextColor}};text-transform: uppercase;">{{@global.pageLanguageSetting.order_id_food}} #{{@global.orderId}}</span></span>
+            </div>
+        </div>
+    {{#details}}
+        <div class="right">
+            <a class="localHeaderIconRight ui-link" style="color:{{@global.style.headerBarIconColor}};">
+                <div class="headerText" onclick="openFoodDetailPage('{{orderId}}','{{vendorId}}');">{{@global.pageLanguageSetting.order_detail_food}}</div>
+            </a>
+        </div>
+    </div>
+</div>
+
+<div data-page="foodcourt-tracking" class="page navbar-through toolbar-fixed no-toolbar">
+    <div class="toolbar blackPan">
+        <div class="toolbar-inner toolbar-bottom" style="background-color:{{@global.styleAndNavigation.button[2]}}; color:{{@global.styleAndNavigation.button[3]}}">
+            <div class="innerbottomPan {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}">
+                {{#js_compare "this.status != 'Complete'"}}
+                    <time>{{deliveryPickupTime}}</time>
+                {{else}}
+                    <time>{{delivertimefoodcourt orderLastUpdateDate}}</time>
+                {{/js_compare}}
+
+                {{#js_compare "this.orderType != 'pickup'"}}
+                    {{#js_compare "this.status != 'Complete'"}}
+                        <p>{{@global.pageLanguageSetting.delivery_time_food}}</p>
+                    {{else}}
+                            <p>{{@global.pageLanguageSetting.Delivered_time}}</p>
+                    {{/js_compare}}
+                {{else}}
+                    {{#js_compare "this.status != 'Complete'"}}
+                        <p>{{@global.pageLanguageSetting.Pickup_time_food}}</p>
+                    {{else}}
+                        <p>{{@global.pageLanguageSetting.Delivered_time}}</p>
+                    {{/js_compare}}
+                {{/js_compare}}
+
+                </br>
+                {{#root_Compare @global.contactarr.length "!=" "1"}}
+                {{#root_Compare @root.orderContactEmail.contactus_chat "!=" ""}}
+                <span onclick="chatroomfoodcourt(this)"  firebaseurl="{{@root.orderContactEmail.contactus_chat.chatroom_link}}"  chatname="{{@root.orderContactEmail.contactus_chat.chatroom_name}}" class="chatUs newMenu {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="color:{{@global.styleAndNavigation.button[3]}};">
+                    <i class="icon-chat-empty"></i></span>
+                {{/root_Compare}}
+                {{#root_Compare @root.orderContactEmail.contactus_phone "!=" ""}}
+                <span onclick="Appyscript.foodCourtCall('{{@root.orderContactEmail.contactus_phone}}')" class="chatUs newMenu {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="color:{{@global.styleAndNavigation.button[3]}}">
+                    <i class="iconz-phone1"></i></span>
+                {{/root_Compare}}
+                {{#root_Compare @root.orderContactEmail.contactus_email "!=" ""}}
+                <span onclick="Appyscript.callContactEmail('{{@root.orderContactEmail.contactus_email}}')" class="chatUs newMenu {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="color:{{@global.styleAndNavigation.button[3]}}">
+                    <i class="icon-email"></i></span>
+                {{/root_Compare}}
+                {{#root_Compare @root.orderContactEmail.contactus_smsno "!=" ""}}
+                <span onclick="Appyscript.callSmsNo('{{@root.orderContactEmail.contactus_smsno}}')" class="chatUs newMenu {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="color:{{@global.styleAndNavigation.button[3]}}">
+                    <i class="icon-mobile-2"></i></span>
+                {{/root_Compare}}
+                {{#root_Compare @root.orderContactEmail.contactus_websiteurl "!=" ""}}
+                <span onclick="Appyscript.callWebsiteUrl('{{@root.orderContactEmail.contactus_websiteurl}}')" class="chatUs newMenu {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="color:{{@global.styleAndNavigation.button[3]}}">
+                    <i class="icon-globe-3"></i></span>
+                {{/root_Compare}}
+                {{/root_Compare}}
+                {{#root_Compare @global.contactarr.length "==" "1"}}
+                <span onclick="Appyscript.getcontactsupport('{{@root.orderContactEmail.contactus_phone}}','{{@root.orderContactEmail.contactus_email}}','{{@root.orderContactEmail.contactus_smsno}}','{{@root.orderContactEmail.contactus_websiteurl}}','{{@root.orderContactEmail.contactus_chat}}',this)" firebaseurl="{{@root.orderContactEmail.contactus_chat.chatroom_link}}','{{@root.orderContactEmail.contactus_chat.chatroom_name}}">{{@global.pageLanguageSetting.foodcourt_contact_support}}</span>
+                {{/root_Compare}}
+
+            </div>
+        </div>
+    </div>
+    
+    <style>
+        .myOrders .accordion-item-expanded .order-row, .myOrders .order-row ul li {border-color:{{@global.styleAndNavigation.borderColor}}; }
+        .mainHeading{background-color:{{@global.styleAndNavigation.title[2]}}; color:{{@global.styleAndNavigation.title[3]}} }
+        .order-List .message, .order-Detail ul{border-color:{{@global.styleAndNavigation.borderColor}} }
+        .order-List .message i, .notify, .stepper-point, .callIcon {border-color:{{@global.styleAndNavigation.iconColor}}; color:{{@global.styleAndNavigation.iconColor}}}
+        .order-List h2, .detailHead, .totalAmnt{color:{{@global.styleAndNavigation.subheading[2]}}}
+        .order-List span{color:{{@global.styleAndNavigation.content[2]}} }
+        
+        </style>
+    <!-- Page content-->
+    <div class="page-content {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}} content-{{@global.styleAndNavigation.content[3]}} heading-{{@global.styleAndNavigation.heading[3]}}" style="color:{{@global.styleAndNavigation.content[2]}}; background:{{@global.styleAndNavigation.pageBgColor}}">
+
+
+        <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      #map-canvas {
+      height: 200px;
+  }
+    </style>
+
+        {{#js_compare "this.status == 'In Transit'"}}
+            <script async defer
+                    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyALFZMnVAXhCTdW0980LAceDtiJQfGRuKo&callback=initMap">
+            </script>
+        {{/js_compare}}
+        <div class="orderTracking">
+            {{#js_compare "this.status == 'Cancelled'"}}
+            <div class="messageTrackingWp">
+                <h2>{{@global.pageLanguageSetting.foodcourt_cancelled}}</h2>
+                <p>{{comments_if_cancel}}</p>
+            </div>
+            {{/js_compare}}
+                    {{#js_compare "this.status == 'Pending'"}}
+                    <div class="ns-stepper approved mt10" data="1">
+                        <div class="discussed"><span class="stepper-title">{{@global.pageLanguageSetting.order_accepted}}</span><span class="stepper-point icon-ok-4 icon-ok-4"></span>
+                        </div>
+                        <div class="approved"><span class="stepper-title">{{@global.pageLanguageSetting.in_the_kitchen}}</span><span class="stepper-point icon-ok-4"></span>
+                        </div>
+                        {{#js_compare "this.orderType != 'pickup'"}}
+                            <div class="processing"><span class="stepper-title">{{@global.pageLanguageSetting.on_the_way}}</span><span class="stepper-point icon-ok-4"></span> </div>
+                        {{else}}
+                         <div class="processing picUpTrack"><span class="stepper-title">{{@global.pageLanguageSetting.on_the_way}}</span><span class="stepper-point icon-ok-4"></span> </div>
+                        {{/js_compare}}
+                        <div class="complete"><span class="stepper-title">{{@global.pageLanguageSetting.enjoy_the_meal}}</span><span class="stepper-point icon-ok-4"></span>
+                        </div>
+                    </div>
+                    {{/js_compare}}
+
+
+
+                    {{#js_compare "this.status == 'Processing'"}}
+                        <div class="ns-stepper approved mt10" data="2">
+                            <div class="discussed"><span class="stepper-title">{{@global.pageLanguageSetting.order_accepted}}</span><span class="stepper-point icon-ok-4 icon-ok-4"></span></div>
+                            <div class="approved"><span class="stepper-title">{{@global.pageLanguageSetting.in_the_kitchen}}</span><span class="stepper-point icon-ok-4"></span></div>
+                            {{#js_compare "this.orderType != 'pickup'"}}
+                                <div class="processing"><span class="stepper-title">{{@global.pageLanguageSetting.on_the_way}}</span><span class="stepper-point icon-ok-4"></span></div>
+                            {{else}}
+                            <div class="processing picUpTrack"><span class="stepper-title">{{@global.pageLanguageSetting.on_the_way}}</span><span class="stepper-point icon-ok-4"></span> </div>
+                            {{/js_compare}}
+                            <div class="complete"><span class="stepper-title">{{@global.pageLanguageSetting.enjoy_the_meal}}</span><span class="stepper-point icon-ok-4"></span></div>
+                        </div>
+                    {{/js_compare}}
+
+
+            {{#js_compare "this.orderType != 'pickup'"}}
+                    {{#js_compare "this.status == 'In Transit'"}}
+                        <div class="ns-stepper approved mt10" data="3">
+                            <div class="discussed"><span class="stepper-title">{{@global.pageLanguageSetting.order_accepted}}</span><span class="stepper-point icon-ok-4 icon-ok-4"></span></div>
+                            <div class="approved"><span class="stepper-title">{{@global.pageLanguageSetting.in_the_kitchen}}</span><span class="stepper-point icon-ok-4"></span></div>
+                            {{#js_compare "this.orderType != 'pickup'"}}
+                                <div class="processing mapviewtrack">{{#if @global.setting.delivery_boy_on_off}}<span class="callIcon iconz-phone1" onclick="callToDeliveryBoys();"></span> {{/if}}<span class="stepper-title">{{@global.pageLanguageSetting.on_the_way}}</span><span class="stepper-point icon-ok-4"  ></span>
+                                    {{#if @global.setting.delivery_boy_on_off}}  <span id='map-canvas' class="map" onclick="foodCourtTrackDelivery('{{orderId}}')"></span>{{/if}}
+                                </div>
+                            {{else}}
+                                <div class="processing picUpTrack"><span class="stepper-title">{{@global.pageLanguageSetting.on_the_way}}</span><span class="stepper-point icon-ok-4"></span> </div>
+                            {{/js_compare}}
+                            <div class="complete"><span class="stepper-title">{{@global.pageLanguageSetting.enjoy_the_meal}}</span><span class="stepper-point icon-ok-4"></span></div>
+                        </div>
+                    {{/js_compare}}
+            {{/js_compare}}
+
+
+                    {{#js_compare "this.status == 'Complete'"}}
+                        <div class="ns-stepper approved mt10" data="4">
+                            <div class="discussed"><span class="stepper-title">{{@global.pageLanguageSetting.order_accepted}}</span><span class="stepper-point icon-ok-4 icon-ok-4"></span>
+                            </div>
+                            <div class="approved"><span class="stepper-title">{{@global.pageLanguageSetting.in_the_kitchen}}</span><span class="stepper-point icon-ok-4"></span>
+                            </div>
+                            {{#js_compare "this.orderType != 'pickup'"}}
+                                <div class="processing"><span class="stepper-title">{{@global.pageLanguageSetting.on_the_way}}</span><span class="stepper-point icon-ok-4"></span></div>
+                            {{else}}
+                                 <div class="processing picUpTrack"><span class="stepper-title">{{@global.pageLanguageSetting.on_the_way}}</span><span class="stepper-point icon-ok-4"></span> </div>
+                            {{/js_compare}}
+                            <div class="complete"><span class="stepper-title">{{@global.pageLanguageSetting.enjoy_the_meal}}</span><span class="stepper-point icon-ok-4"></span>
+                            </div>
+                        </div>
+                    <ul class="myOrderTracking">
+                        <li>
+                            <a class="viewItem pull-left {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" style="color:{{@global.styleAndNavigation.button[3]}};background:{{@global.styleAndNavigation.button[2]}};" data-animate="true" onclick="foodCourtPostReview(this, '{{id}}');"  product-id="{{id}}" data-head="{{productName}}" data-back="back">{{@global.pageLanguageSetting.post_review_food}}</a>
+                         <!--   <a class="viewItem pull-right {{@global.styleAndNavigation.secondaryButton[0]}} {{@global.styleAndNavigation.secondaryButton[1]}}" style="color:{{@global.styleAndNavigation.secondaryButton[3]}};background:{{@global.styleAndNavigation.secondaryButton[2]}};" data-animate="true" onclick="foodcourtProductReOrder(this, '{{id}}', '{{catId}}');"  product-id="{{id}}" data-head="{{productName}}"  data-back="back">{{@global.pageLanguageSetting.reorder_food}}</a>
+                       -->
+                        </li>
+                    </ul>
+                    {{/js_compare}}
+
+               {{/details}}
+        </div>
+    </div>
+</div>

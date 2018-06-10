@@ -1,0 +1,57 @@
+<div class="navbar"><div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+    <div class="left sliding">
+			<a href="index" class="link back" style="color:{{@global.style.headerBarIconColor}};">
+			<i class="icon icon-left-open-2"></i>
+			</a>
+		</div>
+		
+        <div class="center sliding {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">
+			<div class="topHeader">
+				{{subcatname}}
+			</div>
+		</div>
+        
+	
+		<div class="right">
+			<a onclick="Appyscript.foodcardview(this)" class="localHeaderIconRight ui-link" style="color:{{@global.style.headerBarIconColor}};"> <span class="subValue" style="color:{{@global.styleAndNavigation.button[3]}};background:{{@global.styleAndNavigation.button[2]}};">{{@global.foodCartCount}}</span><div class="headerIcon"><i class="icon-cart"></i></div></a>
+		</div>
+	</div>
+</div>
+
+<div data-page="foodordering-SubCategory" class="page navbar-through no-toolbar">
+<style type="text/css">
+  .productList li{border-bottom:2px solid {{@global.styleAndNavigation.borderColor}}}
+</style>
+	<!-- Page content-->
+	<div class="page-content infinite-scroll {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}} content-{{@global.styleAndNavigation.content[3]}} heading-{{@global.styleAndNavigation.heading[3]}} hideBorder-{{@global.styleAndNavigation.hideBorder}}" style="color:{{@global.styleAndNavigation.content[2]}}; background:{{@global.styleAndNavigation.pageBgColor}} " data-distance="200" data-page="{{categoryPage}}" data-subcatimage="{{subcatimage}}" data-subcatname="{{subcatname}}" data-id="{{subcatid}}">
+         <div class="mcomContainer"> 
+                            <ul>
+                                <li><a class="main-image">
+                                <img src="images/image-2x1.png" alt="" style="background-image:url({{subcatimage}})" class="ImgMain"/>
+                                <small class="{{@global.styleAndNavigation.title[0]}} {{@global.styleAndNavigation.title[1]}}" style="color:{{@global.styleAndNavigation.title[3]}};background:{{@global.styleAndNavigation.title[2]}};">{{subcatname}}</small></a></li>
+                            </ul>
+                            <ul class="productList">
+                                <li class="sortTag">
+                                <div class="top_toolBar">
+                                	<p>{{@global.pageLanguageSetting.Short_By}}</p>
+                                    	<div class="cat">							
+                                        	<select id="searchpopup" onchange="foodProductShortByPrice();">
+                                                <option  value="select">{{@global.pageLanguageSetting.Short_By}}</option>
+                                                <option  value="false">{{@global.pageLanguageSetting.pricelowhigh_mcom}}</option>
+                                                <option  value="true">{{@global.pageLanguageSetting.pricehighlow_mcom}}</option>
+                                            </select>							
+                                        </div>						
+                                </div>                                   
+                                </li>
+                                {{#productList}}
+                                	{{> foodcatProduct}}
+                                {{/productList}}
+                            </ul>
+                             <div class="infinite-scroll-preloader" style="display:none">
+                                 <div class="preloader-view"><div class="preloader"></div></div>
+                             </div>
+          </div>
+	</div>
+</div>
+
+        

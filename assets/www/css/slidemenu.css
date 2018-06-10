@@ -1,0 +1,281 @@
+/*List*/
+.navbar-inner{background-size:100% auto;}
+.clearfix:after{clear: both; content: "."; display: block; height: 0; visibility: hidden;}
+.app_navigation_slidemenu {
+	-webkit-backface-visibility:hidden;
+	-webkit-transform:translateZ(0);
+	width:auto;
+	padding:0;
+	outline:0;
+	clear:both;
+	overflow:hidden;
+}
+.app_navigation_slidemenu a {
+	display: block;
+	float: left;
+ 	padding: 0 0 0 45px;
+	position: relative;
+	cursor: pointer;
+	margin:0px;
+	border:0px;
+	border-bottom: 1px solid #fff;
+ 	width:100%;
+	box-sizing:border-box;
+}
+
+.app_navigation_slidemenu a img,
+.app_navigation_slidemenu a i{
+    width:30px;
+    height:30px;
+    line-height:30px;
+    position:absolute;
+    left:10px;
+    top:10px;
+    font-size:20px;
+    text-align:center;  
+}
+
+.app_navigation_slidemenu a i:before {
+ 	line-height:30px;
+}
+.app_navigation_slidemenu a span {
+	color: #fff;
+	display: inline-block;
+	line-height: 50px;
+	padding: 0 10px;
+	float:left;
+	background:none;
+    width: 100%;
+    box-sizing: border-box;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+.navbar::after{ background: none; }
+
+.app_navigation_slidemenu.hide-border a {
+ 	border-bottom:0px;
+}
+
+.app_navigation_slidemenu.hide-text a span {
+ 	display:none;
+}
+
+
+.compress .app_navigation_slidemenu a {
+    padding:0px;
+    padding:46px 0 0 0;
+    float:left;
+    width:100%;
+}
+
+.compress .app_navigation_slidemenu.hide-text a {
+ padding:46px 0 10px 0;
+}
+
+.compress .app_navigation_slidemenu a span {
+    line-height:30px;
+    width:100%;
+    padding:0 10px;
+    overflow:hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    box-sizing:border-box;
+    text-align:center;
+}
+
+.compress .app_navigation_slidemenu a img, 
+.compress .app_navigation_slidemenu a i {
+    line-height:46px;
+    width:46px;
+    left:50%;
+    top: 5px;
+    margin:0 0 0 -23px;
+    font-size:30px;
+}
+
+.compress .app_navigation_slidemenu a img {
+	width: 30px;
+    height: 30px;
+    margin: 0 0 0 -15px;
+    top: 15px;
+}
+
+.compress .app_navigation_slidemenu a i:before {
+ 	line-height:46px;
+}
+
+.sa .app_navigation_slidemenu a {
+ 	padding:0 45px 0 0;
+}
+
+.sa .app_navigation_slidemenu a i,
+.sa .app_navigation_slidemenu a img {
+ 	left:auto;
+  	right:10px;
+}
+
+.sa .app_navigation_slidemenu a span {
+	float:right;
+}
+
+.compress.sa .app_navigation_slidemenu a {
+    padding:46px 0 0 0;
+}
+
+.compress.sa .app_navigation_slidemenu a img,
+.compress.sa .app_navigation_slidemenu a i {
+    left: 50%;
+    right:auto;
+}
+
+.app_navigation_slidemenu.animation a {	
+	transition-property: all;
+    transition-duration: 0.4s;
+    transition-timing-function: linear;    	
+	transform-origin: 50% 50%;
+	position:relative;
+	z-index:2;
+}
+
+.app_navigation_slidemenu.animation[animation='left'] a {
+	opacity:0;
+	transform: translate(-100%, 0);
+}
+
+.app_navigation_slidemenu.animation[animation='left'] a.on {
+	opacity:1;
+	transform: translate(0, 0);
+}
+
+.app_navigation_slidemenu.animation[animation='right'] a {
+	opacity:0;
+	transform: translate(100%, 0);
+}
+
+.app_navigation_slidemenu.animation[animation='right'] a.on {
+	opacity:1;
+	transform: translate(0, 0);
+}
+
+.app_navigation_slidemenu.animation[animation='top'] a {
+	opacity:0;
+	transform: translate(0, -100px);
+}
+
+.app_navigation_slidemenu.animation[animation='top'] a.on {
+	opacity:1;
+	transform: translate(0, 0);
+}
+
+.app_navigation_slidemenu.animation[animation='bottom'] a {
+	opacity:0;
+	transform: translate(0, 100px);
+}
+
+.app_navigation_slidemenu.animation[animation='bottom'] a.on {
+	opacity:1;
+	transform: translate(0, 0);
+}
+
+.app_navigation_slidemenu.animation[animation='max'] a {
+	opacity:0;	
+	transform: scale(2);
+}
+
+.app_navigation_slidemenu.animation[animation='max'] a.on {
+	opacity:1;
+	transform: scale(1);
+}
+
+.app_navigation_slidemenu.animation[animation='min'] a {
+	opacity:0;
+	transform: scale(0);
+}
+
+.app_navigation_slidemenu.animation[animation='min'] a.on {
+	opacity:1;
+	transform: scale(1);
+}
+
+
+.compress .app_navigation_slidemenu.animation a {	
+	transition-property: all;
+    transition-duration: 0.5s;
+    transition-timing-function: linear;    	
+	transform-origin: 50% 50%;
+	position:relative;
+	z-index:2;
+}
+
+
+.compress .app_navigation_slidemenu.animation[animation='left'] a {
+	opacity:0;
+	transform: translate(-100px, 0);
+}
+
+.compress .app_navigation_slidemenu.animation[animation='left'] a.on {
+	opacity:1;
+	transform: translate(0, 0);
+}
+
+.compress .app_navigation_slidemenu.animation[animation='right'] a {
+	opacity:0;
+	transform: translate(100px, 0);
+}
+
+.compress .app_navigation_slidemenu.animation[animation='right'] a.on {
+	opacity:1;
+	transform: translate(0, 0);
+}
+
+.compress .app_navigation_slidemenu.animation[animation='top'] a {
+	opacity:0;
+	transform: translate(0, -150px);
+}
+
+.compress .app_navigation_slidemenu.animation[animation='top'] a.on {
+	opacity:1;
+	transform: translate(0, 0);
+}
+
+.compress .app_navigation_list.animation[animation='bottom'] a {
+	opacity:0;
+	transform: translate(0, 150px);
+}
+
+.compress .app_navigation_list.animation[animation='bottom'] a.on {
+	opacity:1;
+	transform: translate(0, 0);
+}
+
+.compress .app_navigation_slidemenu.animation[animation='max'] a {
+	opacity:0;	
+	transform: scale(3);
+}
+
+.compress .app_navigation_slidemenu.animation[animation='max'] a.on {
+	opacity:1;
+	transform: scale(1);
+}
+
+.compress .app_navigation_slidemenu.animation[animation='min'] a {
+	opacity:0;
+	transform: scale(0);
+}
+
+.compress .app_navigation_slidemenu.animation[animation='min'] a.on {
+	opacity:1;
+	transform: scale(1);
+}
+
+body.slidemenu {
+	background-size:100% 100%;
+	background-repeat:no-repeat;
+}
+
+body.slidemenu .panel {
+	background:rgba(0, 0, 0, 0);
+}

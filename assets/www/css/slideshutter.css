@@ -1,0 +1,84 @@
+.app_navigation_slideshutter *{
+            margin: 0;
+            padding: 0;
+			-webkit-transition:all ease 0.3s;
+	-moz-transition:all ease 0.3s;
+	-o-transition:all ease 0.3s;
+	-ms-transition:all ease 0.3s;
+	transition:all ease 0.3s;
+}
+.app_navigation_slideshutter{    display: inline-block;
+    height: 100%;
+    position: relative;
+    float: left;
+    width: 100%;}
+.app_navigation_slideshutter #box {
+		width: 100%;
+		height: 100%;
+		/*position:fixed;*/
+		overflow:hidden;
+		margin:0px;
+		padding:0px;
+		list-style:none;
+		}
+ 
+.app_navigation_slideshutter #box  a {
+    text-decoration: none; 
+   
+	display:inline-block;
+	
+	width: 100%;
+			height: 100%;
+			float: left;
+			background-size: cover !important;
+			background-repeat: no-repeat !important;
+			background-position: center top !important;
+			box-shadow:0px 0px 8px rgba(0,0,0,.5);
+			position: relative;
+} 
+.app_navigation_slideshutter #box  a.half{height:10%; background-position: center -40px !important;}
+.app_navigation_slideshutter #box  a.full{height:70%;}
+.app_navigation_slideshutter #box  a.none{height: 0px;
+overflow: hidden;
+display: inline-block;}
+.app_navigation_slideshutter #box  a img{width:100%;}
+.app_navigation_slideshutter .jqr_container {
+     position: absolute;
+     width: 100%;
+     bottom: 0;
+     top: 0;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+     align-items: center;
+    -webkit-box-pack: center;
+    -moz-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+}
+.app_navigation_slideshutter .jqr_container span{
+ 
+    text-align: center;
+    text-shadow: 0px 0px 5px rgba(0,0,0,.9);
+   /* font-family: 'Chewy', cursive;*/
+    display: block;
+	padding:0 10px;
+}
+.app_navigation_slideshutter .half .jqr_container span{
+ font-size:70%;
+}
+.app_navigation_slideshutter.hide-text .jqr_container {
+    display: none;
+}
+@media only screen and (min-width:768px){
+.app_navigation_slideshutter #box  a.full {
+    height: 90%;
+}
+}

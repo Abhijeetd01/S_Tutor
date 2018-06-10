@@ -1,0 +1,78 @@
+<div class="navbar"><div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+    <div class="left sliding">
+        {{getSlideBack "common"}}
+    </div>
+    <div class="center sliding {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">{{name}}</div>
+            <div class="right">
+            </div>
+          </div></div>
+
+
+<div data-page="weather" class="page navbar-through no-toolbar">
+    <!-- Page content-->
+    <style>.places-list {
+        margin: 0;
+        color: {{@global.style.pageTextColor}};
+        font-family:{{@global.style.appPageFont}}
+    }
+    .places-list ul {
+        background: none;
+        border-bottom: 1px solid transparent;
+    }
+    .places-list ul:before {
+        display: none;
+    }
+    .places-list ul:after {
+        background-color: rgba(255, 255, 255, 0.2);
+    }
+    .places-list ul:empty {
+        display: none;
+    }
+    .places-list a.item-link .item-inner,
+    .places-list .item-inner {
+        background: none;
+        padding-right: 15px;
+    }
+    .places-list a.item-link .item-inner:after,
+    .places-list .item-inner:after {
+        background-color: rgba(255, 255, 255, 0.2);
+    }
+    .places-list a.item-link.active-state {
+        background: rgba(255, 255, 255, 0.1);
+    }
+    .places-list .item-after {
+        font-size: 41px;
+        font-weight: 100;
+        max-height: none;
+        color: {{@global.style.pageTextColor}};
+    }
+    .places-list .city {
+        font-size: 25px;
+        font-weight: 300;
+        position: relative;
+        overflow: hidden;
+        max-width: 100%;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    .places-list .country {
+        font-size: 14px;
+        font-weight: 300;
+    }
+    .places-list .list-block-label {
+        text-align: center;
+        color: #fff;
+        opacity: 0.6;
+    }</style>
+    <a href="#" onclick="Appyscript.popupPage('weather-location')" class="floating-button"><i class="icon-plus-3"></i></a>
+<div class="backgroundAnimation">{{> innerBackground}}</div>
+<div class="page-content {{@global.style.appPageCsize}} {{@global.style.appPageFont}}">
+
+    
+    <div class="list-block places-list">
+        <ul>
+            
+        </ul>
+    </div>
+</div>
+</div>

@@ -1,0 +1,196 @@
+<div class="navbar"><div class="navbar-inner" style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+    <div class="left sliding">
+        {{#root_Compare @global.style.layout "==" "slidemenu"}}
+        {{#if @root.innerLayout}}
+        <a href="index" class="link back" id="backHomeMessegner" onclick="goToHomePage()" style="color:{{@global.style.headerBarIconColor}};">
+            <i class="icon icon-left-open-2"></i>
+        </a>
+        {{else}}
+        <a onclick="Appyscript.openSlide()" style="color:{{@global.style.headerBarIconColor}};">
+            <i class="icon icon-menu"></i>
+        </a>
+        {{/if}}
+        {{else}}
+        {{#root_Compare @global.style.layout "==" "bottom"}}
+        <a href="index" class="link back" id="backHomeMessegner" onclick="Appyscript.clickHome()" style="color:{{@global.style.headerBarIconColor}};">
+            <i class="icon icon-left-open-2"></i>
+        </a>
+        {{else}}
+        <a href="index" class="link back" id="backHomeMessegner" onclick="goToHomePage()" style="color:{{@global.style.headerBarIconColor}};">
+            <i class="icon icon-left-open-2"></i>
+        </a>
+        {{/root_Compare}}
+        {{/root_Compare}}
+    </div>
+    <div class="center sliding {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}" id="homeTitle">{{@global.pageLanguageSetting.Chats_Tab_Header_Title}}</div>
+    <div class="right" id="right">  <a onclick="openNewContactPage()" style="color:{{@global.style.headerBarIconColor}};"><i  class=" icon iconz-user-add"></i></a><a onclick="refreshAllContact(this)" style="color:{{@global.style.headerBarIconColor}};"><i class=" icon icon-spin3"></i></a></div>
+</div></div>
+
+
+<div data-page="messenger-home" class="page navbar-through no-toolbar toolbar-through">
+    <div class="toolbar tabbar toolbar-bottom">
+        <div class="toolbar-inner messenger-tab {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="background-color:{{@global.style.headerBarBackgroundColor}}">
+            <a href="#friend-chat-list" class="tab-link active"> <i class="icon appyicon-we-chat"> </i><span>{{@global.pageLanguageSetting.Chats_Tab_Header_Title}}</span> </a>
+            <a href="#friend-list" class="tab-link" id="conatct_tab"> <i class="icon iconz-user"></i><span>{{@global.pageLanguageSetting.Contacts_Tab_Header_Title}}</span> </a>
+            <a href="#setting-tab"  class="tab-link"> <i class="icon icon-cog"></i><span>{{@global.pageLanguageSetting.setting}}</span> </a>
+        </div>
+    </div>
+    <div class="backgroundAnimation">{{> innerBackground}}</div>
+    <!-- Scrollable page content -->
+    <div class="page-content">
+        <style type="text/css">
+            .toolbar-inner a.tab-link{
+                color:{{@global.styleAndNavigation.tab[1]}};
+                background:{{@global.styleAndNavigation.tab[0]}};
+                width:100%;
+                    height: 44px;
+            }
+        .toolbar-inner a.active {
+            color:{{@global.styleAndNavigation.tab[1]}};
+            background:{{@global.styleAndNavigation.tab[2]}};
+        }
+        .list-block{margin: 0px;}
+        .list-block ul{background: none;border-radius: 0px;}
+        .list-block ul:after, .list-block ul:before{
+            background-color:transparent;
+        }
+        .list-block ul li{border-top:1px solid {{@global.styleAndNavigation.borderColor}}}
+        .list-block ul li:first-child{border-top:0px; }
+        .list-block .item-inner:after{background:none }
+        #friend-list ul li{ padding:0px; }
+        #friend-list  .item-inner .icon{ padding:0 5px;
+            font-size: 1.7em}
+        #setting-tab ul li{ padding:0px; }
+        #setting-tab  .item-inner .icon{ padding:0 5px;
+            font-size: 1.7em}
+        .tabbar i.icon{height:auto; font-size:large;}
+        #friend-chat-list, #friend-chat-list .list-block, #friend-chat-list .list-block ul{ height:100% }
+        .badge{background:{{@global.styleAndNavigation.badge[1]}}; color:{{@global.styleAndNavigation.badge[0]}}};
+            </style>
+
+        <div class="tabs-animated-wrap">
+            <!-- Tabs, tabs wrapper -->
+            <div class="tabs">
+                <!-- Tab 1, active by default -->
+                <div id="friend-chat-list" class="tab active" style="overflow-y: scroll;">
+                    {{#js_compare "this.allMessage == null"}} {{else}}
+                    <div class="list-block media-list">
+                        <ul id="conversationlists">
+                            {{#if this.allMessage.length}}
+                            {{#each allMessage}}
+                            <li class="item-content" {{#if this.userId}} list-userid="{{this.userId}}" {{else}} list-groupid="{{this.groupId}}" {{/if}} {{#if this.userId}} onclick="openChatWindow('{{this.name}}','{{this.profilepic}}','{{this.userId}}','{{filterCountryName this.country}}',true,this)" {{else}} onclick="openGroup('{{this.groupId}}','{{this.name}}',this,'')" {{/if}} >
+                            <div class="item-media">
+                                <img src="{{#if this.profilepic}} {{this.profilepic}}{{else}}{{@global.style.reseller}}/newui/images/user-pic-news.png{{/if}}" class="avatar avatar-rounded chatlistimgprofile">
+                            </div>
+                            <div class="item-inner">
+                                <div class="item-title-row {{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}}" >
+                                    <div class="item-title ">{{this.name}}</div>
+                                    <div {{#if this.userId}} id="messagedatehome{{this.userId}}" {{else}} id="messagedatehome{{this.groupId}}" {{/if}}  class="item-after {{@global.styleAndNavigation.content[0]}}  {{@global.styleAndNavigation.content[1]}}"  style="color:{{@global.styleAndNavigation.timeColor}}">{{notificationdate this.time "home"}}</div>
+                            </div>
+                            <div class="item-title-row {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="color:{{@global.styleAndNavigation.content[2]}}" >
+                                <div class="item-title subtitle width85" style="color:{{@global.styleAndNavigation.content[2]}}" id="renderdivchathome">{{#if this.userId}}{{removebrelement this.content}}{{else}}{{removebrelement this.content}}{{/if}}</div>
+                                <div class="item-after badge-icon">{{#if this.unread}}{{#isBlankData this.unread}} {{else}} <span  class="badge">{{this.unread}}</span> {{/isBlankData}}{{/if}}</div>
+                            </div>
+                    </div>
+                    </li>
+                    {{/each}}
+                    {{else}}
+                    <div class="msg-code">{{> errorpage errorIcon="appyicon-no-data"}}</div>
+
+                    {{/if}}
+                    </ul>
+                </div>
+                {{/js_compare}}
+
+            </div>
+            <!-- Tab 2 -->
+            <div id="friend-list" class="tab" >
+                <div data-search-list=".list-block-search" data-search-in=".item-title" class="searchbar searchbar-init">
+                    <div class="searchbar-input">
+                        <input type="search" onkeyup="myFunction()"  placeholder="{{@global.pageLanguageSetting.Search_Placeholder_Text}}"  id="devicecontactsearchbox">
+                        <a href="#" class="searchbar-clear"></a>
+                    </div><a href="#" class="searchbar-cancel">Cancel</a> </div>
+                <!-- Search Bar overlay -->
+                <div class="searchbar-overlay"></div>
+
+                <div class="item-content" onclick="openContactPageForGroup()">
+                    <div class="item-inner {{@global.styleAndNavigation.contact[0]}} {{@global.styleAndNavigation.contact[1]}} " style="color:{{@global.styleAndNavigation.contact[2]}}">
+                        <div class="item-title"><i class="icon iconz-user" style="color:{{@global.styleAndNavigation.contact[3]}}"></i>{{@global.pageLanguageSetting.Create_New_Group}}</div>
+                    </div>
+                </div>
+
+                <style>
+                        .searchbar {
+                            background: {{@global.styleAndNavigation.submenu[2]}};
+                            color: {{@global.styleAndNavigation.submenu[3]}};
+                            z-index:1000
+                        }
+
+                    .searchbar a {
+                        color: {{@global.styleAndNavigation.submenu[3]}}}
+
+                    .searchbar input {border-color: {{@global.styleAndNavigation.submenu[4]}}
+                        !important;
+                        background-color: {{@global.styleAndNavigation.submenu[4]}};
+                        color: {{@global.styleAndNavigation.submenu[5]}};
+                    }
+                    .with-searchbar{padding-bottom:44px; }
+                    </style> {{#js_compare "this.allcontacts == null"}}
+                <div class="msg-code">{{> errorpage errorIcon="appyicon-no-data"}}</div> {{else}}
+                <div style="position: absolute;
+                        width: 100%;
+                        height: 100%;
+                        overflow-y: scroll;">
+                    <div class="searchbar-found countryList searchbar-found  with-searchbar">
+                        <div class="list-block">
+                            <ul class="{{@global.styleAndNavigation.menu[0]}} {{@global.styleAndNavigation.menu[1]}}" style="margin-bottom:38px !important" id="friendlist">
+                                <li class="item-divider dividercss {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" style="background-color:{{@global.styleAndNavigation.button[2]}}; color:{{@global.styleAndNavigation.button[3]}}">{{@global.pageLanguageSetting.Contacts_Tab_My_Contacts}}</li>
+                                {{#recentContact}}
+                                <li onclick="loadUserDataFromSql('{{this.name}}','{{this.phoneno}}','','{{this.indexof}}','{{this.length}}')">
+                                    <a href="#" class="item-link item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title-row {{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}}">
+                                                {{#js_compare "this.name == this.phoneno"}} {{else}} <div class="item-title">{{this.name}}</div>{{/js_compare}}<div class="item-subtitle {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="color:{{@global.styleAndNavigation.content[2]}}">{{this.phoneno}}</div>
+                                            </div>
+
+                                        </div>
+                                    </a>
+                                </li>
+                                {{/recentContact}}
+                                <li class="item-divider dividercss {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" style="background-color:{{@global.styleAndNavigation.button[2]}}; color:{{@global.styleAndNavigation.button[3]}}">{{@global.pageLanguageSetting.Contacts_Tab_All_Contacts}}</li>
+                                {{#remianAllContact}}
+                                <li onclick="loadUserDataFromSql('{{this.name}}','{{this.phoneno}}','','{{this.indexof}}','{{this.length}}')">
+                                    <a href="#" class="item-link item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title-row {{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}}">
+                                                {{#js_compare "this.name == this.phoneno"}} {{else}} <div class="item-title">{{this.name}}</div>{{/js_compare}}<div class="item-subtitle {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="color:{{@global.styleAndNavigation.content[2]}}">{{this.phoneno}}</div>
+                                            </div>
+
+                                        </div>
+                                    </a>
+                                </li> {{/remianAllContact}} </ul>
+                        </div></div> {{/js_compare}} </div>
+            </div>
+            <div id="setting-tab" class="tab" >
+                <div class="list-block nomargin">
+                    <ul>
+                        <li class="item-content" onclick="Appyscript.notificationprofile('messenger');">
+                            <div class="item-inner {{@global.styleAndNavigation.contact[0]}} {{@global.styleAndNavigation.contact[1]}} " style="color:{{@global.styleAndNavigation.contact[2]}}">
+                                <div class="item-title"><i class="icon iconz-user-asterisk" style="color:{{@global.styleAndNavigation.contact[3]}}" ></i>{{@global.pageLanguageSetting.updateProfile}}</div>
+                            </div>
+                        </li>
+
+                        <li class="item-content" onclick="logout()" >
+                            <div class="item-inner {{@global.styleAndNavigation.contact[0]}} {{@global.styleAndNavigation.contact[1]}} " style="color:{{@global.styleAndNavigation.contact[2]}}">
+                                <div class="item-title"><i class="icon iconz-logout" style="color:{{@global.styleAndNavigation.contact[3]}}" ></i>{{@global.pageLanguageSetting.Logout}}</div>
+                            </div>
+                        </li>
+                    </ul>
+                    <div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,44 @@
+<div class="navbar">
+    <div class="navbar-inner" style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+        <div class="left sliding">
+            <a class="link back" href="" style="color:{{@global.style.headerBarTextColor}};">
+                <i class="icon icon-left-open-2"></i>
+            </a>
+        </div>
+        <div class="center sliding {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">{{@global.commentboxtitle}}</div>
+        <div class="right">
+        </div>
+    </div>
+</div>
+<div data-page="blog-CommentsPage" class="page navbar-through no-toolbar">
+    <!-- Page content-->
+    <div class="backgroundAnimation">{{> innerBackground}}</div>
+    <div class="page-content content-{{@global.styleAndNavigation.content[3]}} heading-{{@global.styleAndNavigation.heading[3]}} hideBorder-{{@global.styleAndNavigation.hideBorder}}" style="background:{{@global.styleAndNavigation.pageBgColor}}">
+        <div  class="blog-page {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="color:{{@global.styleAndNavigation.content[2]}}">
+
+
+            <div class="page-text-blog">
+                <div class="detail-blog" id="blogs_heading_text">
+                    <h4 class="{{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}}; display:none;">{{@global.commentboxtitle}}</h4>
+                    <div class="blog-text {{#if mode}}on{{/if}}" {{#if mode}}style="display:block"{{/if}}><textarea id="text" name="" cols="" rows="5" placeholder="{{@global.pageLanguageSetting.write_comment_blog}}" style="border-color:{{@global.styleAndNavigation.borderColor}};"></textarea></div>
+                <div class="post-comment" style="background-color:{{@global.style.primaryButtonBgColor}}; color:{{@global.style.buttonTextColor}}" onclick="Appyscript.DoneBlogPastComment(this)" data-id="{{id}}" index="{{id}}">{{@global.pageLanguageSetting.post_blog}}</div>
+                <div class="user-comments">
+                    <ul>
+                        {{#list}}
+                        <li class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="color:{{@global.styleAndNavigation.content[2]}}">
+                            <p>{{comment}}</p>
+                            <div><span style="color:{{@global.styleAndNavigation.activeBgColor}}">{{userName}}    </span> <small>   {{commentDate}} (UTC)</small></div>
+                        </li>
+                        {{/list}}
+                    </ul>
+                </div></div></div>
+
+
+
+
+
+
+
+    </div>
+</div>
+</div>

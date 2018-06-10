@@ -1,0 +1,37 @@
+<div class="navbar"><div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+        <div class="left sliding">
+            <a href="index" class="link back" style="color:{{@global.style.headerBarIconColor}};">
+                <i class="icon icon-left-open-2"></i>
+            </a>
+        </div>
+        <div class="center sliding {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">{{@global.pageLanguageSetting.Contacts_Tab_Pending_Request}}</div>
+        <div class="right">
+        </div>
+    </div></div>
+
+
+<div data-page="messenger-pending-request" class="page navbar-through">
+    
+    <div class="backgroundAnimation">{{> innerBackground}}</div>
+    <div class="page-content ">
+            {{#js_compare "this.data == null"}} <div class="msg-code">{{> errorpage errorIcon="appyicon-no-data"}}</div> {{else}} {{#if this.data.length}}
+            <div class="list-block media-list" >
+                <ul> {{#each data}}
+                    <li class="item-content" onclick="acceptRequest('{{this.name}}','{{this.profilepic}}','{{this.userId}}','{{filterCountryName this.country}}',this,'pending')">
+                            <div class="item-media">
+                                <img src="{{#if this.profilepic}} {{this.profilepic}}{{else}}{{@global.style.reseller}}/newui/images/user-pic-news.png{{/if}}" class="avatar avatar-rounded chatlistimgprofile">
+                                    </div>
+                            <div class="item-inner">
+                                <div class="item-title-row {{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}}" >
+                                    <div class="item-title">{{name}}</div>
+                                </div>
+                                <div class="item-subtitle {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="color:{{@global.styleAndNavigation.content[2]}}">{{filterCountryName country}}</div>
+                            </div>
+                    </li> {{/each}} </ul>
+            </div> {{else}} <div class="msg-code">{{> errorpage errorIcon="appyicon-no-data"}}</div> {{/if}} {{/js_compare}}
+            
+            
+        </div>
+    </div>
+
+<!--popup-->

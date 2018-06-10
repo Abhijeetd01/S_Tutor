@@ -1,0 +1,39 @@
+<div class="popup menu-popup tablet-fullscreen"  data-page="fitness-menu">
+    <div class="view toolbar-through">
+        <div class="pages">
+            <div class="page">
+                <div class="page-content" style="background:{{@global.styleAndNavigation.menu[0]}}">
+                    <style>
+                	ul.leftMenu li a{color: {{@global.styleAndNavigation.menu[2]}};}
+					ul.leftMenu li a i, .editProfilebutton{color: {{@global.styleAndNavigation.menu[1]}};}
+					ul.leftMenu li{border-color:{{@global.styleAndNavigation.borderColor}}}
+                </style>
+                    <div class="profile-image">
+                        <div class="profileContentBx" >
+                            <div class="profileBx" onclick="fitness_editProfile()" >
+                                <span class="image"><img src="{{image_src}}" alt="" id="fitness_menu_profile_pic"></span>
+                            </div>
+                            <a href="#" data-animate="true" data-back="back" class="editProfilebutton icon-cancel close-tutorial"></a>
+
+                        </div>
+                    </div>
+
+                    <div class="sub-menu hyperlocal-menu">
+                        <ul class="leftMenu {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}">
+                            <li><a class="close-tutorial" onClick="Appyscript.clickHome()"><i class="iconz-home"></i>Home</a></li>
+
+                            <li id="fitnessSettings"><a  onclick="fitnessLogin()" class="popupToPage" data-animate="true"><i class="iconz-target"></i>Target</a></li>
+                            <!--<li><a onclick="terms()" termsclass="close-tutorial" data-page="ecommerce" data-back="back"></a></li> -->
+
+                            <li id="fitnessLogin"><a onclick="Appyscript.loginPage(this,'true');"><i class="iconz-login"></i> Login</a></li>
+                            <li id="fitnessLogout"><a onclick="fitness_logout();"><i class="iconz-login"></i> Logout</a></li>
+                        </ul>
+                    </div>
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

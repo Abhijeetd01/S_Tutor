@@ -1,0 +1,177 @@
+<div class="popup menu-popup tablet-fullscreen" data-page="customEvent-filter">
+	<div class="view">
+		<div class="navbar">
+			<div class="navbar-inner " style="background-color:{{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}}; ">
+				<div class="left sliding">
+					<a href="" class="close link icon-left-open-2 close-popup" style="color:{{@global.style.headerBarIconColor}};" onclick="ce_checkFilter();"></a>
+				</div>
+				<div class="center sliding {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">
+					<div class="topHeader">
+						 Filters
+					</div>
+				</div>
+				<div class="right">
+				</div>
+			</div>
+		</div>
+		<div class="pages">
+			<div data-page="customevent-filter" class="page navbar-through  toolbar-through  toolbar-bottom {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="color:{{@global.styleAndNavigation.content[2]}}; background:{{@global.styleAndNavigation.pageBackroundColor}}">
+				<div class="page-content" onresize="ce_filterResized(this)">
+                	<style type="text/css">
+						.filter-page input[type='date'],
+						.filter-page .search-for li,
+						.noUi-handle,
+						.noUi-target {
+							background:{{@global.styleAndNavigation.fieldBgColor}};
+							color:{{@global.styleAndNavigation.fieldTextColor}};
+							border-color:{{@global.styleAndNavigation.borderColor}};
+						}
+						
+						.freeEvOnly {
+							background:{{@global.styleAndNavigation.fieldBgColor}};
+							border-color:{{@global.styleAndNavigation.borderColor}};
+						}
+						.filter-row a.order-id.item-link.genre {
+								border-color:{{@global.styleAndNavigation.borderColor}};
+								color:{{@global.styleAndNavigation.content[2]}};
+						}
+						
+						.filter-page .search-for li .freeEvOnly span.checkbox:before,
+						.filter-page .search-for li span.checkbox:before {
+							color:{{@global.styleAndNavigation.fieldTextColor}};
+						}
+						
+						.filter-page #distance-slider-tab {
+							border:0px;
+						}
+						
+						.filter-page #distance-slider-tab a {
+							background:{{@global.styleAndNavigation.tab[0]}};
+							color:{{@global.styleAndNavigation.tab[1]}};
+							
+						}
+						.filter-page #distance-slider-tab a.active {
+							background:{{@global.styleAndNavigation.tab[2]}};
+							color:{{@global.styleAndNavigation.tab[1]}};							
+						}
+						
+						.filter-page .search-for li.on {
+							background:{{@global.styleAndNavigation.fieldBgColor}};
+							color:{{@global.styleAndNavigation.fieldTextColor}};
+							border-color:{{@global.styleAndNavigation.borderColor}};
+						}
+						
+						.ratingView i{color:{{@global.styleAndNavigation.ratingColor}}}
+						.ratingView i.on{color: {{@global.styleAndNavigation.ratingActiveColor}}}
+						
+						.enreList {
+							border-color:{{@global.styleAndNavigation.borderColor}};
+						}
+					</style>
+						<div class="bodypan">
+							<section class="section-events filter-page">
+							<!--<h2>Short By</h2>-->
+							<div class="filter-row short-by">
+                                <h3 class="{{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}}; ;">{{@global.pageLanguageSetting.date}}</h3>
+								<input type="date" placeholder="{{@global.pageLanguageSetting.select_date}}" id="dateFilter" value="Thu, 21 Aug 2015" class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" onchange="handlePlaceholder(this);">
+							</div>
+							<div class="filter-row search-for free-event">
+								<ul>
+                                    <li class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}">{{@global.pageLanguageSetting.only_free_events}}
+									<div class="freeEvOnly">
+										<span class="checkbox icon-ok-4"><input id="isFree" type="checkbox" value="Advanture"></span>
+									</div>
+									</li>
+								</ul>
+							</div>
+							<div class="filter-row rateFilter">
+                                <h3 class="{{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}}; ;">{{@global.pageLanguageSetting.ratting_Hyper}}</h3>
+								<span class="ratingView">
+                                    <i id="star1" onclick="rateStars(1,true)" class="iconz-star"></i>
+                                    <i id="star2" onclick="rateStars(2,true)" class="iconz-star"></i>
+                                    <i id="star3" onclick="rateStars(3,true)" class="iconz-star"></i>
+                                    <i id="star4" onclick="rateStars(4,true)" class="iconz-star"></i>
+                                    <i id="star5" onclick="rateStars(5,true)" class="iconz-star"></i>
+                                </span>
+							</div>
+							<div class="filter-row">
+                                <h3 class="distance {{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}}; ;">{{@global.pageLanguageSetting.price_range}}</h3>
+								<div class="eventRangSlider">
+									<span class="min" id="eventRangeValueMinPrice">0</span>
+                                    <span class="max" id="eventRangeValueMaxPrice">200</span>
+									<input id="eventrangMinPrice" type="text" min="0" max="1000" step="1" value="200" style="width:100%;"/>
+									<input id="eventrangMaxPrice" type="text" min="0" max="1000" step="1" value="200" style="width:100%;"/>
+									<div id="eventrangGetPrice">
+									</div>
+								</div>
+                            </div>
+                            
+                            <div class="filter-row">
+								<h3 class="distance {{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}}; ;">{{@global.pageLanguageSetting.distance}}</h3>
+								<div class="eventRangSlider">
+									<span class="max" id="eventRangeValueMax">200</span>
+									
+									<input id="eventrangMax" type="text" min="0" max="1000" step="1" value="200" style="width:100%;"/>
+									<div id="eventrangGet">
+									</div>
+								</div>
+								<div id="distance-slider-tab">
+									<a href="#" id="kmText" onclick="toggleKmMi('km');" class="active">{{@global.pageLanguageSetting.km}}</a>
+									<a href="#" id="miText" onclick="toggleKmMi('mi');">{{@global.pageLanguageSetting.miles}}</a>
+								</div>
+							</div>
+							 
+                             {{#js_compare "AppyTemplate.global.os = 'ios' "}}
+                             <div class="filter-row search-for">
+                                <div class="accordion-list1">
+                                     <div class="accordion-item1 enreList">
+                                         <a id="genreListArrow" class="order-id item-link genre icon-right-open" onclick="ce_showHideGenre(this)">{{@global.pageLanguageSetting.genre}}</a>
+                                            <div class="accordion-item-content1 order-row">
+                                                    <div class="accordion-item1 genreListIOS">
+                                                    	<ul id="filterGenreList">
+                                                            
+                                                        </ul>
+                                                    </div>
+                                            </div>
+                                </div>
+                                     {{else}}
+                                     <div class="filter-row search-for">
+                                         <div class="accordion-list">
+                                             <div class="accordion-item enreList">
+                                                 <a id="genreListArrow" class="order-id item-link genre icon-right-open" onclick="ce_changeArrow(this)">{{@global.pageLanguageSetting.genre}}</a>
+                                                 <div class="accordion-item-content order-row">
+                                                     <div class="accordion-item">
+                                                         <ul id="filterGenreList">
+                                                             
+                                                         </ul>
+                                                     </div>
+                                                 </div>
+                                             </div>
+                                             {{/js_compare}}
+                                
+                                	  <!--<div class="accordion-item enreList">
+                                            <a class="order-id item-link genre icon-right-open">Language</a>
+                                            <div class="accordion-item-content order-row">
+                                                    <div class="accordion-item">
+                                                    	<ul> 
+                                                            <li>Hindi <span class="checkbox icon-ok-4"><input type="checkbox" value="Advanture"></span></li>
+                                                            <li>English <span class="checkbox icon-ok-4"><input type="checkbox" value="Bollywood"></span></li>
+                                                        </ul>
+                                                    </div>
+                                            </div>
+                                </div>-->	 
+                                </div> 
+                             </div>
+                            
+							</section>
+						</div> 
+				</div>
+				<div class="toolbar">
+					<div class="toolbar-inner">
+                        <a class="btn close-popup {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" style="background-color: {{@global.styleAndNavigation.button[2]}}; color: {{@global.styleAndNavigation.button[3]}};" onclick="Appyscript.customEventFilter();">{{@global.pageLanguageSetting.apply_mcom}}</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

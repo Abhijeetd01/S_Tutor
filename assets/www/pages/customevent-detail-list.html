@@ -1,0 +1,46 @@
+<div class="navbar"><div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}}; font-size: {{@global.style.headerBarSize}} ">
+            <div class="left sliding">
+              <a href="index" class="link back" style="color:{{@global.style.headerBarTextColor}};">
+                <i class="icon icon-left-open-2"></i>
+              </a>
+            </div>
+           <div class="center sliding">
+              Easy Booking
+            </div> 
+            <div class="right"></div>
+          </div></div>
+
+<div data-page="CustomEventPage" class="page navbar-through no-toolbar" style="background-color: {{@global.style.appPageBackgroundColor}}" >
+<!-- Page content-->
+    <div class="page-content">	
+    
+    
+    
+    <section class="section-events day-page event-search">
+<div class="days-list">
+<a href="#" class="none">MON <strong>21</strong> DEC</a>
+<a href="#" class="none">MON <strong>21</strong> DEC</a>
+<a href="#" class="on">MON <strong>21</strong> DEC</a>
+<a href="#">MON <strong>21</strong> DEC</a>
+<a href="#">MON <strong>21</strong> DEC</a>
+<a href="#">MON <strong>21</strong> DEC</a>
+<a href="#">MON <strong>21</strong> DEC</a>
+</div>
+{{#if list}}
+<ul class="content-list">
+{{#list}}
+<li onclick="Appyscript.customeventSelectSeat(this)" index="{{@index}}">
+<h4>{{title}}</h4>
+
+{{#option}}
+<span>{{row_start_time}}</span>
+{{/option}}
+
+</li>
+{{/list}}
+</ul>
+{{/if}}
+</section>
+    
+    </div>
+</div>

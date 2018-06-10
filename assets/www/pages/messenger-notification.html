@@ -1,0 +1,42 @@
+<div class="popup popup-notification tablet-fullscreen" >
+    
+    
+    <div class="navbar"><div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+        <div class="left sliding">
+            <a href="index" class="link close-popup" style="color:{{@global.style.headerBarIconColor}};">
+                <i class="icon icon-left-open-2"></i>
+            </a>
+        </div>
+        <div class="center sliding {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">{{@global.pageLanguageSetting.Messenger_Notification}}</div>
+        <div class="right">
+        </div>
+    </div></div>
+    <div class="pages navbar-through" style="background-color:{{@global.styleAndNavigation.menu[2]}}">
+        <style> .list-block{margin-top:0px; color:{{@global.styleAndNavigation.menu[3]}};}
+            
+            .list-block .item-inner:after{background-color:{{@global.styleAndNavigation.borderColor}};}
+            </style>
+        <div class="content-block nopadding nomargin ">
+            {{#js_compare "this.notifcationArray == null"}}  {{else}} {{#if this.notifcationArray.length}}
+            <div class="list-block">
+                <ul  class="{{@global.styleAndNavigation.menu[0]}} {{@global.styleAndNavigation.menu[1]}}" style="background:{{@global.styleAndNavigation.menu[2]}}; color:{{@global.styleAndNavigation.menu[3]}}">
+                    {{#notifcationArray}}
+                    <li class="swipeout close-popup">
+                        <div class="swipeout-content">
+                            <a href="#" class="item-content item-link" id="notificationaction" onclick="openPageFromNotification('{{this.type}}','{{this.objectkey}}',this)">
+                                <div class="item-inner">
+                                    <div class="item-title" style="color:{{@global.styleAndNavigation.menu[3]}}">{{capitalizeFirstLetter this.name}}
+                                        <p>{{capitalizeFirstLetter this.message}}</p>
+                                    </div>
+                                    <div class="item-after {{@global.styleAndNavigation.menu[0]}} {{@global.styleAndNavigation.menu[1]}}" style="color:			{{@global.styleAndNavigation.menu[3]}}">{{notificationdate this.time "notification"}}</div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="swipeout-actions-right"> <a href="#" class="lightredbg swipeout-delete" onclick="deleteNotification('{{this.objectkey}}') ">{{@global.pageLanguageSetting.Messenger_Remove}}</a> </div>
+                    </li>
+                    {{/notifcationArray}}
+                </ul>
+            </div> {{else}} {{/if}} {{/js_compare}}
+        </div>
+    </div>
+</div>

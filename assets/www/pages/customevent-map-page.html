@@ -1,0 +1,32 @@
+<div class="navbar"><div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}}; font-size: {{@global.style.headerBarSize}} ">
+    <div class="left sliding">
+        <a href="index" class="link back" onclick="ce_mapClosed()" style="color:{{@global.style.headerBarTextColor}};">
+            <i class="icon icon-left-open-2"></i>
+        </a>
+    </div>
+    
+    <div class="center sliding">
+        <div class="topHeader">{{@global.pageLanguageSetting.map_header}}
+        </div>
+        
+    </div>
+   
+</div></div>
+
+<div data-page="customevent-map" class="page navbar-through  toolbar-through   toolbar-bottom {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="color:{{@global.styleAndNavigation.content[2]}}; background:{{@global.styleAndNavigation.pageBackroundColor}}">
+    <!-- Page content-->
+            <div class="page-content {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="color:{{@global.styleAndNavigation.content[2]}}; background:{{@global.styleAndNavigation.pageBackroundColor}}">
+                
+                <div class="section-events map-page">
+                    <div id="customEventMapId" class="event-map-area" style="width: 100vw; height: {{ce_getMapHeight false}}; border-bottom:1px solid {{@global.styleAndNavigation.borderColor}}">
+                        
+                    </div>
+                    <ul class="event-map-detail map-venue-list">
+                        
+                    </ul>
+                    
+             
+        </div>
+        </div>
+    
+</div>

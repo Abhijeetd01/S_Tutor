@@ -1,0 +1,179 @@
+<div class="popup menu-popup tablet-fullscreen">
+    <div class="view toolbar-through navbar-through">
+        <div class="navbar">
+            <div class="navbar-inner "
+                 style="background-color:{{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}}; font-size: {{@global.style.headerBarSize}} ">
+                <div class="left sliding">
+                    <a href="" class="close link icon-left-open-2 close-popup"
+                       style="color:{{@global.style.headerBarTextColor}};">
+
+                    </a>
+                </div>
+                <div class="center sliding">
+                    <div class="topHeader">{{pageTitle}}</div>
+                </div>
+                <div class="right"></div>
+            </div>
+        </div>
+        <div class="pages">
+            <div class="page" data-page="appsheets-sheet-update">
+                <div class="page-content {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="color:{{@global.styleAndNavigation.content[2]}}; background:{{@global.styleAndNavigation.pageBgColor}}">
+                    <div class="bodypan">
+                        <form id="sheet_form">
+                            <div class="zrq-sheet">
+                                <ul>
+                                    {{#each this.row}}
+                                    <!--add if not hidden-->
+                                    {{#unless this.hide}}
+                                    <li class="input customField" type="{{fieldType}}" {{#if this.hide}} style="display:none;"{{/if}}
+                                    mandatory="{{mandatory}}">
+
+                                    {{#js_compare "this.fieldType == 'text'"}}
+                                    <label class="{{@global.styleAndNavigation.Lebel[0]}} {{@global.styleAndNavigation.Lebel[1]}}" style="color:{{@global.styleAndNavigation.Lebel[2]}};"> {{columnName}} {{#if this.required}} *{{/if}}</label>
+                                    <input type="text" name="{{columnName}}" id="{{@index}}" placeholder="{{@global.pageLanguageSetting.EnterField}}" value="{{columnValue}}" style="background:{{@global.styleAndNavigation.fieldBgColor}}; color:{{@global.styleAndNavigation.fieldTextColor}}; border-color:{{@global.styleAndNavigation.borderColor}}">
+                                    {{/js_compare}}
+
+                                    {{#js_compare "this.fieldType == 'phone'"}}
+                                    <label class="{{@global.styleAndNavigation.Lebel[0]}} {{@global.styleAndNavigation.Lebel[1]}}" style="color:{{@global.styleAndNavigation.Lebel[2]}};"> {{columnName}} {{#if this.required}} *{{/if}}</label>
+                                    <input type="tel" name="{{columnName}}" id="{{@index}}" placeholder="{{@global.pageLanguageSetting.EnterField}}" value="{{columnValue}}" style="background:{{@global.styleAndNavigation.fieldBgColor}}; color:{{@global.styleAndNavigation.fieldTextColor}}; border-color:{{@global.styleAndNavigation.borderColor}}">
+                                    {{/js_compare}}
+
+                                    {{#js_compare "this.fieldType == 'number'"}}
+                                    <label class="{{@global.styleAndNavigation.Lebel[0]}} {{@global.styleAndNavigation.Lebel[1]}}" style="color:{{@global.styleAndNavigation.Lebel[2]}};"> {{columnName}} {{#if this.required}} *{{/if}}</label>
+                                    <input type="tel" name="{{columnName}}" id="{{@index}}" placeholder="{{@global.pageLanguageSetting.EnterField}}" value="{{columnValue}}" style="background:{{@global.styleAndNavigation.fieldBgColor}}; color:{{@global.styleAndNavigation.fieldTextColor}}; border-color:{{@global.styleAndNavigation.borderColor}}">
+                                    {{/js_compare}}
+
+                                    {{#js_compare "this.fieldType == 'date'"}}
+                                    <label class="{{@global.styleAndNavigation.Lebel[0]}} {{@global.styleAndNavigation.Lebel[1]}}" style="color:{{@global.styleAndNavigation.Lebel[2]}};"> {{columnName}} {{#if this.required}} *{{/if}}</label>
+                                    <input type="text" name="{{columnName}}" id="{{@index}}" placeholder="{{@global.pageLanguageSetting.EnterField}}" value="{{columnValue}}" style="background:{{@global.styleAndNavigation.fieldBgColor}}; color:{{@global.styleAndNavigation.fieldTextColor}}; border-color:{{@global.styleAndNavigation.borderColor}}">
+                                    <input type="date" style="position:absolute !important; left:0px !important; top:0px !important; opacity:0 !important;" onchange="Appyscript.appsheetDateCh(this);">
+                                    {{/js_compare}}
+                                    {{#js_compare "this.fieldType == 'email'"}}
+                                    <label class="{{@global.styleAndNavigation.Lebel[0]}} {{@global.styleAndNavigation.Lebel[1]}}" style="color:{{@global.styleAndNavigation.Lebel[2]}};"> {{columnName}} {{#if this.required}} *{{/if}}</label>
+                                    <input type="email" name="{{columnName}}" id="{{@index}}"
+                                           placeholder="{{@global.pageLanguageSetting.EnterField}}" value="{{columnValue}}" style="background:{{@global.styleAndNavigation.fieldBgColor}}; color:{{@global.styleAndNavigation.fieldTextColor}}; border-color:{{@global.styleAndNavigation.borderColor}}">
+
+                                    {{/js_compare}}
+
+                                    {{#js_compare "this.fieldType == 'time'"}}
+                                    <label class="{{@global.styleAndNavigation.Lebel[0]}} {{@global.styleAndNavigation.Lebel[1]}}" style="color:{{@global.styleAndNavigation.Lebel[2]}};"> {{columnName}} {{#if this.required}} *{{/if}}</label>
+                                    <input type="time" name="{{columnName}}" id="{{@index}}" placeholder="{{@global.pageLanguageSetting.EnterField}}" value="{{columnValue}}" style="background:{{@global.styleAndNavigation.fieldBgColor}}; color:{{@global.styleAndNavigation.fieldTextColor}}; border-color:{{@global.styleAndNavigation.borderColor}}">
+
+                                    {{/js_compare}}
+
+                                    {{#js_compare "this.fieldType == 'select'"}}
+                                    <label class="{{@global.styleAndNavigation.Lebel[0]}} {{@global.styleAndNavigation.Lebel[1]}}" style="color:{{@global.styleAndNavigation.Lebel[2]}};"> {{columnName}} {{#if this.required}} *{{/if}}</label>
+                                    <select type="select" name="{{columnName}}" id="{{@index}}"
+                                            placeholder="{{fieldLebal}}" style="background:{{@global.styleAndNavigation.fieldBgColor}}; color:{{@global.styleAndNavigation.fieldTextColor}}; border-color:{{@global.styleAndNavigation.borderColor}}">
+                                        <option value="0" >{{fieldLebal}}{{#if
+                                            mandatory}}*{{/if}}
+                                        </option>
+                                        {{#list}}
+                                        <option value="{{subFieldLebal}}">{{subFieldLebal}}
+                                        </option>
+                                        {{/list}}
+                                    </select>
+
+                                    {{/js_compare}}
+
+                                    {{#js_compare "this.fieldType == 'lat&long'"}}
+                                    <label class="{{@global.styleAndNavigation.Lebel[0]}} {{@global.styleAndNavigation.Lebel[1]}}" style="color:{{@global.styleAndNavigation.Lebel[2]}};">
+                                        {{columnName}} {{#if this.required}} *{{/if}}
+                                    </label>
+
+                                    <div class="add-file locationget" style="background:{{@global.styleAndNavigation.fieldBgColor}}; color:{{@global.styleAndNavigation.fieldTextColor}}; border:1px solid {{@global.styleAndNavigation.borderColor}}">
+                                        <p id="app_sheet_loc_{{@index}}">{{columnValue}}</p>
+                                        <div id="{{@index}}" class="browser select-file" style="color:{{@global.styleAndNavigation.secondaryButton[3]}};background:{{@global.styleAndNavigation.secondaryButton[2]}};">
+                                            <div onclick="getLocationAppSheet(this,{{@index}});" class="icon-location"></div>
+                                        </div>
+                                        <input style="display: none;" type="text"
+                                               id="app_sheet_loc_input_{{@index}}" value = "{{columnValue}}"
+                                               name="{{columnValue}}"/>
+                                    </div>
+                                    {{/js_compare}}
+
+
+                                    {{#js_compare "this.fieldType == 'image'"}}
+                                    <label class="{{@global.styleAndNavigation.Lebel[0]}} {{@global.styleAndNavigation.Lebel[1]}}" style="color:{{@global.styleAndNavigation.Lebel[2]}};"> {{columnName}}</label>
+                                    <div class="add-file zAddPhoto">
+                                        <img src="images/1X1.png" id="app_sheet_image_{{@index}}" style="background:url({{columnValue}});width: 60px;margin-right: 10px; height: 60px; float: left; border: 1px solid #ccc;" onclick="Appyscript.selectPhotoForAppSheet(this,{{@index}});">
+                                        <!-- <div class="img-wrapper-sh" style="border-color:{{@global.styleAndNavigation.borderColor}}">
+                                             <img src="{{columnValue}}" id="app_sheet_image_{{@index}}" style="" class="uploadSheetPhoto">
+                                         </div>-->
+                                        <div id="{{@index}}" class="browser select-file" style="display:none;">
+                                            <div id="image_picker_btn_{{@index}}" class="addPhotosheet icon-plus-3 {{@global.styleAndNavigation.secondaryButton[0]}} {{@global.styleAndNavigation.secondaryButton[1]}}" style="color:{{@global.styleAndNavigation.secondaryButton[3]}};background:{{@global.styleAndNavigation.secondaryButton[2]}}; border-color:{{@global.styleAndNavigation.borderColor}}" onclick="Appyscript.selectPhotoForAppSheet(this,{{@index}});"></div>
+                                            <font data-val="{{fieldLebal}}">{{fieldLebal}}</font>
+                                            <input style="display: none;" type="text" id="app_sheet_image_url_{{@index}}" name="{{columnName}}" value="{{columnValue}}"/>
+                                        </div>
+                                    </div>
+                                    {{/js_compare}}
+
+                                    {{#js_compare "this.fieldType == 'checkbox'"}}
+                                    <label class="{{@global.styleAndNavigation.Lebel[0]}} {{@global.styleAndNavigation.Lebel[1]}}" style="color:{{@global.styleAndNavigation.Lebel[2]}};"> {{columnName}} {{#if this.required}} *{{/if}}</label>
+                                    <span class="{{getICON fieldType}}"></span>
+
+                                    {{#list}}
+                                    <label class="{{@global.styleAndNavigation.Lebel[0]}} {{@global.styleAndNavigation.Lebel[1]}}" style="color:{{@global.styleAndNavigation.Lebel[2]}};"><input name="{{@index}}" id="{{@index}}"
+                                                                                                                                                                                                 type="checkbox" value="{{columnValue}}"
+                                                                                                                                                                                                 {{#if defaulSetOption}} checked="checked" {{/if}}
+                                        />{{subFieldLebal}}</label>
+                                    {{/list}}
+                                    <b class="arrow"
+                                       style="border-right-color:{{@global.loginData.loginStyleAndNavigation.loginIcon[0]}}"></b>
+                                    {{/js_compare}}
+
+
+                                    {{#js_compare "this.fieldType == 'radio'"}}
+                                    <label class="{{@global.styleAndNavigation.Lebel[0]}} {{@global.styleAndNavigation.Lebel[1]}}" style="color:{{@global.styleAndNavigation.Lebel[2]}};"> {{columnName}} {{#if this.required}} *{{/if}}</label>
+
+                                    {{#list}}
+                                    <label class="{{@global.styleAndNavigation.Lebel[0]}} {{@global.styleAndNavigation.Lebel[1]}}" style="color:{{@global.styleAndNavigation.Lebel[2]}};"><input name="{{columnName}}" id="{{@index}}"
+                                                                                                                                                                                                 type="radio" value="{{columnValue}}" {{#if
+                                                                                                                                                                                                 defaulSetOption}} checked="checked" {{/if}}
+                                        />{{subFieldLebal}}</label>
+                                    {{/list}}
+                                    <b class="arrow"
+                                       style="border-right-color:{{@global.loginData.loginStyleAndNavigation.loginIcon[0]}}"></b>
+                                    {{/js_compare}}
+
+                                    {{#js_compare "this.fieldType == 'url'"}}
+                                    <label class="{{@global.styleAndNavigation.Lebel[0]}} {{@global.styleAndNavigation.Lebel[1]}}" style="color:{{@global.styleAndNavigation.Lebel[2]}};">
+                                        {{columnName}} {{#if this.required}} *{{/if}}
+                                    </label>
+                                    <input type="email" name="{{columnName}}" id="{{@index}}" value="{{columnValue}}"
+                                           placeholder="{{@global.pageLanguageSetting.EnterField}}" style="background:{{@global.styleAndNavigation.fieldBgColor}}; color:{{@global.styleAndNavigation.fieldTextColor}}; border-color:{{@global.styleAndNavigation.borderColor}}">
+
+                                    {{/js_compare}}
+
+                                    {{#js_compare "this.fieldType == 'address'"}}
+                                    <label class="{{@global.styleAndNavigation.Lebel[0]}} {{@global.styleAndNavigation.Lebel[1]}}" style="color:{{@global.styleAndNavigation.Lebel[2]}};">
+                                        {{columnName}} {{#if this.required}} *{{/if}}
+                                    </label>
+                                    <input type="email" name="{{columnName}}" id="app_sheet_place_query_{{@index}}" class="app_sheet_places" value="{{columnValue}}"
+                                           placeholder="{{@global.pageLanguageSetting.EnterField}}" style="background:{{@global.styleAndNavigation.fieldBgColor}}; color:{{@global.styleAndNavigation.fieldTextColor}}; border-color:{{@global.styleAndNavigation.borderColor}}">
+                                    <div style=" position: relative;">
+                                        <ul id="search-results_{{@index}}" style="position: static; top: 0; left: 0; width: 100%; box-sizing: border-box; padding: 10px; border: 1px solid;display:none;
+    margin-top: -2px; background:{{@global.styleAndNavigation.fieldBgColor}}; color:{{@global.styleAndNavigation.fieldTextColor}}; border-color:{{@global.styleAndNavigation.borderColor}}"></ul>
+                                    </div>
+                                    {{/js_compare}}
+                                    </li>
+
+                                    {{/unless}}
+                                    {{/each}}
+                                </ul>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="toolbar">
+                    <div class="toolbar-inner">
+                        <div class="toolbar-inner toolbar-bottom">
+                            <a href="#" class="zrq-btn  {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" style="background-color: {{@global.styleAndNavigation.button[2]}}; color: {{@global.styleAndNavigation.button[3]}};" onClick="saveSheetDataFromModal('update')">{{@global.pageLanguageSetting.Save}}</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,97 @@
+<div class="navbar">
+	<div class="navbar-inner" style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+		<div class="left sliding">
+			<a href="index" class="link back" style="color:{{@global.style.headerBarIconColor}};">
+			<i class="icon icon-left-open-2"></i>
+			</a>
+		</div>
+		<div class="center sliding  {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">
+			<div class="topHeader">{{@global.pageLanguageSetting.order_details_mcom}}  </div>
+		</div>
+		<div class="right">
+			<a href="#" class="link" style="color:{{@global.style.headerBarIconColor}};">
+                <i class="icon-cart cursor-pointer" onclick="Appyscript.ecomAddToCartProduct('cartview');"><span class="cartNotification"></span></i>
+			</a>
+		</div>
+	</div>
+</div>
+
+
+
+<div data-page="ecommerce-ProductList" class="page navbar-through toolbar-fixed no-toolbar">
+    <!-- Page content-->
+<div class="page-content {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}} content-{{@global.styleAndNavigation.content[3]}} heading-{{@global.styleAndNavigation.heading[3]}} hideBorder-{{@global.styleAndNavigation.hideBorder}}" style="color:{{@global.styleAndNavigation.content[2]}}; background:{{@global.styleAndNavigation.pageBgColor}}">
+<style type="text/css">
+a.viewItem {
+    color:{{@global.styleAndNavigation.title[3]}};
+    background:{{@global.styleAndNavigation.title[2]}};
+}
+
+a.viewItem.sec {
+    color:{{@global.styleAndNavigation.secondaryButton[3]}};
+    background:{{@global.styleAndNavigation.secondaryButton[2]}};
+}
+</style>
+<div class="mcomContainer">
+    <ul>
+    	<li>
+         <div class="swiper-container  orderproduct-swiper" index="{{index}}">
+         <div class="swiper-wrapper">
+            {{#productList}}
+             <div class="swiper-slide detailsoredr-swiper-slide" data-id="{{productId}}">
+                 <div class="product-image hideImage-{{@global.styleAndNavigation.hideImage}}">
+                 <div data-preload-images="false" data-lazy-loading="true" class="swiper-banner swiper-banner-{{@index}} swiper-container">
+                     <div class="swiper-wrapper">
+                         {{#productImages}}
+                         <div class="swiper-slide">
+                             {{#js_compare "this.type === 'video' "}}
+                                 {{#js_compare "this.videoType == 'custom'"}}
+                                     <div class="video-icon icon-play-circle2-1"></div>
+                                     <img src="images/transparent-bg.png" class="swiper-lazy imgList"  onclick="openVideoStream('{{productImage}}');" ><div class="preloader"></div>
+                                 {{else}}
+                                     {{#js_compare "this.videoType == 'youtube'"}}
+                                         <div class="video-icon icon-play-circle2-1"></div>
+                                         <img src="images/transparent-bg.png" class="swiper-lazy imgList"  onClick="openYouTubeVedio('{{productImage}}','{{productName}}');"><div class="preloader"></div>
+                                     {{/js_compare}}
+                                 {{/js_compare}}
+                                 {{else}}
+                                    <img src="images/transparent-bg.png" class="swiper-lazy imgList" style="background-image:url({{productImage}});" onclick="storeopenGallary('{{@index}}');" ><div class="preloader"></div>
+                             {{/js_compare}}
+                         </div>
+                         {{/productImages}}
+                     </div>
+                 </div>
+                 </div>
+                <h3 class="view-order-items {{@global.styleAndNavigation.title[0]}} {{@global.styleAndNavigation.title[1]}}">{{productName}}</h3>
+                <div class="discription_box" style="padding-bottom:0px;">
+                    <ul class="view-product-attribute">
+                        <li><span>{{@global.pageLanguageSetting.Quantity_mcom}} </span><strong style="color:{{@global.styleAndNavigation.heading[2]}}">{{quantity}}</strong></li>
+                        <li><span>{{@global.pageLanguageSetting.price_mcom}}</span><strong style="color:{{@global.styleAndNavigation.heading[2]}}">{{format_currency currency}}{{price}}</strong></li>
+                        <li><span>{{@global.pageLanguageSetting.subtotal_mcom}}</span><strong style="color:{{@global.styleAndNavigation.heading[2]}}">{{format_currency currency}}{{pricecal this.price this.quantity}}</strong></li>
+                        {{#if custom_option}}
+                            <li><span>custom option:</span><strong style="color:{{@global.styleAndNavigation.heading[2]}}">{{custom_option}}</strong></li>
+                        {{/if}}
+                        <li>
+                            <a class="viewItem pull-left {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}"  data-animate="true" onclick="Appyscript.ecomPostreview(this);"  product-id="{{productId}}" data-head="{{productName}}" data-back="back">{{@global.pageLanguageSetting.post_review_mcom}}</a>
+                            {{#root_Compare @root.orderStatus "!=" "Cancelled"}}
+                            <a class="viewItem pull-right {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}"  data-animate="true" onclick="Appyscript.ecomReorderProductDetail(this,'{{productId}}');"  product-id="{{productId}}" data-head="{{productName}}"  data-back="back">{{@global.pageLanguageSetting.reorder_mcom}}</a>
+                            {{#root_Compare @root.orderStatus "!=" "Complete"}}<a class="viewItem sec {{@global.styleAndNavigation.secondaryButton[0]}} {{@global.styleAndNavigation.secondaryButton[1]}}" style="margin:0px auto; display:table; float: none;" onclick="Appyscript.ecomCancelOrder(this);"  product-id="{{productId}}" data-head="{{productName}}">{{@global.pageLanguageSetting.store_cancel_order}}</a>{{/root_Compare}}
+                            {{/root_Compare}}
+                            
+                             {{#root_Compare @root.orderStatus "==" "Cancelled"}}
+                                <a class="viewItem pull-right sec {{@global.styleAndNavigation.secondaryButton[0]}} {{@global.styleAndNavigation.secondaryButton[1]}}"  data-animate="true" onclick="Appyscript.ecomReorderProductDetail(this,'{{productId}}');"  product-id="{{productId}}" data-head="{{productName}}"  data-back="back">{{@global.pageLanguageSetting.reorder_mcom}}</a>
+                                {{#root_Compare @root.orderStatus "!=" "Complete"}}<a class="viewItem sec {{@global.styleAndNavigation.secondaryButton[0]}} {{@global.styleAndNavigation.secondaryButton[1]}}" style="margin:0px auto; display:table; float: none;"   product-id="{{productId}}" data-head="{{productName}}">{{@global.pageLanguageSetting.store_cancelled}}</a>{{/root_Compare}}
+                            {{/root_Compare}}
+                        </li>
+                    </ul>
+                </div>
+                </div>
+            {{/productList}}
+            </div>
+            </div>
+        </li>
+    </ul>
+</div>
+
+</div>
+</div>

@@ -1,0 +1,27 @@
+<div class="popup menu-popup tablet-fullscreen">
+    <div class="view">
+        <div class="navbar"><div class="navbar-inner " style="background-color:{{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}}; font-size: {{@global.style.headerBarSize}} ">
+            <div class="left sliding">
+                <a href="" class="close link icon-left-open-2 close-popup" style="color:{{@global.style.headerBarTextColor}};" >
+
+                </a>
+            </div>
+            <div class="center sliding">
+                <div class="topHeader">{{@global.pageLanguageSetting.claim_form}}</div>
+            </div>
+            <div class="right"></div>
+        </div></div>
+        <div class="pages" style="background-color: {{@global.styleAndNavigation.pageBgColor}}">
+            
+            <div data-page="hyperlocal-Filter" class="page navbar-through no-toolbar">
+                <div class="page-content">
+                    <div class="filter-page bodypan">
+						<div class="directory-claim"><textarea id="text" name="" cols="" rows="5" placeholder="{{@global.pageLanguageSetting.post_your_ratingreview_dir}}*" style="border-color:{{@global.styleAndNavigation.borderColor}};"></textarea></div>
+                <div class="post-comment {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" onclick="Appyscript.sendclaim()" style="background-color:{{@global.styleAndNavigation.button[2]}};color:{{@global.styleAndNavigation.button[3]}}"> {{@global.pageLanguageSetting.Submit}}</div>
+				
+					</div>
+				</div>
+        </div>
+    </div>
+</div>
+</div>

@@ -1,0 +1,35 @@
+<div class="navbar"><div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+    <div class="left sliding">
+		{{getSlideBack "common"}}    
+    </div>
+    <div class="center sliding {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">{{title}}</div>
+            <div class="right"></div>
+          </div></div>
+
+<div data-page="education-page" class="page navbar-through no-toolbar " style="background-color: {{appPageBackgroundColor}}" >
+    <!-- Page content-->
+<div class="backgroundAnimation">{{> innerBackground}}</div>
+    <div class="page-content">
+        
+      <div id="education-inner-detail" class="khan-academy">
+<div class="khanSearch">
+<form name="KhanForm" id="KhanForm">
+
+<select name="KhanSelect" id="KhanSelect">
+<option value="0">Select a category</option>
+{{#list}}
+<option value="{{slug}}">{{translated_title}}</option>
+{{/list}}
+</select>
+
+
+<span class="khanSearchOR"><span>OR</span></span>
+<input data-role="none" type="text" id="search_KhanAcademyCat" name="search_KhanAcademyCat" />
+<a onclick="Appyscript.khanacademySearch(this)" class="edu_serBtn" style="background-color:#db0ac6 !important; background-image:none !important ;  border-color:#db0ac6!important; color:#fff!important;"> Search</a>
+</form>
+</div>
+</div>
+
+    </div>
+   
+	</div>

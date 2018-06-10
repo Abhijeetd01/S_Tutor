@@ -1,0 +1,35 @@
+<div class="navbar">
+    <div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+        <div class="left sliding">
+        	{{getNavigation @global.style.layout "foodcourt-menu"}}         
+        </div>
+        <div class="center sliding">
+            <div class="topHeader {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">{{pageTitle}}
+                <span class="locate icon-location cursor-pointer" onclick="Appyscript.popupPage('foodcourt-location')"  id="locationfooscourt"><span style="color: {{@global.style.headerBarTextColor}};">{{@global.CurrentCity}}</span></span>
+            </div>
+        </div>
+
+
+        <div class="right">
+            <a onclick="foodcourtCartPage('cart')" class="localHeaderIconRight ui-link" style="color:{{@global.style.headerBarIconColor}};"> <span class="subValue" style="color:{{@global.styleAndNavigation.button[3]}};background:{{@global.styleAndNavigation.button[2]}};">{{@global.foodCartCount}}</span><div class="headerIcon"><i class="icon-cart"></i></div></a>
+        </div>
+    </div>
+</div>
+<div data-page="foodcourt" class="page navbar-through toolbar-fixed no-toolbar {{#if @global.setting.advanceFilter}} mainFoodcourt   {{/if}}">
+    <!-- Page content-->
+    <style>
+        .foodOrder-locates:before, .foodOrder-locates:after{background-color:{{@global.styleAndNavigation.borderColor}}}
+		.pull-left span{color:{{@global.styleAndNavigation.iconColor}}}
+    </style>
+    <div class="search-box searchHome"><a class="icon-search" style="color:{{@global.styleAndNavigation.iconColor}}"></a> <input id="foodtxtSearch" style="border-color:{{@global.styleAndNavigation.borderColor}}" type="search" placeholder="{{@global.pageLanguageSetting.search_food}}" onkeyup="foodCourtSearchFunction('mainmenu', event, this)" onblur="foodCourtSearchFunction('mainmenu', event, this)" onclick="foodCourtSearchFunction('mainmenu', event, this)"> </div><div class="searchbar-overlay"></div>
+    <div class="foodOrder-subheader {{@global.styleAndNavigation.nav[0]}} {{@global.styleAndNavigation.nav[1]}}" style="color:{{@global.styleAndNavigation.nav[2]}}; background:{{@global.styleAndNavigation.nav[3]}}; border-color:{{@global.styleAndNavigation.borderColor}}"> <span class="foodOrder-locate " onclick="Appyscript.popupPage('foodcourt-filter','Cuisine');" data-head="Cuisine">{{@global.pageLanguageSetting.filter_page_cuisine}}</span> <span class="foodOrder-locate foodOrder-locates" onclick="Appyscript.popupPage('foodcourt-filter','Filter');" data-head="Filter">{{@global.pageLanguageSetting.Filter}}</span> <span class="foodOrder-locate " onclick="Appyscript.popupPage('foodcourt-filter','Sort');" data-head="Sort">{{@global.pageLanguageSetting.fc_sort}}</span> </div>
+    <div class="page-content  {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}} content-{{@global.styleAndNavigation.content[3]}} heading-{{@global.styleAndNavigation.heading[3]}} foodCourtHotel" style="color:{{@global.styleAndNavigation.content[2]}}; background:{{@global.styleAndNavigation.pageBgColor}}">
+
+    </div>
+</div>
+
+
+
+
+
+

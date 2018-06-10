@@ -1,0 +1,47 @@
+<div class="popup menu-popup tablet-fullscreen">
+    <div class="view">
+        <div class="pages">
+            <div class="navbar">
+                <div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+                    <div class="left sliding">
+                        <!--            <a href="index" class="link back" style="color:{{@global.style.headerBarIconColor}};">-->
+                        <!--                <i class="icon icon-left-open-2"></i>-->
+                        <!--            </a>-->
+                    </div>
+                    <div class="center sliding">
+                        
+                        <div class="topHeader {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">{{@global.eulaheaderbartitle}}</div>
+                    </div>
+                    <div class="right">
+                        <a href="#" style="color:{{@global.style.headerBarIconColor}};" class="chat-icon"></a>
+                    </div>
+                </div>
+            </div>
+            
+            
+            <div class="page navbar-through toolbar-through">
+                <div class="toolbar">
+                    
+                    
+                    <div class="toolbar-inner social-eula-button submit-button" style="background:{{@global.style.secondaryButtonBgColor}};">
+                        <a href="#" class="{{@global.style.appPageFont}} {{@global.style.appPageCsize}}" style="background-color: {{@global.style.primaryButtonBgColor}}; color:{{@global.style.buttonTextColor}};" onclick="acceptTermsAndCondition()">   {{@global.eulaAcceptButton}}</a>
+                    </div>
+                </div>
+
+                <div class="backgroundAnimation">
+                <div class="view background-view">{{> mainBackground}}</div>
+				</div>
+                <div class="page-content {{@global.style.appPageFont}} {{@global.style.appPageCsize}}" style="color:{{@global.style.pageTextColor}};">
+                    <div style="padding:15px !important;">
+                        <h1 class="{{@global.style.appPageHsize}}" style="color:{{@global.style.pageTextColor}};">   {{@global.eulaheading}}</h1>
+                        <div class="content-view">                        
+                        {{@global.eulacontent}}
+                        </div>                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

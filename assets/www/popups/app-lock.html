@@ -1,0 +1,26 @@
+<div class="popup menu-popup tablet-fullscreen">
+    <div class="view loginView">
+        <div class="pages">
+          <div class="page navbar-through toolbar-through">
+                <a onclick="openlockfortesting()" style="position: relative; z-index: 999;"><div style="width:2em; height:2em; display:inline-block"></div></a>
+                <div class="backgroundAnimation">{{> mainBackground}}</div>
+                <div class="page-content" style="background-color: {{@global.style.pageBgColor}}">
+                    <div class="msg-code msgbtn">
+                        <div class="msg-container">
+                            <span class="icon iconz-lock" style="color:{{@global.style.pageTextColor}}; font-family:{{@global.style.appPageFont}};"></span>
+                            <span class="{{@global.style.appPageCsize}}" style="color:{{@global.style.pageTextColor}}; font-family:{{@global.style.appPageFont}}; margin-top:10px; display:inline-block">This app has been temporarily disabled by the publisher. </span>
+                        </div>
+                        <div class="msg-button {{@global.style.appPageCsize}}" style="background:{{@global.style.primaryButtonBgColor}}; color:{{@global.style.buttonTextColor}};font-family:{{@global.style.appPageFont}};" onclick=Appyscript.sendMail(data.appData.owneremail,"","");>Contact the owner</div>
+
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+
+
+    </div>
+</div>
+</div>

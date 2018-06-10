@@ -1,0 +1,35 @@
+<div class="navbar"><div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+
+    <!-- <div class="left sliding">
+       <a href="index" class="link back" style="color:{{@global.style.headerBarIconColor}};">
+         <i class="icon icon-left-open-2"></i>
+       </a>
+     </div>-->
+    <div class="center sliding {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">{{@global.pageLanguageSetting.Thank_mcom}}</div>
+    <div class="right"></div>
+</div></div>
+
+
+<div data-page="foodordering-thankyou" class="page navbar-through no-toolbar">
+    <!-- Page content-->
+    <div class="page-content {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}} content-{{@global.styleAndNavigation.content[3]}} heading-{{@global.styleAndNavigation.heading[3]}} hideBorder-{{@global.styleAndNavigation.hideBorder}}" style="color:{{@global.styleAndNavigation.content[2]}}; background:{{@global.styleAndNavigation.pageBgColor}}">
+
+        <div class="thankyou">
+            <h1 style="color:{{@global.styleAndNavigation.heading[2]}}">{{@global.pageLanguageSetting.Thank_mcom}} <span></span></h1>
+            <!-- {{@global.pageLanguageSetting.thank_food}} <span>{{@global.pageLanguageSetting.Thank_mcom}}</span>-->
+            <!-- <p id="message">{{@global.pageLanguageSetting.your_order_was_successful_food}}</p>-->
+            <p id="mess">{{@global.pageLanguageSetting.thank_you_for_your_Order_food}}<br />
+
+                {{#js_compare "this.deliveryOrPickUpTime == 'pickup'"}}
+            <p id="mess">{{@global.pageLanguageSetting.your_order_will_be_delivered_food}}{{delievryfrmt deliveryOrPickUpTime}}<br />
+                {{/js_compare}}
+            <p id="mess">{{@global.pageLanguageSetting.your_order_will_be_delivered_food}} {{delievryfrmt deliveryOrPickUpTime}}</p><br />
+            <strong id="orderId"></strong><br />
+            <strong id="null"></strong></p>
+            <footer id="footer-nav">
+                <a onclick="foodClearHistryHomePage();" class="{{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" style="color:{{@global.styleAndNavigation.button[3]}};background:{{@global.styleAndNavigation.button[2]}};">{{@global.pageLanguageSetting.continue_my_orders_food}}</a>
+            </footer>
+        </div>
+
+    </div>
+</div>

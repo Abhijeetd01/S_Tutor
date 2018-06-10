@@ -1,0 +1,580 @@
+<div class="navbar"><div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+    <div class="left sliding">
+        {{getSlideBack ""}}
+    </div>
+    <div class="center sliding {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">{{name}}</div>
+    <div class="right"></div>
+</div></div>
+
+<div data-page="newsstand-Page" class="page navbar-through no-toolbar">
+    <!-- Page content-->
+    <div class="backgroundAnimation">{{> innerBackground}}</div>
+    <div class="page-content {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}} content-{{@global.styleAndNavigation.content[3]}} heading-{{@global.styleAndNavigation.heading[3]}}  subheading-{{@global.styleAndNavigation.subheading[3]}} " style="color:{{@global.styleAndNavigation.content[2]}}">
+        <style type="text/css">
+                .btnSecondary,
+                .restore-btn {
+                    background:{{@global.styleAndNavigation.button[2]}};
+                    color:{{@global.styleAndNavigation.button[3]}};
+                    border-color:{{@global.styleAndNavigation.buttonBorderColor}};
+                }
+            .btnPrimary {
+                background:{{@global.styleAndNavigation.secondaryButton[2]}};
+                color:{{@global.styleAndNavigation.secondaryButton[3]}};
+                border-color:{{@global.styleAndNavigation.buttonBorderColor}};
+            }
+
+            .newsTand-MobileTab .tabViewall a,
+            .newsTand-MobileTab .tabmyCollection a {
+                display:block;
+                background:{{@global.styleAndNavigation.secondaryButton[2]}};
+                color:{{@global.styleAndNavigation.secondaryButton[3]}};
+                border:solid 1px {{@global.styleAndNavigation.buttonBorderColor}};
+            }
+
+            .newsTand-MobileTab .tabViewall a {
+                border-radius:8px 0 0 8px;
+            }
+
+            .newsTand-MobileTab .tabmyCollection a {
+                border-radius:0 8px 8px 0;
+                border-left:0px;
+            }
+
+
+            .newsTand-MobileTab .tabViewall a.active,
+            .newsTand-MobileTab .tabmyCollection a.active {
+                background:{{@global.styleAndNavigation.button[2]}};
+                color:{{@global.styleAndNavigation.button[3]}};
+
+            }
+            .newsstand-list .on {
+                display:none;
+            }
+            </style>
+        <div class="newstand-page">
+
+            <div class="newsTand-MobileTab">
+                <div class="tabViewall"><a href="#all" class="active tab-link" onclick="newsstandPage()">{{newsstandLanguageText.viewAll}}</a></div>
+                <div class="tabmyCollection"><a href="#collection" class="tab-link" onclick="addToCollection(this)">{{newsstandLanguageText.myCollection}}</a></div>
+            </div>
+            <div class="tabs-wrap">
+                <div class="tabs">
+                    <div class="tab newsStandContainer theme-{{@global.styleAndNavigation.layout}} active" id="all">
+                        {{#list}}
+                        <!-- IAP start -->
+                        {{#root_Compare @root.newsstandPackageEnable "==" "1"}}
+                        {{#list}}
+
+                        {{#js_compare "this.newsstandFeatured == '1' "}}
+                        <div class="row featured-row" data-id="{{newsstandEditionId}}" index="{{@index}}">
+
+                            <div class="newsStandBox newsStandFirst clearfix" style="background:{{@global.styleAndNavigation.featureBackground}}">
+                                <img src="images/image-3x2.png" style="background-image:url({{newsstandImage}});" class="topimg img-style"/>
+                                <div class="newsBx clearfix" style="background:{{@global.styleAndNavigation.listColor}}">
+                                    <div class="newsBxInfoLeft">
+                                        <img src="images/image-2x3.png" style="background-image:url({{newsstandImage}});" class="img-style"/>
+
+                                    </div>
+                                    <div class="newsBxInfoRight">
+                                        <h1 class="title {{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}}">{{newsstandSubHeader}}
+                                            {{#js_compare "this.newsstandMonthYear != ''"}}
+                                            <span class="tagline {{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}" style="color:{{@global.styleAndNavigation.subheading[2]}}">{{newsstandMonthYear}}</span>
+                                            {{/js_compare}}
+                                        </h1>
+                                        <div class="description">
+                                            {{newsstandSummary}}
+                                        </div>
+                                    </div>
+
+                                    {{#root_Compare @root.paymentType "==" "free"}}
+                                    <div class="buttonContainer-1" >
+
+                                        {{#js_compare "this.newsFullFile != '' "}}
+
+                                        {{else}}
+                                        <a  class="btnSecondary free" id="{{newsstandEditionId}}" onclick="Appyscript.SetaddToCollection(this)" paymentType="{{@root.paymentType}}" newsstandEditionId="{{newsstandEditionId}}" newsFullVimeoAccessToken="{{newsFullVimeoAccessToken}}" newsFullVimeoVideoId="{{newsFullVimeoVideoId}}" newsSampleFileType="{{newsSampleFileType}}" newsSampleFile="{{newsSampleFile}}"  newsFullFileTypeGen="{{newsFullFileTypeGen}}" newsFullFileTitle="{{newsFullFileTitle}}" index="{{@index}}" newsimageurl="{{newsstandImage}}"  newsFullFileType="{{newsFullFileType}}" newsFullFile="{{newsFullFile}}">{{@root.newsstandLanguageText.free}}</a>
+                                        {{/js_compare}}
+
+                                    </div>
+                                    {{#js_compare "this.newsSampleFile == '' "}}
+                                    <div class="buttonContainer-2 previewHide">
+                                        {{else}}
+                                        <div class="buttonContainer-2">
+                                            {{/js_compare}}
+                                            <div class="btnLeft">
+
+                                            </div>
+                                        </div>
+                                        {{else}}
+                                        <div class="buttonContainer-1" >
+                                            {{#js_compare "this.newsFullFile != '' "}}
+
+                                            {{else}}
+
+
+
+                                            {{#root_Compare @root.recuringAlbumPrice "==" "album"}}
+                                            {{#js_compare "this.pricePerItem == ''"}}
+                                            {{#js_compare "this.newsstandFeatured == '1'"}} 
+                                            <a  class="btnSecondary buythis album" id="packageitem" itemIdIphone="{{@root.subscriptionBundleIdYearly}}" onclick="Appyscript.payment_inApp(this)" itemName="{{newsstandSubHeader}}" paymentType="{{@root.paymentType}}" subscriptionBundleId="{{@root.subscriptionBundleId}}" editionBundleId="{{@root.editionBundleId}}" recuringAlbumPrice="{{@root.recuringAlbumPrice}}" albumPrice="{{@root.albumPrice}}" albumCurrency="{{@root.albumCurrency}}" EditionPrice="{{@root.EditionPrice}}" EditionCurrency="{{@root.EditionCurrency}}" newsstandEditionId="{{@root.iphoneInappProductIdYearly}}" newsSampleFileType="{{newsSampleFileType}}" newsSampleFile="{{newsSampleFile}}" newsFullFileType="{{newsFullFileType}}" newsFullFile="{{newsFullFile}}" pricePerItem="{{pricePerItem}}" pricePerItemCurrency="{{pricePerItemCurrency}}" iphoneInappProductIdYearly="{{@root.iphoneInappProductIdYearly}}" mytype="oneTime"iphoneInappSharedSecretKey="{{@root.publicKey}}">{{@root.newsstandLanguageText.buyNowAlbum}}</a>
+                                            {{else}}
+                                            <a  class="btnSecondary free" id="{{newsstandEditionId}}" onclick="Appyscript.SetaddToCollection(this)" paymentType="free" newsstandEditionId="{{newsstandEditionId}}" newsFullVimeoAccessToken="{{newsFullVimeoAccessToken}}" newsFullVimeoVideoId="{{newsFullVimeoVideoId}}" newsSampleFileType="{{newsSampleFileType}}" newsSampleFile="{{newsSampleFile}}"  newsFullFileTypeGen="{{newsFullFileTypeGen}}" index="{{@index}}" newsimageurl="{{newsstandImage}}"  newsFullFileType="{{newsFullFileType}}" newsFullFile="{{newsFullFile}}">{{@root.newsstandLanguageText.free}}</a>
+                                            {{/js_compare}}
+                                            {{else}}
+                                            <a  class="btnSecondary buythis album" id="packageitem" itemIdIphone="{{itemIdIphone}}" onclick="Appyscript.payment_inApp(this)" itemName="{{newsstandSubHeader}}" paymentType="{{@root.paymentType}}" subscriptionBundleId="{{@root.subscriptionBundleId}}" editionBundleId="{{@root.editionBundleId}}" recuringAlbumPrice="{{@root.recuringAlbumPrice}}" albumPrice="{{@root.albumPrice}}" albumCurrency="{{@root.albumCurrency}}" EditionPrice="{{@root.EditionPrice}}" EditionCurrency="{{@root.EditionCurrency}}" newsstandEditionId="{{newsstandEditionId}}" newsSampleFileType="{{newsSampleFileType}}" newsSampleFile="{{newsSampleFile}}" newsFullFileType="{{newsFullFileType}}" newsFullFile="{{newsFullFile}}" pricePerItem="{{pricePerItem}}" pricePerItemCurrency="{{pricePerItemCurrency}}" iphoneInappProductIdYearly="{{@root.iphoneInappProductIdYearly}}" mytype="oneTime"iphoneInappSharedSecretKey="{{@root.publicKey}}">{{@root.newsstandLanguageText.buyNowAlbum}}</a>
+                                            {{/js_compare}}
+                                            <a  class="btnSecondary view-btn" onclick="Appyscript.itemFile_inApp('{{newsFullFileTypeGen}}','{{newsFullFile}}','{{newsFullCoverFile}}','{{newsFullFileTitle}}',this,'','full')" newsSampleFileType="{{newsSampleFileType}}" newsSampleFile="{{newsSampleFile}}" newsFullFileType="{{newsFullFileType}}" newsFullFile="{{newsFullFile}}" listVersion="current"  paymentType="{{@root.paymentType}}">{{@root.newsstandLanguageText.viewlang}}</a>
+                                            {{/root_Compare}}
+
+                                            {{#root_Compare @root.recuringAlbumPrice "==" "recuring"}}
+                                            <a  class="btnSecondary buythis recuring" itemIdIphone="{{itemIdIphone}}" onclick="Appyscript.payment_inApp(this)" itemName="{{newsstandSubHeader}}" paymentType="{{@root.paymentType}}" subscriptionBundleId="{{@root.subscriptionBundleId}}" editionBundleId="{{@root.editionBundleId}}" recuringAlbumPrice="{{@root.recuringAlbumPrice}}" subscriptionPriceMonthly="{{@root.subscriptionPriceMonthly}}" subscriptionCurrencyMonthly="{{@root.subscriptionCurrencyMonthly}}" previousEditionMonthly="{{@root.previousEditionMonthly}}" subscriptionPriceYearly="{{@root.subscriptionPriceYearly}}" subscriptionCurrencyYearly="{{@root.subscriptionCurrencyYearly}}" previousEditionYearly="{{@root.previousEditionYearly}}" EditionPrice="{{@root.EditionPrice}}" EditionCurrency="{{@root.EditionCurrency}}" newsstandEditionId="{{newsstandEditionId}}" newsSampleFileType="{{newsSampleFileType}}" newsSampleFile="{{newsSampleFile}}" newsFullFileType="{{newsFullFileType}}" newsFullFile="{{newsFullFile}}"  iphoneInappProductIdMonthly="{{@root.iphoneInappProductIdMonthly}}" iphoneInappProductIdYearly="{{@root.iphoneInappProductIdYearly}}" iphoneInappSharedSecretKey="{{@root.publicKey}}">{{@root.newsstandLanguageText.subscribeNowText}}</a>
+
+
+
+
+                                            <a  class="btnSecondary view-btn" newsSampleFileType="{{newsSampleFileType}}" newsSampleFile="{{newsSampleFile}}" newsFullFileType="{{newsFullFileType}}" newsFullFile="{{newsFullFile}}" listVersion="current" paymentType="{{@root.paymentType}}">{{@root.newsstandLanguageText.viewlang}}</a>
+                                            {{/root_Compare}}
+
+                                            {{/js_compare}}
+
+                                        </div>
+                                        {{#js_compare "this.newsSampleFile == '' "}}
+                                        <div class="buttonContainer-2 previewHide">
+                                            {{else}}
+                                            <div class="buttonContainer-2">
+                                                {{/js_compare}}
+                                                <div class="btnLeft">
+
+
+                                                </div>
+
+                                            </div>
+                                            {{/root_Compare}}
+                                        </div>
+                                    </div>
+                                </div>
+                                {{/js_compare}}
+                                {{/list}}
+                                {{/root_Compare}}
+
+
+                                <!-- IAP end -->
+                                {{#root_Compare @root.newsstandPackageEnable "==" "0"}}
+                                {{#list}}
+
+                                {{#js_compare "this.newsstandFeatured == '1' "}}
+                                <div class="row featured-row feature-nonpackage" data-id="{{newsstandEditionId}}" index="{{@index}}">
+                                    <div class="newsStandBox newsStandFirst clearfix" style="background:{{@global.styleAndNavigation.featureBackground}}">
+                                        <img src="images/image-3x2.png" style="background-image:url({{newsstandImage}}); " class="topimg img-style"/>
+                                        <div class="newsBx clearfix" style="background:{{@global.styleAndNavigation.listColor}}">
+                                            <div class="newsBxInfoLeft">
+                                                <img src="images/image-2x3.png" style="background-image:url({{newsstandImage}});" class="img-style"/>
+                                                {{#js_compare "this.newsSampleFile != '' "}}
+                                                {{#root_Compare @global.styleAndNavigation.layout "==" "1"}}
+                                                <div class="buttonContainer-1">
+                                                    <a  class="btnPrimary margin-bottom-10 preview"  onclick="Appyscript.itemFile_inApp('{{newsSampleFileTypeGen}}','{{newsSampleFile}}','{{newsSampleCoverFile}}','{{newsSampleFileTitle}}',this,'{{../newsSampleFileTypeGen}}','sample')" listVersion="current">{{@root.newsstandLanguageText.previewText}}</a>
+                                                </div>
+                                                {{/root_Compare}}
+                                                {{#root_Compare @global.styleAndNavigation.layout "==" "4"}}
+                                                <div class="buttonContainer-1">
+                                                    <a  class="btnPrimary margin-bottom-10 preview"  onclick="Appyscript.itemFile_inApp('{{newsSampleFileTypeGen}}','{{newsSampleFile}}','{{newsSampleCoverFile}}','{{newsSampleFileTitle}}',this,'{{../newsSampleFileTypeGen}}','sample')" listVersion="current">{{@root.newsstandLanguageText.previewText}}</a>
+                                                </div>
+                                                {{/root_Compare}}
+                                                {{/js_compare}}
+                                            </div>
+                                            <div class="newsBxInfoRight">
+                                                <h1 class="title {{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}}">{{newsstandSubHeader}}
+                                                    {{#js_compare "this.newsstandMonthYear != ''"}}
+                                                    <span class="tagline {{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}" style="color:{{@global.styleAndNavigation.subheading[2]}}">{{newsstandMonthYear}}</span>
+                                                    {{/js_compare}}
+                                                </h1>
+                                                <div class="description">
+                                                    {{this.newsstandSummary}}
+
+                                                    <!--{{@root.newsstandMagazineDescr}}-->
+                                                </div>
+                                            </div>
+                                            {{#root_Compare @root.paymentType "==" "free"}}
+
+                                            {{#root_Compare @global.styleAndNavigation.layout "!=" "1"}}
+                                            {{#root_Compare @global.styleAndNavigation.layout "!=" "4"}}
+                                            <div class="buttonContainer-1" >
+                                                {{#js_compare "this.newsSampleFile == '' "}}
+                                                {{else}}
+                                                <!--- Non Package Featured FREE Item Preview --->
+
+                                                <a  class="btnPrimary margin-bottom-10 preview"  onclick="Appyscript.itemFile_inApp('{{newsSampleFileTypeGen}}','{{newsSampleFile}}','{{newsSampleCoverFile}}','{{newsSampleFileTitle}}',this,'{{../newsSampleFileTypeGen}}','sample')" listVersion="current">{{@root.newsstandLanguageText.previewText}}</a>
+
+                                                {{/js_compare}}
+                                            </div>
+                                            {{/root_Compare}}
+                                            {{/root_Compare}}
+                                            {{#js_compare "this.newsSampleFile == '' "}}
+                                            <div class="buttonContainer-2 previewHide">
+                                                {{else}}
+                                                <div class="buttonContainer-2">
+                                                    {{/js_compare}}
+                                                    <div class="btnLeft">
+                                                        {{#js_compare "this.newsFullFile == '' "}}
+
+                                                        {{else}}
+                                                        <a  class="btnSecondary free" id="{{newsstandEditionId}}" onclick="Appyscript.SetaddToCollection(this)" paymentType="{{@root.paymentType}}" newsstandEditionId="{{newsstandEditionId}}" newsSampleFileType="{{newsSampleFileType}}" newsSampleFile="{{newsSampleFile}}" newsFullFileTypeGen="{{newsFullFileTypeGen}}" newsFullFileTitle="{{newsFullFileTitle}}" index="{{@index}}" newsimageurl="{{newsstandImage}}" newsFullFileType="{{newsFullFileType}}" newsFullFile="{{newsFullFile}}">{{@root.newsstandLanguageText.free}}</a>
+                                                        {{/js_compare}}
+                                                    </div>
+                                                </div>
+                                                {{else}}
+                                                {{#root_Compare @global.styleAndNavigation.layout "!=" "1"}}
+                                                {{#root_Compare @global.styleAndNavigation.layout "!=" "4"}}
+                                                <div class="buttonContainer-1" >
+                                                    {{#js_compare "this.newsSampleFile == '' "}}
+
+                                                    {{else}}
+                                                    <!--- Preview Non Package Featured Paid --->
+
+                                                    <a  class="btnPrimary margin-bottom-10 preview" id="PreviewNonPackageFeaturePaid" onclick="Appyscript.itemFile_inApp('{{newsSampleFileTypeGen}}','{{newsSampleFile}}','{{newsSampleCoverFile}}','{{newsSampleFileTitle}}',this,'{{../newsSampleFileTypeGen}}','sample')" listVersion="current">{{@root.newsstandLanguageText.previewText}}</a>
+
+                                                    {{/js_compare}}
+                                                    <!--                                        <a  class="btnPrimary collection" onclick="Appyscript.SetaddToCollection(this)" newsstandEditionId="{{newsstandEditionId}}" newsSampleFileType="{{newsSampleFileType}}" newsSampleFile="{{newsSampleFile}}" newsFullFileType="{{newsFullFileType}}" newsFullFile="{{newsFullFile}}">{{@root.newsstandLanguageText.addToCollection}}</a>-->
+                                                </div>
+                                                {{/root_Compare}}
+                                                {{/root_Compare}}
+                                                {{#js_compare "this.newsSampleFile == '' "}}
+                                                <div class="buttonContainer-2 previewHide">
+                                                    {{else}}
+                                                    <div class="buttonContainer-2">
+                                                        {{/js_compare}}
+                                                        <div class="btnLeft">
+
+                                                            {{#js_compare "this.newsFullFile == '' "}}
+
+                                                            {{else}}
+
+
+
+                                                            {{#root_Compare @root.recuringAlbumPrice "==" "album"}}
+                                                            {{#js_compare "this.pricePerItem == ''"}}
+                                                            <a  class="btnSecondary free" id="{{newsstandEditionId}}" onclick="Appyscript.SetaddToCollection(this)"  paymentType="free" newsstandEditionId="{{newsstandEditionId}}" newsFullVimeoAccessToken="{{newsFullVimeoAccessToken}}" newsFullVimeoVideoId="{{newsFullVimeoVideoId}}" newsSampleFileType="{{newsSampleFileType}}" newsSampleFile="{{newsSampleFile}}"  newsFullFileTypeGen="{{newsFullFileTypeGen}}" index="{{@index}}" newsimageurl="{{newsstandImage}}"  newsFullFileType="{{newsFullFileType}}" newsFullFile="{{newsFullFile}}">{{@root.newsstandLanguageText.free}}</a>
+                                                            {{else}}
+                                                            <a  class="btnSecondary buythis album" id="{{newsstandEditionId}}" onclick="Appyscript.payment_inApp(this)"  itemName="{{newsstandSubHeader}}" paymentType="{{@root.paymentType}}" subscriptionBundleId="{{@root.subscriptionBundleId}}" editionBundleId="{{@root.editionBundleId}}" recuringAlbumPrice="{{@root.recuringAlbumPrice}}" albumPrice="{{@root.albumPrice}}" albumCurrency="{{@root.albumCurrency}}" EditionPrice="{{@root.EditionPrice}}" EditionCurrency="{{@root.EditionCurrency}}" newsstandEditionId="{{newsstandEditionId}}" newsSampleFileType="{{newsSampleFileType}}" newsSampleFile="{{newsSampleFile}}" newsFullFileType="{{newsFullFileType}}" newsFullFile="{{newsFullFile}}" pricePerItem="{{pricePerItem}}" pricePerItemCurrency="{{pricePerItemCurrency}}" itemIdIphone="{{itemIdAndroid}}" iphoneInappProductIdYearly="{{@root.subscriptionBundleIdYearly}}" mytype="oneTime" iphoneInappSharedSecretKey="{{@root.publicKey}}">{{format_currency pricePerItemCurrency}}{{pricePerItem}}</a>
+                                                            {{/js_compare}}
+                                                            <a  class="btnSecondary view-btn" onclick="Appyscript.itemFile_inApp('{{newsFullFileTypeGen}}','{{newsFullFile}}','{{newsFullCoverFile}}','{{newsFullFileTitle}}',this,'','full')" newsSampleFileType="{{newsSampleFileType}}" newsSampleFile="{{newsSampleFile}}" newsFullFileType="{{newsFullFileType}}" newsFullFile="{{newsFullFile}}" listVersion="current">{{@root.newsstandLanguageText.viewlang}}</a>
+                                                            {{/root_Compare}}
+
+
+                                                            {{#root_Compare @root.recuringAlbumPrice "==" "recuring"}}
+
+                                                            <a class="btnSecondary buythis" id="{{newsstandEditionId}}" onclick="Appyscript.payment_inApp(this)"  itemName="{{newsstandSubHeader}}" paymentType="{{@root.paymentType}}" subscriptionBundleId="{{@root.subscriptionBundleId}}" editionBundleId="{{@root.editionBundleId}}" recuringAlbumPrice="{{@root.recuringAlbumPrice}}" albumPrice="{{@root.albumPrice}}" albumCurrency="{{@root.albumCurrency}}" EditionPrice="{{@root.EditionPrice}}" EditionCurrency="{{@root.EditionCurrency}}" newsstandEditionId="{{newsstandEditionId}}" newsSampleFileType="{{newsSampleFileType}}" newsSampleFile="{{newsSampleFile}}" newsFullFileType="{{newsFullFileType}}" newsFullFile="{{newsFullFile}}" pricePerItem="{{pricePerItem}}" pricePerItemCurrency="{{pricePerItemCurrency}}" itemIdIphone="{{itemIdAndroid}}" mytype="oneTime" iphoneInappSharedSecretKey="{{@root.publicKey}}">{{format_currency pricePerItemCurrency}}{{pricePerItem}}</a>
+
+
+
+
+
+
+                                                            <a  class="btnSecondary view-btn" onclick="Appyscript.itemFile_inApp('{{newsFullFileTypeGen}}','{{newsFullFile}}','{{newsFullCoverFile}}','{{newsFullFileTitle}}',this,'','full')" newsSampleFileType="{{newsSampleFileType}}" newsSampleFile="{{newsSampleFile}}" newsFullFileType="{{newsFullFileType}}" newsFullFile="{{newsFullFile}}" listVersion="current">{{@root.newsstandLanguageText.viewlang}}</a>
+                                                            {{/root_Compare}}
+                                                            {{/js_compare}}
+                                                        </div>
+                                                        <!--                                    <div class="btnRight">-->
+                                                        <!--                                        <a  class="btnSecondary subscribe">Subscribe</a>-->
+                                                        <!--                                    </div>-->
+                                                    </div>
+                                                    {{/root_Compare}}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {{/js_compare}}
+                                        {{/list}}
+                                        {{/root_Compare}}
+                                        {{#list}}
+                                        {{#js_compare "this.newsstandFeatured != '1' "}}
+
+                                        <div class="row normal-row" data-id="{{newsstandEditionId}}" index="{{@index}}">
+                                            <div class="newsBx clearfix" style="background:{{@global.styleAndNavigation.listColor}}">
+                                                <div class="newsBxInfoLeft">
+                                                    <img src="images/image-2x3.png" style="background-image:url({{newsstandImage}});" class="img-style"/>
+                                                    {{#js_compare "this.newsSampleFile != '' "}}
+                                                    {{#root_Compare @global.styleAndNavigation.layout "==" "1"}}
+                                                    <div class="buttonContainer-1">
+                                                        <a  class="btnPrimary margin-bottom-10 preview"  onclick="Appyscript.itemFile_inApp('{{newsSampleFileTypeGen}}','{{newsSampleFile}}','{{newsSampleCoverFile}}','{{newsSampleFileTitle}}',this,'{{../newsSampleFileTypeGen}}','sample')" listVersion="current">{{@root.newsstandLanguageText.previewText}}</a>
+                                                    </div>
+                                                    {{/root_Compare}}
+                                                    {{#root_Compare @global.styleAndNavigation.layout "==" "4"}}
+                                                    <div class="buttonContainer-1">
+                                                        <a  class="btnPrimary margin-bottom-10 preview"  onclick="Appyscript.itemFile_inApp('{{newsSampleFileTypeGen}}','{{newsSampleFile}}','{{newsSampleCoverFile}}','{{newsSampleFileTitle}}',this,'{{../newsSampleFileTypeGen}}','sample')" listVersion="current">{{@root.newsstandLanguageText.previewText}}</a>
+                                                    </div>
+                                                    {{/root_Compare}}
+                                                    {{/js_compare}}
+                                                </div>
+                                                <div class="newsBxInfoRight">
+                                                    <h1 class="title  {{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}}">{{newsstandSubHeader}}
+                                                        {{#js_compare "this.newsstandMonthYear != ''"}}
+                                                        <span class="tagline {{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}" style="color:{{@global.styleAndNavigation.subheading[2]}}">{{newsstandMonthYear}}</span>
+                                                        {{/js_compare}}
+                                                    </h1>
+                                                    <div class="description">
+                                                        {{this.newsstandSummary}}
+
+                                                        <!--{{@root.newsstandMagazineDescr}}-->
+                                                    </div>
+                                                </div>
+                                                {{#root_Compare @global.styleAndNavigation.layout "!=" "1"}}
+                                                {{#root_Compare @global.styleAndNavigation.layout "!=" "4"}}
+                                                <div class="buttonContainer-1">
+                                                    {{#js_compare "this.newsSampleFile == '' "}}
+
+                                                    {{else}}
+                                                    <!--- Preview Non Package Non Featured --->
+
+                                                    <a  class="btnPrimary margin-bottom-10 preview"  onclick="Appyscript.itemFile_inApp('{{newsSampleFileTypeGen}}','{{newsSampleFile}}','{{newsSampleCoverFile}}','{{newsSampleFileTitle}}',this,'{{../newsSampleFileTypeGen}}','sample')" listVersion="current">{{@root.newsstandLanguageText.previewText}}</a>
+
+                                                    {{/js_compare}}
+
+                                                    <!--                                <a  class="btnPrimary collection" onclick="Appyscript.SetaddToCollection(this)" newsstandEditionId="{{newsstandEditionId}}" newsSampleFileType="{{newsSampleFileType}}" newsSampleFile="{{newsSampleFile}}" newsFullFileType="{{newsFullFileType}}" newsFullFile="{{newsFullFile}}">{{@root.newsstandLanguageText.addToCollection}}</a>-->
+
+
+                                                </div>
+                                                {{/root_Compare}}
+                                                {{/root_Compare}}
+                                                {{#js_compare "this.newsSampleFile == '' "}}
+                                                <div class="buttonContainer-2 previewHide">
+                                                    {{else}}
+                                                    <div class="buttonContainer-2">
+                                                        {{/js_compare}}
+                                                        <div class="btnLeft">
+                                                            {{#js_compare "this.newsFullFile == '' "}}
+
+                                                            {{else}}
+                                                            {{#root_Compare @root.paymentType "==" "free"}}
+
+                                                            <a  class="btnSecondary free" id="{{newsstandEditionId}}" onclick="Appyscript.SetaddToCollection(this)" paymentType="{{@root.paymentType}}" index="{{@index}}" newsstandEditionId="{{newsstandEditionId}}" newsSampleFileType="{{newsSampleFileType}}" newsSampleFile="{{newsSampleFile}}" newsFullFileType="{{newsFullFileType}}" newsFullFileTypeGen="{{newsFullFileTypeGen}}" newsFullFileTitle="{{newsFullFileTitle}}" newsimageurl="{{newsstandImage}}" newsFullFile="{{newsFullFile}}">{{@root.newsstandLanguageText.free}}</a>
+                                                            {{else}}
+
+                                                            {{#js_compare "this.pricePerItem == ''"}}
+                                                            <a  class="btnSecondary free" id="{{newsstandEditionId}}" onclick="Appyscript.SetaddToCollection(this)" paymentType="free" newsstandEditionId="{{newsstandEditionId}}" newsFullVimeoAccessToken="{{newsFullVimeoAccessToken}}" newsFullVimeoVideoId="{{newsFullVimeoVideoId}}" newsSampleFileType="{{newsSampleFileType}}" newsSampleFile="{{newsSampleFile}}"  newsFullFileTypeGen="{{newsFullFileTypeGen}}" index="{{@index}}" newsimageurl="{{newsstandImage}}"  newsFullFileType="{{newsFullFileType}}" newsFullFile="{{newsFullFile}}">{{@root.newsstandLanguageText.free}}</a>
+                                                            {{else}}
+                                                            <a  class="btnSecondary buythis" id="{{newsstandEditionId}}" onclick="Appyscript.payment_inApp(this)"  itemName="{{newsstandSubHeader}}" paymentType="{{@root.paymentType}}" subscriptionBundleId="{{@root.subscriptionBundleId}}" editionBundleId="{{@root.editionBundleId}}" recuringAlbumPrice="{{@root.recuringAlbumPrice}}" albumPrice="{{@root.albumPrice}}" albumCurrency="{{@root.albumCurrency}}" EditionPrice="{{@root.EditionPrice}}" EditionCurrency="{{@root.EditionCurrency}}" newsstandEditionId="{{newsstandEditionId}}" newsSampleFileType="{{newsSampleFileType}}" newsSampleFile="{{newsSampleFile}}" newsFullFileType="{{newsFullFileType}}" newsFullFile="{{newsFullFile}}" pricePerItem="{{pricePerItem}}" pricePerItemCurrency={{pricePerItemCurrency}} itemIdIphone="{{itemIdAndroid}}" mytype="oneTime" iphoneInappSharedSecretKey="{{@root.publicKey}}">{{format_currency pricePerItemCurrency}}{{pricePerItem}}</a>
+                                                            {{/js_compare}}
+
+
+
+
+                                                            <a  class="btnSecondary view-btn" onclick="Appyscript.itemFile_inApp('{{newsFullFileTypeGen}}','{{newsFullFile}}','{{newsFullCoverFile}}','{{newsFullFileTitle}}',this,'','full')" newsSampleFileType="{{newsSampleFileType}}" newsSampleFile="{{newsSampleFile}}" newsFullFileType="{{newsFullFileType}}" newsFullFile="{{newsFullFile}}" listVersion="current">{{@root.newsstandLanguageText.viewlang}}</a>
+
+                                                            <a  class="btnPrimary collection" onclick="Appyscript.SetaddToCollection(this)" newsstandEditionId="{{newsstandEditionId}}" index="{{@index}}" newsFullFileTypeGen="{{newsFullFileTypeGen}}" newsimageurl="{{newsstandImage}}" newsSampleFileType="{{newsSampleFileType}}" newsSampleFile="{{newsSampleFile}}" newsFullFileType="{{newsFullFileType}}" newsFullFile="{{newsFullFile}}">{{@root.newsstandLanguageText.addToCollection}}</a>
+                                                            {{/root_Compare}}
+                                                            {{/js_compare}}
+
+                                                        </div>
+                                                        <div class="btnRight">
+                                                            <a  class="btnSecondary subscribe">Subscribe</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            {{/js_compare}}
+                                            {{/list}}
+                                            {{#upcomingNewsstands}}
+
+                                            <div class="row upcoming-row" data-id="{{newsstandEditionId}}" index="{{@index}}">
+                                                <div class="newsBx clearfix" style="background:{{@global.styleAndNavigation.listColor}}">
+                                                    <div class="newsBxInfoLeft">
+                                                        <img src="images/image-2x3.png" style="background-image:url({{newsstandImage}});" class="img-style"/>
+                                                        {{#js_compare "this.newsSampleFile != '' "}}
+                                                        {{#root_Compare @global.styleAndNavigation.layout "==" "1"}}
+                                                        <div class="buttonContainer-1">
+                                                            <a  class="btnPrimary margin-bottom-10 preview"  onclick="Appyscript.itemFile_inApp('{{newsSampleFileTypeGen}}','{{newsSampleFile}}','{{newsSampleCoverFile}}','{{newsSampleFileTitle}}',this,'{{../newsSampleFileTypeGen}}','sample')" listVersion="current">{{@root.newsstandLanguageText.previewText}}</a>
+                                                        </div>
+                                                        {{/root_Compare}}
+                                                        {{#root_Compare @global.styleAndNavigation.layout "==" "4"}}
+                                                        <div class="buttonContainer-1">
+                                                            <a  class="btnPrimary margin-bottom-10 preview"  onclick="Appyscript.itemFile_inApp('{{newsSampleFileTypeGen}}','{{newsSampleFile}}','{{newsSampleCoverFile}}','{{newsSampleFileTitle}}',this,'{{../newsSampleFileTypeGen}}','sample')" listVersion="current">{{@root.newsstandLanguageText.previewText}}</a>
+                                                        </div>
+                                                        {{/root_Compare}}
+                                                        {{/js_compare}}
+                                                    </div>
+                                                    <div class="newsBxInfoRight">
+                                                        <h1 class="title  {{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}}">{{newsstandSubHeader}}
+                                                            {{#js_compare "this.newsstandMonthYear != ''"}}
+                                                            <span class="tagline {{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}" style="color:{{@global.styleAndNavigation.subheading[2]}}">{{newsstandMonthYear}}</span>
+                                                            {{/js_compare}}
+                                                        </h1>
+                                                        <div class="description">
+                                                            {{this.newsstandSummary}}
+
+                                                            <!--{{@root.newsstandMagazineDescr}}-->
+                                                        </div>
+                                                    </div>
+                                                    {{#root_Compare @global.styleAndNavigation.layout "!=" "1"}}
+                                                    {{#root_Compare @global.styleAndNavigation.layout "!=" "4"}}
+                                                    <div class="buttonContainer-1">
+                                                        {{#js_compare "this.newsSampleFile == '' "}}
+
+                                                        {{else}}
+
+                                                        <a class="btnPrimary margin-bottom-10 preview" id="upcomingPreviewItem"  onclick="Appyscript.itemFile_inApp('{{newsSampleFileTypeGen}}','{{newsSampleFile}}','{{newsSampleCoverFile}}','{{newsSampleFileTitle}}',this,'{{../newsSampleFileTypeGen}}','sample')" listVersion="upcoming">{{@root.newsstandLanguageText.previewText}}</a>
+
+                                                        {{/js_compare}}
+
+                                                        <!--                                <a class="btnPrimary collection" onclick="Appyscript.SetaddToCollection(this)" newsstandEditionId="{{newsstandEditionId}}" newsSampleFileType="{{newsSampleFileType}}" newsSampleFile="{{newsSampleFile}}" newsFullFileType="{{newsFullFileType}}" newsFullFile="{{newsFullFile}}">{{@root.newsstandLanguageText.addToCollection}}</a>-->
+
+                                                    </div>
+                                                    {{/root_Compare}}
+                                                    {{/root_Compare}}
+                                                    {{#js_compare "this.newsSampleFile == '' "}}
+                                                    <div class="buttonContainer-2 previewHide">
+                                                        {{else}}
+                                                        <div class="buttonContainer-2">
+                                                            {{/js_compare}}
+
+                                                            <div class="btnLeft">
+
+                                                                {{#js_compare "this.newsFullFile == '' "}}
+
+                                                                {{else}}
+                                                                {{#root_Compare @root.paymentType "==" "free"}}
+
+                                                                <a  class="btnSecondary free" id="{{newsstandEditionId}}" onclick="Appyscript.SetaddToCollection(this)" paymentType="{{@root.paymentType}}" index="{{@index}}" newsstandEditionId="{{newsstandEditionId}}" newsSampleFileType="{{newsSampleFileType}}" newsSampleFile="{{newsSampleFile}}" newsFullFileType="{{newsFullFileType}}"  newsFullFileTypeGen="{{newsFullFileTypeGen}}" newsFullFileTitle="{{newsFullFileTitle}}" newsimageurl="{{newsstandImage}}" newsFullFile="{{newsFullFile}}">{{@root.newsstandLanguageText.free}}</a>
+                                                                {{else}}
+                                                                {{#js_compare "this.pricePerItem == ''"}}
+                                                                <a  class="btnSecondary free" id="{{newsstandEditionId}}" onclick="Appyscript.SetaddToCollection(this)" paymentType="free" newsstandEditionId="{{newsstandEditionId}}" newsFullVimeoAccessToken="{{newsFullVimeoAccessToken}}" newsFullVimeoVideoId="{{newsFullVimeoVideoId}}" newsSampleFileType="{{newsSampleFileType}}" newsSampleFile="{{newsSampleFile}}"  newsFullFileTypeGen="{{newsFullFileTypeGen}}" newsFullFileTitle="{{newsFullFileTitle}}" index="{{@index}}" newsimageurl="{{newsstandImage}}"  newsFullFileType="{{newsFullFileType}}" newsFullFile="{{newsFullFile}}">{{@root.newsstandLanguageText.free}}</a>
+                                                                {{else}}
+                                                                <a class="btnSecondary buythis" id="{{newsstandEditionId}}" onclick="Appyscript.payment_inApp(this)"  itemName="{{newsstandSubHeader}}" paymentType="{{@root.paymentType}}" subscriptionBundleId="{{@root.subscriptionBundleId}}" editionBundleId="{{@root.editionBundleId}}" recuringAlbumPrice="{{@root.recuringAlbumPrice}}" albumPrice="{{@root.albumPrice}}" albumCurrency="{{@root.albumCurrency}}" EditionPrice="{{@root.EditionPrice}}" EditionCurrency="{{@root.EditionCurrency}}" newsstandEditionId="{{newsstandEditionId}}" newsSampleFileType="{{newsSampleFileType}}" newsSampleFile="{{newsSampleFile}}" newsFullFileType="{{newsFullFileType}}" newsFullFile="{{newsFullFile}}" pricePerItem="{{pricePerItem}}" pricePerItemCurrency={{pricePerItemCurrency}} itemIdIphone="{{itemIdAndroid}}" mytype="oneTime" iphoneInappSharedSecretKey="{{@root.publicKey}}">{{format_currency pricePerItemCurrency}}{{pricePerItem}}</a>
+                                                                {{/js_compare}}
+
+                                                                <a class="btnSecondary view-btn" onclick="Appyscript.itemFile_inApp('{{newsFullFileTypeGen}}','{{newsFullFile}}','{{newsFullCoverFile}}','{{newsFullFileTitle}}',this,'','full')" newsSampleFileType="{{newsSampleFileType}}" newsSampleFile="{{newsSampleFile}}" newsFullFileType="{{newsFullFileType}}" newsFullFile="{{newsFullFile}}" listVersion="upcoming">{{@root.newsstandLanguageText.viewlang}}</a>
+
+                                                                <a class="btnPrimary collection" onclick="Appyscript.SetaddToCollection(this)" newsstandEditionId="{{newsstandEditionId}}" newsSampleFileType="{{newsSampleFileType}}" newsFullFileTypeGen="{{newsFullFileTypeGen}}" newsFullFileTitle="{{newsFullFileTitle}}" index="{{@index}}" newsimageurl="{{newsstandImage}}" newsSampleFile="{{newsSampleFile}}" newsFullFileType="{{newsFullFileType}}" newsFullFile="{{newsFullFile}}">{{@root.newsstandLanguageText.addToCollection}}</a>
+
+                                                                {{/root_Compare}}
+                                                                {{/js_compare}}
+
+                                                            </div>
+                                                            <div class="btnRight">
+                                                                <a  class="btnSecondary subscribe">Subscribe</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                {{/upcomingNewsstands}}
+                                                {{#if previousNewsstands.length}}
+
+                                                {{#previousNewsstands}}
+                                                <div class="row previous-row" data-id="{{newsstandEditionId}}" index="{{@index}}">
+                                                    <div class="newsBx clearfix" style="background:{{@global.styleAndNavigation.listColor}}">
+                                                        <div class="newsBxInfoLeft">
+                                                            <img src="images/image-2x3.png" style="background-image:url({{newsstandImage}});" class="img-style"/>
+                                                            {{#js_compare "this.newsSampleFile != '' "}}
+                                                            {{#root_Compare @global.styleAndNavigation.layout "==" "1"}}
+                                                            <div class="buttonContainer-1">
+                                                                <a  class="btnPrimary margin-bottom-10 preview"  onclick="Appyscript.itemFile_inApp('{{newsSampleFileTypeGen}}','{{newsSampleFile}}','{{newsSampleCoverFile}}','{{newsSampleFileTitle}}',this,'{{../newsSampleFileTypeGen}}','sample')" listVersion="current">{{@root.newsstandLanguageText.previewText}}</a>
+                                                            </div>
+                                                            {{/root_Compare}}
+                                                            {{#root_Compare @global.styleAndNavigation.layout "==" "4"}}
+                                                            <div class="buttonContainer-1">
+                                                                <a  class="btnPrimary margin-bottom-10 preview"  onclick="Appyscript.itemFile_inApp('{{newsSampleFileTypeGen}}','{{newsSampleFile}}','{{newsSampleCoverFile}}','{{newsSampleFileTitle}}',this,'{{../newsSampleFileTypeGen}}','sample')" listVersion="current">{{@root.newsstandLanguageText.previewText}}</a>
+                                                            </div>
+                                                            {{/root_Compare}}
+                                                            {{/js_compare}}
+                                                        </div>
+                                                        <div class="newsBxInfoRight">
+                                                            <h1 class="title {{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}}">{{newsstandSubHeader}}
+                                                                {{#js_compare "this.newsstandMonthYear != ''"}}
+                                                                <span class="tagline {{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}" style="color:{{@global.styleAndNavigation.subheading[2]}}">{{newsstandMonthYear}}</span>
+                                                                {{/js_compare}}
+                                                            </h1>
+                                                            <div class="description">
+                                                                {{this.newsstandSummary}}
+
+                                                                <!--{{@root.newsstandMagazineDescr}}-->
+                                                            </div>
+                                                        </div>
+                                                        {{#root_Compare @global.styleAndNavigation.layout "!=" "1"}}
+                                                        {{#root_Compare @global.styleAndNavigation.layout "!=" "4"}}
+                                                        <div class="buttonContainer-1">
+                                                            {{#js_compare "this.newsSampleFile == '' "}}
+                                                            {{else}}
+
+                                                            <a class="btnPrimary margin-bottom-10 preview" id="previousPreviewItem"  onclick="Appyscript.itemFile_inApp('{{newsSampleFileTypeGen}}','{{newsSampleFile}}','{{newsSampleCoverFile}}','{{newsSampleFileTitle}}',this,'{{../newsSampleFileTypeGen}}','sample')" listVersion="pervious">{{@root.newsstandLanguageText.previewText}} </a>
+
+                                                            {{/js_compare}}
+
+                                                            <!--                                <a class="btnPrimary collection" onclick="Appyscript.SetaddToCollection(this)" newsstandEditionId="{{newsstandEditionId}}" newsSampleFileType="{{newsSampleFileType}}" newsSampleFile="{{newsSampleFile}}" newsFullFileType="{{newsFullFileType}}" newsFullFile="{{newsFullFile}}">{{@root.newsstandLanguageText.addToCollection}}</a>-->
+                                                        </div>
+                                                        {{/root_Compare}}
+                                                        {{/root_Compare}}
+                                                        {{#js_compare "this.newsSampleFile == '' "}}
+                                                        <div class="buttonContainer-2 previewHide">
+                                                            {{else}}
+                                                            <div class="buttonContainer-2">
+                                                                {{/js_compare}}
+
+                                                                <div class="btnLeft">
+
+                                                                    {{#js_compare "this.newsFullFile == '' "}}
+
+                                                                    {{else}}
+                                                                    {{#root_Compare @root.paymentType "==" "free"}}
+
+                                                                    <a  class="btnSecondary free" id="{{newsstandEditionId}}" onclick="Appyscript.SetaddToCollection(this)" paymentType="{{@root.paymentType}}" index="{{@index}}" newsstandEditionId="{{newsstandEditionId}}" newsSampleFileType="{{newsSampleFileType}}" newsSampleFile="{{newsSampleFile}}" newsFullFileType="{{newsFullFileType}}"  newsFullFileTypeGen="{{newsFullFileTypeGen}}" newsFullFileTitle="{{newsFullFileTitle}}" newsimageurl="{{newsstandImage}}" newsFullFile="{{newsFullFile}}">{{@root.newsstandLanguageText.free}}</a>
+                                                                    {{else}}
+                                                                    {{#js_compare "this.pricePerItem == ''"}}
+                                                                    <a  class="btnSecondary free" id="{{newsstandEditionId}}" onclick="Appyscript.SetaddToCollection(this)" paymentType="free" newsstandEditionId="{{newsstandEditionId}}" newsFullVimeoAccessToken="{{newsFullVimeoAccessToken}}" newsFullVimeoVideoId="{{newsFullVimeoVideoId}}" newsSampleFileType="{{newsSampleFileType}}" newsSampleFile="{{newsSampleFile}}"  newsFullFileTypeGen="{{newsFullFileTypeGen}}" newsFullFileTitle="{{newsFullFileTitle}}" index="{{@index}}" newsimageurl="{{newsstandImage}}"  newsFullFileType="{{newsFullFileType}}" newsFullFile="{{newsFullFile}}">{{@root.newsstandLanguageText.free}}</a>
+                                                                    {{else}}
+
+                                                                    <a class="btnSecondary buythis" id="{{newsstandEditionId}}" onclick="Appyscript.payment_inApp(this)"  itemName="{{newsstandSubHeader}}" paymentType="{{@root.paymentType}}" subscriptionBundleId="{{@root.subscriptionBundleId}}" editionBundleId="{{@root.editionBundleId}}" recuringAlbumPrice="{{@root.recuringAlbumPrice}}" albumPrice="{{@root.albumPrice}}" albumCurrency="{{@root.albumCurrency}}" EditionPrice="{{@root.EditionPrice}}" EditionCurrency="{{@root.EditionCurrency}}" newsstandEditionId="{{newsstandEditionId}}" newsSampleFileType="{{newsSampleFileType}}" newsSampleFile="{{newsSampleFile}}" newsFullFileType="{{newsFullFileType}}" newsFullFile="{{newsFullFile}}" pricePerItem="{{pricePerItem}}" pricePerItemCurrency={{pricePerItemCurrency}} itemIdIphone="{{itemIdAndroid}}" mytype="oneTime" iphoneInappSharedSecretKey="{{@root.publicKey}}">{{format_currency pricePerItemCurrency}}{{pricePerItem}}</a>
+                                                                    {{/js_compare}}
+
+                                                                    <a class="btnSecondary view-btn" onclick="Appyscript.itemFile_inApp('{{newsFullFileTypeGen}}','{{newsFullFile}}','{{newsFullCoverFile}}','{{newsFullFileTitle}}',this,'','full')" newsSampleFileType="{{newsSampleFileType}}" newsSampleFile="{{newsSampleFile}}" newsFullFileType="{{newsFullFileType}}" newsFullFile="{{newsFullFile}}" listVersion="pervious">{{@root.newsstandLanguageText.viewlang}}</a>
+
+                                                                    <a class="btnPrimary collection" onclick="Appyscript.SetaddToCollection(this)" newsstandEditionId="{{newsstandEditionId}}"  index="{{@index}}" newsSampleFileType="{{newsSampleFileType}}" newsSampleFile="{{newsSampleFile}}" newsFullFileTypeGen="{{newsFullFileTypeGen}}" newsFullFileTitle="{{newsFullFileTitle}}" newsimageurl="{{newsstandImage}}"  newsFullFileType="{{newsFullFileType}}" newsFullFile="{{newsFullFile}}">{{@root.newsstandLanguageText.addToCollection}}</a>
+                                                                    {{/root_Compare}}
+                                                                    {{/js_compare}}
+
+                                                                </div>
+                                                                <div class="btnRight">
+                                                                    <a  class="btnSecondary subscribe">Subscribe</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    {{/previousNewsstands}}
+                                                    {{/if}}
+
+                                                    {{#root_Compare @root.styleAndNavigation.layout "==" "3"}}
+                                                    <div class="newsstand-list">
+                                                        {{#list}}
+                                                        {{#js_compare "this.newsstandFeatured == '1' "}}
+                                                        <a class="featured on" data-type="featured-row" index="{{@index}}"><img src="images/image-2x3.png" style="background-image:url({{newsstandImage}})" /></a>
+                                                        {{else}}
+                                                        {{/js_compare}}
+                                                        {{/list}}
+                                                        {{#list}}
+                                                        {{#js_compare "this.newsstandFeatured == '1' "}}
+                                                        {{else}}
+                                                        <a class="normal" data-type="normal-row" index="{{@index}}"><img src="images/image-2x3.png" style="background-image:url({{newsstandImage}})" /></a>
+                                                        {{/js_compare}}
+                                                        {{/list}}
+                                                        {{#upcomingNewsstands}}
+                                                        <a class="upcoming" data-type="upcoming-row" index="{{@index}}"><img src="images/image-2x3.png" style="background-image:url({{newsstandImage}})" /></a>
+                                                        {{/upcomingNewsstands}}
+                                                        {{#previousNewsstands}}
+                                                        <a class="previous" data-type="featured-row" index="{{@index}}"><img src="images/image-2x3.png" style="background-image:url({{newsstandImage}})" /></a>
+                                                        {{/previousNewsstands}}
+                                                    </div>
+                                                    {{/root_Compare}}
+
+                                                </div>
+                                                <div class="tab newsStandContainer theme-{{@global.styleAndNavigation.layout}}" id="collection" style="background:none">
+
+                                                    <div class="restore-box">
+                                                        <h2>{{newsstandLanguageText.restorePurchases}}</h2>
+                                                        <p>{{newsstandLanguageText.newsstandReinstalled}}<strong> {{@global.name}} </strong>{{newsstandLanguageText.newsstandRestoreBackup}}</p>
+                                                        <span onclick="restoreProduct()" class="restore-btn">{{newsstandLanguageText.newsstandRestore}}</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="msg-code" style="display:none">{{> errorpage errorIcon="appyicon-no-data"}}</div>
+                                </div>
+                            </div>

@@ -1,0 +1,59 @@
+<div class="navbar">
+    <div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+        <div class="left sliding">
+            <a href="index" class="link back" style="color:{{@global.style.headerBarIconColor}};">
+                <i class="icon icon-left-open-2"></i>
+            </a>
+        </div>
+        <div class="center sliding">
+            <div class="topHeader {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">{{@global.foodcourtcustomheaderforsearch}} </div>
+        </div>
+        <div class="right">
+            <a onclick="foodcourtCartPage('cart')" class="localHeaderIconRight ui-link" style="color:{{@global.style.headerBarIconColor}};"> <span class="subValue" style="color:{{@global.styleAndNavigation.button[3]}};background:{{@global.styleAndNavigation.button[2]}};">{{@global.foodCartCount}}</span><div class="headerIcon"><i class="icon-cart"></i></div></a>
+        </div>
+    </div>
+</div>
+
+<div data-page="foodcourt-FOLS" class="page navbar-through toolbar-fixed no-toolbar">
+    <div class="page-content {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}} content-{{@global.styleAndNavigation.content[3]}} heading-{{@global.styleAndNavigation.heading[3]}} foodCourtHotelFavoritesOffers" style="color:{{@global.styleAndNavigation.content[2]}}; background:{{@global.styleAndNavigation.pageBgColor}}">
+        {{#js_compare "this.status != 'fail'"}}
+        {{#if vendorList.list.length}}
+        <section class="food-Order">
+            {{#if vendorList.list.length}}
+            <ul class="foodOrder-cat-listing   {{#if @global.setting.vendorDetailsPage}}  {{else}} optionTwo fols {{/if}}">
+                {{#vendorList.list}}
+                <li data-minprice="{{min_order}}"  data-mintime="{{#oyonfigList}}{{#js_compare "this.ConfigKey == 'delivery_min_duration'"}}{{ConfigValue}}{{/js_compare}}{{/configList}}" class="dashboard-image" {{#imgList}}{{#if main_image}} style="background-image:url({{name}})" {{/if}} {{/imgList}} onclick="hotalinfodetails(this , '{{@index}}', '{{id}}','mainpage');">
+                <span class="opnClose" style="background-color:{{@global.styleAndNavigation.offerButton.Bgcolor}}; color:{{@global.styleAndNavigation.offerButton.Textcolor}}">{{openclosefoodcourt storeOpentimeDate}}</span>
+                <img src="images/transparent-bg.png" alt="">
+                                                    <span class="cat-heading-text {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="color:{{@global.styleAndNavigation.content[2]}}; background-color:{{@global.styleAndNavigation.title[2]}}">
+                                                    <small storeid="{{id}}"  class="oprTime" style="background-color:{{@global.styleAndNavigation.title[2]}}">{{openclosetimefoodcourt storeOpentimeDate}}</small>
+                                                    <strong class="nameHead {{@global.styleAndNavigation.title[0]}} {{@global.styleAndNavigation.title[1]}}" style="color:{{@global.styleAndNavigation.title[3]}}">{{name}}</strong>
+                                                    <small class="hotel-region">{{address}}</small>
+                                                    <small class="minOrder">{{@global.pageLanguageSetting.home_restaurant_min_order}} {{#configList}}{{#js_compare "this.ConfigKey == 'currency_code'"}}{{format_currency ConfigValue}}{{/js_compare}}{{/configList}}{{js "parseFloat(this.min_order).toFixed(2)"}}</small>
+                                                    <div class="foodReview">{{Ratinghelperfoodcourt rating}}</div>
+                                                    <small class="foodOrder-time {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="color:{{@global.styleAndNavigation.content[2]}}">
+                                                        <i class="icon-truck" style="color:{{@global.styleAndNavigation.iconColor}}"></i>
+                                                        {{#if @global.setting.showOnListing}}  {{#configList}}{{#js_compare "this.ConfigKey == 'delivery_min_duration'"}} {{ConfigValue}} {{@global.pageLanguageSetting.var_minutes}}{{/js_compare}}{{/configList}}  {{else}} {{distance}} {{distanceunit}} {{/if}}</small>
+                                                    {{#js_compare "this.vendor_discount != ''"}}{{#js_compare "this.vendor_discount != '0'"}}
+                                                    <span class="foodOrder-discount" style="color:{{@global.styleAndNavigation.activeColor}}">{{vendor_discount}} % {{@global.pageLanguageSetting.off}}</span>
+                                                    </span> {{/js_compare}}{{/js_compare}}
+                </li>
+                {{/vendorList.list}}
+            </ul>
+            {{else}}
+            <div class="msg-code">{{> errorpage errorIcon="appyicon-no-data"}} </div>
+            {{/if}}
+        </section>
+        {{else}}
+        <div class="msg-code">{{> errorpage errorIcon="appyicon-no-data"}} </div>
+        {{/if}}
+        {{else}}
+        <div class="msg-code">{{> errorpage errorIcon="appyicon-no-data"}} </div>
+        {{/js_compare}}
+    </div>
+</div>
+
+
+
+
+

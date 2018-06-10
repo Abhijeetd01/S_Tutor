@@ -1,0 +1,66 @@
+<div class="popup menu-popup tablet-fullscreen">
+
+
+
+    <div class="pages" data-page="messenger-counrtyCode" style="background-color:{{@global.styleAndNavigation.menu[2]}}">
+        <div class="navbar"><div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+            <div class="left sliding">
+                <a href="index" class="link close-popup" style="color:{{@global.style.headerBarIconColor}};">
+                    <i class="icon icon-left-open-2"></i>
+                </a>
+            </div>
+            <div class="center sliding {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">{{@global.name}}</div>
+            <div class="right">
+            </div>
+        </div></div>
+
+        <!-- Search bar -->
+        <form class="searchbar searchbar-inner searchbar-init {{@global.styleAndNavigation.submenu[0]}} {{@global.styleAndNavigation.submenu[1]}}">
+            <div class="searchbar-input">
+                <input type="search" placeholder="{{@global.pageLanguageSetting.Search_Placeholder_Text}}">
+                <a href="#" class="searchbar-clear"></a>
+            </div>
+            <a href="#" class="searchbar-cancel">{{@global.pageLanguageSetting.User_Profile_Action_Cancel}}</a>
+        </form>
+
+        <!-- Search bar overlay-->
+        <div class="searchbar-overlay"></div>
+
+        <style>
+            .searchbar{ background:{{@global.styleAndNavigation.submenu[2]}};
+                color:{{@global.styleAndNavigation.submenu[3]}}; z-index:1000}
+        .searchbar a{color:{{@global.styleAndNavigation.submenu[3]}}}
+        .searchbar input {
+            border-color:{{@global.styleAndNavigation.submenu[4]}} !important;
+            background-color:{{@global.styleAndNavigation.submenu[4]}};
+            color:{{@global.styleAndNavigation.submenu[5]}};
+        }
+        .list-block{margin-top:0px; color:{{@global.styleAndNavigation.menu[3]}};}
+        .list-block ul{background:{{@global.styleAndNavigation.menu[2]}};}
+        .list-block .item-inner:after{background-color:{{@global.styleAndNavigationborderColor}};}
+            </style>
+
+
+        <div class="page-content">
+            <div class="searchbar-found countryList"> <div class="list-block">
+                <ul class="{{@global.styleAndNavigation.menu[0]}} {{@global.styleAndNavigation.menu[1]}}">
+                    {{#each this.value}}
+                    <li class="item-content" onclick="selectedCountry('{{this.areacode}}','{{this.name}}')">
+                        <div class="item-inner">
+                            <div class="item-title" > +{{this.areacode}} {{this.name}}</div>
+                        </div>
+                    </li> {{/each}}  </ul>
+            </div>
+            </div>
+            <div class="searchbar-not-found msg-code">
+                {{> errorpage errorIcon="appyicon-no-data"}}</div>
+
+        </div>
+
+
+    </div>
+</div>
+
+</div>
+
+

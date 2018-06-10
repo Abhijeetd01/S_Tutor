@@ -1,0 +1,7 @@
+.qrcode {
+     display: table;
+    height: calc(100% - 50%);
+    margin: 25% auto;
+    vertical-align: middle;
+    width: auto;
+}

@@ -1,0 +1,24 @@
+<div class="popup menu-popup tablet-fullscreen">
+    <div class="view">
+        <div class="navbar"><div class="navbar-inner " style="background-color:{{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+           <div class="location-search">
+                <a class="close icon-cancel close-popup" href="#" style="color:{{@global.style.headerBarIconColor}};"></a>
+                <i class="icon-search-3"></i>
+                    <div style="color:{{@global.style.headerBarIconColor}};">
+                    <input type="search" id="weatherLocationDating" name="weatherLocationDating" onKeyPress="weatherGeocodeDating('weatherListDating');" placeholder="{{@global.commonLanguageSetting.search_for}}"  data-role="none" class="" style="color:{{@global.style.headerBarIconColor}};"> </div>
+                    </div>
+                    
+                    </div></div>
+                    <div class="pages" style="background-color: {{@global.styleAndNavigation.pageBgColor}}">>
+                    <div class="page navbar-through no-toolbar">
+                    <div class="page-content">
+                    <div class="bodypan">
+                    <ul id="weatherListDating"  class="searchListLoc {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="color:{{@global.styleAndNavigation.content[2]}}; text-align:{{@global.styleAndNavigation.content[3]}}">{{@global.commonLanguageSetting.search_your_location}}</ul>
+                    </div>
+                    <div class="msg-code" style="display:none">{{> errorpage errorIcon="appyicon-no-data"}}</div>
+                                        
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+                    </div>

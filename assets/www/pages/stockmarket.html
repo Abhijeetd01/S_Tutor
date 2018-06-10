@@ -1,0 +1,41 @@
+<div class="navbar"><div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}}; font-size: {{@global.style.headerBarSize}} ">
+            <div class="left sliding">
+             {{getSlideBack "common"}}
+            </div>
+            <div class="center sliding">Stock Market</div>
+            <div class="right">
+               {{getSlideRightBack ""}}
+                <a   onclick="Stockrefresh();"class="icon-spin3" style="color:{{@global.style.headerBarTextColor}};">
+                  
+                </a>
+            </div>
+          </div></div>
+
+<div data-page="stockmarket-page" class="page navbar-through no-toolbar">
+    <!-- Page content-->
+    <div class="page-content"  style="background:{{@global.style.appBackground}}">
+    <div class="bodypan stockMarket {{@global.style.appPageFont}}" style="color:{{@global.style.pageTextColor}};"> 
+ 
+ 
+        {{#query.results.quote}}
+        <div class="row">
+            <div class="col-40 eqPadding"><b>{{Symbol}}</b><br><span style="word-break: break-all;
+                word-wrap: break-word;
+                white-space: normal;">{{Name}}</span></div>
+            <div class="col-60" style="text-align:right">
+                
+                <div class="stockBtn stockredBtn" onclick="stockShowhide('change');" id="change" > {{#js_compare "this.Change == null"}} --{{else}}{{Change}} {{/js_compare}}</div>
+                <div style="display:none" class="stockBtn stockgreenBtn" onclick="stockShowhide('MarketCapitalization');"  id="MarketCapitalization" >{{#js_compare "this.MarketCapitalization == null"}} -- {{else}} {{MarketCapitalization}} {{/js_compare}} </div>
+                <div style="display:none" class="stockBtn stockgreenBtn" onclick="stockShowhide('ChangeinPercent');"  id="ChangeinPercent" >{{#js_compare "this.ChangeinPercent == null"}} -- {{else}} {{ChangeinPercent}} {{/js_compare}} </div>
+                
+                
+                
+                
+                <div class="stockNum eqPadding">{{LastTradePriceOnly}}</div></div>
+        </div>
+       
+        {{/query.results.quote}}
+        
+        </div>
+    </div>
+</div>

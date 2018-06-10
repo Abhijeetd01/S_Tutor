@@ -1,0 +1,136 @@
+<div class="navbar"><div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+    <div class="left sliding">
+        <a href="index" class="link back" style="color:{{@global.style.headerBarIconColor}};">
+            <i class="icon icon-left-open-2"></i>
+        </a>
+    </div>
+    <div class="center sliding">
+        <div class="topHeader  {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">{{heading}}
+        </div>
+    </div>
+    <div class="right">
+        <a onclick="Appyscript.coupondirectorybookemarkedlist();" class="" style="color:#ffffff"><i class="icon icon-bookmark-empty"></i></a>
+     </div>
+</div></div>
+
+<div data-page="coupondirectory-couponlist" class="page navbar-through no-toolbar {{#root_Compare @global.styleAndNavigation.layout "==" "2"}} {{#if @global.styleAndNavigation.hideImage}}hide-list-img{{/if}} {{/root_Compare}} hideBorder-{{@global.styleAndNavigation.hideBorder}}" style="background-color: {{@global.styleAndNavigation.pageBgColor}}">
+    <style>
+        #search-box.on ul{border-color:{{@global.styleAndNavigation.borderColor}}}
+        #search-box.on ul li{border-color:{{@global.styleAndNavigation.borderColor}}}
+        </style>
+    <div class="backgroundAnimation">{{> innerBackground}}</div>
+    <!-- Page content-->
+    
+    
+    <div class="page-content  " style="color:;  ">
+        
+        <div class="couponPageContainer">
+            <div class="theme-1 hideBorder-0">
+                
+             
+                
+                <ul class="copListContainer">
+                    
+           
+                    
+                    {{#couponsWithSubCategory.coupons}}
+           
+                    
+                    <li class="flip-container" id="coupon-flip{{@index}}">
+                        <div class="flipper">
+                            
+                            <div class="card-box front" style="background:{{@global.styleAndNavigation.list[0]}}; border-color:{{@global.styleAndNavigation.list[1]}}">
+                                
+                                
+                                {{#js_compare "this.showExpiredCoupons == '1'"}}{{#if couponExpire}} <span class="topLavel">{{@global.pageLanguageSetting.expired}}  </span> {{else}} {{#js_compare "this.showReedemedCoupons == '1'"}}{{#if couponRedeem}} <span class="topLavel2">{{@global.pageLanguageSetting.redeemed}}</span> {{/if}}{{/js_compare}}{{/if}}{{else}} {{#js_compare "this.showReedemedCoupons == '1'"}}{{#if couponRedeem}} <span class="topLavel2">{{@global.pageLanguageSetting.redeemed}}</span> {{/if}}{{/js_compare}} {{/js_compare}}
+                                
+                                {{#js_compare "this.couponType== 'custom'"}}
+                                <div class="cop_right">
+                                    <a class="icon-info-circled infobtn" onclick="document.getElementById('coupon-flip{{@index+1}}').classList.toggle('hover');"
+                                        style="background-color:{{@global.styleAndNavigation.icon[0]}}; color:{{@global.styleAndNavigation.icon[1]}}"></a>
+                                    <span class="coupon-addons">
+                                        <a href="#" class="iconz-phone1" style="background-color:{{@global.styleAndNavigation.icon[0]}}; color:{{@global.styleAndNavigation.icon[1]}};"></a>
+                                        <a href="#" class="iconz-star-empty" style="background-color:{{@global.styleAndNavigation.icon[0]}}; color:{{@global.styleAndNavigation.icon[1]}};"></a>
+                                        <a href="#" class="icon-location" style="background-color:{{@global.styleAndNavigation.icon[0]}}; color:{{@global.styleAndNavigation.icon[1]}};"></a>
+                                        <a href="#" class="icon-share-1" style="background-color:{{@global.styleAndNavigation.icon[0]}}; color:{{@global.styleAndNavigation.icon[1]}};"></a>
+                                    </span>
+                                    <img src="images/image-2x1.png" style="background:url({{coverImage}});" class="img-style"/></div>
+                                
+                                {{else}}
+                                
+                                <div class="cop_right">
+                                    <a class="icon-info-circled infobtn" onclick="document.getElementById('coupon-flip{{@index}}').classList.toggle('hover');"
+                                        style="background-color:{{@global.styleAndNavigation.icon[0]}}; color:{{@global.styleAndNavigation.icon[1]}}"></a>
+                                    <span class="coupon-addons">
+                                        <a href="#" class="iconz-phone1" style="background-color:{{@global.styleAndNavigation.icon[0]}}; color:{{@global.styleAndNavigation.icon[1]}};"></a>
+                                        <a href="#" class="iconz-star-empty" style="background-color:{{@global.styleAndNavigation.icon[0]}}; color:{{@global.styleAndNavigation.icon[1]}};"></a>
+                                        <a href="#" class="icon-location" style="background-color:{{@global.styleAndNavigation.icon[0]}}; color:{{@global.styleAndNavigation.icon[1]}};"></a>
+                                        <a href="#" class="icon-share-1" style="background-color:{{@global.styleAndNavigation.icon[0]}}; color:{{@global.styleAndNavigation.icon[1]}};"></a>
+                                    </span>
+                                    <img src="images/image-2x1.png" style="background:url({{coverImage}});" class="img-style"/></div>
+                                {{/js_compare}}
+                                
+                                
+                                <div class="cop_left0 cop_left{{@global.hidedetailforlist}}"  style="background-color:{{@global.styleAndNavigation.list[0]}};">
+                                    {{#js_compare "this.couponType== 'scratchwin'"}}
+                                    <div class="cup_off scrat {{@global.styleAndNavigation.subheading[0]}}" style="background-color:{{@global.styleAndNavigation.icon[0]}}; color:{{@global.styleAndNavigation.icon[1]}}; font-size:20px;"><span class="coupon_code"><i class="iconz-scissors" style="font-size:30px;"></i></span> <span>Scratch &amp; <br> Win</span></div>
+                                    {{/js_compare}}
+                                    {{#js_compare "this.couponType== 'buyget'"}}
+                                    <div class="cup_off {{@global.styleAndNavigation.subheading[0]}}" style="background-color:{{@global.styleAndNavigation.icon[0]}}; color:{{@global.styleAndNavigation.icon[1]}}; font-size:20px;"><span class="coupon_code">{{buyGetInfo.buy}}+{{buyGetInfo.get}}</span> <span>Buy &amp; Get</span></div>
+                                    {{/js_compare}}
+                                    {{#js_compare "this.couponType == 'discount'"}}
+                                    {{#js_compare "this.discountRate == 'flat'"}}
+                                    <div class="cup_off                                                                                                                                                                                                                                                                                                                                  {{@global.styleAndNavigation.subheading[0]}}" style="background-color:{{@global.styleAndNavigation.icon[0]}}; color:{{@global.styleAndNavigation.icon[1]}}; font-size:20px;"><span class="coupon_code">{{format_currency @global.couponcurentcycode}}{{couponPrice}}</span> <span>Discount</span></div>
+                                    {{else}}
+                                    <div class="cup_off {{@global.styleAndNavigation.subheading[0]}}" style="background-color:{{@global.styleAndNavigation.icon[0]}}; color:{{@global.styleAndNavigation.icon[1]}}; font-size:20px;"><span class="coupon_code">{{couponPrice}}%</span> <span>Discount</span></div>
+                                    {{/js_compare}}
+                                    {{/js_compare}}
+                                    
+                                    
+                                    
+                                    
+                                    <div class="cup_detail"><h2 class="copTitle {{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}};" style="color:{{@global.styleAndNavigation.heading[2]}}; text-align:{{@global.styleAndNavigation.heading[3]}}">{{heading}}</h2>
+                                        
+                                        {{#js_compare "this.validDate == ''"}}
+                                        <div class="info-wrapper-second">
+                                            <span class="pull-left {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="color:{{@global.styleAndNavigation.content[2]}}"> {{couponValidLabel+":"}}<strong>{{@global.pageLanguageSetting.in_stock}}</strong></span>
+                                        </div>
+                                        {{else}}
+                                        <div class="info-wrapper-second">
+                                            <span class="pull-left {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="color:{{@global.styleAndNavigation.content[2]}}">{{couponValidLabel+":"}} <strong>{{validDate}}</strong></span>
+                                        </div>
+                                        {{/js_compare}}
+                                        
+                                        
+                                        <div class="copDescription {{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}" style="color:{{@global.styleAndNavigation.subheading[2]}};">
+                                            {{briefDescription}}
+                                        </div></div>
+                                    
+                                    
+                                    
+                                </div>
+                                
+                                
+                                <div class="frontInner" onclick="CoupanDetailsdirectory('{{id}}','{{@index}}')" data-index="{{@index}}"> </div>
+                                
+                            </div>
+                            
+                            
+                            <div class="back-screen" style="background:{{@global.styleAndNavigation.list[0]}}; border-color:{{@global.styleAndNavigation.list[1]}}">
+                                <a onclick="document.getElementById('coupon-flip{{@index}}').classList.toggle('hover');" class="icon-cancel-circle-1" style="background-color:{{@global.styleAndNavigation.icon[0]}}; color:{{@global.styleAndNavigation.icon[1]}}"></a>
+                                <h2 class="{{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}}; border-color:{{@global.styleAndNavigation.list[1]}}">Term and Condition</h2>
+                                <div class="copDescription terms-text {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="color:{{@global.styleAndNavigation.content[2]}}; text-align:{{@global.styleAndNavigation.content[3]}}">
+                                    {{termsCondition}}
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </li>
+                 
+                    {{/couponsWithSubCategory.coupons}}
+                </ul>            </div>
+        </div>
+        
+        
+    </div>
+</div>

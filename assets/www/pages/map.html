@@ -1,0 +1,40 @@
+<div class="navbar"><div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+    <div class="left sliding">
+				{{getSlideBack ""}}        
+    </div>
+    <div class="center sliding {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">{{pageTitle}}</div>
+    <div class="right"></div>
+</div></div>
+
+<div data-page="map-page" class="page navbar-through no-toolbar " >
+<div class="backgroundAnimation">{{> innerBackground}}</div>
+<!-- Page content-->
+    <div class="page-content" style="background-color:{{@global.styleAndNavigation.pageBgColor}}">
+        <div class="contact-us theme-1 icon-{{@global.styleAndNavigation.icon[2]}} rounded-{{@global.styleAndNavigation.roundedList}} icon-yes-{{@global.styleAndNavigation.hideIcon}}" style='color:{{@global.styleAndNavigation.content[2]}}'>
+            <ul>
+            {{#list}}
+                <li onclick="Appyscript.singlemap('{{filterAddressString subtext}}','{{latitude}}','{{longitude}}','{{mapInThirdParty}}','')"
+                    
+                {{#js_compare "this.image === 'map' "}}
+                
+                    {{/js_compare}}
+
+                    style="background-color:{{@global.styleAndNavigation.listColor}}">
+                	<!-- Only Theme 2 Case-->
+                    <b class="arrow" style="border-right-color: {{@global.style.navBorderColor}};"></b>
+                    <!-- end-->                    
+			      	<em style="background-color:{{@global.styleAndNavigation.icon[0]}};">
+                    {{#js_compare "this.iconType === 'img' "}}
+                    	<img src="{{iconName}}" style="border-color:{{@global.style.navBorderColor}}">
+                    {{else}}
+                    	<i class="{{iconName}}" style="color:{{@global.styleAndNavigation.icon[1]}} ;"></i>
+                    {{/js_compare}}					
+                    </em>
+                	<span class="{{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}}; text-align:{{@global.styleAndNavigation.heading[3]}}">{{text}}</span>
+                    <strong class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="text-align:{{@global.styleAndNavigation.content[3]}}">{{subtext}}</strong>
+                </li>
+            {{/list}}
+            </ul>
+        </div>
+    </div>
+</div>

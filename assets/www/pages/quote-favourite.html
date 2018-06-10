@@ -1,0 +1,54 @@
+<div class="navbar"><div class="navbar-inner" style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+    <div class="left sliding">
+        {{#root_Compare @global.style.layout "==" "slidemenu"}}
+        {{#if @root.innerLayout}}
+        <a href="index" class="link back" style="color:{{@global.style.headerBarIconColor}};">
+            <i class="icon icon-left-open-2"></i>
+        </a>
+        {{else}}
+        <a onclick="Appyscript.openSlide()" style="color:{{@global.style.headerBarIconColor}};">
+            <i class="icon icon-menu"></i>
+        </a>
+        {{/if}}
+        {{else}}
+        <a href="index" class="link back bottomBack" style="color:{{@global.style.headerBarIconColor}};">
+            <i class="icon icon-left-open-2"></i>
+        </a>
+        {{/root_Compare}}
+    </div>
+
+<!--    <div class="center sliding {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">{{pageTitle}}</div>-->
+   <div class="center sliding {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">Favourite</div>
+    <div class="right"><a id="openFavouritePage" style="color:{{@global.style.headerBarIconColor}};"><i class="icon-heart-1"></i></a></div>
+</div></div>
+
+
+
+<div data-page="quote-FavouritePage" class="page navbar-through no-toolbar">
+
+    <!-- Page content-->
+    <div class="backgroundAnimation">{{> innerBackground}}</div>
+    <div class="page-content" id="pageSwipe" style="background:{{@global.styleAndNavigation.pageBackground}}">
+    
+            <div class="bodypan" id="favouriteQuote_txt">
+<!--            <div class="quote-time" id="quote_Date">-->
+<!--                <span>May</span>, 14th 2017-->
+<!--            </div>-->
+<!--            <div class="quote-wrapper">-->
+<!--                <img src="images/2X1.png" style="background:url(http://qnimate.com/wp-content/uploads/2014/03/images2.jpg)"/>-->
+<!--                <p id="quoteContent">-->
+<!--                <i class="icon-quote-left-1" style="color:#fff"></i>You may never know what's is results come of your action, But if You do Nothing there awill be no result lorem ipsum doler sit amet is simply dumy text for printing users.-->
+<!--                </p>-->
+<!--                <div class="row">-->
+<!--                    <div class="quote-share">-->
+<!--                        <i class="icon-heart-1"></i><i class="icon-share-1"></i>-->
+<!--                    </div>-->
+<!--                    <div class="quote-publish">-->
+<!--                        Thomas Merton-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+        </div>
+        
+    </div>
+</div>

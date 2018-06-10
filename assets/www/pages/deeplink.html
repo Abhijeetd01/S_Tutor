@@ -1,0 +1,27 @@
+<div class="navbar"><div class="navbar-inner " style="background-color: {{headerBarBackgroundColor}}; color: {{headerBarTextColor}}; font-size: {{@global.style.headerBarSize}} ">
+            <div class="left sliding">
+              <a href="index" class="link back" style="color:{{headerBarTextColor}};">
+                <i class="icon icon-left-open-2"></i>
+              </a>
+            </div>
+            <div class="center sliding">{{title}}</div>
+            <div class="right"></div>
+          </div></div>
+
+<div data-page="deeplink-Page" class="page navbar-through no-toolbar " style="background-color:{{appPageBackgroundColor}}">
+    <!-- Page content-->
+    <div class="page-content {{@global.style.appPageFont}} {{@global.style.appPageCsize}}">
+   {{#list}}
+    	<a class="appypie-list" href="{{url}}" style="color:{{@global.style.pageTextColor}}">
+             <span>
+             {{#js_compare "this.pageiconType == 'img' "}}
+              <img src="{{iconName}}" />
+              {{else}}
+              <i class="{{iconName}}" style="color:{{@global.style.pageIconColor}}"></i>
+    		  {{/js_compare}}
+              </span>
+              <span>{{deeplinkAppName}}</span>
+         </a>
+   {{/list}}
+    </div>
+</div>

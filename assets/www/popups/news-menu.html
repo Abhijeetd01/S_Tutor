@@ -1,0 +1,38 @@
+<div class="popup menu-popup tablet-fullscreen">
+    <div class="view toolbar-through">
+        <div class="pages">
+            <div class="page {{@global.styleAndNavigation.menu[0]}} {{@global.styleAndNavigation.menu[1]}} hideBorder-{{@global.styleAndNavigation.hideBorder}}" style="background-color: {{@global.styleAndNavigation.menu[2]}}">
+                <div class="news-navs" style="display: block; top: 0px; ">
+                    <div class="navs">
+                        <ul>
+                        	{{#if @global.setting.homeButtonStatus}}{{else}}
+                            <li><a onClick="Appyscript.clickHome()" style="color:{{@global.styleAndNavigation.menu[3]}};border-color:{{@global.styleAndNavigation.borderColor}};">{{langSetting.home_lang_news}}</a></li>
+                            {{/if}}
+                            <li><a data-page="news" data-jsonID="'method':'getPages'" data-home="true" data-animate="false" class="popupToPage" style="color:{{@global.styleAndNavigation.menu[3]}};border-color:{{@global.styleAndNavigation.borderColor}};">{{langSetting.main_menu_news}}</a></li>
+                            {{#list}}
+                            {{#if catId}}
+                            <li><a data-page="news-listing" class="popupToPage" data-catid="{{catId}}"  data-newspage="{{newspage}}" data-jsonID="'method':'categoryNews','catId':'{{catId}}','lang':'{{@global.style.lang}}','page':'1'" data-animate="false" data-catName="{{catName}}" data-newsType="{{newsType}}" style="color:{{@global.styleAndNavigation.menu[3]}};border-color:{{@global.styleAndNavigation.borderColor}};">{{catName}}</a></li>
+                            {{/if}}
+                            {{/list}}
+                            {{#if @global.setting.enablebookmark}}
+                              <li><a data-page="news-listing" class="popupToPage" data-jsonID="'method':'getBookMarkedNews','lang':'{{@global.style.lang}}'" data-bookmark="true" data-animate="true" data-catName="Bookmark" style="color:{{@global.styleAndNavigation.menu[3]}};border-color:{{@global.styleAndNavigation.borderColor}}; ">{{@root.langSetting.bookmark_news}}</a></li>
+                            {{/if}}
+                            {{#if login}}
+
+                            <li><a data-page="news-listing" class="close-tutorial" onclick="Appyscript.AppLogout();" style="color:{{@global.styleAndNavigation.menu[3]}};border-color:{{@global.styleAndNavigation.borderColor}};">{{@root.langSetting.logout_lang_news}}</a></li>
+
+                            {{/if}}
+                        </ul>
+                    </div>
+                    <div class="navs-search" style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};"><a onclick="Appyscript.popupClose()" style="color:{{@global.style.headerBarIconColor}};"><i class="icon icon-cancel"></i></a>
+                        {{#if rss}}
+                        {{else}}
+                        <span class="search-icon icon-search-3" style="color:{{@global.style.headerBarIconColor}};"></span>
+                        <input type="search" class="search_news" placeholder="{{@global.pageLanguageSetting.search_keyword}}" onkeydown="if(event.keyCode==13)newsSearch(this)" onblur="newsSearch(this)" data-catName="Search">
+                        {{/if}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

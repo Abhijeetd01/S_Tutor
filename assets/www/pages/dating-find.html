@@ -1,0 +1,44 @@
+<div class="navbar">
+    <div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+        <div class="left sliding">
+        	{{getNavigation @global.style.layout "menu"}}
+        </div>
+        <div class="center sliding">
+            <div class="topHeader {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">{{@global.pageLanguageSetting.datingpagetitle}}</div>
+        </div>
+        <div class="right">
+            <div class="chat_dating_wp"><a href="#"  onclick="Appyscript.datingchatProfile({{@global.pageLanguageSetting.countmsg}});" style="color:{{@global.style.headerBarIconColor}};"><i class="icon-chat-1"><span class="count" id="datinghomechatcount" style="background-color: {{@global.styleAndNavigation.button[2]}}; color: {{@global.styleAndNavigation.button[3]}};border-color:{{@global.styleAndNavigation.fieldBorderColor}};">0</span></i></a></div>
+            <div class="notification_dating_wp"><a href="#"  onclick="Appyscript.datingnotification();"  style="color:{{@global.style.headerBarIconColor}};"><i class="icon-bell-2"><span class="count " style="background-color: {{@global.styleAndNavigation.button[2]}}; color: {{@global.styleAndNavigation.button[3]}};border-color:{{@global.styleAndNavigation.fieldBorderColor}};">0</span></i></a></div>
+        </div>
+    </div>
+</div>
+
+<div data-page="dating-Find" class="page navbar-through toolbar-fixed no-toolbar dating hideBorder-{{@global.styleAndNavigation.hideBorder}}">
+    <!-- Page content-->
+    <div class="page-content" style="background-color:{{@global.styleAndNavigation.pageBackroundColor}};">
+        <div class="bodypan find-people {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="color:{{@global.styleAndNavigation.content[2]}}">
+            <div class="load-wrapp">
+                <div class="load"><img  id="datignprofilefind" src="images/image-1x1.png" alt="" style="background-image:url({{@global.style.reseller}}/newui/images/user-pic-news.png);"   class="findProfile">
+                    </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-12 text-center">
+                   <span class="find-txt {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="color:{{@global.styleAndNavigation.content[2]}};">{{@global.pageLanguageSetting.find_people}}
+                   </span>
+                </div>
+            </div>
+            
+            
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <a href="#" class="like-btn-disable" style="background-color: {{@global.styleAndNavigation.secondaryButton[2]}}; color: {{@global.styleAndNavigation.secondaryButton[3]}};"><span class="icon-cancel"></span></a>
+                    
+                    <a href="#" class="like-btn-disable" style="background-color: {{@global.styleAndNavigation.button[2]}}; color: {{@global.styleAndNavigation.button[3]}};"><span class="icon-heart-1" ></span></a>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    
+    

@@ -1,0 +1,70 @@
+<div class="popup menu-popup">
+    <div class="navbar">
+        <div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+            <div class="left sliding">
+                <a href="../AppData/Roaming/Skype/My Skype Received Files/index" class="link back" style="color:{{@global.style.headerBarIconColor}};">
+                    <i class="icon icon-left-open-2"></i>
+                </a>
+            </div>
+            <div class="center sliding">
+                <div class="topHeader {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">{{@global.pageLanguageSetting.email_notification_social_net}}</div>
+            </div>
+<!--            <div class="right">-->
+<!--                <a href=""  onclick="Appyscript.socialemailnotification();"class="icon-ok-4" style="color:{{@global.style.headerBarIconColor}};"></a>-->
+<!--            </div>-->
+        </div>
+    </div>
+    <div data-page="socialnetwork-EmailNotification" class="page navbar-through toolbar-fixed no-toolbar">
+        <!-- Page content-->
+        <div class="backgroundAnimation">{{> innerBackground}}</div>
+        <div class="page-content theam-{{@global.styleAndNavigation.layout}} hideBorder-{{@global.styleAndNavigation.hideBorder}}">
+            <style>
+                .onoffswitch-switch {background: {{@global.styleAndNavigation.button[3]}}}
+                .onoffswitch-label{border: 2px solid {{@global.styleAndNavigation.button[3]}}}
+                
+                .onoffswitch-inner::before {
+                    background-color: {{@global.styleAndNavigation.button[2]}};}
+            
+            .onoffswitch-inner::after {
+                background-color:{{@global.styleAndNavigation.button[3]}}; opacity: .5;}
+            </style>
+            <div class="bodypan">
+                <div class="row">
+                    <ul class="setting-list setting-form">
+                        <li style="border-color:{{@global.styleAndNavigation.fieldBorderColor}};">
+                            <div class="onoffswitch">
+                                <input type="checkbox" onchange="Appyscript.socialemailnotification();" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch1" {{#js_compare "this.data.follow == 1"}} checked {{else}} {{/js_compare}}  />
+                                <label class="onoffswitch-label" for="myonoffswitch1">
+                                    <span class="onoffswitch-inner"></span>
+                                    <span class="onoffswitch-switch"></span>
+                                </label>
+                            </div>
+                            <span class="info {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="color:{{@global.styleAndNavigation.content[2]}};">{{@global.pageLanguageSetting.when_someone_follows_me}}</span>
+                        </li>
+                        
+                        <li style="border-color:{{@global.styleAndNavigation.fieldBorderColor}};">
+                            <div class="onoffswitch">
+                                <input type="checkbox" name="onoffswitch"  onchange="Appyscript.socialemailnotification();" class="onoffswitch-checkbox" id="myonoffswitch3" {{#js_compare "this.data.commentPosts == 1"}} checked {{else}} {{/js_compare}}  />
+                                <label class="onoffswitch-label" for="myonoffswitch3">
+                                    <span class="onoffswitch-inner"></span>
+                                    <span class="onoffswitch-switch"></span>
+                                </label>
+                            </div>
+                            <span class="info {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="color:{{@global.styleAndNavigation.content[2]}};">{{@global.pageLanguageSetting.when_someone_comments_on_my_social_net}}</span>
+                        </li>
+                        <li style="border-color:{{@global.styleAndNavigation.fieldBorderColor}};">
+                            <div class="onoffswitch">
+                                <input type="checkbox" name="onoffswitch" onchange="Appyscript.socialemailnotification();" class="onoffswitch-checkbox" id="myonoffswitch4" {{#js_compare "this.data.likePosts == 1"}} checked {{else}} {{/js_compare}} />
+                                <label class="onoffswitch-label" for="myonoffswitch4">
+                                    <span class="onoffswitch-inner"></span>
+                                    <span class="onoffswitch-switch"></span>
+                                </label>
+                            </div>
+                            <span class="info {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="color:{{@global.styleAndNavigation.content[2]}};">{{@global.pageLanguageSetting.when_someone_likes_my_posts}}</span>
+                        </li>
+                    </ul>  
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

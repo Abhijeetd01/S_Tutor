@@ -1,0 +1,805 @@
+.appypie-login {
+    float:left;
+    width:100%;
+    min-height:100%;    
+    margin:0px;
+    padding:0px;
+    position:relative;
+    border-radius:0px;
+    box-sizing:border-box;
+    padding:15px;
+    background:rgba(0,0,0,0)
+}
+.appypie-login.login-page {
+ 	height:100%;
+	min-height:100%;
+ 	overflow-y:scroll;
+}
+
+.appypie-login ul {
+	width:100%;
+ 	list-style:none;
+  	float:left;
+	margin:0px;
+ 	padding:0px;
+}
+
+.appypie-login.login-page ul {
+   	position:relative;
+    left:0;
+    top:50%;
+    min-height:420px;
+    margin:-210px 0 0 0;
+    padding:0px;
+}
+
+.appypie-login.forgot-page ul {
+    top: 50%;
+    position: fixed;
+    left: 0;
+    margin: -175px 0 0 0;
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+
+@media only screen and (max-height: 490px) {
+    .appypie-login.login-page ul {
+     	margin:0px;
+      	top:0px;
+    }
+}
+
+.appypie-login li {
+ 	float:left;
+	width:100%;
+ 	margin:0 0 10px 0;
+}
+
+.appypie-login li.heading {
+ 	font-size:16px;
+  	color:#fff;
+}
+
+.appypie-login li.app-logo {
+	text-align:center;
+}
+
+.appypie-login li.app-logo img {
+ 	width:90px;
+	height:90px;
+ 	margin:10px 0 0 0;
+}
+
+.appypie-login li.input {
+ 	box-sizing:border-box;
+  	padding:0 0 0 50px;
+   	position:relative;
+}
+
+.appypie-login li.input span {
+ 	position:absolute;
+	width:50px; 	
+    top:0;    
+  	left:0px;
+   	height:100%;
+    border-radius:4px 0 0 4px;
+    text-align:center;
+    line-height:40px;
+    box-sizing:border-box;
+    border:solid 1px #fff;
+}
+
+.appypie-login li.customField span {
+ 	font-size:18px;
+}
+
+.appypie-login input[type='text'],
+.appypie-login input[type='password'],
+.appypie-login input[type='tel'] ,
+.appypie-login input[type='url'],
+.appypie-login input[type='email'],
+.appypie-login input[type='date'],
+.appypie-login input[type='time'],
+.appypie-login textarea,
+.appypie-login select,
+.appypie-login .select-file,
+.appypie-login .label-head {
+ 	width:100%;
+  	margin:0px;
+	border:0px;
+	outline:0px;
+ 	padding:12px;
+	box-sizing:border-box;
+ 	border-radius:0 4px 4px 0;
+	background:#fff;
+ 	font-family:Verdana, Geneva, sans-serif;
+  	font-size:14px;
+   	float:left;
+    border:solid 1px #fff;
+    resize:none;
+}
+
+.appypie-login select {
+    -webkit-appearance: button;
+    -moz-appearance:button;
+    appearance:button;
+    height:45px;
+}
+
+.appypie-login textarea {
+ 	height:80px;
+}
+
+.appypie-login .login-btn a {
+ 	float:left;
+	width:100%;
+ 	line-height:40px;
+	text-align:center;
+ 	border-radius:4px;
+}
+/*
+.appypie-login .button-2 a {
+ 	float:left;
+	width:49%;
+}
+
+.appypie-login .button-2 a:first-child {
+	margin:0 2% 0 0;
+}
+*/
+
+.appypie-login .smo-button {
+ 	padding:0 0 0 40px;
+  	box-sizing:border-box;
+	position:relative;
+}
+
+.appypie-login .login-btn.smo-button a {
+   	border-radius:0 4px 4px 0;
+    color:#fff;
+    background:#0b4798;
+}
+
+.appypie-login .login-btn.smo-button span {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:40px;
+    height:100%;
+    color:#fff;
+    background:#105fca;
+    border-radius:4px 0 0 4px;
+    line-height:40px;
+}
+
+.appypie-login li.text {
+ 	padding:5px 0;
+}
+.appypie-login li.text p {
+    float:left;
+    width:100%;
+    line-height:18px;
+    margin:3px 0;
+}
+
+.appypie-login li.text a {
+ 	font-weight:bold;
+}
+
+.appypie-login .label-head  {
+	background:none;
+ 	padding:0 0 0 12px;
+  	line-height:40px;
+   	font-weight:bold;
+    border-radius:4px 4px 0 0;
+    position:absolute;
+    top:-40px;
+}
+
+.appypie-login li.input[type='radio'],
+.appypie-login li.input[type='checkbox'] {
+    background: rgba(255, 255, 255, 0.5);
+  	border-radius:0 0 8px 8px;
+   	padding:0px;
+    position:relative;
+    margin:40px 0 10px 0;
+}
+
+.appypie-login li.input[type='radio'] span,
+.appypie-login li.input[type='checkbox'] span {
+ 	height:40px;
+	border-radius:8px 0 0 0;
+ 	display:none;
+}
+
+.appypie-login li.input[type='radio'] label,
+.appypie-login li.input[type='checkbox'] label {
+	width:33.33%;
+ 	float:left;
+  	padding:0 0 0 30px;
+   	position:relative;
+    line-height:40px;
+    margin:0px;
+    box-sizing:border-box;
+}
+
+.appypie-login li.input[type='radio'] input,
+.appypie-login li.input[type='checkbox'] input {
+ 	position:absolute;
+  	left:8px;
+   	top:10px;
+}
+
+.appypie-login li.input .arrow {
+    width: 0; 
+    height: 0; 
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;   
+    border-right:8px solid #F00;  
+    position: absolute;
+    right: 50px;
+    top: 50%;
+    margin: -8px 0 0 0;
+    display:none;
+}
+
+.appypie-login.theme-1 li.input span {
+ 	border-right:0px;
+}
+
+.appypie-login.theme-2 li.input span,
+.appypie-login.theme-2 .login-btn.smo-button span {
+	border-radius:40px 0 0 40px;
+	border:solid 1px #fff;
+	box-sizing:border-box;
+}
+.appypie-login.theme-2 #cnCode .pNumber {
+    border-radius: 40px 40px 40px 40px;
+        border-left: 1px solid;
+}
+.appypie-login.theme-2 li.input[type='textarea'] span,
+.appypie-login.theme-2 li.input[type='textarea'] textarea { 
+	border-radius:22px 0 0 22px;
+}
+
+.appypie-login.theme-2 li.input[type='textarea'] textarea {
+	border-radius:0 22px 22px 0;
+}
+
+.appypie-login.theme-2 .login-btn.smo-button span {
+ 	border:0px;
+}
+
+.appypie-login.theme-2 input[type='text'],
+.appypie-login.theme-2 input[type='password'],
+.appypie-login.theme-2 input[type='tel'] ,
+.appypie-login.theme-2 input[type='url'],
+.appypie-login.theme-2 input[type='email'],
+.appypie-login.theme-2 input[type='date'],
+.appypie-login.theme-2 input[type='time'],
+.appypie-login.theme-2 textarea,
+.appypie-login.theme-2 select,
+.appypie-login.theme-2 .select-file,
+.appypie-login.theme-2 .login-btn.smo-button a {
+	border-radius:0 40px 40px 0;
+	border-left: solid 0px #fff;
+}
+
+.appypie-login.theme-2 .label-head {
+ 	border-radius:22px 22px 0 0;
+}
+
+.appypie-login.theme-2 li.input[type='radio'],
+.appypie-login.theme-2 li.input[type='checkbox'] {
+ 	border-radius:0 0 8px 8px;
+}
+ 
+.appypie-login.theme-2 .login-btn a {
+	border-radius:40px;
+ 	border:solid 0px #fff;
+	box-sizing:border-box;
+}
+
+.appypie-login.theme-2 .button.smo-button a {
+	border-left:solid 0px #fff;
+}
+
+
+.appypie-login.theme-3 li.input,
+.appypie-login.theme-3 .smo-button {
+ 	padding:0px;
+}
+
+
+.appypie-login.theme-3 li.input[type='radio'],
+.appypie-login.theme-3 li.input[type='checkbox'] {
+ 	border-radius:0;
+}
+
+.appypie-login.theme-3 li.input span,
+.appypie-login.theme-3 .login-btn.smo-button span {
+	border-radius:0;
+	border:solid 1px #ccc;
+	box-sizing:border-box;
+ 	display:none;
+}
+
+.appypie-login.theme-3 input[type='text'],
+.appypie-login.theme-3 input[type='password'],
+.appypie-login.theme-3 input[type='tel'] ,
+.appypie-login.theme-3 input[type='url'],
+.appypie-login.theme-3 input[type='email'],
+.appypie-login.theme-3 input[type='date'],
+.appypie-login.theme-3 input[type='time'],
+.appypie-login.theme-3 textarea,
+.appypie-login.theme-3 select,
+.appypie-login.theme-3 .select-file,
+.appypie-login.theme-3 .label-head,
+.appypie-login.theme-3 .login-btn.smo-button a {
+	border-radius:0;
+ 	border:solid 1px #ccc;
+}
+
+.appypie-login.theme-3 .login-btn.smo-button a {
+ 	border:0px;
+}
+
+.appypie-login.theme-3 .login-btn a {
+	border-radius:0;
+ 	border:solid 0px #ccc;
+	box-sizing:border-box;
+}
+
+.appypie-login.theme-4 li.input {
+ 	padding:0 50px 0 0;
+}
+
+.appypie-login.theme-4 .smo-button {
+ 	padding:0 40px 0 0;
+}
+
+.appypie-login.theme-4 li.input span,
+.appypie-login.theme-4 .login-btn.smo-button span {
+ 	left:auto;
+  	right:0px;
+	border-radius:0;
+	border:solid 0px #ccc;
+	box-sizing:border-box;
+}
+
+.appypie-login.theme-4 input[type='text'],
+.appypie-login.theme-4 input[type='password'],
+.appypie-login.theme-4 input[type='tel'] ,
+.appypie-login.theme-4 input[type='url'],
+.appypie-login.theme-4 input[type='email'],
+.appypie-login.theme-4 input[type='date'],
+.appypie-login.theme-4 input[type='time'],
+.appypie-login.theme-4 textarea,
+.appypie-login.theme-4 select,
+.appypie-login.theme-4 .select-file,
+.appypie-login.theme-4 .label-head,
+.appypie-login.theme-4 .login-btn.smo-button a {
+	border-radius:0;
+ 	border:solid 0px #ccc;
+  
+}
+
+.appypie-login.theme-4 .login-btn a {
+	border-radius:0;
+ 	border:solid 0px #ccc;
+	box-sizing:border-box;
+}
+
+.appypie-login.theme-4 li.input .arrow {
+ 	display:block;
+}
+
+.appypie-login.theme-4 li.input[type='radio'],
+.appypie-login.theme-4 li.input[type='checkbox'] {
+ 	border-radius:0;
+  	padding:0px;
+}
+
+.appypie-login.theme-4 li.input[type='radio'] .arrow,
+.appypie-login.theme-4 li.input[type='checkbox'] .arrow {
+ 	display:none;
+}
+
+
+
+.appypie-login.content-left li.text p,
+.appypie-login.heading-left li.heading {
+ 	text-align:left;
+}
+
+.appypie-login.content-center li.text p,
+.appypie-login.heading-center li.heading {
+ 	text-align:center;
+}
+
+.appypie-login.content-right li.text p,
+.appypie-login.heading-right li.heading {
+ 	text-align:right;
+}
+
+/*
+.login { background-position: top center; background-repeat:  no-repeat; background-size:100% 100%; width:100%; min-height:100%; float:left; position:relative; }
+.login_box { position:absolute; padding:10px; bottom:0px; width:calc(100% - 20px); margin:0 0 10px 0; float:left; }
+.login_from { width:100%; margin:0px; position:relative; }
+.login_from .links-view { float:left; background:rgba(255, 255, 255, 0.6); width:100%; padding:10px; box-sizing:border-box; text-align: center; color:#333; font-size:14px; }
+.login_from .links-view a, .login_from .links-view p { font-size:14px; color:#333; }
+input { width: calc(100% - 20px); padding:10px; border:none; margin-bottom:10px; background-color:#ffffff; color:#6C6C6C; }
+.login_from input { border: medium none; margin-bottom: 10px; padding: 10px 10px 10px 40px; width: calc(100% - 50px); border:0px; outline:0px; float:left; font-size:16px; }
+.login_from input.mail, .login_from input#forpasid, .login_from input.pass { background: url("../images/mail_icon.jpg") 10px center no-repeat #fff; border:0px; width:100%; outline:0px; padding: 10px 10px 10px 40px; box-sizing: border-box; color:#6C6C6C; outline:0px; }
+.login_box .forgot-password p, .login_box .sign-up p { text-align:center; margin:0px; padding:0px; line-height:20px; }
+.login_box .login_from input.pass { background: url("../images/password_icon.jpg") 10px center no-repeat #fff; }
+.login_box .sign-up input#fname { background: url("../images/user-name.png") 10px center no-repeat #fff; }
+.login_box .sign-up input#emailId { background: url("../images/user-email.png") 10px center no-repeat #fff; }
+.login_box .sign-up input#pNo { background: url("../images/user-phone.png") 10px center no-repeat #fff; }
+.sign-up input#pass, .sign-up input#cpass { background: url("../images/user-password.png") 10px center no-repeat #fff; }
+.login_from input.button, .login_from a.button { padding:10px 0; width: calc(100% - 20px); margin:0 0 10px 0; width:100%; float:left; background:#e45b2b; color:#ffffff; border: 0px; height: 45px; cursor:pointer; letter-spacing:1px; font-family:Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif; text-transform:uppercase; font-size:16px; box-shadow:0 0 0 #333; border-bottom:solid 0px #666; text-align:center; }
+.login_from a { color:#6e6e6e; text-decoration:none; }
+.login_from input.blue, .login_from a.blue { background:#4285f4; }
+.login-theme{ height: 100%; width: 100%; position: absolute; z-index: 10;}
+
+@media only screen and (max-height: 350px) {
+    .login_box {
+     	position:static;
+    }
+}
+*/
+
+/*.appypie-login .date-hit,
+.appypie-login .time-hit {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+}*/
+
+.appypie-login input[type='date'].date-hit,
+.appypie-login input[type='time'].time-hit {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    -webkit-appearance: none;
+}
+
+.appypie-login li.error input,
+.appypie-login li.error span,
+.appypie-login li.error select,
+.appypie-login li.error textarea,
+.appypie-login li.error .label-head,
+.appypie-login li.error .select-file{
+    outline:solid 1px red !important;
+}
+
+.appypie-login .select-file {
+	position:relative;
+}
+
+.appypie-login .select-file input {
+	width:100%;
+	height:100%;
+	position:absolute;
+	left:0;
+	top:0;
+	opacity:0;
+}
+.password-type {
+    position: absolute;
+    right: 0;
+    line-height: 42px;
+    height: 100%;
+    padding: 0 10px;
+    color: red;
+    display:none;
+}
+
+
+
+
+
+
+
+
+.payment-mode .payment-nav {
+    width:100%;
+    float:left;
+    padding:0 0;
+    line-height:27px;
+    border-bottom:solid 3px #2795c8;
+    display: -webkit-flex; /* Safari */
+    display: flex;
+}
+
+.payment-mode .tabs {
+       width: 100%;
+       float: left;
+       padding: 15px;
+box-sizing:border-box;
+}
+
+.payment-mode .tabs p {
+    margin:0 0 12px 0;
+    float:left;
+    width:100%;
+}
+
+.payment-mode .tabs p.btn-view {
+  position:fixed;
+    left:0px;
+  top:50%;
+  padding:0 20px;
+    box-sizing:border-box;
+}
+
+.payment-mode .tabs a.BtText {
+    text-align:center;
+    width:100%;
+    padding:0 0;
+    text-align:center;
+    background:#1c94b7;
+    height:42px;
+    line-height:42px;
+    font-weight:bold;
+}
+
+.payment-mode .tabs a.place-order {
+  position:relative;
+  top:75px;
+}
+
+.BtText {
+    border-radius:5px;
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
+    text-align:center;
+    display:inline-block;
+    margin:0 20px 0 0;
+}
+
+.tabs .login-feald {
+    margin-top: 16px;
+    float:left;
+    width: 100%;
+}
+
+.payment-mode .card-number,
+.payment-mode .expiry-date,
+.payment-mode .cvv {
+    float:left;
+    text-align:center;
+    margin:10px 0 20px 0;
+    outline:0px;
+}
+
+.login-feald .card-name {
+    margin-top: 70px;
+}
+
+.payment-mode .card-number:focus,
+.payment-mode .expiry-date input:focus {
+  box-shadow:0 0 10px #ccc inset;
+}
+
+.payment-mode .expiry-date,
+.payment-mode .cvv {
+    float:left;
+    width:220px;
+    margin:auto;
+    float:none;
+    clear:both;
+    position:relative;
+    top:20px;
+}
+
+.payment-mode .cvv {
+  width:300px;
+  position:relative;
+  top:60px;
+}
+
+.payment-mode .cvv input {
+	width: 90px;
+    float: left;
+    border: solid 1px #CCC;
+    padding: 0px;
+    text-align: center;
+    font-size: 16px;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    height: 23px;
+}
+
+#payCard input#cnumber {
+    border: 0px;
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin: 0;
+    text-indent: 0;
+}
+.login-feald input {
+    border: 1px solid #ccc;
+    float: left;
+    padding: 9px;
+    box-sizing: border-box;
+    background: #fff;
+    width: 100%;
+}
+#payCard #cvvCode {
+  margin:0 0 10px 0;
+}
+#payCard {
+  padding:0 0 60px 0;
+    margin:0 0 60px 0;
+}
+
+.payment-mode .cvv p {
+  margin:0 0 0 100px;
+    padding:0 0 0 50px;
+  text-align:left;
+  background:url(../images/cvv.jpg) 0 0 no-repeat;
+    line-height:12px;
+    font-size:11px;
+  min-height:24px;
+  width:150px;
+}
+
+
+.payment-mode .expiry-date span {
+  width:90px;
+  display:inline-block;
+  height:90px;
+  float:left;
+}
+
+.payment-mode .expiry-date span.mid {
+    width:30px;
+    background:url(../images/devider.png) center center no-repeat;
+}
+
+
+
+.payment-mode .expiry-date input,
+.payment-mode .expiry-date select {
+    font-size:30px;
+    text-align:center;
+    padding:0px;
+    width:84px;
+    height:84px;
+    border:solid 3px #e7ebea;
+    border-radius:70px;
+    appearance:button;
+    -moz-appearance:button; /* Firefox */
+    -webkit-appearance:button; /* Safari and Chrome */
+    outline:0px;
+}
+
+.payment-mode .expiry-date b {
+    white-space: nowrap;
+    float: left;
+    width: 100%;
+    font-weight: normal;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.payment-mode .payment-nav a {
+    text-align:center;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    font-size:26px;
+    white-space:nowrap;
+    padding:0;
+    line-height:46px;
+    height:46px;
+    margin:0 0 0 1px;
+	border-radius: 0;
+    box-shadow: none;
+}
+
+.payment-mode .payment-nav a:first-child {
+	margin:0;
+}
+.paynowbtn {
+    background: #1c94b7 none repeat scroll 0 0;
+    color: #fff;
+    display: inline-block;
+    font-weight: bold;
+    padding: 10px 0;
+    text-align: center;
+    text-decoration: none;
+    text-shadow: 0 0 0 #000;
+    text-transform: none;
+    width: 100%;
+}
+
+.checkout {
+    background:#1c94b7;
+    color: #fff;
+    display: inline-block;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    text-transform: none;
+    width: 100%;
+    line-height:44px;
+}
+.checkoutHyper
+{
+    display: inline-block;
+    font-weight: bold;
+    text-align: right;
+    text-decoration:underline;
+    text-transform: none;
+    width: 100%;
+    line-height:51px;
+}
+.footer-nav {
+    width: 100%;
+}
+.scanner_btn{
+    right: 0px !important;
+    left: auto !important;
+    display:block !important;
+}
+.appypie-login.icon-right .scanner_btn{
+    left: 0px !important;
+    right: auto !important;
+    display:block !important;
+}
+.appypie-login .scanner_btn {
+    border-radius: 0 !important;
+}
+.appypie-login.icon-right .scanner_btn {
+    border-radius:0 !important;
+}
+.appypie-login.theme-1.rounded-1 .scanner_btn {
+    border-radius: 0px 20px 20px 0 !important;
+}
+.appypie-login.theme-1.rounded-1.icon-right .scanner_btn {
+    border-radius:20px 0px 0px 20px !important;
+}
+
+.appypie-login.theme-3 .scanner_btn{
+    top: 25px;
+    height: 36px;
+    right: 0px !important;
+}
+
+
+/*  IAP POPUP */
+.custom-popup { position:fixed; left:0; top:0px; width:100%;height:100%;background-color: rgba(0,0,0,0.4); display:none;     z-index: 100000;}
+
+.main-box { position:absolute; top:50%; left:50%; transform: translate(-50%, -50%); background-color: rgba(255,255,255,.95);margin: auto;width: 80%; border-radius: 20px;text-align:center;}
+.main-box p { margin:5px 0px; font-size:25px;}
+.main-box span { font-size: 16px;padding: 15px; display:inline-block; overflow-y: scroll;box-sizing: border-box;}
+
+.main-box ul { padding:0px; margin-bottom:0px;}
+.main-box ul li { list-style:none; padding:10px 0px; border-top:1px solid #ccc; color: #007aff;    font-size: 17px;  }
+
+.main-box .close {
+    color: #fff;
+    background: #000;
+    font-size: 28px;
+    width: 40px;
+    border-radius: 0;
+    line-height: 40px;
+    text-align: center;
+    height: 40px;
+    margin: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    text-indent: 0;
+    right: -15px;
+    top: -15px;
+    border-radius: 100%;
+}

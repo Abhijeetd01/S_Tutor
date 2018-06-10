@@ -1,0 +1,67 @@
+<div class="navbar">
+    <div class="navbar-inner "
+         style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+        <div class="left sliding">
+            <a href="index" class="link back" style="color:{{@global.style.headerBarIconColor}};">
+                <i class="icon icon-left-open-2"></i>
+            </a>
+        </div>
+        <div class="center sliding">
+            <div class="topHeader  {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}"
+                 id="headerdetail">{{#if header}}{{header}} {{/if}}
+            </div>
+        </div>
+
+
+        <div class="right">
+
+            <a href="#" style="color:{{@global.style.headerBarIconColor}};"
+               onclick="Appyscript.directorySaveDeleteBookMark(this)" id="bookmark" value="">
+                <i class="icon-bookmark-empty"></i>
+
+            </a></div>
+
+
+    </div>
+</div>
+
+<div data-page="services-DetailPage"
+     class="page navbar-through no-toolbar {{#root_Compare @global.styleAndNavigation.layout "==" "2"}}{{#if @global.styleAndNavigation.hideImageDetailPage}}hide-list-img{{/if}}{{/root_Compare}} hideBorder-{{@global.styleAndNavigation.hideBorder}}" style="background-color: {{@global.styleAndNavigation.pageBgColor}}">
+
+<!-- Page content-->
+<div class="page-content">
+    <!-- Search code-->
+    <style>
+            ::-webkit-input-placeholder {
+            color:{{@global.styleAndNavigation.content[2]}} !important;
+            }
+            :-moz-placeholder {
+            color:{{@global.styleAndNavigation.content[2]}} !important;
+            }
+            ::-moz-placeholder {color:{{@global.styleAndNavigation.content[2]}} !important;
+            }
+            :-ms-input-placeholder {
+            color:{{@global.styleAndNavigation.content[2]}} !important;
+            }
+			.hide-list-img .service_inner_image2{background-color: {{@global.styleAndNavigation.title[2]}};}
+
+    </style>
+
+
+    <div data-loop="true" data-preload-images="false" data-lazy-loading="true"
+         class="swiper-services swiper-container">
+        <div class="swiper-wrapper directory-swiper displayListingIcons-{{@global.setting.displayListingIcons}} dirDisplayListingLabels-{{@global.setting.dirDisplayListingLabels}}">
+            {{#listing.list}}
+
+            <div class="swiper-slide service-slide data-{{@index}}" style="overflow-y: auto;"
+                 data-index="{{@index}}" data-id={{listId}} data-lattitude={{latitude}}
+                 data-longitude={{longitude}} data-header={{#if header}}{{header}}
+                 {{/if}} data-address={{address}} data-mapThirdParty={{mapThirdParty}} data-bookmark={{#if bookmark}}{{bookmark}}{{/if}} >
+
+        </div>
+
+        {{/listing.list}}
+    </div>
+</div>
+</div>
+</div>

@@ -1,0 +1,343 @@
+
+<div class="navbar">
+    <div class="navbar-inner" style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+
+        <div class="left sliding">
+            <a href="index" class="link back icon icon-left-open-2" onclick = "firstpageback()" style="color:{{@global.style.headerBarIconColor}};"></a>
+        </div>
+
+        <div class="center sliding">
+            <div class="topHeader {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">
+                Add Accommodation Type
+            </div>
+        </div>
+
+        <div class="right">
+
+        </div>
+    </div>
+</div>
+
+<div data-page="accommodation-detail-2"   class="page navbar-through no-toolbar" style="background:{{@global.styleAndNavigation.pageBgColor}}">
+<style type="text/css">
+.accomm_daetilsform input, .select_country select, .address_bar textarea,.description textarea,.foundadd,.select_new select, .select_new input {
+    border-color: {{@global.styleAndNavigation.fieldBgColor}} !important;
+	color:{{@global.styleAndNavigation.fieldTextColor}} !important;
+	font-size: 16px !important
+}
+.accomm_form ::placeholder {
+color:{{@global.styleAndNavigation.fieldTextColor}}; opacity:.6;
+}
+.select_country:before{color:{{@global.styleAndNavigation.fieldTextColor}} !important;}
+.listing-tabs a,.listing-tabs-view li a{background-color: {{@global.styleAndNavigation.secondaryButton[2]}} ; color: {{@global.styleAndNavigation.secondaryButton[3]}};}
+.listing-tabs a.active{background-color: {{@global.styleAndNavigation.button[2]}}; color: {{@global.styleAndNavigation.button[3]}};}
+</style>
+    <!-- Page content-->
+    <div class="page-content {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}} hideBorder-{{@global.styleAndNavigation.hideBorder}}" style="color:{{@global.styleAndNavigation.content[2]}}; background:{{@global.styleAndNavigation.pageBgColor}}">
+        {{#if @global.checkAddUpdatePage}}
+        <section class="addaccom">
+            <div class="accomm_form">
+                <form id="accommodation2display">
+                    <div class="select_new">
+                        <label  class="{{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}}; text-align:{{@global.styleAndNavigation.heading[3]}};">Display Owner’s Profile*</label>
+						<div class="select_country">
+                        <select id="selectedOwnerProfile" name="addownerProfile">
+                            <option>Yes</option>
+                            <option>No</option>
+                        </select>
+                        </div>
+                        <span>Go to my profile Section to update owner profile </span>
+                    </div>
+
+
+
+                    <div class="select_new">
+                        <label  class="{{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}}; text-align:{{@global.styleAndNavigation.heading[3]}};">Check In Time*</label>
+                        <input id = "checkintime" class="timepicker" name="addcheckIntime" type="time" placeholder="Select CheckIn Time">
+                    </div>
+
+                    <div class="select_new">
+                        <label class="{{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}}; text-align:{{@global.styleAndNavigation.heading[3]}};">Check Out Time*</label>
+                        <input id = "checkouttime" type="time" name="addcheckOuttime" placeholder="Select Checkout Time">
+                    </div>
+
+                    <div class="select_new">
+                        <label class="{{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}}; text-align:{{@global.styleAndNavigation.heading[3]}};">Apply Offer*</label>
+                        <div class="select_country">
+                        <select id="selectdApplyOffline" onchange="changeOffer()" name="addchangeOffer">
+                            <option>Select Apply Offer*</option>
+                            <option>No</option>
+                            <option>Yes</option>
+                        </select>
+                        </div>
+                        <input id = "applyofferPer" style = "display:none" class="rooms" name="addchangeOfferhidden" type="text" placeholder="Offer in %">
+                    </div>
+
+                    <div class="select_new">
+                        <label class="{{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}}; text-align:{{@global.styleAndNavigation.heading[3]}};">Allow user to add reviews*</label>
+                        <div class="select_country">
+                        <select id="selectedaddReview" name="addselectReview">
+                            <option>Select Add Review*</option>
+                            <option>Yes</option>
+                            <option>No</option>
+                        </select>
+						</div>
+                    </div>
+
+                </form>
+
+                <div class="accomm_head {{@global.styleAndNavigation.secondaryButton[0]}} {{@global.styleAndNavigation.secondaryButton[1]}}" style="background-color: {{@global.styleAndNavigation.secondaryButton[2]}}; color: {{@global.styleAndNavigation.secondaryButton[3]}};" onclick="accommodation_image_amenties('imageAmenties')">
+                    <a href="#.">Accommodation Amenities <span class="appyslim-arrows-right-arrow"></span></a>
+                </div>
+
+
+                <div class="upload_bar">
+
+
+                    <div class="upload_main">
+
+                        <p class="{{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}}; text-align:{{@global.styleAndNavigation.heading[3]}}; margin-bottom:7px;">Click here to Upload Image </p>
+
+                        <div class="listing-tabs"><a href="#tab1" class="images active" value="image"><i class="icon-picture-3"></i></a>
+                            <a href="#tab3" class="videos" value="video"><i class="icon-video"></i> </a>
+                            <!-- <a href="#tab2" class="videos" value="youtube"><i class="icon-youtube"></i> </a>--></div>
+                        <div class="listing-tabs-view" id="tab1">
+                            <h3 class="arial mediumSubHeading">Upload Image(s) (For best view, upload image of width 700px and height 350px)</h3>
+                            <ul>
+                                <div class="items-scroller" id="addlist" style="display: none;">
+                                    <li class="items"><div class="scrollAccoDiv">
+                                        <div class="scrollAccoBar">
+
+                                        </div>
+                                    </div>
+                                        <span class="add-more {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" style="background-color: {{@global.styleAndNavigation.button[2]}}; color: {{@global.styleAndNavigation.button[3]}};" id="addmoreupdateaccomo" onclick="accomodationAddMoreClick(this)" index="0" addimg="plus">+</span>
+                                    </li>
+                                </div>
+                                <li class="foundadd">
+                                    <div class="scrollAccoDiv">
+                                        <div class="scrollAccoBar">
+
+
+                                        </div>
+                                    </div>
+                                    <span class="add-more {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" style="background-color: {{@global.styleAndNavigation.button[2]}}; color: {{@global.styleAndNavigation.button[3]}};" onclick="accomodationAddMoreClick(this)" index="0" addimg="plus">+</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="listing-tabs-view" style="display:none" id="tab2">
+                            <h3 class="arial mediumSubHeading">Add Video(s)</h3>
+                            <input type="text" placeholder="YouTube Video URL" id="youtubetext">
+
+                        </div>
+
+                        <div class="listing-tabs-view" id="tab3" style="display: none;">
+                            <ul id="accommstatevideo">
+                                <li id="addvideoaccomm">
+                                    <span class="add-more {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" style="background-color: {{@global.styleAndNavigation.button[2]}}; color: {{@global.styleAndNavigation.button[3]}};" onclick="uploadvideoaccom()" addimg="plus" index="1">+</span>
+                                </li>
+                            </ul>
+                        </div>
+
+
+
+                    </div>
+
+                    <div class="description">
+                        <label class="{{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}}; text-align:{{@global.styleAndNavigation.heading[3]}};"><span class="icon-edit-2" style="color:{{@global.styleAndNavigation.icon[1]}}"></span> Accommodation Deatils </label>
+
+                        <textarea id = "accomodationDesc" name="addDescription" placeholder="Descriptiom"></textarea>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </section>
+        {{else}}
+
+        <section class="addaccom">
+            <div class="accomm_form">
+                <form>
+                    <div class="select_new">
+                        <label class="{{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}}; text-align:{{@global.styleAndNavigation.heading[3]}};">Display Owner’s Profile*</label>
+						<div class="select_country">
+                        <select id="selectedOwnerProfileedit" name="addownerProfile">
+
+                            <option {{#js_compare "this.accommodationListEdit[0].accommownerShow == 1"}} selected {{else}}  {{/js_compare}}>Yes</option>
+
+                            <option {{#js_compare "this.accommodationListEdit[0].accommownerShow == 1"}}  {{else}} selected {{/js_compare}}>No</option>
+
+
+                        </select>
+                        </div>
+                        <span>Go to my profile Section to update owner profile </span>
+                    </div>
+
+
+
+                    <div class="select_new">
+                        <label class="{{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}}; text-align:{{@global.styleAndNavigation.heading[3]}};">Check In Time*</label>
+                        <input id = "checkintimeedit" type="time"  name="addcheckInttime" placeholder="Select CheckIn Time" value="{{accommodationListEdit[0].accommcheckintime}}">
+                    </div>
+
+                    <div class="select_new">
+                        <label class="{{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}}; text-align:{{@global.styleAndNavigation.heading[3]}};">Check Out Time*</label>
+                        <input id = "checkouttimeedit" type="time" name="addcheckOuttime" placeholder="Select Checkout Time" value="{{accommodationListEdit[0].accommcheckouttime}}">
+                    </div>
+
+                    <div class="select_new">
+                        <label class="{{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}}; text-align:{{@global.styleAndNavigation.heading[3]}};">Apply Offer*</label>
+                        <select id="selectdApplyOfflineedit" onchange="changeOffer()" name="addchangeOffer">
+
+                            <option  {{#js_compare "this.accommodationListEdit[0].accommApplyOffLine == 1"}} selected {{else}} {{/js_compare}}>Yes</option>
+
+                            <option  {{#js_compare "this.accommodationListEdit[0].accommApplyOffLine == 1"}} {{else}} selected {{/js_compare}} >No</option>
+
+                        </select>
+
+                        <input id = "applyofferPeredit" name="addchangeOfferhidden" placeholder="Offer in %" style="display:{{#js_compare "this.accommodationListEdit[0].accommApplyOffLine == 1"}} block {{else}} none{{/js_compare}}" class="rooms" type="text" value ="{{accommodationListEdit[0].accommApplyOffLinePercentage}}">
+                    </div>
+
+                    <div class="select_new">
+                        <label class="{{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}}; text-align:{{@global.styleAndNavigation.heading[3]}};">Allow user to add reviews*</label>
+                        <div class="select_country">
+                        <select id="selectedaddReviewedit" name="addselectReview">
+                            <option {{#js_compare "this.accommodationListEdit[0].accommallowAddReview == 'yes'"}} selected {{else}} {{/js_compare}} > Yes </option>
+                            <option {{#js_compare "this.accommodationListEdit[0].accommallowAddReview == 'yes'"}} {{else}} selected {{/js_compare}}> No </select>
+                        </select>
+                        </option>
+
+                    </div>
+</div>
+                </form>
+
+                <div class="accomm_head {{@global.styleAndNavigation.secondaryButton[0]}} {{@global.styleAndNavigation.secondaryButton[1]}}" style="background-color: {{@global.styleAndNavigation.secondaryButton[2]}}; color: {{@global.styleAndNavigation.secondaryButton[3]}};" onclick="accommodation_image_amenties('imageAmenties')">
+                    <a href="#.">Accommodation Amenities <span class="appyslim-arrows-right-arrow"></span></a>
+                </div>
+
+
+                <div class="upload_bar">
+
+
+                    <div class="upload_main">
+
+                        <p class="{{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}}; text-align:{{@global.styleAndNavigation.heading[3]}}; margin-bottom:7px;">Click here to Upload Image </p>
+
+                        <div class="listing-tabs"><a href="#tab1" class="images active" value="image"><i class="icon-picture-3"></i></a>
+                            <a href="#tab3" class="videos" value="video"><i class="icon-video"></i> </a>
+                            <!-- <a href="#tab2" class="videos" value="youtube"><i class="icon-youtube"></i> </a>-->
+                        </div>
+                        <div class="listing-tabs-view" id="tab1edit">
+                            <h3 class="{{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}}; text-align:{{@global.styleAndNavigation.heading[3]}};">Upload Image(s) (For best view, upload image of width 700px and height 350px)</h3>
+                            <ul>
+                                <div class="items-scroller" id="addlistedit" style="display: none;">
+                                    <li class="items"><div class="scrollAccoDiv">
+                                        <div class="scrollAccoBar">
+
+                                        </div>
+                                    </div>
+                                        <span class="add-more {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" style="background-color: {{@global.styleAndNavigation.button[2]}}; color: {{@global.styleAndNavigation.button[3]}};" id="addmoreupdateaccomoedit" onclick="accomodationAddMoreClick(this)" index="0" addimg="plus">+</span>
+                                    </li>
+                                </div>
+                                <li class="foundadd">
+                                    <div class="scrollAccoDiv">
+                                        <div class="scrollAccoBar">
+                                            {{#accommodationListEdit[0].accommaccommodationImageUpdate}}
+                                            <span  class="uploadAccomoImg"><img src="{{image}}" id="imageSL{{@index}}" ><a onclick="removeThisrealaccom(this,'{{@index}}')">X</a></span>
+                                            {{/accommodationListEdit[0].accommaccommodationImageUpdate}}
+                                        </div>
+                                    </div>
+                                    <span class="add-more {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" style="background-color: {{@global.styleAndNavigation.button[2]}}; color: {{@global.styleAndNavigation.button[3]}};" onclick="accomodationAddMoreClick(this)" index="0" addimg="plus">+</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="listing-tabs-view" style="display:none" id="tab2edit">
+                            <h3 class="{{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}}; text-align:{{@global.styleAndNavigation.heading[3]}};">Add Video(s)</h3>
+                            <input type="text" placeholder="YouTube Video URL" id="youtubetextedit">
+
+                        </div>
+
+                        <div class="listing-tabs-view" id="tab3edit" style="display: none;">
+                            <ul id="accommstatevideoedit">
+                                <li id="addvideoaccommedit">
+
+                                    <span  class="uploadAccomoImg"><img src="{{accommodationListEdit[0].accommaccommodationVideoUpdateImage}}" id="imageSL" ><a onclick="removeThisrealaccom(this,'{{@index}}')">X</a></span>
+
+                                    <span class="add-more {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" style="background-color: {{@global.styleAndNavigation.button[2]}}; color: {{@global.styleAndNavigation.button[3]}};" onclick="uploadvideoaccom()" addimg="plus" index="1">+</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+
+                    <div class="description">
+                        <label class="{{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}}; text-align:{{@global.styleAndNavigation.heading[3]}};"><span class="icon-edit-2"  style="color:{{@global.styleAndNavigation.icon[1]}}"></span> Accommodation Deatils </label>
+
+                        <textarea id = "accomodationDescedit" name="addDescription" placeholder="Description" value="{{accommodationListEdit[0].accommdescription}}">{{accommodationListEdit[0].accommdescription}}</textarea>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+        {{/if}}
+    </div>
+    <!-- End Page content-->
+
+    <div class="toolbar">
+        <div class="toolbar-inner">
+            {{#if @global.checkAddUpdatePage}}
+            <div class="nexttab {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" style="background-color: {{@global.styleAndNavigation.button[2]}}; color: {{@global.styleAndNavigation.button[3]}};" onclick="accommodation_detail_2nd('secondNextClick')" >
+                <a href="#">Next</a>
+            </div>
+            {{else}}
+            <div class="nexttab {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" style="background-color: {{@global.styleAndNavigation.button[2]}}; color: {{@global.styleAndNavigation.button[3]}};" onclick="accommodation_detail_Edit_2nd('secondEditNextClick')" >
+                <a href="#">Next</a>
+            </div>
+
+
+            {{/if}}
+        </div>
+
+
+
+    </div>
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,74 @@
+
+<div class="navbar">
+    <div class="navbar-inner" style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+        <div class="left sliding">
+            <a href="index" class="link back" style="color:{{@global.style.headerBarIconColor}};">
+                <i class="icon icon-left-open-2" ></i>
+            </a>
+        </div>
+        <div class="center sliding  {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">{{@global.socialpagetitle}}</div>
+        <div class="right">
+
+        </div>
+    </div>
+</div>
+<div data-page="socialnetwork-Comment" class="page navbar-through toolbar-fixed no-toolbar ">
+    <!-- Page content-->
+    <div class="backgroundAnimation">{{> innerBackground}}</div>
+    <div class="page-content theam-{{@global.styleAndNavigation.layout}} hideBorder-{{@global.styleAndNavigation.hideBorder}}">
+        <div class="msg-code"  style="display:none"   id="nocommentfound2">
+            <div class="msg-container">
+                <i class='appyicon-chat-bubble no-comment-sn' style='color:{{@global.styleAndNavigation.iconColor}}; font-size:100px;'></i>
+            </div>
+        </div>
+        {{#if data.comments.length}}
+
+
+        {{else}}
+        <div class="msg-code"  id="nocommentfound" ><div class="msg-container">
+            <i class='appyicon-chat-bubble no-comment-sn' style='color:{{@global.styleAndNavigation.iconColor}}; font-size:100px;'></i>
+        </div></div>
+        {{/if}}
+
+        <div class="bodypan" id="hidenocomment">
+            <div class="row">
+                <ul class="SearchResult" id="scomment">
+
+
+                    {{#data.comments}}
+
+                    <li style='border-color:{{@global.styleAndNavigation.fieldBorderColor}}' id="commentid{{id}}" >
+                        <div class="title-container likeList">
+                            <div class="profile-snap" onclick="Appyscript.Socialuserprofiles({{userId}});" >
+                                <img style="background:url(http://snappy.appypie.com/media/splash/1351667928.jpg) no-repeat center center" alt="" src="{{avatar}}">
+                            </div>
+                            <div class="profile-content" >
+                                <a onclick="Appyscript.Socialuserprofiles({{userId}});"   class="{{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}}; text-align:{{@global.styleAndNavigation.heading[3]}}"><strong>{{username}}</strong></a> <span class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="color:{{@global.styleAndNavigation.content[2]}};">{{message}}</span>
+                                <span onclick="Appyscript.Socialuserprofiles({{userId}});"   class="comment_time {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="color:{{@global.styleAndNavigation.content[2]}}; text-align:{{@global.styleAndNavigation.heading[3]}}"> {{addedon}}</span>
+
+                                <div class='post-ban'><a  postuserid="{{userId}}" commentid="{{id}}" class='iconz-option-vertical' id="commentpopblock"  style='color:{{@global.styleAndNavigation.iconColor}};'></a>   </div>
+                            </div>
+                        </div>
+                    </li>
+                    {{/data.comments}}
+
+
+
+
+                </ul>
+
+
+            </div>
+        </div>
+    </div>
+
+    <div class="toolbar">
+        <div class="toolbar-inner">
+            <div class="comment_wrapper" style="border-top: 1px solid {{@global.styleAndNavigation.fieldBorderColor}}">
+                <input type="text" id="spostcomment" class="form-control" style="background:{{@global.styleAndNavigation.fieldBgColor}}; color:{{@global.styleAndNavigation.fieldTextColor}};"/>
+                <button onclick="Appyscript.Socialcomment({{data.postId}});" class="comment-btn iconz-send" style="background-color: {{@global.styleAndNavigation.button[2]}}; color: {{@global.styleAndNavigation.button[3]}};"/>
+            </div>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,109 @@
+/*Images List*/
+.navbar-inner{background-size:100% auto;}
+.app_navigation_imglist{margin:0;width:100%;float:left;padding:0;clear:both;overflow:visible;-webkit-backface-visibility:hidden;-webkit-transition:translate3d(0,0,0)}
+.app_navigation_imglist a{margin:0;width:100%;padding:0;outline:0;float:left;overflow:hidden;position:relative;border-bottom:solid 2px #fff;background-size:cover;background-position:center;background-repeat:no-repeat}
+.app_navigation_imglist a img,.app_navigation_imglist a i{width:100%;float:left;margin:0;padding:0;font-size:90px; background-size: contain; background-position: center; background-repeat: no-repeat;}
+.app_navigation_imglist a span{position:absolute;left:0;bottom:0;width:100%;float:left;margin:0;padding:8px 10px;line-height:20px;box-sizing:border-box;text-overflow:ellipsis;overflow:hidden;white-space:nowrap;float:left;-webkit-backface-visibility: hidden;-webkit-transition: translate3d(0,0,0);}
+
+/*Hide*/
+.app_navigation_imglist.hide-text a span{text-indent:-9999px;}
+.app_navigation_imglist.hide-background a span{background:none !important;} 
+
+/*Left : Center : Right : Top : Middle : Bottom*/
+.app_navigation_imglist.center-align a span{text-align:center}
+.app_navigation_imglist.right-align span{text-align:right}
+.app_navigation_imglist.top-align span{bottom:auto;top:0}
+.app_navigation_imglist.middle-align span{bottom:calc(50% - 18px)}
+.app_navigation_imglist.left-align span{text-align:left}
+
+
+.app_navigation_imglist.animation a {
+	transition-property: all;
+    transition-duration: 0.5s;
+    transition-timing-function: linear;    	
+	transform-origin: 50% 50%;
+	position:relative;
+	z-index:2;
+}
+
+.app_navigation_imglist.animation[animation='left'] a {
+	opacity:0;
+	transform: translate(-100%, 0);
+}
+
+.app_navigation_imglist.animation[animation='left'] a.on {
+	opacity:1;
+	transform: translate(0, 0);
+}
+
+.app_navigation_imglist.animation[animation='right'] a {
+	opacity:0;
+	transform: translate(100%, 0);
+}
+
+.app_navigation_imglist.animation[animation='right'] a.on {
+	opacity:1;
+	transform: translate(0, 0);
+}
+
+.app_navigation_imglist.animation[animation='top'] a {
+	opacity:0;
+	transform: translate(0, -100%);
+}
+
+.app_navigation_imglist.animation[animation='top'] a.on {
+	opacity:1;
+	transform: translate(0, 0);
+}
+
+.app_navigation_imglist.animation[animation='bottom'] a {
+	opacity:0;
+	transform: translate(0, 100%);
+}
+
+.app_navigation_imglist.animation[animation='bottom'] a.on {
+	opacity:1;
+	transform: translate(0, 0);
+}
+
+.app_navigation_imglist.animation[animation='max'] a {
+	opacity:0;	
+	transform: scale(2);
+}
+
+.app_navigation_imglist.animation[animation='max'] a.on {
+	opacity:1;
+	transform: scale(1);
+}
+
+.app_navigation_imglist.animation[animation='min'] a {
+	opacity:0;
+	transform: scale(0);
+}
+
+.app_navigation_imglist.animation[animation='min'] a.on {
+	opacity:1;
+	transform: scale(1);
+}
+
+.app_navigation_imglist.animation a.on0 {transition-delay: 0.0s;}
+.app_navigation_imglist.animation a.on1 {transition-delay: 0.1s;}
+.app_navigation_imglist.animation a.on2 {transition-delay: 0.2s;}
+.app_navigation_imglist.animation a.on3 {transition-delay: 0.3s;}
+.app_navigation_imglist.animation a.on4 {transition-delay: 0.4s;}
+.app_navigation_imglist.animation a.on5 {transition-delay: 0.5s;}
+.app_navigation_imglist.animation a.on6 {transition-delay: 0.7s;}
+.app_navigation_imglist.animation a.on7 {transition-delay: 0.8s;}
+.app_navigation_imglist.animation a.on8 {transition-delay: 0.9s;}
+.app_navigation_imglist.animation a.on9 {transition-delay: 1.0s;}
+.app_navigation_imglist.animation a.on10 {transition-delay: 1.1s;}
+.app_navigation_imglist.animation a.on11 {transition-delay: 1.2s;}
+.app_navigation_imglist.animation a.on12 {transition-delay: 1.3s;}
+.app_navigation_imglist.animation a.on13 {transition-delay: 1.4s;}
+.app_navigation_imglist.animation a.on14 {transition-delay: 1.5s;}
+.app_navigation_imglist.animation a.on15 {transition-delay: 1.6s;}
+.app_navigation_imglist.animation a.on16 {transition-delay: 1.7s;}
+.app_navigation_imglist.animation a.on17 {transition-delay: 1.8s;}
+.app_navigation_imglist.animation a.on18 {transition-delay: 1.9s;}
+.app_navigation_imglist.animation a.on19 {transition-delay: 2.0s;}
+.app_navigation_imglist.animation a.on20 {transition-delay: 2.1s;}

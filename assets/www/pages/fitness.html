@@ -1,0 +1,50 @@
+<div class="navbar">
+	<div class="navbar-inner" style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+		<div class="left sliding">
+			<a href="" class="link menu-down" style="color:{{@global.style.headerBarIconColor}};" onclick="fitnessMenu()">
+				<i class="icon icon-menu"></i>
+			</a>
+		</div>
+
+		<div class="center sliding  {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">
+			<div class="topHeader">
+				{{list[0].languageSetting.content_fitness}}
+			</div>
+		</div>
+		<div class="right">
+			<a class="link" style="color:{{@global.style.headerBarIconColor}};">
+
+				<i class="iconz-option-vertical"onclick="toggle_menu(this);"></i>
+			</a>
+		</div>
+	</div>
+</div>
+
+<div data-page="fitness" class="page navbar-through no-toolbar"  style="background-color: {{@global.styleAndNavigation.pageBgColor}}" >
+	<!-- Page content-->
+	<div class="page-content" >
+
+		<style>
+    .fitnesListing ul li{border-color:{{@global.styleAndNavigation.borderColor}}; color:{{@global.styleAndNavigation.subheading[2]}}}
+    .fitnesListing ul li i {color:{{@global.styleAndNavigation.iconColor}} }
+    .startTimer, .stopTimer{background:{{@global.styleAndNavigation.button[2]}}; color:{{@global.styleAndNavigation.button[3]}}; border-color:{{@global.styleAndNavigation.borderColor}}}
+	.timerDiv:before{color:{{@global.styleAndNavigation.button[2]}}}
+	.timerDiv{background:{{@global.styleAndNavigation.button[2]}}; color:{{@global.styleAndNavigation.button[3]}}}
+   </style>
+
+
+		<div class="fitnesListing hideBorder-{{@global.styleAndNavigation.hideBorder}}">
+			<ul>
+				<li onclick="fitnessWorkout()" class="{{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}"><i class="appyslim-health-gym-stopwatch"></i> {{list[0].languageSetting.fitness_workouts}}</li>
+				<li onclick="fitnessGuide()" class="{{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}"><i class="appyslim-health-gym-bike"></i> {{list[0].languageSetting.fitness_exercise}}</li>
+				<li onclick="fitnessDietPlans()" class="{{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}"><i class="appyslim-health-diet-checklist"></i> {{list[0].languageSetting.fitness_diet_plan}}</li>
+				<li onclick="fitnessCalculator()" class="{{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}"><i class="appyslim-ecommerce-money-calculator"></i> {{list[0].languageSetting.fitness_bmr_calculator}}</li>
+				<li onclick="fitnessTimesheet()" class="{{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}"><i class="appyslim-calendar-calendar-time"></i>Workout Record</li>
+			</ul>
+		</div>
+
+	</div>
+
+</div>
+
+        

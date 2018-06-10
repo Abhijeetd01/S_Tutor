@@ -1,0 +1,36 @@
+<div class="navbar"><div class="navbar-inner" style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};{{#root_Compare @global.style.headerBarType "==" "image"}} background-image:url({{@global.style.nav_header_image_name}}){{/root_Compare}}">
+    <div class="left" style="visibility:hidden"><a  class="link " >
+        <i class="icon icon-left-open-2"></i>
+    </a></div>
+    <div class="center sliding {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}" {{#root_Compare @global.style.headerBarType "==" "image"}}style="visibility:hidden;"{{/root_Compare}}>{{#root_Compare @global.style.headerBarTitle "==" ""}}{{@global.style.appName}}{{else}}{{@global.style.headerBarTitle}}{{/root_Compare}}</div>
+<div class="right"></div>
+</div>
+</div>
+<!-- content section  -->
+<div data-page="crossmatrix" class="page {{#js_compare "this.home.appData.headerBarType === 'none' "}}no-navbar {{else}} navbar-through  {{/js_compare}} no-toolbar">
+
+<div class="page-content {{@global.style.appTheme}} crossmatrixWrapper">
+    <div  id="app_navigation" class="{{@global.style.navigationSize}} {{@global.style.navigationFont}} app_navigation_crossmatrix {{#home.appData.hideLayout}} hide-{{this}} {{/home.appData.hideLayout}}">
+        {{#if home.home.length}}
+        <ul class="diamond-grid">
+            <li style="border-color:{{@global.style.navBorderColor}}; background:{{@global.style.navBackgroundColor}}"><div class="content"></div></li>
+            <li style="border-color:{{@global.style.navBorderColor}}; background:{{@global.style.navBackgroundColor}}"><div class="content"></div></li>
+            {{#home.home}}
+            <li style="border-color:{{@global.style.navBorderColor}}; background:{{@global.style.navBackgroundColor}}">
+                <div class="content">
+                    <a href="#" data-productid="{{pageid}}" data-productIdentifier="{{pageIdentifierBecon}}" class="page-link" >
+                        {{#js_compare "this.pageiconType === 'img' "}} <img src="images/transparent-bg_1x1.png" style="background-image:url({{@global.homeIconPath}}{{iconName}});"/>
+                        {{else}}
+                        <i class="{{iconName}}" style="color: {{@global.style.navIconColor}};"></i>
+                        {{/js_compare}}
+                        <span style="color: {{@global.style.navTextColor}};">{{pageNewid}}</span>
+                    </a>
+                </div>
+            </li>
+            {{/home.home}}
+        </ul>{{/if}}
+    </div>
+</div>
+</div>
+
+

@@ -1,0 +1,102 @@
+<div class="navbar"><div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+    <div class="left sliding">
+
+        <a href="index" class="link back" style="color:{{@global.style.headerBarIconColor}};">
+            <i class="icon icon-left-open-2"></i>
+        </a>
+    </div>
+    <div class="center sliding">
+        <div class="topHeader {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">{{catName}}
+        </div>
+    </div>
+    <div class="right">
+        {{#if listing}}
+        {{#js_compare "this.setting.dirMapDisplay == \'1\' "}}
+        {{#js_compare "this.setting.dirDisableLocServices == \'1\' "}}
+
+        <a href="#" style="color:{{@global.style.headerBarIconColor}};">
+            <i  class="iconz-location-3" onclick="Appyscript.showServicePageMapNew('{{#listing.list}}{{latitude}},{{/listing.list}}','{{#listing.list}}{{longitude}},{{/listing.list}}','{{#listing.list}}{{@index}},{{/listing.list}}','{{#listing.list}} {{filterAddressString header}},{{/listing.list}}','{{escape catName}}','0','sublistList')"></i>
+        </a>
+        {{/js_compare}}
+        {{/js_compare}}
+        {{else}}
+        <a href="#" style="color:{{@global.style.headerBarIconColor}};">
+            <i class="iconz-location-3"></i>
+            {{/if}}
+            {{#root_Compare @global.setting.hideFilter "==" "0"}}
+            <a href="#" style="color:{{@global.style.headerBarIconColor}};">
+                <i class="icon iconz-filter cursor-pointer" onclick="Appyscript.popupDirectory('serviceFilter')"></i><!--iconz-location-3-->
+            </a>
+            {{/root_Compare}}
+    </div>
+</div></div>
+
+<div data-page="services-subCatPage" class="page navbar-through no-toolbar  {{#root_Compare @global.styleAndNavigation.layout "==" "2"}}{{#if @global.styleAndNavigation.hideImage}}hide-list-img{{/if}}{{/root_Compare}} hideBorder-{{@global.styleAndNavigation.hideBorder}}" style="background-color: {{@global.styleAndNavigation.pageBgColor}}">
+<style>
+#search-box.on ul{border-color:{{@global.styleAndNavigation.borderColor}}}
+#search-box.on ul li{border-color:{{@global.styleAndNavigation.borderColor}}}
+</style>
+<div class="backgroundAnimation">{{> innerBackground}}</div>
+<!-- Page content-->
+{{#isSearchToShowInService this.subCat this.listing "subcat"}}
+{{#js_compare "this.setting.keywordSearch == \'true\' "}}
+
+{{#js_compare "this.setting.dirAutoSuggestSearchKey == \'1\' "}}
+<div id="search-box" class="search-box dir_cat_search">
+    <input type="text" onkeydown="if(event.keyCode == 13){ Appyscript.searchAndFilterData('textSearch','mainpagesearchauto');}" placeholder="{{@root.languageSetting.enter_your_search_here_dir}}" id="search" />
+    <a class="icon-search" id="btnSearch"   onclick="Appyscript.searchAndFilterData('textSearch','mainpagesearchauto')"></a>
+    <ul id="res">
+    </ul>
+</div>
+{{else}}
+<div class="search-box">
+    <input id="txtSearchsub" data-role="none" type="search" placeholder="{{@root.languageSetting.enter_your_search_here_dir}}"
+           onkeydown="if(event.keyCode == 13) Appyscript.searchAndFilterData('textSearch','mainpagesearchpage')"
+           name="search" class="off" >
+    <a class="icon-search" id="btnSearch" data-role="none"  onclick="Appyscript.searchClick('#txtSearchsub')"></a>
+
+</div>
+{{/js_compare}}
+{{/js_compare}}
+<div class="page-content serviceLayout-{{@global.styleAndNavigation.layout}} {{#if @global.styleAndNavigation.hideTitleBackground}}hideTitleBackground{{/if}} {{#if @global.styleAndNavigation.hideTitleText}}hideTitleText{{/if}} title-{{@global.styleAndNavigation.titleHAlign}} title-{{@global.styleAndNavigation.titleVAlign}}">
+
+    {{else}}
+    <div class="page-content serviceLayout-{{@global.styleAndNavigation.layout}} infinite-scroll {{#if @global.styleAndNavigation.hideTitleBackground}}hideTitleBackground{{/if}} {{#if @global.styleAndNavigation.hideTitleText}}hideTitleText{{/if}} title-{{@global.styleAndNavigation.titleHAlign}} title-{{@global.styleAndNavigation.titleVAlign}}" data-distance="200" >
+
+        {{/isSearchToShowInService}}
+
+
+        <!--<div class="page-content serviceLayout-{{@global.styleAndNavigation.layout}} infinite-scroll {{#if @global.styleAndNavigation.hideTitleBackground}}hideTitleBackground{{/if}} {{#if @global.styleAndNavigation.hideTitleText}}hideTitleText{{/if}} title-{{@global.styleAndNavigation.titleHAlign}} title-{{@global.styleAndNavigation.titleVAlign}}" data-distance="200">-->
+
+        <ul class="main-cat-listing" id="subPageListing">
+            {{#subCat.list}}
+            {{> dirSubListing}}
+            {{/subCat.list}}
+            {{#if listing}}
+            {{#listing.list}}
+            {{#root_Compare @index ">=" "300"}}
+            {{else}}
+            {{> dirSubListingListing}}
+            {{/root_Compare}}
+            {{/listing.list}}
+            {{/if}}
+        </ul>
+
+        {{#if listing.list}}
+        {{#if @global.isSearchInLargeDir}}{{else}}
+        {{#root_Compare listing.list.length ">" "299"}}
+        <div class="listMoreSearch" style="background-color:{{@global.styleAndNavigation.title[2]}}">
+            <h2 class="{{@global.styleAndNavigation.title[0]}} {{@global.styleAndNavigation.title[1]}}" style="
+        color:{{@global.styleAndNavigation.title[3]}}">For more listing, search here</h2>
+            <input id="subCatList" data-role="none" type="search" placeholder="{{@root.languageSetting.enter_your_search_here_dir}}" onkeydown="if(event.keyCode == 13) Appyscript.searchAndFilterData('textSearch','subCatList',this)"  name="search" class="off">
+        </div>
+        {{/root_Compare}}
+        {{/if}}
+        {{/if}}
+
+
+        <div class="infinite-scroll-preloader" style="display:none">
+            <div class="preloader"></div>
+        </div>
+    </div>
+</div>

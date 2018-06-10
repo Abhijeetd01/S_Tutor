@@ -1,0 +1,30 @@
+<div class="navbar"><div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+    <div class="left sliding">
+     		{{getSlideBack ""}}
+    </div>
+    <div class="center sliding {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">{{pageTitle}}</div>
+    <div class="right"></div>
+</div></div>
+
+<div data-page="quiz-Page" class="page navbar-through {{@global.style.layout}} toolbar-through">
+    <!-- Page content-->
+    <div class="backgroundAnimation">{{> innerBackground}}</div>
+    <div class="toolbar">
+        <div class="toolbar-inner">
+            <div class="bottom-btn">
+                {{#if questions.length}}<a onclick="startQuizMain(this)" class="{{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" style="background:{{@global.styleAndNavigation.button[2]}}; color:{{@global.styleAndNavigation.button[3]}}">{{setting.startbutton}}</a>{{/if}}
+            </div>
+        </div>
+    </div>
+    
+    <div class="page-content {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}} content-{{@global.styleAndNavigation.content[3]}} subheading-{{@global.styleAndNavigation.subheading[3]}} hideBorder-{{@global.styleAndNavigation.hideBorder}}" style="background:{{@global.styleAndNavigation.pageBackroundColor}}; color: {{@global.styleAndNavigation.content[2]}}">
+       {{#if questions.length}}
+      <div class="quiz-welcome">
+            <!--<h1>{{setting.title}}</h1>-->
+            <div class="conditionTag">{{setting.welcometext}}</div>
+        </div>
+       {{/if}}
+        
+        {{#questions}}{{else}}  <div class="msg-code">{{> errorpage errorIcon="appyicon-no-data"}}</div>{{/questions}}
+    </div>
+</div>

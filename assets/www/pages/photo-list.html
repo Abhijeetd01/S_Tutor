@@ -1,0 +1,27 @@
+<div class="navbar"><div class="navbar-inner " style="background-color: {{headerBarBackgroundColor}}; color: {{headerBarTextColor}}; font-size: {{@global.style.headerBarSize}} ">
+            <div class="left sliding">
+              <a href="index" class="link back" style="color:{{headerBarTextColor}};">
+                <i class="icon icon-left-open-2"></i>
+              </a>
+            </div>
+            <div class="center sliding">{{title}}</div>
+            <div class="right"></div>
+          </div></div>
+
+<div data-page="PhotoPage" class="page navbar-through no-toolbar " >
+<!-- Page content-->
+    <div class="page-content">
+    <!--{{#list}}        	
+    <a class="appypie-list" onclick="clickPhoto('{{albumType}}','{{userName}}','{{albumName}}')">
+        <span>
+        {{#js_compare "this.imageType == 'img' "}}
+        <img src="{{imageUrl}}" />
+        {{else}}
+        <i class="{{imageUrl}}"></i>
+        {{/js_compare}}
+        </span>
+        <span>{{customName}}</span>
+    </a>
+    {{/list}}-->
+    </div>
+</div>

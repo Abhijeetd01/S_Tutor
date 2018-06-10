@@ -1,0 +1,71 @@
+<div class="navbar"><div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: #fff; font-size: {{@global.style.headerBarSize}} ">
+            <div class="left sliding">
+              <a href="index" class="link back" style="color:{{@global.style.headerBarTextColor}};">
+                <i class="icon icon-left-open-2"></i>
+              </a>
+            </div>
+            <div class="center sliding">{{name}}</div>
+            <div class="right">
+            {{#js_compare "this.id != 'none' "}}
+                <a style="color:{{@global.style.headerBarTextColor}};" titleValue="{{title}}" descValue="{{description}}" onclick="Appyscript.shareNotes({{id}})">
+                    <i class="icon icon-share-1"></i>
+                </a>
+                <a style="color:{{@global.style.headerBarTextColor}};" onclick="Appyscript.deleteNote({{id}})">
+                    <i class="icon iconz-close"></i>
+                </a>
+              {{/js_compare}}
+            </div>
+          </div></div>
+
+
+<div data-page="tools-NotesUpdate" class="page navbar-through no-toolbar toolbar-through">
+    <!-- Page content-->
+    <div class="backgroundAnimation">{{> innerBackground}}</div>
+    <div class="toolbar">
+        <div class="toolbar-inner toolbar-bottom" style="background-color:{{@global.style.headerBarBackgroundColor}}">
+        {{#js_compare "this.id == 'none' "}}  
+        	<a class="save-btn" style="color:{{@global.style.headerBarTextColor}};" onclick="Appyscript.saveNote()">{{@global.pageLanguageSetting.note_save}}</a>
+        {{else}}
+        	<a class="save-btn" style="color:{{@global.style.headerBarTextColor}};" onclick="Appyscript.saveNote({{id}})">{{@global.pageLanguageSetting.note_save}}</a>
+        {{/js_compare}}
+        </div>
+    </div>
+
+<div class="page-content {{@global.style.appPageCsize}} {{@global.style.appPageFont}}">
+	<style>
+    .notes-view input,
+    .notes-view textarea {
+     	color:{{@global.styleAndNavigation.content[2]}}
+    }
+	.notes-view input {
+		color:{{@global.styleAndNavigation.heading[2]}}
+	}
+	
+    .notes-view ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  		color:{{@global.styleAndNavigation.content[2]}}
+	}
+	.notes-view ::-moz-placeholder { /* Firefox 19+ */
+	  color:{{@global.styleAndNavigation.content[2]}}
+	}
+	.notes-view :-ms-input-placeholder { /* IE 10+ */
+	  color:{{@global.styleAndNavigation.content[2]}}
+	}
+	.notes-view :-moz-placeholder { /* Firefox 18- */
+	  color:{{@global.styleAndNavigation.content[2]}}
+	}
+	
+	.notes-view input {
+		border-color:{{@global.styleAndNavigation.borderColor}};		
+	}
+    </style>
+    <div class="notes notes-view">
+    	{{#js_compare "this.id == 'none' "}}  
+			<input type="text" placeholder="{{@global.pageLanguageSetting.note_tiele}}" class="{{@global.style.appPageHsize}} {{@global.style.appPageFont}}" />
+            <textarea placeholder="{{@global.pageLanguageSetting.note_description}}" class="{{@global.style.appPageCsize}} {{@global.style.appPageFont}}"></textarea>
+        {{else}}
+			<input type="text" value="{{title}}" placeholder="{{@global.pageLanguageSetting.note_tiele}}" class="{{@global.style.appPageHsize}} {{@global.style.appPageFont}}" />
+            <textarea placeholder="{{@global.pageLanguageSetting.note_description}}" class="{{@global.style.appPageCsize}} {{@global.style.appPageFont}}">{{description}}</textarea>
+        {{/js_compare}}
+    </div>
+</div>
+</div>

@@ -1,0 +1,43 @@
+<div class="navbar"><div class="navbar-inner" style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+    <div class="left sliding">
+        <a href="index" class="link back" style="color:{{@global.style.headerBarIconColor}};">
+            <i class="icon icon-left-open-2"></i>
+        </a>
+    </div>
+    <div class="center sliding {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">{{pageTitle}}</div>
+    <div class="right">        
+    </div>
+</div></div>
+
+<div data-page="NotificationPage" class="page navbar-through no-toolbar">
+    <!-- Page content-->
+    <div class="page-content notificationWrapper {{@global.style.appPageCsize}}" style="font-family:{{@global.style.appPageFont}}; color:{{@global.style.pageTextColor}};">
+        
+        <ul class="notification">
+            {{#if list}}
+            {{#list}}
+            {{#js_compare "this.linkType == 'Internal' "}}
+            <li {{#if imagePath}}{{else}}class='noti-full'{{/if}} style="color:{{@global.style.pageTextColor}};" notiid="{{id}}">
+                {{#if imagePath}}<span class="notificationImageWrapper"><img alt="" src="images/image-1x1.png" class="testimonialImage" style="background:url({{imagePath}}) no-repeat 0 0;"   onClick="Appyscript.notificationViewOpenImage('{{imagePath}}','Notification')" ></span>{{/if}}
+                    <p class="notificationText" onclick="Appyscript.notificationView(this)" index-content="{{content}}" index-internalLink="{{extUrl}}" index-externalLink="" notiid="{{id}}">
+                        {{content}}<br>{{scheduleDate}}
+                    </p>
+              
+            </li>
+            {{else}}
+            <li {{#if imagePath}}{{else}}class='noti-full'{{/if}} style="color:{{@global.style.pageTextColor}};" notiid="{{id}}">
+               {{#if imagePath}}<span class="notificationImageWrapper"><img alt="" src="images/image-1x1.png" class="testimonialImage" style="background:url({{imagePath}}) no-repeat 0 0;" onClick="Appyscript.notificationViewOpenImage('{{imagePath}}','Notification')"></span>{{/if}}
+                    <p class="notificationText" onclick="Appyscript.notificationView(this)" index-content="{{content}}" index-internalLink="" index-externalLink="{{extUrl}}"  notiid="{{id}}">
+                        {{content}}<br>{{scheduleDate}}
+                    </p>
+                
+            </li>
+            {{/js_compare}}
+            {{/list}}
+            {{/if}}
+            
+        </ul>
+        
+    </div>
+    
+</div>

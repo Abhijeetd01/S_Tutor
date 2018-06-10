@@ -1,0 +1,62 @@
+<div class="navbar"><div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+    <div class="left sliding">
+       		{{getSlideBack ""}}
+    </div>
+    <div class="center sliding {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">{{pageTitle}}</div>
+    <div class="right"></div>
+</div></div>
+
+
+<div data-page="contact-page" class="page navbar-through no-toolbar">
+    <!-- Page content-->
+    <div class="backgroundAnimation">{{> innerBackground}}</div>
+    <div class="page-content">
+        <div class="contact-us {{#@global.styleAndNavigation}} theme-{{layout}} content-{{content[3]}} heading-{{heading[3]}} label-{{label[3]}} icon-{{icon[2]}} rounded-{{rounded}} hide-{{hideIcon}} {{content[0]}} hideBorder-{{hideBorder}}" style="color:{{content[2]}}; {{/@global.styleAndNavigation}}">
+            <ul>
+                {{#list}}
+                <li
+                    {{#js_compare "this.image === 'phone' "}}
+                onclick="openCallContactNative('{{subtext}}')"
+                {{/js_compare}}
+                {{#js_compare "this.image === 'sms' "}}
+                onclick="openCallSmsContactNative('{{subtext}}','{{smstext}}')"
+                {{/js_compare}}
+				 {{#js_compare "this.image === 'whatsapp' "}}
+                onclick="openWhatsappContactNative('{{subtext}}')"
+                {{/js_compare}}
+                {{#js_compare "this.image === 'email' "}}
+                onclick="openSendMailContactNative('{{subtext}}','','')"
+                {{/js_compare}}
+                {{#js_compare "this.image === 'skype' "}}
+                onclick="openSkypeContactNative('{{subtext}}')"
+                {{/js_compare}}
+                {{#js_compare "this.image === 'map' "}}
+                {{#if addressType}}
+                onclick="openSingleMapContactNative('{{subtext,'address'}}','{{latitude}}','{{longitude}}','{{@root.pageTitle}}','','')"
+                {{else}}
+                onclick="openSingleMapContactNative('{{subtext,'latlng'}}','{{@root.pageTitle}}','','')"
+                {{/if}}
+                {{/js_compare}}
+                {{#js_compare "this.image === 'link' "}}
+                onclick="openWebViewContactNative('{{subtext}}','{{@root.pageTitle}}')"
+                {{/js_compare}}
+
+                style="background-color:{{@global.styleAndNavigation.fieldBgColor}}; border-color:{{@global.styleAndNavigation.borderColor}}">
+                <!-- Only Theme 2 Case-->
+                <b class="arrow" style="border-{{@global.styleAndNavigation.icon[2]}}-color: {{@global.styleAndNavigation.icon[0]}};"></b>
+                <!-- end-->
+                <em style="{{#root_Compare @global.styleAndNavigation.layout "!=" "2"}}background-color:{{@global.styleAndNavigation.icon[0]}}; {{/root_Compare}}border-color:{{@global.styleAndNavigation.borderColor}}">
+                    {{#js_compare "this.imageType === 'img' "}}
+                    <img src="{{innerimage}}" style="border-color:{{@global.styleAndNavigation.borderColor}}">
+                    {{else}}
+                    <i class="{{innerimage}}" style="color:{{@global.styleAndNavigation.icon[1]}} ; border-color:{{@global.styleAndNavigation.borderColor}}; {{#root_Compare @global.styleAndNavigation.layout "==" "2"}}background-color:{{@global.styleAndNavigation.icon[0]}}; {{/root_Compare}}"></i>
+                    {{/js_compare}}
+                </em>
+                <span class="{{@global.styleAndNavigation.label[0]}} {{@global.styleAndNavigation.label[1]}}" style="color:{{@global.styleAndNavigation.label[2]}}">{{text}}</span>
+                <strong>{{subtext}}</strong>
+                </li>
+                {{/list}}
+            </ul>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,64 @@
+
+<div class="navbar">
+    <div class="navbar-inner" style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+        <div class="left sliding">
+            <a href="index" class="link back" style="color:{{@global.style.headerBarIconColor}};">
+                <i class="icon icon-left-open-2"></i>
+            </a>
+        </div>
+        <div class="center sliding  {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">{{@global.pageLanguageSetting.social_blockedusers}} </div>
+        <div class="right">
+            
+        </div>
+    </div>
+</div>
+<div data-page="socialnetwork-blockedusers" class="page navbar-through toolbar-fixed no-toolbar">
+	<!-- Page content-->
+       <div class="backgroundAnimation">{{> innerBackground}}</div>
+<div class="page-content  theam-{{@global.styleAndNavigation.layout}}">
+    
+
+    
+    
+    <div class="msg-code"  style="display:none"   id="blockuserfound2">
+        <div class="msg-container"><span class="icon appyicon-no-data" style="color:{{@global.styleAndNavigation.iconColor}}">  </span></div>
+    </div>
+    {{#js_compare "this.list.length == '0' "}}
+    
+    
+    
+    <div class="msg-code"  id="blockuserfound" ><div class="msg-container"><span class="icon appyicon-no-data" style="color:{{@global.styleAndNavigation.iconColor}}">  </span></div></div>
+    {{/js_compare}}
+ 
+    
+		<div class="bodypan">
+			<div class="row">
+				<ul class="SearchResult">
+            
+                 {{#list}}
+                 <li id="{{id}}"style="border-color:{{@global.styleAndNavigation.fieldBorderColor}}">
+                     <div class="title-container">
+                         <div class="post-title">
+                             <div class="profile-snap">
+                                 <img style="background:url({{avatar}}) no-repeat center center" alt="" src="images/image-1x1.png">
+                                     </div>
+                             <a href="#" class="{{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}}; text-align:{{@global.styleAndNavigation.heading[3]}}"> {{name}}
+                                 
+                                 
+                                 </div>
+                         <div class="search-elem">
+                             <a href="#" class="follow pull-right min-wid icon-block-4 {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" style="background-color: {{@global.styleAndNavigation.button[2]}}; color: {{@global.styleAndNavigation.button[3]}};" onclick="Appyscript.socialunblockuser({{id}});" > {{@global.pageLanguageSetting.social_unblock}}</a>
+                         </div>
+                     </div>
+                 </li>
+                {{/list}}
+                 
+                </ul>
+			</div>
+		</div>
+        
+	</div>
+
+
+
+</div>

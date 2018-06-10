@@ -1,0 +1,139 @@
+<div class="navbar">
+    <div class="navbar-inner" style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+        <ul class="news-btns">
+        <li class="back-btn"><a href="news" class="back" style="color:{{@global.style.headerBarIconColor}};"><i class="icon icon-left-open"></i></a></li>
+        <li class="theme-btn" onclick="Appyscript.newsTheme(this)" style="color:{{@global.style.headerBarIconColor}};"><i class="icon icon-sun-2"></i></li>
+        <li class="share-btn" onclick="Appyscript.newsShare(this)" style="color:{{@global.style.headerBarIconColor}};"><i class="icon appyicon-news-upload"></i></li>
+        <li class="comments-btn" onclick="Appyscript.newsCommentsPage(this, 0)" style="color:{{@global.style.headerBarIconColor}};"><i class="icon icon-chat-3"></i></li>
+        <li class="font-btn" onclick="Appyscript.newsTextSize(this)" data-id="1" style="color:{{@global.style.headerBarIconColor}};"><i class="icon appyicon-news-text-size"></i></li>
+        <li class="bookmark-btn on" onclick="Appyscript.newsBookmarks(this)" style="color:{{@global.style.headerBarIconColor}};"><i class="icon icon-bookmark-empty" ></i></li>
+        </ul>
+    </div>
+</div>
+
+
+<div data-page="news-deatils" class="page navbar-through no-toolbar">
+    <!-- Page content-->
+<div class="backgroundAnimation">{{> innerBackground}}</div>
+<div class="page-content content-{{@global.styleAndNavigation.content[3]}} heading-{{@global.styleAndNavigation.heading[3]}} hideBorder-{{@global.styleAndNavigation.hideBorder}}" style="background:{{@global.styleAndNavigation.pageBgColor}}">
+    <style>
+        .news-page .swiper-pagination-bullet {
+            background: {{@global.styleAndNavigation.content[2]}};
+    opacity: 1;
+        }
+
+         .news-page .swiper-pagination-bullet-active {
+            background: {{@global.styleAndNavigation.activeBgColor}};
+    opacity: 1;
+        }
+        .news-page h2 {
+            color:{{@global.styleAndNavigation.heading[2]}};
+        }
+        .news-page.theme-on h2 {
+            color:#fff;
+        }
+
+    </style>
+<div class="news-page {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="color:{{@global.styleAndNavigation.content[2]}}">
+<div class="news-details swiper-container">
+<div class="swiper-wrapper">
+     {{#if list}}
+     {{#list}}
+    <div class="swiper-slide news-detail" index="{{id}}" >
+    <div class="news-detail-page">
+        <h2 class="{{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}">{{newsHeading}}</h2>
+        <time>{{addedon}}  {{newsLocation}},{{newsDate}} </time>
+        <div class="news-banner news-banner-{{id}} swiper-container">
+            <div class="swiper-wrapper">
+                {{#mediaGallary}}
+                <div class="swiper-slide">
+                    {{#js_compare "this.type == 'image' "}}
+                    <img src="images/image-2x1.png" style="background-image:url({{imageUrl}})" onclick="Appyscript.detailSwaperImageOnclick('{{imageUrl}}','image','{{../../newsHeading}}')" id-img="{{imageUrl}}"/>
+                    {{/js_compare}}
+                    {{#js_compare "this.type == 'video' "}}
+                    <a onclick="openYouTubeVedioNews('{{videoUrl}}','{{../../newsHeading}}')" class="video-icon icon-youtube"></a>
+                    <img src="images/image-2x1.png" style="background-image:url(http://img.youtube.com/vi/{{youtubeID videoUrl "/1/"}}/hqdefault.jpg)">
+                    {{/js_compare}}
+                    {{#if summary}}
+                    <span>{{summary}}</span>
+                    {{/if}}
+                </div>
+                {{/mediaGallary}}
+            </div>
+
+            {{#newsMedia}}
+            {{#js_compare "this.type == 'image' "}}
+            {{else}}
+            <div class="swiper-slide">
+                {{#js_compare "this.type == 'video' "}}
+                <a onclick="openYouTubeVedioNews('{{videoUrl}}','{{../../newsHeading}}')" class="video-icon icon-youtube"></a>
+                <img src="images/image-2x1.png" style="background-image:url(http://img.youtube.com/vi/{{youtubeID videoUrl "/1/"}}/hqdefault.jpg)">
+                {{/js_compare}}
+                {{#if summary}}
+                <span>{{summary}}</span>
+                {{/if}}
+            </div>
+            {{/js_compare}}
+            {{/newsMedia}}
+        <div class="swiper-pagination news-pagination-{{id}}"></div>
+        </div>
+        <div class="news-content">{{newsFullStory}}</div>
+        {{#newsDocs}}
+            <a class="pdf-btn" onclick="Appyscript.openPdfReaderFile('{{docPath}}','', '{{doclabel}}')" style="color:{{@global.styleAndNavigation.content[2]}}"><i class="icon-doc-alt" style="background-color:{{@global.styleAndNavigation.button[2]}};color:{{@global.styleAndNavigation.button[3]}}"></i> {{doclabel}}</a>
+        {{/newsDocs}}
+        {{#if newsId}}
+        <div class="bottom-comment" style="border-color:{{@global.styleAndNavigation.borderColor}}">{{@global.pageLanguageSetting.article_has}} <span class="span_com" onclick="Appyscript.newsCommentsPage(this, 0)" data-id="{{newsId}}" style="color:{{@global.styleAndNavigation.content[2]}}">{{coments}} {{@global.pageLanguageSetting.comments}}</span>
+        <div class="post-comment" data-id="{{newsId}}" style="background-color:{{@global.styleAndNavigation.button[2]}}; onclick="Appyscript.newsCommentsPage(this, 1)">{{@global.pageLanguageSetting.post_a_comment}}</div>
+        {{/if}}
+        {{#if id}}
+        {{#js_compare "this.totalComments == '0' "}}
+        <div class="bottom-comment" style="border-color:{{@global.styleAndNavigation.borderColor}}">
+            <div class="post-comment {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" style="background-color:{{@global.styleAndNavigation.button[2]}};color:{{@global.styleAndNavigation.button[3]}}" data-id="{{id}}" onclick="Appyscript.newsCommentsPage(this, 1)">{{@global.pageLanguageSetting.post_a_comment}}</div>
+        {{else}}
+        {{#js_compare "this.totalComments == '1' "}}
+        <div class="bottom-comment" style="border-color:{{@global.styleAndNavigation.borderColor}}">{{@global.pageLanguageSetting.article_has}} <span class="span_com" onclick="Appyscript.newsCommentsPage(this, 0)" data-id="{{id}}" style="color:{{@global.styleAndNavigation.activeBgColor}}">{{totalComments}} Comment</span>
+            {{else}}
+            <div class="bottom-comment" style="border-color:{{@global.styleAndNavigation.borderColor}}">{{@global.pageLanguageSetting.article_has}}  <span class="span_com" onclick="Appyscript.newsCommentsPage(this, 0)" data-id="{{id}}" style="color:{{@global.styleAndNavigation.activeBgColor}}">{{totalComments}} {{@global.pageLanguageSetting.comments}}</span>
+                {{/js_compare}}
+            <div class="post-comment {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" style="background-color:{{@global.styleAndNavigation.button[2]}};color:{{@global.styleAndNavigation.button[3]}}" data-id="{{id}}" onclick="Appyscript.newsCommentsPage(this, 1)">{{@global.pageLanguageSetting.post_a_comment}}</div>
+        {{/js_compare}}
+        </div>
+        {{/if}}
+    </div>
+    </div>
+    {{/list}}
+    {{/if}}
+    {{#if item}}
+    {{#item}}
+    <div class="swiper-slide news-detail" index="{{@index}}" >
+        <div class="news-detail-page">
+            <h2 class="{{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}">{{title}}</h2>
+            {{#if pubDate}}
+            <time>{{pubDate}}</time>
+            {{else}}
+            <time>{{pubdate}}</time>
+            {{/if}}
+            <div class="news-banner news-banner-{{@index}} swiper-container">
+                <div class="swiper-pagination news-pagination-{{@index}}"></div>
+            </div>
+            {{#if description}}
+            <div class="news-content">{{description}}</div>
+            {{else}}
+            {{#if desc}}
+            <div class="news-content">{{desc}}</div>
+            {{/if}}
+            <div class="news-content">{{content}}</div>
+
+            {{/if}}
+            {{#if smalldesc}}
+            <div class="news-content">{{smalldesc}}</div>
+            {{/if}}
+            </div>
+            </div>
+        {{/item}}
+        {{/if}}
+    </div>
+    </div>
+</div>
+</div>
+</div>

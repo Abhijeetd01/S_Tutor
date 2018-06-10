@@ -1,0 +1,174 @@
+<div class="navbar"><div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+    <div class="left sliding">
+        <a href="index" class="link back" style="color:{{@global.style.headerBarIconColor}};">
+            <i id="lefticon" class="icon icon-left-open-2"></i>
+        </a>
+    </div>
+    <div class="center sliding  {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">{{fld_card_name}}</div>
+    <div class="right"></div>
+</div></div>
+
+
+<div data-page="loyalty-CardPage" class="page navbar-through no-toolbar " style="background-color:{{appPageBackgroundColor}}">
+    <style>
+        .c100:after {
+            position: absolute;
+            top: 0.08em;
+            left: 0.08em;
+            display: block;
+            content: " ";
+            border-radius: 50%;
+            background-color:{{@global.styleAndNavigation.listColor}};
+            width: 0.84em;
+            height: 0.84em;
+            -webkit-transition-property: all;
+            -moz-transition-property: all;
+            -o-transition-property: all;
+            transition-property: all;
+            -webkit-transition-duration: 0.2s;
+            -moz-transition-duration: 0.2s;
+            -o-transition-duration: 0.2s;
+            transition-duration: 0.2s;
+            -webkit-transition-timing-function: ease-in;
+            -moz-transition-timing-function: ease-in;
+            -o-transition-timing-function: ease-in;
+            transition-timing-function: ease-in;
+        }
+    .layout4 .loyaltyTnumb li span.active {
+        
+        border-color:{{@global.styleAndNavigation.borderColor}};
+        border:4px solid;
+    }
+    .layout4 .loyaltyTnumb li span.loyalbox {
+        border-color:{{@global.styleAndNavigation.borderColor}}
+    }
+    
+    .layout4 .loyaltyTnumb li a.active {
+        color:{{@global.styleAndNavigation.icon[1]}}!important
+    }
+    
+        </style>
+    <div class="backgroundAnimation">{{> innerBackground}}</div>
+    <!-- Page content-->
+    <div class="page-content {{@global.style.appPageFont}} layout{{@global.styleAndNavigation.layout}} hideBorder-{{@global.styleAndNavigation.hideBorder}}" style="color:{{@global.style.pageTextColor}};  ">
+        
+        <div class="loyaltyPage">
+            
+            {{#root_Compare @global.styleAndNavigation.layout "==" "4"}}
+            <div class="loyalty-appContainer"  id="checkdivtwo" style="display: none">
+                <div style="background:url({{imgcardbackground_saveimage}});" class="loaylty-back">
+                    <div class="middilePan">
+                        {{#if imgcardheader_saveimage}}
+                        <img src="{{imgcardheader_saveimage}}">
+                            {{else}}
+                            {{/if}}
+                            
+                            <div class="brifDiscription {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="color:{{@global.styleAndNavigation.content[2]}}; text-align:{{@global.styleAndNavigation.content[3]}}">
+                                {{fld_brief_desc}}
+                            </div>
+                            <ul id="circlethumbs" class="loyaltyTnumb">
+                                
+                                {{loyaltyCardNumber card_no_of_stamps}}
+                                
+                                
+                            </ul>
+                            
+                            <!--  <div class="button-pan4"><span id="checkInBtnthirdlayout" class="button {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" style="background:{{@global.styleAndNavigation.button[2]}}; color:{{@global.styleAndNavigation.button[3]}}"  onclick="Appyscript.loyatystamp(2)" style="background:{{@global.styleAndNavigation.button[2]}}"><i class="icon-location" style="color:{{@global.styleAndNavigation.icon[1]}};"></i></span></div> -->
+                            </div>
+                </div>
+            </div>
+            
+            {{else}}
+            
+            <div class="loyalty-view">
+                {{#root_Compare @global.styleAndNavigation.layout "!=" "1"}}
+                
+                <div class="progess-box" id="checkdivtwo">
+                    <div class="card-title {{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}}; text-align:{{@global.styleAndNavigation.heading[3]}}">
+                        {{fld_card_name}}
+                    </div>
+                    <div class="middile-icon">
+                        <div class="brifDiscription {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="color:{{@global.styleAndNavigation.content[2]}}; text-align:{{@global.styleAndNavigation.content[3]}}">
+                            {{fld_brief_desc}}
+                        </div>
+                        <div style="position:relative;">
+                            {{#js_compare "this.iconType == 'img' "}}
+                            <img src="{{cardstampicon}}" />
+                            {{else}}
+                            <i class="icon {{cardstampicon}}" style="color:{{@global.styleAndNavigation.icon[1]}}"></i>
+                            {{/js_compare}}
+                            
+                            <div class="progress-container" style="background:{{@global.styleAndNavigation.progressBgColor}}">
+                                <div id="myBar" class="progressbar" style="width:25%; background:{{@global.styleAndNavigation.progressActiveColor}}">
+                                </div>
+                            </div>
+                            <span class="free-text" style="color:{{@global.styleAndNavigation.content[2]}}"></span></div>
+                    </div>
+                    
+                    <span id="checkInBtnthirdlayout" class="button {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" style="background:{{@global.styleAndNavigation.button[2]}}; color:{{@global.styleAndNavigation.button[3]}}"  onclick="Appyscript.loyatystamp(2)" style="background-color:{{@global.style.primaryButtonBgColor}} "><i class="icon-location" style="color:{{@global.styleAndNavigation.icon[1]}};"></i></span>
+                </div>
+                
+                {{else}}
+                <div id="checkdivtwo" class="progess-box progess-box2" style="display:none">
+                    <div class="brifDiscription {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="color:{{@global.styleAndNavigation.content[2]}}; text-align:{{@global.styleAndNavigation.content[3]}}">
+                        {{fld_brief_desc}}
+                    </div>
+                    <div id="percentbar" class="c100 p0 big" myClass="p0" style="background-color:{{@global.styleAndNavigation.progressBgColor}}">
+                        <span style="color:{{@global.styleAndNavigation.content[2]}}">
+                            <i class="{{cardstampicon}} percentage-icon" style="color:{{@global.styleAndNavigation.icon[1]}}"></i>
+                            <p id="fraction" class="percentage-ratio">7/10</p>
+                            <p id="percenttag" class="percentage-percent"></p>
+                        </span>
+                        <div class="slice">
+                            <div class="bar" style="border-color:{{@global.styleAndNavigation.progressActiveColor}}"></div>
+                            <div class="fill" style="border-color:{{@global.styleAndNavigation.progressActiveColor}}"></div>
+                        </div>
+                    </div>
+                    <span class="button {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" style="background:{{@global.styleAndNavigation.button[2]}}; color:{{@global.styleAndNavigation.button[3]}}" onclick="Appyscript.loyatystamp(2)" style="{{#root_Compare @global.styleAndNavigation.layout "==" "2"}} background-color:{{@global.style.primaryButtonBgColor}} {{else}}   {{/root_Compare}}">
+                        <i id="checkicontext"class=""></i></span>
+                </div>
+                
+                {{/root_Compare}}
+                <!--            /////// check ober-->
+                
+                
+            </div>
+            
+            {{/root_Compare}}
+            
+            
+            
+            <div id="checkdivone" class="loyaltyPage">
+                
+                <div class="loyalty-appContainer">
+                    <center class="redeem-page">
+                        {{#js_compare "this.iconType == 'img' "}}
+                        <img src="{{cardstampicon}}" /> {{else}}
+                        <div class="locate {{freesloticon}}" style="color:{{@global.styleAndNavigation.icon[1]}}"></div>
+                        {{/js_compare}}
+                        <h2 style="font-family:{{@global.styleAndNavigation.heading[0]}}; font-size:{{@global.styleAndNavigation.heading[1]}}; color:{{@global.styleAndNavigation.heading[2]}}; text-align:{{@global.styleAndNavigation.heading[3]}}">{{@global.pageLanguageSetting.Congratulation}}</h2>
+                        <p class="runing_txt {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="color:{{@global.styleAndNavigation.content[2]}}; text-align:{{@global.styleAndNavigation.content[3]}}">{{@global.pageLanguageSetting.loyaltyfreebmsg}}</p>
+                        
+                        <p id="freeBie"class="runing_txt {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="color:{{@global.styleAndNavigation.content[2]}}; text-align:{{@global.styleAndNavigation.content[3]}}"></p>
+                        
+                        <p id="freeBie"class="runing_txt {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="color:{{@global.styleAndNavigation.content[2]}}; text-align:{{@global.styleAndNavigation.content[3]}}">{{finalfreebietext}}</p>
+                        <div class="line" style="border-color:{{@global.styleAndNavigation.borderColor}}"> </div>
+                        
+                        <span class="button {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" style="background:{{@global.styleAndNavigation.button[2]}}; color:{{@global.styleAndNavigation.button[3]}}" onclick="Appyscript.loyatystamp(2)" style="{{#root_Compare @global.styleAndNavigation.layout "==" "2"}} background-color:{{@global.style.primaryButtonBgColor}} {{else}}   {{/root_Compare}}">
+                            {{@global.pageLanguageSetting.loyaltyredeem}}</span>
+                        <span  id="notnow" class="not-link {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}"
+                            style="color:{{@global.styleAndNavigation.content[2]}}; text-align:{{@global.styleAndNavigation.content[3]}}">
+                            Not right now</span>
+                    </center>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    
+</div>
+
+
+
+
+

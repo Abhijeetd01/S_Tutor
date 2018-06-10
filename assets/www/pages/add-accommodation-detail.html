@@ -1,0 +1,162 @@
+<div class="navbar">
+    <div class="navbar-inner" style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+
+        <div class="left sliding">
+            <a href="index" class="link back icon icon-left-open-2" onclick="handlePushBack();" style="color:{{@global.style.headerBarIconColor}};"></a>
+        </div>
+
+        <div class="center sliding">
+            <div class="topHeader {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">
+                Add Accommodation Type
+            </div>
+        </div>
+
+        <div class="right">
+
+        </div>
+    </div>
+</div>
+
+
+<div data-page="accommodation-firstdetail" class="page navbar-through toolbar-fixed no-toolbar" style="background-color:">
+<style type="text/css">
+.accomm_daetilsform input, .select_country select, .address_bar textarea {
+    border-color: {{@global.styleAndNavigation.fieldBgColor}} !important;
+	color:{{@global.styleAndNavigation.fieldTextColor}} !important;
+	font-size: 16px !important
+}
+.accomm_form ::placeholder {
+color:{{@global.styleAndNavigation.fieldTextColor}}; opacity:.6;
+}
+.select_country:before{color:{{@global.styleAndNavigation.fieldTextColor}} !important;}
+ 
+</style>
+    <!-- Page content-->
+    <div class="page-content {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}} hideBorder-{{@global.styleAndNavigation.hideBorder}}" style="color:{{@global.styleAndNavigation.content[2]}}; background:{{@global.styleAndNavigation.pageBgColor}}">
+        {{#if @global.checkAddUpdatePage}}
+        <section class="addaccom">
+            <div class="accomm_form">
+                <form class="accomm_form" id="accommodation1display" >
+                    <div class="accomm_daetilsform">
+
+
+                        <input type="text" id="accomodationName" name="addacconName"  placeholder="Accommodation Name*">
+
+                        <div class="select_country">
+                            <select id="slectedaddlisting"  name="addacconType">
+                                <option>Select Accommodation Type *</option>
+                                {{#accommodationType}}
+                                <option value="{{id}}">{{name}}</option>
+                                {{/accommodationType}}
+                            </select>
+                        </div>
+                        <input type="text" id="accomodationEmail"  name="addacconEmail" placeholder="Email*">
+
+                        <input type="text" id="accomodationPhone"  name="addacconPhone" placeholder="Phone no.*">
+
+                        <input type="text" id="accomodationFax"  name="addacconFax" placeholder="Fax">
+                    </div>
+
+                    <div class="address_bar">
+                        <label class="{{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}}; text-align:{{@global.styleAndNavigation.heading[3]}};">Address * </label>
+                        <textarea id="accomodationAddress"  name="addacconaddress" placeholder="Address*"></textarea>
+                    </div>
+
+
+                    <div class="accomm_daetilsform">
+                        <input type="text"  id="accomodationCity"  name="addacconCity" placeholder="City*">
+                        <input type="text" id="accomodationState"  name="addacconState" placeholder="State*">
+                        <div class="select_country">
+                            <select id="selectedCountry"  name="addacconCountry">
+                                <option>Select Country *</option>
+                                {{#countryList}}
+                                <option value="{{countryCode}}">{{country}}</option>
+                                {{/countryList}}
+                            </select>
+                        </div>
+
+                        <input type="text" id="accomodationZipCode"  name="addacconZipcode" placeholder="Zip Code*">
+
+                    </div>
+                </form>
+
+            </div>
+
+        </section>
+
+        {{else}}
+        <section class="addaccom">
+            <div class="accomm_form">
+                <form class="accomm_form">
+                    <div class="accomm_daetilsform">
+
+                        <input type="text" id="accomodationNameedit"   name="addacconName" placeholder="Accommodation Name*" value="{{accommodationListEdit[0].accommName}}" >
+
+                        <div class="select_country">
+                            <select id="slectedaddlistingedit" name="addacconType">
+                                <option>Select Accommodation Type *</option>
+                                {{#accommodationListEdit[1]}}
+                                <option value="{{id}}" {{selectedaccomdationtypeid id}} >{{name}}</option>
+                                {{/accommodationListEdit[1]}}
+                            </select>
+                        </div>
+
+                        <input type="text" id="accomodationEmailedit"  name="addacconEmail" placeholder="Email*" value="{{accommodationListEdit[0].accommEmail}}">
+
+                        <input type="text" id="accomodationPhoneedit"  name="addacconPhone" placeholder="Phone no.*" value="{{accommodationListEdit[0].accommPhone}}">
+
+                        <input type="text" id="accomodationFaxedit"  name="addacconFax" placeholder="Fax" value="{{accommodationListEdit[0].accommFax}}">
+
+                    </div>
+
+                    <div class="address_bar">
+                        <label class="{{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}}; text-align:{{@global.styleAndNavigation.heading[3]}};">Address * </label>
+
+                        <textarea id="accomodationAddressedit"  name="addacconAddress" placeholder="Address*">{{accommodationListEdit[0].accommAddress}}</textarea>
+                    </div>
+
+
+                    <div class="accomm_daetilsform">
+                        <input type="text"  id="accomodationCityedit" name="addacconCity" placeholder="City*" value="{{accommodationListEdit[0].accommCity}}">
+                        <input type="text" id="accomodationStateedit"  name="addacconState" placeholder="State*" value="{{accommodationListEdit[0].accommState}}">
+                        <div class="select_country">
+                            <select id="selectedCountryedit"  name="addacconCountry">
+                                <option>Select Country *</option>
+                                {{#accommodationListEdit[2]}}
+                                <option value="{{countryCode}}" {{selectedaccomdationtypecountrycode countryCode}}>{{country}}</option>
+                                {{/accommodationListEdit[2]}}
+                            </select>
+                        </div>
+
+                        <input type="text" id="accomodationZipCodeedit"  name="addacconZipcode" placeholder="Zip Code*" value="{{accommodationListEdit[0].accommZip}}">
+
+                    </div>
+                </form>
+
+            </div>
+
+        </section>
+        {{/if}}
+    </div>
+    <!-- End Page content-->
+
+    <div class="toolbar">
+        <div class="toolbar-inner">
+            {{#if @global.checkAddUpdatePage}}
+            <div class="nexttab {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" style="background-color: {{@global.styleAndNavigation.button[2]}}; color: {{@global.styleAndNavigation.button[3]}};" onclick="accommodation_detail('firstNextClick')">
+                <a href="#">Next</a>
+            </div>
+            {{else}}
+            <div class="nexttab {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" style="background-color: {{@global.styleAndNavigation.button[2]}}; color: {{@global.styleAndNavigation.button[3]}};" onclick="accommodation_detail_Edit('editFirstNextClick')">
+                <a href="#">Next</a>
+            </div>
+
+            {{/if}}
+        </div>
+    </div>
+
+</div>
+
+
+
+

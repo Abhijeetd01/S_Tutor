@@ -1,0 +1,89 @@
+<div class="navbar">
+	<div class="navbar-inner" style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+		<div class="left sliding">
+            <a href="index" class="link back" style="color:{{@global.style.headerBarIconColor}};">
+                <i class="icon icon-left-open-2"></i>
+            </a>
+        </div>
+		<div class="center sliding  {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">
+			<div class="topHeader">
+                {{list[0].languageSetting.fitness_diet_details}}
+			</div>
+		</div>
+		<div class="right">
+			<a class="link" style="color:{{@global.style.headerBarIconColor}};">
+
+                <i class="iconz-option-vertical"onclick="toggle_menu(this);"></i>
+			</a>
+		</div>
+	</div>
+</div>
+
+<div data-page="fitness-diet-details" class="page navbar-through no-toolbar" style="background-color: {{@global.styleAndNavigation.pageBgColor}}">
+	<!-- Page content-->
+	<div class="page-content">
+    <style>
+		.dietPlanDetail h2{color:{{@global.styleAndNavigation.heading[2]}} }
+		.dietPlanDetail h2 span{color:{{@global.styleAndNavigation.activeColor}} }
+		.topHead small, .dietPlan{color:{{@global.styleAndNavigation.subheading[2]}} }
+		.nutriInfo .circlePan, .dietPlanDetail .detail, .topHead, .mealPlan, .clacBtn, .detailDis, .exSteps {color:{{@global.styleAndNavigation.content[2]}}}
+    	.nutriInfo .circlePan .circle, .clacBtn{border-color:{{@global.styleAndNavigation.borderColor}}}
+		.nutriInfo > h3{color:{{@global.styleAndNavigation.subheading[2]}} }
+		.exerciseDetail ul li span{color:{{@global.styleAndNavigation.iconColor}}}
+    </style>
+		<div class="dietPlanDetail">
+        <img class="bannerImag" src="images/image-3x1.png" style="background:url({{@global.fitnessURL}}{{this.diet_image}})">
+        <div class="topHead">
+            <small class="{{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}">{{diet_title}}</small>
+            <h2 class="{{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}">Target: <span>{{diet_type}}</span></h2>
+            <span class="dietPlan {{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}">Diet Plan</span>
+        </div>
+        
+        <div class="detail {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}">
+        	<p>{{diet_description}}</p>
+        </div>
+        
+        <center><span class="dietPlan {{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}">List</span></center>
+        
+        <div class="mealPlan {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}">
+        	{{diet_list}}
+	
+    </div>
+    
+    <div class="nutriInfo">
+    	<h3 class="{{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}">- Nutrition Information -</h3>
+        <div class="circlePan {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}">
+        	<div class="circle">{{diet_calories}}g</div>
+        	<span>Calories</span>
+        </div>
+        
+        <div class="circlePan {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}">
+        	<div class="circle">{{diet_carbs}}g</div>
+        	<span>Carbs</span>
+        </div>
+        
+        <div class="circlePan {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}">
+        	<div class="circle">{{diet_protein}}g</div>
+        	<span>Protein</span>
+        </div>
+        
+        <div class="circlePan {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}">
+        	<div class="circle">{{diet_fat}}g</div>
+        	<span>Fat</span>
+        </div>
+    </div>
+
+    <div class="calcOute">
+        <div class="clacBtn {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" onclick="fitnessCalculator()" >
+            Calculate Your BMR!
+
+        </div>
+    </div>
+
+        </div>
+        
+        </div>
+    </div>
+</div>
+
+        

@@ -1,0 +1,44 @@
+<div class="popup menu-popup tablet-fullscreen" data-page="customEvent-menu">
+    <div class="view toolbar-through">
+        <div class="pages {{@global.styleAndNavigation.menu[0]}} hideBorder-{{@global.styleAndNavigation.hideBorder}}" style="background:{{@global.styleAndNavigation.menu[1]}}; color:{{@global.styleAndNavigation.menu[2]}}">
+            <div class="page"><div class="events-navs">
+  
+    
+    <div class="profile-image">
+                            <div class="profileBackground" id="CE_userBg" style="background-image:url({{@global.style.reseller}}/newui/images/user-pic-news.png)">
+                            </div>
+                            <div class="profileContentBx">
+                                <div class="profileBx">
+                                    <span class="image" style="border-color:{{@global.styleAndNavigation.borderColor}}"><img src="images/image-1x1.png" style="background-image:url({{@global.style.reseller}}/newui/images/user-pic-news.png)"; onclick="selectPhotoDir_CE(0,'profile')" id="CE_userImage" alt=""></span>
+                                </div>
+                                <h3 id="CE_userName"> </h3>
+        <span id="CE_locationName1" class="locate icon-location cursor-pointer" onclick="Appyscript.popupPage('customevent-location')" style="color:{{@global.styleAndNavigation.menu[2]}}">Select City</span>
+        <a class="close" onclick="Appyscript.popupClose()"><i class="icon-cancel" style="color:{{@global.styleAndNavigation.menu[2]}}"></i></a> 
+                            </div>
+                        </div>
+                        
+                           
+        <ul> 
+            
+            {{#if @global.setting.homeButtonStatus}}{{else}}
+            <li><a onclick="Appyscript.clickHome()" style="color:{{@global.styleAndNavigation.menu[2]}}; border-color:{{@global.styleAndNavigation.borderColor}}"><i class="iconz-home" style="color:{{@global.styleAndNavigation.menu[3]}}"></i>{{@global.pageLanguageSetting.Home}}</a></li>
+            {{/if}}
+            <li><a class="" onclick="Appyscript.popupClose()" data-animate="true" data-page="customevent-page" data-back="back" style="color:{{@global.styleAndNavigation.menu[2]}}; border-color:{{@global.styleAndNavigation.borderColor}}"><i class="icon-calendar-4" style="color:{{@global.styleAndNavigation.menu[3]}}"></i>{{@global.pageLanguageSetting.events}}</a></li>
+            <li><a class="" onclick="Appyscript.customeventMyBooking()" style="color:{{@global.styleAndNavigation.menu[2]}}; border-color:{{@global.styleAndNavigation.borderColor}}"><i class="iconz-login" style="color:{{@global.styleAndNavigation.menu[3]}}"></i>{{@global.pageLanguageSetting.my_bookings}}</a></li>
+<!--            <li><a class="" data-animate="true" data-page="customevent-deals-offers" data-back="back" style="color:{{@global.styleAndNavigation.menu[2]}}; border-color:{{@global.styleAndNavigation.borderColor}}"><i class="iconz-gift" style="color:{{@global.styleAndNavigation.menu[3]}}"></i>{{@global.pageLanguageSetting.deals_offers}}</a></li> -->
+            
+            <li id="menubookmark"><a class="" onclick="Appyscript.customeventMyBookmarks()" style="color:{{@global.styleAndNavigation.menu[2]}}; border-color:{{@global.styleAndNavigation.borderColor}}"><i class="iconz-bookmark" style="color:{{@global.styleAndNavigation.menu[3]}}"></i>{{@global.pageLanguageSetting.Bookmarks}}</a></li>
+            {{#if @global.setting.is_tnc}}
+            <li id="ce_tnc"><a  onclick="ce_loadTNC()" style="color:{{@global.styleAndNavigation.menu[2]}}; border-color:{{@global.styleAndNavigation.borderColor}}"><i class="iconz-newspaper" style="color:{{@global.styleAndNavigation.menu[3]}}"></i>{{@global.pageLanguageSetting.Terms_and_Conditions}}</a></li>
+            {{/if}}
+            {{#if @global.setting.is_policy}}
+            <li id="ce_pp"><a  onclick="ce_loadPP()" style="color:{{@global.styleAndNavigation.menu[2]}}; border-color:{{@global.styleAndNavigation.borderColor}}"><i class="iconz-logout" style="color:{{@global.styleAndNavigation.menu[3]}}"></i>{{@global.pageLanguageSetting.privacy_policy_event}}</a></li>            
+            {{/if}}
+            <li id="loginLink"><a  onclick="Appyscript.askLogin()" style="color:{{@global.styleAndNavigation.menu[2]}}; border-color:{{@global.styleAndNavigation.borderColor}}"><i class="iconz-login" style="color:{{@global.styleAndNavigation.menu[3]}}"></i>{{@global.pageLanguageSetting.login_signup_mcom}}</a></li>
+            <li id="logoutLink"><a  onclick="CE_logout()" style="color:{{@global.styleAndNavigation.menu[2]}}; border-color:{{@global.styleAndNavigation.borderColor}}"><i class="iconz-logout" style="color:{{@global.styleAndNavigation.menu[3]}}"></i>Logout</a></li>
+        </ul>
+</div>
+            </div>
+		</div>  
+    </div>
+</div>

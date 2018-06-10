@@ -1,0 +1,57 @@
+<div class="navbar">
+	<div class="navbar-inner" style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+            
+             <div class="left sliding">
+                 <a href="index" class="link back" style="color:{{@global.style.headerBarIconColor}};">
+                     <i class="icon icon-left-open-2" ></i>
+                 </a>
+            </div>
+             
+            <div class="center sliding">
+              <div class="topHeader {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">
+                  {{@global.customphototitle}}
+              </div>
+            </div>
+
+
+	</div>
+</div>
+
+<div data-page="photo-customsection" class="page navbar-through no-toolbar">
+<div class="backgroundAnimation">{{> innerBackground}}</div>
+  <!-- Page content-->
+    <div class="page-content">
+
+
+        {{#data}}
+    	<a class="appypie-list" onclick="Appyscript.Opencustomphotolist('{{id}}','{{title}}')" style="color:red">
+             <span>
+ 
+              <img src="{{image}}"/>
+        
+              </span>
+             <span style="color:{{@global.styleAndNavigation.heading[2]}}" >{{title}}</span>
+         </a>
+  {{/data}}
+  
+  {{#js_compare "this.data.length == '0' "}}
+  
+  
+  
+  <div class="msg-code" >
+      <div class="msg-container">
+          <i class="appyicon-no-data no-comment-sn" style="color:#424242; font-size:100px;"></i>
+      </div>
+  </div>
+  
+  {{else}}
+  {{/js_compare}}
+  
+  
+
+
+    </div>
+
+  <!-- End Page content-->
+</div>
+

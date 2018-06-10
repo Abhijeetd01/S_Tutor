@@ -1,0 +1,50 @@
+<div class="navbar"><div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}}; font-size: {{@global.style.headerBarSize}} ">
+            <div class="left sliding">
+              <a href="index" class="link back" style="color:{{@global.style.headerBarTextColor}};">
+                <i class="icon icon-left-open-2"></i>
+              </a>
+            </div>
+            <div class="center sliding">{{title}}</div>
+            <div class="right"></div>
+          </div></div>
+
+<div data-page="loyalty-Success" class="page navbar-through no-toolbar " style="background-color:{{appPageBackgroundColor}}">
+    <!-- Page content-->
+    <div class="page-content {{@global.style.appPageFont}} layout{{@global.styleAndNavigation.layout}}" style="color:{{@global.style.pageTextColor}};  ">
+
+        <div class="loyaltyPage">
+        {{#root_Compare @global.styleAndNavigation.layout "==" ""}}
+            <div class="loyalty-appContainer">
+              <div class="loaylty-back" style="background:url({{imgcardbackground_saveimage}});">
+                <div class="loyalStemp">
+                <span class="loyalbox"><a class="freestamp"></a></span> 
+                  <div class="cardName-ttle"></div>
+                  <div class="freemessage"> <strong>  Congrats. </strong> <br>
+                    <span class="inner_loyalty_redeemed ">{{@global.pageLanguageSetting.loyaltyredeemed}}</span> <span></span></div>
+                        <div id="validatebutton">
+                            <button class="loyalty-btn" style="background:{{@global.style.primaryButtonBgColor}}; color:{{@global.style.buttonTextColor}}"> Back </button>
+                      </div>
+                </div>
+              </div>
+            </div>
+          {{else}}
+          <div class="loyalty-appContainer">
+            <center class="redeem-page">
+              {{#js_compare "this.iconType == 'img' "}}
+                   <img src="{{cardstampicon}}" /> {{else}}
+                   <div class="locate icon-thumbs-up-1" style="color:{{@global.styleAndNavigation.icon[1]}}"></div>
+              {{/js_compare}} 
+              <h2 style="font-family:{{@global.styleAndNavigation.heading[0]}}; font-size:{{@global.styleAndNavigation.heading[1]}}; color:{{@global.styleAndNavigation.heading[2]}}">Congratulations!</h2>
+              <p class="runing_txt" style="font-family:{{@global.styleAndNavigation.content[0]}}; font-size:{{@global.styleAndNavigation.content[1]}}; color:{{@global.styleAndNavigation.content[2]}}">Thanks for being a loyal customer</p>
+              <div class="line"></div>
+              <p id="youhaveredeemyour" class="runing_txt" style="font-family:{{@global.styleAndNavigation.content[0]}}; font-size:{{@global.styleAndNavigation.content[1]}}; color:{{@global.styleAndNavigation.content[2]}}">{{@global.pageLanguageSetting.loyaltyredeemed}} </p>
+               <span id="redemmBtn" class="button" style="{{#root_Compare @global.styleAndNavigation.layout "==" "2"}} background-color:{{@global.style.primaryButtonBgColor}} {{else}}   {{/root_Compare}}">Redeem</span>
+               <a id="notrightbtn" href="#" class="not-link">Not right now</a>
+            </center>
+          </div> 
+
+      {{/root_Compare}} 
+        </div>
+
+    </div>
+</div>

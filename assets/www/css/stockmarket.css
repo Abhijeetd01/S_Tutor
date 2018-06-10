@@ -1,0 +1,19 @@
+.stockMarket .row{border-bottom:1px solid rgba(0,0,0,.3);  padding:7px 0;}
+.stockMarket .row:first-child{padding-top:0px;}
+.stockNum{float:right;}
+
+.stockBtn{
+    float: right; margin-left: 13px; width: 90px; border:1px solid rgba(0,0,0,0.1);border-radius:5px;box-sizing:border-box;color:#fff;display:block;font-size:14px; padding:7px 10px;text-align:center;
+}
+
+.eqPadding{padding:8px 0;}
+
+.stockredBtn{
+    Background:red;
+    color:white;
+}
+
+.stockgreenBtn{
+    Background:green;
+    color:white;
+}

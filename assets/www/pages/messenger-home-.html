@@ -1,0 +1,133 @@
+<div class="navbar"><div class="navbar-inner" style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+    <div class="left sliding">
+        {{#root_Compare @global.style.layout "==" "slidemenu"}}
+        {{#if @root.innerLayout}}
+        <a href="index" class="link" onclick="goToHomePage()" style="color:{{@global.style.headerBarIconColor}};">
+            <i class="icon icon-left-open-2"></i>
+        </a>
+        {{else}}
+        <a onclick="Appyscript.openSlide()" style="color:{{@global.style.headerBarIconColor}};">
+            <i class="icon icon-menu"></i>
+        </a>
+        {{/if}}
+        {{else}}
+        <a href="index" class="link " onclick="goToHomePage()" style="color:{{@global.style.headerBarIconColor}};">
+            <i class="icon icon-left-open-2"></i>
+        </a>
+        {{/root_Compare}}
+    </div>
+    <div class="center sliding {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}" id="homeTitle">{{@global.pageLanguageSetting.Chats_Tab_Header_Title}}</div>
+    <div class="right"> <a onclick="loadNotification();"  style="color:{{@global.style.headerBarIconColor}};"><i class=" icon icon-bell-alt">
+        <span class="badge lightredbg" id="notificationcount">{{this.notification}}</span>
+    </i></a></div>
+</div></div>
+
+
+<div data-page="messenger-home" class="page navbar-through no-toolbar toolbar-through">
+    <div class="toolbar tabbar">
+        <div class="toolbar-inner messenger-tab {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="background-color:{{@global.style.headerBarBackgroundColor}}">
+            <a href="#friend-chat-list" class="tab-link active"> <i class="icon appyicon-we-chat"> </i><span>{{@global.pageLanguageSetting.Chats_Tab_Header_Title}}</span> </a>
+            <a href="#friend-list" class="tab-link"> <i class="icon iconz-user"></i><span>{{@global.pageLanguageSetting.Contacts_Tab_Header_Title}}</span> </a>
+            <a onclick="logout()" class="tab-link"> <i class="icon icon-cog"></i><span>{{@global.pageLanguageSetting.Logout}}</span> </a>
+        </div>
+    </div>
+    <div class="backgroundAnimation">{{> innerBackground}}</div>
+    <!-- Scrollable page content -->
+    <div class="page-content">
+        <style type="text/css">
+            .toolbar-inner a.tab-link{
+                color:{{@global.styleAndNavigation.tab[1]}};
+                background:{{@global.styleAndNavigation.tab[0]}};
+                width:100%;
+            }
+        .toolbar-inner a.active {
+            color:{{@global.styleAndNavigation.tab[1]}};
+            background:{{@global.styleAndNavigation.tab[2]}};
+        }
+        .list-block{margin: 0px;}
+        .list-block ul{background: none;border-radius: 0px;}
+        .list-block ul:after, .list-block ul:before{
+            background-color:transparent;
+        }
+        .list-block ul li{border-top:1px solid {{@global.styleAndNavigation.borderColor}}}
+        .list-block ul li:first-child{border-top:0px; }
+        .list-block .item-inner:after{background:none }
+        #friend-list ul li{ padding:0px; }
+        #friend-list  .item-inner .icon{ padding:0 5px;
+            font-size: 1.7em}
+        .tabbar i.icon{height:auto; font-size:large;}
+        #friend-chat-list, #friend-chat-list .list-block, #friend-chat-list .list-block ul{ height:100% }
+            </style>
+        
+        <div class="tabs-animated-wrap">
+            <!-- Tabs, tabs wrapper -->
+            <div class="tabs">
+                <!-- Tab 1, active by default -->
+                <div id="friend-chat-list" class="tab active" style="overflow-y: scroll;">
+                    {{#js_compare "this.allMessage == null"}} {{else}}
+                    <div class="list-block media-list">
+                        <ul id="conversationlists">
+                            {{#if this.allMessage.length}}
+                            {{#each allMessage}}
+                            <li class="item-content" {{#if this.userId}} list-userid="{{this.userId}}" {{else}} list-groupid="{{this.groupId}}" {{/if}} {{#if this.userId}} onclick="openChatWindow('{{this.name}}','{{this.profilepic}}','{{this.userId}}','{{filterCountryName this.country}}',true,this)" {{else}} onclick="openGroup('{{this.groupId}}','{{this.name}}',this,'')" {{/if}} >
+                                <div class="item-media">
+                                    <img src="{{#if this.profilepic}} {{this.profilepic}}{{else}}{{@global.style.reseller}}/newui/images/user-pic-news.png{{/if}}" class="avatar avatar-rounded chatlistimgprofile">
+                                        </div>
+                                <div class="item-inner">
+                                    <div class="item-title-row {{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}}" >
+                                        <div class="item-title ">{{this.name}}</div>
+                                        <div {{#if this.userId}} id="messagedatehome{{this.userId}}" {{else}} id="messagedatehome{{this.groupId}}" {{/if}}  class="item-after"  style="color:{{@global.styleAndNavigation.timeColor}}">{{notificationdate this.date "home"}}</div>
+                                    </div>
+                                    <div class="item-title-row {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="color:{{@global.styleAndNavigation.content[2]}}" >
+                                        <div class="item-title subtitle width85" style="color:{{@global.styleAndNavigation.content[2]}}" id="renderdivchathome ">{{#if this.userId}}{{this.content}}{{else}}{{this.message}}{{/if}}</div>
+                                        <div class="item-after badge-icon">{{#if this.unread}}{{#js_compare "this.unread == '0'"}} {{else}} <span  class="badge " style="background:{{@global.styleAndNavigation.badge[1]}}; color:{{@global.styleAndNavigation.badge[0]}}">{{this.unread}}</span> {{/js_compare}}{{/if}}</div>
+                                    </div>
+                                </div>
+                            </li>
+                            {{/each}}
+                            {{else}}
+                            <div class="msg-code">{{> errorpage errorIcon="appyicon-no-data"}}</div>
+                            
+                            {{/if}}
+                        </ul>
+                    </div>
+                    {{/js_compare}}
+                    
+                </div>
+                <!-- Tab 2 -->
+                <div id="friend-list" class="tab" >
+                    <div class="list-block nomargin">
+                        <ul>
+                            <li class="item-content" onclick="openAllContact()">
+                                <div class="item-inner {{@global.styleAndNavigation.contact[0]}} {{@global.styleAndNavigation.contact[1]}} " style="color:{{@global.styleAndNavigation.contact[2]}}">
+                                    <div class="item-title"><i class="icon icon-users-1" style="color:{{@global.styleAndNavigation.contact[3]}}"></i>{{@global.pageLanguageSetting.Contacts_Tab_All_Contacts}}</div>
+                                </div>
+                            </li>
+                            <li class="item-content" onclick="openMyContactPage('single')">
+                                <div class="item-inner {{@global.styleAndNavigation.contact[0]}} {{@global.styleAndNavigation.contact[1]}} " style="color:{{@global.styleAndNavigation.contact[2]}}">
+                                    <div class="item-title"><i class="icon iconz-user" style="color:{{@global.styleAndNavigation.contact[3]}}"></i>{{@global.pageLanguageSetting.Contacts_Tab_My_Contacts}}</div>
+                                </div>
+                            </li>
+                            <li class="item-content" onclick="openGroupsList()">
+                                <div class="item-inner {{@global.styleAndNavigation.contact[0]}} {{@global.styleAndNavigation.contact[1]}} " style="color:{{@global.styleAndNavigation.contact[2]}}">
+                                    <div class="item-title"><i class="icon iconz-group-chat " style="color:{{@global.styleAndNavigation.contact[3]}}"></i>{{@global.pageLanguageSetting.Contacts_Tab_My_Groups}}</div>
+                                </div>
+                            </li>
+                            <li class="item-content" onclick="openPendingRequestPage()">
+                                <div class="item-inner {{@global.styleAndNavigation.contact[0]}} {{@global.styleAndNavigation.contact[1]}} " style="color:{{@global.styleAndNavigation.contact[2]}}">
+                                    <div class="item-title"><i class="icon icon-align-left " style="color:{{@global.styleAndNavigation.contact[3]}}"></i>{{@global.pageLanguageSetting.Contacts_Tab_Pending_Request}}</div>
+                                </div>
+                            </li>
+                            <li class="item-content" onclick="openSearchPage()">
+                                <div class="item-inner {{@global.styleAndNavigation.contact[0]}} {{@global.styleAndNavigation.contact[1]}} " style="color:{{@global.styleAndNavigation.contact[2]}}">
+                                    <div class="item-title"><i class="icon icon-user-add " style="color:{{@global.styleAndNavigation.contact[3]}}" ></i>{{@global.pageLanguageSetting.Search_Page_Header_Text}}</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>

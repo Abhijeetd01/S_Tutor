@@ -1,0 +1,60 @@
+<div class="navbar"><div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+    <div class="left sliding">
+        {{#root_Compare @global.style.layout "==" "slidemenu"}}
+        {{#if @global.innerLayout}}
+        <a href="index" class="link back" style="color:{{@global.style.headerBarIconColor}};">
+            <i class="icon icon-left-open-2"></i>
+        </a>
+        {{else}}
+        <a onclick="Appyscript.openSlide()" style="color:{{@global.style.headerBarIconColor}};">
+            <i class="icon icon-menu"></i>
+        </a>
+        {{/if}}
+        {{else}}
+        <a href="index" class="link back" style="color:{{@global.style.headerBarIconColor}};">
+            <i class="icon icon-left-open-2"></i>
+        </a>
+        {{/root_Compare}}
+    </div>
+    <div class="center sliding {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">{{title}}</div>
+    <div class="right"></div>
+</div></div>
+
+<div data-page="services-manage-coupon" class="page navbar-through no-toolbar " style="background-color:{{appPageBackgroundColor}}">
+
+    <!-- Page content-->
+    <div class="backgroundAnimation">{{> innerBackground}}</div>
+
+    <div class="page-content {{@global.style.appPageFont}} {{@global.style.appPageCsize}}" style="color:{{@global.style.pageTextColor}};  ">
+        <div class="wrap_form">
+            <div class="coupon-list">
+                <ul>
+                    {{#data}}
+                    <li>
+
+                        <div class="left_side">
+                            <span>{{heading}}</span>
+                            <p>{{briefDescription}}</p>
+                            <span><i class="icon-calendar-4"></i>{{validDate}}</span>
+                        </div>
+                        <div class="right_side">
+                            <div class="edit_bar">
+                                <a href="#." onclick="dir_editCoupon(this)" id="{{id}}"><span class="icon-edit-2"></span></a>
+                                {{#js_compare "this.status == '0' "}}
+                                <a href="#." onclick="dir_toggleCouponStatus(this)" status="{{status}}" id="{{id}}" style="background-color:red"><span class="icon-ok-4"></span></a>
+                                {{else}}
+                                <a href="#." onclick="dir_toggleCouponStatus(this)" status="{{status}}" id="{{id}}" ><span class="icon-ok-4"></span></a>
+                                {{/js_compare}}
+                                <a href="#." onclick="dir_deleteCoupon(this)" id="{{id}}"><span class="icon-trash-1"></span></a>
+                            </div>
+                            <span><i class="icon-calendar-4"></i>{{issueDate}}</span>
+                        </div>
+
+
+                    </li>
+                    {{/data}}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,50 @@
+<div class="navbar"><div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}}; font-size: {{@global.style.headerBarSize}} ">
+            <div class="left sliding">
+              <a href="index" class="link back" style="color:{{@global.style.headerBarTextColor}};">
+                <i class="icon icon-left-open-2"></i>
+              </a>
+
+            </div>
+           <div class="center sliding">
+           	<div class="topHeader">
+
+                {{@global.pageLanguageSetting.REAL_ESTATE}}
+              <!--<span class="locate icon-location cursor-pointer" id="realstateLoc">{{@global.CurrentCityreal}}</span>-->
+            </div>
+              
+
+            </div> 
+            <div class="right">
+
+            </div>
+          </div></div>
+
+<div data-page="realestate-pagesearch" class="page navbar-through no-toolbar" style="background:{{@global.styleAndNavigation.pageBgColor}};">
+<!-- Page content-->
+    <div class="page-content infinite-scroll" rentout="{{@global.configuration.rentoutSetting}}" soldout="{{@global.configuration.soldoutSetting}}">
+
+        {{#if list.length}}
+<section class="real-estate">
+
+<ul class="real-estate-cat-listing" id="searchlist">
+{{#list}}
+{{> realstateListing}}
+{{/list}}
+</ul>
+
+</section>
+        {{else}}
+        <div class="msg-code">
+            <div class="msg-container">
+                <span class="icon appyicon-no-data" style="color:{{@global.styleAndNavigation.content[2]}}; border-color:{{@global.styleAndNavigation.content[2]}}">  </span>
+            </div>
+        </div>
+
+        {{/if}}
+        <div class="infinite-scroll-preloader" style="display:none">
+            <div class="preloader-view"><div class="preloader"></div></div>
+        </div>
+
+    
+    </div>
+</div>

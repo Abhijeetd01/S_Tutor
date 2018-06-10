@@ -1,0 +1,119 @@
+<div class="navbar"><div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}}; font-size: {{@global.style.headerBarSize}} ">
+    <div class="left sliding">
+        <a href="index" class="link back" style="color:{{@global.style.headerBarTextColor}};">
+            <i class="icon icon-left-open-2"></i>
+        </a>
+    </div>
+    <div class="center sliding">
+        <div class="topHeader">
+
+            {{@global.pageLanguageSetting.reviews_Dir}}
+            <!--<span class="locate icon-location cursor-pointer" onclick="Appyscript.popupPage('location')">{{@global.CurrentCityreal}}</span>-->
+        </div>
+
+
+    </div>
+    <div class="right">
+
+
+    </div>
+</div></div>
+
+<div data-page="realestate-details" class="page navbar-through no-toolbar" style="background:{{@global.styleAndNavigation.pageBgColor}};">
+    <!-- Page content-->
+    <div class="page-content">
+
+        <style>
+		.
+		.on, .share-btn.on {color:{{@global.styleAndNavigation.activeColor}} }
+		.labelEstate {border-top-color:{{@global.styleAndNavigation.badgeBackground}};  border-bottom-color:{{@global.styleAndNavigation.badgeBackground}};
+		color:{{@global.styleAndNavigation.badgeColor}} }
+		.add-listing .add-details input[type='text'], .add-listing .add-details textarea {background:{{@global.styleAndNavigation.fieldBgColor}};
+			color:{{@global.styleAndNavigation.fieldTextColor}} }
+		.hyper-sent-btn{background:{{@global.styleAndNavigation.button[2]}}; color:{{@global.styleAndNavigation.button[3]}} }
+		.real-estate h2 span, .real-estate-addons a:before, .estat-bottom-wrapper .pull-left span.iconz-star {color:{{@global.styleAndNavigation.icon[1]}} }
+		.real-estate h2 {color:{{@global.styleAndNavigation.heading[2]}} }
+		.hyper-comt-txt, .noReview{color:{{@global.styleAndNavigation.content[2]}} }
+		.real-estate-review ul.review li p strong { color:{{@global.styleAndNavigation.subheading[2]}} }
+		.estat-bottom-wrapper .pull-left span.on { color:{{@global.styleAndNavigation.activeColor}} }
+		.real-estate-review ul.review li {border-color:{{@global.styleAndNavigation.borderColor}} }
+		.real-estate-addons a{background:{{@global.styleAndNavigation.title[2]}} }
+		.estat-bottom-wrapper textarea {background:{{@global.styleAndNavigation.fieldBgColor}}; color:{{@global.styleAndNavigation.fieldTextColor}} }
+		.hyper-comt-rating i{color:{{@global.styleAndNavigation.icon[1]}} }
+		.hyper-comt-rating i.on{color:{{@global.styleAndNavigation.activeColor}} }
+		.shorDetail i, .price i, .addPan i, .real-estate-addons a:before, .search-view i, .like-btn, .share-btn { color:{{@global.styleAndNavigation.icon[1]}} }
+
+	</style>
+
+
+
+        <section class="real-estate">
+            <ul class="real-estate-cat-listing">
+
+                <li style="background-image:url({{@global.propertyimage}});"><img src="images/transparent-bg.png" alt=""/>
+                    <div class="top-list-icon">
+                        {{#root_Compare @global.propertydetail.data.favourite "==" "0"}}<span class="like-btn icon-heart-1" onclick="addfav(this)" property_iid="{{@global.propertydetail.data.id}}" type="listing"></span>{{/root_Compare}}{{#root_Compare @global.propertydetail.data.favourite "==" "1"}}<span class="like-btn icon-heart-1 on" onclick="addfav(this)" property_iid="{{@global.propertydetail.data.id}}" type="listing"></span>{{/root_Compare}}
+                    </div>
+
+                    <span class="real-estate-addons detailIcon">
+                    <a class="icon-location" onclick="movetomap('{{@global.propertydetail.data.latitude}}','{{@global.propertydetail.data.longitude}}','{{@index}}','{{filterAddressString @global.propertydetail.data.address}}','{{@global.propertydetail.data.projectName}}',this)"></a>
+                     <a class="iconz-phone1" onclick="callreal(this)" number="{{@global.propertydetail.data.phonenumber}}"></a>
+                    </span>
+
+                    <span class="estate-detail-overlay"></span>
+                    {{#if @global.propertydetail.data.rentsoldout}}
+                    {{#root_Compare @global.propertydetail.data.propertyFor "==" "0"}}
+                    <div class="labelEstate {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}"> <span class="for-sale">{{@global.pageLanguageSetting.SOLD_OUT}}</span></div>
+                    {{/root_Compare}}
+                    {{#root_Compare @global.propertydetail.data.propertyFor "==" "1"}}
+                    <div class="labelEstate {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}"> <span class="for-sale">{{@global.pageLanguageSetting.RENT_OUT}}</span></div>
+                    {{/root_Compare}}
+                    {{else}}
+                    {{#root_Compare @global.propertydetail.data.propertyFor "==" "0"}}
+                    <div class="labelEstate {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}"> <span class="for-sale">{{@global.pageLanguageSetting.FOR_SALE}}</span></div>
+                    {{/root_Compare}}
+                    {{#root_Compare @global.propertydetail.data.propertyFor "==" "1"}}
+                    <div class="labelEstate {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}"> <span class="for-sale">{{@global.pageLanguageSetting.FOR_RENT}}</span></div>
+                    {{/root_Compare}}
+
+                    {{/if}}
+                </li>
+            </ul>
+
+            <h2 class="{{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}">{{@global.pageLanguageSetting.reviews_Dir}}
+                {{#root_Compare @global.configuration.reviewSetting "==" "On"}} <span onclick="reviewsubmit()"><i class="icon-edit-1"></i></span>{{/root_Compare}}
+            </h2>
+
+            <div class="real-estate-review" id="reviewratingreal">
+                <ul class="review" id="reviewratingrealpage">
+                    {{#reviewList}}
+                    <li><span class="hyper-comt-pic">
+               {{#root_Compare userImg "==" ""}}
+               <img src="https://gurucul.com/wp-content/uploads/2015/01/default-user-icon-profile.png" alt=""/>
+               {{/root_Compare}}
+               {{#root_Compare userImg "!=" ""}}
+                <img src="{{userImg}}" alt=""/>
+               {{/root_Compare}}
+           </span>
+                        <p class="hyper-comt-txt {{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}"><strong>{{userName}}</strong>
+                            <span class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}">{{comment}}</span>
+                            <span class="hyper-comt-rating"><span rating="{{rating}}"></span></span>
+                        </p></li>
+                    {{/reviewList}}
+                </ul>
+
+            </div>
+
+            <div class="noReview" id="hidereview">
+                {{@global.pageLanguageSetting.BE_THE_FIRST}}
+            </div>
+
+
+        </section>
+
+
+
+
+
+    </div>
+</div>

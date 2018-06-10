@@ -1,0 +1,40 @@
+<div class="popup menu-popup">
+    
+    <div class="navbar"><div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}}; font-size: {{@global.style.headerBarSize}} ">
+        <div class="left sliding">
+            <a href="index"  style="color:{{@global.style.headerBarTextColor}};">
+                <i id="backBtnAct"class="icon icon-left-open-2"></i>
+            </a>
+        </div>
+        <div class="center sliding">{{@global.pageLanguageSetting.loyaltyrecipt}}</div>
+        <div class="right"></div>
+    </div>
+    </div>
+    
+    <div data-page="services-Recipt" class="page navbar-through toolbar-fixed no-toolbar">
+        <!-- Page content-->
+        <div class="page-content">
+            
+            <div class="bodypan">
+                <div class="row">
+                    <table class="invoiceRecipt" cellpadding="0" cellspacing="0">
+                  
+                        <tr style="font-family:{{@global.styleAndNavigation.heading[0]}}; font-size:{{@global.styleAndNavigation.heading[1]}}; color:{{@global.styleAndNavigation.heading[2]}}">
+<!--                            <th>Product</th>-->
+<!--                            <th>Invoice Number</th>-->
+<!--                            <th>Date</th>-->
+                        </tr>
+                             {{#loyaltypages}}
+                        <tr style="font-family:{{@global.styleAndNavigation.content[0]}}; font-size:{{@global.styleAndNavigation.content[1]}}; color:{{@global.styleAndNavigation.content[2]}}">
+                            <td><img src="{{invoiceImage}}" style="background:url(); background-size:cover; background-repeat:no-repeat; float:left;" width="40px"/></td>
+                            <td>{{invoiceID}}</td>
+                            <td>{{invoiceDate}}</td>
+                        </tr>
+                        {{/loyaltypages}}
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

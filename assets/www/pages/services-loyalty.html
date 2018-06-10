@@ -1,0 +1,66 @@
+   <div class="navbar"><div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+   <div class="left sliding">
+            {{getSlideBack ""}}
+    </div>
+    <div class="center sliding {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">{{pageTitle}}</div>
+    <div class="right"></div>
+</div></div>
+
+
+
+<div data-page="services-loyaltyDetailsPage" class="page navbar-through no-toolbar">
+    <div class="backgroundAnimation">{{> innerBackground}}</div>
+    <!-- Page content-->
+    <div class="page-content {{@global.style.appPageFont}} layout1 hideBorder-{{@global.styleAndNavigation.hideBorder}}" style="color:{{@global.styleAndNavigation.pageTextColor}};">
+        
+        <div class="loyaltyPage">
+            
+            <ul class="loyaltyCrad-view">
+                <li class="flip-container" id="flip{{@index}}">
+                    <div class="flipper" style="border-color:{{@global.styleAndNavigation.borderColor}}">
+                        <a onclick="document.getElementById('flip{{@index}}').classList.toggle('hover');" class="icon-info-circled" style="color:{{@global.styleAndNavigation.icon[1]}}"></a>
+                        <div class="card-box front" onclick="Appyscript.ServiceLoyaltyCard()" data-index="{{@index}}"  >
+                            
+                            
+                            <!--                    ////////////////////////////////////////////////  card action-->
+                            
+                            <div class="card-detail" style="{{#@global.styleAndNavigation}}background-color:{{@global.styleAndNavigation.pageBgColor}}; color:{{@global.styleAndNavigation.content[2]}};{{/@global.styleAndNavigation}}" >
+                                <div class="card-title {{@global.styleAndNavigation.title[0]}} {{@global.styleAndNavigation.title[1]}}" style="color:{{@global.styleAndNavigation.content[2]}};">{{fld_card_name}}</div>
+                                <div class="card-discription">
+                                    <!--<p class="discrip {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}} " style="color:{{@global.styleAndNavigation.content[2]}}; text-align:{{@global.styleAndNavigation.content[3]}}">
+                                     {{fld_brief_desc}}
+                                     </p> -->
+                                </div>
+                                
+                                <div class="eventTime {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}"  style="color:{{@global.styleAndNavigation.content[2]}}; ">
+                                    <span class="year-block">{{loyaltyDate loyalty_valid_from "<span class='month'>fullM&nbsp;</span><span class='day'>dd&nbsp;</span><span class='year'>yyyy</span>"}} </span>
+                                    <span class="expire-day" style="border-color:{{@global.styleAndNavigation.borderColor}}">{{@global.pageLanguageSetting.loyaltyvalidtill}}<br></span>
+                                    {{#if loyalty_valid_to}}
+                                    <span class="date">{{loyaltyDate loyalty_valid_to "dd mmm, yyyy"}}<br></span>
+                                    {{else}}
+                                    <span class="date">{{@global.pageLanguageSetting.loyaltyinstock}}</span>
+                                    {{/if}}
+                                </div>
+                            </div>
+                            <center class="card-thump {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}"  style="background-color:{{@global.styleAndNavigation.pageBgColor}}; color:{{@global.styleAndNavigation.content[2]}};{{/js_compare}}">
+                                {{#js_compare "this.iconType == 'img' "}}
+                                <img src="{{freesloticon}}" class="img" />
+                                {{else}}
+                                <span class="free-text {{freesloticon}}" style="color:{{@global.styleAndNavigation.icon[1]}}"></span>
+                                {{/js_compare}}
+                            </center>
+                        </div>
+                        
+                        <div class="back-screen" style="background-color:{{@global.styleAndNavigation.pageBgColor}};">
+                            <a onclick="document.getElementById('flip{{@index}}').classList.toggle('hover');" class="icon-cancel-circle-1" style="color:{{@global.styleAndNavigation.icon[1]}}"></a>
+                            <h2 class="{{@global.styleAndNavigation.title[0]}} {{@global.styleAndNavigation.title[1]}}" style="color:{{@global.styleAndNavigation.content[2]}}; "> {{@global.pageLanguageSetting.loyaltytc}} </h2>
+                            <div class="terms-text {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="color:{{@global.styleAndNavigation.content[2]}}; text-align:{{@global.styleAndNavigation.content[3]}}">{{carddesclaimer}}</div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+       
+        </div>
+        
+    </div>
+</div>

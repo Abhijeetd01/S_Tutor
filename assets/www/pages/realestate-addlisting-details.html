@@ -1,0 +1,196 @@
+<div class="navbar"><div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}}; font-size: {{@global.style.headerBarSize}} ">
+    <div class="left sliding">
+        <a href="index" class="link back" style="color:{{@global.style.headerBarTextColor}};">
+            <i class="icon icon-left-open-2"></i>
+        </a>
+    </div>
+    <div class="center sliding">
+
+        {{@global.pageLanguageSetting.PROPERTY_DETAILS}}
+
+
+    </div>
+    <div class="right">
+
+    </div>
+</div></div>
+
+<div data-page="realestate-addDeatils" class="page navbar-through no-toolbar toolbar-through" style="background:{{@global.styleAndNavigation.pageBgColor}};">
+    <!-- Page content-->
+
+
+    <div class="toolbar">
+        <div class="toolbar-inner">
+            <a class="done-btn {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" onclick="Appyscript.realestateAddListingMedia(this)">{{@global.pageLanguageSetting.next_dir}}</a>
+        </div>
+    </div>
+
+
+    <div class="page-content">
+
+        <style>
+				.hyper-comt-txt, .minPrice, .maxPrice, .filter-page .sliderPan span{color:{{@global.styleAndNavigation.content[2]}} }
+				.filter-page .tabs a {color:{{@global.styleAndNavigation.nav[2]}}; background:{{@global.styleAndNavigation.nav[3]}} }
+				.filter-page .tabs a.on, .noUi-connect {background:{{@global.styleAndNavigation.activeColor}} }
+				.filter-page h3, .add-listing h3{color:{{@global.styleAndNavigation.subheading[2]}} }
+				.filter-page h3 i, .add-listing h3 i {color:{{@global.styleAndNavigation.icon[1]}} }
+				.hyper-sent-btn{background:{{@global.styleAndNavigation.button[2]}}; color:{{@global.styleAndNavigation.button[3]}} }
+				.noUi-handle {background:{{@global.styleAndNavigation.secondaryButton[2]}} }
+				.filter-page .amenities-list ul li, .filter-page .selecter {background:{{@global.styleAndNavigation.fieldBgColor}};
+					color:{{@global.styleAndNavigation.fieldTextColor}} }
+				.filter-page .amenities-list ul li i, .filter-page .swiper .on, ul.hyper-request-form li input, ul.hyper-request-form li select, ul.hyper-request-form li textarea {border-color:{{@global.styleAndNavigation.borderColor}}; color:{{@global.styleAndNavigation.content[2]}} }
+				ul.hyper-request-form li span small.pic-select {background:{{@global.styleAndNavigation.activeColor}} }
+				.mend{  color: red;}
+				.filter-page .selecter .active span{border-color:{{@global.styleAndNavigation.borderColor}} }
+				.done-btn{background-color:{{@global.styleAndNavigation.button[2]}}; color:{{@global.styleAndNavigation.button[3]}}}
+
+			</style>
+        <section class="filter-page sell-Pro">
+
+            <h3 class="{{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}">{{@global.pageLanguageSetting.WANT_TO}}</h3>
+            <div class="tabs">
+                <a data="0" class="on" type="propertyPurpose" id="sellproperty">{{@global.pageLanguageSetting.SELL_PROPERTY}}</a>
+                <a data="1" type="propertyPurpose" id="rentproperty">{{@global.pageLanguageSetting.RENT_OUT_PROPERTY}}</a>
+                <input type="hidden" id="propertyPurpose" name="propertyPurpose" value="0">
+            </div>
+
+            <h3 class="{{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}">{{@global.pageLanguageSetting.YOU_ARE}}</h3>
+            <div class="tabs tab3">
+                <a data="0" class="on" type="propertyowner" id="ownr">{{@global.pageLanguageSetting.Owner}}</a>
+                <a data="1" type="propertyowner" id="buldr">{{@global.pageLanguageSetting.Builder}}</a>
+                <a data="2" type="propertyowner" id="delr">{{@global.pageLanguageSetting.Dealer}}</a>
+                <input type="hidden" id="propertyowner" name="propertyPurpose" value="0">
+            </div>
+
+            <input type="hidden" id="property" name="propertyPurpose" value="{{prpertytype}}">
+            <h3 class="{{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}"><i class="icon-home-4"></i>{{@global.pageLanguageSetting.Bedrooms}}</h3>
+            <div class="selecter bedrms {@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" data-size="15">
+                <span class="number active" value="" onclick="selectrooms('bedrooms',this)">0<span></span></span>
+                <span class="number" value="1" onclick="selectrooms('bedroomsadd',this)">1<span></span></span>
+                <span class="number" value="2" onclick="selectrooms('bedroomsadd',this)">2<span></span></span>
+                <span class="number" value="3" onclick="selectrooms('bedroomsadd',this)">3<span></span></span>
+                <span class="number" value="4" onclick="selectrooms('bedroomsadd',this)">4<span></span></span>
+                <span class="number" value="5" onclick="selectrooms('bedroomsadd',this)">5+<span></span></span>
+            </div>
+
+            <h3 class="{{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}"><i class="iconz-bath-bathtub"></i>{{@global.pageLanguageSetting.Bathrooms}}</h3>
+            <div class="selecter bathrms  {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" data-size="20">
+                <span class="number active" value="" onclick="selectrooms('bathroomsadd',this)">0<span></span></span>
+                <span class="number " value="1" onclick="selectrooms('bathroomsadd',this)">1<span></span></span>
+                <span class="number" value="2" onclick="selectrooms('bathroomsadd',this)">2<span></span></span>
+                <span class="number" value="3" onclick="selectrooms('bathroomsadd',this)">3+<span></span></span>
+            </div>
+
+            <ul class="hyper-request-form">
+                <li class="timing"><h3 class="{{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}"><i class="icon-back-in-time"></i>{{@global.pageLanguageSetting.projectName}}<b class="mend">*</b></h3>
+                    <input type="text" placeholder="{{@global.pageLanguageSetting.projectName}}" id="projectname" class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}} autoScroll" scroll-rang="100">
+                </li>
+                <li class="timing"><h3 class="{{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}"><i class="icon-home-1"></i>{{@global.pageLanguageSetting.Floor}}</h3>
+
+                    <span>
+                    <select id="totalfloors" class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" onchange="selectoptnfloor()">
+                    <option value="">{{@global.pageLanguageSetting.TOTAL_FLOORS}}</option>
+                    <option    value="1">1</option>
+                    <option    value="2">2</option>
+                    <option    value="3">3</option>
+                    <option    value="4">4</option>
+                    <option    value="5">5</option>
+                    <option    value="6">6</option>
+                    <option    value="7">7</option>
+                    <option    value="8">8</option>
+                    <option    value="9">9</option>
+                    <option    value="10">10</option>
+                    <option    value="11">11</option>
+                    <option    value="12">12</option>
+                    <option    value="13">13</option>
+                    <option    value="14">14</option>
+                    <option    value="15">15</option>
+                    <option    value="16">16</option>
+                    <option    value="17">17</option>
+                    <option    value="18">18</option>
+                    <option    value="19">19</option>
+                    <option    value="20">20</option>
+                    <option    value="21">21</option>
+                    <option    value="22">22</option>
+                    <option    value="23">23</option>
+                    <option    value="24">24</option>
+                    <option    value="25">25</option>
+                    <option    value="26">26</option>
+                    <option    value="27">27</option>
+                    <option    value="28">28</option>
+                    <option    value="29">29</option>
+                    <option    value="30">30</option>
+                    <option    value="31">31</option>
+                    <option    value="32">32</option>
+                    <option    value="33">33</option>
+                    <option    value="34">34</option>
+                    <option    value="35">35</option>
+                    <option    value="36">36</option>
+                    <option    value="37">37</option>
+                    <option    value="38">38</option>
+                    <option    value="39">39</option>
+                    <option    value="40">40</option>
+                    <option    value="41">41</option>
+                    <option    value="42">42</option>
+                    <option    value="43">43</option>
+                    <option    value="44">44</option>
+                    <option    value="45">45</option>
+                    <option    value="46">46</option>
+                    <option    value="47">47</option>
+                    <option    value="48">48</option>
+                    <option    value="49">49</option>
+                    <option    value="50">50</option>
+                    </select>
+                    <small class="pic-select"><i class="icon-up-open-big icon"></i></small></span>
+
+                    <span><select id="floors" class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}">
+                    <option value="0">{{@global.pageLanguageSetting.PROPERTY_FLOOR}}</option>
+                        <!--<option value="1">1</option>-->
+                        <!--<option value="2">2</option>-->
+                        <!--<option value="4">3</option>-->
+                        <!--<option value="4">4</option>-->
+                        <!--<option value="5">5</option>-->
+                </select>
+                    <small class="pic-select"><i class="icon-up-open-big icon"></i></small></span>
+
+                </li>
+                <li class="timing"><h3 class="{{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}"><i class="icon-back-in-time"></i>{{@global.pageLanguageSetting.phone_number_foodcourt}}</h3>
+                    <input type="number" placeholder="{{@global.pageLanguageSetting.phone_number_foodcourt}}" id="phnnumber" class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}} autoScroll" scroll-rang="100">
+                </li>
+                <li class="timing"><h3 class="{{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}"><i class="iconz-bed"></i>{{@global.pageLanguageSetting.PROPERTY_AREA}}<b class="mend">*</b></h3>
+                    <span>
+                <input type="number" placeholder="{{@global.pageLanguageSetting.BUILD_UP_AREA}}"  id="area" class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}} autoScroll" scroll-rang="100"></span>
+                    <span class="unit">
+                <select id="areaunit" class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}">
+                <!--<option value="Sqft">sqft</option>-->
+                <!--<option value="Sqmt">sqmt</option>-->
+                </select>
+                    <small class="pic-select"><i class="icon-up-open-big icon"></i></small></span>
+                </li>
+
+                <li class="timing"><h3 class="{{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}"><i class="iconz-car"></i>{{@global.pageLanguageSetting.RESERVED_PARKING}}</h3>
+                    <span>
+                <input type="text" placeholder="{{@global.pageLanguageSetting.PARKING_TYPE}}" id="parkingtype" class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}} autoScroll" scroll-rang="100"></span>
+                    <span class="unit">
+                    <select id="parking" class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}">
+                    <option value="0">{{@global.pageLanguageSetting.Count}}</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    </select>
+                    <small class="pic-select">
+                    <i class="icon-up-open-big icon"></i></small></span>
+                </li>
+            </ul>
+        </section>
+
+
+
+
+
+
+
+    </div>
+</div>

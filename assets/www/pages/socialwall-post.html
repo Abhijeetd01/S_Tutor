@@ -1,0 +1,27 @@
+  {{#list}}
+    <div class="post-container">  
+    	<div class="title-container">
+        	<div class="post-title">
+            	<div class="profile-snap"> 
+                    <img src="images/image-1x1.png" alt="" style="background:url(http://snappy.appypie.com/media/splash/1351667928.jpg) no-repeat center center"/>
+                </div>
+                <a href="#" class="{{@root.styleAndNavigation.heading[0]}} {{@root.styleAndNavigation.heading[1]}}" style="color:{{@root.styleAndNavigation.heading[2]}}">John Doe John Doe John Doe</a>
+            </div>
+            <div class="post-time">
+            	<span class="icon-clock-4"> 20m</span> <a class="shareicon"></a>
+            </div>
+        </div>
+        <div class="post-feed">
+			<!--{{#js_compare "this.postType === 'image' "}}<img src="{{image}}">{{else if "this.postType === 'text' "}}<p>{{message}}</p>{{else "this.postType === 'video' "}}<img src="{{video}}">{{/js_compare}}-->
+            {{#js_compare "this.postType === 'image' "}}<div class="imgCenter"><img src="{{image}}"></div>{{/js_compare}}
+            {{#js_compare "this.postType === 'text' "}}<p class="{{@root.styleAndNavigation.content[0]}} {{@root.styleAndNavigation.content[1]}}" style="color:{{@root.styleAndNavigation.content[2]}}">{{message}}</p>{{/js_compare}}
+            {{#js_compare "this.postType === 'video' "}}<img src="{{video}}">{{/js_compare}}
+        </div>
+   
+         <ul class="post-share">
+        	<li><a href="#" class="iconz-thumbs-up"> <span class="counter">{{likes}}</span> <span class="counter-text">Likes</span></a></li>
+            <li><a href="#" class="icon-chat-empty" onclick="showComments()"> <span class="counter">{{comments}}</span> <span class="counter-text"> Comments</span></a></li>
+            <li><a href="#" class="icon-flag  report-abuse"> <span class="counter"></span><span class="counter-text">  Report Abuse</span></a></li>
+        </ul>        
+    </div>
+    {{/list}}

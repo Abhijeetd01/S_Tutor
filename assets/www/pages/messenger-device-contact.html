@@ -1,0 +1,48 @@
+<div class="navbar"><div class="navbar-inner" style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+    
+    <div class="left sliding">
+        <a href="index" class="link back "  style="color:{{@global.style.headerBarIconColor}};">
+            <i class="icon icon-left-open-2"></i>
+        </a>
+    </div>
+    
+    <div class="center sliding {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}" >{{@global.pageLanguageSetting.Contacts_Tab_All_Contacts}}</div>
+    
+ 
+    
+</div></div>
+
+<div data-page="messenger-device-contact" class="page navbar-through">
+    
+    <div class="backgroundAnimation">{{> innerBackground}}</div>
+    <div class="page-content">
+        <style>
+            .list-block{margin: 0px;}
+            .list-block ul{background: none;border-radius: 0px;}
+            .list-block ul:after, .list-block ul:before{background-color:transparent;}
+            .list-block ul li{border-top:1px solid {{@global.styleAndNavigation.borderColor}}}
+            .list-block ul li:first-child{border-top:0px; }
+            .list-block .item-inner:after{background:none }
+            </style>
+        
+        {{#js_compare "this.allcontacts == null"}}
+        <div class="msg-code">{{> errorpage errorIcon="appyicon-no-data"}}</div>
+         {{else}}
+        <div class="list-block media-list">
+            <ul id="friendlist"> {{#allcontacts}}
+                <li onclick="loadUserDataFromSql('{{this.name}}','{{this.phoneno}}')">
+                    <a href="#" class="item-link item-content">
+                        <div class="item-media">
+                            <img src="{{#if this.profilepic}} {{this.profilepic}}{{else}}{{@global.style.reseller}}/newui/images/user-pic-news.png{{/if}}" class="avatar avatar-rounded chatlistimgprofile">
+                        </div>
+                        
+                        <div class="item-inner">
+                            <div class="item-title-row {{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}}" >
+                                <div class="item-title">{{this.name}}</div>
+                            </div>
+                            <div class="item-subtitle {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="color:{{@global.styleAndNavigation.content[2]}}" >{{this.phoneno}}</div>
+                        </div>
+                    </a>
+                </li> {{/allcontacts}} </ul>
+        </div> {{/js_compare}} </div>
+</div>

@@ -1,0 +1,229 @@
+<script>
+
+</script>
+
+<div class="navbar"><div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}}; font-size: {{@global.style.headerBarSize}} ">
+    <div class="left sliding">
+        <a href="index" class="link back" style="color:{{@global.style.headerBarTextColor}};">
+            <i class="icon icon-left-open-2"></i>
+        </a>
+    </div>
+    <div class="center sliding">
+        <div class="topHeader">
+            {{data.projectName}}
+            <!--<span class="locate icon-location cursor-pointer" onclick="Appyscript.popupPage('location')">{{@global.CurrentCityreal}}</span>-->
+        </div>
+   </div>
+    <div class="right">
+
+
+    </div>
+</div></div>
+
+<div data-page="realestate-details" class="page navbar-through no-toolbar {{#root_Compare @global.configuration.enquiryFormSetting "==" "On"}}
+{{#if @global.hidebtns}}toolbar-through {{/if}}{{/root_Compare}}">
+
+    {{#root_Compare @global.configuration.enquiryFormSetting "==" "On"}}
+    {{#if @global.hidebtns}}
+    <div class="toolbar" id="sndenqry">
+        <div class="toolbar-inner toolbar-bottom">
+            <a class="done-btn {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" onclick="Appyscript.opensendenquiry('{{data.userForm}}')">{{@global.pageLanguageSetting.send_request}}</a>
+        </div>
+    </div>
+    {{/if}}
+    {{/root_Compare}}
+
+    <div class="page-content" style="background:{{@global.styleAndNavigation.pageBgColor}};">
+
+        <style>
+        .swiper-slide {
+        width:100% !important;
+         }
+        .distance-km{background:{{@global.styleAndNavigation.title[2]}}; color:{{@global.styleAndNavigation.title[3]}} }
+		.real-estate-addons a{background:{{@global.styleAndNavigation.icon[0]}}; color:{{@global.styleAndNavigation.icon[1]}} }
+		.like-btn.on, .share-btn.on, .newProp {color:{{@global.styleAndNavigation.activeColor}} }
+		.labelEstate {border-top-color:{{@global.styleAndNavigation.badgeBackground}};  border-bottom-color:{{@global.styleAndNavigation.badgeBackground}};
+		color:{{@global.styleAndNavigation.badgeColor}} }
+		.inner-container, .prop-discription, div.scrollmenu ul li {color:{{@global.styleAndNavigation.content[2]}} }
+		.blue-head{background:{{@global.styleAndNavigation.title[2]}}; color:{{@global.styleAndNavigation.title[3]}} }
+		.detail-listing li i, .amenties i { color:{{@global.styleAndNavigation.icon[1]}} }
+		.detail-listing li {border-color:{{@global.styleAndNavigation.borderColor}}; color:{{@global.styleAndNavigation.content[2]}} }
+		.linkBtn, .rateReviewtext {color:{{@global.styleAndNavigation.activeColor}} }
+		.shorDetail i, .price i, .addPan i, .real-estate-addons a:before, .search-view i, .like-btn, .share-btn { color:{{@global.styleAndNavigation.icon[1]}} }
+		.done-btn{background-color:{{@global.styleAndNavigation.button[2]}}; color:{{@global.styleAndNavigation.button[3]}}}
+    </style>
+
+
+        {{#root_Compare status "==" "failed"}}
+
+        <div class="msg-code">
+            <div class="msg-container">
+                <span class="icon appyicon-no-data" style="color:{{@global.styleAndNavigation.content[2]}}; border-color:{{@global.styleAndNavigation.content[2]}}">  </span>
+            </div>
+        </div>
+        {{/root_Compare}}
+
+        {{#root_Compare status "==" "success"}}
+        <section class="real-estate">
+
+            <ul class="real-estate-cat-listing swiper-wrapper">
+
+                <li>
+                    <div class="top-list-icon">
+                        {{#root_Compare data.favourite "==" "0"}}<span class="like-btn icon-heart-1" onclick="addfav(this)" property_iid="{{data.id}}" type="listing"></span>{{/root_Compare}}{{#root_Compare data.favourite "==" "1"}}<span class="like-btn icon-heart-1 on" onclick="addfav(this)" property_iid="{{data.id}}" type="listing"></span>{{/root_Compare}}
+                    </div>
+
+                    <span class="real-estate-addons detailIcon">
+                    <a class="icon-location" onclick="movetomap('{{data.latitude}}','{{data.longitude}}','{{@index}}','{{filterAddressString data.address}}','{{data.projectName}}',this)"></a>
+                     <a class="iconz-phone1" onclick="callreal(this)" number="{{data.phonenumber}}"></a>
+                    </span>
+
+                    <span class="estate-detail-overlay"></span>
+                    <span class="estate-detail-overlay"></span>
+                    {{#if data.rentsoldout}}
+                    {{#root_Compare data.propertyFor "==" "0"}}
+                    <div class="labelEstate {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}"> <span class="for-sale">{{@global.pageLanguageSetting.SOLD_OUT}}</span></div>
+                    {{/root_Compare}}
+                    {{#root_Compare data.propertyFor "==" "1"}}
+                    <div class="labelEstate {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}"> <span class="for-sale">{{@global.pageLanguageSetting.RENT_OUT}}</span></div>
+                    {{/root_Compare}}
+                    {{else}}
+                    {{#root_Compare data.propertyFor "==" "0"}}
+                    <div class="labelEstate {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}"> <span class="for-sale">{{@global.pageLanguageSetting.FOR_SALE}}</span></div>
+                    {{/root_Compare}}
+                    {{#root_Compare data.propertyFor "==" "1"}}
+                    <div class="labelEstate {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}"> <span class="for-sale">{{@global.pageLanguageSetting.FOR_RENT}}</span></div>
+                    {{/root_Compare}}
+
+                    {{/if}}
+
+         <div class="swiper-container swiper-realestate">
+                        <div class="swiper-wrapper">
+                            {{#if data.image.length}}
+                            {{#data.image}}
+                            {{#js_compare "this.type == 'image'"}}
+                            <div class="swiper-slide" onclick="Appyscript.detailSwaperrealImageOnclick('{{image}}','image','{{@global.projectname}}','{{@index}}')"><span class="estate-detail-overlay"></span><img src="images/transparent-bg.png" style="background-image:url({{image}});" alt=""/></div>
+                            {{/js_compare}}
+                            {{#js_compare "this.type == 'video'"}}
+                            <div class="swiper-slide" onclick="Appyscript.detailSwaperrealImageOnclick('{{video}}','video','{{@global.projectname}}','{{@index}}')"><span class="estate-detail-overlay"></span><img src="images/play-transparent2x1.png" style="background-image:url({{image}});" alt=""/></div>
+                            {{/js_compare}}
+
+                            {{#js_compare "this.type == 'youtube'"}}
+                            <div class="swiper-slide" onclick="Appyscript.detailSwaperrealImageOnclick('{{video}}','youtube','{{@global.projectname}}','{{@index}}')"><span class="estate-detail-overlay"></span><img src="images/play-transparent2x1.png" style="background-image:url({{youtubeurl video}});" alt=""/></div>
+                            {{/js_compare}}
+                            {{/data.image}}
+                            {{else}}
+                            <div class="swiper-slide" onclick="Appyscript.detailSwaperrealImageOnclick('{{@global.propertyimage}}','image','{{@global.projectname}}'')"><span class="estate-detail-overlay"></span><img src="images/transparent-bg.png" style="background-image:url({{@global.propertyimage}});" alt=""/></div>
+                            {{/if}}
+                        </div>
+
+                        <div class="swiper-pagination"></div>
+                        <!-- Add Arrows -->
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
+                    </div>
+                </li>
+
+
+
+            </ul>
+            <div class="inner-container {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}">
+                <div class="price-heading {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}">{{format_currency @global.currencycode}} {{data.expectedPrice}}</div>
+                <div class="property-heading {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}"><span>{{data.projectName}} </span>{{#root_Compare @global.configuration.reviewSetting "==" "On"}}<a href="#" class="rateReviewtext {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" onclick="Appyscript.openReview()" id="reviewadd">{{@global.pageLanguageSetting.RATE_REVIEW}}</a>{{/root_Compare}}</div>
+                <p class="newProp {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}">{{addtimelist data.addedon}}</p>
+
+            </div>
+            {{#if data.facilities.length}}
+            <div class="blue-head {{@global.styleAndNavigation.title[0]}} {{@global.styleAndNavigation.title[1]}}">  {{@global.pageLanguageSetting.Amenties}}</div>
+
+
+            <div class="amenties">
+                <div class="scrollmenu">
+                    <ul>
+                        {{#data.facilities}}
+                        <li>
+                            {{#js_compare "this.type == 'image'"}}
+                            <img src="{{icon}}" />
+                            {{/js_compare}}
+                            {{#js_compare "this.type == 'icon'"}}
+                            <i class="{{icon}}"></i>{{/js_compare}}
+                            <div class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}">{{name}}</div>
+                        </li>
+
+                        {{/data.facilities}}
+                    </ul>
+                </div>
+            </div>
+            {{/if}}
+
+            <div class="blue-head {{@global.styleAndNavigation.title[0]}} {{@global.styleAndNavigation.title[1]}}">{{@global.pageLanguageSetting.PROPERTY_DETAILS}}</div>
+            <div class="detail-box">
+                <ul class="detail-listing {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}">
+                    <li onclick="movetomap('{{data.latitude}}','{{data.longitude}}','{{@index}}','{{filterAddressString data.address}}','{{data.projectName}}',this)"><i class="icon-location"></i><b>{{data.address}}</b> <small></small></li>
+                    {{#root_Compare data.totalFloor "!=" ""}} <li><i class="iconz-realestate"></i>{{@global.pageLanguageSetting.Floor}}<span>{{data.propertyFloor}} {{@global.pageLanguageSetting.out_of}} {{data.totalFloor}}</span></li> {{/root_Compare}}
+                    {{#root_Compare data.bedrooms "!=" ""}}<li><i class="iconz-bed"></i>{{@global.pageLanguageSetting.Bedrooms}} <span>{{data.bedrooms}}</span></li>{{/root_Compare}}
+                    {{#root_Compare data.bathrooms "!=" ""}}<li><i class="iconz-bath-bathtub"></i>{{@global.pageLanguageSetting.Bathrooms}} <span>{{data.bathrooms}}</span></li>{{/root_Compare}}
+                    {{#root_Compare data.bookingAmount "!=" ""}}<li><i class="appyicon-pricetag"></i>{{@global.pageLanguageSetting.BOOKING_AMOUNT}} <span>{{data.bookingAmount}}</span></li>{{/root_Compare}}
+					{{#root_Compare data.parking "!=" ""}}<li><i class="iconz-car"></i>{{@global.pageLanguageSetting.Parking_Space}} <span>{{data.parking}}</span></li>{{/root_Compare}}
+                    <li><i class="iconz-realestate"></i>{{@global.pageLanguageSetting.Building_Size}} <span>{{data.property_area}} {{data.area_unit}}</span></li>
+                    <li><i class="iconz-user"></i>{{@global.pageLanguageSetting.LISTED_BY}}
+                        {{#root_Compare data.ownerType "==" "0"}}
+                        <span>{{@global.pageLanguageSetting.Owner}} </span>
+                        {{/root_Compare}}
+                        {{#root_Compare data.ownerType "==" "1"}}
+                        <span>{{@global.pageLanguageSetting.Builder}} </span>
+                        {{/root_Compare}}
+                        {{#root_Compare data.ownerType "==" "2"}}
+                        <span>{{@global.pageLanguageSetting.Dealer}} </span>
+                        {{/root_Compare}}
+                    </li>
+                    {{#root_Compare data.leaseDuration "!=" ""}}<li><i class="iconz-login"></i>Lease duration
+                        {{#root_Compare data.leaseDuration "==" "0"}}
+                        <span>{{@global.pageLanguageSetting.DONT_SPEC_LEASE_DURATION}}</span>
+                        {{/root_Compare}}
+                        {{#root_Compare data.leaseDuration "==" "1"}}
+                        <span>{{data.leaseDurationMonth}} </span>
+                        {{/root_Compare}}
+
+                    </li>
+                    {{/root_Compare}}
+                    {{#root_Compare data.availablity "!=" ""}} <li><i class="icon-calendar-4"></i>{{@global.pageLanguageSetting.WHEN_AVAILABLE}}
+                        {{#root_Compare data.availablity "==" "0"}}
+                        <span>{{@global.pageLanguageSetting.DONT_SPEC_MOVE_IN_DATE}}</span>
+                        {{/root_Compare}}
+                        {{#root_Compare data.availablity "==" "1"}}
+                        <span>{{@global.pageLanguageSetting.WHEN_AVAILABLE}}</span>
+                        {{/root_Compare}}
+                        {{#root_Compare data.availablity "==" "2"}}
+                        <span>{{data.availablityDate}} </span>
+                        {{/root_Compare}}
+                    </li>
+                    {{/root_Compare}}
+                </ul>
+
+                {{#root_Compare @global.configuration.claimed "==" "On"}} {{#if @global.hidebtns}}   <a href="#" id="claimid" class="linkBtn {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" onclick="realEstateClaim('{{data.id}}','{{data.projectName}}')">{{@global.pageLanguageSetting.CLAIM_PROPERTY}}</a>{{/if}}{{/root_Compare}}
+            </div>
+
+            <div class="blue-head {{@global.styleAndNavigation.title[0]}} {{@global.styleAndNavigation.title[1]}}">{{@global.pageLanguageSetting.PROPERTY_DESCRIPTION}}</div>
+            <div class="propSection">
+                <p class="prop-discription hideContent {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}">{{data.description[0]}}</p>
+                <a href="#"  id="showmorecheck" onclick="showmore(this)" class="linkBtn {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}">{{@global.pageLanguageSetting.READ_MORE}}</a>
+            </div>
+            
+
+
+
+
+        </section>
+    </div>
+
+    <!--{{#root_Compare @global.configuration.enquiryFormSetting "==" "On"}}-->
+    <!--{{#if @global.hidebtns}}-->
+    <!--<footer id="">-->
+
+        <!--<a  class="done-btn {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" onclick="Appyscript.opensendenquiry('{{data.userForm}}')">{{@global.pageLanguageSetting.send_request}}</a>-->
+    <!--</footer>-->
+    <!--{{/if}}-->
+    <!--{{/root_Compare}}-->
+</div>
+{{/root_Compare}}

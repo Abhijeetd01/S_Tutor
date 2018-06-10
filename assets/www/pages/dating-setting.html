@@ -1,0 +1,190 @@
+<div class="navbar">
+    <div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+
+        <div class="left ">
+            {{#if @global.styleAndNavigation.innerLayout}}
+            <a href="index" class="link back"style="color:{{@global.style.headerBarIconColor}};">
+                <i class="icon icon-left-open-2"></i>
+            </a>
+            {{else}}
+            {{#root_Compare @global.style.layout "==" "bottom"}}
+            <a href="index" class="link back" style="color:{{@global.style.headerBarIconColor}};" onClick="Appyscript.clickHome()">
+                <i class="icon icon-left-open-2" ></i></a>
+            {{else}}
+            {{#root_Compare @global.style.layout "==" "slidemenu"}}
+            <a href="index" class="link back" style="color:{{@global.style.headerBarIconColor}};" onClick="Appyscript.clickHome()">
+                <i class="icon icon-left-open-2"  ></i></a>
+            {{else}}
+            <a href="index" class="link back"style="color:{{@global.style.headerBarIconColor}};">
+                <i class="icon icon-left-open-2"></i>
+            </a> {{/root_Compare}}
+            {{/root_Compare}}
+            {{/if}}
+
+        </div>
+        <div class="center sliding">
+            <div class="topHeader {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">{{@global.pageLanguageSetting.datingpagetitle}}</div>
+        </div>
+        <!--      onclick="Appyscript.saveusersetting();"   onclick="Appyscript.popupPage('location')" Appyscript.viewuserProfile-->
+        <div class="right">
+            <!--            <a href="#" style="color:{{@global.style.headerBarIconColor}};" class="icon-ok-4"  onclick="Appyscript.saveusersetting();"   ></a>-->
+
+            <a class="iconz-option-vertical" style="color:{{@global.style.headerBarIconColor}};"  onclick="toggle_menu(this);" style="color:#ffffff;"></a>
+        </div>
+    </div>
+</div>
+
+<div data-page="dating-Setting" class="page navbar-through toolbar-fixed no-toolbar dating">
+    <!-- Page content-->
+    <div class="page-content"  style="background-color:{{@global.styleAndNavigation.pageBackroundColor}};">
+        <style>
+            .on .controlIndicator {
+                background-color:{{@global.styleAndNavigation.button[2]}} !important;
+            }
+        .active-btn{background-color: {{@global.styleAndNavigation.button[2]}} !important; color: {{@global.styleAndNavigation.button[3]}} !important;}
+
+        #distance-slider #distance-tab a{
+            background-color: {{@global.styleAndNavigation.secondaryButton[2]}}  !important;
+            color: {{@global.styleAndNavigation.secondaryButton[3]}} !important;
+        }
+        #distance-slider #distance-tab a.active {
+            background-color: {{@global.styleAndNavigation.button[2]}} !important;
+            color: {{@global.styleAndNavigation.button[3]}} !important;
+        }
+        </style>
+        <div class="setting-page">
+            <!--<div class="profileName">
+             Nitin Kr Sharma
+             </div>-->
+            <div class="bodypan {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="color:{{@global.styleAndNavigation.content[2]}};">
+                <div class="row">
+                    <div class="col-md-12">
+                        <label>{{@global.pageLanguageSetting.i_identify_my}}</label>
+                    </div>
+                    <div class="col-md-6">
+                        <button id="male" class="btn login-btn margin-top-none active-btn {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" style="background-color: {{@global.styleAndNavigation.secondaryButton[2]}}; color: {{@global.styleAndNavigation.secondaryButton[3]}};" onclick="Appyscript.selectGender('male');">{{@global.pageLanguageSetting.male}}</button>
+                    </div>
+                    <div class="col-md-6">
+                        <button id="female"  class="btn female-btn login-btn margin-top-none {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" style="background-color: {{@global.styleAndNavigation.secondaryButton[2]}}; color: {{@global.styleAndNavigation.secondaryButton[3]}};" onclick="Appyscript.selectGender('female');" >{{@global.pageLanguageSetting.female}}</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <!--                    <div class="col-md-12 date">-->
+                    <!--                        <label class="">{{@global.pageLanguageSetting.dob}}*</label>-->
+                    <!--                        <input id="dob" placeholder="dob" class="" type="date" style="background-color: {{@global.styleAndNavigation.fieldBgColor}}; color: {{@global.styleAndNavigation.fieldTextColor}} !important; padding:8px 2px !important;">-->
+                    <!--                            </div>-->
+
+                    <div class="col-md-12 date">
+                        <label class="">{{@global.pageLanguageSetting.dob}}*</label>
+                        <div style="position:relative;">
+                            <input id="dob" placeholder="dob" class="form-control choose-loc" type="text" style="background-color: {{@global.styleAndNavigation.fieldBgColor}}; color: {{@global.styleAndNavigation.fieldTextColor}} !important; border:1px solid {{@global.styleAndNavigation.fieldBorderColor}};">
+                            <input type="date" style="position:absolute !important; left:0px !important; top:0px !important; opacity:0 !important;" onchange="Appyscript.datingDateCh(this);">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <label class="">{{@global.pageLanguageSetting.goal}}*</label>
+
+                        <textarea id="goal" placeholder="{{@global.pageLanguageSetting.goal}}"  class="form-control choose-loc datingabout"   style="background-color: {{@global.styleAndNavigation.fieldBgColor}}; color: {{@global.styleAndNavigation.fieldTextColor}}; border:1px solid {{@global.styleAndNavigation.fieldBorderColor}};" ></textarea>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <label class="">{{@global.pageLanguageSetting.job_title}}*</label>
+                        <input id="jobtitle" placeholder="{{@global.pageLanguageSetting.job_title}}"  class="form-control choose-loc" type="text"  style="background-color: {{@global.styleAndNavigation.fieldBgColor}}; color: {{@global.styleAndNavigation.fieldTextColor}}; border:1px solid {{@global.styleAndNavigation.fieldBorderColor}};">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 ">
+                        <label> {{@global.pageLanguageSetting.i_would_like}}</label>
+                    </div>
+                </div>
+                <div class="row radio">
+                    <div class="col-md-6 checkgender" id="malecheck">
+                        <label class="btn-lab " >{{@global.pageLanguageSetting.male}}</label>
+                        <div id="mymale" class="button-wrap">
+                            <label class="controlIndicator" style="background-color:{{@global.styleAndNavigation.secondaryButton[2]}};"><input type="radio" checked="checked" name="radioBtnClass" value="male" /></label>
+                        </div>
+                    </div>
+                    <div class="col-md-6 checkgender" id="femalecheck">
+                        <label class="btn-lab " >{{@global.pageLanguageSetting.female}}</label>
+                        <div id="myfemale" class="button-wrap">
+                            <label class="controlIndicator" style="background-color:{{@global.styleAndNavigation.secondaryButton[2]}};"><input type="radio" name="radioBtnClass" value="female"/></label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row ">
+                    <div class="col-md-12">
+                        <label>{{@global.pageLanguageSetting.age}}</label>
+                    </div>
+                    <div class="col-md-12">
+                        <div id="distance-slider">
+                            <span class="max" id="rangeValue3">18 {{@global.pageLanguageSetting.years}}</span>
+                            <div class="sd_bg_wp">
+                                <input id="dirctoryrang2" type="text" min ="18" max="100" step ="1" value ="18" style="width:100%;" />
+                                <div id="datingYearGet"></div>
+                            </div>
+                        </div>
+                        <div id="distance-slider-tab2" style="display:none">
+                            <a onclick="Appyscript.clickAgeType(this)" class="active">{{@global.pageLanguageSetting.years}}</a>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="row " style="display:none;" >
+                    <div class="col-md-12">
+                        <label>{{@global.pageLanguageSetting.distance}}</label>
+                    </div>
+                    <div class="col-md-12">
+                        <div id="distance-slider">
+                            <div id="distance-tab">
+                                <a onclick="Appyscript.datingDistanceType(this)"  id="datingkm" class="active {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}">{{@global.pageLanguageSetting.KM_dir}}</a>
+                                <a onclick="Appyscript.datingDistanceType(this)" id="datingmi" class="{{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}">{{@global.pageLanguageSetting.Miles_dir}}</a>
+                            </div>
+                            <span class="max" id="rangeValue2">15 {{@global.pageLanguageSetting.Miles_dir}}</span>
+                            <div class="sd_bg_wp">
+                                <input id="dirctoryrang" type="text" min="1" max="100" step ="1" value ="15" style="width:100%;" />
+                                <div id="datingDistanceGet"></div>
+                            </div>
+                        </div>
+                        <div id="distance-slider-tab" style="display:none">
+                            <a onclick="Appyscript.clickDistanceType(this)" class="active">{{@global.pageLanguageSetting.Miles_dir}}</a>
+                        </div>
+
+                    </div>
+                </div>
+                <!--                <div class="row">-->
+                <!--                    <div class="col-md-12">-->
+                <!--                        <label class="">{{@global.pageLanguageSetting.hobbies}}</label>-->
+                <!--                        <input id="hobbies" placeholder="Interests(comma separated)"  class="form-control choose-loc" type="text" style="background-color: {{@global.styleAndNavigation.fieldBgColor}}; color: {{@global.styleAndNavigation.fieldTextColor}};">-->
+                <!--                            </div>-->
+                <!--                </div>-->
+                <div class="row" onclick="Appyscript.popupPage('locationdating');" >
+                    <div class="col-md-12" >
+                        <label class="">{{@global.pageLanguageSetting.location}}</label>
+                        <input   id="iLocation" class="form-control choose-loc" type="text"  readonly style="background-color: {{@global.styleAndNavigation.fieldBgColor}}; color: {{@global.styleAndNavigation.fieldTextColor}}; border:1px solid {{@global.styleAndNavigation.fieldBorderColor}};">
+                    </div>
+                </div>
+                <div class="row ">
+                    <div class="col-md-12">
+                        <label class="notificationsLable">{{@global.pageLanguageSetting.notifications}}</label>
+                        <div class="new-match" style="background-color: {{@global.styleAndNavigation.fieldBgColor}}; color: {{@global.styleAndNavigation.fieldTextColor}}; border:1px solid {{@global.styleAndNavigation.fieldBorderColor}}">
+                            <label class="pull-left" for="test1">{{@global.pageLanguageSetting.new_matches}}</label>
+                            <input type="checkbox" id="test1" checked="checked"  class="pull-right ntCheck"/>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <button class="btn login-btn {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" style="background-color: {{@global.styleAndNavigation.button[2]}}; color: {{@global.styleAndNavigation.button[3]}};"  onclick="Appyscript.saveusersetting();" >
+                            {{@global.pageLanguageSetting.savedating}}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+

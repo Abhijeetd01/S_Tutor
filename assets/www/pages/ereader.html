@@ -1,0 +1,33 @@
+<div class="navbar"><div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+    <div class="left sliding">
+        		{{getSlideBack ""}}
+    </div>
+    <div class="center sliding {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">{{name}}</div>
+    <div class="right">
+        <a onclick="Appyscript.openEreaderBookmarks()" class="link" style="color:{{@global.style.headerBarIconColor}}; display:none">
+            <i class="icon icon-star"></i>
+        </a>
+    </div>
+</div></div>
+
+<div data-page="ereader-EReaderPage" class="page navbar-through no-toolbar">
+    <!-- Page content-->
+    <div class="backgroundAnimation">{{> innerBackground}}</div>
+    <div class="page-content {{@global.style.appPageFont}} {{@global.style.appPageCsize}}">
+        <ul class="main2">
+            {{#list}}
+            <li  class="ereaderEqhight" onclick="Appyscript.openPdfReaderFile('{{url}}','{{@index}}','{{name}}','{{@root.enablePdfThirdparty}}')" urlValue="{{url}}" checkForNativeLib="{{@root.enablePdfThirdparty}}" index="{{@index}}" name="{{name}}">
+                <div class="e-readerimage">
+                    {{#js_compare "this.iconType === 'img' "}}
+                    <img src="{{iconName}}">
+                        {{else}}
+                        <i class="{{iconName}}" style="color:{{@global.style.pageIconColor}}"></i>
+                        {{/js_compare}}
+                        </div>
+                <span class="book_name" style="color:{{@global.style.pageTextColor}}">{{name}}</span>
+                <span class="author_name" style="color:{{@global.style.pageTextColor}}"></span>
+            </li>
+            {{/list}}
+        </ul>
+    </div>
+</div>

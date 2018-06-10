@@ -1,0 +1,49 @@
+<div class="navbar"><div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}}; font-size: {{@global.style.headerBarSize}} ">
+            <div class="left sliding">
+              <a href="index" class="link back" style="color:{{@global.style.headerBarTextColor}};">
+                <i class="icon icon-left-open-2"></i>
+              </a>
+            </div>
+           <div class="center sliding">
+           	<div class="topHeader">
+            
+            Real Estate
+              <span class="locate icon-location cursor-pointer" id="realstateLoc">Noida</span>
+            </div>
+              
+
+            </div> 
+            <div class="right">
+            
+<!--             <a onclick="Appyscript.popupPage('realestate-map')" style="color:{{@global.style.headerBarTextColor}};">-->
+<!--                <i class="icon icon-map"></i>-->
+<!--              </a>-->
+
+<!--             <a onclick="Appyscript.popupPage('realestate-filter')" style="color:{{@global.style.headerBarTextColor}};">-->
+<!--                <i class="icon iconz-filter"></i>-->
+<!--              </a>-->
+            </div>
+          </div></div>
+
+<div data-page="realestate-page" class="page navbar-through no-toolbar" style="background-color: {{@global.style.appPageBackgroundColor}}" >
+<!-- Page content-->
+    <div class="page-content">	
+    
+
+<section class="real-estate">
+<!--<div class="search-view"><i class="icon-search-3"></i><input type="text" placeholder="Type to search"></div>-->
+<ul class="real-estate-cat-listing">
+{{#list}}
+{{> idxListing}}
+{{/list}}
+
+
+</ul>
+
+</section>
+
+
+
+    
+    </div>
+</div>

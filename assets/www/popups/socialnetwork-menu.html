@@ -1,0 +1,40 @@
+<div data-page="social-Menu"  class="popup menu-popup tablet-fullscreen" >
+    <div class="view toolbar-through">
+        <div class="pages {{@global.styleAndNavigation.menu[0]}} hideBorder-{{@global.styleAndNavigation.hideBorder}}" style="background-color:{{@global.styleAndNavigation.menu[2]}};">
+            <div class="page no-toolbar">
+                
+                <div class="page-content black-bg">
+                    <div class="profile-image">
+                        <div class="profileBackground" id="socialmenupic2"  style="background-image:url(http://snappy.appypie.com/images/Female.png)">
+                        </div>
+                        <div class="profileContentBx">
+                            <div class="profileBx">
+                                <span class="image"><img  onclick="Appyscript.socialactionsheet();" src="images/image-1x1.png" style="background-image:url(http://snappy.appypie.com/images/Female.png)" id="socialmenupic" alt=""></span>
+                            </div>
+                            <a href="#" class="editProfilebutton  icon-cancel popupToPage"  data-animate="true" style="color:{{@global.styleAndNavigation.iconColor}};"  ></a>
+                            <span  class="name {{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}};" id="socialusername"></span>
+                        </div>
+                    </div>
+                    <div class="sub-menu hyperlocal-menu" id="menuservice">
+                        <ul class="leftMenu">
+                            {{#if @global.setting.homeButtonStatus}}{{else}}
+                            <li><a  onclick="Appyscript.datingmainmenu()" class="close-tutorial {{@global.styleAndNavigation.menu[1]}}" style="color:{{@global.styleAndNavigation.menu[3]}};border-color:{{@global.styleAndNavigation.fieldBorderColor}}">{{@global.pageLanguageSetting.home_social_network}}</a></li>
+                            {{/if}}
+                            <li><a  onclick="Appyscript.socialnetworkmainmenu()" class="popupToPage {{@global.styleAndNavigation.menu[1]}}"  style="color:{{@global.styleAndNavigation.menu[3]}};border-color:{{@global.styleAndNavigation.fieldBorderColor}}" >{{@global.pageLanguageSetting.main_menu_social_network}} </a></li>
+                            
+                            <li><a   data-animate="false" class="popupToPage {{@global.styleAndNavigation.menu[1]}}" data-animate="false" style="color:{{@global.styleAndNavigation.menu[3]}};border-color:{{@global.styleAndNavigation.fieldBorderColor}}"  data-page="socialnetwork-tags" >{{@global.pageLanguageSetting.tag}}</a></li>
+                            
+                            
+                            <li><a href="#" class="{{@global.styleAndNavigation.menu[1]}}"  style="color:{{@global.styleAndNavigation.menu[3]}};border-color:{{@global.styleAndNavigation.fieldBorderColor}}" onclick="Appyscript.myprofilesocial();">{{@global.pageLanguageSetting.my_profile_social_network}}</a></li>
+                     
+                            <li><a href="#" class="{{@global.styleAndNavigation.menu[1]}}"  style="color:{{@global.styleAndNavigation.menu[3]}};border-color:{{@global.styleAndNavigation.fieldBorderColor}}" onclick="Appyscript.socialblockeduserlist();">{{@global.pageLanguageSetting.social_blockedusers}}</a></li>
+                            <li><a  onclick="Appyscript.AppLogout();" class="popupToPage {{@global.styleAndNavigation.menu[1]}}"  style="color:{{@global.styleAndNavigation.menu[3]}};border-color:{{@global.styleAndNavigation.fieldBorderColor}}">{{@global.pageLanguageSetting.logout_social_network}}</a></li>
+                            
+                            
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

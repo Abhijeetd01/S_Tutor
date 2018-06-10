@@ -1,0 +1,63 @@
+<div class="navbar"><div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+    <div class="left sliding">
+        <a href="index" class="link back" style="color:{{@global.style.headerBarIconColor}};">
+            <i class="icon icon-left-open-2"></i>
+        </a>
+    </div>
+    <div class="center sliding">
+        <div class="topHeader  {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">{{send_request}}</div>
+    </div>
+</div></div>
+<div data-page="services-request" class="page navbar-through no-toolbar hideBorder-{{@global.styleAndNavigation.hideBorder}}" style="background-color: {{@global.styleAndNavigation.pageBgColor}}" >
+    
+    <!-- Page content-->
+    <div class="page-content">
+        <style>.items-scroller span.add-more,.items-scroller span {border-color:{{@global.styleAndNavigation.borderColor}}}
+            .items-scroller span a{
+                background: {{@global.styleAndNavigation.secondaryButton[2]}};
+                color: {{@global.styleAndNavigation.secondaryButton[3]}};
+            }
+        .items-scroller span.add-more {
+            background: {{@global.styleAndNavigation.button[2]}};
+            color: {{@global.styleAndNavigation.button[3]}};
+        }
+      
+        ::-webkit-input-placeholder {
+            color:{{@global.styleAndNavigation.content[2]}} !important;
+        }
+        :-moz-placeholder {
+            color:{{@global.styleAndNavigation.content[2]}} !important;
+        }
+        ::-moz-placeholder {color:{{@global.styleAndNavigation.content[2]}} !important;
+        }
+        :-ms-input-placeholder {
+            color:{{@global.styleAndNavigation.content[2]}} !important;
+        }
+        .hideBorder-1 ul.add-listing li input, .hideBorder-1  ul.add-listing li select, .hideBorder-1 ul.add-listing li textarea{border:1px solid {{@global.styleAndNavigation.borderColor}} !important;}
+        </style>
+        
+        <form id="requestForm">
+            <ul class="add-listing">
+                <li>
+                    <h1 class="hyper-big-ttle {{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}" style="color:{{@global.styleAndNavigation.subheading[2]}}">{{request_a_service}}</h1>
+                    <p class="hyper-big-sub-title {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="color:{{@global.styleAndNavigation.content[2]}}; border-color:{{@global.styleAndNavigation.borderColor}}">{{Submit_your_request_to_providers}}</p>
+                </li>
+                <li><input type="text" placeholder="{{enter_your_name}}*" id="rsName" name="username" value="{{@global.servicename}}" class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="border-color:{{@global.styleAndNavigation.borderColor}}; color:{{@global.styleAndNavigation.content[2]}}"/></li>
+                <li><input type="tel" placeholder="{{Enter_your_phone_number}}*" id="rsPhone" name="phone" value="{{@global.servicephone}}" class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}} numberlength numberValidation" maxlength="15"" style="border-color:{{@global.styleAndNavigation.borderColor}}; color:{{@global.styleAndNavigation.content[2]}}"/></li>
+                <li><input type="email" placeholder="{{enter_your_email}}*" id="rsEmail" name="emailid" value="{{@global.serviceemail}}" class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="border-color:{{@global.styleAndNavigation.borderColor}}; color:{{@global.styleAndNavigation.content[2]}}"/></li>
+                <li><textarea placeholder="{{Enter_your_full_address}}*" id="rsAddress" name="address" class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="border-color:{{@global.styleAndNavigation.borderColor}}; color:{{@global.styleAndNavigation.content[2]}}"></textarea></li>
+                <li><input type="text" placeholder="{{Enter_your_budget}}" id="rsBudget" name="budget" class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="border-color:{{@global.styleAndNavigation.borderColor}}; color:{{@global.styleAndNavigation.content[2]}}"></li>
+                <li><textarea placeholder="{{Please_describe_your_request}}*" id="rsRequirement" name="requirement" class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="border-color:{{@global.styleAndNavigation.borderColor}}; color:{{@global.styleAndNavigation.content[2]}}"></textarea></li>
+                <li>
+                    
+                    <div style="display: table; table-layout: fixed; width:100%">
+                        <div class="items-scroller" >
+                            <div class="items"><span class="add-more" onClick="addMoreClick2(this,0)">+</span></div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </form>
+        <div class="hyper-gray-wrapper"><button class="hyper-sent-btn {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" style="background-color: {{@global.styleAndNavigation.button[2]}}; color: {{@global.styleAndNavigation.button[3]}};" onClick="Appyscript.submitRequestFormCustomservice()" >Submit</button></div>
+    </div>
+</div>

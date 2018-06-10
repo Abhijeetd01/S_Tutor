@@ -1,0 +1,47 @@
+<div class="popup menu-popup tablet-fullscreen">
+    <div class="view">
+        <div class="navbar"><div class="navbar-inner " style="background-color:{{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}}; ">
+            <div class="left sliding">
+                <a href="" class="close link icon-left-open-2 close-popup" style="color:{{@global.style.headerBarIconColor}};" >
+                </a>
+            </div>
+            <div class="center sliding">
+                <div class="topHeader {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">Profile</div>
+            </div>
+            <div class="right"></div>
+        </div></div>
+
+
+        <div class="pages" style="background-color: {{@global.styleAndNavigation.menu[1]}}; color: {{@global.styleAndNavigation.menu[2]}}">
+            <div class="page hideBorder-{{@global.styleAndNavigation.hideBorder}}">
+
+                <div class="page-content">
+                    <style>
+                	.form-control, .input-group-addon {border-color:{{@global.styleAndNavigation.borderColor}}}.
+					.form-control{}
+                </style>
+
+                    <div class="profile-image profile-edit">
+                        <div class="profileBackground" ></div>
+                        <div class="profileContentBx">
+                            <div class="profileBx" >
+                                <span class="image"  onclick="selectPhotoDirr(0,'profile')"><img src="{{@global.realimage}}" id="profilepicreal" alt=""></span>
+                            </div>
+                            <span class="name" id="userName" >{{name}}</span>
+                            <span class="location" id="userLocation" >{{location}}</span>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <span class="input-group-addon iconz-user" style="background:{{@global.styleAndNavigation.iconBackgroundColor}}; color:{{@global.styleAndNavigation.icon[1]}}"> </span>
+                        <input type="text" class="form-control {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}"  placeholder="ok" aria-describedby="basic-addon1" id="profileName" value="{{name}}" style="color:{{@global.styleAndNavigation.content[2]}};">
+                    </div>
+
+                    <div class="input-group">
+                        <button class="hyper-sent-btn hyper-sent-btn2 {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}"  value="save" onclick="Appyscript.saveProfilePicreal()" style="background:{{@global.styleAndNavigation.button[2]}}; color:{{@global.styleAndNavigation.button[3]}}">save</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

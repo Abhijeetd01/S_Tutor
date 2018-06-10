@@ -1,0 +1,244 @@
+.app_navigation_bottom {
+ 	width:100%;
+  	float:left;
+}
+
+.toolbar #app_navigation_bottom {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 10;
+    height: calc(100% - 44px);
+    overflow: scroll;
+    margin: 0 0 0 0;
+    width:100%;
+}
+
+.toolbar #app_navigation_bottom[navbar="none"] {
+	margin: 0 0 0 0;
+    height: calc(100% - 44px);
+}
+
+
+
+.toolbar .app_navigation_bottom[scroll='YES'] a {
+	-webkit-flex-shrink: 0;
+    -ms-flex: 0 0 auto;
+    flex-shrink: 0;
+}
+
+.app_navigation_bottom a {
+	line-height:20px;
+	padding:24px 0 0 0;
+	position:relative;
+	border-top:solid 1px #fff;  
+}
+
+.app_navigation_bottom a img,
+.app_navigation_bottom a i {
+    width:24px;
+    height:24px;
+    line-height:24px;
+    left:50%;
+    top:0px;
+    margin:0 0 0 -12px;
+    position:absolute;
+    font-size:18px;
+}
+
+.app_navigation_bottom a img {
+	width:20px;
+ 	height:20px;
+	top:2px;
+}
+
+.app_navigation_bottom a i:before {
+ 	line-height:24px;
+}
+
+.app_navigation_bottom span {
+    text-align:center;
+    float:left;
+    width:90%;
+    padding:0 5%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.app_navigation_bottom.hide-text span {
+ display:none;
+}
+
+.app_navigation_bottom.hide-text a {
+ 	padding:34px 0 0 0;
+  	height:10px;
+}
+
+.app_navigation_bottom.hide-text a img,
+.app_navigation_bottom.hide-text a i {
+    width:34px;
+    height:34px;
+    line-height:34px;
+    left:50%;
+    top:5px;
+    margin:0 0 0 -17px;
+    position:absolute;
+    font-size:24px;
+}
+
+.app_navigation_list a {
+    width: calc(100% - 10px);
+}
+
+.toolbar .app_navigation_list a:last-child {
+	border-bottom:solid 1px #F00;
+}
+
+.app_navigation_bottom[scroll='NO'].rounded-option .swiper-wrapper a {
+	padding:3px 0;
+	height:38px;
+	background:none !important;
+}
+.app_navigation_bottom[scroll='NO'].rounded-option .swiper-wrapper a i,
+.app_navigation_bottom[scroll='NO'].rounded-option .swiper-wrapper a img {
+	width:36px;
+	height:36px;
+	line-height:36px;
+	border-radius:20px;
+	border:solid 1px #fff;
+	background:#fff;
+	font-size:18px;
+	top:3px;
+	margin:0 0 0 -18px;
+}
+
+.app_navigation_bottom[scroll='NO'].rounded-option .swiper-wrapper a i:before {
+	line-height:36px;
+}
+
+.app_navigation_bottom[scroll='NO'].rounded-option.hide-border a i,
+.app_navigation_bottom[scroll='NO'].rounded-option.hide-border a img {
+	border:0px !important;
+}
+
+.app_navigation_bottom.hide-border a,
+.app_navigation_bottom[scroll='NO'].rounded-option a {
+	border-top:0px !important;
+}
+
+.toolbar .app_navigation_list a {
+	display:block;
+	opacity:1;
+}
+
+.toolbar .app_navigation_list a {
+	display:block;
+	opacity:1;
+}
+
+.app_navigation_bottom.animation a {	
+	transition-property: all;
+    transition-duration: 0.5s;
+    transition-timing-function: ease;    	
+	transform-origin: 50% 50%;
+	position:relative;
+	z-index:2;
+}
+.app_navigation_bottom.animation[animation='left'] a {
+	opacity:0;
+	transform: translate(-100px, 0);
+}
+
+.app_navigation_bottom.animation[animation='left'] a.on {
+	opacity:1;
+	transform: translate(0, 0);
+}
+
+.app_navigation_bottom.animation[animation='right'] a {
+	opacity:0;
+	transform: translate(100px, 0);
+}
+
+.app_navigation_bottom.animation[animation='right'] a.on {
+	opacity:1;
+	transform: translate(0, 0);
+}
+
+.app_navigation_bottom.animation[animation='top'] a {
+	opacity:0;
+	transform: translate(0, -60px);
+}
+
+.app_navigation_bottom.animation[animation='top'] a.on {
+	opacity:1;
+	transform: translate(0, 0);
+}
+
+.app_navigation_bottom.animation[animation='bottom'] a {
+	opacity:0;
+	transform: translate(0, 60px);
+}
+
+.app_navigation_bottom.animation[animation='bottom'] a.on {
+	opacity:1;
+	transform: translate(0, 0);
+}
+
+.app_navigation_bottom.animation[animation='max'] a {
+	opacity:0;	
+	transform: scale(3);
+}
+
+.app_navigation_bottom.animation[animation='max'] a.on {
+	opacity:1;
+	transform: scale(1);
+}
+
+.app_navigation_bottom.animation[animation='min'] a {
+	opacity:0;
+	transform: scale(0);
+}
+
+.app_navigation_bottom.animation[animation='min'] a.on {
+	opacity:1;
+	transform: scale(1);
+}
+
+.app_navigation_bottom.animation a.on0 {transition-delay: 0.0s;}
+.app_navigation_bottom.animation a.on1 {transition-delay: 0.1s;}
+.app_navigation_bottom.animation a.on2 {transition-delay: 0.2s;}
+.app_navigation_bottom.animation a.on3 {transition-delay: 0.3s;}
+.app_navigation_bottom.animation a.on4 {transition-delay: 0.4s;}
+.app_navigation_bottom.animation a.on5 {transition-delay: 0.5s;}
+.app_navigation_bottom.animation a.on6 {transition-delay: 0.7s;}
+.app_navigation_bottom.animation a.on7 {transition-delay: 0.8s;}
+.app_navigation_bottom.animation a.on8 {transition-delay: 0.9s;}
+.app_navigation_bottom.animation a.on9 {transition-delay: 1.0s;}
+.app_navigation_bottom.animation a.on10 {transition-delay: 1.1s;}
+.app_navigation_bottom.animation a.on11 {transition-delay: 1.2s;}
+.app_navigation_bottom.animation a.on12 {transition-delay: 1.3s;}
+.app_navigation_bottom.animation a.on13 {transition-delay: 1.4s;}
+.app_navigation_bottom.animation a.on14 {transition-delay: 1.5s;}
+.app_navigation_bottom.animation a.on15 {transition-delay: 1.6s;}
+.app_navigation_bottom.animation a.on16 {transition-delay: 1.7s;}
+.app_navigation_bottom.animation a.on17 {transition-delay: 1.8s;}
+.app_navigation_bottom.animation a.on18 {transition-delay: 1.9s;}
+.app_navigation_bottom.animation a.on19 {transition-delay: 2.0s;}
+.app_navigation_bottom.animation a.on20 {transition-delay: 2.1s;}
+.app_navigation_bottom.animation a.on21 {transition-delay: 2.2s;}
+.app_navigation_bottom.animation a.on22 {transition-delay: 2.3s;}
+.app_navigation_bottom.animation a.on23 {transition-delay: 2.4s;}
+.app_navigation_bottom.animation a.on24 {transition-delay: 2.5s;}
+.app_navigation_bottom.animation a.on25 {transition-delay: 2.6s;}
+.app_navigation_bottom.animation a.on26 {transition-delay: 2.7s;}
+.app_navigation_bottom.animation a.on27 {transition-delay: 2.8s;}
+.app_navigation_bottom.animation a.on28 {transition-delay: 2.9s;}
+.app_navigation_bottom.animation a.on29 {transition-delay: 3.0s;}
+.app_navigation_bottom.animation a.on30 {transition-delay: 3.1s;}
+.app_navigation_bottom.animation a.on31 {transition-delay: 3.2s;}
+.app_navigation_bottom.animation a.on32 {transition-delay: 3.3s;}
+.app_navigation_bottom.animation a.on33 {transition-delay: 3.4s;}
+.app_navigation_bottom.animation a.on34 {transition-delay: 3.5s;}
+.app_navigation_bottom.animation a.on35 {transition-delay: 3.6s;}
+

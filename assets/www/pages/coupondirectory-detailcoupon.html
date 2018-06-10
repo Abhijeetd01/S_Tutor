@@ -1,0 +1,257 @@
+<div class="navbar"><div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+    <div class="left sliding">
+        {{#root_Compare @global.style.layout "==" "slidemenu"}}
+        {{#if @global.innerLayout}}
+        <a href="index" class="link back" style="color:{{@global.style.headerBarIconColor}};">
+            <i class="icon icon-left-open-2"></i>
+        </a>
+        {{else}}
+        <a onclick="Appyscript.openSlide()" style="color:{{@global.style.headerBarIconColor}};">
+            <i class="icon icon-menu"></i>
+        </a>
+        {{/if}}
+        {{else}}
+        <a href="index" class="link back" style="color:{{@global.style.headerBarIconColor}};">
+            <i class="icon icon-left-open-2"></i>
+        </a>
+        {{/root_Compare}}
+    </div>
+    <div class="center sliding {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">{{title}}</div>
+    <div class="right"></div>
+</div></div>
+
+<div data-page="coupondirectory-detailcoupon" class="page navbar-through no-toolbar " style="background-color:{{appPageBackgroundColor}}">
+    <style type="text/css">
+        .couponPageContainer .theme-4 .flipper:before {
+            top:-6px;
+            background: linear-gradient({{@global.styleAndNavigation.pageBgColor}} 0%, transparent 0%), linear-gradient(135deg, {{@global.styleAndNavigation.pageBgColor}} 70%, transparent 70%), linear-gradient(45deg, {{@global.styleAndNavigation.pageBgColor}} 70%,rgba(0,0,0,0) 70%);
+            background: -webkit-linear-gradient({{@global.styleAndNavigation.pageBgColor}} 0%, transparent 0%), -webkit-linear-gradient(135deg, {{@global.styleAndNavigation.pageBgColor}} 70%, transparent 70%), -webkit-linear-gradient(45deg, {{@global.styleAndNavigation.pageBgColor}} 70%,rgba(0,0,0,0) 70%);
+            background: -o-linear-gradient({{@global.styleAndNavigation.pageBgColor}} 0%, transparent 0%), -o-linear-gradient(135deg, {{@global.styleAndNavigation.pageBgColor}} 70%, transparent 70%), -o-linear-gradient(45deg, {{@global.styleAndNavigation.pageBgColor}} 70%,rgba(0,0,0,0)70%);
+            background: -moz-linear-gradient({{@global.styleAndNavigation.pageBgColor}} 0%, transparent 0%), -moz-linear-gradient(135deg, {{@global.styleAndNavigation.pageBgColor}} 70%, transparent 70%), -moz-linear-gradient(45deg, {{@global.styleAndNavigation.pageBgColor}} 70%,rgba(0,0,0,0) 70%);
+            background-size: 0px 100%, 9px 27px, 9px 27px;
+        }
+    
+    .couponPageContainer .theme-4 .flipper:after {
+        top:inherit;
+        bottom:-6px;
+        background:linear-gradient({{@global.styleAndNavigation.pageBgColor}} 237%, transparent 27%), linear-gradient(-135deg, {{@global.styleAndNavigation.pageBgColor}} 50%, transparent 50%), linear-gradient(-45deg, {{@global.styleAndNavigation.pageBgColor}} 50%, rgba(0,0,0,0) 50%);
+        background:-webkit-linear-gradient({{@global.styleAndNavigation.pageBgColor}} 237%, transparent 27%), -webkit-linear-gradient(-135deg, {{@global.styleAndNavigation.pageBgColor}} 50%, transparent 50%), -webkit-linear-gradient(-45deg, {{@global.styleAndNavigation.pageBgColor}} 50%, rgba(0,0,0,0) 50%);
+        background: -o-linear-gradient({{@global.styleAndNavigation.pageBgColor}} 237%, transparent 27%), -o-linear-gradient(-135deg, {{@global.styleAndNavigation.pageBgColor}} 50%, transparent 50%), -o-linear-gradient(-45deg, {{@global.styleAndNavigation.pageBgColor}} 50%, rgba(0,0,0,0) 50%);
+        background:-moz-linear-gradient({{@global.styleAndNavigation.pageBgColor}} 237%, transparent 27%), -moz-linear-gradient(-135deg, {{@global.styleAndNavigation.pageBgColor}} 50%, transparent 50%), -moz-linear-gradient(-45deg, {{@global.styleAndNavigation.pageBgColor}} 50%, rgba(0,0,0,0) 50%);
+        background-size: 0px 100%, 9px 27px, 9px 27px;
+    }
+    
+    .couponPageContainer .theme-4 .couponOffer:before {
+        top:-6px;
+        background: linear-gradient({{@global.styleAndNavigation.title[3]}}  0%, transparent 0%), linear-gradient(135deg, {{@global.styleAndNavigation.title[3]}} 70%, transparent 70%), linear-gradient(45deg, {{@global.styleAndNavigation.title[3]}}  70%,rgba(0,0,0,0) 70%);
+        background: -webkit-linear-gradient({{@global.styleAndNavigation.title[3]}}  0%, transparent 0%), -webkit-linear-gradient(135deg, {{@global.styleAndNavigation.title[3]}}  70%, transparent 70%), -webkit-linear-gradient(45deg, {{@global.styleAndNavigation.title[3]}}  70%,rgba(0,0,0,0) 70%);
+        background: -o-linear-gradient({{@global.styleAndNavigation.title[3]}}  0%, transparent 0%), -o-linear-gradient(135deg, {{@global.styleAndNavigation.title[3]}}  70%, transparent 70%), -o-linear-gradient(45deg, {{@global.styleAndNavigation.title[3]}} 70%,rgba(0,0,0,0) 70%);
+        background: -moz-linear-gradient({{@global.styleAndNavigation.title[3]}}  0%, transparent 0%), -moz-linear-gradient(135deg, {{@global.styleAndNavigation.title[3]}}  70%, transparent 70%), -moz-linear-gradient(45deg, {{@global.styleAndNavigation.title[3]}}  70%,rgba(0,0,0,0) 70%);
+        background-size: 0px 100%, 9px 27px, 9px 27px;
+    }
+    
+    .couponPageContainer .theme-4 .couponOffer:after {
+        top:inherit;
+        bottom:-18px;
+        background:linear-gradient({{@global.styleAndNavigation.title[3]}}  237%, transparent 27%), linear-gradient(-135deg, {{@global.styleAndNavigation.title[3]}}  50%, transparent 50%), linear-gradient(-45deg, {{@global.styleAndNavigation.title[3]}}  50%, rgba(0,0,0,0) 50%);
+        background:-webkit-linear-gradient({{@global.styleAndNavigation.title[3]}}  237%, transparent 27%), -webkit-linear-gradient(-135deg, {{@global.styleAndNavigation.title[3]}}  50%, transparent 50%), -webkit-linear-gradient(-45deg, {{@global.styleAndNavigation.title[3]}} 50%, rgba(0,0,0,0) 50%);
+        background: -o-linear-gradient({{@global.styleAndNavigation.title[3]}}  237%, transparent 27%), -o-linear-gradient(-135deg, {{@global.styleAndNavigation.title[3]}}  50%, transparent 50%), -o-linear-gradient(-45deg, {{@global.styleAndNavigation.title[3]}}  50%, rgba(0,0,0,0) 50%);
+        background:-moz-linear-gradient({{@global.styleAndNavigation.title[3]}}  237%, transparent 27%), -moz-linear-gradient(-135deg, {{@global.styleAndNavigation.pageBgColor}}  50%, transparent 50%), -moz-linear-gradient(-45deg, {{@global.styleAndNavigation.pageBgColor}}  50%, rgba(0,0,0,0) 50%);
+        background-size: 0px 100%, 9px 27px, 9px 27px;
+    }
+    .couponPageContainer .theme-2 .couponOffer {background: {{@global.styleAndNavigation.title[2]}}}
+    .couponPageContainer .theme-2 .img-style{border-color:{{@global.styleAndNavigation.borderColor}}}
+    .couponPageContainer .theme-1 .back-screen h2, .couponPageContainer .theme-2 .back-screen h2, .couponPageContainer .theme-3 .back-screen h2, .couponPageContainer .theme-4 .back-screen h2{border-color:{{@global.styleAndNavigation.borderColor}}}
+    .theme-3 .couponPageContainerInside .back-screen { border-radius: 0!important;}
+    
+    
+        </style>
+    <!-- Page content-->
+    <div class="backgroundAnimation">{{> innerBackground}}</div>
+    
+    <div class="page-content {{@global.style.appPageFont}} {{@global.style.appPageCsize}}" style="color:{{@global.style.pageTextColor}};  ">
+        
+        <div class="couponPageContainer">
+            <div class="theme-1 hideBorder-{{@global.styleAndNavigation.hideBorder}}">
+                <div class="couponPageContainerInside flip-container" id="couponDetail-flip-service{{@index}}" style=" background: {{@global.styleAndNavigation.list[0]}}">
+                    <div class="flipper">
+                        <div class="card-box front" style="background: {{@global.styleAndNavigation.pageBgColor}}" >
+                            <h1 class="heading-title {{@global.styleAndNavigation.title[0]}} {{@global.styleAndNavigation.title[1]}}" style="color:{{@global.styleAndNavigation.content[2]}};">{{heading}}
+                                
+                                {{#showbookmarkedicon id}}
+                                
+                                
+                                
+                                <a onclick="addtobookmarkcoupondirectory(this,'{{id}}')"  class="icon icon-bookmark-1" style=" color:{{@global.styleAndNavigation.icon[1]}};float:right;font-size: 26px"></a>
+                                
+                                {{else}}
+                                
+                                <a onclick="addtobookmarkcoupondirectory(this,'{{id}}')" class="icon icon-bookmark-empty" style=" color:{{@global.styleAndNavigation.icon[1]}};float:right;font-size: 26px"></a>
+                                
+                                {{/showbookmarkedicon}}
+                                
+                                
+                            </h1>
+                            <div class="couponOffer {{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}" style="border-color:{{@global.styleAndNavigation.borderColor}}">
+                                <span style="background: {{@global.styleAndNavigation.subHeadingBgColor}}; color:{{@global.styleAndNavigation.subheading[2]}}; text-align:{{@global.styleAndNavigation.subheading[3]}}; border-color:{{@global.styleAndNavigation.borderColor}}"> {{briefDescription}}</span>
+                            </div>
+                            
+                            
+                            <!--{{#js_compare "this.couponType == 'scratchwin'"}}
+                             {{#if scratchoff}}
+                             <div class="copunImgContainer">
+                             <div class="container" id="js-container">
+                             <canvas class="canvas" id="js-canvas" height="300" width="300" style="width:300px; height:300px;"></canvas>
+                             <form class="form" data-text="{{text}}">
+                             <img src="images/image-3x2.png" style="background:url({{image}});" class="topimg img-style2"/>
+                             <div class="textMsg">{{withdraw.scratch_text}}</div>
+                             </form>
+                             </div>
+                             </div>
+                             {{else}}
+                             <div class="copunImgContainer">
+                             <div class="container" id="js-container">
+                             <canvas class="canvas" id="js-canvas" height="300" width="300" style="width:300px; height:300px;"></canvas>
+                             <form class="form" data-text="{{coupon_scratch_text}}" style="visibility:hidden">
+                             <img src="images/image-3x2.png" style="background:url({{withdraw.image}});" class="topimg img-style2"/>
+                             <div class="textMsg {{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}" style="color:{{@global.styleAndNavigation.subheading[2]}};display:none;">{{withdraw.scratch_text}}</div>
+                             </form>
+                             </div>
+                             </div>
+                             {{/if}}
+                             {{/js_compare}}-->
+                            {{#js_compare "this.couponType == 'scratchwin'"}}
+                            {{#if scratchoff}}
+                            <div class="copunImgContainer" style="border-color:{{@global.styleAndNavigation.borderColor}}">
+                                <div class="container" id="js-container">
+                                    <canvas class="canvas" id="js-canvas" height="300" width="300" style="width:300px; height:300px;"></canvas>
+                                    <form class="form" data-text="{{withdraw.scratch_text}}">
+                                        
+                                        <img src="images/image-3x2.png" style="background:url({{image}});" class="topimg img-style2"/>
+                                        
+                                        <div class="textMsg {{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}" style="color:{{@global.styleAndNavigation.subheading[2]}};">{{withdraw.scratch_text}}</div>
+                                    </form>
+                                    
+                                </div>
+                            </div>
+                            {{else}}
+                            <div class="copunImgContainer" style="border-color:{{@global.styleAndNavigation.borderColor}}">
+                                <div class="container" id="js-container">
+                                    <canvas class="canvas" id="js-canvas" height="300" width="300" style="width:300px; height:300px;"></canvas>
+                                    <form class="form" data-text="{{withdraw.scratch_text}}" style="visibility:hidden">
+                                        <img src="images/image-3x2.png" style="background:url({{withdraw.image}});" class="topimg img-style2"/>
+                                        <div class="textMsg {{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}" style="color:{{@global.styleAndNavigation.subheading[2]}}; display:none;">{{withdraw.scratch_text}}</div>
+                                    </form>
+                                    
+                                </div>
+                            </div>
+                            {{/if}}
+                            {{/js_compare}}
+                            
+                            {{#js_compare "this.couponType == 'discount'"}}
+                            <div class="copunImgContainer" style="border-color:{{@global.styleAndNavigation.borderColor}}">
+                                <div class="form2"><img src="images/image-2x1.png" style="background:url({{coverImage}});" class="topimg img-style"/></div>
+                            </div>
+                            {{/js_compare}}
+                            
+                            {{#js_compare "this.couponType == 'buyget'"}}
+                            <div class="copunImgContainer" style="border-color:{{@global.styleAndNavigation.borderColor}}">
+                                <div class="form2"><img src="images/image-2x1.png" style="background:url({{coverImage}});" class="topimg img-style"/></div>
+                            </div>
+                            {{/js_compare}}
+                            
+                            
+                            {{#js_compare "this.couponType == 'discount'"}}
+                            {{#if hide_text}}
+                            {{else}}
+                            {{#js_compare "this.discountRate== 'flat'"}}
+                            <div class="bottomStrip {{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}" style="color:{{@global.styleAndNavigation.subheading[2]}}; text-align:{{@global.styleAndNavigation.subheading[3]}}; background:{{@global.styleAndNavigation.subHeadingBgColor}}">
+                                {{format_currency defaultCurrency}}{{couponPrice}} {{@global.pageLanguageSetting.off}}
+                            </div>
+                            {{else}}
+                            <div class="bottomStrip {{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}" style="color:{{@global.styleAndNavigation.subheading[2]}}; text-align:{{@global.styleAndNavigation.subheading[3]}}; background:{{@global.styleAndNavigation.subHeadingBgColor}}">
+                                {{couponPrice}}%  {{@global.pageLanguageSetting.off}}</div>
+                            {{/js_compare}}
+                            {{/if}}
+                            {{/js_compare}}
+                            {{#js_compare "this.couponType == 'buyget'"}}
+                            {{#if hide_text}}
+                            {{else}}
+                            {{#js_compare "this.coupon_buyget_displayas== '1'"}}
+                            
+                            <div class="bottomStrip {{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}" style="color:{{@global.styleAndNavigation.subheading[2]}}; text-align:{{@global.styleAndNavigation.subheading[3]}}; background:{{@global.styleAndNavigation.subHeadingBgColor}}"> {{buyGetInfo.buy}}+{{buyGetInfo.get}}
+                            </div>
+                            {{else}}
+                            <div class="bottomStrip {{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}" style="color:{{@global.styleAndNavigation.subheading[2]}}; text-align:{{@global.styleAndNavigation.subheading[3]}}; background:{{@global.styleAndNavigation.subHeadingBgColor}}"> Buy {{buyGetInfo.buy}} Get{{buyGetInfo.get}}
+                            </div>
+                            {{/js_compare}}
+                            {{/if}}
+                            {{/js_compare}}
+                            <div class="copunMainbx">
+                                <div class="CopCardbx {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}">
+                                    <div class="dateInfo infoLeft" style="color:{{@global.styleAndNavigation.content[2]}}">
+                                        <span class="subDateInfo">{{couponIssueLabel}}</span>
+                                        {{issueDate}}
+                                    </div>
+                                    {{#js_compare "this.validDate == ''"}}
+                                    {{else}}
+                                    <div class="dateInfo infoRight" style="color:{{@global.styleAndNavigation.content[2]}}">
+                                        <span class="subDateInfo ">{{couponValidLabel}}</span>
+                                        {{validDate}}
+                                    </div>
+                                    {{/js_compare}}
+                                </div>
+                                {{#if codeImage}}
+                                {{#js_compare "this.validationProcess.code_type == 'qr'"}}
+                                <div class="copunContainer qrCode">
+                                    <img src="{{codeImage}}" alt="" width="100%"/>
+                                </div>
+                                {{else}}
+                                <div class="copunContainer">
+                                    <img src="{{codeImage}}" alt="" width="100%"/>
+                                </div>
+                                {{/js_compare}}
+                                {{/if}}
+                            </div>
+                            <div class="info-wrapper">
+                                
+                                {{#js_compare "this.couponDirectorySharing == '1'"}}
+                                <a href="#"  class="icon-share-1 sharebtn" style="background:{{@global.styleAndNavigation.icon[0]}}; color:{{@global.styleAndNavigation.icon[1]}}"   onclick="cdiropenShareCoupon('')"></a>
+                                {{/js_compare}}
+                                {{#js_compare "this.couponType == 'scratchwin'"}}
+                                {{#js_compare "this.validationProcess.validation == '0'"}}
+                                <div  class="couponCode couponCode2 {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="background-color:{{@global.styleAndNavigation.button[2]}}; color:{{@global.styleAndNavigation.button[3]}}; visibility:hidden;" onclick="cdircoupanRedeemShowMessage()" data-index="{{@index}}">{{@global.pageLanguageSetting.redeem}}</div>
+                                {{else}}
+                                <div  class="couponCode couponCode2 {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="background-color:{{@global.styleAndNavigation.button[2]}}; color:{{@global.styleAndNavigation.button[3]}}; visibility:hidden;" onclick="Appyscript.cdircouponServiceStamp(this)" data-index="{{@index}}">{{@global.pageLanguageSetting.redeem}}</div>
+                                {{/js_compare}}
+                                {{else}}
+                                {{#js_compare "this.validationProcess.validation == '0'"}}
+                                <div class="couponCode" style="color:{{@global.styleAndNavigation.content[2]}}; border-color:{{@global.styleAndNavigation.borderColor}}" >
+                                    {{code}}</div>
+                                {{else}}
+                                {{#js_compare "this.validationProcess.validation == '1'"}}
+                                <div  class="couponCode couponCode3 {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="background-color:{{@global.styleAndNavigation.button[2]}}; color:{{@global.styleAndNavigation.button[3]}}; border-color:{{@global.styleAndNavigation.borderColor}}; visibility:visible;" onclick="Appyscript.cdircouponServiceStamp(this)" data-index="{{@index}}">{{@global.pageLanguageSetting.redeem}}</div>
+                                {{else}}
+                                <div  class="couponCode couponCode4 {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="background-color:{{@global.styleAndNavigation.button[2]}}; color:{{@global.styleAndNavigation.button[3]}}; border-color:{{@global.styleAndNavigation.borderColor}};" onclick="cdircoupanRedeemShowMessage()" data-index="{{@index}}">{{@global.pageLanguageSetting.redeem}}</div>
+                                {{/js_compare}}
+                                {{/js_compare}}
+                                {{/js_compare}}
+                                
+                                
+                                <a href="#" class="icon-info-circled infobtn" onclick="couponCardFlipService({{@index}})" style="background-color:{{@global.styleAndNavigation.icon[0]}}; color:{{@global.styleAndNavigation.icon[1]}}"></a>    </div>
+                        </div>
+                        <div class="back-screen" style="background: {{@global.styleAndNavigation.pageBgColor}}">
+                            <a onclick="document.getElementById('couponDetail-flip-service{{@index}}').classList.toggle('hover');" class="icon-cancel-circle-1" style="background:{{@global.styleAndNavigation.icon[0]}}; color:{{@global.styleAndNavigation.icon[1]}}"></a>
+                            <h2 class="{{@global.styleAndNavigation.title[0]}} {{@global.styleAndNavigation.title[1]}}" style="color:{{@global.styleAndNavigation.content[2]}};">{{@global.pageLanguageSetting.Terms_Conditions_realestate}}</h2>
+                                <div class="terms-text terms-text2 copDescription {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="color:{{@global.styleAndNavigation.content[2]}}; text-align:{{@global.styleAndNavigation.content[3]}}">
+                                {{termsCondition}}
+                                </div>
+                    </div>
+                    
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+</div>

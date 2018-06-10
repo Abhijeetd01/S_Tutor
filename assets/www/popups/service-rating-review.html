@@ -1,0 +1,42 @@
+<div class="popup menu-popup">
+    <div class="view">
+        <div class="navbar"><div class="navbar-inner " style="background-color:{{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+            <div class="left sliding">
+                <a href="" class="close link icon-left-open-2 close-popup" style="color:{{@global.style.headerBarIconColor}};">                    
+                </a>
+            </div>
+            <div class="center sliding">
+                <div class="topHeader {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}"> {{@global.style.snappyappyAppName}}</div>
+            </div>
+            <div class="right"></div>
+        </div></div>
+        <div class="pages" style="background-color:{{@global.styleAndNavigation.pageBgColor}};">
+            <div class="page navbar-through no-toolbar hideBorder-{{@global.styleAndNavigation.hideBorder}}">
+                <div class="page-content">
+                    <div class="bodypan filter-page">
+                        <div class="filter-row short-by">
+                            <h3>Ratings and Reviews</h3>
+                            <div class="tabs-animated-wrap">
+                                <ul class="ratingList last-review-bx">
+                                    <li>
+                                        <div class="pull-left">
+                                            <span class="iconz-star" onclick="Appyscript.starClk(this)"></span>
+                                            <span class="iconz-star" onclick="Appyscript.starClk(this)"></span>
+                                            <span class="iconz-star" onclick="Appyscript.starClk(this)"></span>
+                                            <span class="iconz-star" onclick="Appyscript.starClk(this)"></span>
+                                            <span class="iconz-star" onclick="Appyscript.starClk(this)"></span>
+                                        </div>
+                                    </li>
+                                    <li><textarea placeholder="Please post your review." class="review-bx" id="rnrTextArea"></textarea></li></ul>
+                                 <div class="hyper-gray-wrapper">
+                                    <button class="hyper-sent-btn" onclick="Appyscript.submitReviewAndRating()">Submit</button>
+                                </div>
+                            </div>    
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>

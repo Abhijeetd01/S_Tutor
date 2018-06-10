@@ -1,0 +1,41 @@
+<div class="navbar"><div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+    <div class="left sliding">
+        <a href="index" class="link back" style="color:{{@global.style.headerBarIconColor}};">
+            <i class="icon icon-left-open-2"></i>
+        </a>
+    </div>
+    <div class="center sliding">
+        <div class="topHeader  {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">{{@global.pageLanguageSetting.send_request}}</div>
+    </div>
+</div></div>
+<div data-page="realestate-request" class="page navbar-through no-toolbar hideBorder-{{@global.styleAndNavigation.hideBorder}}" style="background:{{@global.styleAndNavigation.pageBgColor}};">
+
+    <!-- Page content-->
+    <div class="page-content">
+        <style>
+			.add-listing .add-details h3 {color:{{@global.styleAndNavigation.heading[2]}}; text-align:{{@global.styleAndNavigation.heading[3]}} }
+			.add-listing .enquery_page input[type='text'], .add-listing .enquery_page textarea, .add-listing .enquery_page select, input[type='number'] {background:{{@global.styleAndNavigation.fieldBgColor}};
+			color:{{@global.styleAndNavigation.fieldTextColor}}; border-color:{{@global.styleAndNavigation.borderColor}} }
+			.hyper-sent-btn{background:{{@global.styleAndNavigation.button[2]}}; color:{{@global.styleAndNavigation.button[3]}} }
+			.terms{color:{{@global.styleAndNavigation.content[2]}}}
+			
+
+    	</style>
+
+        <section class="real-estate add-listing">
+
+
+            <div class="add-details enquery_page">
+                <h3 class="{{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}">{{@global.pageLanguageSetting.REQUEST_INFO}}</h3>
+                <input type="text" placeholder="{{@global.pageLanguageSetting.name_Dir}}" id="nametxt" value="{{@global.realename}}">
+                <input type="text" placeholder="{{@global.pageLanguageSetting.YOUR_EMAIL_ADDRESS}}"  id="emailtxt" value="{{@global.realemail}}">
+                <input type="number" placeholder="{{@global.pageLanguageSetting.Enter_your_phone_number}}" id="phonetxt" value="{{@global.realphone}}">
+                <textarea placeholder="{{@global.pageLanguageSetting.PAGE_SUMMARY}}" id="message"></textarea>
+                <button class="hyper-sent-btn {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" onclick="sendenquiry()">{{@global.pageLanguageSetting.check_availbility}}</button>
+                <center class="terms {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[0]}}">{{@global.pageLanguageSetting.BY_TERMS_USES}}</center>
+            </div>
+
+        </section>
+
+    </div>
+</div>

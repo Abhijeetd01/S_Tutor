@@ -1,0 +1,276 @@
+.app_navigation_grid {
+     width: 100% ;
+    height: 100% ;
+    float:left;
+    border: solid 2px;
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    overflow: hidden;
+}
+
+ .app_navigation_grid li {
+     float: left;
+     border:2px solid;
+     box-sizing: border-box;
+     display: -webkit-box;
+
+     -webkit-box-align: center;
+     -moz-box-align: center;
+     -ms-flex-align: center;
+     -webkit-align-items: center;
+     align-items: center;
+     -webkit-box-pack: center;
+     -moz-box-pack: center;
+     -ms-flex-pack: center;
+     -ms-flex-pack: center;
+     -webkit-justify-content: center;
+     justify-content: center;
+     cursor: pointer;
+
+}
+ .app_navigation_grid li a {
+     text-decoration: none;
+     text-align: center;
+     width: 100% ;
+     display: block;
+
+}
+
+ .app_navigation_grid li a span span {
+     text-overflow: ellipsis;
+     white-space: nowrap;
+     overflow: hidden;
+     padding: 0 10px;
+     max-width: 100% ;
+     display: block;
+     box-sizing: border-box;
+}
+ .app_navigation_grid li a i {
+     line-height: 1em;
+     display: block;
+     font-size:x-large
+}
+ .app_navigation_grid li a img {
+    width: 30px;
+    display: block;
+    margin: 0 auto;
+    border-radius:150px;
+}
+/* .app_navigation_grid.box-click {
+     width: 100% ;
+     box-sizing: border-box;
+     position: absolute;
+     top: 50% ;
+     transform: translateY(-50%);
+     left: 0;
+}
+ .matrix-layout li {
+}
+ .matrix-layout li a {
+}
+ .matrix-layout li a i {
+     font-size: 20px;
+}
+ .matrix-layout li a img {
+}
+ .matrix-layout li a .box-click {
+    width : 100%;
+     box-sizing: border-box;
+     position: absolute;
+     top: 50%;
+     transform: translateY(-50%);
+     left: 0;
+}
+*/
+ .app_navigation_grid li.box0 {
+     width: 30% ;
+}
+ .app_navigation_grid li.box1 {
+     width: 70% ;
+}
+ .app_navigation_grid li.box2 {
+     width: 70% ;
+}
+ .app_navigation_grid li.box3 {
+     width: 30% ;
+}
+ .app_navigation_grid li.box4 {
+     width: 30% ;
+}
+ .app_navigation_grid li.box5 {
+     width: 40% ;
+}
+ .app_navigation_grid li.box6 {
+     width: 60% ;
+}
+ .app_navigation_grid li.box7 {
+     width: 70% ;
+}
+ .app_navigation_grid li.box8 {
+     width: 30% ;
+}
+ .app_navigation_grid.step-1 li.box0 {
+     width: 100% ;
+}
+ .app_navigation_grid.step-3 li.box2 {
+     width: 100% ;
+}
+ .app_navigation_grid.step-4 li.box2, .app_navigation_grid.step-4 li.box3 {
+     width: 50% ;
+}
+ .app_navigation_grid.step-6 li.box5 {
+     width: 100% ;
+}
+ .app_navigation_grid.step-8 li.box7 {
+     width: 100% ;
+}
+ .extra-ui {
+     background: #fff;
+     height: 100% ;
+     display: none;
+     overflow: scroll;
+}
+ .app_navigation_grid.hide-border {
+     border-color: transparent;
+}
+ .app_navigation_grid.hide-border li {
+     border: none;
+}
+ .app_navigation_grid.hide-text  li a span.navText {
+     display: none;
+}
+.app_navigation_grid.hide-icon li a i, .app_navigation_grid.hide-icon li a .box-click img {
+     display: none;
+}
+
+ .app_navigation_grid.hide-background li {
+     background: none!important;
+}
+.app_navigation_grid .moreBtnClick span.hide-text { display:none;}
+
+ .swiper-slide {
+      background-repeat: no-repeat;
+      background-size: cover;
+      float: left;
+      position: relative;
+      width: 100%;
+ }
+  .swiper-slide img {
+      float: left;
+      width: 100%;
+ }
+  .sa .app_navigation_grid a img{
+      float: right;
+ }
+  .sa .app_navigation_grid a span{
+      float: right;
+ }
+  .sa .app_navigation_grid a i{
+      float: right;
+ }
+ .app_navigation_grid.animation li {
+ 	transition-property: all;
+     transition-duration: 0.5s;
+     transition-timing-function: ease;
+ 	transform-origin: 50% 50%;
+ 	position:relative;
+ 	z-index:2;
+ }
+
+ .app_navigation_grid.animation[animation='left'] li {
+ 	opacity:0;
+ 	transform: translate(-100%, 0) scale(0);
+ }
+
+ .app_navigation_grid.animation[animation='left'] li.on {
+ 	opacity:1;
+ 	transform: translate(0, 0) scale(1);
+ }
+
+ .app_navigation_grid.animation[animation='right'] li {
+ 	opacity:0;
+ 	transform: translate(100%, 0) scale(0);
+ }
+
+ .app_navigation_grid.animation[animation='right'] li.on {
+ 	opacity:1;
+ 	transform: translate(0, 0) scale(1);
+ }
+
+ .app_navigation_grid.animation[animation='top'] li {
+ 	opacity:0;
+ 	transform: translate(0, -100%);
+ }
+
+ .app_navigation_grid.animation[animation='top'] li.on {
+ 	opacity:1;
+ 	transform: translate(0, 0);
+ }
+
+ .app_navigation_grid.animation[animation='bottom'] li {
+ 	opacity:0;
+ 	transform: translate(0, 100%);
+ }
+
+ .app_navigation_grid.animation[animation='bottom'] li.on {
+ 	opacity:1;
+ 	transform: translate(0, 0);
+ }
+
+ .app_navigation_grid.animation[animation='max'] li {
+ 	opacity:0;
+ 	transform: scale(3);
+ }
+
+ .app_navigation_grid.animation[animation='max'] li.on {
+ 	opacity:1;
+ 	transform: scale(1);
+ }
+
+ .app_navigation_grid.animation[animation='min'] li {
+ 	opacity:0;
+ 	transform: scale(0);
+ }
+
+ .app_navigation_grid.animation[animation='min'] li.on {
+ 	opacity:1;
+ 	transform: scale(1);
+ }
+
+
+ .app_navigation_grid.animation li.on0 {transition-delay: 0.0s;}
+ .app_navigation_grid.animation li.on1 {transition-delay: 0.1s;}
+ .app_navigation_grid.animation li.on2 {transition-delay: 0.2s;}
+ .app_navigation_grid.animation li.on3 {transition-delay: 0.3s;}
+ .app_navigation_grid.animation li.on4 {transition-delay: 0.4s;}
+ .app_navigation_grid.animation li.on5 {transition-delay: 0.5s;}
+ .app_navigation_grid.animation li.on6 {transition-delay: 0.7s;}
+ .app_navigation_grid.animation li.on7 {transition-delay: 0.8s;}
+ .app_navigation_grid.animation li.on8 {transition-delay: 0.9s;}
+
+
+
+  .app_navigation_grid.hide-icon i,
+  .app_navigation_grid.hide-icon a img,
+  .hide-icon a i
+  {    display: none;}
+
+ .app_navigation_grid.hide-background {
+     border-color: transparent;
+   }
+
+   .closebtn{
+       display: inline-block;
+       position: fixed;
+       top: 0;
+       right: 0;
+       padding: 0px 1px 3px 2px;
+       font-size: 30px;
+       z-index: 1;
+       width: 40px;
+       text-align: center;
+       height: 40px;
+       opacity: .8;
+   }
+   .closebtn i{opacity:1;}

@@ -1,0 +1,317 @@
+.about-us {
+    float:left;
+    width:100%;
+    padding:10px;
+    line-height:18px;
+    box-sizing:border-box;
+	background-repeat:no-repeat;
+    background-size:100% 100%;
+    background-position:center top;
+    background-attachment:fixed;
+    background-color:rgba(0, 0, 0, 0);
+    overflow:auto;
+    height:100%;
+    -webkit-backface-visibility: hidden;
+    -webkit-transform:translate3d(0,0,0);
+}
+
+.about-us.bg-image {
+	box-shadow: inset 0 0 0 1000px rgba(0,0,0,0.4);
+}
+
+.about-us div.description {
+ 	margin:10px 0 0 0;
+  	padding:0 0 10px 0;
+   	border-bottom:solid 1px #ccc;
+  	line-height:18px;
+   
+}
+
+.about-us .founderList,
+.about-us .founderList li,
+.about-us .missionList,
+.about-us .missionList li {
+    margin:0px;
+    padding:0px;
+    list-style:none;
+    float:left;
+    width:100%;
+}
+
+.about-us .missionList {
+ 	margin:10px 0 10px 0;
+}
+
+.about-us .missionList li span.foundedicon img {
+ 	top:8px;	
+}
+
+.about-us .missionList li span.foundedicon {
+	line-height:30px;
+}
+
+.about-us .founderList li {
+ 	margin:0 0 10px 0;
+}
+
+.about-us .founderList li:first-child {
+ 	margin:10px 0 10px 0;
+}
+
+.about-us .founderList li img {
+ 	float:left;
+	width:147px;
+ 	margin:0 10px 0 0;
+	border-radius:10px;
+ 	max-width:100%;
+}
+.about-us .founderList li .smo-urls img {
+    width:28px;
+    height:28px;
+    margin:1px !important;
+    float:left;
+    border-radius:100%;
+}
+
+.about-us .founderList .smo-urls {
+    float:left;
+    text-align:left !important;
+    width:100%;
+    padding:8px 0 0 0;
+}
+
+.about-us .founderList .smo-urls a {
+    width:30px;
+    height:30px;
+    overflow:hidden;
+    display:inline-block;
+    margin:0 2px;
+    background:#F00;
+    border-radius:100%;
+    color:#fff;
+    text-align:center;
+    float:left;
+}
+
+.about-us .founderList .smo-urls a i,
+.about-us .founderList .smo-urls a i:before {
+ 	line-height:30px;
+}
+
+.about-us h1,
+.about-us .founderList h3,
+.about-us .missionList h3,
+.about-us .missionList h4,
+.about-us .founderList p {
+ 	margin:0px;
+   	line-height:18px;
+    text-align:left;
+}
+
+.about-us h1 {
+ 	padding:0 0 5px 0;
+  	border-bottom:solid 1px #ccc;
+	font-size:16px;
+}
+
+.about-us .founderList h3 {
+  	margin:0 0 0 0;
+}
+
+.about-us .founderList p {
+ 	margin:8px 0 0 0;
+}
+
+.about-us .founderList h3 span {
+ 	display:block;
+  	margin:8px 0 0 0;
+   	font-weight:normal;
+	text-transform:none;    
+}
+
+.about-us .missionList li {
+ 	margin:0 0 15px 0;
+}
+
+.about-us .missionList p {
+ 	margin:10px 0 0 0;
+  	float:left;
+	width:100%;
+}
+
+.about-us .missionList h3 {
+    margin:0 0 0 0;
+    padding:0 0 5px 0;
+    border-bottom:solid 1px #ccc;
+    float:left;
+    line-height:26px;
+    width:100%;
+    font-size:16px;
+}
+
+.about-us .missionList h3 i,
+.about-us .missionList h3 i:before {
+ 	line-height:26px;
+  	margin:0 0 0 0;
+}
+
+.about-us .missionList h3 img {
+    width:30px;
+    height:30px;
+    border-radius:4px;
+    position:relative;
+    top:6px;
+}
+
+.about-us.heading-left h1,
+.about-us.subHeading-left h3,
+.about-us.content-left p,
+ .about-us.content-left div{
+    text-align:left;
+}
+
+.about-us.heading-center h1,
+.about-us.subHeading-center h3,
+.about-us.content-center p,
+.about-us.content-center div {
+    text-align:center;
+}
+
+
+.about-us.heading-right h1,
+.about-us.subHeading-right h3,
+.about-us.content-right p,
+.about-us.content-right div{
+    text-align:right;
+}
+
+.about-us.heading-justify h1,
+.about-us.subHeading-justify h3,
+.about-us.content-justify p,
+.about-us.content-justify div{
+    text-align:justify;
+}
+
+.about-us.layout-rectangle_right .founderList li img {
+ 	float:right;
+  	margin:0 0 10px 0;	
+}
+
+.about-us.layout-rectangle .founderList li,
+.about-us.layout-rounded .founderList li {
+    width:calc(50% - 10px);
+    -moz-width:calc(50% - 10px);
+    -webkit-width:calc(50% - 10px);
+  	float:none;
+    margin: 10px 0 10px 0;
+    display:inline-block;
+    text-align: center;
+    clear: both;
+    overflow:hidden;
+    vertical-align:top;
+}
+
+.about-us.layout-rectangle .founderList .smo-urls,
+.about-us.layout-rounded .founderList .smo-urls {
+ 	text-align:center;
+}
+
+.about-us.layout-rectangle .founderList li:nth-child(even),
+.about-us.layout-rounded .founderList li:nth-child(even) {
+    margin: 10px 0 10px 1%;
+}
+
+.about-us.layout-rectangle .founderList li img,
+.about-us.layout-rounded .founderList li img {
+ 	margin:auto;
+  	float:none;
+  
+}
+
+.about-us.layout-rounded .founderList li img {
+ 	border-radius:100%;
+}
+
+.about-us.layout-rectangle .founderList li h3,
+.about-us.layout-rectangle .founderList li p,
+.about-us.layout-rounded .founderList li h3,
+.about-us.layout-rounded .founderList li p {
+ 	float:left;
+	width:100%;
+	word-break: break-word;
+}
+
+.about-us.layout-rectangle .founderList li h3,
+.about-us.layout-rounded .founderList li h3 {
+ 	margin:10px 0 0 0;
+}
+
+.about-us.layout-rectangle_right .founderList li img {
+ 	margin:0 0 0 10px;
+  	float:right;
+}
+.hideBorder-1 * {border:0px!important;}
+
+
+/*=======FOR SA==========*/
+.sa .about-us .founderList .smo-urls a {
+    float: right;
+}
+.sa .about-us .founderList li img {
+    float: right;
+    margin: 0 0px 0 10px;
+}
+.sa .about-us.layout-rectangle_right .founderList li img {
+    margin: 0 10px 0 0px;
+    float: left;
+}
+
+/////
+
+.hourListSimulator {
+    width: 100% !important;
+    padding-top: 10px !important;
+    list-style:none;
+    padding-left:0px !important;
+
+}
+.hourListSimulator li.day_hours .day_name {
+    float: left;
+    width: 120px;
+}
+.hourListSimulator li.day_hours .delete_daylist {
+    right: -20px;
+    top: 7px !important;
+    position: absolute;
+    width: 13px;
+    opacity: 0.65;
+    height: 15px;
+    cursor: pointer;
+}
+.hourListSimulator li.day_hours {
+    display: inline-block;
+    border: 0px #e3e3e3 solid !important;
+    position: relative;
+    box-shadow:0px 0px 0 rgba(0, 0, 0, 0) inset;
+    padding:0px 0 0px 0 !important;
+    min-height:inherit;
+    margin:0px;
+
+}
+.hourListSimulator .hours_list{
+    overflow: hidden;
+    list-style:none;
+    padding-left:0px;
+}
+.hourListSimulator li.day_hours .hour_list {
+    padding: 0px !important;
+    min-height:inherit;
+    margin:0px;
+    border:0px;
+    box-shadow:0px 0px 0 rgba(0, 0, 0, 0) inset;
+}
+.hourListSimulator .hour-time {
+    width: 70px;
+    display: inline-block;
+    text-align: center;
+}

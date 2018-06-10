@@ -1,0 +1,267 @@
+*{margin: 0px; padding: 0px;}
+ul.add-listing {
+    padding: 12px;
+    box-sizing: border-box;
+    background: #f1f1f1; list-style:none;
+}
+ul.add-listing li input, ul.add-listing li select, ul.add-listing li textarea, ul.add-listing li input, ul.add-listing li select, ul.add-listing li textarea {
+    background:#fff;
+    border: 1px solid #5dd5eb;
+    padding: 5px;
+    box-sizing: border-box;
+    color: #626262;
+    font-size: 12px;
+    height: 40px;
+    line-height: 40px;
+    width: 100%;
+    z-index: 9;
+    font-family: Arial, Helvetica, sans-serif;
+	margin-bottom: 10px;
+}
+ul.add-listing li textarea {
+    height: 80px;
+    border: 1px solid #5dd5eb;
+    padding: 5px;
+    box-sizing: border-box;
+    color: #626262;
+    font-size: 12px;
+    line-height: 22px;
+    width: 100%;
+    z-index: 9;
+    resize: none;
+}
+.multipleUrlField {
+    display: inline-block;
+    list-style: outside none none;
+    width: 100%;
+}
+.multipleUrlField li {
+    float: left;
+    margin-bottom:10px;
+    width: 100%;
+}
+ul.add-listing li li input, ul.add-listing li li select, ul.add-listing li li textarea{margin-bottom:5px;}
+.add-more{
+    background: #9b9a9a;
+    border-radius: 3px;
+    color: #fff;
+    float: right;
+    font-size: 11px;
+    line-height: 26px;
+    margin-top: 3px;
+    padding:2px 10px;
+}
+
+.listing-tabs {
+    box-sizing: border-box;
+    padding: 0;
+    border-bottom: solid 1px #5DD5EB;
+}
+.listing-tabs a.active {
+    background-color: #fff;
+    border-bottom: solid 0px #5DD5EB;
+}
+.listing-tabs a {
+    width: 30.33%;
+    max-width: 100px;
+    float: left;
+    
+    margin: 0 8px 0 0;
+    text-align: center;
+    border-radius: 8px 8px 0 0;
+    line-height: 22px;
+    border: solid 1px #5DD5EB;
+    box-sizing: border-box;
+    position: relative;
+    top: 1px;
+    border-bottom: solid 0px #5DD5EB;
+    color: #333;
+    font-weight: bold;
+    background-color: #e1e1e1;
+	font-size:12px;
+	padding: 0 0 5px;
+}
+.listing-tabs a i{display: inline-block;
+    font-size: 16px;
+    margin-top: 5px;
+    width: 100%;}
+.listing-tabs-view {
+    padding: 10px;
+    box-sizing: border-box;
+    background: #fff;
+    border-radius: 0;
+    border-bottom: solid 1px #5DD5EB;
+    border-right: solid 1px #5DD5EB;
+    border-left: solid 1px #5DD5EB;
+}
+.listing-tabs-view h3 {
+    margin: 0 0 10px 0;
+}
+.listing-tabs-view ul {
+    float: left;
+    width: 100%;
+    margin: 0 0 0 0;
+}
+ul.add-listing li li {
+   background: #f1f1f1;
+    box-sizing: border-box;
+    float: left;
+    list-style: outside none none;
+    margin: 0; 
+    outline:0px solid #5dd5eb;
+    padding: 0px;
+    position: relative;
+    width: 100%;
+	margin-bottom:10px;
+}
+ul.add-listing li li p {
+    font-size: 13px;
+    line-height: 30px;
+    margin: 0;
+    padding: 25px 10px;
+}
+.listing-tabs-view li img {
+   border: 1px solid #ccc;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    width: 78px;
+}
+.listing-tabs-view li a {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    background: #1E94A9;
+    color: #FFF;
+    width: 24px;
+    height: 24px;
+    text-align: center;
+    line-height: 24px;
+    font-weight: bold;
+    border-radius: 0 0 0 10px;
+}
+.listing-tabs-view .add-view {
+    float: left;
+    line-height: 12px;
+    background: #f1f1f1;
+    width: 100%;
+    position: relative;
+    padding: 10px;
+    box-sizing: border-box;
+    height: 46px;
+    margin: 12px 0 0 0;
+}
+.listing-tabs-view span {
+   color: #f00;
+    display: inline-block;
+    float: left;
+    font-size: 11px;
+    line-height: normal;
+    max-width: 150px;
+    opacity: 0.8;
+}
+.listing-tabs-view .add-more {
+    display: inline-block;
+    float: right;
+    margin: 0;
+}
+.listing-tabs-view h3 {
+    margin: 0 0 10px 0;
+}
+.listing-tabs, .listing-tabs-view, .listing-tabs-view h3, .listing-tabs-view h2 {
+    float: left;
+    width: 100%;
+	font-size: 15px;
+	color:#747474;
+}
+
+.listing-tabs-view .providers .selectEveBlo li {
+  background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    border: 0 none;
+    cursor: pointer;
+    display: inline-block;
+    float: left;
+    line-height: 14px;
+    list-style: outside none none;
+    margin: 0;
+    min-height: inherit;
+    min-width: inherit;
+    outline: medium none;
+    padding: 0;
+    position: relative;
+    text-align: center;
+    transition: all 0.5s ease 0s;
+    width:25%;
+	margin-bottom:10px;
+}
+.listing-tabs-view .providers .selectEveBlo li a {
+    background: rgba(0, 0, 0, 0) linear-gradient(to bottom, #fefefe 1%, #fcfcfc 11%, #f4f4f4 39%, #eaeaea 69%, #efefef 78%, #fefefe 95%) repeat scroll 0 0;
+    border: 1px solid #b9b9b9;
+    border-radius: 5px;
+    color: #95b10c;
+    display: inline-block;
+    float: none;
+    font-size: 25px;
+    height: 40px;
+    line-height: 35px;
+    margin-bottom: 5px;
+    padding: 5px;
+    position: static;
+    text-align: center;
+    width: 50px;
+}
+.listing-tabs-view .providers .selectEveBlo li a span{color: #444;
+    display: inline;
+    float: none;
+    font-size: 20px;
+    opacity: inherit;
+    vertical-align: middle;}
+.listing-tabs-view .providers .selectEveBlo li small {
+      display: inline-block;
+    float: left;
+    font-size: 10px;
+    width: 100%;
+}
+
+ul.add-listing li .map-checkbox {
+  
+    line-height: 26px;
+    position: relative;
+    top:;
+    padding: 6px;
+    background: rgb(241, 241, 241);
+}
+ul.add-listing li .map-checkbox input {
+    width: 20px;
+    height: 20px;
+    float: left;
+    margin: 3px 8px 0px -6px;
+}
+.hyper-gray-wrapper {
+    text-align: center;
+    float: left;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 15px;
+    background: rgb(225, 225, 225);
+}
+.hyper-sent-btn {
+    color: rgb(255, 255, 255);
+    box-shadow: rgb(11, 58, 66) 0px 1px 5px inset;
+    border-image-source: initial;
+    border-image-slice: initial;
+    border-image-width: initial;
+    border-image-outset: initial;
+    border-image-repeat: initial;
+    cursor: pointer;
+    font-size: 16px;
+    width: 40%;
+    min-width: 140px;
+    margin-left: 4px;
+    background: linear-gradient(rgb(15, 119, 138) 1%, rgb(30, 148, 169) 99%);
+    padding: 10px 16px;
+    border-width: initial;
+    border-style: none;
+    border-color: initial;
+    border-radius: 4px;
+}

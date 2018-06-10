@@ -1,0 +1,48 @@
+<div class="navbar">
+	<div class="navbar-inner" style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+		<div class="left sliding">
+			<a href="index" class="link back" style="color:{{@global.style.headerBarIconColor}};">
+			<i class="icon icon-left-open-2"></i>
+			</a>
+		</div>
+		<div class="center sliding  {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">
+			<div class="topHeader">{{@global.pageLanguageSetting.post_review_mcom}}
+			</div>
+		</div>
+		<div class="right">
+			<a href="#" class="link" style="color:{{@global.style.headerBarIconColor}};">
+			<i class="icon-cart cursor-pointer" onclick="Appyscript.ecomorderingProduct(this);"><span class="cartNotification"></span></i>
+			</a>
+		</div>
+	</div>
+</div>
+
+
+<div data-page="ecommerce-PostReview" class="page navbar-through toolbar-fixed no-toolbar">
+    <!-- Page content-->
+<div class="page-content {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}} content-{{@global.styleAndNavigation.content[3]}} heading-{{@global.styleAndNavigation.heading[3]}} hideBorder-{{@global.styleAndNavigation.hideBorder}}" style="color:{{@global.styleAndNavigation.content[2]}}; background:{{@global.styleAndNavigation.pageBgColor}}">
+
+<div class="thankyou">
+	<h1>{{@global.pageLanguageSetting.write_a_review_mcom}}</h1>
+	<p>
+		{{@global.pageLanguageSetting.post_review_guidelines_mcom}}
+	</p>
+	<div class="post-review">
+		<h2>{{@global.pageLanguageSetting.post_review_mcom}}</h2>
+		<div class="rating">
+			<b style="cursor: pointer; width: 100px;">
+				<img src="images/star-off-big.png" id="rat1" alt="1" title="bad" onclick="getrating(this);">&nbsp;
+				<img src="images/star-off-big.png" id="rat2" alt="2" title="poor" onclick="getrating(this);">&nbsp;
+				<img src="images/star-off-big.png" id="rat3" alt="3" title="regular" onclick="getrating(this);">&nbsp;
+				<img src="images/star-off-big.png" id="rat4" alt="4" title="good" onclick="getrating(this);">&nbsp;
+				<img src="images/star-off-big.png" id="rat5" alt="5" title="gorgeous" onclick="getrating(this);">
+				<input type="hidden" name="score"></b>
+		</div>
+		<input placeholder="{{@global.pageLanguageSetting.please_enter_the_review_title_mcom}}" id="InputTitle" data-role="none" type="text">
+		<textarea data-role="none" id="comentInputTxt" placeholder="{{@global.pageLanguageSetting.please_enter_the_review_text_mcom}}"></textarea>
+		<input value="{{@global.pageLanguageSetting.post_review_mcom}}" onclick="postReviewOfProduct(this);" type="button">
+	</div>
+</div>
+
+</div>
+</div>

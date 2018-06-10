@@ -1,0 +1,26 @@
+<div class="navbar"><div class="navbar-inner" style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+    <div class="left sliding">
+
+        <a href="index" class="link back" style="color:{{@global.style.headerBarIconColor}};">
+            <i class="icon icon-left-open-2"></i>
+        </a>
+    </div>
+    <div class="center sliding {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">Notification</div>
+    <div class="right sliding">        
+    </div>
+</div>
+
+<div data-page="NotificationSharePage" class="page navbar-through no-toolbar">
+    <!-- Page content-->
+    <div class="page-content notificationWrapper {{@global.style.appPageCsize}}" style="color:{{@global.style.pageTextColor}};">
+         
+         <div class="bodypan">
+         	<h1 class="{{@global.style.appPageHsize}}">Rate & Share</h1>
+            <p>Rate & Share Description</p>
+            <a href="#" onclick="Appyscript.ShareNow()" class="btn btnLeft" style="background:{{@global.style.primaryButtonBgColor}}; color:{{@global.style.buttonTextColor}}">Share Now</a>
+            <a href="#" onclick="Appyscript.RateNow()" class="btn btnRight" style="background:{{@global.style.secondaryButtonBgColor}}; color:{{@global.style.buttonTextColor}}">Rate Now</a>
+         </div>
+         
+    </div>
+
+</div>

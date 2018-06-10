@@ -1,0 +1,57 @@
+<div class="navbar"><div class="navbar-inner" style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+    <div class="left sliding">
+                {{getSlideBack "common"}}
+    </div>
+    <div class="center sliding {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">{{pageTitle}}</div>
+	<div class="right"></div>
+</div></div>
+
+<div data-page="folder-Page" class="page folderPage navbar-through no-toolbar">
+<!-- Page content-->
+<div class="backgroundAnimation">
+{{#if @root.background}}
+{{#root_Compare @root.backgroundType "==" "color"}}<div class="background-image" style="background-color:{{@root.background}}"></div>{{/root_Compare}}
+{{#root_Compare @root.backgroundType "==" "image"}}<div class="background-image portrait" style="background-image:url({{@root.background}})"></div><div class="background-image landscape" style="background-image:url({{@root.ipadBackground}})"></div>{{/root_Compare}}
+<div class="background-theme {{@global.style.appTheme}}"></div>
+{{/if}}
+</div>
+
+<div class="page-content">
+	<link rel="stylesheet" href="css/folder.css" type="text/css">
+	<div class="{{navigationSize}} {{#layoutAlign}} {{this}}-align {{/layoutAlign}} {{#layoutOption}} {{this}}-option {{/layoutOption}}  {{#hideLayout}} hide-{{this}} {{/hideLayout}}  {{navigationFont}} app_navigation_{{layout}} showMatrix-{{showMatrixBackgrondText}} clearfix">
+    
+    
+
+    <div class="scroll">
+    {{#home}}
+           <a href="#" data-productidentifier="{{pageIdentifierBecon}}" data-productid="{{pageid}}" class="page-link" style="border-color: {{@root.navBorderColor}}; background:{{@root.navBackgroundColor}}">
+            {{#js_compare "this.pageiconType === 'img' "}}
+            {{#root_Compare @root.layout "==" "imglist"}}
+            <img src="images/transparent-bg.png" style="background-image:url({{@global.iconpath}}{{iconName}});"/>
+            {{else}}
+            {{#root_Compare @root.layout "==" "imgmatrix"}}
+            <img src="images/image-1x1.png" style="background-image:url({{@global.iconpath}}{{iconName}});"/>            
+            {{else}}
+            {{#root_Compare @root.layout "==" "matrix"}}
+            <img src="images/image-1x1.png" style="border-color:{{@root.navBorderColor}};{{#if @root.showMatrixBackgrondText}} {{else}} background-color:{{@root.navBackgroundColor}}{{/if}}; background-image:url({{@global.iconpath}}{{iconName}})" />            
+            {{else}}
+			<img src="{{@global.iconpath}}{{iconName}}" />      
+            {{/root_Compare}}     
+            {{/root_Compare}}
+            {{/root_Compare}}
+            {{else}}
+            {{#root_Compare @root.layout "==" "matrix"}}
+            <img src="images/image-1x1.png" style="border-color:rgba(0,0,0,0);background-color:rgba(0,0,0,0)" />
+            <i class="{{iconName}}" style="border-color:{{@root.navBorderColor}};color:{{@root.navIconColor}}; {{#if @root.showMatrixBackgrondText}} {{else}} background-color:{{@root.navBackgroundColor}}{{/if}}"></i> 
+            {{else}}
+            <i class="{{iconName}}" style="color:{{@root.navIconColor}};background:{{@root.navBackgroundColor}} "></i> 
+            {{/root_Compare}}
+            {{/js_compare}} 
+			<span class="" style="color:{{@root.navTextColor}};background:{{@root.navBackgroundColor}}">{{pageNewid}}</span>
+           </a>
+    {{/home}}
+    </div>
+
+    </div>
+</div>
+</div>

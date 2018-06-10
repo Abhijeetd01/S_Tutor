@@ -1,0 +1,642 @@
+html, body {
+    margin:0px;
+    padding:0px;
+}
+
+.member-card {
+    float:left;
+    width:100%;
+    font-family:Verdana, Geneva, sans-serif;
+    font-size:16px;
+}
+
+.top-img {
+    float: left;
+    width: 100%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.member-card h1 {
+    color:#fff;
+    font-size:19px;
+    line-height:normal;
+    margin:0;
+    padding:0 15px;
+    font-weight:bold;
+    float:left;
+    width:100%;
+    line-height:40px;
+    box-sizing:border-box;
+    border-width:0px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.member-area {
+    float:left;
+    width:100%;
+    padding:15px 15px 0 15px;
+    box-sizing:border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.member-area h2 {
+    font-size:18px;
+    color:#fff;
+    margin:0px;
+    padding:0px;
+    line-height:normal;
+    font-weight:bold;
+    position:relative;
+}
+
+.member-area h2 .memberkey {
+    display:block;
+    font-size:14px;
+}
+
+.member-area h2 .group-name {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.member-area a {
+    text-decoration:none;
+}
+
+.info-wrapper {
+    display:inline-block;
+    width:100%;
+    margin:0px 0 10px 0;
+    float:left;
+}
+.info-wrapper a {
+    background:#808080;
+/*    border:1px solid #fff;*/
+    border-radius:30px;
+    color:#fff;
+    font-size:16px;
+    height:24px;
+    padding:0;
+    width:24px;
+    float:right;
+    text-align:center;
+    line-height:24px;
+}
+
+.info-wrapper a:before {
+    line-height:24px;
+}
+
+.info-wrapper a:hover {
+    text-decoration:none;
+}
+
+.memberCardPoint {
+    margin:25px 0 20px;
+    display:inline-block;
+    width:100%;
+    float:left;
+    position:relative;
+    min-height:90px;
+}
+
+.memberCardCopun {
+    display:inline-block;
+    width:100%;
+    margin: 20px 0 15px;
+    float:left;
+}
+
+.dateInfo {
+    color:white;
+    float:left;
+    font-size:15px;
+    font-weight:bold;
+    padding-left:115px;
+    width:100%;
+    box-sizing:border-box;
+    white-space:nowrap;
+    overflow:hidden;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.member-card .copunContainer {
+    background: #fff;
+    border-radius: 10px;
+    box-sizing: border-box;
+    float: left;
+    margin-right: 25px;
+    padding: 10px;
+    width: 110px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.member-card .copunContainer img {
+    width:100%;
+    float:left;
+}
+
+.member-card .btnStyle {
+    border-radius:5px;
+    color:#fff;
+    display:block;
+    margin-right:10px;
+    overflow:hidden;
+    padding:10px;
+    text-align:center;
+    font-weight:bold;
+}
+.member-card .btnMargin {
+    margin-bottom:10px;
+    margin-top:10px;
+}
+.member-card .btnSecond {
+}
+
+.qrcode-0 .copunContainer,
+.pointes-0 .pointBalance {
+    display:none;
+}
+
+.pointes-0 .memberCardPoint {
+    min-height:40px;
+}
+.pointes-0 .memberCardCopun {
+    margin:0 0 15px 0;
+}
+
+.loyalStemp {
+    padding:15px;
+    text-align: center;
+    float:left;
+    width:100%;
+    box-sizing:border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.loyalStemp input {
+    width: 100%;
+    box-sizing: border-box;
+    border: 0px;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 14px;
+    margin:0 0 10px 0;
+    border-width:1px;
+    border-style:solid;
+}
+
+.loyalStemp .Bdiscription {
+    color: #fff;
+    font-size: 16px;
+    margin-bottom: 12px;
+    text-align: center;
+    margin:0 0 10px 0;
+}
+
+.loyalStemp #validateOptionsMember,
+.loyalStemp #validateOptionsMember .btn {
+    float:left;
+    width:100%;
+    margin:0px;
+}
+
+.loyalStemp #validateOptionsMember .btn {
+    margin:0 0 10px 0;
+}
+.theme-1 .xlargeContent .subDateInfo, .theme-3 .xlargeContent .subDateInfo  {  margin-left: 0px !important;; }
+
+/* Theme-1 */
+
+.member-card.theme-1 {
+
+}
+
+.member-card.theme-1 .pointMark {
+    display: block;
+    font-size: 12px;
+    margin-top: 4px;
+}
+.member-card.theme-1 .pointBalText {
+    display: block;
+    font-size: 10px;
+    margin-top: -7px;
+}
+
+.theme-1 .front { width:100%;}
+.member-card.theme-1 .pointBalance {
+
+    box-sizing: border-box;
+    color: #fff;
+    font-size: 28px;
+    font-weight: bold;
+    height: 60px;
+    line-height: 22px; top:20px;
+    position: absolute;
+    text-align: center;
+    width: 100px;}
+.member-card.theme-1 .dateInfoMargin {
+    margin-bottom:5px;
+    margin-top:25px;
+}
+.member-card.theme-1 .dateInfo .subDateInfo {
+    font-size:12px;
+    font-weight:normal;
+    margin-left:5px;
+}
+
+.member-card.theme-1.pointes-0 .dateInfo, .member-card.theme-3.pointes-0 .dateInfo {
+    padding:0px;
+    font-size:16px;
+    width:50%;
+    float:left;
+    margin:0px;
+}
+
+.member-card.theme-1.pointes-0 .dateInfo span, .member-card.theme-3.pointes-0 .dateInfo span {
+    display:block;
+    padding:0px;
+   	margin:0px;
+}
+
+.member-card.theme-1.pointes-0 .infoRight, .member-card.theme-3.pointes-0 .infoRight {
+    float:right;
+    text-align:right;
+}
+
+.member-card.theme-1.qrcode-0 .btnStyle {
+    margin-bottom:10px;
+    box-sizing:border-box;
+    width:100%;
+    float:left;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+	margin-right: 0;
+}
+
+.member-card.theme-1.qrcode-0 .btnSecond {
+    float:right;
+}
+
+
+
+/* Theme-2 */
+.member-card.theme-2 {
+
+}
+.member-card.theme-2 h1 {
+
+}
+.member-card.theme-2 h2 {
+    text-align:center;
+}
+
+.theme-2 .memberCardPoint {
+    margin:15px 0;
+}
+
+.member-card.theme-2 .dateInfo {
+    padding:0px;
+    font-size:12px;
+    width:50%;
+    line-height:18px;
+    margin: 30px 0 0 0;
+}
+
+.member-card.theme-2 .dateInfo.infoRight {
+    text-align:right;
+}
+
+.member-card.theme-2 .dateInfo span {
+    display:block;
+    font-size: 12px!important;
+}
+.theme-2 .front { width:100%;}
+
+.member-card.theme-2 .pointBalance {
+    width:82px;
+    height:82px;
+    border-radius:100%;
+    border:solid 4px #0092c3;
+    position:absolute;
+    left:50%;
+    top:0px;
+    padding:5px;
+    margin:0 0 0 -50px;
+    text-align:center;
+    color:#FFF;
+    font-size:30px;
+    font-weight:bold;
+}
+
+.member-card.theme-2 .pointBalance span {
+    display:block;
+    font-size:12px;
+}
+
+.member-card.theme-2 .pointBalance .pointBalText {
+
+}
+
+.member-card.theme-2 .copunContainer {
+    position:relative;
+    width:100%;
+    text-align:center;
+    margin:0 0 15px 0;
+    padding:0px;
+    background:none;
+}
+.member-card.theme-2 .copunContainer img {
+    width:90px;
+    border:solid 10px #fff;
+    margin:auto;
+    border-radius:10px;
+    float:none;
+}
+
+.member-card.theme-2 .btnStyle {
+    width:48%;
+    margin:0px;
+    box-sizing:border-box;
+    float:left;
+    background:#fff;
+    color:#114354;
+    border-radius:20px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.member-card.theme-2 .btnSecond {
+    float:right;
+}
+
+/* Theme-3 */
+.member-card.theme-3 {
+}
+.member-card.theme-3 h1 {
+
+}
+
+.member-card.theme-3 .pointBalance {
+    border:4px solid #fff;
+    border-radius:15px;
+    box-sizing:border-box;
+    color:#fff;
+    font-size:24px;
+    font-weight:bold;
+    height:90px;
+    line-height:13px;
+    margin-right:0;
+    padding:20px 15px;
+    position:absolute;
+    right:0;
+    text-align:center;
+    width:90px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.member-card.theme-3 .pointMark {
+    display:block;
+    font-size:12px;
+    margin-top:9px;
+}
+.member-card.theme-3 .pointBalText {
+    font-size:10px;
+}
+.theme-3 .memberCardPoint {
+    margin:15px 0;
+    display:inline-block;
+    width:100%;
+    position:relative;
+}
+.member-card.theme-3 .dateInfo {
+    color:#fff;
+    padding-right:110px;
+    padding-left:0px;
+    width:100%;
+    box-sizing:border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.member-card.theme-3 .dateInfoMargin {
+    margin-bottom:5px;
+    margin-top:20px;
+}
+.member-card.theme-3 .dateInfo .subDateInfo {
+    font-size:12px;
+    font-weight:normal;
+    margin-left:5px;
+}
+.member-card.theme-3 .copunContainer {
+    background:#fff;
+    border-radius:10px;
+    box-sizing:border-box;
+    float:right;
+    margin-left:25px;
+    margin-right:0;
+    padding:10px;
+    width:110px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.member-card.theme-3 .btnStyle {
+    background:#0092c3;
+    border-radius:1px;
+    color:#fff;
+}
+.member-card.theme-3 .btnMargin {
+    margin-bottom:10px;
+    margin-top:10px;
+}
+
+.member-card.theme-3 .memberCardCopun {
+    margin:10px 0 15px;
+}
+.member-card.theme-3 .info-wrapper {
+    margin: 0 0 10px;
+}
+
+
+/* ---- Flip CSS --- */
+.flip-container {
+    perspective: 1000px;
+	-webkit-perspective: 1000px;
+}
+/* flip the pane when hovered */
+.flip-container.hover .flipper {
+    transform: rotateY(180deg);
+}
+
+.flip-container, .front, .back {
+}
+
+/* flip speed goes here */
+.flipper {
+    transition: 0.6s;
+    transform-style: preserve-3d;
+
+    position: relative;
+}
+
+
+.front {
+    z-index: 2;
+    /* for firefox 31 */
+    transform: rotateY(0deg);
+}
+
+/* back, initially hidden pane */
+.back {
+    transform: rotateY(180deg);
+}
+
+/* flip speed goes here */
+.flipper {
+	transition:0.6s;
+	transform-style:preserve-3d;
+	-webkit-transition:0.6s;
+	-webkit-transform-style:preserve-3d;
+	position:relative;
+	width:100%;
+	box-sizing:border-box;
+}
+
+
+/* hide back of pane during swap */
+.front, .back-screen {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden; /* Chrome, Safari, Opera */
+    height:100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* front pane, placed above back */
+.front {
+    z-index: 2;
+    /* for firefox 31 */
+    transform: rotateY(0deg);
+}
+
+/* back, initially hidden pane */
+.back-screen {
+    transform: rotateY(180deg);
+	
+}
+
+.back-screen {
+    box-sizing: border-box;
+    float: left;
+    position: absolute;
+    top: 0;
+    width: 100%;
+	height:auto;
+
+}
+.flipper .icon-info-circled, .flipper .icon-cancel-circle-1 {
+    top: 10px;
+    position: absolute;
+    right: 6px;
+    z-index: 111;
+    font-size: 24px;
+}
+
+.back-screen h2 {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    font-size: 16px;
+    margin-top: 5px;
+    padding-bottom: 3px;
+    text-align: center;
+    line-height: 40px;
+}
+
+.terms-text{padding: 2px 15px 40px 15px;
+    word-break: break-word;
+    overflow: scroll;
+    height: calc(100% - 70px);
+    height: -moz-calc(100% - 70px);
+    height: -webkit-calc(100% - 70px);
+    height: -o-calc(100% - 70px);
+    height: calc(100% - 70px);
+    height:400px;
+    }
+	
+.navbar .right a+a{ margin-left: 5px}
+
+.hideBorder-1 * {border:0px!important;}
+/*==========FOR SA=============*/
+.sa .appypie-login li.input {
+    padding: 0 50px 0 0px;
+}
+.sa .appypie-login li.input span {
+    left: inherit;
+    right: 0;
+	border-radius: 0px 4px 4px 0px;
+}
+.sa .appypie-login input[type='text'],.sa .appypie-login input[type='password'],.sa .appypie-login input[type='tel'],.sa .appypie-login input[type='url'],.sa .appypie-login input[type='email'], .sa .appypie-login input[type='date'],.sa .appypie-login input[type='time'],.sa .appypie-login textarea,.sa .appypie-login select,.sa .appypie-login .select-file,.sa .appypie-login .label-head
+{text-align:right;}
+.sa .member-card .copunContainer {
+    float: right;
+    margin-right: 0;
+    margin-left: 25px;
+}
+.sa .member-card.theme-1 .pointBalance {
+    right: 0;
+}
+.sa .dateInfo {
+    padding-left: 0;
+    padding-right: 115px;
+    text-align: right;
+}
+.sa .info-wrapper a {
+    float: left;
+}
+.sa .flipper .icon-info-circled,.sa .flipper .icon-cancel-circle-1 {
+    right: inherit;
+    left: 6px;
+}
+.sa .terms-text {
+    text-align: right;
+}
+.sa .member-card.theme-3 .dateInfo {
+    padding-right: 0;
+    padding-left: 110px;
+    text-align: left;
+}
+.sa .member-card.theme-3 .copunContainer {
+    float: left;
+    margin-left:0px;
+    margin-right:25px;
+}
+.sa .member-card h1{text-align:right;}
+.sa .member-card.theme-2 .btnStyle {
+    float: right;  
+} 
+.sa .member-card.theme-2 .btnSecond {
+    float: left !important;
+}
+.sa .appypie-login input[type='text'], .sa .appypie-login input[type='password'], .sa .appypie-login input[type='tel'], .sa .appypie-login input[type='url'], .sa .appypie-login input[type='email'], .sa .appypie-login input[type='date'], .sa .appypie-login input[type='time'], .sa .appypie-login textarea, .sa .appypie-login select, .sa .appypie-login .select-file, .sa .appypie-login .label-head {
+    border-radius: 4px 0px 0px 4px;
+}
+.sa .theme-2 .dateInfo {
+    text-align: left;
+}
+.navbar .right a+a{ margin-right: 5px}

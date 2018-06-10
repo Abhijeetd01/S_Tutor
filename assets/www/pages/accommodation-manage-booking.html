@@ -1,0 +1,143 @@
+<div class="navbar">
+	<div class="navbar-inner" style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+        <div class="left sliding">
+              <a href="index" class="link back icon icon-left-open-2" style="color:{{@global.style.headerBarIconColor}};"></a>
+        </div>
+         <div class="center sliding">
+               <div class="topHeader {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">
+{{@global.pageLanguageSetting.mybooking}}
+              </div>
+            </div>
+        <div class="right">
+             
+        </div>
+	</div>
+</div>
+
+<div data-page="accommodation-manage-booking-page" class="page navbar-through toolbar-fixed no-toolbar">
+  <!-- Page content-->
+  
+  
+  <div class="hotel-categories-list swiper-container" style="top:44px">
+      <ul class="tabs swiper-wrapper hotel-autoheight">
+          <li class="swiper-slide" style="background-color: {{@global.styleAndNavigation.tab[2]}}; color: {{@global.styleAndNavigation.tab[3]}}; border-color:{{@global.styleAndNavigation.tab[2]}}">  {{@global.pageLanguageSetting.Upcoming}}  ({{data.upcoming.length}}) </li>
+          <li class="swiper-slide" style="background-color: {{@global.styleAndNavigation.tab[2]}}; color: {{@global.styleAndNavigation.tab[3]}}; border-color:{{@global.styleAndNavigation.tab[2]}}"> {{@global.pageLanguageSetting.completed}}  ({{data.completed.length}}) </li>
+          <li class="swiper-slide" style="background-color: {{@global.styleAndNavigation.tab[2]}}; color: {{@global.styleAndNavigation.tab[3]}}; border-color:{{@global.styleAndNavigation.tab[2]}}"> {{@global.pageLanguageSetting.store_cancelled}}  ({{data.cancelled.length}}) </li>
+          
+      </ul>
+  </div>
+  
+  <div class="page-content {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}} hideBorder-{{@global.styleAndNavigation.hideBorder}}" style="color:{{@global.styleAndNavigation.content[2]}}; background:{{@global.styleAndNavigation.pageBgColor}}">
+<style> 
+.hotel-categories-list li.active{border-color: {{@global.styleAndNavigation.tab[3]}} !important}
+</style>
+         	
+           
+            
+              
+         
+         <div class="hotel-category-view swiper-container">
+         	<div class="swiper-wrapper">
+             <ul class="hotel-booking-history swiper-slide">
+                 {{#js_compare "this.data.upcoming.length == 0"}}
+                 <div class="msg-code" style=""> <div class="msg-container"><span class="icon appyicon-no-data" style="color: {{@global.styleAndNavigation.icon[1]}}">  </span></div> </div>
+                 {{else}}
+                 {{#data.upcoming}}
+                 <li>
+                     
+                     <div class="row">
+  <img id="{{id}}" onclick="Appyscript.hotelbookingdetail(this)"   src="images/image-2x1.png" style="background-image:url({{image}})" class="img-style" />
+  <div id="{{id}}" onclick="Appyscript.hotelbookingdetail(this)"  class="htTitle {{@global.styleAndNavigation.title[0]}} {{@global.styleAndNavigation.title[1]}}" style="background:{{@global.styleAndNavigation.title[2]}}; color:{{@global.styleAndNavigation.title[3]}};">{{accommodationName}}</div>
+                     </div>
+                     <div id="{{id}}" onclick="Appyscript.hotelbookingdetail(this)" class="row hotel-booking-detail" style="border-color:{{@global.styleAndNavigation.borderColor}}">
+                         <div class="booking-date icon-vcard" style="color:{{@global.styleAndNavigation.icon[1]}}"></div>
+                         <div class="htTimeWp">
+                              <h3 id="{{id}}" onclick="Appyscript.hotelbookingdetail(this)"  class="{{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}" style="color:{{@global.styleAndNavigation.subheading[2]}};">{{accommodationName}}, {{address}}, {{city}}, {{state}}, {{country}}</h3>
+                             <p>{{bookStartDate}} - {{bookEndDate}}</p>
+                         </div>
+                     </div>
+                     <div class="btn-wraper-booking">
+                         <a class="hotel-book-btn col-100 {{@global.styleAndNavigation.secondaryButton[0]}} {{@global.styleAndNavigation.secondaryButton[1]}}" style="color:{{@global.styleAndNavigation.secondaryButton[3]}};background:{{@global.styleAndNavigation.secondaryButton[2]}};" href="#" id="{{id}}" onclick="Appyscript.hotelcancelbookingconfirm(this);">{{@global.pageLanguageSetting.common_cancel}} </a>
+        
+                     </div>
+                     
+                 </li>
+                 {{/data.upcoming}}
+                 {{/js_compare}}
+             </ul>
+             <ul class="hotel-booking-history swiper-slide">
+                                     {{#js_compare "this.data.completed.length == 0"}}
+                <div class="msg-code" style=""> <div class="msg-container"><span class="icon appyicon-no-data" style="color: {{@global.styleAndNavigation.icon[1]}}">  </span></div> </div>
+                {{else}}
+                 {{#data.completed}}
+             	<li>
+                  
+                <div class="row">
+                    <img id="{{id}}" onclick="Appyscript.hotelbookingdetail(this)" src="images/image-2x1.png" style="background-image:url({{image}})" class="img-style" />
+                    <div id="{{id}}" onclick="Appyscript.hotelbookingdetail(this)" class="htTitle {{@global.styleAndNavigation.title[0]}} {{@global.styleAndNavigation.title[1]}}" style="background:{{@global.styleAndNavigation.title[2]}}; color:{{@global.styleAndNavigation.title[3]}};">{{accommodationName}}</div>
+                </div>	
+                <div id="{{id}}" onclick="Appyscript.hotelbookingdetail(this)" class="row hotel-booking-detail" style="border-color:{{@global.styleAndNavigation.borderColor}}">
+                	<div class="booking-date icon-vcard" style="color:{{@global.styleAndNavigation.icon[1]}}"></div>  
+                    <div class="htTimeWp">
+                        <h3 id="{{id}}" onclick="Appyscript.hotelbookingdetail(this)" class="{{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}" style="color:{{@global.styleAndNavigation.subheading[2]}};">{{accommodationName}}, {{address}}, {{city}}, {{state}}, {{country}}</h3>
+                        <p>{{bookStartDate}} - {{bookEndDate}}</p>
+                    </div>
+                </div>
+                <div class="btn-wraper-booking">
+                                     {{#js_compare "this.status != 0"}}
+                	<a class="hotel-book-btn col-50 {{@global.styleAndNavigation.secondaryButton[0]}} {{@global.styleAndNavigation.secondaryButton[1]}}" style="color:{{@global.styleAndNavigation.secondaryButton[3]}};background:{{@global.styleAndNavigation.secondaryButton[2]}};" id="{{accommodationId}}" onclick="Appyscript.hotelDetail(this)">{{@global.pageLanguageSetting.reebook}} </a>
+                    
+                                  {{else}}
+                                            {{/js_compare}}
+                    <a class="hotel-book-btn {{#js_compare "this.status != 0"}}col-50{{else}}col-100{{/js_compare}} {{@global.styleAndNavigation.secondaryButton[0]}} {{@global.styleAndNavigation.secondaryButton[1]}}" style="color:{{@global.styleAndNavigation.secondaryButton[3]}};background:{{@global.styleAndNavigation.secondaryButton[2]}}; border-right:1px solid {{@global.styleAndNavigation.borderColor}};" id="{{accommodationId}}" onclick="Appyscript.hotelpostReview(this);">{{@global.pageLanguageSetting.leave_review}}  </a>
+                </div>
+                
+                </li>
+      {{/data.completed}}
+      
+                         {{/js_compare}}
+            
+             
+             </ul>
+             <ul class="hotel-booking-history swiper-slide">
+                 {{#js_compare "this.data.cancelled.length == 0"}}
+                 <div class="msg-code" style=""> <div class="msg-container"><span class="icon appyicon-no-data" style="color: {{@global.styleAndNavigation.icon[1]}}">  </span></div> </div>
+                 {{else}}
+                {{#data.cancelled}}
+                
+                <li>
+                    
+                    <div class="row">
+  <img id="{{id}}" onclick="Appyscript.hotelbookingdetail(this)" src="images/image-2x1.png" style="background-image:url({{image}})" class="img-style" />                         <div class="htTitle {{@global.styleAndNavigation.title[0]}} {{@global.styleAndNavigation.title[1]}}" style="background:{{@global.styleAndNavigation.title[2]}}; color:{{@global.styleAndNavigation.title[3]}};">{{accommodationName}}</div>
+                    </div>
+                    <div id="{{id}}" onclick="Appyscript.hotelbookingdetail(this)" class="row hotel-booking-detail" style="border-color:{{@global.styleAndNavigation.borderColor}}">
+                        <div class="booking-date icon-vcard" style="color:{{@global.styleAndNavigation.icon[1]}}"></div>
+                        <div class="htTimeWp">
+                            <h3 id="{{id}}" onclick="Appyscript.hotelbookingdetail(this)" class="{{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}" style="color:{{@global.styleAndNavigation.subheading[2]}};">{{accommodationName}}, {{address}}, {{city}}, {{state}}, {{country}}</h3>
+                <p>{{bookStartDate}} - {{bookEndDate}}</p>
+                        </div>
+                    </div>
+                    <div class="btn-wraper-booking">
+                        
+                    {{#js_compare "this.status != 0"}}
+                    
+        <a class="hotel-book-btn col-100 {{@global.styleAndNavigation.secondaryButton[0]}} {{@global.styleAndNavigation.secondaryButton[1]}}" style="color:{{@global.styleAndNavigation.secondaryButton[3]}};background:{{@global.styleAndNavigation.secondaryButton[2]}};" id="{{accommodationId}}" onclick="Appyscript.hotelDetail(this)">{{@global.pageLanguageSetting.reebook}} </a>
+        
+                        {{else}}
+                        
+                        {{/js_compare}}
+                
+                    </div>
+                    
+                </li>
+                {{/data.cancelled}}
+                {{/js_compare}}
+                
+             </ul>
+             </div>
+         </div> 
+    </div>
+  <!-- End Page content-->  
+  
+</div>
+

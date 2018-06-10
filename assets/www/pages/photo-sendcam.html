@@ -1,0 +1,46 @@
+<div class="navbar"><div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+    <div class="left sliding">
+        {{#root_Compare @global.style.layout "==" "slidemenu"}}
+        {{#if @global.innerLayout}}
+        <a href="index" class="link back" onclick="resetvaluecustomphoto();" style="color:{{@global.style.headerBarIconColor}};">
+            <i class="icon icon-left-open-2"></i>
+        </a>
+
+        {{else}}
+        <a onclick="Appyscript.openSlide()" style="color:{{@global.style.headerBarIconColor}};">
+            <i class="icon icon-menu"></i>
+        </a>
+        {{/if}}
+        {{else}}
+        <a href="index"  onclick="resetvaluecustomphoto();" class="link back {{#if @global.innerLayout}}{{else}}bottomBack{{/if}}" style="color:{{@global.style.headerBarIconColor}};">
+            <i class="icon icon-left-open-2"></i>
+        </a>
+        {{/root_Compare}}
+    </div>
+    <div class="center sliding {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">    {{@global.photosendtitle}}</div>
+    <div class="right"></div>
+</div></div>
+
+<div data-page="photo-Page2cam" class="page navbar-through no-toolbar">
+    <!-- Page content-->
+    <div class="backgroundAnimation">{{> innerBackground}}</div>
+    <div class="page-content">
+    	<div class="photo-send photo-sendCam">
+        	<div class="photo-slider swiper-container">
+            	<div class="swiper-wrapper" id="customlargeimage">
+             
+                </div>            	
+            </div> 
+            
+            <div class="message-send">
+            	<div class="item-input item-input2">
+                   
+                    <input id="customcaptiontext"  placeholder="{{@global.pageLanguageSetting.add_a_caption}}" class="inputItem" type="text">
+                    <span onclick="Appyscript.uploadcustomphoto();" class="sendBtn {{@global.styleAndNavigation.secondaryButton[0]}} {{@global.styleAndNavigation.secondaryButton[1]}}" style="background-color:{{@global.styleAndNavigation.secondaryButton[2]}}; color:{{@global.styleAndNavigation.secondaryButton[3]}}"><i class="iconz-send"></i></span>
+              	</div>
+            </div>
+            
+            
+        </div>
+    </div>
+</div>

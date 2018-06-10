@@ -1,0 +1,133 @@
+<div class="navbar"><div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+    <div class="left sliding">
+        {{getSlideBack ""}}
+    </div>
+    <div class="center sliding {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">{{pageTitle}}</div>
+    <div class="right"></div>
+</div></div>
+
+<div data-page="pluscode-result-page" class="page navbar-through no-toolbar " >
+    <div class="backgroundAnimation">{{> innerBackground}}</div>
+    <!-- Page content-->
+    <div class="page-content">
+        <style>
+
+
+.pluscode-two{ margin:0px; padding:0px;background: #f5f5f5 !important;}
+.pluscode-two-main{border-bottom: 1px solid {{@global.styleAndNavigation.borderColor}}}
+.pliscode-title-section {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    text-align: center;
+}
+.pliscode-title-section h2 {
+    border: 1px solid {{@global.styleAndNavigation.borderColor}};
+    margin: 0px;
+    color: #969696;
+    font-size: {{@global.styleAndNavigation.heading[2]}};
+    font-family: {{@global.styleAndNavigation.heading[0]}};
+    font-weight: lighter;
+}
+.pluscode-text {
+     box-sizing: border-box;
+    padding: 0 20px;
+    position: fixed;
+    text-align: center;
+    top: 45%;
+    width: 100%;
+    bottom: 50%;
+}
+.pluscode-text h1 {
+    border: 1px solid {{@global.styleAndNavigation.borderColor}};
+    color: {{@global.styleAndNavigation.heading[2]}};
+    margin: 0px;
+	background: {{@global.styleAndNavigation.heading[4]}};
+    padding: 10px 10px 10px 10px;
+    font-family: {{@global.styleAndNavigation.heading[0]}};
+}
+.pluscode-text h1 span {
+    color: {{@global.styleAndNavigation.heading[2]}};
+}
+.pluscode-icon-secton {
+  box-sizing: border-box;
+    float: left;
+    padding: 0 20px;
+    position: fixed;
+    top: 86%;
+    width: 100%;
+}
+.share-icon  {
+     background: {{@global.styleAndNavigation.button[2]}} none repeat scroll 0 0;
+    border: 1px solid {{@global.styleAndNavigation.borderColor}};    border-radius: 6px;
+    float: left;
+    margin-right: 3px;
+    padding: 10px 0;
+    text-align: center;
+    width:32%;
+}
+.clipboard{  background:  {{@global.styleAndNavigation.button[2]}} none repeat scroll 0 0;
+    border: 1px solid {{@global.styleAndNavigation.borderColor}};
+    border-radius: 6px;
+    float: left;
+    margin-right: 3px;
+    padding: 10px 0;
+    text-align: center;
+    width: 32%;}
+	.screenshot{float: left;
+   background: {{@global.styleAndNavigation.button[2]}}  none repeat scroll 0 0;
+    border: 1px solid {{@global.styleAndNavigation.borderColor}};
+    border-radius: 6px;
+    float: left;
+    padding: 10px 0;
+    text-align: center;
+    width: 32%;
+}
+.share-icon h5 ,.clipboard h5, .screenshot h5 {
+    margin: 0px;
+    font-family: {{@global.styleAndNavigation.button[0]}};
+    margin-top: 8px;
+    color:{{@global.styleAndNavigation.button[3]}};
+
+
+}
+.share-icon i , .clipboard i , .screenshot i{ color:{{@global.styleAndNavigation.button[3]}};}
+.clipboard h5, .screenshot h5 {
+    margin: 0px;
+    margin-top: 10px;
+
+
+}
+.end-section {
+    border-top: 1px solid #e0e0e0;
+    padding: 20px 0;
+    position: fixed;
+    top: 92%;
+    width: 100%;
+}
+</style>
+        <div class="pluscode-two">
+            <div class="pluscode-two-main">
+
+                <div class="pluscode-text">
+                    <h1 id="result_PlusCode">{{plusCodeResult}}</h1>
+                </div>
+                <div class="pluscode-icon-secton">
+                    <div class="share-icon {{@global.styleAndNavigation.button[0]}}  {{@global.styleAndNavigation.button[1]}}" onclick="sharePlusCode()" >
+                        <i class="iconz-share-alt"></i>
+                        <h5>{{sharePlusCode}}</h5>
+                    </div>
+                    <div class="clipboard {{@global.styleAndNavigation.button[0]}}  {{@global.styleAndNavigation.button[1]}}" onclick="copyToClipBoardPlusCode()">
+                        <i class="appyslim-ui-window-stack"></i>
+                        <h5>{{copyClipboard}}</h5>
+                    </div>
+                    <div class="screenshot {{@global.styleAndNavigation.button[0]}}  {{@global.styleAndNavigation.button[1]}} {{@global.styleAndNavigation.button[2]}} " onclick="capturePlusCodeScreenShot()">
+                        <i class="appyslim-photo-screen-focusing"></i>
+                        <h5>{{screenShot}}</h5>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

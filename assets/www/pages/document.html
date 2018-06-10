@@ -1,0 +1,70 @@
+<div class="navbar">
+    <div class="navbar-inner" style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+
+        <div class="left sliding">
+       		{{getSlideBack "common"}}
+        </div>
+
+        <div class="center sliding">
+            <div class="topHeader {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">
+                {{@global.documenttitle}}
+            </div>
+        </div>
+
+        <div class="right">
+
+        </div>
+    </div>
+</div>
+
+<div data-page="document-page" class="page navbar-through no-toolbar">
+    <div class="backgroundAnimation">{{> innerBackground}}</div>
+    <!-- Page content-->
+    <div class="page-content">
+
+
+        {{#googleDrive.list}}
+        <a class="appypie-list" onclick="Appyscript.DocumentGdriveopenpage('{{token}}','{{clientId}}','{{secretKey}}','{{email}}');" style="color:{{@global.style.pageTextColor}}">
+              <span>
+                  {{#js_compare "this.iconType== 'img' "}}
+                  <img src="{{iconName}}"/>
+                  {{else}}
+                  <i class="{{iconName}}" style="color:{{@global.style.pageIconColor}}"></i>
+                  {{/js_compare}}
+              </span>
+            <span>{{name}}</span>
+        </a>
+        {{/googleDrive.list}}
+
+        {{#defaultGoogleDrive.list}}
+        <a class="appypie-list" onclick="Appyscript.DocumentGdriveopenpage('{{token}}','{{clientId}}','{{secretKey}}','{{email}}');" style="color:{{@global.style.pageTextColor}}">
+              <span>
+                  {{#js_compare "this.iconType== 'img' "}}
+                  <img src="{{iconName}}"/>
+                  {{else}}
+                  <i class="{{iconName}}" style="color:{{@global.style.pageIconColor}}"></i>
+                  {{/js_compare}}
+              </span>
+            <span>{{name}}</span>
+        </a>
+        {{/defaultGoogleDrive.list}}
+
+        {{#oneDrive.list}}
+        <a class="appypie-list" onclick="Appyscript.DocumentOnedriveaccesToken('{{token}}','{{clientId}}','{{secretKey}}','{{email}}');" style="color:{{@global.style.pageTextColor}}">
+              <span>
+                  {{#js_compare "this.iconType== 'img' "}}
+                  <img src="{{iconName}}"/>
+                  {{else}}
+                  <i class="{{iconName}}" style="color:{{@global.style.pageIconColor}}"></i>
+                  {{/js_compare}}
+              </span>
+            <span>{{name}}</span>
+        </a>
+        {{/oneDrive.list}}
+
+
+    </div>
+
+    <!-- End Page content-->
+</div>
+

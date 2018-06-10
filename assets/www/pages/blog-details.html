@@ -1,0 +1,107 @@
+<div class="navbar"><div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+    <div class="left sliding">
+        <a href="index" class="link back" style="color:{{@global.style.headerBarIconColor}};">
+        <i class="icon icon-left-open-2"></i>
+        </a>
+    </div>
+	    <div class="center sliding {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">{{pagetitle}}</div>
+    	<div class="right">
+        {{#root_Compare @global.styleAndNavigation.layout "==" "1"}}
+        {{else}}        
+            <a onclick="Appyscript.BlogFontsSize(this)" data-index="1" style="color:{{@global.style.headerBarIconColor}};">
+            <i class="icon appyicon-news-text-size"></i>
+            </a>
+            <a id="blogshare" onclick="Appyscript.BlogSharecustom(this)" data-link="{{link}}"  {{#if desc}}{{#js_compare "this.desc != ''"}} decs="{{escape desc}}" {{/js_compare}}{{/if}} {{#if smalldesc}}{{#js_compare "this.smalldesc != ''"}} smalldesc= "{{escape smalldesc}}"  {{/js_compare}}{{/if}} title="{{title}}" imageval= "{{contentImg}}" videoUrl="{{videoUrl}}" style="color:{{@global.style.headerBarIconColor}};">
+            <i class="icon icon-share-1"></i>
+            </a>
+            {{#root_Compare @global.style.layout "==" "slidemenu"}}
+             <a href="index" class="link back" style="color:{{@global.style.headerBarIconColor}};">
+        		<i class="icon icon-left-open-2"></i>
+	        </a>
+			{{/root_Compare}}
+        {{/root_Compare}}
+        </div>
+    </div>
+</div>
+
+
+<div data-page="blog-DetailsPage" class='page navbar-through {{#root_Compare @global.styleAndNavigation.layout "==" "1"}}toolbar-through{{else}}no-toolbar{{/root_Compare}}'>
+
+
+{{#root_Compare @global.styleAndNavigation.layout "==" "1"}}
+
+<div class="toolbar" >
+<div class="toolbar-inner toolbar-bottom" style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}}; font-size: {{@global.style.headerBarSize}} "> 
+                        
+                        <div class="blog-share theme-{{@global.styleAndNavigation.layout}}">
+        	<ul style="color:{{@global.style.headerBarTextColor}};">
+            	<li class="font-size appyicon-news-text-size" onclick="Appyscript.BlogFontsSize(this)" data-index="1"></li>
+                <li id = "blogshare" class="share icon-share-1" onclick="Appyscript.BlogSharecustom(this)" data-link="{{link}}"  {{#if desc}}{{#js_compare "this.desc != ''"}} decs="{{escape desc}}" {{/js_compare}}{{/if}} {{#if smalldesc}}{{#js_compare "this.smalldesc != ''"}} smalldesc= "{{escape smalldesc}}"  {{/js_compare}}{{/if}} title="{{title}}" imageval= "{{contentImg}}"  videoUrl="{{videoUrl}}"></li>
+            </ul>                        
+        </div>
+                         
+                    </div>
+                </div>
+
+{{/root_Compare}}
+<div class="backgroundAnimation">{{> innerBackground}}</div>
+    <div class="page-content">
+    <div class="blog-page theme-{{@global.styleAndNavigation.layout}} {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}} {{#if @global.styleAndNavigation.hideImage}}hide-image{{/if}} hideBorder-{{@global.styleAndNavigation.hideBorder}}">
+    <div class="blog-banner" style="display:none">     	
+    {{#if contentImg}}       
+    <img src="{{contentImg}}" old-style="background-image:url({{contentImg}})" />
+    {{/if}}
+    <a class="share icon-share-1" onclick="Appyscript.BlogShare('{{link}}')" data-link="{{link}}"></a>
+    </div>        
+    <div class="blog-content">
+    <h1 id="313" onclick="Appyscript.openWebView('{{link}}','{{filterAddressString pagetitle}}')" class="{{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}}; text-align:{{@global.styleAndNavigation.heading[3]}}"><span>{{title}}</span></h1>
+    {{#if pubdate}}
+        {{#root_Compare @global.styleAndNavigation.hideDate "==" "0"}}
+    <span class="date" style="color:{{@global.styleAndNavigation.content[2]}}; text-align:{{@global.styleAndNavigation.content[3]}};border-color: {{@global.styleAndNavigation.borderColor}}; margin-bottom:20px;">{{blogDate pubdate}}</span>
+        {{/root_Compare}}
+    {{/if}}
+        {{#if contentImg}}
+        <div class="blog-banner blog-container-{{id}} blog-swiper swiper-container swiper-init" data-pagination=".swiper-pagination" index="{{id}}">
+            <div class="swiper-wrapper">
+                {{#mediaGallary}}
+
+                <div class="swiper-slide">
+                    
+                    <img src="images/image-2x1.png" style="background-image:url({{imageUrl}})" onclick="Appyscript.detailSwaperImageOnclick('{{imageUrl}}','image','{{../../title}}')" id-img="{{imageUrl}}" />
+                    
+                    {{#if summary}}
+                    <div class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}} blog_de_summry" style="color:{{@global.styleAndNavigation.content[2]}};">{{summary}}</div>
+                    {{/if}}
+                </div>
+                {{/mediaGallary}}
+
+                {{#articleMedia}}
+                {{#js_compare "this.type == 'video' "}}
+                <div class="swiper-slide blog-video-wp"  onclick="openYouTubeVedioNews('{{videoUrl}}','{{../../title}}')">
+                    <a class="video-icon icon-youtube" ></a>
+                    <img src="images/image-2x1.png"  onclick="openYouTubeVedioNews('{{videoUrl}}','{{../../title}}')" style="background-image:url(http://img.youtube.com/vi/{{youtubeID videoUrl "/1/"}}/hqdefault.jpg)">
+                    {{#if summary}}
+                    <div class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}} blog_de_summry" style="color:{{@global.styleAndNavigation.content[2]}};">{{summary}}</div>
+                    {{/if}}
+                </div>
+                 {{/js_compare}}
+                {{/articleMedia}}
+
+            </div>
+
+            <div class="swiper-pagination blog-pagination-{{id}}"></div>
+        </div>
+        {{/if}}
+    <div class="blog-text {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="color:{{@global.styleAndNavigation.content[2]}}; text-align:{{@global.styleAndNavigation.content[3]}}">
+    {{desc}}
+    </div>
+	 {{#if @global.pageLanguageSetting}}
+        <div id="postcommentblog"   class="bottom-comment">
+            This article has <span class="span_com" onclick="Appyscript.bolgsCommentsPage(this, 0)" data-id="{{newsId}}" style="color:#335">{{totalComments}} {{@global.pageLanguageSetting.comments_blog}}</span>
+            <div class="post-comment" style="background-color:{{@global.style.primaryButtonBgColor}}; color:{{@global.style.buttonTextColor}}" data-id="{{id}}" onclick="Appyscript.bolgsCommentsPage(this, 1)">{{@global.pageLanguageSetting.post_blog}}</div>
+        </div>
+		 {{/if}}
+    </div>
+    </div>
+    </div>
+</div>

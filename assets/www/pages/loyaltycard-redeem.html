@@ -1,0 +1,30 @@
+<div class="navbar"><div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}}; font-size: {{@global.style.headerBarSize}} ">
+    <div class="left sliding">
+        <a href="index" class="link back" style="color:{{@global.style.headerBarTextColor}};">
+            <i class="icon icon-left-open-2"></i>
+        </a>
+    </div>
+    <div class="center sliding {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">{{pageTitle}}</div>
+    <div class="right"></div>
+</div></div>
+
+<div data-page="loyaltycard-RedeemPage" class="page navbar-through no-toolbar">
+    <!-- Page content-->
+    <div class="backgroundAnimation">{{> innerBackground}}</div>
+    <div class="page-content {{@global.styleAndNavigation.appPageCsize}} {{@global.styleAndNavigation.appPageFont}}" style="color:{{@global.styleAndNavigation.pageTextColor}};">
+        <div class="loyalStemp">
+            <input type="number" min="0" inputmode="numeric" id="point_text" name="codeValue" maxlength="4" class="numberlength onlyNumberValidation loyalty-code-membercard {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" placeholder='{{@global.pageLanguageSetting.enterPoints}}' style="background:{{@global.styleAndNavigation.fieldBgColor}}; color:{{@global.styleAndNavigation.fieldTextColor}}; border-color:{{@global.styleAndNavigation.borderColor}}"/>
+            <div class="Bdiscription {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" id="availablepoints" style="color:{{@global.styleAndNavigation.content[2]}}">
+                {{languageSetting.availablePoints}}: 0
+            </div>
+            <div id="handoverdiscription" class="Bdiscription {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="color:{{@global.styleAndNavigation.content[2]}}">
+                {{languageSetting.handOverPoints}}.
+            </div>
+            <input type="number" name="codeValue" id="code_text" class="loyalty-code-membercard {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="display:none; background:{{@global.styleAndNavigation.fieldBgColor}}; color:{{@global.styleAndNavigation.fieldTextColor}}; border-color:{{@global.styleAndNavigation.borderColor}}" placeholder="Enter Security Code"/>
+            <div id="validateOptionsMember">
+                <a href="#" class="btn {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" onclick="Appyscript.memberoperation();" style="background:{{@global.styleAndNavigation.button[2]}}; color:{{@global.styleAndNavigation.button[3]}}">{{languageSetting.validateSecurityCode}}</a>
+                <a href="#" class="btn {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" onclick="Appyscript.QrCodeLoyaltyCard('memberCard');" style="background:{{@global.styleAndNavigation.secondaryButton[2]}}; color:{{@global.styleAndNavigation.secondaryButton[3]}}">{{languageSetting.validateScanningQRCode}}</a>
+            </div>
+        </div>
+    </div>
+</div>

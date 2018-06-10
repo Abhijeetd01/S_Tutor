@@ -1,0 +1,50 @@
+   <div class="swiper-slide" data-index="{{@index}}" data-id="">
+   			<ul class="main-cat-listing">
+                <li id="serviceinnerSubHeaderPage" class="listing-item" data-index="{{@index}}">
+                    <ul class="hyper-cat-listing clearfix">
+                        <li class="service-heading">
+                        <p>{{header}}</p>
+                        </li>
+                        <li class="service_inner_image2"> 
+                            <!------------ Swiper  --------->
+                            <div data-loop="true" data-preload-images="false" data-lazy-loading="true" class="swiper-banner-{{@index}} swiper-container swiper-init"> 
+                                <div class="swiper-wrapper">
+                                      <div class="swiper-slide" style="background-image:url({{mediaImageUrl}});">
+                                      <img src="images/transparent-bg.png" class="swiper-lazy"/>
+                                      <div class="preloader"></div>
+                                      </div>
+                                </div>
+                            </div>
+                            <!------------ Swiper  --------->
+                        <span class="hyper-addons">
+                            <a href="#" class="icon-ok-4"></a>
+                            <a href="#" class="icon-location-2"></a>
+                            <a href="#" class="iconz-phone1"></a>
+                            <a href="#" class="icon-share-1"></a>
+                            <a href="#" class="rating-icon">{{reviewRating}}<br>rating</a>
+                            </span>	
+                        </li>
+                    </ul>
+                    <div class="bodypan">
+                        <p class="runing_txt">
+                            {{summary}}
+                        </p>
+                        <p class="runing_txt">
+                            {{detail}}
+                        </p>
+                    </div>
+                    <ul class="detailInfolist">
+                    {{#directoryInfo}}
+                    		{{#if value}}
+                            <li>
+                            {{#js_compare "this.iconType === 'custom' "}}<img src="{{icon}}" class="imgIcon">{{else}}<i class="{{icon}}"></i>{{/js_compare}}
+                                <div class="innerlist">
+                                    {{label}}: <a href="callto:{{value}}">{{value}}</a>
+                                </div>
+                            </li>
+                            {{/if}}
+                     {{/directoryInfo}}                            
+                        </ul>
+ 			  	</li>
+             </ul>
+   </div>

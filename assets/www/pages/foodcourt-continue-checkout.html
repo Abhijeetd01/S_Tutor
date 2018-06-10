@@ -1,0 +1,212 @@
+<div class="navbar">
+    <div class="navbar-inner "
+         style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+        <div class="left sliding">
+            <a href="index" class="link back" style="color:{{@global.style.headerBarIconColor}};">
+                <i class="icon icon-left-open-2"></i>
+            </a>
+        </div>
+        <div class="center sliding {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">
+            {{@global.pageLanguageSetting.checkout_food}}
+        </div>
+        <div class="right"></div>
+    </div>
+</div>
+
+
+<div data-page="foodcourt-ContinueCheckout" class="page navbar-through no-toolbar" style="background-color: {{@global.styleAndNavigation.pageBgColor}}">
+
+    <!-- Page content-->
+    <div class="page-content {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}} content-{{@global.styleAndNavigation.content[3]}} heading-{{@global.styleAndNavigation.heading[3]}}"
+         style="color:{{@global.styleAndNavigation.content[2]}}; background:{{@global.styleAndNavigation.pageBgColor}}">
+        <style>
+            .newsTand-MobileTab a {
+            color:{{@global.styleAndNavigation.tab[1]}};
+            background:{{@global.styleAndNavigation.tab[0]}};
+            }
+            .newsTand-MobileTab .tabViewall a.active,
+            .newsTand-MobileTab .tabmyCollection a.active {
+            color:{{@global.styleAndNavigation.tab[1]}};
+            background:{{@global.styleAndNavigation.tab[2]}};
+            }
+            .billing-address input, .billing-address select, .shipping-address input, .shipping-address select, #InstructionsTab textarea, .dashboard input{
+                color: {{@global.styleAndNavigation.content[2]}}; border-color: {{@global.styleAndNavigation.borderColor}}
+            }
+             .billing-address ::placeholder {
+                color: {{@global.styleAndNavigation.content[2]}}; opacity:0.7;
+            }
+
+        </style>
+        <div class="dashboard scrolling-bottom">
+            <div class="wrap">
+                <div class="newsTand-MobileTab">
+
+                    <div class="tabViewall"><a href="#billingAddress" class="active {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" onclick="foodCourtTabs(this)">{{@global.pageLanguageSetting.delivery_food}}</a>
+                    </div>
+                    <div class="tabmyCollection"><a href="#picup" onclick="foodCourtTabs(this)" class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}">{{@global.pageLanguageSetting.pickup_food}}</a>
+                    </div>
+                </div>
+                <div class="tabs-wrap">
+                    <div class="tabs">
+                            <div class="billing-address tab" id="billingAddress">
+                                <form id="foodcourtBilling" >
+                                    <h2 class="{{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}}">{{@global.pageLanguageSetting.default_billing_address_food}}</h2>
+                                    <input data-role="none" id="bfname" type="text" placeholder="{{@global.pageLanguageSetting.first_name_food}} *" name="name">
+                                    <input data-role="none" id="bpNo" type="tel" class="numberlength numberValidation" maxlength="15" placeholder="{{@global.pageLanguageSetting.telephone_food}} *" name="phone">
+                                    {{#if contactInfo}}
+                                    <input data-role="none" id="bemail" type="text" placeholder="{{@global.pageLanguageSetting.email_id_food}} *" value="{{contactInfo.email}}" name="email" >
+                                    {{else}}
+                                    <input data-role="none" id="bemail" type="text" name="email" placeholder="{{@global.pageLanguageSetting.email_id_food}} *">
+                                    {{/if}}
+                                    <input data-role="none" id="bAddress" value="{{billing.address}}" type="text" placeholder="{{@global.pageLanguageSetting.address_food}} *" name="address">
+                                    <input data-role="none" id="bCity" type="text" value="{{billing.city}}" placeholder="{{@global.pageLanguageSetting.city_food}} *" name="city">
+                                    <input data-role="none" id="bState" type="text" value="{{billing.state}}" placeholder="{{@global.pageLanguageSetting.state_province_food}} "name="state">
+                                    <input data-role="none" id="bZip" type="text" value="{{billing.zip}}" placeholder="{{@global.pageLanguageSetting.zip_postal_code_food}} " name="zip">
+                                    {{#if billing}}
+                                        {{#if billing.country}}
+                                            <div id="bcountryTry"><select id="bCountry" name="country"><option value="{{billing.country}}">{{billing.country}}</option>{{getCountry "country"}}</select></div>
+                                        {{else}}
+                                            <div id="bcountryTry"><select id="bCountry" name="country"><option value="-1">{{@global.pageLanguageSetting.country_food}}</option>{{getCountry "country"}}</select></div>
+                                        {{/if}}
+                                    {{else}}
+                                        <div id="bcountryTry"><select id="bCountry" name="country"><option value="-1">{{@global.pageLanguageSetting.country_food}}</option>{{getCountry "country"}}</select></div>
+                                    {{/if}}
+                                </form>
+                                <div>
+                                </div>
+                                <div onclick="foodCourtProfileCheckbox(this)" class="showBillingAddress {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" style="color:{{@global.styleAndNavigation.button[3]}};background:{{@global.styleAndNavigation.button[2]}};" dir=".shipping-address"><span class="checkbox"></span>
+                                    <input data-role="none" type="checkbox" id="show_billing_address">{{@global.pageLanguageSetting.shipping_add_diff_from_billing_food}}
+                                </div>
+                                <div>
+                                    <div class="shipping-address shippingView" id="billing_address" style="display: none;">
+                                        <form id="foodcourtShipping" >
+                                            <h2 class="{{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}}">{{@global.pageLanguageSetting.shipping_address_food}}</h2>
+                                            <input data-role="none" type="text" id="sfname" placeholder="{{@global.pageLanguageSetting.first_name_food}} *" name="name">
+                                            <input data-role="none" type="tel" id="spNo" class="numberlength numberValidation" maxlength="15" placeholder="{{@global.pageLanguageSetting.telephone_food}} *" name="phone">
+                                            <input data-role="none" type="text" id="ssAddress" placeholder="{{@global.pageLanguageSetting.address_food}} *" name="address">
+                                            <input data-role="none" type="text" id="sCity" placeholder="{{@global.pageLanguageSetting.city_food}} *" name="city">
+                                            <input data-role="none" type="text" id="sState" placeholder="{{@global.pageLanguageSetting.state_province_food}} *" name="state">
+                                            <input data-role="none" type="text" id="sZip" placeholder="{{@global.pageLanguageSetting.zip_postal_code_food}} *" name="zip">
+                                            {{#if shipping}}
+                                            {{#if shipping.country}}
+                                            <div id="scountryTry" name="country"><select id="sCountry"><option value="{{shipping.country}}">{{shipping.country}}</option>{{getCountry "country"}}</select></div>
+                                            {{else}}
+                                            <div id="scountryTry" name="country"><select id="sCountry" ><option value="-1">{{@global.pageLanguageSetting.country_food}}</option>{{getCountry "country"}}</select> </div>
+                                            {{/if}}
+                                            {{else}}
+                                            <div id="scountryTry" name="country"><select id="sCountry" ><option value="-1">{{@global.pageLanguageSetting.country_food}}</option>{{getCountry "country"}}</select> </div>
+                                            {{/if}}
+                                        </form>
+                                    </div>
+                                    <div class="e-mobileOH_tab open_tab billing-address"
+                                         id="InstructionsTab">
+                                        <form id="foodOrderInstructionsText">
+                                            <h2 class="{{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}}">{{@global.pageLanguageSetting.instructions_foodorder}}</h2><textarea name="instructionsText" placeholder="{{@global.pageLanguageSetting.instructions_foodorder}}" id="deliveryInstructionsText" data-role="none" class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="border-color:{{@global.styleAndNavigation.borderColor}}; color:{{@global.styleAndNavigation.content[2]}}"></textarea>
+                                        </form>
+                                    </div>
+
+                                    <div>
+                                        <div class="quiz-area">
+                                            <p class="question {{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="{{@global.styleAndNavigation.heading[2]}}">{{@global.pageLanguageSetting.time_your_order}}</p>
+                                            <ul style="border-color:{{@global.styleAndNavigation.borderColor}}">
+                                                <li style="border-color:{{@global.styleAndNavigation.borderColor}}" onclick="trackOrderChange(false)" class="checked">
+                                                    <label class="label-radio item-content">
+                                                        <input type="radio" checked="checked" name="myRadio-0" data-correct="false" id="0" value="dfsdfdfs">
+                                                        <div class="item-media"> <i class="icon icon-form-radio"  style="border-color:{{@global.styleAndNavigation.borderColor}}"></i>  </div>
+                                                        <div class="item-inner">
+                                                            <div class="item-title"><b>{{@global.pageLanguageSetting.as_soon_as_possible}}</b><br />
+                                                                <div id="hide_EstimatedTime">
+                                                                    <span>{{@global.estimateDelievery}} : </span>
+                                                                    <span id="trackOrderTime"></span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </label>
+                                                </li>
+                                                <li style="border-color:{{@global.styleAndNavigation.borderColor}}" onclick="trackOrderChange(true)" class="">
+                                                    <label class="label-radio item-content">
+                                                        <input type="radio" name="myRadio-0" data-correct="true" id="1" value="sdfsdf">
+                                                        <div class="item-media"> <i class="icon icon-form-radio"  style="border-color:{{@global.styleAndNavigation.borderColor}}"></i>  </div>
+                                                        <div class="item-inner">
+                                                            <div class="item-title"><b>{{@global.pageLanguageSetting.later}}</b></div>
+                                                        </div>
+                                                    </label>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    <div class="" id="trackOrderDateTime" style="display:none">
+                                        {{#if @global.setting.advance_booking}} <input data-role="none" name="deliveryTime" id="ddate" type="text" placeholder="{{@global.pageLanguageSetting.FOODCOURT_FUTURE_DELIVERY}}" onclick="opencalenderfoodcourt()">{{/if}}
+                                        <input data-role="none" name="deliveryTime" id="dTime" onchange="checkTimeValidation('dTime')" type="text" placeholder="{{@global.pageLanguageSetting.preferred_deliverytime_Text_food}}"  value={{totalDeliveryETA}} type="text" onclick="changetimeinput(this)">
+                                        <a class="view-store {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" style="color:{{@global.styleAndNavigation.button[3]}};background:{{@global.styleAndNavigation.button[2]}};" onclick="Appyscript.popupPage('foodcourt-timining')" >{{@global.pageLanguageSetting.view_storetime_food}}</a>
+                                    </div>
+
+
+
+                                    <!--   <select id="deliveryAddress"><option value="Please select address" selected="selected">Please select address</option></select>-->
+                                    <a class="e-user_save {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" style="color:{{@global.styleAndNavigation.button[3]}};background:{{@global.styleAndNavigation.button[2]}};" onclick="foodCourtConfirmPayment(this,'delivery')">{{@global.pageLanguageSetting.confirm_food}}</a>
+                                </div>
+                            </div>
+                            <div class="billing-address tab" id="picup">
+                        <input id="roledata" type="text"  value={{@global.ruleDataAuto}} readonly>
+                        <select id="pickAddress">
+                                   <option value={{@global.pageLanguageSetting.Please_select_address_food}} selected="selected">{{@global.pageLanguageSetting.Please_select_address_food}}</option>
+                                    {{#if rules}}
+                                        {{#rules.storeAddress}}
+                                             <option  value="{{@index}}">{{this}}</option>
+                                        {{/rules.storeAddress}}
+                                    {{/if}}
+                                </select>
+
+
+                                <div class="">
+                                    {{#if @global.setting.advance_booking}}<input data-role="none" onfocus="(this.type='time')" onblur="(this.type='text')" name="deliveryTime" id="PICKUPdate" type="text" placeholder="{{@global.pageLanguageSetting.foodcourt_sel_pickup_date}}" onclick="opencalenderfoodcourt()">{{/if}}
+                                    <input data-role="none" type="time" name="pickCurrentTime" onfocus="(this.type='time')" onblur="(this.type='text')" placeholder="{{@global.pageLanguageSetting.Pickup_time_food}}" value={{totalPickupETA}}></div>
+
+                                    <a class="view-store {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" style="color:{{@global.styleAndNavigation.button[3]}};background:{{@global.styleAndNavigation.button[2]}};" onclick="Appyscript.popupPage('foodcourt-timining')">{{@global.pageLanguageSetting.view_storetime_food}}</a>
+
+
+
+                                    <textarea name="instructionsText" placeholder="{{@global.pageLanguageSetting.instructions_foodorder}}" id="pickInstruction" class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="border-color:{{@global.styleAndNavigation.borderColor}}; color:{{@global.styleAndNavigation.content[2]}}"></textarea>
+
+                                        <div onclick="foodCourtProfileCheckboxPickup(this)" class="showBillingAddress {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" style="color:{{@global.styleAndNavigation.button[3]}};background:{{@global.styleAndNavigation.button[2]}};" dir=".shipping-address"><span class="checkbox"></span>
+                                            <input data-role="none" type="checkbox" id="show_billing_address">{{@global.pageLanguageSetting.default_billing_address_food}}
+                                        </div>
+                                <input type="text"  id="foodcourtcalendar-range" style="display:none">
+                                        <div class="billing-address shippingViewpickup tab" id="billingAddress">
+                                            <form id="foodcourtBillingpickup" >
+                                                <h2 class="{{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}}">{{@global.pageLanguageSetting.default_billing_address_food}}</h2>
+                                                <input data-role="none" id="bfname" type="text" placeholder="{{@global.pageLanguageSetting.first_name_food}} *" name="name">
+                                                <input data-role="none" id="bpNo" type="tel" class="numberlength numberValidation" maxlength="15" placeholder="{{@global.pageLanguageSetting.telephone_food}} *" name="phone">
+                                                {{#if contactInfo}}
+                                                <input data-role="none" id="bemail" type="text" placeholder="{{@global.pageLanguageSetting.email_id_food}} *" value="{{contactInfo.email}}" name="email" >
+                                                {{else}}
+                                                <input data-role="none" id="bemail" type="text" name="email" placeholder="{{@global.pageLanguageSetting.email_id_food}} *">
+                                                {{/if}}
+                                                <input data-role="none" id="bAddress" type="text" placeholder="{{@global.pageLanguageSetting.address_food}} *" name="address">
+                                                <input data-role="none" id="bCity" type="text" placeholder="{{@global.pageLanguageSetting.city_food}} *" name="city">
+                                                <input data-role="none" id="bState" type="text" placeholder="{{@global.pageLanguageSetting.state_province_food}} "name="state">
+                                                <input data-role="none" id="bZip" type="text" placeholder="{{@global.pageLanguageSetting.zip_postal_code_food}} " name="zip">
+                                                {{#if billing}}
+                                                {{#if billing.country}}
+                                                <div id="bcountryTry"><select id="bCountry" name="country"><option value="{{billing.country}}">{{billing.country}}</option>{{getCountry "country"}}</select></div>
+                                                {{else}}
+                                                <div id="bcountryTry"><select id="bCountry" name="country"><option value="-1">{{@global.pageLanguageSetting.country_food}}</option>{{getCountry "country"}}</select></div>
+                                                {{/if}}
+                                                {{else}}
+                                                <div id="bcountryTry"><select id="bCountry" name="country"><option value="-1">{{@global.pageLanguageSetting.country_food}}</option>{{getCountry "country"}}</select></div>
+                                                {{/if}}
+                                            </form>
+                                        </div>
+
+                                <a class="e-user_save {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" style="color:{{@global.styleAndNavigation.button[3]}};background:{{@global.styleAndNavigation.button[2]}};" onclick="foodCourtConfirmPayment(this,'pickup')">{{@global.pageLanguageSetting.confirm_food}}</a>
+                            </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

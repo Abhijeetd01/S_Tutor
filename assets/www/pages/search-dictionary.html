@@ -1,0 +1,39 @@
+<div class="navbar"><div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+            <div class="left sliding">
+              <a href="index" class="link back" style="color:{{@global.style.headerBarIconColor}};">
+                <i class="icon icon-left-open-2"></i>
+              </a>
+            </div>
+            <div class="center sliding {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">{{title}}</div>
+            <div class="right"></div>
+          </div></div>
+
+<div data-page="education-SearchDictionary" class="page navbar-through no-toolbar hideBorder-{{@global.styleAndNavigation.hideBorder}}" style="background-color: {{appPageBackgroundColor}}" >
+    <!-- Page content-->
+    <div class="page-content">
+        
+      <div id="result">
+        <div id="education-inner-detail-content">
+          <div class="page-text">
+          <h2>Apple</h2>
+            <ul>
+            {{#list}}
+              <li>
+                <p><b>Main Entry: </b>{{id}}</p>
+                <p><b>Part of Speech: </b>{{speech}}</p>
+                <p><b>Definition: </b>{{defination}}</p>
+                <p><b>Sentences:--</b><br />
+                <span>{{sentences}}</span><br />
+                </p>
+                <p><br />
+                <b>Synonyms: </b>{{synonyms}}</p>
+              </li>
+              {{/list}}
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+   
+	</div>

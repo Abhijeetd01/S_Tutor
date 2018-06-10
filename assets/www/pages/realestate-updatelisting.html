@@ -1,0 +1,66 @@
+<div class="navbar"><div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}}; font-size: {{@global.style.headerBarSize}} ">
+    <div class="left sliding">
+        <a href="index" class="link back" style="color:{{@global.style.headerBarTextColor}};">
+            <i class="icon icon-left-open-2"></i>
+        </a>
+    </div>
+    <div class="center sliding">
+        {{@global.pageLanguageSetting.ADD_PROPERTY_TYPE}}
+
+
+    </div>
+    <div class="right">
+
+
+    </div>
+</div></div>
+
+<div data-page="realestate-addlistingupdate" class="page navbar-through no-toolbar" style="background:{{@global.styleAndNavigation.pageBgColor}};">
+
+    <div class="toolbar">
+        <div class="toolbar-inner toolbar-bottom">
+            <a  class="done-btn {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" onclick="Appyscript.realestateAddListingLocation()">{{@global.pageLanguageSetting.next_dir}}</a>
+        </div>
+    </div>
+
+    <!-- Page content-->
+    <div class="page-content">
+        <style>
+
+			<style>
+    	.update-listings ul li{background:{{@global.styleAndNavigation.fieldBgColor}}; color:{{@global.styleAndNavigation.fieldTextColor}} }
+		.update-listings ul li b {background:{{@global.styleAndNavigation.activeColor}} }
+		.update-listings ul li b a {border-color:{{@global.styleAndNavigation.borderColor}}; color: {{@global.styleAndNavigation.icon[1]}} }
+		.done-btn{background-color:{{@global.styleAndNavigation.button[2]}}; color:{{@global.styleAndNavigation.button[3]}}}
+        .add-listing .property-type li {border-color:{{@global.styleAndNavigation.borderColor}}; color:{{@global.styleAndNavigation.content[2]}} }
+        .add-listing .property-type li i, .add-listing .property-type li span{color:{{@global.styleAndNavigation.icon[1]}} }
+
+        </style>
+
+<section class="addProperty add-listing">
+<div class="property-type">
+<ul id="propertylistreal">
+
+    {{#propertytypes}}
+    {{#root_Compare imageType "==" "library"}}
+    <li onclick="Appyscript.realestatepropertyselect(this)" name="{{name}}" value="{{id}}" class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}"><span class="{{image}}"></span>{{name}}<i class=""></i></li>
+    {{/root_Compare}}
+    {{#root_Compare imageType "==" "custom"}}
+    <li onclick="Appyscript.realestatepropertyselect(this)" name="{{name}}" value="{{id}}" class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}"><img src="{{image}}" style="background:url(images/hyper-review-pic.jpg)" />{{name}}<i class=""></i></li>
+    {{/root_Compare}}
+    {{#root_Compare imageType "==" ""}}
+    <li onclick="Appyscript.realestatepropertyselect(this)" name="{{name}}" value="{{id}}" class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}"><span class="{{image}}"></span>{{name}}<i class=""></i></li>
+    {{/root_Compare}}
+    {{/propertytypes}}
+
+
+</ul>
+<!--<div class="more"><a href="#">More <i class="icon-down-open"></i></a></div>-->
+</div>
+</section>
+        <!--<footer>-->
+
+            <!--<a  class="done-btn {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" onclick="Appyscript.realestateAddListingLocation()">{{@global.pageLanguageSetting.next_dir}}</a>-->
+        <!--</footer>-->
+    </div>
+</div>

@@ -1,0 +1,146 @@
+<div class="navbar"><div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+            <div class="left sliding">
+              <a href="index" class="link back" style="color:{{@global.style.headerBarIconColor}};">
+                <i class="icon icon-left-open-2"></i>
+              </a>
+            </div>
+           <div class="center sliding">
+              <div class="topHeader  {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">{{@global.pageLanguageSetting.add_update_listing_dir}}</div>
+            </div> 
+          </div></div>
+
+<div data-page="services-updateListing" class="page navbar-through no-toolbar" style="background-color: {{@global.styleAndNavigation.pageBgColor}}">
+            <!-- Page content-->
+            <div class="page-content">
+                <style>.items-scroller span a, .items-scroller span.add-more {border-color:{{@global.styleAndNavigation.borderColor}}}
+                    .listing-tabs a, .listing-tabs-view .providers .selectEveBlo li a, .listing-tabs-view .providers .selectEveBlo li a span, .items-scroller span a{
+                        background: {{@global.styleAndNavigation.secondaryButton[2]}};
+                        color: {{@global.styleAndNavigation.secondaryButton[3]}};
+                    }
+                .listing-tabs a.active, .listing-tabs-view .providers .selectEveBlo li a.active, .listing-tabs-view .providers .selectEveBlo li a.active span, .items-scroller span.add-more {
+                    background: {{@global.styleAndNavigation.button[2]}};
+                    color: {{@global.styleAndNavigation.button[3]}};
+                }
+                ::-webkit-input-placeholder {
+                    color:{{@global.styleAndNavigation.content[2]}} !important;
+                }
+                :-moz-placeholder {
+                    color:{{@global.styleAndNavigation.content[2]}} !important;
+                }
+                ::-moz-placeholder {color:{{@global.styleAndNavigation.content[2]}} !important;
+                }
+                :-ms-input-placeholder {
+                    color:{{@global.styleAndNavigation.content[2]}} !important;
+                }
+.hideBorder-1 ul.add-listing li input, .hideBorder-1  ul.add-listing li select, .hideBorder-1 ul.add-listing li textarea{border:1px solid {{@global.styleAndNavigation.borderColor}} !important;}
+            
+                </style>
+                {{#listing.list}}
+				<ul class="add-listing">
+                    <li>
+                    <select id="dir_catid" onchange="dirCatIdChange(this)" data-role="none"  class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="border-color:{{@global.styleAndNavigation.borderColor}}; color:{{@global.styleAndNavigation.content[2]}}"   disabled="true">
+                       <option value="{{listId}}" selected="selected">{{../catName}}</option>
+                    </select>
+                    </li>
+                   
+                   <li><input type="text" placeholder="{{@global.pageLanguageSetting.heading_dir}} *"  id="hedingSL" value="{{header}}"  class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="border-color:{{@global.styleAndNavigation.borderColor}}; color:{{@global.styleAndNavigation.content[2]}}"></li>
+                    <li><textarea placeholder="{{@global.pageLanguageSetting.summary_dir}}" id="summarySL" class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="border-color:{{@global.styleAndNavigation.borderColor}}; color:{{@global.styleAndNavigation.content[2]}}">{{summary}}</textarea></li>
+                    <li><textarea placeholder="{{@global.pageLanguageSetting.body_dir}}" id="bodySL" class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="border-color:{{@global.styleAndNavigation.borderColor}}; color:{{@global.styleAndNavigation.content[2]}}">{{detail}}</textarea></li>
+                    
+                    <li  style=" clear: both;margin-bottom: 10px;">
+                        <div class="listing-tabs">
+                            <a href="#tab1" class="active tab-link {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}"><i class="icon-picture-3"></i></a>
+                            <a href="#tab2" class="tab-link {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}"><i class="iconz-play-button"></i></a>
+                            <a href="#tab3" class="tab-link {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}"><i class="icon-music-1"></i></a>
+                            
+                                <a href="#tab4" class="tab-link {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" ><i class="appyicon-pdfs"></i></a>
+                        </div>
+                        
+                        <div class="tabs-wrap">
+                          <div class="tabs"  style="border-color:{{@global.styleAndNavigation.borderColor}}">
+                              <div id="tab1" class="tab active">
+                                  <div class="listing-tabs-view"  style="display: table; table-layout: fixed; width:100%">
+                                      <div class="items-scroller" >
+                                          <div class="items"></div>
+                                      </div>
+                                  </div>
+                              </div>
+                            <div id="tab2" class="tab">
+                              <div class="listing-tabs-view">
+                            <h3></h3>
+                            <input type="text" placeholder="{{@global.pageLanguageSetting.enter_youtube_url_dir}}"  id="youtubeUrl" class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="border-color:{{@global.styleAndNavigation.borderColor}}; color:{{@global.styleAndNavigation.content[2]}}; display:block" value="{{#if youtubeUrl}}{{youtubeUrl}}{{/if}}"/>
+                        </div>
+                            </div>
+                            <div id="tab3" class="tab">
+                              <div class="listing-tabs-view">
+                            <h3></h3>
+                            <div class="providers">
+                               <ul class="selectEveBlo">
+                               <li><a  class="provider active" onclick="setAudioMediaType(this.id)" id="soundrss" style="border-color:{{@global.styleAndNavigation.borderColor}}"><span class="icon-rss"></span></a><small
+                                   class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="color:{{@global.styleAndNavigation.content[2]}}">{{@global.pageLanguageSetting.Media_RSS}}</small></li>
+                               
+                               <li><a class="provider" id="rssradio" onclick="setAudioMediaType(this.id)" id="rssradio" style="border-color:{{@global.styleAndNavigation.borderColor}}"><span class="icon-rss"></span></a><small  class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="color:{{@global.styleAndNavigation.content[2]}}">{{@global.pageLanguageSetting.Radio_PLS}}</small></li>
+                               
+                               <li><a class="provider" onclick="setAudioMediaType(this.id)" id="customlist" style="border-color:{{@global.styleAndNavigation.borderColor}}">
+                                   <span class="icon-indent-left"></span></a><small  class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="color:{{@global.styleAndNavigation.content[2]}}">{{@global.pageLanguageSetting.CustomDir}}</small></li>
+                               </ul>
+                            </div>   
+                            <input type="text" data-role="none" placeholder="{{@global.pageLanguageSetting.media_rss_url}}" id="soundrssData" class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="border-color:{{@global.styleAndNavigation.borderColor}}; color:{{@global.styleAndNavigation.content[2]}}; display:block" value="{{#if radioRssUrl}}{{radioRssUrl}}{{/if}}">
+                            <input type="text" data-role="none"  placeholder="{{@global.pageLanguageSetting.media_radio_pls_url}}" id="rssradioData" class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="border-color:{{@global.styleAndNavigation.borderColor}}; color:{{@global.styleAndNavigation.content[2]}}; display:none" value="{{#if radioPlsUrl}}{{radioPlsUrl}}{{/if}}">
+                                
+                                  <input type="text" data-role="none"  placeholder="Track Name" id="customTrackNameData" value="{{customTrackUrl}}" class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="border-color:{{@global.styleAndNavigation.borderColor}}; color:{{@global.styleAndNavigation.content[2]}}; display:none"  value="{{#if customTrackName}}{{customTrackName}}{{/if}}">
+                                      
+                                      <input type="text" data-role="none"  placeholder="Track Description" id="customTrackDescriptionData" value="{{customTrackDescription}}" class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="border-color:{{@global.styleAndNavigation.borderColor}}; color:{{@global.styleAndNavigation.content[2]}}; display:none"  value="{{#if customTrackDescription}}{{customTrackDescription}}{{/if}}">
+                                          
+                                          <input type="text" data-role="none"  placeholder="{{@global.pageLanguageSetting.custom_url}}" id="customlistData" class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="border-color:{{@global.styleAndNavigation.borderColor}}; color:{{@global.styleAndNavigation.content[2]}}; display:none" value="{{#if customTrackUrl}}{{customTrackUrl}}{{/if}}">
+                                              
+
+                        </div>
+                            </div>
+                            
+                            <div id="tab4" class="tab">
+                                <div class="listing-tabs-view" id="listingtabsviewpdf">
+                                    <h3 class="{{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}" style="color:{{@global.styleAndNavigation.subheading[2]}}; text-align:{{@global.styleAndNavigation.subheading[3]}}"></h3>
+                                    <input type="text" placeholder="{{@global.pageLanguageSetting.enter_pdf_url}}"  id="pdfUrl0" class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="border-color:{{@global.styleAndNavigation.borderColor}}; color:{{@global.styleAndNavigation.content[2]}}"/>
+                                    <input type="text" placeholder="{{@global.pageLanguageSetting.file_name}}"  id="pdfName0" class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="border-color:{{@global.styleAndNavigation.borderColor}}; color:{{@global.styleAndNavigation.content[2]}}"/>
+                                </div>
+                                  <a href="#" class="add-more {{@global.styleAndNavigation.secondaryButton[0]}} {{@global.styleAndNavigation.secondaryButton[1]}}" style="background-color: {{@global.styleAndNavigation.secondaryButton[2]}}; color: {{@global.styleAndNavigation.secondaryButton[3]}};" onclick="addMoreClickField('pdf')" id="addDataPdf">+</a>
+                            </div>
+                            
+                            
+                          </div>
+                        </div>    
+                        
+                    </li>
+                    
+                    <li>
+                    	<ul class="multipleUrlField" id="multipleUrlField">
+                            <li>
+							<input type="text" placeholder="{{@global.pageLanguageSetting.dir_link_label}}" id="urlLableData0" class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="border-color:{{@global.styleAndNavigation.borderColor}}; color:{{@global.styleAndNavigation.content[2]}}"/>
+							<input type="text" placeholder="{{@global.pageLanguageSetting.url_dir}}" id="urlData0" class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="border-color:{{@global.styleAndNavigation.borderColor}}; color:{{@global.styleAndNavigation.content[2]}}"/>
+                           </li>
+                        </ul>
+                         <a href="#" class="add-more" style="background-color:{{@global.styleAndNavigation.secondaryButton[2]}}; color:{{@global.styleAndNavigation.secondaryButton[3]}}" id="addDataUrl"  onclick="addMoreClickField('url')" >+</a>
+                        <ul class="multipleUrlField" id="multipleEmailField">
+                            <li><input type="text" placeholder="{{@global.pageLanguageSetting.email_dir}}" id="emailData0" class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="border-color:{{@global.styleAndNavigation.borderColor}}; color:{{@global.styleAndNavigation.content[2]}}"/>
+                            </li>
+                        </ul>
+                        <a href="#" class="add-more" style="background-color:{{@global.styleAndNavigation.secondaryButton[2]}}; color:{{@global.styleAndNavigation.secondaryButton[3]}}" onclick="addMoreClickField('email')" id="addDataEmail">+</a>
+                        <ul class="multipleUrlField" id="multiplepNumField">
+                             <li><input type="tel" placeholder="{{@global.pageLanguageSetting.phone_Dir}}"   id="callData0" class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}} numberlength numberValidation"  maxlength="15" style="border-color:{{@global.styleAndNavigation.borderColor}}; color:{{@global.styleAndNavigation.content[2]}}"/>
+                             </li>
+                        </ul>
+                        <a href="#" class="add-more" style="background-color:{{@global.styleAndNavigation.secondaryButton[2]}}; color:{{@global.styleAndNavigation.secondaryButton[3]}}" id="addDataCall" onclick="addMoreClickField('call')" >+</a>
+                    </li>
+                    
+                    <li><textarea placeholder="{{@global.pageLanguageSetting.address_dir}}" id="addSL" class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="border-color:{{@global.styleAndNavigation.borderColor}}; color:{{@global.styleAndNavigation.content[2]}}">{{address}}</textarea></li>
+                     {{#js_compare "this.mapThirdParty === '1' "}}
+                    <span><span class="map-checkbox"><input type="checkbox"  name="chkSL" id="chkSL" checked="checked" class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="border-color:{{@global.styleAndNavigation.borderColor}}; color:{{@global.styleAndNavigation.content[2]}}"><span class="class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="color:{{@global.styleAndNavigation.content[2]}}">{{@global.pageLanguageSetting.Launch_map_in_application}}</span></span></li>
+                    {{else}}
+                    <li><span class="map-checkbox"><input type="checkbox"  name="chkSL" id="chkSL" class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="border-color:{{@global.styleAndNavigation.borderColor}}; color:{{@global.styleAndNavigation.content[2]}}"> <span class="class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="color:{{@global.styleAndNavigation.content[2]}}">{{@global.pageLanguageSetting.Launch_map_in_application}}</span></span></li>
+                    {{/js_compare}}
+                </ul>
+                <div class="hyper-gray-wrapper"><button class="hyper-sent-btn {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" style="background-color: {{@global.styleAndNavigation.button[2]}}; color: {{@global.styleAndNavigation.button[3]}};" onclick="addListingClick('update',{{listId}})">{{@global.pageLanguageSetting.update_listing}}</button></div>
+                {{/listing.list}}
+			</div>
+      </div>

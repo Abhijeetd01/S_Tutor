@@ -1,0 +1,81 @@
+<div class="popup tablet-fullscreen">
+    <style>.popup {
+        background: rgba(25, 18, 15, 0.55) none repeat scroll 0 0;
+        color: #fff;
+    }
+    .popup .navbar {
+        background: #1c1d21 none repeat scroll 0 0;
+    }
+    .popup .navbar .left {
+        flex-shrink: 1;
+        margin-right: 0;
+        width: 100%;
+    }
+    .popup .preloader {
+        display: none;
+        height: 20px;
+        margin-top: -10px;
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        width: 20px;
+    }
+    .popup input[type="text"] {
+        background: #000 none repeat scroll 0 0;
+        border: medium none;
+        border-radius: 5px;
+        box-sizing: border-box;
+        color: #fff;
+        display: block;
+        font-family: inherit;
+        font-size: 14px;
+        height: 28px;
+        margin: 0;
+        padding: 4px 40px 4px 10px;
+        width: 100%;
+    }
+    .popup .pages, .popup .page {
+        background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    }
+    .popup a.link {
+        color: #fff;
+    }
+    .popup .search-results {
+        font-size: 16px;
+        list-style: outside none none;
+        margin: 0;
+        padding: 0 20px 0 18px;
+    }
+    .popup .search-results li {
+        cursor: pointer;
+        margin: 10px 0;
+        max-width: 100%;
+        overflow: hidden;
+        position: relative;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    .popup .search-results span {
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 14px;
+        font-weight: 300;
+        margin-left: 5px;
+    }</style>
+    <div class="view navbar-fixed">
+        <div class="navbar">
+            <div class="navbar-inner">
+                <div class="left">
+                    <input type="text" placeholder="{{@global.pageLanguageSetting.weather_search_city}}">
+                        </div>
+                <div class="right"><a href="#" class="link close-popup">{{@global.pageLanguageSetting.weather_cancel}}</a></div>
+            </div>
+        </div>
+        <div class="pages">
+            <div class="page" data-page="weather-Location">
+                <div class="page-content">
+                    <ul class="search-results"></ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

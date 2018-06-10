@@ -1,0 +1,181 @@
+<div class="popup menu-popup tablet-fullscreen">
+    <div class="view">
+
+        <div class="navbar"><div class="navbar-inner " style="background-color:{{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}}; font-size: {{@global.style.headerBarSize}} ">
+            <div class="left sliding">
+                <a href="" class="close link icon-left-open-2 close-popup" style="color:{{@global.style.headerBarTextColor}};"></a>
+            </div>
+            <div class="center sliding">
+                <div class="topHeader"> {{@global.pageLanguageSetting.FILTERS}}</div>
+            </div>
+            <div class="right"></div>
+        </div></div>
+
+
+        <!--<div class="navbar"><div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}}; font-size: {{@global.style.headerBarSize}} ">-->
+        <!--<div class="left sliding">-->
+        <!--<a href="index" class="link back" style="color:{{@global.style.headerBarTextColor}};">-->
+        <!--<i class="icon icon-left-open-2"></i>-->
+        <!--</a>-->
+        <!--</div>-->
+        <!--<div class="center sliding">-->
+        <!--<div class="topHeader">-->
+
+        <!--{{@global.pageLanguageSetting.REAL_ESTATE}}-->
+        <!--<span class="locate icon-location cursor-pointer" onclick="Appyscript.popupPage('location')">{{@global.CurrentCityreal}}</span>-->
+        <!--</div>-->
+
+
+        <!--</div>-->
+        <!--<div class="right">-->
+
+
+        <!--</div>-->
+        <!--</div></div>-->
+
+
+        <div class="pages" style="background:{{@global.styleAndNavigation.pageBgColor}};">
+            <div data-page="realestate-Filter" class="page navbar-through no-toolbar">
+
+                <div class="toolbar">
+                    <div class="toolbar-inner toolbar-bottom">
+                        <a class="bottomBtn {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" onclick="filterdata()">{{@global.pageLanguageSetting.apply_food}}</a>
+                    </div>
+                </div>
+
+
+                <div class="page-content">
+                    <style>
+				.hyper-comt-txt, .minPrice, .maxPrice, .filter-page .sliderPan span{color:{{@global.styleAndNavigation.content[2]}} }
+				.filter-page .tabs a {color:{{@global.styleAndNavigation.nav[2]}}; background:{{@global.styleAndNavigation.nav[3]}} }
+				.filter-page .tabs a.on, .noUi-connect {background:{{@global.styleAndNavigation.activeColor}} }
+				.filter-page h3, .add-listing h3{color:{{@global.styleAndNavigation.subheading[2]}} }
+				.filter-page h3 i, .add-listing h3 i, .filter-page .amenities-list ul li span i {color:{{@global.styleAndNavigation.icon[1]}} }
+				.hyper-sent-btn{background:{{@global.styleAndNavigation.button[2]}}; color:{{@global.styleAndNavigation.button[3]}} }
+				.noUi-handle {background:{{@global.styleAndNavigation.secondaryButton[2]}} }
+				.filter-page .amenities-list ul li, .filter-page .swiper, .selecter {background:{{@global.styleAndNavigation.fieldBgColor}};
+				color:{{@global.styleAndNavigation.fieldTextColor}} }
+				.filter-page .amenities-list ul li i, .filter-page .swiper .on, .filter-page .selecter .active span {border-color:{{@global.styleAndNavigation.borderColor}} }
+				.bottomBtn{background-color:{{@global.styleAndNavigation.button[2]}}; color:{{@global.styleAndNavigation.button[3]}}}
+
+			</style>
+
+                    <section class="real-estate filter-page">
+
+                        <div class="tabs">
+                            <a data="0" class="prprtytype on">{{@global.pageLanguageSetting.SELL}}</a>
+                            <a data="1" class="prprtytyperent">{{@global.pageLanguageSetting.RENT}}</a>
+                            <input type="hidden" id="propertyPurpose" name="propertyPurpose">
+                        </div>
+
+
+                        <div class="location-search-filter">
+
+                            <i class="icon-search-3"></i>
+                            <div style="color:{{@global.styleAndNavigation.content[2]}}">
+                                <input type="search" id="reallocationsearchfilterc" onkeyup="realestatelocationsearchFILTER('realestatelocationfilter');"  placeholder="Search location" data-role="none" class="">
+                            </div>
+                        </div>
+                        <div class="listData locationsearch">
+                            <ul id="realestatelocationfilter"></ul>
+                        </div>
+
+                        <h3 class="{{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}"><i class="icon-location"></i>{{@global.pageLanguageSetting.distance}} ({{@global.configuration.defaultDistanceDisplay}})</h3>
+
+                        <div class="sliderPan">
+                            <!--<span class="distance-tabs">-->
+                            <!--<a data="KM" class="on">KM</a>-->
+                            <!--<a data="MI">MI</a>-->
+                            <!--<input type="hidden" id="distanceType" name="propertyPurpose">-->
+                            <!--</span>-->
+                            <span class="minText {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" id="lower-value">0KM</span>
+                            <span class="maxText {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" id="upper-value">5KM</span>
+                            <div class="sliderRow"><div id="slider"></div></div>
+                        </div>
+
+                        <h3 class="{{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}"><i class="icon-location"></i>{{@global.pageLanguageSetting.PROPERTY_AREA}}</h3>
+
+                        <div class="sliderPan">
+                            <!--<span class="distance-tabs">-->
+                            <!--<a data="KM" class="on">KM</a>-->
+                            <!--<a data="MI">MI</a>-->
+                            <!--<input type="hidden" id="distanceType" name="propertyPurpose">-->
+                            <!--</span>-->
+                            <span class="minText {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" id="areaLower-value">0Sqft</span>
+                            <span class="maxText {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" id="areaUpper-value">5Sqft</span>
+                            <div class="sliderRow"><div id="sliderArea"></div></div>
+                        </div>
+
+
+
+
+                        <div class="toggleDiv"><h3 class="on {{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}"><i class="icon-listing"></i>{{@global.pageLanguageSetting.LISTED_BY}} <i class="icon-angle-right arrow"></i></h3>
+                            <div class="checklist amenities-list listrow toggleBox propertyownertye" style="display: none;">
+                                <ul>
+                                    <!--<li data="wifi">Owner <i class="icon-ok-4"></i><i></i></li>-->
+                                    <!--<li data="kitchen">Builder<i class="icon-ok-4"></i><i></i></li>-->
+                                    <!--<li data="pool">Dealer<i class="icon-ok-4"></i><i></i></li>-->
+
+                                    <li class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" data="0">{{@global.pageLanguageSetting.Owner}} <i class="icon-ok-4"></i><i></i></li>
+                                    <li class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" data="1">{{@global.pageLanguageSetting.Builder}} <i class="icon-ok-4"></i><i></i></li>
+                                    <li class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" data="2">{{@global.pageLanguageSetting.Dealer}} <i class="icon-ok-4"></i><i></i></li>
+                                </ul>
+                            </div></div>
+
+                        <div class="toggleDiv"><h3 class="on {{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}"><i class="icon-home-1"></i>{{@global.pageLanguageSetting.real_property_type}} <i class="icon-angle-right arrow"></i></h3>
+                            <div class="checklist amenities-list listrow toggleBox propertytype" style="display: none;">
+                                <ul>
+
+                                    {{#propertytypes}}
+                                    <li class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" data="{{id}}">{{name}} <i class="icon-ok-4"></i><i></i></li>
+
+                                    {{/propertytypes}}
+                                </ul>
+                            </div></div>
+
+
+                        <h3 class="{{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}"><i class="iconz-account"></i>{{@global.pageLanguageSetting.Price}} ({{format_currency @global.currencycode}}) </h3>
+                        <div class="sliderPan">
+                            <span class="minPrice {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" id="lower-valuesliderprice">0</span>
+                            <span class="maxPrice {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" id="upper-valuesliderprice"></span>
+                            <div class="sliderRow"><div id="sliderprice"></div></div>
+                        </div>
+
+                        <h3 class="{{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}"><i class="iconz-bed"></i>{{@global.pageLanguageSetting.Bedrooms}}</h3>
+                        <div class="selecter filterbed {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" data-size="15">
+                            <span class="number  active" value="" onclick="selectrooms('bedrooms',this)">0<span></span></span>
+                            <span class="number " value="1" onclick="selectrooms('bedrooms',this)">1<span></span></span>
+                            <span class="number" value="2" onclick="selectrooms('bedrooms',this)">2<span></span></span>
+                            <span class="number" value="3" onclick="selectrooms('bedrooms',this)">3<span></span></span>
+                            <span class="number" value="4" onclick="selectrooms('bedrooms',this)">4<span></span></span>
+                            <span class="number" value="5" onclick="selectrooms('bedrooms',this)">5+<span></span></span>
+                        </div>
+
+                        <h3 class="{{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}"><i class="iconz-bath-bathtub"></i>{{@global.pageLanguageSetting.Bathrooms}}</h3>
+                        <div class="selecter filterbath {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" data-size="15">
+                            <span class="number  active" value="" onclick="selectrooms('bathrooms',this)">0<span></span></span>
+                            <span class="number " value="1" onclick="selectrooms('bathrooms',this)">1<span></span></span>
+                            <span class="number" value="2" onclick="selectrooms('bathrooms',this)">2<span></span></span>
+                            <span class="number" value="3" onclick="selectrooms('bathrooms',this)">3+<span></span></span>
+                            <!--<span class="number">4<span></span></span>-->
+                            <!--<span class="number">5+<span></span></span>-->
+                        </div>
+
+                        <div class="toggleDiv"><h3 class="on {{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}"><i class="icon-rss-alt"></i>{{@global.pageLanguageSetting.amenities}}<i class="icon-angle-right arrow"></i></h3>
+                            <div class="checklist amenities-list listrow toggleBox amentfilter" style="display: none;">
+                                <ul>
+                                    {{#propertyfacilities}}
+                                    <li value="{{id}}" name="{{amenties}}" class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}"><span>{{#root_Compare imageType "==" "library"}} <i class="{{image}}"></i>{{/root_Compare}}</span>{{#root_Compare imageType "==" "custom"}} <img src="{{image}}" />  {{/root_Compare}}{{#root_Compare imageType "==" ""}}  <i class="{{image}}"></i> {{/root_Compare}}{{amenties}}<i class="icon-ok-4"></i><i></i></li>
+
+                                    {{/propertyfacilities}}
+                                </ul>
+                            </div>
+                        </div>
+
+
+                    </section>
+
+                </div>
+            </div>
+        </div>
+

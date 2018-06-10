@@ -1,0 +1,258 @@
+<div class="popup menu-popup tablet-fullscreen">
+    <div class="view loginView">
+        <div class="backgroundAnimation">
+            <div class="view background-view">{{> mainBackground}}</div>
+        </div>
+        <div class="backgroundAnimation">
+            {{#if @global.loginData.loginStyleAndNavigation.loginBackground}}{{#@global.loginData.loginStyleAndNavigation}}{{#js_compare "this.loginBackgroundType == 'color'"}}<div class="background-image" style="background-color:{{loginBackground}}"></div>{{/js_compare}}{{#js_compare "this.loginBackgroundType == 'img'"}}<div class="background-image portrait" style="background-image:url({{loginBackground}})"></div><div class="background-image landscape" style="background-image:url({{loginIpadBackground}})"></div>{{/js_compare}}<div class="background-theme {{@global.style.appTheme}}"></div>{{/@global.loginData.loginStyleAndNavigation}}{{/if}}
+        </div>
+        <div class="pages">
+            {{#if inner}} <div class="navbar"><div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+            <div class="left sliding">
+                <a href="index" class="link back" style="color:{{@global.style.headerBarIconColor}};">
+                    <i class="icon icon-left-open-2"></i>
+                </a>
+            </div>
+            <div class="center sliding {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">{{@global.loginData.signup.signUpIn}}</div>
+            <div class="right"></div>
+        </div></div>
+
+            <div data-page="signup-page" class="page navbar-through no-toolbar">
+                {{else}}
+                <div data-page="signup-page" class="page">
+                    {{/if}}
+
+                    <div class="page-content">
+                        <style type="text/css">
+    .appypie-login ::-webkit-input-placeholder {
+	    color:{{@global.loginData.loginStyleAndNavigation.loginFieldBgColor[1]}};
+    }
+    .appypie-login :-moz-placeholder {
+    	color:{{@global.loginData.loginStyleAndNavigation.loginFieldBgColor[1]}};
+    }
+    .appypie-login ::-moz-placeholder {
+	    color:{{@global.loginData.loginStyleAndNavigation.loginFieldBgColor[1]}};
+    }
+    .appypie-login :-ms-input-placeholder {
+    	color:{{@global.loginData.loginStyleAndNavigation.loginFieldBgColor[1]}};
+    }
+	#cnCode .cCode{width:30%}
+	#cnCode  .pNumber{width:68%; float:right;}
+    </style>
+                        <form>
+
+
+
+                            <div class="appypie-login signup-page theme-{{@global.loginData.loginStyleAndNavigation.loginLayout}} {{@global.loginData.loginStyleAndNavigation.loginContent[0]}} {{@global.loginData.loginStyleAndNavigation.loginContent[1]}} content-{{@global.loginData.loginStyleAndNavigation.loginContent[3]}} heading-{{@global.loginData.loginStyleAndNavigation.loginHeading[3]}}" style="color:{{@global.loginData.loginStyleAndNavigation.loginContent[2]}};">
+                                <ul>
+                                    <li class="heading {{@global.loginData.loginStyleAndNavigation.loginHeading[0]}} {{@global.loginData.loginStyleAndNavigation.loginHeading[1]}}" style="color:{{@global.loginData.loginStyleAndNavigation.loginHeading[2]}}; ">
+                                        {{@global.loginData.signup.signuptext}}
+                                    </li>
+
+                                    <li class="input">
+                                        <span class="iconz-user" style="background-color:{{@global.loginData.loginStyleAndNavigation.loginIcon[0]}};color:{{@global.loginData.loginStyleAndNavigation.loginIcon[1]}}; border-color:{{@global.loginData.loginStyleAndNavigation.loginBorderColor}}"></span>
+                                        <input type="text" id="fname" placeholder="{{@global.loginData.signup.name}}*" style="border-color:{{@global.loginData.loginStyleAndNavigation.loginBorderColor}}; background-color:{{@global.loginData.loginStyleAndNavigation.loginFieldBgColor[0]}};color:{{@global.loginData.loginStyleAndNavigation.loginFieldBgColor[1]}}">
+                                        <b class="arrow" style="border-right-color:{{@global.loginData.loginStyleAndNavigation.loginIcon[0]}}"></b>
+                                    </li>
+
+                                    <li class="input">
+                                        <span class="icon-email" style="background-color:{{@global.loginData.loginStyleAndNavigation.loginIcon[0]}};color:{{@global.loginData.loginStyleAndNavigation.loginIcon[1]}}; border-color:{{@global.loginData.loginStyleAndNavigation.loginBorderColor}}"></span>
+                                        <input type="email" id="emailId" placeholder="{{@global.loginData.signup.email}}*" style="border-color:{{@global.loginData.loginStyleAndNavigation.loginBorderColor}}; background-color:{{@global.loginData.loginStyleAndNavigation.loginFieldBgColor[0]}};color:{{@global.loginData.loginStyleAndNavigation.loginFieldBgColor[1]}}">
+                                        <b class="arrow" style="border-right-color:{{@global.loginData.loginStyleAndNavigation.loginIcon[0]}}"></b>
+                                    </li>
+
+                                    <li class="input"  {{#root_Compare @global.loginData.loginSetting.phoneWithCountryCode "==" "1"}} id="cnCode"  {{/root_Compare}} >
+                                    <span class="iconz-phone1" style="background-color:{{@global.loginData.loginStyleAndNavigation.loginIcon[0]}};color:{{@global.loginData.loginStyleAndNavigation.loginIcon[1]}}; border-color:{{@global.loginData.loginStyleAndNavigation.loginBorderColor}}"></span>
+                                    {{#root_Compare @global.loginData.loginSetting.phoneWithCountryCode "==" "1"}}
+
+                                    <input class="cCode" type="text" onclick="Appyscript.popupPage('login-counrtyCode')" name="scountrycode" id="scountrycode" value="" readonly style="border-color:{{@global.loginData.loginStyleAndNavigation.loginBorderColor}}; background-color:{{@global.loginData.loginStyleAndNavigation.loginFieldBgColor[0]}};color:{{@global.loginData.loginStyleAndNavigation.loginFieldBgColor[1]}}">
+
+                                    {{/root_Compare}}
+
+                                    <input class="pNumber" type="tel" id="pNo" placeholder="{{@global.loginData.signup.phoneNo}}{{#if @global.loginData.signup.phoneVerification}}*{{else}}{{#if @global.loginData.loginSetting.phoneStatus}}*{{/if}}{{/if}}" style="border-color:{{@global.loginData.loginStyleAndNavigation.loginBorderColor}}; background-color:{{@global.loginData.loginStyleAndNavigation.loginFieldBgColor[0]}};color:{{@global.loginData.loginStyleAndNavigation.loginFieldBgColor[1]}}">
+                                    <b class="arrow" style="border-right-color:{{@global.loginData.loginStyleAndNavigation.loginIcon[0]}}"></b>
+                                    </li>
+
+                                    <li class="input">
+                                        <span class="iconz-lock" style="background-color:{{@global.loginData.loginStyleAndNavigation.loginIcon[0]}};color:{{@global.loginData.loginStyleAndNavigation.loginIcon[1]}}; border-color:{{@global.loginData.loginStyleAndNavigation.loginBorderColor}}"></span>
+                                        <input type="password" id="pass" onkeyup="Appyscript.checkPassword(this)" onblur="Appyscript.checkPassword(this)" onfocus="Appyscript.checkPassword(this)" placeholder="{{@global.loginData.signup.pass}}*" style="border-color:{{@global.loginData.loginStyleAndNavigation.loginBorderColor}}; background-color:{{@global.loginData.loginStyleAndNavigation.loginFieldBgColor[0]}};color:{{@global.loginData.loginStyleAndNavigation.loginFieldBgColor[1]}}">
+                                        <b class="arrow" style="border-right-color:{{@global.loginData.loginStyleAndNavigation.loginIcon[0]}}"></b>
+                                        <em class="password-type">Text</em>
+                                    </li>
+
+                                    <li class="input password-view" style="display:none">
+                                        <p></p>
+                                    </li>
+
+                                    <li class="input">
+                                        <span class="iconz-lock" style="background-color:{{@global.loginData.loginStyleAndNavigation.loginIcon[0]}};color:{{@global.loginData.loginStyleAndNavigation.loginIcon[1]}}; border-color:{{@global.loginData.loginStyleAndNavigation.loginBorderColor}}"></span>
+                                        <input type="password" id="cpass" placeholder="{{@global.loginData.signup.confirmpwd}}*" style="border-color:{{@global.loginData.loginStyleAndNavigation.loginBorderColor}}; background-color:{{@global.loginData.loginStyleAndNavigation.loginFieldBgColor[0]}};color:{{@global.loginData.loginStyleAndNavigation.loginFieldBgColor[1]}}">
+                                        <b class="arrow" style="border-right-color:{{@global.loginData.loginStyleAndNavigation.loginIcon[0]}}"></b>
+                                    </li>
+
+                                    {{#signUpCustom.list}}
+
+                                    {{#js_compare "this.fieldId == ''"}}
+                                    <li class="input customField" type="{{fieldType}}" mandatory="{{mandatory}}">
+                                        {{else}}
+                                    <li class="input customField" ctype="{{fieldId}}" type="{{fieldType}}" mandatory="{{mandatory}}">
+                                        {{/js_compare}}
+
+                                        {{#js_compare "this.fieldType == 'name'"}}
+                                        <span class="{{getICON fieldType}}" style="background-color:{{@global.loginData.loginStyleAndNavigation.loginIcon[0]}};color:{{@global.loginData.loginStyleAndNavigation.loginIcon[1]}}; border-color:{{@global.loginData.loginStyleAndNavigation.loginBorderColor}}"></span>
+                                        <input type="text" name="name" id="{{@index}}" placeholder="{{fieldLebal}} {{#if mandatory}}*{{/if}}" style="border-color:{{@global.loginData.loginStyleAndNavigation.loginBorderColor}}; background-color:{{@global.loginData.loginStyleAndNavigation.loginFieldBgColor[0]}};color:{{@global.loginData.loginStyleAndNavigation.loginFieldBgColor[1]}}">
+                                        <b class="arrow" style="border-right-color:{{@global.loginData.loginStyleAndNavigation.loginIcon[0]}}"></b>
+                                        {{/js_compare}}
+                                        {{#js_compare "this.fieldType == 'text'"}}
+                                        <span class="{{getICON fieldType}}" style="background-color:{{@global.loginData.loginStyleAndNavigation.loginIcon[0]}};color:{{@global.loginData.loginStyleAndNavigation.loginIcon[1]}}; border-color:{{@global.loginData.loginStyleAndNavigation.loginBorderColor}}"></span>
+                                        <input type="text" name="text" id="{{@index}}" placeholder="{{fieldLebal}}{{#if mandatory}}*{{/if}}" style="border-color:{{@global.loginData.loginStyleAndNavigation.loginBorderColor}}; background-color:{{@global.loginData.loginStyleAndNavigation.loginFieldBgColor[0]}};color:{{@global.loginData.loginStyleAndNavigation.loginFieldBgColor[1]}}">
+                                        <b class="arrow" style="border-right-color:{{@global.loginData.loginStyleAndNavigation.loginIcon[0]}}"></b>
+                                        {{/js_compare}}
+                                        {{#js_compare "this.fieldType == 'state'"}}
+                                        <span class="{{getICON fieldType}}" style="background-color:{{@global.loginData.loginStyleAndNavigation.loginIcon[0]}};color:{{@global.loginData.loginStyleAndNavigation.loginIcon[1]}}; border-color:{{@global.loginData.loginStyleAndNavigation.loginBorderColor}}"></span>
+                                        <input type="text" name="state" id="{{@index}}" placeholder="{{fieldLebal}}{{#if mandatory}}*{{/if}}" style="border-color:{{@global.loginData.loginStyleAndNavigation.loginBorderColor}}; background-color:{{@global.loginData.loginStyleAndNavigation.loginFieldBgColor[0]}};color:{{@global.loginData.loginStyleAndNavigation.loginFieldBgColor[1]}}">
+                                        <b class="arrow" style="border-right-color:{{@global.loginData.loginStyleAndNavigation.loginIcon[0]}}"></b>
+                                        {{/js_compare}}
+                                        {{#js_compare "this.fieldType == 'phone'"}}
+                                        <span class="{{getICON fieldType}}" style="background-color:{{@global.loginData.loginStyleAndNavigation.loginIcon[0]}};color:{{@global.loginData.loginStyleAndNavigation.loginIcon[1]}}; border-color:{{@global.loginData.loginStyleAndNavigation.loginBorderColor}}"></span>
+                                        <input type="tel" name="state" id="{{@index}}" placeholder="{{fieldLebal}}{{#if mandatory}}*{{/if}}" style="border-color:{{@global.loginData.loginStyleAndNavigation.loginBorderColor}}; background-color:{{@global.loginData.loginStyleAndNavigation.loginFieldBgColor[0]}};color:{{@global.loginData.loginStyleAndNavigation.loginFieldBgColor[1]}}">
+                                        <b class="arrow" style="border-right-color:{{@global.loginData.loginStyleAndNavigation.loginIcon[0]}}"></b>
+                                        {{/js_compare}}
+                                        {{#js_compare "this.fieldType == 'date'"}}
+                                        <span class="{{getICON fieldType}}" style="background-color:{{@global.loginData.loginStyleAndNavigation.loginIcon[0]}};color:{{@global.loginData.loginStyleAndNavigation.loginIcon[1]}}; border-color:{{@global.loginData.loginStyleAndNavigation.loginBorderColor}}"></span>
+                                        <input type="date" name="date" id="{{@index}}" placeholder="{{fieldLebal}}{{#if mandatory}}*{{/if}}" style="border-color:{{@global.loginData.loginStyleAndNavigation.loginBorderColor}}; background-color:{{@global.loginData.loginStyleAndNavigation.loginFieldBgColor[0]}};color:{{@global.loginData.loginStyleAndNavigation.loginFieldBgColor[1]}}">
+                                        <b class="arrow" style="border-right-color:{{@global.loginData.loginStyleAndNavigation.loginIcon[0]}}"></b>
+                                        {{/js_compare}}
+                                        {{#js_compare "this.fieldType == 'email'"}}
+                                        <span class="{{getICON fieldType}}" style="background-color:{{@global.loginData.loginStyleAndNavigation.loginIcon[0]}};color:{{@global.loginData.loginStyleAndNavigation.loginIcon[1]}}; border-color:{{@global.loginData.loginStyleAndNavigation.loginBorderColor}}"></span>
+                                        <input type="email" name="email" id="{{@index}}" placeholder="{{fieldLebal}}{{#if mandatory}}*{{/if}}" style="border-color:{{@global.loginData.loginStyleAndNavigation.loginBorderColor}}; background-color:{{@global.loginData.loginStyleAndNavigation.loginFieldBgColor[0]}};color:{{@global.loginData.loginStyleAndNavigation.loginFieldBgColor[1]}}">
+                                        <b class="arrow" style="border-right-color:{{@global.loginData.loginStyleAndNavigation.loginIcon[0]}}"></b>
+                                        {{/js_compare}}
+
+                                        {{#js_compare "this.fieldType == 'time'"}}
+                                        <span class="{{getICON fieldType}}" style="background-color:{{@global.loginData.loginStyleAndNavigation.loginIcon[0]}};color:{{@global.loginData.loginStyleAndNavigation.loginIcon[1]}}; border-color:{{@global.loginData.loginStyleAndNavigation.loginBorderColor}}"></span>
+                                        <input type="time" name="time" id="{{@index}}" placeholder="{{fieldLebal}}{{#if mandatory}}*{{/if}}" style="border-color:{{@global.loginData.loginStyleAndNavigation.loginBorderColor}}; background-color:{{@global.loginData.loginStyleAndNavigation.loginFieldBgColor[0]}};color:{{@global.loginData.loginStyleAndNavigation.loginFieldBgColor[1]}}">
+                                        <b class="arrow" style="border-right-color:{{@global.loginData.loginStyleAndNavigation.loginIcon[0]}}"></b>
+                                        {{/js_compare}}
+
+                                        {{#js_compare "this.fieldType == 'gender'"}}
+                                        <span class="{{getICON fieldType}}" style="background-color:{{@global.loginData.loginStyleAndNavigation.loginIcon[0]}};color:{{@global.loginData.loginStyleAndNavigation.loginIcon[1]}}; border-color:{{@global.loginData.loginStyleAndNavigation.loginBorderColor}}"></span>
+                                        <select type="time" name="time" id="{{@index}}" placeholder="{{fieldLebal}}  {{#if mandatory}}*{{/if}}" style="border-color:{{@global.loginData.loginStyleAndNavigation.loginBorderColor}}; background-color:{{@global.loginData.loginStyleAndNavigation.loginFieldBgColor[0]}};color:{{@global.loginData.loginStyleAndNavigation.loginFieldBgColor[1]}}">
+                                            <option selected="selected" value="0">Select Gender  {{#if mandatory}}*{{/if}}</option>
+                                            <option value="Male">Male</option>
+                                            <option value="Female">Female</option>
+                                        </select>
+                                        <b class="arrow" style="border-right-color:{{@global.loginData.loginStyleAndNavigation.loginIcon[0]}}"></b>
+                                        {{/js_compare}}
+
+
+                                        {{#js_compare "this.fieldType == 'country'"}}
+                                        <span class="{{getICON fieldType}}" style="background-color:{{@global.loginData.loginStyleAndNavigation.loginIcon[0]}};color:{{@global.loginData.loginStyleAndNavigation.loginIcon[1]}}; border-color:{{@global.loginData.loginStyleAndNavigation.loginBorderColor}}"></span>
+                                        <select type="country" name="country" id="{{@index}}" placeholder="{{fieldLebal}}" style="border-color:{{@global.loginData.loginStyleAndNavigation.loginBorderColor}}; background-color:{{@global.loginData.loginStyleAndNavigation.loginFieldBgColor[0]}};color:{{@global.loginData.loginStyleAndNavigation.loginFieldBgColor[1]}}">
+                                            <option selected="selected" value="0">{{fieldLebal}}  {{#if mandatory}}*{{/if}}</option>
+                                            {{getCountry fieldType}}
+                                        </select>
+                                        <b class="arrow" style="border-right-color:{{@global.loginData.loginStyleAndNavigation.loginIcon[0]}}"></b>
+                                        {{/js_compare}}
+
+                                        {{#js_compare "this.fieldType == 'select'"}}
+                                        <span class="{{getICON fieldType}}" style="background-color:{{@global.loginData.loginStyleAndNavigation.loginIcon[0]}};color:{{@global.loginData.loginStyleAndNavigation.loginIcon[1]}}; border-color:{{@global.loginData.loginStyleAndNavigation.loginBorderColor}}"></span>
+                                        <select type="select" name="select" id="{{@index}}" placeholder="{{fieldLebal}}" style="border-color:{{@global.loginData.loginStyleAndNavigation.loginBorderColor}}; background-color:{{@global.loginData.loginStyleAndNavigation.loginFieldBgColor[0]}};color:{{@global.loginData.loginStyleAndNavigation.loginFieldBgColor[1]}}">
+                                            <option value="0">{{fieldLebal}}{{#if mandatory}}*{{/if}}</option>
+                                            {{#list}}
+                                            <option value="{{subFieldLebal}}">{{subFieldLebal}}</option>
+                                            {{/list}}
+                                        </select>
+                                        <b class="arrow" style="border-right-color:{{@global.loginData.loginStyleAndNavigation.loginIcon[0]}}"></b>
+                                        {{/js_compare}}
+
+                                        {{#js_compare "this.fieldType == 'textarea'"}}
+                                        <span class="{{getICON fieldType}}" style="background-color:{{@global.loginData.loginStyleAndNavigation.loginIcon[0]}};color:{{@global.loginData.loginStyleAndNavigation.loginIcon[1]}}; border-color:{{@global.loginData.loginStyleAndNavigation.loginBorderColor}}"></span>
+                                        <textarea type="textarea" name="textarea" id="{{@index}}" placeholder="{{fieldLebal}}{{#if mandatory}}*{{/if}}" style="border-color:{{@global.loginData.loginStyleAndNavigation.loginBorderColor}}; background-color:{{@global.loginData.loginStyleAndNavigation.loginFieldBgColor[0]}};color:{{@global.loginData.loginStyleAndNavigation.loginFieldBgColor[1]}}"></textarea>
+                                        <b class="arrow" style="border-right-color:{{@global.loginData.loginStyleAndNavigation.loginIcon[0]}}"></b>
+                                        {{/js_compare}}
+
+                                        {{#js_compare "this.fieldType == 'uploadPicture'"}}
+                                        <span class="{{getICON fieldType}}" style="background-color:{{@global.loginData.loginStyleAndNavigation.loginIcon[0]}};color:{{@global.loginData.loginStyleAndNavigation.loginIcon[1]}}; border-color:{{@global.loginData.loginStyleAndNavigation.loginBorderColor}}"></span>
+                                        <div class="add-file"><div id="{{@index}}"  class="browser select-file" style="border-color:{{@global.loginData.loginStyleAndNavigation.loginBorderColor}}; background-color:{{@global.loginData.loginStyleAndNavigation.loginFieldBgColor[0]}};color:{{@global.loginData.loginStyleAndNavigation.loginFieldBgColor[1]}}"><font data-val="{{fieldLebal}}">{{fieldLebal}}{{#if mandatory}}*{{/if}}</font><input type="button" onclick="selectPhotoForLogin(this);" accept="*/*"></div></div>
+                                        <b class="arrow" style="border-right-color:{{@global.loginData.loginStyleAndNavigation.loginIcon[0]}}"></b>
+                                        {{/js_compare}}
+
+                                        {{#js_compare "this.fieldType == 'checkbox'"}}
+                                        <span class="{{getICON fieldType}}" style="background-color:{{@global.loginData.loginStyleAndNavigation.loginIcon[0]}};color:{{@global.loginData.loginStyleAndNavigation.loginIcon[1]}}; border-color:{{@global.loginData.loginStyleAndNavigation.loginBorderColor}}"></span>
+                                        <div class="label-head" style="background-color:{{@global.loginData.loginStyleAndNavigation.loginIcon[0]}};color:{{@global.loginData.loginStyleAndNavigation.loginIcon[1]}}; border-color:{{@global.loginData.loginStyleAndNavigation.loginBorderColor}}">{{fieldLebal}}{{#if mandatory}}*{{/if}}</div>
+                                        {{#list}}
+                                        <label><input name="{{@index}}" id="{{@index}}" type="checkbox" value="{{subFieldLebal}}" {{#if defaulSetOption}} checked="checked" {{/if}}  />{{subFieldLebal}}</label>
+                                        {{/list}}
+                                        <b class="arrow" style="border-right-color:{{@global.loginData.loginStyleAndNavigation.loginIcon[0]}}"></b>
+                                        {{/js_compare}}
+
+
+                                        {{#js_compare "this.fieldType == 'radio'"}}
+                                        <span class="{{getICON fieldType}}" style="background-color:{{@global.loginData.loginStyleAndNavigation.loginIcon[0]}};color:{{@global.loginData.loginStyleAndNavigation.loginIcon[1]}}; border-color:{{@global.loginData.loginStyleAndNavigation.loginBorderColor}}"></span>
+                                        <div class="label-head" style="background-color:{{@global.loginData.loginStyleAndNavigation.loginIcon[0]}};color:{{@global.loginData.loginStyleAndNavigation.loginIcon[1]}}; border-color:{{@global.loginData.loginStyleAndNavigation.loginBorderColor}}">{{fieldLebal}}{{#if mandatory}}*{{/if}}</div>
+                                        {{#list}}
+                                        <label><input name="{{../fieldLebal}}" id="{{@index}}" type="radio" value="{{subFieldLebal}}" {{#if defaulSetOption}} checked="checked" {{/if}} />{{subFieldLebal}}</label>
+                                        {{/list}}
+                                        <b class="arrow" style="border-right-color:{{@global.loginData.loginStyleAndNavigation.loginIcon[0]}}"></b>
+                                        {{/js_compare}}
+
+                                        {{#js_compare "this.fieldType == 'multiselect'"}}
+                                        <span class="{{getICON fieldType}}" style="background-color:{{@global.loginData.loginStyleAndNavigation.loginIcon[0]}};color:{{@global.loginData.loginStyleAndNavigation.loginIcon[1]}}; border-color:{{@global.loginData.loginStyleAndNavigation.loginBorderColor}}"></span>
+                                        <select type="select" name="select" id="{{@index}}" placeholder="{{fieldLebal}} {{#if mandatory}}*{{/if}}" multiple="multiple" style="border-color:{{@global.loginData.loginStyleAndNavigation.loginBorderColor}}; background-color:{{@global.loginData.loginStyleAndNavigation.loginFieldBgColor[0]}};color:{{@global.loginData.loginStyleAndNavigation.loginFieldBgColor[1]}}; height:90px">
+                                            {{#list}}
+                                            <option value="{{subFieldLebal}}" {{#if defaulSetOption}} selected="selected" {{/if}}>{{subFieldLebal}}</option>
+                                            {{/list}}
+                                        </select>
+                                        <b class="arrow" style="border-right-color:{{@global.loginData.loginStyleAndNavigation.loginIcon[0]}}"></b>
+                                        {{/js_compare}}
+
+                                        {{#js_compare "this.fieldType == 'group'"}}
+                                        <span class="{{getICON fieldType}}" style="background-color:{{@global.loginData.loginStyleAndNavigation.loginIcon[0]}};color:{{@global.loginData.loginStyleAndNavigation.loginIcon[1]}}; border-color:{{@global.loginData.loginStyleAndNavigation.loginBorderColor}}"></span>
+                                        <select type="select" name="select" id="{{@index}}" placeholder="{{fieldLebal}} {{#if mandatory}}*{{/if}}"  style="border-color:{{@global.loginData.loginStyleAndNavigation.loginBorderColor}}; background-color:{{@global.loginData.loginStyleAndNavigation.loginFieldBgColor[0]}};color:{{@global.loginData.loginStyleAndNavigation.loginFieldBgColor[1]}}; height:50px">
+                                            <option selected="selected" value="0">{{@global.commonLanguageSetting.select_group}}{{#if mandatory}}*{{/if}}</option>
+                                            {{#list}}
+                                            <option value="{{subFieldValue}}"  {{#if defaulSetOption}} selected="selected" {{/if}}>{{subFieldLebal}}</option>
+                                            {{/list}}
+                                        </select>
+                                        <b class="arrow" style="border-right-color:{{@global.loginData.loginStyleAndNavigation.loginIcon[0]}}"></b>
+                                        {{/js_compare}}
+
+                                    {{#js_compare "this.fieldType == 'barcode'"}}
+                                    <span class="{{getICON fieldType}}" style="background-color:{{@global.loginData.loginStyleAndNavigation.loginIcon[0]}};color:{{@global.loginData.loginStyleAndNavigation.loginIcon[1]}}; border-color:{{@global.loginData.loginStyleAndNavigation.loginBorderColor}}"></span>
+                                    <input type="text" name="name" id="{{@index}}" placeholder="{{fieldLebal}} {{#if mandatory}}*{{/if}}" style="border-color:{{@global.loginData.loginStyleAndNavigation.loginBorderColor}}; background-color:{{@global.loginData.loginStyleAndNavigation.loginFieldBgColor[0]}};color:{{@global.loginData.loginStyleAndNavigation.loginFieldBgColor[1]}}">
+                                    <b class="arrow" style="border-right-color:{{@global.loginData.loginStyleAndNavigation.loginIcon[0]}}"></b>
+                                    <span class="scanner_btn appyslim-photo-camera" onclick="BarCode_signUP(this)" style="background-color:{{@global.loginData.loginStyleAndNavigation.loginIcon[0]}};color:{{@global.loginData.loginStyleAndNavigation.loginIcon[1]}}; border-color:{{@global.loginData.loginStyleAndNavigation.loginBorderColor}}"></span>
+                                    {{/js_compare}}
+
+                                    {{#js_compare "this.fieldType == 'qrcode'"}}
+                                    <span class="{{getICON fieldType}}" style="background-color:{{@global.loginData.loginStyleAndNavigation.loginIcon[0]}};color:{{@global.loginData.loginStyleAndNavigation.loginIcon[1]}}; border-color:{{@global.loginData.loginStyleAndNavigation.loginBorderColor}}"></span>
+                                    <input type="text" name="name" id="{{@index}}" placeholder="{{fieldLebal}} {{#if mandatory}}*{{/if}}" style="border-color:{{@global.loginData.loginStyleAndNavigation.loginBorderColor}}; background-color:{{@global.loginData.loginStyleAndNavigation.loginFieldBgColor[0]}};color:{{@global.loginData.loginStyleAndNavigation.loginFieldBgColor[1]}}">
+                                    <b class="arrow" style="border-right-color:{{@global.loginData.loginStyleAndNavigation.loginIcon[0]}}"></b>
+                                    <span class="scanner_btn appyslim-photo-camera" onclick="BarCode_signUP(this)" style="background-color:{{@global.loginData.loginStyleAndNavigation.loginIcon[0]}};color:{{@global.loginData.loginStyleAndNavigation.loginIcon[1]}}; border-color:{{@global.loginData.loginStyleAndNavigation.loginBorderColor}}"></span>
+                                    {{/js_compare}}
+
+                                    </li>
+                                    {{/signUpCustom.list}}
+
+
+                                    <li class="login-btn"><a onclick="Appyscript.addUser();" class="{{@global.loginData.loginStyleAndNavigation.loginButton[0]}} {{@global.loginData.loginStyleAndNavigation.loginButton[1]}}" style="background-color:{{@global.loginData.loginStyleAndNavigation.loginButton[2]}}; color:{{@global.loginData.loginStyleAndNavigation.loginButton[3]}}">{{@global.loginData.signup.signupbtntext}}</a></li>
+                                    <li class="text">
+                                        <p>
+                                            {{@global.loginData.signup.alreadyaccounttext}}
+                                            <a style="color:{{@global.loginData.loginStyleAndNavigation.loginContent[2]}};" onclick="Appyscript.popupPage('login')">
+                                                {{@global.loginData.signup.signUpIn}}
+                                            </a>
+                                        </p>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

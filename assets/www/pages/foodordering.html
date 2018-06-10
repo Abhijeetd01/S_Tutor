@@ -1,0 +1,95 @@
+<div class="navbar"><div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+    <div class="left sliding">
+       {{getNavigation @global.style.layout "menu"}}
+    </div>
+    <div class="center sliding {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">{{pageTitle}}</div>
+    <div class="right">
+        <a onclick="Appyscript.foodcardview(this)"
+           class="localHeaderIconRight ui-link" style="color:{{@global.style.headerBarIconColor}};">
+            <span class="subValue" style="color:{{@global.styleAndNavigation.button[3]}};background:{{@global.styleAndNavigation.button[2]}};">{{@global.foodCartCount}}</span>
+            <div class="headerIcon"><i class="icon-cart"></i></div>
+        </a>
+    </div>
+</div></div>
+<div data-page="foodordering-page" class="page navbar-through no-toolbar">
+    <!-- Page content-->
+    <div class="page-content {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}} content-{{@global.styleAndNavigation.content[3]}} heading-{{@global.styleAndNavigation.heading[3]}} hideBorder-{{@global.styleAndNavigation.hideBorder}}" style="color:{{@global.styleAndNavigation.content[2]}}; background:{{@global.styleAndNavigation.pageBgColor}}">
+        <style type="text/css">
+            .categories-swiper li.active a {
+            background:{{@global.styleAndNavigation.nav[3]}};
+            }
+            .search-box input {
+            border-color:{{@global.styleAndNavigation.borderColor}};
+            }
+			.categories-list li{border-bottom:2px solid {{@global.styleAndNavigation.borderColor}}}
+			.categories.theme-2 .categories-list li.category,.categories.theme-3 .categories-list li.category  {border:0px solid {{@global.styleAndNavigation.borderColor}}}
+            </style>
+        {{#if categoryList}}
+        <div class="categories theme-{{@global.styleAndNavigation.layout}}">
+            <div class="search-box">
+                <input id="foodtxtSearch" type="search" placeholder="{{@global.pageLanguageSetting.search_food}}" onkeyup="foodSearchFunction(event, this)"  onblur="foodSearchFunction(event, this)" onclick="foodSearchFunction(event, this)">
+                <a class="icon-search" style="color:{{@global.styleAndNavigation.iconColor}}"></a>
+            </div>
+            {{#root_Compare @global.styleAndNavigation.layout "==" "4"}}
+            <div class="categories-swiper swiper-container {{@global.styleAndNavigation.nav[0]}} {{@global.styleAndNavigation.nav[1]}}" style="border-color:{{@global.styleAndNavigation.nav[3]}}">
+                <ul class="swiper-wrapper">
+                    {{#categoryList}}
+                    <li class="swiper-slide"><a style="color:{{@global.styleAndNavigation.nav[2]}}">{{name}}</a></li>
+                    {{/categoryList}}
+                </ul>
+            </div>
+            <div class="list-swiper swiper-container">
+                <div class="swiper-wrapper">
+                    {{#categoryList}}
+                    <div class="swiper-slide infinite-scroll" data-id="{{id}}" data-page="1" data-load="true" index="{{@index}}" data-distance="200">
+                        <ul class="categories-list">
+                            {{#if subCategories}}
+                            {{#subCategories}}
+                            {{> foodsubCat}}
+                            {{/subCategories}}
+                            {{/if}}
+
+                            {{#if productList}}
+                            {{#productList}}
+                            {{> foodcatProduct}}
+                            {{/productList}}
+                            {{/if}}
+                        </ul>
+                    </div>
+                    {{/categoryList}}
+                </div>
+                <div class="infinite-scroll-preloader" style="display:none">
+                    <div class="preloader-view"><div class="preloader"></div></div>
+                </div>
+            </div>
+            {{else}}
+            <ul class="categories-list">
+                {{#categoryList}}
+                <li class="category">
+                    {{#root_Compare @global.styleAndNavigation.layout "==" "1"}}
+                    <img src="images/image-2x1.png" style="background-image:url({{image}})" />
+                    {{/root_Compare}}
+                    {{#root_Compare @global.styleAndNavigation.layout "==" "2"}}
+                    <img src="images/image-1x1.png" style="background-image:url({{image}})" />
+                    {{/root_Compare}}
+                    {{#root_Compare @global.styleAndNavigation.layout "==" "3"}}
+                    <img src="images/image-1x1.png" style="background-image:url({{image}})" />
+                    {{/root_Compare}}
+                    {{#root_Compare @global.styleAndNavigation.layout "==" "5"}}
+                    <img src="images/image-1x1.png" />
+                    <img src="images/image-1x1.png" style="background-image:url({{image}})" class="icon-view" />
+                    {{/root_Compare}}
+                    <div class="details" style="background:{{@global.styleAndNavigation.title[2]}};">
+                        <h3 class="{{@global.styleAndNavigation.title[0]}} {{@global.styleAndNavigation.title[1]}}" style="color:{{@global.styleAndNavigation.title[3]}}">{{name}}<span class="icon-right-open"></span></h3>
+                    </div>
+      <div class="overlay" onclick="Appyscript.foodCategory(this)" index="{{@index}}" data-id="{{id}}" data-name="{{name}}" sort-id="{{sort}}"></div>
+                </li>
+                {{/categoryList}}
+            </ul>
+            {{/root_Compare}}
+        </div>
+        {{else}}
+        <div class="msg-code">{{> errorpage errorIcon="appyicon-no-data"}}</div>
+        {{/if}}
+    </div>
+</div>

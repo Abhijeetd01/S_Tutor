@@ -1,0 +1,51 @@
+<div class="navbar"><div class="navbar-inner" style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+    <div class="left sliding">
+        		{{getSlideBack ""}}
+    </div>
+    <div class="center sliding {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">{{pageTitle}}</div>
+    <div class="right">{{getSlideRightBack ""}}<a id="openFavouritePage" style="color:{{@global.style.headerBarIconColor}};"><i class="icon-heart-1"></i></a></div>
+</div></div>
+
+
+
+<div data-page="quote-page" class="page navbar-through no-toolbar">
+    
+    <!-- Page content-->
+    <div class="backgroundAnimation">{{> innerBackground}}</div>
+    
+    <style>
+        .quote-wrapper {font-family:{{@global.styleAndNavigation.list[0]}}; color:{{@global.styleAndNavigation.list[2]}}; background-color:{{@global.styleAndNavigation.list[3]}} }
+        .quote-share i{  background-color:{{@global.styleAndNavigation.icon[0]}}; color:{{@global.styleAndNavigation.icon[1]}} }
+        .quote-time{ font-family:{{@global.styleAndNavigation.heading[0]}}; color:{{@global.styleAndNavigation.heading[2]}}; }
+        #quoteContent {color:{{@global.styleAndNavigation.list[2]}}}
+        #quoteContent i{color:{{@global.styleAndNavigation.icon[1]}} }
+        
+        .favColor{
+            color:{{@global.styleAndNavigation.activeColor}} !important;
+        }
+    </style>
+    
+    <div class="page-content" id="pageSwipe" style="background:{{@global.styleAndNavigation.pageBackground}}">
+        
+        <div class="bodypan" id="quoteText">
+            <!--            <div class="quote-time" id="quote_Date">-->
+            <!--                <span>May</span>, 14th 2017-->
+            <!--            </div>-->
+            <!--            <div class="quote-wrapper">-->
+            <!--                <img src="images/2X1.png" style="background:url(http://qnimate.com/wp-content/uploads/2014/03/images2.jpg)"/>-->
+            <!--                <p id="quoteContent">-->
+            <!--                <i class="icon-quote-left-1" style="color:#fff"></i>You may never know what's is results come of your action, But if You do Nothing there awill be no result lorem ipsum doler sit amet is simply dumy text for printing users.-->
+            <!--                </p>-->
+            <!--                <div class="row">-->
+            <!--                    <div class="quote-share">-->
+            <!--                        <i class="icon-heart-1"></i><i class="icon-share-1"></i>-->
+            <!--                    </div>-->
+            <!--                    <div class="quote-publish">-->
+            <!--                        Thomas Merton-->
+            <!--                    </div>-->
+            <!--                </div>-->
+            <!--            </div>-->
+        </div>
+        
+    </div>
+</div>

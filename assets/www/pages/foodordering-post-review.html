@@ -1,0 +1,45 @@
+<div class="navbar"><div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+	<div class="left sliding">
+		<a href="index" class="link back" style="color:{{@global.style.headerBarIconColor}};">
+			<i class="icon icon-left-open-2"></i>
+		</a>
+	</div>
+	<div class="center sliding  {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">
+		<div class="topHeader">{{@global.pageLanguageSetting.post_review_food}}
+		</div>
+	</div>
+	<div class="right">
+		<a onclick="Appyscript.foodcardview(this)" class="localHeaderIconRight ui-link" style="color:{{@global.style.headerBarIconColor}};"> <span class="subValue" style="color:{{@global.styleAndNavigation.button[3]}};background:{{@global.styleAndNavigation.button[2]}};">{{@global.foodCartCount}}</span><div class="headerIcon"><i class="icon-cart"></i></div></a>
+	</div>
+</div>
+</div>
+
+
+<div data-page="foodordering-PostReview" class="page navbar-through toolbar-fixed no-toolbar">
+	<!-- Page content-->
+	<div class="page-content {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}} content-{{@global.styleAndNavigation.content[3]}} heading-{{@global.styleAndNavigation.heading[3]}} hideBorder-{{@global.styleAndNavigation.hideBorder}}" style="color:{{@global.styleAndNavigation.content[2]}}; background:{{@global.styleAndNavigation.pageBgColor}}">
+
+		<div class="thankyou">
+			<!--            <h2 class="{{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}}">{{@global.pageLanguageSetting.write_a_review_food}}</h2>-->
+			<!--            <p>-->
+			<!--            {{@global.pageLanguageSetting.post_review_guidelines_food}}-->
+			<!--            </p>-->
+			<div class="post-review">
+				<!--                <h2 class="{{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}}">{{@global.pageLanguageSetting.post_review_food}}</h2>-->
+				<div class="rating">
+					<b style="cursor: pointer; width: 100px;">
+						<img src="images/star-off-big.png" id="rat1" alt="1" title="bad" onclick="foodGetRating(this);">&nbsp;
+						<img src="images/star-off-big.png" id="rat2" alt="2" title="poor" onclick="foodGetRating(this);">&nbsp;
+						<img src="images/star-off-big.png" id="rat3" alt="3" title="regular" onclick="foodGetRating(this);">&nbsp;
+						<img src="images/star-off-big.png" id="rat4" alt="4" title="good" onclick="foodGetRating(this);">&nbsp;
+						<img src="images/star-off-big.png" id="rat5" alt="5" title="gorgeous" onclick="foodGetRating(this);">
+						<input type="hidden" name="score"></b>
+				</div>
+				<input placeholder="{{@global.pageLanguageSetting.review_title_food}}" onclick="foodFocusInput2(this)" id="InputTitle" data-role="none" type="text">
+				<textarea data-role="none" id="comentInputTxt" onclick="foodFocusInput2(this)" placeholder="{{@global.pageLanguageSetting.comment_food}}"></textarea>
+				<a onclick="foodPostReviewOfProduct(this, '{{id}}');" class="{{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" style="color:{{@global.styleAndNavigation.button[3]}};background:{{@global.styleAndNavigation.button[2]}};">{{@global.pageLanguageSetting.post_food}}</a>
+			</div>
+		</div>
+
+	</div>
+</div>

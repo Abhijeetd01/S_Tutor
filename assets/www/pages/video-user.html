@@ -1,0 +1,80 @@
+<div class="navbar"><div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+    <div class="left sliding">
+        <a href="" class="link back" style="color:{{@global.style.headerBarIconColor}};">
+            <i class="icon icon-left-open-2"></i>
+        </a>
+    </div>
+    <div class="center sliding {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">{{title}}</div>
+    <div class="right"></div>
+</div></div>
+
+<div data-page="video-UserPage" class="page navbar-through no-toolbar">
+    <!-- Page content-->
+<div class="backgroundAnimation">{{> innerBackground}}</div>
+<div class="page-content">
+    <div class="videos-list theme-{{@global.styleAndNavigation.layout}} {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[0]}} content-{{@global.styleAndNavigation.content[3]}} heading-{{@global.styleAndNavigation.heading[3]}}" style="color:{{@global.styleAndNavigation.content[2]}}">
+        
+        <div class="category-view">
+   
+            
+        <div class="swiper-slide">
+        
+    	<ul class="list inside">
+        	{{#items}}
+            {{#if id.videoId}}
+                     <li>
+                        <div class="image" onclick="Appyscript.playYoutubeVideoUrl(this)" videoId="{{id.videoId}}">
+                            {{else}}
+                            {{#if snippet.resourceId}}
+                            <li>
+                            <div class="image" onclick="Appyscript.playYoutubeVideoUrl(this)" videoId="{{snippet.resourceId.videoId}}">
+                                {{else}}
+                                <li class="none">
+                                <div class="image" onclick="Appyscript.playYoutubeVideoUrl(this)" videoId="{{#if snippet.thumbnails}}{{snippet.thumbnails.medium.url}}{{/if}}">
+                                    {{/if}}
+                                    {{/if}}
+                                    {{#root_Compare @global.styleAndNavigation.layout "==" "3"}}
+                                    <img src="images/image-2x1.png" style="background-image:url({{#if snippet.thumbnails}}{{snippet.thumbnails.medium.url}}{{/if}})" />
+                                    {{else}}
+                                    {{#root_Compare @global.styleAndNavigation.layout "==" "4"}}
+                                    <img src="{{#if snippet.thumbnails}}{{snippet.thumbnails.medium.url}}{{/if}}"  />
+                                    {{else}}
+                                    <img src="images/image-1x1.png" style="background-image:url({{#if snippet.thumbnails}}{{snippet.thumbnails.medium.url}}{{/if}})" />
+                                    {{/root_Compare}}
+                                    {{/root_Compare}}
+                                    <span class="overlay iconz-play-button"></span>
+                                </div>
+                                <div class="text-detail">
+                                    <h4 class="{{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}}">{{snippet.title}}</h4>
+                                    <p>{{snippet.description}}</p>
+                                     {{#if snippet.publishedAt}}
+                                    <span class="date">{{snippet.publishedAt}}</span>
+                                    {{/if}}
+                                    <a class="icon-dot-3 more" style="display:none"></a>
+                                </div>
+
+                     </li>
+
+
+            {{/items}}
+			{{#if @root.nextPageToken}}
+            <li class="load-more">
+          <a id="videoloadMoreBTn" class="show-more" onclick="Appyscript.parseYoutubeChannelListLoadMore()" style="background-color:{{@global.style.primaryButtonBgColor}}; color:{{@global.style.buttonTextColor}}">
+              Load More</a>
+            </li>
+            {{/if}}
+        </ul>
+    </div>
+        </div>
+    </div>
+     <div class="page-overlay">
+    </div>
+    <div class="list-nav">
+    	<a href="#">Add to Watch Later</a>
+    	<a href="#">Add to playlist</a>
+    	<a href="#">Share...</a>
+    </div>
+    
+
+</div>
+</div>

@@ -1,0 +1,90 @@
+*{margin: 0px; padding: 0px;}
+html,body {
+    margin:0px;
+    padding:0px;
+    width:100%;
+    height:100%;
+    font-family:Verdana, Geneva, sans-serif;
+    color:#333;
+}
+
+/*===== Education Section Page
+    ========== */
+.education_list{ margin:15px 8px 0 7px; width:133px; display:inline-block; height:176px;  }
+.education_list img{ border-radius:4px; -moz-border-radius:4px; -webkit-border-radius:4px; width:133px; height:133px; box-shadow:0px 0px 3px #FFFFFF; float:left; border:0px}
+.education_list span{ width:133px; text-align:center; font:16px/21px Arial, Helvetica, sans-serif; color:#fff; display:block; float:left; margin:5px 0 0;}
+#education-inner-detail{padding:10px; background:#C8C8C8; border-bottom:1px solid #333; float: left; width: 100%; box-sizing: border-box;}
+#education-inner-detail.khan-academy { min-height:100%;}
+#education-inner-detail input[type="text"]{-moz-border-radius:5px 0px 0px 5px; -webkit-border-radius:5px 0px 0px 5px; border-radius:5px 0px 0px 5px; height:25px; width:75%; font:12px/25px Arial, Helvetica, sans-serif; white-space:nowrap; padding:0 5px; border:1px solid #999; border-right:none; float:left; background:#fff; margin:0px; }
+#education-inner-detail a.button {
+	-moz-border-radius:0px 5px 5px 0px;
+	-webkit-border-radius:0px 5px 5px 0px;
+	border-radius:0px 5px 5px 0px;
+	width:50px;
+	overflow:hidden; 
+ 	border:1px solid #999;
+  height:100%;
+     float: left;
+    position: absolute;
+    right: 0;
+    top: 0;
+    color:#fff;
+    font-size:18px;
+    line-height:36px;
+ }
+#education-inner-detail-content{ float:left; width:100%; background:#fff; min-height:390px}
+#education-inner-detail-content .page-text{ color:#333}
+#education-inner-detail-content li{ display:block; padding:10px 0;}
+#education-inner-detail select{width: 95%; max-width: 100%; padding:5px 0; display:block; float:none; margin:0 auto;  }
+#khan-academy li{display: block; padding: 10px; margin: 11px 0 0 0px; -moz-border-radius:10px; -webkit-border-radius:10px; border-radius:10px; background-color: #EEEEEE; border:none; box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.59);}
+#khan-academy li h3{ font-size: 14px;    font-weight: bold;    line-height:21px; height:42px; overflow:hidden; text-overflow: ellipsis; padding:0 0 0 50px; background:url(../images/khan_list.png) no-repeat 0 0 ;}
+#khan-academy .author{ font: italic 12px/21px Arial, Helvetica, sans-serif; color:#666666; display:block; text-align:right; }
+#khan-academy .active{ background-color: #dddddd;  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.59) inset;  }
+#loadajaxloaderEdu{ background: none repeat scroll 0 0 rgba(0, 0, 0, 0.7);   clear: both;    display: block;    line-height: 440px;    position: absolute;    width: 100%;    z-index: 9; }
+.khanSearch{ background:url(../images/khanA_bg.png) no-repeat top center; padding:265px 0 0 0 ; }
+.khanSearchOR { clear: both; display: block; margin: 20px auto; text-align: center; width: 100%; text-transform:uppercase; border-bottom:1px solid #333; position:relative; color:#242f3c; font: 24px/18px CalibriRegular, Arial, Helvetica, sans-serif;}
+.khanSearchOR span { position:absolute; background:#C8C8C8; top:-7px; padding:0 5px; left:46%;}
+
+input[type="text"]#search_KhanAcademyCat{ -moz-border-radius:5px; -webkit-border-radius:5px; border-radius:5px; border-right:1px solid #999; width:90%; display:block; float:none; margin:0 auto 10px; }
+.khanSearch .edu_serBtn { width:90%; margin:10px auto; clear:both; font:23px/45px Arial, Helvetica, sans-serif; height:45px; -moz-border-radius:10px; -webkit-border-radius:10px; border-radius:10px; display:block; text-align:center; text-transform:capitalize; }
+#khan-academy li video{ max-width:100%; width:100%; min-width:90%;}
+.khan-academy {
+    padding: 5px 10px 10px;
+}
+
+/*===== dictionary Section Page  ========== */
+.result {background: #fff none repeat scroll 0 0; box-sizing: border-box; float: left; padding:0 10px; width: 100%; }
+.result ul li{  margin:0px;  padding:0px; list-style:none;}
+
+.dictionary-search {
+    width:100%;
+    float:left;
+    box-sizing:border-box;
+    padding:0 50px 0 0;
+    position:relative;
+}
+
+#education-inner-detail .dictionary-search input {
+    width:100%;
+    float:left;
+    padding: 5px 9px;
+    box-sizing: border-box;
+    height:auto;
+}
+
+/* for SA */
+
+.sa .dictionary-search {
+ 	padding:0 0 0 50px;
+}
+.sa #education-inner-detail .dictionary-search input {
+    border: 1px solid #999;
+    border-left: none;
+    border-radius:0 5px 5px 0;
+}
+.sa #education-inner-detail a.button { border-radius:5px 0 0 5px; float:left; right:auto; left:0}
+
+.sa #khan-academy li h3 {
+ 	padding:0 50px 0 0;
+	background: url(../images/khan_list.png) right top no-repeat;
+}

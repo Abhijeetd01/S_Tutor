@@ -1,0 +1,152 @@
+<div class="navbar"><div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+    <div class="left sliding">
+		{{getSlideBack "common"}}        
+    </div>
+    <div class="center sliding {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">{{pageTitle}}</div>
+<div class="right"></div>
+</div></div>
+
+<div data-page="photo-Page" class="page navbar-through no-toolbar">
+<!-- Page content-->
+<div class="backgroundAnimation">{{> innerBackground}}</div>
+<div class="page-content">
+    <style type="text/css">    
+    .photo-page a.show-more {
+	    background:{{@global.styleAndNavigation.button[2]}};     
+    	color:{{@global.styleAndNavigation.button[3]}};
+    }
+    .photo-tabs a {
+        background:{{@global.styleAndNavigation.secondaryButton[2]}};
+        color:{{@global.styleAndNavigation.secondaryButton[3]}};
+	   
+    }
+    .photo-tabs a.on {
+        background:{{@global.styleAndNavigation.button[2]}};
+        color:{{@global.styleAndNavigation.button[3]}};	   
+    }
+    </style>
+    {{#if checkgallerypage}}
+    <div class="editButton">
+        <div class="threeIcon">
+            <span class="gallery {{@global.styleAndNavigation.secondaryButton[0]}} {{@global.styleAndNavigation.secondaryButton[1]}}" onclick="Appyscript.customphotocaptureimagecamera()" style="background-color:{{@global.styleAndNavigation.secondaryButton[2]}}; color:{{@global.styleAndNavigation.secondaryButton[3]}}"><i class="icon-camera"></i></span>
+            <!--                onclick="Appyscript.customphotogallery()"-->
+            <span  onclick="Appyscript.customphotogallery()" class="photo {{@global.styleAndNavigation.secondaryButton[0]}} {{@global.styleAndNavigation.secondaryButton[1]}}"  style="background-color:{{@global.styleAndNavigation.secondaryButton[2]}}; color:{{@global.styleAndNavigation.secondaryButton[3]}}"> <i class="icon-picture-3"></i></span>
+        </div>
+        
+        <span class="plus {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" style="background-color:{{@global.styleAndNavigation.button[2]}}; color:{{@global.styleAndNavigation.button[3]}}"><i class="icon-plus"></i> <i class="icon-cancel"></i></span>
+    </div>
+    {{/if}}
+    <div class="photo-page theme-{{@global.styleAndNavigation.layout}} {{@global.style.appPageFont}} infinite-scroll" next="{{next}}" data-distance="200">
+   		{{#if instagram}}
+        <div class="instagram-user" style="display:none">        
+        <div class="instagram-user-image"><img src="{{profilePic}}"></div>
+        <div class="instagram-user-details">
+        <h3>{{title}}</h3>
+        <div class="instagram_options">        
+        <div class="insta_photo">{{photos}} <span>Photos</span></div>
+        <div class="insta_photo">{{following}} <span>Following</span></div>
+        <div class="insta_photo">{{followers}} <span>Followers</span></div>
+        </div>
+        </div>
+        </div>
+		{{/if}}
+        <header class="header-{{@global.styleAndNavigation.headingImg}}">
+        {{#root_Compare @root.iconType "==" "img"}} 
+        <img src="{{iconName}}" />
+        {{else}}
+        <i class="{{iconName}}" style="color:{{@global.style.pageIconColor}}"></i>
+        {{/root_Compare}}      
+        <h1 class="{{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}}">{{title}}</h1>
+        <span class="{{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}}">{{#if total}}{{total}}{{else}}{{list.length}}{{/if}} {{counttitle}}</span>
+        </header>
+        {{#if flickr}}
+        <div class="photo-tabs {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" data-on="{{@global.styleAndNavigation.secondaryButton[0]}} {{@global.styleAndNavigation.secondaryButton[1]}} on">
+        <a onclick="Appyscript.flickrData2(this)" data-page="0" data-id="{{id}}" data-rel="{{index}}" class="{{@global.styleAndNavigation.secondaryButton[0]}} {{@global.styleAndNavigation.secondaryButton[1]}} on">{{@global.pageLanguageSetting.photostream}}</a>
+        <a onclick="Appyscript.flickrSets(this)" data-id="{{id}}" data-rel="{{index}}">{{@global.pageLanguageSetting.sets}}</a>
+        </div>
+        {{/if}}
+        <div class="photo-gallery">
+            {{#js_compare "this.list.length == '0'"}}
+            
+            <div class="msg-code">
+                
+                <div class="msg-container" style="margin-top: 150px;">
+                    
+                    <span class="icon appyicon-no-data" style="color: #00000; border-color:#00000;">  </span>
+                    
+                    
+                    <span class="arial mediumContent" style="color: #000000; margin-top:10px; display:none;">werewr</span>
+                </div>
+                
+            </div> {{else}}
+            
+        	{{#list}}
+            
+  
+  
+  {{#if ../vrview}}
+  
+  <a class="vrImage" data-photoImagePreview="{{photoImagePreview}}" data-photoImage="{{photoImage}}" data-photoName="{{#if photoTitle}}{{photoTitle}}{{else}}{{@root.title}}{{/if}}">
+      {{else}}
+      
+      {{#if largeImage}}
+      <a onclick="Appyscript.openPhoto('{{@index}}',this);" title="{{#if photoTitle}}{{photoTitle}}{{else}}{{@root.title}}{{/if}}">
+          {{else}}
+          <a onclick="Appyscript.openPhoto('{{@index}}',this);" title="{{#if photoTitle}}{{photoTitle}}{{else}}{{@root.title}}{{/if}}">
+              {{/if}}
+             {{/if}}
+              
+                  {{#if @root.checkgallerypage}}
+                  {{#root_Compare @global.styleAndNavigation.layout "!=" "3"}}
+                  <img src="images/image-1x1.png" style="background-image:url(http://snappy.appypie.com/timthumb.php?src={{photoImage}}&h=300&w=300),url(images/photoloading.gif)">
+                      {{/root_Compare}}
+                      {{#root_Compare @global.styleAndNavigation.layout "==" "3"}}
+                      <img src="images/image-1x1.png" style="background-image:url(http://snappy.appypie.com/timthumb.php?src={{photoImage}}&h=185&w=370),url(images/photoloading.gif)">
+                          {{/root_Compare}}
+                          {{else}}
+                          {{#if @root.customphotoalbum}}
+                          {{#root_Compare @global.styleAndNavigation.layout "!=" "3"}}
+                          <img src="images/image-1x1.png" style="background-image:url(http://snappy.appypie.com/timthumb.php?src={{photoImage}}&h=300&w=300),url(images/photoloading.gif)">
+                              {{/root_Compare}}
+                              {{#root_Compare @global.styleAndNavigation.layout "==" "3"}}
+                              <img src="images/image-1x1.png" style="background-image:url(http://snappy.appypie.com/timthumb.php?src={{photoImage}}&h=185&w=370),url(images/photoloading.gif)">
+                                  {{/root_Compare}}
+
+                        {{else}}
+                        <img src="images/image-1x1.png" style="background-image:url({{photoImage}}),url(images/photoloading.gif)">
+                            
+                            {{/if}}
+                            {{/if}}
+                    
+                
+     
+     
+                    {{/if}}
+                    
+                
+                            
+                    
+                    
+                    
+                    {{#root_Compare @global.styleAndNavigation.customImgTitle "==" "YES"}}
+                    {{#if photoTitle}}
+                    <span>{{photoTitle}}</span>
+                    {{/if}}
+                    {{/root_Compare}}
+              {{#if @root.flickr}}
+              <span>{{photoTitle}}</span>
+              {{/if}}
+			</a>
+        	{{/list}}
+          
+        {{/js_compare}}
+   </div>
+        
+  
+        
+   {{#if flickr}}
+        <div class="photo-sets" style="display:none"></div>
+        {{/if}}        
+	</div>     
+</div>
+</div>

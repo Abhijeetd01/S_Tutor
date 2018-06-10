@@ -1,0 +1,141 @@
+<div class="navbar"><div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+    <div class="left sliding">
+		{{getSlideBack ""}}       
+    </div>
+    <div class="center sliding {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">{{pageTitle}}</div>
+    <div class="right"></div>
+</div></div>
+
+<div data-page="video-Page" class="page navbar-through no-toolbar">
+    <!-- Page content-->
+<div class="backgroundAnimation">{{> innerBackground}}</div>
+    <div class="page-content">
+    	<style type="text/css">        
+        .videos-list .list li {
+         background:{{@global.styleAndNavigation.listBackgroundColor}};
+        }
+        .categories-list ul li a {
+          color:{{@global.styleAndNavigation.nav[3]}};
+        }
+        .categories-list ul li.swiper-slide-active a {
+  			color:{{@global.styleAndNavigation.nav[3]}};
+         	background:{{@global.styleAndNavigation.nav[2]}};
+        }
+        .videos-list .list li .image .overlay,
+        .list-banner .banner .overlay {
+         	color:{{@global.styleAndNavigation.iconColor}};         
+        }
+        </style>
+        <div class="videos-list theme-{{@global.styleAndNavigation.layout}} {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[0]}} content-{{@global.styleAndNavigation.content[3]}} heading-{{@global.styleAndNavigation.heading[3]}}  featurevideo-{{@global.styleAndNavigation.featurevideo}}" style="color:{{@global.styleAndNavigation.content[2]}}">
+            <div class="categories-list swiper-container">
+                <ul class="swiper-wrapper {{@global.styleAndNavigation.nav[0]}} {{@global.styleAndNavigation.nav[1]}}">
+                    {{#list}}
+                    <li class="swiper-slide"><a index="{{@index}}">{{catName}}</a></li>
+                    {{/list}}
+                </ul>
+            </div>
+            <div class="category-view swiper-container video-swiper">
+                <div class="swiper-wrapper">
+                    {{#list}}
+                    <div class="swiper-slide">
+                        {{#list}}
+                        {{#if featured}}
+                        <div class="list-banner" onclick="Appyscript.videoDetailsPage(this)" index="{{@index}}" {{#js_compare "this.type == 'watch' || 'youtu.be' "}}type="{{value}}"{{/js_compare}} iconType="{{iconType}}">
+                        <div class="banner">
+                            {{#js_compare "this.iconType == 'img' "}}                            
+                            <img src="images/image-2x1.png" style="background-image:url({{iconName}})" />
+                            {{else}}
+                            <img src="images/image-2x1.png" style="background-image:url({{@root.defaultImage.defaultImage}})" />
+                            {{/js_compare}}
+                                <span class="overlay iconz-play-button"></span>
+                                <div class="text-detail">
+                                    <h4 class="{{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}}">{{name}}</h4>
+                                    {{#if videoTime}}
+                                    <b class="time">3: 02</b>
+                                    {{/if}}
+                                    <p>
+                                        <span class="video-views"></span>
+                                        <span class="date"></span>
+                                    </p>
+                                </div>
+                            </div>
+                            </div>
+                        {{/if}}                                      
+                        {{/list}}
+                        <ul class="list">
+                            {{#list}}                            
+                            <li featured="{{featured}}" {{#js_compare "this.type == 'watch' || 'youtu.be' "}}type="{{value}}"{{/js_compare}} iconType="{{iconType}}">
+                                <div class="image" onclick="Appyscript.videoDetailsPage(this)" index="{{@index}}">
+                                    {{#root_Compare @global.styleAndNavigation.layout "==" "3"}}
+                                    {{#js_compare "this.iconType == 'img' "}}
+                                    <img src="images/image-2x1.png" style="background-image:url({{iconName}})" />
+                                    {{else}}
+                                    <img src="images/image-2x1.png" style="background-image:url({{@root.defaultImage.defaultImage}})" />
+                                    {{/js_compare}}
+                                    {{else}}
+                                    {{#root_Compare @global.styleAndNavigation.layout "==" "4"}}
+                                    	{{#js_compare "this.iconType == 'img' "}}
+                                        <img src="{{iconName}}" />
+                                        {{else}}
+                                        <img src="{{@root.defaultImage.defaultImage}}" />
+                                        {{/js_compare}}  
+                                    {{else}}
+										{{#js_compare "this.iconType == 'img' "}}
+                                        <img src="images/image-1x1.png" style="background-image:url({{iconName}})" />
+                                        {{else}}
+                                        <img src="images/image-1x1.png" style="background-image:url({{@root.defaultImage.defaultImage}})" />
+                                        {{/js_compare}}                   
+                                    {{/root_Compare}}
+                                    {{/root_Compare}}
+                                    <span class="overlay iconz-play-button"></span>
+                                    {{#if videoTime}}
+                                    <b class="time">13:02</b>
+                                    {{/if}}
+                                </div>
+
+                                {{#root_Compare @global.styleAndNavigation.layout "==" "5"}}
+                                <div class="text-detail" onclick="Appyscript.videoDetailsPage(this)" index="{{@index}}">
+                                    <h4 class="{{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}}">{{name}}</h4>
+                                </div>
+                                <div class="bottom-bar" onclick="Appyscript.videoDetailsPage(this)" index="{{@index}}">
+                                    <a href="#"><i class="icon-play-1"></i> 160</a>
+                                    <a href="#"><i class="iconz-thumbs-up"></i> 10</a>
+                                    <a href="#"><i class="iconz-chat"></i> 2</a>
+                                </div>
+                                {{else}}
+                                <div class="text-detail" onclick="Appyscript.videoDetailsPage(this)" index="{{@index}}">
+                                    <h4 class="{{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}}">{{name}}</h4>
+                                    <p>{{description}}</p>
+                                    {{#if videoTime}}
+                                    <b class="time">Time : 3: 02</b>
+                                    {{/if}}
+                                    {{#if videoViews}}
+                                    <span class="video-views">431 Views</span>
+                                    {{/if}}
+                                    {{#if uploadedOn}}
+                                    <span class="date">{{uploadedOn}}</span>
+                                    {{/if}}
+                                    {{#if updatedOn}}
+                                    <span class="date">{{updatedOn}}</span>
+                                    {{/if}}
+                                    <a class="icon-dot-3 more" style="display:none"></a>
+                                </div>
+                                {{/root_Compare}}
+                            </li>
+                            {{/if}}
+                            {{/list}}
+                        </ul>
+                    </div>
+                    {{/list}}
+                </div>
+            </div>
+        </div>
+        <div class="page-overlay">
+        </div>
+        <div class="list-nav">
+            <a href="#">Add to Watch Later</a>
+            <a href="#">Add to playlist</a>
+            <a href="#">Share...</a>
+        </div>
+    </div>
+</div>

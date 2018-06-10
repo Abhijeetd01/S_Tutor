@@ -1,0 +1,107 @@
+<div class="navbar" xmlns:color="http://www.w3.org/1999/xhtml">
+	<div class="navbar-inner" style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+		<div class="left sliding">
+			<a href="index" class="link back" style="color:{{@global.style.headerBarIconColor}};">
+				<i class="icon icon-left-open-2"></i>
+			</a>
+		</div>
+		<div class="center sliding  {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">
+			<div class="topHeader"> {{@global.pageLanguageSetting.cart_mcom}} </div>
+		</div>
+		<div class="right">
+		</div>
+	</div>
+</div>
+
+
+<div data-page="ecommerce-Cart" class="page navbar-through toolbar-through">
+	<div class="toolbar ">
+		<div class="toolbar-inner toolbar-bottom">
+			 {{#root_Compare @root.totalproduct "==" "0"}}
+			<a class="paynowbtn popupToPage {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" style="color:{{@global.styleAndNavigation.button[3]}};background:{{@global.styleAndNavigation.button[2]}};" onclick="reloadhomepage();">{{@global.pageLanguageSetting.continue_shopping_mcom}}</a>
+			{{else}}
+			<a data-animate="true" data-back="back" onclick="proceedToPaydetails(this);" class="paynowbtn {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" style="color:{{@global.styleAndNavigation.button[3]}};background:{{@global.styleAndNavigation.button[2]}};">{{@global.pageLanguageSetting.checkout_mcom}} </a>{{/root_Compare}}
+		</div>
+	</div>
+
+
+
+	<!-- Page content-->
+<div class="page-content {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}} content-{{@global.styleAndNavigation.content[3]}} heading-{{@global.styleAndNavigation.heading[3]}} hideBorder-{{@global.styleAndNavigation.hideBorder}}" style="color:{{@global.styleAndNavigation.content[2]}}; background:{{@global.styleAndNavigation.pageBgColor}}">
+		{{#root_Compare @root.totalproduct "==" "0"}}
+			<div class="msg-code">{{> errorpage errorIcon="appyicon-empty-cart"}}</div>
+		{{else}}
+		<div class="wrap cart-page">
+			<div id="user_tab1" class="cart-item">
+				<div class="user_tab">
+					{{#list}}
+					<div class="product_box foodEqhight hideImage-{{@global.styleAndNavigation.hideImage}}" data-productid="{{productId}}" index="{{@index}}">
+						{{#productImages}}
+							{{#if mainImage}}
+								<img onclick="CartPageDetailsView(this,{{@index}});" style="background-image:url({{productImage}})" src="images/image-1x1.png" alt="">
+							{{/if}}
+						{{/productImages}}
+						<div class="discription_box">
+							<h3 class="{{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}}">{{productName}}</h3>
+							{{#if customoptionsdata}}
+							<div class="customOptionPrice {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}">
+								{{#customoptionsdata}}
+								{{this}}<br />
+								{{/customoptionsdata}}
+							</div>
+							{{/if}}
+							<div class="product_price" id="orderQuantityprice" data-price='{{js " this.price  * this.orderQuantity "}}'>
+								<big>{{format_currency currency}}{{pricecal this.price this.orderQuantity}}</big>
+							</div>
+							<div class="product-qty">
+								<a type="button" class="less" style="color:{{@global.styleAndNavigation.secondaryButton[3]}};background:{{@global.styleAndNavigation.secondaryButton[2]}};">-</a>
+								<!--{{@global.pageLanguageSetting.qty_mcom}}: --><input type="number" value="{{orderQuantity}}" id="qty1" class="qty" readonly />
+								<a type="button" class="add" style="color:{{@global.styleAndNavigation.button[3]}};background:{{@global.styleAndNavigation.button[2]}};">+</a>
+							</div>
+
+						</div>
+						<a type="button" class="delete" style="color:{{@global.styleAndNavigation.button[3]}};background:{{@global.styleAndNavigation.button[2]}};" value="">X</a>
+					</div>
+					{{/list}}
+				</div>
+			</div>
+			<div class="cart-details">
+				<p class="total">{{@global.pageLanguageSetting.total_payable_amount_mcom}} <strong id="grandTotal" color:{{@global.styleAndNavigation.heading[2]}}><span>{{format_currency currency}}{{grandtaotal}}</span></strong>
+				</p>
+				<p class="coupen">
+					<input type="text" placeholder="{{@global.pageLanguageSetting.enter_your_coupon_code_if_you_have_one_mcom}}" id="couponCode" name="couponCode"/>
+                     <a class="apply {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" style="color:{{@global.styleAndNavigation.button[3]}};background:{{@global.styleAndNavigation.button[2]}};" onclick="ApplyCoupanCode(this);">
+    {{@global.pageLanguageSetting.apply_mcom}}                
+</a>
+				</p>
+				<div id="user_tab3">
+					<div class="billing-address payment-details clearfix">
+						<h4 class="{{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}}">{{@global.pageLanguageSetting.payment_details_mcom}}</h4>
+						<ul class="pay-mobile-cart">
+							<li  id="subtotalecom">{{@global.pageLanguageSetting.subtotal_mcom}}<span style="color:{{@global.styleAndNavigation.heading[2]}}">{{format_currency currency}}{{subtaotal}}</span></li>
+
+							<li  id="discountecom" {{#root_Compare @root.discountPrice "==" "0.00"}}style="display:none" {{/root_Compare}}>{{@global.pageLanguageSetting.discount_mcom}} <small class="payDetail" style="color:{{@global.styleAndNavigation.activeColor}}" id="discountpercntg"> {{#js_compare "this.discountRate == 'Percentage' "}}({{discountRateee}}%){{/js_compare}} </small><span style="color:{{@global.styleAndNavigation.heading[2]}}"> <small style="color:{{@global.styleAndNavigation.activeColor}}">-</small> {{format_currency currency}}<span id="discountprice">{{discountPrice}}</span></span></li>
+							<li  style="display:none" id="coupanPrice">{{@global.pageLanguageSetting.coupon_mcom}} <small class="payDetail" style="color:{{@global.styleAndNavigation.activeColor}}">{{#js_compare "this.coupandiscountType == 'Percentage' "}}({{couponDiscountee}}%){{/js_compare}} </small> <span style="color:{{@global.styleAndNavigation.heading[2]}}"><small style="color:{{@global.styleAndNavigation.activeColor}}; font-size: 16px!important;">-</small> {{format_currency currency}}{{coupandiscount}}</span></li>
+							<!--{{#root_Compare @root.shippingPrice "!=" "0.00"}}-->
+							<li  id="deliverychargeecom" {{#root_Compare @root.shippingPrice "==" "0.00"}} style="display:none" {{/root_Compare}}>{{@global.pageLanguageSetting.shipping_mcom}} <small class="payDetail" style="color:{{@global.styleAndNavigation.activeColor}}" id="shppingrateper"> {{#js_compare "this.shippingRate == 'Percentage' "}}({{shippingratee}}%){{/js_compare}} </small><span style="color:{{@global.styleAndNavigation.heading[2]}}">{{format_currency currency}}<span id="shippingecomtax">{{shippingPrice}}</span></span></li>
+							<!--{{/root_Compare}}-->
+							<!--{{#root_Compare @root.taxPrice "!=" "0.00"}}-->
+							<li  id="taxecomecom" {{#root_Compare @root.taxPrice "==" "0.00"}} style="display:none" {{/root_Compare}}>{{@global.pageLanguageSetting.tax_mcom}} <small class="payDetail" id="taxrateecomper" style="color:{{@global.styleAndNavigation.activeColor}}"> {{#js_compare "this.taxRate == 'Percentage' "}}({{taxratee}}%){{/js_compare}}</small>  <span style="color:{{@global.styleAndNavigation.heading[2]}}">{{format_currency currency}}<span id="taxpricecom">{{taxPrice}}</span></span></li>
+							<!--{{/root_Compare}}-->
+							{{#miscTax.list}}
+								{{#root_Compare @root.taxAmount "!=" "0.00"}}
+									<li  id="miscTaxecom" >{{taxType}} <small class="payDetail"  style="color:{{@global.styleAndNavigation.activeColor}}"> {{#js_compare "this.taxRate == 'Percentage' "}}({{taxrate}}%){{/js_compare}}</small><span style="color:{{@global.styleAndNavigation.heading[2]}}">{{format_currency currency}}{{taxAmount}}</span></li>
+								{{/root_Compare}}
+							{{/miscTax.list}}
+							<li  id="gtotal" style="color:{{@global.styleAndNavigation.heading[2]}}">{{@global.pageLanguageSetting.grand_total_mcom}} <span class="gtotal grand-total">{{format_currency currency}}<span id="grndtotal">{{grandtaotal}}</span></span></li>
+						</ul>
+						<a onclick="reloadhomepage();" class="paynowbtn  contiNewShop {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" style="color:{{@global.styleAndNavigation.activeColor}};">{{@global.pageLanguageSetting.continue_shopping_mcom}}</a>
+					</div>
+				</div>
+				<div>
+				</div>
+			</div>
+		</div>
+		{{/root_Compare}}
+	</div>
+</div>

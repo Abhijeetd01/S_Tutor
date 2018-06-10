@@ -1,0 +1,64 @@
+<div class="popup menu-popup tablet-fullscreen">
+    <div class="view toolbar-through">
+        <div class="pages">
+            <div class="page hideBorder-{{@global.styleAndNavigation.hideBorder}}" style="background-color:{{@global.styleAndNavigation.menu[1]}};">
+                <div class="toolbar">
+                    <div class="toolbar-inner toolbar-bottom" style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+                        <div class="searchBxContainer">
+                            {{#root_Compare @global.setting.keywordSearch "==" "true"}}
+                            <div class="searchBx icon-search-3"  style="color:{{@global.style.headerBarIconColor}};">
+                                <input type="search" id="textSearch" placeholder="{{@global.pageLanguageSetting.searchBtn_Hyper}}"
+                                                                       onkeydown = "if (event.keyCode == 13)
+                             Appyscript.saerchAndFilterDataHyperLocal('textSearch','menupagesearch')" data-role="none">
+                                <ul id="resHyper">
+                                </ul>
+                            </div>
+                            {{/root_Compare}}
+                        </div>
+                    </div>
+                </div>
+                <div class="page-content">
+                     
+                    <div class="profile-image">
+                        <div class="profileContentBx {{@global.styleAndNavigation.menu[0]}}">
+                        	<a class="close icon-cancel link close-popup" href="#"  style="color:{{@global.styleAndNavigation.menu[2]}};"></a>
+                            <div class="profileBx">
+                                <span class="image"><img src="images/image-1x1.png" style="background-image:url({{image}});border: solid 5px {{@global.styleAndNavigation.borderColor}};" alt="" {{#js_compare "this.setting.isLogin == \'true\' "}} onClick="Appyscript.hyperlocaEditProfile(this)" {{/js_compare}}></span>
+                            </div>
+                            
+                            {{#js_compare "this.setting.isLogin == \'true\' "}}
+                            <a href="#" data-animate="true" data-back="back"  class="editProfilebutton icon-cog " onClick="Appyscript.hyperlocaEditProfile(this)" style="color:{{@global.styleAndNavigation.menu[2]}};"></a>
+                            {{/js_compare}}
+                            <span class="name" id="userName" style="color:{{@global.styleAndNavigation.menu[2]}};">{{name}}</span>
+                            <span class="location" id="userLocation" style="color:{{@global.styleAndNavigation.menu[2]}};">{{location}}</span>
+                        </div>
+                    </div>
+
+                    <div class="sub-menu hyperlocal-menu"  id="menuservice">
+
+                        <ul class="leftMenu">
+                        {{#if @global.setting.homeButtonStatus}}{{else}}                 
+                            <li style="border-color:{{@global.styleAndNavigation.borderColor}}"><a class="close-tutorial {{@global.styleAndNavigation.menu[0]}}" onClick="Appyscript.clickHome()" style="color:{{@global.styleAndNavigation.menu[2]}};"><i class="iconz-home" style="color:{{@global.styleAndNavigation.menu[3]}};"></i> {{@global.pageLanguageSetting.Home_hyp}}</a></li>
+                            {{/if}}
+                            <li style="border-color:{{@global.styleAndNavigation.borderColor}}"><a class="close-popup {{@global.styleAndNavigation.menu[0]}}" style="color:{{@global.styleAndNavigation.menu[2]}};"><i class="icon-indent-left" style="color:{{@global.styleAndNavigation.menu[3]}};"></i> {{@global.pageLanguageSetting.main_categories_hyp}}</a></li>
+                            {{#root_Compare @global.setting.addListing "==" "true"}}
+                            <li style="border-color:{{@global.styleAndNavigation.borderColor}}"><a class="close-popup {{@global.styleAndNavigation.menu[0]}}"  onClick="Appyscript.addListingDataPostJob('addd','checkstatus')" style="color:{{@global.styleAndNavigation.menu[2]}};"><i class="icon-list-2" style="color:{{@global.styleAndNavigation.menu[3]}};"></i> {{@global.pageLanguageSetting.post_job_hyp}} </a></li>
+                            <li style="border-color:{{@global.styleAndNavigation.borderColor}}"><a class="close-popup {{@global.styleAndNavigation.menu[0]}}" onClick="Appyscript.updateHyperlocalListingList()" style="color:{{@global.styleAndNavigation.menu[2]}};"><i class="icon-edit-2" style="color:{{@global.styleAndNavigation.menu[3]}};"></i> {{@global.pageLanguageSetting.update_job_hyp}}</a></li>
+                            {{/root_Compare}}
+                            <li style="border-color:{{@global.styleAndNavigation.borderColor}}"><a class="close-popup {{@global.styleAndNavigation.menu[0]}}" onClick="Appyscript.showHyperLocalBookmarks()" style="color:{{@global.styleAndNavigation.menu[2]}};"><i class="iconz-bookmark " style="color:{{@global.styleAndNavigation.menu[3]}};"></i> {{@global.pageLanguageSetting.bookmark_hyp}}</a></li>
+
+                            {{#js_compare "this.setting.isLogin == \'true\' "}}
+                            <li style="border-color:{{@global.styleAndNavigation.borderColor}}" onclick="Appyscript.loginLogOut(this,'true');"><a class="close-popup {{@global.styleAndNavigation.menu[0]}}"  id="loginLogout" style="color:{{@global.styleAndNavigation.menu[2]}};"><i class="iconz-logout" style="color:{{@global.styleAndNavigation.menu[3]}};"></i>{{@global.pageLanguageSetting.logout_hyp}} </a></li>
+                            {{else}}
+                            <li style="border-color:{{@global.styleAndNavigation.borderColor}}" onclick="Appyscript.loginLogOut(this,'false');"><a class="close-popup {{@global.styleAndNavigation.menu[0]}}" id="loginLogout" style="color:{{@global.styleAndNavigation.menu[2]}};"><i class="iconz-login" style="color:{{@global.styleAndNavigation.menu[3]}};"></i>{{@global.pageLanguageSetting.Login_SignUp_hyp}}</a></li>
+                            {{/js_compare}}
+
+                        </ul>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

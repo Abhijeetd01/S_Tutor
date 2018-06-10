@@ -1,0 +1,55 @@
+<div class="navbar"><div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}}; font-size: {{@global.style.headerBarSize}} ">
+    <div class="left sliding">
+        <a href="index" class="link back" style="color:{{@global.style.headerBarTextColor}};">
+            <i class="icon icon-left-open-2"></i>
+        </a>
+    </div>
+    <div class="center sliding">
+        <div class="topHeader">
+
+            {{@global.pageLanguageSetting.REAL_ESTATE}}
+            <!--<span class="locate icon-location cursor-pointer" onclick="Appyscript.popupPage('location')">{{@global.CurrentCityreal}}</span>-->
+        </div>
+
+
+    </div>
+    <div class="right">
+
+
+    </div>
+</div></div>
+
+<div data-page="realestate-detaills" class="page navbar-through no-toolbar" style="background:{{@global.styleAndNavigation.pageBgColor}};">
+    <!-- Page content-->
+    <div class="page-content">
+        <style>
+    	.update-listings ul li{background:{{@global.styleAndNavigation.fieldBgColor}}; color:{{@global.styleAndNavigation.fieldTextColor}} }
+		.update-listings ul li b {background:{{@global.styleAndNavigation.activeColor}} }
+		.update-listings ul li b a {border-color:{{@global.styleAndNavigation.borderColor}}; color: {{@global.styleAndNavigation.icon[1]}} }
+    </style>
+        {{#if list.length}}
+        <section class="real-estate update-listings">
+            <ul>
+                {{#list}}
+                <li class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}">
+                    <img onclick="Appyscript.realestateDetails(this)" property_id="{{id}}" {{#if image.length}} property_image="{{image[0].image}}" {{else}} property_image="{{@global.defaultimage}}" {{/if}} data-src="{{#if image.length}}{{image[0].image}}{{else}}{{@global.defaultimage}} {{/if}}" class="lazy lazy-fadeIn" alt="" type="update" />
+                    {{#root_Compare status "==" "0"}}<span class="pendingPrp icon-block-4" onclick="Appyscript.realestateDetails(this)" property_id="{{id}}" {{#if image.length}} property_image="{{image[0].image}}" {{else}} property_image="{{@global.defaultimage}}" {{/if}} data-src="{{#if image.length}}{{image[0].image}}{{else}}{{@global.defaultimage}} {{/if}}" class="lazy lazy-fadeIn" alt="" type="update">{{/root_Compare}}</span>
+                    <strong onclick="Appyscript.realestateDetails(this)" property_id="{{id}}" {{#if image.length}} property_image="{{image[0].image}}" {{else}} property_image="{{@global.defaultimage}}" {{/if}} data-src="{{#if image.length}}{{image[0].image}}{{else}}{{@global.defaultimage}} {{/if}}" class="lazy lazy-fadeIn" alt="" type="update">{{projectName}}.</strong>
+
+                    {{#if description.length}}<span onclick="Appyscript.realestateDetails(this)" property_id="{{id}}" {{#if image.length}} property_image="{{image[0].image}}" {{else}} property_image="{{@global.defaultimage}}" {{/if}} data-src="{{#if image.length}}{{image[0].image}}{{else}}{{@global.defaultimage}} {{/if}}" class="lazy lazy-fadeIn" alt="" type="update">{{removespecial description[0]}}{{/if}}</span>
+                    <b><a href="#" class="iconz-close" onclick="deleteproperty('{{id}}',this)"></a><a href="#" class="icon-edit" onclick="Appyscript.realestateupdateListing('{{id}}',this,{{@index}})" id='{{id}}'></a>
+                    </b>
+                </li>
+                {{/list}}
+            </ul>
+        </section>
+        {{else}}
+        <div class="msg-code">
+            <div class="msg-container">
+                <span class="icon appyicon-no-data" style="color:{{@global.styleAndNavigation.content[2]}}; border-color:{{@global.styleAndNavigation.content[2]}}">  </span>
+            </div>
+        </div>
+
+        {{/if}}
+    </div>
+</div>

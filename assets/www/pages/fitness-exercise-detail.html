@@ -1,0 +1,89 @@
+<div class="navbar">
+    <div class="navbar-inner" style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+        <div class="left sliding">
+            <a href="index" class="link back" style="color:{{@global.style.headerBarIconColor}};">
+                <i class="icon icon-left-open-2"></i>
+            </a>
+        </div>
+        <div class="center sliding  {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">
+            <div class="topHeader">
+
+                {{list[0].languageSetting.fitness_exercise_detail}}
+            </div>
+        </div>
+        <div class="right">
+            <a class="link" style="color:{{@global.style.headerBarIconColor}};">
+
+                <i class="iconz-option-vertical"onclick="toggle_menu(this);"></i>
+            </a>
+        </div>
+    </div>
+</div>
+
+<div data-page="fitness-exercise-detail" class="page navbar-through no-toolbar" style="background-color: {{@global.styleAndNavigation.pageBgColor}}">
+    <!-- Page content-->
+    <div class="page-content">
+        <style>
+  .dietPlan, .exerciseDetail h2{ font-weight:bold; color:{{@global.styleAndNavigation.heading[2]}} }
+  .nutriInfo .circlePan, .dietPlanDetail .detail, .topHead, .mealPlan, .clacBtn, .detailDis, .exSteps {color:{{@global.styleAndNavigation.content[2]}}}
+     .nutriInfo .circlePan .circle, .clacBtn{border-color:{{@global.styleAndNavigation.borderColor}}}
+  .nutriInfo > h3{color:{{@global.styleAndNavigation.subheading[2]}} }
+  .exerciseDetail ul li span{color:{{@global.styleAndNavigation.iconColor}}}
+    </style>
+        <!--<div class="swiper-container mySwiper swiper-init">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="images/transparent-bg.png" class="swiper-lazy imgList" style="background-image:url(https://previews.123rf.com/images/jalephoto/jalephoto1510/jalephoto151000086/46202882-Healthy-Bodybuilder-Exercising-Biceps-With-Chains-Stock-Photo-bodybuilding.jpg);"></div>
+                <div class="swiper-slide"><img src="images/transparent-bg.png" class="swiper-lazy imgList" style="background-image:url(http://s1.dmcdn.net/HDD9J/1280x720-UHr.jpg);"></div>
+            </div>
+
+            <div class="swiper-pagination"></div>
+        </div> -->
+
+
+        <div class="swiper-custom">
+            <div class="swiper-container mySwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img src="images/transparent-bg.png" class="swiper-lazy imgList" style="background-image:url({{@global.fitnessURL}}{{this.exercise_image}});"></div>
+                    {{#js_compare "this.exercise_video != '' "}}
+                    <div class="swiper-slide">
+                        <img src="images/transparent-bg.png" class="swiper-lazy imgList">
+                        <iframe src="https://www.youtube.com/embed/{{exercise_video}}?rel=0&showinfo=0&modestbranding=0" frameborder="0" class="videoFrame">
+                        </iframe>
+                    </div>
+                    {{/js_compare}}
+
+                </div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+
+        </div>
+
+
+
+        <div class="exerciseDetail {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}">
+
+            <h2 class="{{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[0]}}">{{exercise_title}}</h2>
+
+
+
+            <ul>
+                <li><span class="appyslim-health-heart-rate"></span> <div class="detailDis">{{list[0].languageSetting.fitness_difficulty_level}} <small>{{exercise_dificult}}</small></div> </li>
+                <li><span class="appyslim-sports-stopwatch"></span> <div class="detailDis">{{list[0].languageSetting.fitness_rest}} <small>{{exercise_time}}</small></div> </li>
+                <li><span class="appyslim-ui-settings"></span> <div class="detailDis">{{list[0].languageSetting.fitness_sets}} <small>{{exercise_sets}}</small></div> </li>
+                <li><span class="appyslim-health-gym-practice-2"></span> <div class="detailDis">{{list[0].languageSetting.fitness_reps}} <small>{{exercise_reps}}</small></div> </li>
+
+            </ul>
+
+        </div>
+
+        <center><span class="dietPlan {{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}">{{list[0].languageSetting.fitness_steps}}</span></center>
+
+        <div class="exSteps {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}">
+            {{exercise_steps}}
+        </div>
+
+    </div>
+</div>
+
+        

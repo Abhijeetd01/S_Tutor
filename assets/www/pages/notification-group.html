@@ -1,0 +1,30 @@
+<div class="navbar"><div class="navbar-inner" style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+    <div class="left sliding">
+        <a href="index" class="link back" style="color:{{@global.style.headerBarIconColor}};">
+            <i class="icon icon-left-open-2"></i>
+        </a>
+    </div>
+    <div class="center sliding {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">{{pageTitle}}</div>
+    <div class="right">        
+    </div>
+</div></div>
+
+<div data-page="notification-group" class="page navbar-through toolbar-through">
+    <!-- Page content-->
+    <div class="toolbar">
+        <div class="toolbar-inner" style="background:{{@global.style.primaryButtonBgColor}};">
+
+	        <a href="#" style="color:{{@global.style.buttonTextColor}}; text-align:center; width: 100%;" onclick="savenotificationgroup()">{{@global.commonLanguageSetting.common_save}}</a>
+        </div>
+    </div>
+    <div class="page-content notificationWrapper {{@global.style.appPageCsize}} {{@global.style.appPageFont}} {{@global.style.layout}}" style="color:{{@global.style.pageTextColor}};">
+        
+        <ul class="notification-group">
+        	{{#list}}
+        	<li id="{{groupId}}"><span><input type="checkbox" /><i class="icon-ok-4"></i></span> {{groupName}}</li>
+        	{{/list}}
+        </ul>
+        
+    </div>
+    
+</div>

@@ -1,0 +1,43 @@
+<div class="popup menu-popup">
+    <div class="view toolbar-through no-toolbar">
+        <div class="pages">
+        <div class="navbar">
+	<div class="navbar-inner" style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+            
+        
+            
+            
+            
+            <div class="left sliding">
+                <a class="close  link close-popup" href="#" style="color:{{@global.style.headerBarIconColor}};font-size:14px" >{{@global.pageLanguageSetting.common_cancel}} </a>
+            </div>
+            
+            <div class="center sliding">
+                <div class="topHeader {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">
+              {{@global.pageLanguageSetting.Short_By}}
+                </div>
+            </div>
+            
+            <div class="right">
+                <a href="#" style="color:{{@global.style.headerBarIconColor}};font-size:14px" onclick="Appyscript.hotelresetparamsearch()" class="icon  cursor-pointer close-popup" >        {{@global.pageLanguageSetting.fc_reset}}</a>
+            </div>
+    </div>
+        </div>
+
+            <div data-page="accommodation-short-by-page"class="page navbar-through no-toolbar " >
+
+            	<div class="page-content {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}} hideBorder-{{@global.styleAndNavigation.hideBorder}}" style="color:{{@global.styleAndNavigation.content[2]}};  background:{{@global.styleAndNavigation.pageBgColor}}"> 
+ 					<ul class="short-by-key">
+<li class="close-popup" onclick="Appyscript.openHotelsortedlist('price','desc');" style="border-color:{{@global.styleAndNavigation.borderColor}}"><a class="close-popup" style="color:{{@global.styleAndNavigation.content[2]}};"> {{@global.pageLanguageSetting.pricehighlow_mcom}}  </a></li>
+<li class="close-popup" onclick="Appyscript.openHotelsortedlist('price','asc');" style="border-color:{{@global.styleAndNavigation.borderColor}}"><a class="close-popup" style="color:{{@global.styleAndNavigation.content[2]}};">{{@global.pageLanguageSetting.pricelowhigh_mcom}}  </a></li>
+<li class="close-popup" onclick="Appyscript.openHotelsortedlist('review','desc');" style="border-color:{{@global.styleAndNavigation.borderColor}}"><a class="close-popup" style="color:{{@global.styleAndNavigation.content[2]}};"> {{@global.pageLanguageSetting.popularity_mcom}}  </a></li>
+<li class="close-popup" onclick="Appyscript.openHotelsortedlist('offer','desc');" style="border-color:{{@global.styleAndNavigation.borderColor}}"><a class="close-popup" style="color:{{@global.styleAndNavigation.content[2]}};">  {{@global.pageLanguageSetting.offers_mcom}} </a></li>
+
+                     
+                    </ul>       
+                </div>
+      
+            </div>
+		</div>  
+    </div>
+</div>

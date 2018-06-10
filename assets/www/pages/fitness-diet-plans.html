@@ -1,0 +1,64 @@
+<div class="navbar">
+	<div class="navbar-inner" style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+		<div class="left sliding">
+            <a href="index" class="link back" style="color:{{@global.style.headerBarIconColor}};">
+                <i class="icon icon-left-open-2"></i>
+            </a>
+        </div>
+		<div class="center sliding  {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">
+			<div class="topHeader">
+
+                {{languageSetting[0].languageSetting.fitness_diet_plan}}
+			</div>
+		</div>
+		<div class="right">
+			<a class="link" style="color:{{@global.style.headerBarIconColor}};">
+
+                <i class="iconz-option-vertical"onclick="toggle_menu(this);"></i>
+			</a>
+		</div>
+	</div>
+</div>
+
+<div data-page="fitness-diet-plans" class="page navbar-through no-toolbar" style="background-color: {{@global.styleAndNavigation.pageBgColor}}">
+	<!-- Page content-->
+	<div class="page-content">
+    <style>
+    	.dietPlans ul li{color:{{@global.styleAndNavigation.title[3]}}}
+		.tabs-list ul li{background:{{@global.styleAndNavigation.tab[3]}}}
+		.tabs-list ul li.swiper-slide-active{ background:{{@global.styleAndNavigation.tab[4]}}}
+		.tabs-list li a{color:{{@global.styleAndNavigation.tab[2]}}}
+		.dietHead{background:{{@global.styleAndNavigation.title[2]}}; color:{{@global.styleAndNavigation.title[3]}}}
+		.dietHead small{color:{{@global.styleAndNavigation.activeColor}} }
+    </style>
+    	<div class="tabs-list">
+                <ul class="swiper-wrapper">
+                    {{#each list}}
+	<li class="swiper-slide"><a index="{{@index}}">{{this.type}}</a></li>
+	        {{/each}}
+    
+                </ul>
+            </div>
+            
+    <div class="tabs-view swiper-container video-swiper">
+        <div class="swiper-wrapper">
+
+            {{#each list}}
+            <div class="swiper-slide">
+                <div class="dietPlans">
+                    <ul>
+                        {{#each this.list}}
+                        <li onclick='fitnessDietDetails("{{fitness_json this}}")'><img src="images/image-3x1.png" style="background:url({{../../../../url}}{{this.diet_image}})"> <div class="dietHead {{@global.styleAndNavigation.title[0]}} {{@global.styleAndNavigation.title[1]}}">{{this.diet_title}}<small>{{this.diet_type}}</small></div> </li>
+                        {{/each}}
+                    </ul>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+    </div>       
+            
+   		
+	</div>
+</div>
+
+        

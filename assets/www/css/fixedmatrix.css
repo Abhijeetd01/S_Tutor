@@ -1,0 +1,283 @@
+/*Images Matrix*/
+.app_navigation_fixedmatrix .transparent,.app_navigation_fixedmatrix .twointo-one{float:left; width:100%;}
+.app_navigation_fixedmatrix .twointo-one {display:none;}
+.app_navigation_fixedmatrix{position:relative; width:100%; float:left; padding:20px; box-sizing:border-box;overflow: hidden;}
+.app_navigation_fixedmatrix .inner_box {    
+	background:
+		linear-gradient(135deg, transparent 10px, transparent 0) top left,
+		linear-gradient(225deg, transparent 10px, transparent 0) top right,
+		linear-gradient(315deg, transparent 10px, transparent 0) bottom right,
+		linear-gradient(45deg,  transparent 10px, transparent 0) bottom left;
+	background-size: 50% 50%;
+	background-repeat: no-repeat;
+}
+ 
+ 
+ 
+ /*------ layout 1 ----------*/
+.app_navigation_fixedmatrix .inner_box.round0 { background-size:100%;
+}
+ 
+.app_navigation_fixedmatrix.layout-1 .inner_box.round0{width: 100%;}
+/*.app_navigation_fixedmatrix.layout-1 .inner_box.round0::after{ width:92%; box-sizing:border-box; top:2px; padding:0px; left:0px;}*/
+.app_navigation_fixedmatrix.layout-1 .round0 .twointo-one{
+	display:block;
+}
+.app_navigation_fixedmatrix.layout-1 .round0 .transparent{display:none;}
+/*------ layout 2 ----------*/
+.app_navigation_fixedmatrix .inner_box.round1 {  background-size:100%;
+}
+.app_navigation_fixedmatrix .inner_box.round1::after {
+    left: auto !important;
+    right: 12px !important;
+}
+.sliderplus{padding:0px !important;}
+
+/*------ layout 3 ----------*/
+.app_navigation_fixedmatrix .inner_box.round2 { background-size:100%;
+}
+.app_navigation_fixedmatrix .inner_box.round2::after {
+    top: 28px;
+}
+ 
+.app_navigation_fixedmatrix.layout-3 .inner_box.round2 { margin: 1% 0px 0px 0px;}
+ 
+ 
+ 
+
+.app_navigation_fixedmatrix.layout-3 .inner_box.round2 .transparent { display: block;}
+.app_navigation_fixedmatrix.layout-3 .inner_box.round2 .twointo-one{ display: none;}
+/*------ layout 4 ----------*/
+.app_navigation_fixedmatrix .inner_box.round3 {  background-size:100%;}
+.app_navigation_fixedmatrix .inner_box.round3::after {
+    bottom: -15px;
+    left: auto;
+    right: 12px;
+    top: 28px;
+}
+.app_navigation_fixedmatrix.layout-4 .inner_box.round4 {
+    display: none;
+}
+
+/*------ layout 5 ----------*/
+.app_navigation_fixedmatrix.layout-5  .inner_box.round4 { 
+  position: absolute;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 30%;
+  height: 30%;
+  border-radius: 3px;
+  border-radius:100%;
+  display:block;
+}
+ /*------ layout 6 ----------*/
+.app_navigation_fixedmatrix .inner_box.round5 { 
+  position: absolute;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 30%;
+  height: 30%;
+  border-radius: 3px;
+  border-radius:100%
+}
+
+.app_navigation_fixedmatrix .inner_box {
+width: 48%;
+margin:1%;
+padding:15px;
+color: white;
+line-height:1.5;
+float:left; 
+-webkit-box-align: center;
+-moz-box-align: center;
+-ms-flex-align: center;
+-webkit-align-items: center;
+align-items: center;
+-webkit-box-pack: center;
+-moz-box-pack: center;
+-ms-flex-pack: center;
+-webkit-justify-content: center;
+justify-content: center;
+box-sizing:border-box;
+position:relative;
+
+}
+
+.app_navigation_fixedmatrix .inner_box:after {
+    color: white;
+    content: "";
+    float: left;
+    height:100%;
+    left: 12px;
+    line-height: 1.5;
+    margin: -20px;
+    overflow: hidden;
+    padding:15px;
+    position: absolute;
+    top: 10px;
+    width: 100%;
+	box-sizing:border-box;
+}
+
+.app_navigation_fixedmatrix p:first-of-type { margin-top: 0 }
+.app_navigation_fixedmatrix p:last-of-type { margin-bottom: 0}
+.app_navigation_fixedmatrix .inner_box .icon{bottom: 0;
+    height: 84px;
+    left: 0;
+    position: absolute;
+    right: 0;
+    width: 100%;
+	text-align:center; 
+	    -webkit-transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    height: 50px; z-index:1;
+	 -webkit-box-align: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -moz-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+	}
+.app_navigation_fixedmatrix .inner_box.round4 .icon span { 
+    padding:0 15px; 
+}
+.app_navigation_fixedmatrix .inner_box .icon img{width:30px;}
+.app_navigation_fixedmatrix .icon > span {
+       display: block;
+    padding: 0 30px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}	
+.app_navigation_fixedmatrix .round5 span {
+    padding: 0px !important;
+}
+.app_navigation_fixedmatrix .round5 i { 
+    line-height: 25px;
+    margin-bottom: 0; 
+}
+.app_navigation_list.app_navigation_fixedmatrix a{opacity:1;}
+/*.app_navigation_fixedmatrix .inner_box.round4 .icon {
+    top: 46px;
+}*/
+
+ 
+.app_navigation_fixedmatrix.layout-1 .round5 {
+	display:none;
+}
+
+.app_navigation_fixedmatrix.layout-2 .round5 {
+	display:none;
+}
+
+.app_navigation_fixedmatrix.layout-3 .round5 {
+	display:none;
+}
+
+.app_navigation_fixedmatrix.layout-4 .round5 {
+	display:none;
+}
+.app_navigation_fixedmatrix.layout-5 .round5 {
+	display:none;
+}
+.app_navigation_fixedmatrix.layout-6 .round4 {
+	display:none;
+}
+.app_navigation_fixedmatrix .round5 .icon {
+    -webkit-transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    height: 50px;
+}
+
+.closeLt{
+   display: inline-block;
+    position: fixed;
+    top: 0;
+    right: 0;
+    padding: 0px 1px 3px 2px;
+    font-size: 30px;
+    z-index: 1;
+    width: 40px;
+    text-align: center;
+    height: 40px;
+    opacity: .8;
+}
+.closeLt i{opacity:1;}
+.navigationSlider{z-index:2}
+.app_navigation_fixedmatrix i{
+    font-size: 36px;
+    line-height: 30px;
+    margin-bottom: 5px;
+    display: block;
+}
+.app_navigation_fixedmatrix.hide-text span span {
+    display: none;
+}
+.app_navigation_fixedmatrix.hide-text .round5 i {
+    line-height: 50px;
+    margin-bottom: 0;
+}
+.app_navigation_fixedmatrix.hide-text .inner_box .icon img {
+    width: 50px;
+}
+.app_navigation_fixedmatrix.hide-text i {
+    font-size: 50px;
+    line-height: 50px; 
+}
+
+@media only screen and (min-width: 768px) {
+.app_navigation_fixedmatrix .inner_box .icon{     
+	width: auto;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -moz-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    transform: scale(2) translate(-25%, -25%);
+}
+.app_navigation_fixedmatrix .inner_box.round4 .icon span { 
+    padding: 0px 15px; 
+}
+
+}
+
+.sa .app_navigation_fixedmatrix .inner_box{float:right;}
+.sa .app_navigation_fixedmatrix .inner_box:after {
+	left:inherit; 
+    right: 12px; 
+}
+.sa .app_navigation_fixedmatrix .inner_box.round1::after {
+    left: 12px !important;
+    right: 0 !important;
+	margin:-20px auto -20px -20px;
+}
+.sa .app_navigation_fixedmatrix .inner_box .icon {
+    right: -50%; 
+}
+.sa .app_navigation_fixedmatrix .inner_box.round3::after {
+    left: 12px;
+    right: auto;
+} 
+.sa .closeLt { 
+    right: inherit;  
+    left: 13px;
+}

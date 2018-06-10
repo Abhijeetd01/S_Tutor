@@ -1,0 +1,163 @@
+<div class="navbar"><div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}}; font-size: {{@global.style.headerBarSize}} ">
+    <div class="left sliding">
+        <a href="index" class="link back" style="color:{{@global.style.headerBarTextColor}};">
+            <i class="icon icon-left-open-2"></i>
+        </a>
+    </div>
+    <div class="center sliding">
+        {{@global.pageLanguageSetting.location}}
+
+    </div>
+    <div class="right">
+
+    </div>
+</div></div>
+
+<div data-page="realestate-location" class="page navbar-through no-toolbar toolbar-through" style="background:{{@global.styleAndNavigation.pageBgColor}};">
+    <!-- Page content-->
+
+
+    <div class="toolbar">
+        <div class="toolbar-inner">
+            <a class="done-btn {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" onclick="Appyscript.realestateAddListingDetails(this)">{{@global.pageLanguageSetting.next_dir}}</a>
+        </div>
+    </div>
+
+
+    <div class="page-content">
+
+        <style>
+
+#map {
+    height:100%;
+    position:absolute;
+    width: 100%;
+}
+
+#description {
+  font-family: Roboto;
+  font-size: 15px;
+  font-weight: 300;
+}
+
+#infowindow-content .title {
+  font-weight: bold;
+}
+
+#infowindow-content {
+  display: none;
+}
+
+#map #infowindow-content {
+  display: inline;
+}
+
+.pac-card {
+  margin: 10px 10px 0 0;
+  border-radius: 2px 0 0 2px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  outline: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  background-color: #fff;
+  font-family: Roboto;
+}
+
+#pac-container {
+  padding-bottom: 12px;
+  margin-right: 12px;
+}
+
+.pac-controls {
+  display: inline-block;
+  padding: 5px 11px;
+}
+
+.pac-controls label {
+  font-family: Roboto;
+  font-size: 13px;
+  font-weight: 300;
+}
+
+#title {
+    color: #fff;
+    background-color: #4d90fe;
+    font-size: 25px;
+    font-weight: 500;
+    padding: 6px 12px;
+}
+.location-search {
+	position: absolute;
+    z-index: 1;
+    top: 65px;
+    width: 90%;
+    background: rgba(255, 255, 255, 0.8);
+    margin: auto;
+    left: 0;
+    right: 0;
+    border-radius: 23px;
+	box-shadow: 0px 1px 2px #c3c3c3;
+}
+.locationDiv {
+    float: left;
+    width: calc(100% - 50px);
+}
+
+.location-search input {
+	padding: 15px;
+    width: 100%;
+    box-sizing: border-box;
+    border: 0;
+    background: none;
+}
+.location-search a {
+position: absolute;
+    right: 0;
+    top: 0;
+    line-height: 36px;
+    height: 36px;
+    text-align: center;
+    width: 36px;
+}
+.location-search span {
+	padding-top: 3px;
+    float: right;
+    padding-right: 17px;
+    font-size: 30px;
+    padding-bottom: 0px;
+}
+.done-btn{background-color:{{@global.styleAndNavigation.button[2]}}; color:{{@global.styleAndNavigation.button[3]}}}
+    </style>
+
+
+
+
+        <div class="location-search">
+            <div class="locationDiv">
+                <input  type="text"  id="weatherGeocodeservicerealestatevalue" placeholder="{{@global.pageLanguageSetting.ENTER_LOCATION}}" onkeyup="weatherGeocodeservicerealestate('weatherListrealestate');">
+                <div class="listData" id="reallocationlists" style="display:none">
+                    <ul id="weatherListrealestate"></ul>
+                </div>
+            </div>
+            <span onclick="selectcurrentlocation()"><i class="icon-target-1" style="color:{{@global.styleAndNavigation.icon[1]}};"></i></span>
+        </div>
+
+        <!--<div class="msg-code" style="display:none">{{> errorpage errorIcon="appyicon-no-data"}}</div>-->
+        <div id="map"></div>
+        <div id="infowindow-content">
+            <img src="" width="16" height="16" id="place-icon">
+            <span id="place-name"  class="title"></span><br>
+            <span id="place-address"></span>
+        </div>
+
+
+        <section class="real-estate add-listing">
+
+
+        </section>
+
+
+
+    </div>
+
+</div>

@@ -1,0 +1,42 @@
+<div class="navbar"><div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+	<div class="left sliding">
+		<a href="index" class="link back" style="color:{{@global.style.headerBarIconColor}};">
+			<i class="icon icon-left-open-2"></i>
+		</a>
+	</div>
+	<div class="center sliding  {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">
+		<div class="topHeader">{{@global.pageLanguageSetting.post_review_food}}
+		</div>
+	</div>
+	<div class="right">
+		<a onclick="foodcourtCartPage('cart')" class="localHeaderIconRight ui-link" style="color:{{@global.style.headerBarIconColor}};"> <span class="subValue" style="color:{{@global.styleAndNavigation.button[3]}};background:{{@global.styleAndNavigation.button[2]}};">{{@global.foodCartCount}}</span><div class="headerIcon"><i class="icon-cart"></i></div></a>
+	</div>
+</div>
+</div>
+
+
+<div data-page="foodcourt-PostReview" class="page navbar-through toolbar-fixed no-toolbar">
+	<!-- Page content-->
+	<div class="page-content {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}} content-{{@global.styleAndNavigation.content[3]}} heading-{{@global.styleAndNavigation.heading[3]}}" style="color:{{@global.styleAndNavigation.content[2]}}; background:{{@global.styleAndNavigation.pageBgColor}}">
+		<div class="thankyou">
+			<h2 class="{{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}}">{{@global.pageLanguageSetting.write_a_review_food}}</h2>
+			<div class="order_head {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="color: {{@global.styleAndNavigation.content[2]}}; border-color:{{@global.styleAndNavigation.borderColor}}"><small>{{@global.pageLanguageSetting.post_review_guidelines_food}} <span></span></small></div>
+			<div class="bold_head {{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}" style="color:{{@global.styleAndNavigation.subheading[2]}}">{{@global.pageLanguageSetting.post_review_food}} <small class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="color: {{@global.styleAndNavigation.content[2]}}"></small></div>
+			<div class="post-review" id="ratingcount" {{#if list}} rating="{{list.rating}}" {{/if}}>
+			<div class="rating">
+				<b style="cursor: pointer; width: 100px;" id="ratingfoodcourt">
+					<img src="images/star-off-big.png" id="rat1" alt="1" title="bad" onclick="foodCourtGetRating(this);">&nbsp;
+					<img src="images/star-off-big.png" id="rat2" alt="2" title="poor" onclick="foodCourtGetRating(this);">&nbsp;
+					<img src="images/star-off-big.png" id="rat3" alt="3" title="regular" onclick="foodCourtGetRating(this);">&nbsp;
+					<img src="images/star-off-big.png" id="rat4" alt="4" title="good" onclick="foodCourtGetRating(this);">&nbsp;
+					<img src="images/star-off-big.png" id="rat5" alt="5" title="gorgeous" onclick="foodCourtGetRating(this);">
+					<input type="hidden" name="score"></b>
+			</div>
+			<input placeholder="{{@global.pageLanguageSetting.review_title_food}}" onclick="foodFocusInput2(this)" id="InputTitle" data-role="none" type="text" {{#if list}} value="{{list.title}}" {{/if}}>
+			<textarea data-role="none" id="comentInputTxt" onclick="foodFocusInput2(this)" placeholder="{{@global.pageLanguageSetting.comment_food}}">{{#if list}}{{list.review}} {{/if}}</textarea>
+			<a onclick="foodCourtPostReviewOfProduct(this,{{#if list}}'{{list.id}}' {{/if}});" class="{{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" style="color:{{@global.styleAndNavigation.button[3]}};background:{{@global.styleAndNavigation.button[2]}};">{{@global.pageLanguageSetting.post_review_food}}</a>
+		</div>
+	</div>
+
+</div>
+</div>

@@ -1,0 +1,82 @@
+<div class="popup menu-popup"><div class="navbar">
+    <div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+        <div class="left sliding">
+            <a href="index" class="link back" style="color:{{@global.style.headerBarIconColor}};">
+                <i class="icon icon-left-open-2"></i>
+            </a>
+        </div>
+        <div class="center sliding">
+            <div class="topHeader {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">{{@global.pageLanguageSetting.edit_profile_social_network}}</div>
+        </div>
+        <div class="right" onclick="Appyscript.Socialprofileupdate();">
+            <a href=""  class="icon-ok-4" style="color:{{@global.style.headerBarIconColor}};"></a>
+        </div>
+    </div>
+</div>
+<div data-page="socialnetwork-EditProfile" class="page navbar-through toolbar-fixed no-toolbar">
+    <div class="backgroundAnimation">{{> innerBackground}}</div>
+    <!-- Page content-->
+    <div class="page-content theam-{{@global.styleAndNavigation.layout}} hideBorder-{{@global.styleAndNavigation.hideBorder}}">
+        <style>
+.setting-list li {
+ border-bottom: 1px solid {{@global.styleAndNavigation.fieldBorderColor}} !important;
+}
+</style>
+        
+     
+        <div class="bodypan">
+            <div class="row">
+                <ul class="setting-list setting-form">
+                    <li class="iconz-user" style="border-color:{{@global.styleAndNavigation.fieldBorderColor}}; color:{{@global.styleAndNavigation.iconColor}};"><input type="text" class="form-control {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="color:{{@global.styleAndNavigation.content[2]}};" id="socialname" value="{{data.name}}"/></li>
+                    <li class="appyslim-love-male-female-symbols" style="border-color:{{@global.styleAndNavigation.fieldBorderColor}}; color:{{@global.styleAndNavigation.iconColor}};">
+                        <select  id="socialgender" class="form-control {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}} profilecheckbox" style="color:{{@global.styleAndNavigation.content[2]}};">
+                        
+                        <option value=""  >{{@global.pageLanguageSetting.not_selected_social_net}}</option>
+                        <option value="m"  {{#js_compare "this.data.gender == 'm'"}} selected {{else}} {{/js_compare}} >{{@global.pageLanguageSetting.male_social_network}} </option>
+                        
+                        <option value="f" {{#js_compare "this.data.gender == 'f'"}} selected {{else}} {{/js_compare}} >{{@global.pageLanguageSetting.female_social_net}}</option>
+                        
+                    </select> <div class="profilecheckboxcheck"><input class="" type="checkbox" id="gendershowsocial"  value="{{data.genderVisibility}}"  {{#js_compare "this.data.genderVisibility == '1'"}} checked {{else}} {{/js_compare}}>
+<i class="{{#js_compare "this.data.genderVisibility == '1'"}} iconz-lock {{else}} iconz-global {{/js_compare}}" style="
+margin-left: 5px;
+    position: relative;
+    top: -1px !important;"></i> </div> </li>
+                    <li class="iconz-calendar" style="border-color:{{@global.styleAndNavigation.fieldBorderColor}}; color:{{@global.styleAndNavigation.iconColor}};">
+                        
+                        <!--input type="date" id="socialbdate" value="{{data.birthdate}}" placeholder="Enter phone no."  class="form-control {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}} profilecheckbox" style="color:{{@global.styleAndNavigation.content[2]}};"/-->
+                        
+                        
+                            <input id="socialbdate" placeholder="DOB" value="{{data.birthdate}}"  class="form-control {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}} profilecheckbox" type="text" style="color:{{@global.styleAndNavigation.content[2]}};"/>
+                                <input type="date" class="form-control profilecheckbox" style="position:absolute !important; left:0px !important; top:0px !important; opacity:0 !important;" onchange="Appyscript.snDateCh(this);">
+                             
+                        
+                        
+                        <div class="profilecheckboxcheck">
+                            <input class="" value="{{data.birthdateVisibility}}" type="checkbox" id="datedobshowsocial" {{#js_compare "this.data.birthdateVisibility == '1'"}} checked {{else}} {{/js_compare}} >
+<i class="{{#js_compare "this.data.birthdateVisibility == '1'"}} iconz-lock {{else}} iconz-global {{/js_compare}}" style="
+margin-left: 5px;
+    position: relative;
+    top: -1px !important;"></i> </div></li>
+                    <li class="icon-flag" style="border-color:{{@global.styleAndNavigation.fieldBorderColor}}; color:{{@global.styleAndNavigation.iconColor}};"><select id="socialcountry"  data-country="{{data.country}}"  class="form-control {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}} profilecheckbox" style="color:{{@global.styleAndNavigation.content[2]}};">
+                        
+                        '{{getCountry "country"}}</select><div class="profilecheckboxcheck"><input class=""  value="{{data.countryVisibility}}"  type="checkbox" id="countryshowsocial"  {{#js_compare "this.data.countryVisibility == '1'"}} checked {{else}} {{/js_compare}}>
+<i class="{{#js_compare "this.data.countryVisibility == '1'"}} iconz-lock {{else}} iconz-global {{/js_compare}}" style="
+margin-left: 5px;
+    position: relative;
+    top: -1px !important;"></i> </div></li>
+                    
+                    <li class="icon-mobile-2" style="border-color:{{@global.styleAndNavigation.fieldBorderColor}}; color:{{@global.styleAndNavigation.iconColor}};"><input type="text" id="socialphone" class="form-control {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}} profilecheckbox" style="color:{{@global.styleAndNavigation.content[2]}};" value="{{data.phone}}" placeholder="Enter phone no." /><div class="profilecheckboxcheck"><input class="" value="{{data.phoneVisibility}}"  type="checkbox"  id="phoneshowsocial" {{#js_compare "this.data.phoneVisibility == '1'"}} checked {{else}} {{/js_compare}}>
+<i class="{{#js_compare "this.data.phoneVisibility == '1'"}} iconz-lock {{else}} iconz-global {{/js_compare}} " style="
+margin-left: 5px;
+    position: relative;
+    top: -1px !important;"></i> </div></li>
+                    <li class="icon-comment-2" style="border-color:{{@global.styleAndNavigation.fieldBorderColor}}; color:{{@global.styleAndNavigation.iconColor}};"><input type="text" id="socialbiography" class="form-control {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}} profilecheckbox" style="color:{{@global.styleAndNavigation.content[2]}};" value="{{data.about_me}}" placeholder="{{@global.pageLanguageSetting.social_biography}}"/><div class="profilecheckboxcheck"><input class="" value="{{data.aboutmeVisibility}}" type="checkbox" id="bioshowsocial" {{#js_compare "this.data.aboutmeVisibility == '1'"}} checked {{else}} {{/js_compare}}>
+<i class="{{#js_compare "this.data.aboutmeVisibility == '1'"}} iconz-lock {{else}} iconz-global {{/js_compare}}" style="
+margin-left: 5px;
+    position: relative;
+    top: -1px !important;"></i> </div></li>
+                </ul> 
+            </div>
+        </div>
+    </div>
+</div></div>

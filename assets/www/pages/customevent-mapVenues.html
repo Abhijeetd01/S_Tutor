@@ -1,0 +1,40 @@
+<div class="navbar"><div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}}; font-size: {{@global.style.headerBarSize}} ">
+            <div class="left sliding">
+              <a onclick="back2Home()" class="link back" style="color:{{@global.style.headerBarTextColor}};">
+                <i class="icon icon-left-open-2"></i>
+              </a>
+            </div>
+           <div class="center sliding">
+           	<div class="topHeader">{{getEventName "false"}}</div>
+              </div>
+            <div class="right">
+            <a  style="color:{{@global.style.headerBarTextColor}};">
+                <i class="icon iconz-location-chat--r"></i>
+              </a>
+            </div>
+          </div></div>
+
+<div data-page="customevent-mapVenues" class="page navbar-through no-toolbar {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="color:{{@global.styleAndNavigation.content[2]}}; background:{{@global.styleAndNavigation.pageBackroundColor}}">
+<!-- Page content-->
+    <div class="page-content">
+        {{#js_compare "this.list.length == 0"}}
+        <div class="msg-code">{{> errorpage errorIcon="appyicon-no-data"}}</div>
+        {{/js_compare}}
+    	<ul class="events-list">
+            {{#js_compare "this.list.length != 0"}}
+            <ul class="events-list">
+            {{#list}}
+            
+            <li class="eventslist {{@global.styleAndNavigation.title[0]}} {{@global.styleAndNavigation.title[1]}}">
+                <div class="event-item-price" showPrice="{{show_price}}" style="background:{{@global.styleAndNavigation.title[2]}}; color:{{@global.styleAndNavigation.title[3]}};">{{getPriceRange priceRange}}</div> <img src="images/image-2x1.png" style="background-image:url({{imagePath}}{{images[0]}})" index="{{@index}}" onclick="Appyscript.customeventDetails(this)" data-id="{{eventId}}" data-flag="{{id}}">
+                    <div style="background:{{@global.styleAndNavigation.title[2]}}; color:{{@global.styleAndNavigation.title[3]}};">
+                        <h2 class="{{@global.styleAndNavigation.title[1]}}">{{eventName}}</h2> <span class="type">{{getDateForRange dateRange.min}} - {{getDateForRange dateRange.max}}</span><span class="rating">{{formatRating rating}}</span>
+                        <!--Summary will be come here not cat name--><a onclick="getVenuesByEvent('{{eventId}}')" index="{{@index}}" data-id="{{eventId}}" class="{{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" style="background-color: {{@global.styleAndNavigation.button[2]}}; color: {{@global.styleAndNavigation.button[3]}};">{{@global.pageLanguageSetting.book}}</a> </div>
+                    </li>
+            {{/list}}
+            </ul>
+            {{/js_compare}}
+            
+            
+    </div>
+</div>

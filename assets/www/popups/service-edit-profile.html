@@ -1,0 +1,59 @@
+<div class="popup menu-popup tablet-fullscreen">
+    <div class="view">
+        <div class="navbar"><div class="navbar-inner " style="background-color:{{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}}; ">
+            <div class="left sliding">
+                <a href="" class="close link icon-left-open-2 close-popup" style="color:{{@global.style.headerBarIconColor}};" >
+                </a>
+            </div>
+            <div class="center sliding">
+                <div class="topHeader {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">{{@global.pageLanguageSetting.dir_profile}}</div>
+            </div>
+            <div class="right"></div>
+        </div></div>
+
+
+        <div class="pages" style="background-color:{{@global.styleAndNavigation.pageBgColor}};">
+            <div class="page hideBorder-{{@global.styleAndNavigation.hideBorder}}">
+
+                <div class="page-content">
+                    <style>
+                        ::-webkit-input-placeholder {
+                        color:{{@global.styleAndNavigation.content[2]}} !important;
+                        }
+                        :-moz-placeholder {
+                        color:{{@global.styleAndNavigation.content[2]}} !important;
+                        }
+                        ::-moz-placeholder {color:{{@global.styleAndNavigation.content[2]}} !important;
+                        }
+                        :-ms-input-placeholder {
+                        color:{{@global.styleAndNavigation.content[2]}} !important;
+                        }
+						.hideBorder-1 .form-control{border:1px solid {{@global.styleAndNavigation.borderColor}} !important;}
+                    </style>
+                    <div class="profile-image profile-edit">
+                        <div class="profileBackground" ></div>
+                        <div class="profileContentBx">
+                            <div class="profileBx" >
+                                <span class="image"  onclick="selectPhotoDir(0,'profile')"><img src="images/image-1x1.png" style="background:url({{image}});" id="profileImageDir" alt=""></span>
+                            </div>
+                            <span class="name" id="userName" style="color:{{@global.styleAndNavigation.menu[1]}};">{{name}}</span>
+                            <span class="location" id="userLocation" style="color:{{@global.styleAndNavigation.menu[1]}};">{{location}}</span>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <span class="input-group-addon iconz-user" style="background-color:{{@global.styleAndNavigation.icon[0]}}; color:{{@global.styleAndNavigation.icon[1]}}; border-color:{{@global.styleAndNavigation.borderColor}};"> </span>
+                        <input type="text" class="form-control {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="border-color:{{@global.styleAndNavigation.borderColor}}; color:{{@global.styleAndNavigation.content[2]}}" placeholder="{{@global.pageLanguageSetting.dir_user_name}}" aria-describedby="basic-addon1" id="profileName" value="{{name}}">
+                    </div>
+                    <!--                    <div class="input-group">-->
+                    <!--                      <span class="input-group-addon icon-location" style="background-color:{{@global.styleAndNavigation.icon[0]}}; color:{{@global.styleAndNavigation.icon[1]}}; border-color:{{@global.styleAndNavigation.borderColor}};"> </span>-->
+                    <!--                      <input type="text" class="form-control {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="border-color:{{@global.styleAndNavigation.borderColor}}; color:{{@global.styleAndNavigation.content[2]}}" placeholder="My Location" aria-describedby="basic-addon1" value="{{location}}" readonly>-->
+                    <!--                    </div>-->
+                    <div class="input-group">
+                        <button class="hyper-sent-btn {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" style="background-color: {{@global.styleAndNavigation.button[2]}}; color: {{@global.styleAndNavigation.button[3]}};"  value="{{@global.pageLanguageSetting.dir_save_btn}}" onclick="Appyscript.saveProfilePic()">{{@global.pageLanguageSetting.dir_save_btn}}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

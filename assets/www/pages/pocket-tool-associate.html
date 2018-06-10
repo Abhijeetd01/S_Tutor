@@ -1,0 +1,29 @@
+<div class="navbar"><div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+    <div class="left sliding">
+        {{getSlideBack ""}}
+    </div>
+    <div class="center sliding {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">{{@global.pageLanguageSetting.name}}</div>
+    <div class="right"></div>
+</div></div>
+
+<div data-page="textpage" class="page navbar-through no-toolbar " >
+    <!-- Page content-->
+    <div class="backgroundAnimation">{{> innerBackground}}</div>
+    <div class="page-content">
+
+        <div class="service-details" style="color:{{@global.style.pageTextColor}}">
+
+
+                <div class="textPara {{@global.style.appPageCsize}}
+                      {{@global.style.appPageFont}}" style="color:{{@global.style.pageTextColor}}; ">
+                    {{#associateData}}<b class="{{@global.style.appPageShsize}}">{{name}}</b>: {{value}}</br> {{/associateData}}</div>
+
+
+
+
+        </div>
+
+    </div>
+
+
+</div>

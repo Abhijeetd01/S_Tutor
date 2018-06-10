@@ -1,0 +1,33 @@
+<div data-page="customEvent-map" class="popup menu-popup tablet-fullscreen">
+    <div class="view">
+    
+    <div class="navbar"><div class="navbar-inner " style="background-color:{{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}}; ">
+            <div class="left sliding">
+              <a href="" onclick="ce_mapClosed()" class="close link icon-left-open-2 close-popup" style="color:{{@global.style.headerBarIconColor}};"></a>
+            </div>
+            <div class="center sliding  {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">
+                <div class="topHeader">{{@global.pageLanguageSetting.map_header}}</div>
+            </div> 
+<!--            <div class="right"><a onclick="Appyscript.popupPage('customevent-filter')" style="color:{{@global.style.headerBarTextColor}};">-->
+<!--                <i class="icon iconz-filter"></i>-->
+<!--              </a></div>-->
+          </div></div>
+          
+    
+        <div class="pages">
+             <div class="page navbar-through no-toolbar" style="margin:0px; padding:0px;">
+                <div class="page-content {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="color:{{@global.styleAndNavigation.content[2]}}; background:{{@global.styleAndNavigation.pageBackroundColor}}">
+            
+            <div class="section-events map-page">
+                <div id="customEventMapId" class="event-map-area" style="width: 100vw; height: {{ce_getMapHeight false}}">
+                   
+            </div>
+            <ul class="event-map-detail map-venue-list">
+
+            </ul>
+            
+            </div>
+            </div>
+		</div>
+    </div>
+</div>

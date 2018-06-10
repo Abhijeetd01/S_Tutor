@@ -1,0 +1,81 @@
+<div class="navbar"><div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}}; font-size: {{@global.style.headerBarSize}} ">
+    <div class="left sliding">
+
+        {{getNavigation @global.style.layout "menu"}}
+
+    </div>
+    <div class="center sliding">
+        <div class="topHeader">
+
+            {{@global.pageLanguageSetting.REAL_ESTATE}}
+            <span class="locate icon-location cursor-pointer" id="realstateLoccustom" onclick="Appyscript.popupPage('realestate-location')">{{@global.CurrentCityreal}}</span>
+        </div>
+
+
+    </div>
+    <div class="right">
+        <a href="#" style="color:{{@global.style.headerBarIconColor}};">
+            <i class="iconz-location-3" onclick="Appyscript.showServicePageMapNewReal(this)"></i>
+        </a>
+    </div>
+</div></div>
+
+<div data-page="realestate-page" class="page navbar-through no-toolbar">
+    <div class="subnavbar">
+        <div class="buttons-row headerTab {{@global.styleAndNavigation.nav[0]}} {{@global.styleAndNavigation.nav[1]}}">
+            <a href="#tab1" class="button" onclick="realEstateFilters()"><i class="iconz-filter" ></i> {{@global.pageLanguageSetting.FILTERS}}</a>
+            <a href="#tab2" class="button" onclick="sortingRealMainList()"><i class="icon-align-left"></i> {{@global.pageLanguageSetting.Short_By}}</a>
+        </div>
+    </div>
+
+
+
+
+    <!-- Page content-->
+    <div class="page-content  infinite-scroll" data-distance="200" rentout="{{@global.configuration.rentoutSetting}}" soldout="{{@global.configuration.soldoutSetting}}" style="background:{{@global.styleAndNavigation.pageBgColor}};">
+        <style>
+		.filter-box, .headerTab{color:{{@global.styleAndNavigation.nav[2]}}; background:{{@global.styleAndNavigation.nav[3]}} }
+    	.distance-km{background:{{@global.styleAndNavigation.title[2]}}; color:{{@global.styleAndNavigation.title[3]}} }
+		.real-estate-addons a{background:{{@global.styleAndNavigation.icon[0]}}; color:{{@global.styleAndNavigation.icon[1]}} }
+		.shorDetail, .price, .addPan, .forSale { color:{{@global.styleAndNavigation.title[3]}} }
+		.shorDetail i, .price i, .addPan i, .real-estate-addons a:before, .search-view a, .like-btn, .share-btn { color:{{@global.styleAndNavigation.icon[1]}} }
+		.forSale:before{ background:{{@global.styleAndNavigation.icon[1]}}; border-color:{{@global.styleAndNavigation.borderColor}} }
+		.search-view input, .search-view input.on{  color:{{@global.styleAndNavigation.content[2]}} }
+		.headerTab a {color:{{@global.styleAndNavigation.nav[2]}} }
+		.like-btn.on, .share-btn.on, .newProp {color:{{@global.styleAndNavigation.activeColor}} }
+		.headerTab a.button:first-child { border-color:{{@global.styleAndNavigation.borderColor}}}
+    </style>
+
+        {{#if list.length}}
+        <section class="real-estate">
+            <!--<div class="search-view"><i class="icon-search-3"></i><input type="text" placeholder="Type to search"></div>-->
+
+            <div class="search-view">
+                <input type="search" onfocus="realestateSearchFunction('mainevent',event,this)" id="serchinpt" onkeyup="realestateSearchFunction('mainevent',event,this)" onblur="realestateSearchFunction('mainevent',event,this)" onclick="realestateSearchFunction('mainevent',event,this)" class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="background:{{@global.styleAndNavigation.iconBackgroundColor}};  color:{{@global.styleAndNavigation.icon[1]}}">
+                <a class="iconz-search"></a>
+            </div>
+            
+            
+
+            <ul class="real-estate-cat-listing" id="landinglist">
+                {{#list}}
+                {{> realstateListing}}
+                {{/list}}
+
+
+            </ul>
+
+        </section>
+        {{else}}
+        <div class="msg-code">
+            <div class="msg-container">
+                <span class="icon appyicon-no-data" style="color:{{@global.styleAndNavigation.content[2]}}; border-color:{{@global.styleAndNavigation.content[2]}}">  </span>
+            </div>
+        </div>
+
+        {{/if}}
+        <div class="infinite-scroll-preloader" style="display:none">
+            <div class="preloader-view"><div class="preloader"></div></div>
+        </div>
+    </div>
+</div>

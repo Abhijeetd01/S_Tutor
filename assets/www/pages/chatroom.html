@@ -1,0 +1,37 @@
+<div class="navbar"><div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+    <div class="left sliding">
+  		{{getSlideBack "common"}}         
+    </div>
+    <div class="center sliding {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">{{name}}</div>
+            <div class="right"></div>
+          </div></div>
+
+<div data-page="chatroom" class="page navbar-through no-toolbar" style='background-size: cover; {{#root_Compare @global.style.backgroundType "==" "custom_color"}}background-color:{{@global.style.appBackground[0]}} {{/root_Compare}} {{#root_Compare @global.style.backgroundType "==" "library_image"}} background-image:url({{@global.style.appBackground[0]}}) {{/root_Compare}}'>
+    <!-- Page content-->
+<div class="backgroundAnimation">{{> innerBackground}}</div>
+    <div class="page-content {{@global.style.appPageFont}} {{@global.style.appPageCsize}}">
+    <div class="appypie-chat-update" id="appypie-chat-update">
+		<div class="chat-pic upload-pic" onclick="Appyscript.chatroomImage(this)"><i class="iconz-upload"></i>
+            {{#if @global.pageLanguageSetting.uploadPic}}
+            {{@global.pageLanguageSetting.uploadPic}}
+            {{else}}
+            Upload Pic
+            {{/if}}
+            <input type="button" onclick="Appyscript.chatroomImage(this)" accept="image/*" /></div>
+        <div class="chat-pic-1 upload-pic-1" style="display:none"><img id="set_chat_pic" src=""><input type="button" onclick="Appyscript.chatroomImage(this)" /></div>
+        {{#if @global.pageLanguageSetting.screen_name}}
+        <input id="userName" data-role="none" type="text" placeholder="{{@global.pageLanguageSetting.screen_name}}">
+        {{else}}
+        <input id="userName" data-role="none" type="text" placeholder="Screen Name">
+        {{/if}}
+
+        <a onclick="Appyscript.chatroomNext({{mode}})">
+            {{#if @global.pageLanguageSetting.next}}
+            {{@global.pageLanguageSetting.next}}
+            {{else}}
+            Next
+            {{/if}}
+        </a>
+		</div>
+    </div>
+</div>

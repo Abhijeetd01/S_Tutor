@@ -1,0 +1,166 @@
+<div class="navbar">
+	<div class="navbar-inner" style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+		<div class="left sliding">
+			<a href="index" class="link back" style="color:{{@global.style.headerBarIconColor}};">
+				<i class="icon icon-left-open-2"></i>
+			</a>
+		</div>
+		<div class="center sliding  {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">
+			<div class="topHeader">{{@global.pageLanguageSetting.products_mcom}}
+			</div>
+		</div>
+		<div class="right">
+			<a href="#" class="link" style="color:{{@global.style.headerBarIconColor}};">
+				<i class="icon-cart cursor-pointer" onclick="Appyscript.ecomAddToCartProduct('cartview');"><span class="cartNotification"></span></i>
+			</a>
+		</div>
+	</div>
+
+</div>
+
+
+<div data-page="ecommerce-ProductDetail" class="page navbar-through no-toolbar toolbar-through">
+	<!-- Page content-->
+
+	<!--<div class="toolbar">
+		<div class="toolbar-inner toolbar-bottom">
+			<footer id="footer-nav">
+				<a class="like" onclick="Appyscript.ecomAddRemoveProductWishlist(this)" product-id="{{productId}}"  product-wishlist="{{wishlist}}"><span class="icon-heart-1"></span></a>
+				<a class="comment popupToPage" data-animate="true" data-page="ecommerce-review" data-back="back" data-jsonID="'method':'reviewList'" data-catid={{productId}} ><span class="icon-comment"></span></a>
+				<a class="more"><span class="icon-dot-3"></span></a>
+			</footer>
+		</div>
+	</div>-->
+
+	<div class="toolbar">
+		<div class="toolbar-inner toolbar-bottom">
+			<footer id="footer-nav">
+				<a class="like" onclick="Appyscript.ecomAddRemoveProductWishlist(this)" product-id="{{productId}}"  product-wishlist="{{wishlist}}"><span class="icon-heart-1"></span></a>
+				<a class="comment popupToPage" data-animate="true" data-page="ecommerce-review" data-back="back" data-jsonID="'method':'reviewList'" data-catid={{productId}} ><span class="icon-comment"></span></a>
+				{{#root_Compare @global.imageOnOff "==" "1"}}
+				<a href="#" onclick="storeShareProduct(this)"><span class="icon-share-1"></span></a>
+				{{/root_Compare}}
+				<a class="more"><span class="icon-up-open-big"></span></a>
+			</footer>
+		</div>
+	</div>
+
+	<div class="page-content {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}} content-{{@global.styleAndNavigation.content[3]}} heading-{{@global.styleAndNavigation.heading[3]}} hideBorder-{{@global.styleAndNavigation.hideBorder}}" style="color:{{@global.styleAndNavigation.content[2]}}; background:{{@global.styleAndNavigation.pageBgColor}}">
+		<style type="text/css">
+		#footer-nav a {
+			padding:0;
+			line-height:44px;
+			color:{{@global.styleAndNavigation.tab[1]}};
+			background:{{@global.styleAndNavigation.tab[0]}};
+		}
+		
+		#footer-nav a span,
+		#footer-nav a span:before {
+			line-height:44px;
+		}
+		
+		#footer-nav a.on {
+			color:{{@global.styleAndNavigation.tab[1]}};
+			background:{{@global.styleAndNavigation.tab[2]}};
+		}
+		#footer-nav a.more.on {
+			background:{{@global.styleAndNavigation.tab[0]}};
+		}
+    </style>
+		<!------------ Swiper  --------->
+		<div  data-preload-images="false" data-lazy-loading="true" class="swiper-container product-swiper" index="{{index}}">
+			<div class="swiper-wrapper">
+				{{#list}}
+				<div class="swiper-slide product-swiper-slide" data-id="{{productId}}">
+					<div class="mcomContainer product-detail">
+						<div class="product-image hideImage-{{@global.styleAndNavigation.hideImage}}" style="border-color:{{@global.styleAndNavigation.button[2]}}">
+							<div data-preload-images="false" data-lazy-loading="true" class="swiper-banner swiper-banner-{{@index}} swiper-container">
+								<div class="swiper-wrapper">
+									{{#productImages}}
+									<div class="swiper-slide">
+										{{#js_compare "this.type === 'video' "}}
+										{{#js_compare "this.videoType == 'custom'"}}
+										<div class="video-icon icon-play-circle2-1" onclick="openVideoStream('{{productImage}}');"></div>
+										<img src="images/transparent-bg.png" class="swiper-lazy imgList"   ><div class="preloader"></div>
+										{{else}}
+										{{#js_compare "this.videoType == 'youtube'"}}
+										<div class="video-icon icon-play-circle2-1" onClick="openYouTubeVedio('{{productImage}}');"></div>
+										<img src="images/transparent-bg.png" class="swiper-lazy imgList"  ><div class="preloader"></div>
+										{{/js_compare}}
+										{{/js_compare}}
+										{{else}}
+										<img src="images/transparent-bg.png" class="swiper-lazy imgList" style="background-image:url({{productImage}});" onclick="storeopenGallary('{{@index}}');" ><div class="preloader"></div>
+										{{/js_compare}}
+									</div>
+									{{/productImages}}
+								</div>
+							</div>
+							<div class="product-button">
+								{{#js_compare "this.quantity == '0'"}}
+								{{#if @global.pageLanguageSetting}}
+								<div class="addtoCartbtn" style="color:{{@global.styleAndNavigation.button[3]}};background:{{@global.styleAndNavigation.button[2]}};width:110px; text-align: center;">
+									{{@global.pageLanguageSetting.out_of_stock_mcom}}
+								</div>
+								{{/if}}
+								{{else}}
+								<a class="add-cart" style="color:{{@global.styleAndNavigation.button[3]}};background:{{@global.styleAndNavigation.button[2]}};" id="addtocartid" id="{{productId}}" onclick="Appyscript.ecomAddToCartProduct(this, {{@index}},'MannualCount')" product-id="{{productId}}" data-id="{{productId}}"  data-head="{{productName}}" data-currency="{{format_currency currency}}"  data-price="{{price}}" data-quantity="{{quantity}}" data-mainImage="{{mainImage}}"></a>
+								{{/js_compare}}
+							</div>
+						</div>
+						<div class="wrap">
+							<div class="product-description">
+								<h3 id="productName" class="{{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}}">{{productName}}</h3>
+								{{#if offered}}
+								{{#js_compare "this.offeredDiscount > \'0\'"}}
+								<p> <strike>{{format_currency currency}}{{price}}</strike>    <b style="color:{{@global.styleAndNavigation.activeColor}}">{{format_currency currency}}<span id="productPrice" price='{{js " this.price - this.price * this.offeredDiscount / 100"}}'>{{js "parseFloat(this.price - this.price * this.offeredDiscount / 100).toFixed(2)"}}</span></b>   <span>  ({{offeredDiscount}}%)</span></p>
+								{{else}}
+								<p class="price {{#js_compare "this.price == '0.00'"}} priceShowHide {{/js_compare}} {{#js_compare "this.price == '0'"}} priceShowHide {{/js_compare}}">{{format_currency currency}}<span id="productPrice" price="{{price}}">{{price}}</span> </p>
+								{{/js_compare}}
+								{{else}}
+								<p class="price {{#js_compare "this.price == '0.00'"}} priceShowHide {{/js_compare}} {{#js_compare "this.price == '0'"}} priceShowHide {{/js_compare}}" >{{format_currency currency}}<span id="productPrice" price="{{price}}">{{price}} </span> </p>
+								{{/if}}
+
+								<p class="description less" id="pDiscription"> {{description}} </p>
+							</div>
+							<ul class="product-attribute" id="configurableProduct">
+								<li>
+									<span>{{@global.pageLanguageSetting.qty_mcom}}:</span>
+									<input type="number" onfocus="focusInput(this)" data-role="none" value="1" id="quantity" class="qtyFle numberValidation"><p class="weight_value"> {{weightValue}} </p>
+								</li>
+								{{#customoptions}}
+								<li>
+									<span> {{option_title}}:</span>
+									<select id="option{{option_id}}" name="customOptions" onchange="changeCustomData(this)" class="customOptions" required="{{option_req}}">
+										<option value="-1">{{option_title}}</option>
+										{{#option_row}}
+										{{#js_compare "this.row_pricetype == 'p' "}}
+										{{#js_compare "this.row_price == 0 "}}
+										<option value="{{row_price}}" label="{{row_title}}" type="{{row_pricetype}}">{{row_title}}</option>
+										{{else}}
+										<option value="{{row_price}}" label="{{row_title}}  +  {{row_price}}" type="{{row_pricetype}}">{{row_title}} +  {{row_price}} </option>
+										{{/js_compare}}
+
+										{{else}}
+										{{#js_compare "this.row_price == 0 "}}
+										<option value="{{row_price}}" label="{{row_title}}" type="{{row_pricetype}}">{{row_title}}</option>
+										{{else}}
+										<option value="{{row_price}}" label="{{row_title}} -  {{row_price}}" type="{{row_pricetype}}">{{row_title}} -  {{row_price}}</option>
+										{{/js_compare}}
+										{{/js_compare}}
+										{{/option_row}}
+									</select>
+								</li>
+								{{/customoptions}}
+								{{#root_Compare @global.hideimagecheck "==" "1"}}
+								<li onclick="uploadimagestore('{{@global.skuno}}',this)"><span></span><button type="button" class="upload_img  {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" style="background-color:{{@global.styleAndNavigation.button[2]}}; color: {{@global.styleAndNavigation.button[3]}}">{{@global.pageLanguageSetting.upload_image_dir}}</button> <i id="checkimge" class="icon icon-ok-4  check_icon" style="display:none;color:{{@global.styleAndNavigation.iconColor}};border-color:{{@global.styleAndNavigation.iconColor}} "></i></li>
+								{{/root_Compare}}
+							</ul>
+						</div>
+					</div>
+				</div>
+				{{/list}}
+			</div>
+		</div>
+		<!------------ Swiper  --------->
+	</div>
+</div>

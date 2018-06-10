@@ -1,0 +1,79 @@
+<div class="navbar"><div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+            <div class="left sliding">
+              <a href="index" class="link back" style="color:{{@global.style.headerBarIconColor}};">
+                <i class="icon icon-left-open-2"></i>
+              </a>
+            </div>
+            <div class="center sliding  {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">{{@global.style.headerBarTitle}}</div>
+            <div class="right"></div>
+          </div></div>
+
+
+
+<div data-page="review-Pagedetails" class="page navbar-through no-toolbar">
+    <!-- Page content-->
+    <div class="page-content">    	
+ 
+ 	
+    <div class="review-user">
+        <div class="review-user-image">
+	        <img src="images/logo.png">
+        </div>
+        <div class="review-user-details">
+            <h3>Rate &amp; Review</h3>
+            <div class="review_options">
+                <div class="insta_photo">0 <span>Ratings</span></div>
+                <div class="insta_photo">{{reviewList.length}}<span>Reviews</span></div>
+            </div>            
+        </div> 
+    </div>
+   
+  
+    <div class="appointment rating-box">
+        <div class="field">
+            <label> {{formData.rateNow}} <sup>*</sup></label>
+            <span class="rating"></span>
+            <input type="hidden" name="score" id="score" value="5">
+        </div>
+        <div class="field">
+            <label>{{formData.reviewname}}<sup>*</sup></label>
+            <input data-role="none" id="reviewName" type="text">
+        </div>
+        <div class="field">
+            <label>{{formData.reviewemail}}<sup>*</sup></label>
+            <input data-role="none" id="reviewEmail" type="text">
+        </div>
+        <div class="field">
+        <label>{{formData.reviewcomment}}<sup>*</sup></label>
+        <p>
+        <textarea name="reviewRemark" id="reviewRemark"></textarea>
+        </p>
+        </div>
+        <a style="background-color:#096596 !important; background-image:none !important ;  border-color:#096596!important; color:#ffffff!important;" onclick="Appyscript.ReviewSave('{{formData.subject}}','{{formData.email}}')">
+       {{formData.reviewsubmit}} 
+        </a>
+    
+    </div>
+  
+  <div class="testimonials theme-1">
+  	{{#if reviewList}}
+    <ul class="list">
+        	{{#reviewList}}   
+			<li class="no-image">
+            	<i class="before-quote" style="color:#333">&ldquo;</i>
+                <div class="head_rating" ratting="{{ratting}}"></div>
+            	<p>{{comments}}</p>                
+                <span>{{name}} <br /> {{date}}</span>
+                <i class="after-quote" style="color:#333">&rdquo;</i>
+			</li>
+            {{/reviewList}}
+        </ul>    
+    </div>
+    {{/reviewList}} 
+    {{/if}} 
+
+
+       
+       
+    </div>
+</div>

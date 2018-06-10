@@ -1,0 +1,234 @@
+<div class="popup menu-popup tablet-fullscreen">
+    <div class="view">
+        <div class="navbar"><div class="navbar-inner " style="background-color:{{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+            <div class="left sliding">
+                <a href="" class="close link icon-left-open-2 close-popup" style="color:{{@global.style.headerBarIconColor}};" >
+                </a>
+            </div>
+            <div class="center sliding">
+                <div class="topHeader {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">{{@global.pageLanguageSetting.search_directory_dir}}</div>
+            </div>
+            <div class="right"></div>
+        </div></div>
+        <div class="pages hideBorder-{{@global.styleAndNavigation.hideBorder}}" style="background-color:{{@global.styleAndNavigation.pageBgColor}};">
+            <style>
+             	.noUi-connect {
+                 	 background-color: {{@global.styleAndNavigation.secondaryButton[2]}};
+                }
+                .filter-page .short-by a,.filter-page #distance-slider-tab a, .listing-tabs-view .providers .selectEveBlo li a {
+                background-color: {{@global.styleAndNavigation.secondaryButton[2]}};
+                color: {{@global.styleAndNavigation.secondaryButton[3]}};
+                }
+                .filter-page .short-by a.active,.filter-page #distance-slider-tab a.active {
+                background-color: {{@global.styleAndNavigation.button[2]}};
+                color: {{@global.styleAndNavigation.button[3]}};
+                }
+
+            </style>
+            <div data-page="serviceFilter" class="page navbar-through no-toolbar">
+                <div class="page-content">
+                    <div class="filter-page">
+                        <div class="filter-row short-by">
+                            <h3 class="{{@global.styleAndNavigation.subheading[0]}}
+{{@global.styleAndNavigation.subheading[1]}}" style="color:
+{{@global.styleAndNavigation.subheading[2]}}; text-align:
+{{@global.styleAndNavigation.subheading[3]}}">{{Short_By}}</h3>
+
+                            <ul class="listing-tabs">
+                                {{#root_Compare @root.isLocationSearch "==" "true"}}
+                                {{#root_Compare @global.setting.dirDisableLocServices "==" "1"}}
+
+                                <a href="#tab1" class="distance active tab-link {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" value="Distance"><span class="icon-location-2"></span>{{distance_dir}}</a>
+                                {{#root_Compare @global.setting.reviewSetting "==" "1"}}  <a href="#tab2" class="rating tab-link {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" value="Rating"><span class="iconz-star" ></span>{{rating_dir}}</a> {{/root_Compare}}
+                                {{else}}
+                                {{#root_Compare @global.setting.reviewSetting "==" "1"}} <a href="#tab2" class="rating active tab-link single-tab {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" value="Rating"><span class="iconz-star" ></span>{{rating_dir}}</a>{{/root_Compare}}
+                                {{/root_Compare}}
+                                {{/root_Compare}}
+                            </ul>
+
+                            <div class="tabs-animated-wrap">
+                                <div class="tabs" style="border:0px;">
+                                    {{#root_Compare @root.isLocationSearch "==" "true"}}
+                                    {{#root_Compare @global.setting.dirDisableLocServices "==" "1"}}
+                                    <div id="tab1" class="tab active"><br>
+                                        <div class="filter-row">
+
+                                            <div id="distance-slider">
+                                                <span class="min class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="color:{{@global.styleAndNavigation.content[2]}}" id="rangeValue1">0{{#root_Compare @global.setting.defaultDistance "==" "MI"}}{{@global.pageLanguageSetting.Miles_dir}}{{else}}{{@global.pageLanguageSetting.KM_dir}}{{/root_Compare}}</span><span class="max class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="color:{{@global.styleAndNavigation.content[2]}}" id="rangeValue2">{{@global.setting.defaultRengeSearch}}{{#root_Compare @global.setting.defaultDistance "==" "MI"}}{{@global.pageLanguageSetting.Miles_dir}}{{else}}{{@global.pageLanguageSetting.KM_dir}}{{/root_Compare}}</span>
+                                                <input id="dirctoryrangMin" type="text" min ="0" max="1000" step ="1" value ="{{@global.setting.defaultRengeSearch}}" style="width:100%;" />
+                                                <input id="dirctoryrangMax" type="text" min ="0" max="1000" step ="1" value ="{{@global.setting.defaultRengeSearch}}" style="width:100%;" />
+                                                <div id="dirctoryrangGet"></div>
+                                            </div>
+
+                                            <div id="distance-slider-tab">
+                                                {{#root_Compare @global.setting.defaultDistance "==" "MI"}}
+                                                <a onclick="Appyscript.clickDistanceType(this)" class="{{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}">{{@global.pageLanguageSetting.KM_dir}}</a>
+                                                <a onclick="Appyscript.clickDistanceType(this)" class="active {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}">{{@global.pageLanguageSetting.Miles_dir}}</a>
+                                                {{else}}
+                                                <a onclick="Appyscript.clickDistanceType(this)" class="active {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}">{{@global.pageLanguageSetting.KM_dir}}</a>
+                                                <a onclick="Appyscript.clickDistanceType(this)" class="{{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}">{{@global.pageLanguageSetting.Miles_dir}}</a>
+                                                {{/root_Compare}}
+                                            </div>
+                                        </div>
+                                        <div class="hyper-gray-wrapper">
+                                            <button class="hyper-sent-btn {{@global.styleAndNavigation.button[0]}}
+{{@global.styleAndNavigation.button[1]}}" style="background-color:
+{{@global.styleAndNavigation.button[2]}}; color:
+{{@global.styleAndNavigation.button[3]}};" onclick="Appyscript.searchAndFilterData('filter')">{{search_button_dir}}</button>
+                                        </div>
+                                    </div>
+                                    {{#root_Compare @global.setting.reviewSetting "==" "1"}}
+                                    <div id="tab2" class="tab"><br>
+                                        <div class="filter-row">
+                                            <ul class="ratingList">
+                                                <li>
+                                                    <div class="pull-left">
+                                                        <span class="iconz-star"></span>
+                                                        <span class="iconz-star"></span>
+                                                        <span class="iconz-star"></span>
+                                                        <span class="iconz-star"></span>
+                                                        <span class="iconz-star"></span>
+                                                    </div>
+                                                    <div class="pull-right">
+                                                        <input type="checkbox" id="1" name=""/>
+                                                        <label for="1"></label>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="pull-left">
+                                                        <span class="iconz-star"></span>
+                                                        <span class="iconz-star"></span>
+                                                        <span class="iconz-star"></span>
+                                                        <span class="iconz-star"></span>
+                                                    </div>
+                                                    <div class="pull-right">
+                                                        <input type="checkbox" id="2" name=""/>
+                                                        <label for="2"></label>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="pull-left">
+                                                        <span class="iconz-star"></span>
+                                                        <span class="iconz-star"></span>
+                                                        <span class="iconz-star"></span>
+                                                    </div>
+                                                    <div class="pull-right">
+                                                        <input type="checkbox" id="3" name=""/>
+                                                        <label for="3"></label>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="pull-left">
+                                                        <span class="iconz-star"></span>
+                                                        <span class="iconz-star"></span>
+                                                    </div>
+                                                    <div class="pull-right">
+                                                        <input type="checkbox" id="4" name=""/>
+                                                        <label for="4"></label>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="pull-left">
+                                                        <span class="iconz-star"></span>
+                                                    </div>
+                                                    <div class="pull-right">
+                                                        <input type="checkbox" id="5" name=""/>
+                                                        <label for="5"></label>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="hyper-gray-wrapper">
+                                            <button class="hyper-sent-btn {{@global.styleAndNavigation.button[0]}}
+{{@global.styleAndNavigation.button[1]}}" style="background-color:
+{{@global.styleAndNavigation.button[2]}}; color:
+{{@global.styleAndNavigation.button[3]}};" onclick="Appyscript.searchAndFilterData('filter')">{{search_button_dir}}</button>
+                                        </div>
+                                        {{/root_Compare}}
+                                        {{else}}
+                                        {{#root_Compare @global.setting.reviewSetting "==" "1"}}
+                                        <div id="tab2" class="tab active"><br>
+                                            <div class="filter-row">
+                                                <ul class="ratingList">
+                                                    <li>
+                                                        <div class="pull-left">
+                                                            <span class="iconz-star"></span>
+                                                            <span class="iconz-star"></span>
+                                                            <span class="iconz-star"></span>
+                                                            <span class="iconz-star"></span>
+                                                            <span class="iconz-star"></span>
+                                                        </div>
+                                                        <div class="pull-right">
+                                                            <input type="checkbox" id="1" name=""/>
+                                                            <label for="1"></label>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="pull-left">
+                                                            <span class="iconz-star"></span>
+                                                            <span class="iconz-star"></span>
+                                                            <span class="iconz-star"></span>
+                                                            <span class="iconz-star"></span>
+                                                        </div>
+                                                        <div class="pull-right">
+                                                            <input type="checkbox" id="2" name=""/>
+                                                            <label for="2"></label>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="pull-left">
+                                                            <span class="iconz-star"></span>
+                                                            <span class="iconz-star"></span>
+                                                            <span class="iconz-star"></span>
+                                                        </div>
+                                                        <div class="pull-right">
+                                                            <input type="checkbox" id="3" name=""/>
+                                                            <label for="3"></label>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="pull-left">
+                                                            <span class="iconz-star"></span>
+                                                            <span class="iconz-star"></span>
+                                                        </div>
+                                                        <div class="pull-right">
+                                                            <input type="checkbox" id="4" name=""/>
+                                                            <label for="4"></label>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="pull-left">
+                                                            <span class="iconz-star"></span>
+                                                        </div>
+                                                        <div class="pull-right">
+                                                            <input type="checkbox" id="5" name=""/>
+                                                            <label for="5"></label>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="hyper-gray-wrapper">
+                                                <button class="hyper-sent-btn {{@global.styleAndNavigation.button[0]}}
+{{@global.styleAndNavigation.button[1]}}" style="background-color:
+{{@global.styleAndNavigation.button[2]}}; color:
+{{@global.styleAndNavigation.button[3]}};" onclick="Appyscript.searchAndFilterData('filter')">{{search_button_dir}}</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {{/root_Compare}}
+                                    {{/root_Compare}}
+                                    {{/root_Compare}}
+                                </div>
+
+                            </div>
+
+
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>

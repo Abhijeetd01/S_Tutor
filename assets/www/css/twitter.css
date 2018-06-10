@@ -1,0 +1,86 @@
+
+.twitter-feeds {
+padding:0 0 10px 0;
+}
+.tweet-user{ overflow:hidden; width:100%; position:relative; z-index:1; background:#FFF; box-shadow:0 0 10px #666}
+.tweet-user-image{-webkit-border-radius:5px; border-radius: 5px; -moz-border-radius: 5px;width: 60px; height:60px; float:left; margin:10px}
+.tweet-user-image img{ width:100%; width:100%; }
+.tweet-user-details{width: 50%; min-width:106px; float:left; margin:10px 0}
+.tweet-user-details h3{ font:bold 18px/21px }
+.tweet_follow_btn{-webkit-border-radius:5px; border-radius: 5px; -moz-border-radius: 5px; display: inline-block; float: right; font: 15px/27px ; position:absolute; right:0px; padding: 0 12px; margin:10px; background:#007aff; color:#fff; }
+.tweet_options{ clear:both; margin:10px 0 0 0; color:#6c9d22; font:bold 18px/20px ; float:left; width: 100%; }
+.tweet_options .tweet, .tweet_options .follow{ float:left; margin:0  10px 0 0; }
+.tweet_options span{ color:#9a9a9a; font:bold 12px/20px ; display:block; }
+.tweet_feeds{ webkit-border-radius:10px ; border-radius: 10px; -moz-border-radius: 10px; margin:10px 10px 0px 10px; position:relative;  overflow:hidden; display:block; background:#fff; box-shadow:0 0 5px #ccc;  }	
+.tweet_feeds .tweet-user-image{ width:44px; height:44px; margin:0px 10px 0 0; float:left;}
+.tweet_feeds time{ position:absolute; top:10px; right:10px;}
+.twitter-feeds a.show-more
+{
+ background-color: #34c4cf;
+    color: #ffffff;
+    width: 80%;
+    float: left;
+    line-height: 30px;
+    text-align: center;
+    border-radius: 15px;
+    margin:8px 10%;
+
+}
+.feeds_desc {
+    float: left;
+    width: calc(100% - 54px);
+}
+.feeds_desc h3{font:bold 14px/18px ; margin:10px 0 0 0 }
+.feeds_desc h3 span {
+    display: block;
+    font-weight: normal;
+    color: #a9a9a9;
+}
+.feeds_desc p{ overflow:hidden; margin:10px 0; font:11px/18px ; 	color:#666;   }
+.feeds_desc p a {
+ 	color:#666;
+}
+.feeds_desc p img{ width:45px;float:left; margin:0 10px 0 0 }
+.feed_details .tweet-user-image{ width:50px; height:50px; }
+.feed_details h3{font:bold 14px/18px Arial, Helvetica, sans-serif; margin:10px 0 0 0 }
+.feed_details .time{position:absolute; top:10px; right:10px; }
+.feed_details .feeds_desc{ margin:0px 5px; color:#fff; width:98%;}
+.feed_details .feeds_desc p{  font:14px/18px Arial, Helvetica, sans-serif;  height:auto;}
+.feed_details .feeds_desc p img{ width:auto; clear:both; display:block; margin:0 0 10px  0; float:none;}
+.feed_details  .tweet_follow_btn{ position:static; float:right;}
+.feed_details  .share{ float:right; background: url(../images/share.png) no-repeat 6px 6px #d6d6d6; -webkit-border-radius:5px ; border-radius: 5px; -moz-border-radius: 5px; display: inline-block; font: 15px/27px Arial,Helvetica,sans-serif; padding: 0 12px 0 30px; margin:10px; }
+
+
+/*============FOR SA==============*/
+.sa .tweet_feeds .tweet-user-image {
+    margin: 0px 0px 0 10px;
+    float: right;
+}
+.sa .tweet_options {
+    margin: 10px 0 0 0;
+    text-align: right;
+}
+.sa .tweet_options .tweet, .tweet_options .follow {
+    float: right;
+    margin: 0 0px 0 10px;
+    
+}
+.sa .tweet-user-details h3 {
+    text-align: right;
+}
+.sa .tweet-user-details {
+    float: right;
+    
+}
+.sa .tweet-user-image {
+    float: right;
+    
+}
+.sa .tweet_follow_btn {
+    right: inherit;
+    left: 0;
+}
+.sa .tweet_options{float:right;}
+.sa .feeds_desc { 
+    text-align: right;
+}

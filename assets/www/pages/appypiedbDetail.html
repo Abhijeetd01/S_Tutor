@@ -1,0 +1,156 @@
+<div class="navbar"><div class="navbar-inner" style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+            <div class="left sliding">
+              <a href="index" class="link back" style="color:{{@global.style.headerBarIconColor}};">
+                <i class="icon icon-left-open-2"></i>
+              </a>
+            </div>
+            <div class="center sliding  {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">{{pageTitle}}</div>
+            <div class="right"></div>
+          </div></div>
+
+<div data-page="appypiedb-DetailsPage" class="page navbar-through no-toolbar">
+<div class="backgroundAnimation">{{> innerBackground}}</div>
+    <!-- Page content-->
+    <div class="page-content hideBorder-{{@global.styleAndNavigation.hideBorder}}" style="background:{{@global.styleAndNavigation.pageBackground}}">
+    
+        <!-- Search code-->
+		
+        <div  data-loop="true" data-preload-images="false" data-lazy-loading="true"  class="swiper-container swiper-db" index="{{activeIndex}}"> 
+        <div class="swiper-wrapper">
+            {{#list}}
+              <div class="swiper-slide">
+              <div class="bodypan">
+                <div class="header" style="border-color:{{@global.styleAndNavigation.content[2]}};">
+                    <div class="info-left">
+                        {{#if detailImage}}
+                        <img src="images/image-1x1.png" style="background:url({{detailImage}})" alt=""  index="{{dbImage}}" data-images="{{imageArray}}"onclick="Appyscript.openDBImage(this);" />
+                        {{/if}}
+                    </div>
+                    <div class="info-right">
+                        <ul >
+                            {{#list}}
+
+                            {{#js_compare "this.identifier == 'name' "}}
+
+                            {{#if ../value}}
+                            <li class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="color:{{@global.styleAndNavigation.content[2]}};">{{#js_compare "this.showHideLabel == '1' "}}<span> {{DisplayLabel}}:</span> {{/js_compare}}<span class="rtRight"><strong class="name searchnow"> {{value}}</strong></span></li> {{/if}}
+                            {{/if}}
+                            {{/js_compare}}
+                            {{/list}}
+
+                            {{#list}}
+
+                            {{#js_compare "this.identifier == 'designation' "}}
+                            {{#if ../value}}
+                            <li class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="color:{{@global.styleAndNavigation.content[2]}};">{{#js_compare "this.showHideLabel == '1' "}}<span> {{DisplayLabel}}:</span> {{/js_compare}} <span class="rtRight"><strong class="name searchnow"> {{value}}</strong></span></li> {{/if}}
+                            {{/if}}
+                            {{/js_compare}}
+                            {{/list}}
+
+                            {{#list}}
+                             {{#js_compare "this.identifier == 'email' "}}
+                            {{#if ../value}}
+                            <li class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="color:{{@global.styleAndNavigation.content[2]}};">{{#js_compare "this.showHideLabel == '1' "}}<span> {{DisplayLabel}}:</span> {{/js_compare}}<span class="rtRight"><strong class="name searchnow"> {{value}}</strong></span></li> {{/if}}
+                            {{/if}}
+                            {{/js_compare}}
+                            {{/list}}
+
+                            {{#list}}
+                            {{#js_compare "this.identifier == 'dob' "}}
+                            {{#if ../value}}
+                            <li class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="color:{{@global.styleAndNavigation.content[2]}};">{{#js_compare "this.showHideLabel == '1' "}}<span> {{DisplayLabel}}:</span> {{/js_compare}}<span class="rtRight"><strong class="name searchnow"> {{value}}</strong></span></li> {{/if}}
+                            {{/if}}
+                            {{/js_compare}}
+                            {{/list}}
+
+                        </ul>
+                    </div>
+                    
+                    <div class="socialShare">
+                        {{#list}}
+                        {{#if value}}
+                        {{#js_compare "this.identifier == 'social' "}}
+                        {{#js_compare "this.DisplayLabel == 'Facebook' "}}
+                          <a onclick="Appyscript.openWebView('{{value}}');" class="icon-facebook" style="background-color:{{@global.styleAndNavigation.icon[0]}};color:{{@global.styleAndNavigation.icon[1]}};"></a>
+                        {{/js_compare}}
+                        {{#js_compare "this.DisplayLabel == 'Twitter' "}}
+                        <a onclick="Appyscript.openWebView('{{value}}');" class="icon-twitter-bird-1" style="background-color:{{@global.styleAndNavigation.icon[0]}};color:{{@global.styleAndNavigation.icon[1]}};"></a>
+                        {{/js_compare}}
+
+                           {{#js_compare "this.DisplayLabel == 'Google Plus' "}}
+                        <a onclick="Appyscript.openWebView('{{value}}');" class="icon-googleplus-rect" style="background-color:{{@global.styleAndNavigation.icon[0]}};color:{{@global.styleAndNavigation.icon[1]}};"></a>
+                        {{/js_compare}}
+                        {{#js_compare "this.DisplayLabel == 'Linkedin' "}}
+                        <a onclick="Appyscript.openWebView('{{value}}');" class="icon-linkedin-1" style="background-color:{{@global.styleAndNavigation.icon[0]}};color:{{@global.styleAndNavigation.icon[1]}};"></a>
+                        {{/js_compare}}
+                        {{#js_compare "this.DisplayLabel == 'Pinterest' "}}
+                        <a onclick="Appyscript.openWebView('{{value}}');" class="icon-pinterest-1" style="background-color:{{@global.styleAndNavigation.icon[0]}};color:{{@global.styleAndNavigation.icon[1]}};"></a>
+                        {{/js_compare}}
+
+                        {{/js_compare}}
+                        {{/if}}
+                        {{/list}}
+
+
+
+                    </div>
+                </div>
+            
+                <div class="bodyText">
+                <div class="content">
+
+
+
+                    {{#list}}
+                    {{#if value}}
+                    {{#js_compare "this.identifier == 'phone' "}}
+                    <h1 class="info-right {{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}}; text-align:{{@global.styleAndNavigation.heading[3]}};     margin-bottom: 5px;">
+                        {{#js_compare "this.showHideLabel == '1' "}}<span> {{DisplayLabel}}:</span> {{/js_compare}}<span class="rtRight {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="color:{{@global.styleAndNavigation.content[2]}};  text-align:{{@global.styleAndNavigation.content[3]}}; padding-top: 5px;"> {{value}}</span></h1>
+
+                    {{/js_compare}}
+                    {{/if}}
+                    {{/list}}
+
+                    {{#list}}
+                    {{#if value}}
+                    {{#js_compare "this.identifier == 'text' "}}
+                    <h1 class="info-right {{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}}; text-align:{{@global.styleAndNavigation.heading[3]}};     margin-bottom: 5px;">
+                        {{#js_compare "this.showHideLabel == '1' "}}<span> {{DisplayLabel}}:</span> {{/js_compare}} <span class="rtRight {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="color:{{@global.styleAndNavigation.content[2]}};  text-align:{{@global.styleAndNavigation.content[3]}}; padding-top: 5px;"> {{value}}</span></h1>
+
+                    {{/js_compare}}
+                    {{/if}}
+                    {{/list}}
+
+                    {{#list}}
+                    {{#if value}}
+                    {{#js_compare "this.identifier == 'websiteurl' "}}
+                    <h1 class="info-right {{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}}; text-align:{{@global.styleAndNavigation.heading[3]}};     margin-bottom: 5px;">
+                        {{#js_compare "this.showHideLabel == '1' "}}<span> {{DisplayLabel}}:</span> {{/js_compare}}<span class="rtRight {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="color:{{@global.styleAndNavigation.content[2]}};  text-align:{{@global.styleAndNavigation.content[3]}}; padding-top: 5px;"> {{value}}</span></h1>
+
+                    {{/js_compare}}
+                    {{/if}}
+                    {{/list}}
+
+
+                    {{#list}}
+                    {{#if value}}
+                    {{#js_compare "this.identifier == 'textarea' "}}
+                    <h1 class="info-right {{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}}; text-align:{{@global.styleAndNavigation.heading[3]}};     margin-bottom: 5px;">
+                        {{#js_compare "this.showHideLabel == '1' "}}<span> {{DisplayLabel}}:</span> {{/js_compare}} <span class="rtRight {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="color:{{@global.styleAndNavigation.content[2]}};  text-align:{{@global.styleAndNavigation.content[3]}}; padding-top: 5px;"> {{value}}</span></h1>
+
+                    {{/js_compare}}
+                    {{/if}}
+                    {{/list}}
+
+
+
+                </div>
+                </div>
+         	  </div>
+              </div>
+            {{/list}}
+        </div>
+    </div>
+         
+    </div>
+</div>

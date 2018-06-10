@@ -1,0 +1,71 @@
+<div class="popup menu-popup tablet-fullscreen">
+
+
+
+    <div class="page navbar-through no-toolbar" data-page="login-counrtyCode">
+
+        <div class="navbar"><div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+            <div class="left sliding">
+                {{#if inner}}
+                <a href="index" class="link back" style="color:{{@global.style.headerBarIconColor}};">
+                    <i class="icon icon-left-open-2"></i>
+                </a>
+                {{else}}
+                <a href="index" class="link close-popup" style="color:{{@global.style.headerBarIconColor}};">
+                    <i class="icon icon-left-open-2"></i>
+                </a>
+                {{/if}}
+            </div>
+            <div class="center sliding {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">{{title}}</div>
+            <div class="right">
+            </div>
+        </div></div>
+        <!-- Search bar -->
+        <form class="searchbar searchbar-inner searchbar-init {{@global.loginData.loginStyleAndNavigation.loginButton[0]}} {{@global.loginData.loginStyleAndNavigation.loginButton[1]}}" >
+            <div class="searchbar-input">
+                <input type="search" placeholder="Search">
+                <a href="#" class="searchbar-clear"></a>
+            </div>
+            <a href="#" class="searchbar-cancel">Cancel</a>
+        </form>
+
+        <!-- Search bar overlay-->
+        <div class="searchbar-overlay"></div>
+
+        <style>
+      .searchbar{ background:{{@global.loginData.loginStyleAndNavigation.loginButton[2]}}; /*color:; z-index:1000*/}
+      .searchbar a{color:{{@global.loginData.loginStyleAndNavigation.loginButton[3]}}; }
+      .searchbar input { border-color:{{@global.loginData.loginStyleAndNavigation.loginBorderColor[3]}}; color:{{@global.loginData.loginStyleAndNavigation.loginFieldBgColor[1]}}; background-color:{{@global.loginData.loginStyleAndNavigation.loginFieldBgColor[0]}}; }
+      .list-block{margin-top:0px; color: {{@global.loginData.loginStyleAndNavigation.loginContent[2]}} }
+      .list-block ul{background:transparent;}
+      .list-block .item-inner:after{background-color:{{@global.loginData.loginStyleAndNavigation.loginBorderColor[3]}}}
+      </style>
+
+
+        <div class="page-content">
+            <div class="searchbar-found countryList"> <div class="list-block">
+                <ul class="">
+                    {{#each this.value}}
+                    <li class="item-content" onclick="selectedCountrylogin('{{this.areacode}}','{{this.name}}')">
+                        <div class="item-inner">
+                            <div class="item-title"> +{{this.areacode}} {{this.name}}</div>
+                        </div>
+                    </li> {{/each}}  </ul>
+            </div>
+            </div>
+            <div class="searchbar-not-found msg-code">
+                <div class="msg-container">
+                    <span class="icon appyicon-no-data" style="color: {{@global.loginData.loginStyleAndNavigation.loginContent[2]}};">  </span>
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+</div>
+
+</div>
+
+

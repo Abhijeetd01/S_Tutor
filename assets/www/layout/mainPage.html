@@ -1,0 +1,11 @@
+{{> navbar}}
+<div data-page="mainPage" class="page {{#root_Compare @global.style.layout "==" "bottom"}} toolbar-through {{else}} no-toolbar {{/root_Compare}} toolbar-fixed {{#js_compare "this.home.appData.headerBarType === 'none' "}} no-navbar{{else}} navbar-through  {{/js_compare}}" >
+
+<!-- Animation Background -->
+{{> backgroundAnimation}}
+    
+	<div class="page-content {{@global.style.appTheme}}">
+        
+    </div>
+</div>
+

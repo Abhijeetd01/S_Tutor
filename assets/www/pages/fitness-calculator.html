@@ -1,0 +1,146 @@
+<div class="navbar">
+    <div class="navbar-inner"
+         style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+        <div class="left sliding">
+            <a href="index" class="link back" style="color:{{@global.style.headerBarIconColor}};">
+                <i class="icon icon-left-open-2"></i>
+            </a>
+        </div>
+        <div class="center sliding  {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">
+            <div class="topHeader">
+                {{list[0].languageSetting.calculate}}
+            </div>
+        </div>
+        <div class="right">
+            <a class="link" style="color:{{@global.style.headerBarIconColor}};">
+
+                <i class="iconz-option-vertical"onclick="toggle_menu(this);"></i>
+            </a>
+        </div>
+    </div>
+</div>
+
+<div data-page="fitness-calculator" class="page navbar-through no-toolbar" style="background-color: {{@global.styleAndNavigation.pageBgColor}}">
+    <!-- Page content-->
+    <div class="page-content"  style="background:{{@global.styleAndNavigation.pageBgColor}};">
+        <style>
+     	.form input, .form label, .form label select, .divTable, ul.bmrResult, .label{color: {{@global.styleAndNavigation.content[2]}}; }
+		::-webkit-input-placeholder {  color: {{@global.styleAndNavigation.content[2]}};}
+		::-moz-placeholder { color: {{@global.styleAndNavigation.content[2]}};}
+		:-ms-input-placeholder{  color: {{@global.styleAndNavigation.content[2]}};}
+		:-moz-placeholder { color: {{@global.styleAndNavigation.content[2]}};}
+		.bmr h3{color: {{@global.styleAndNavigation.subheading[2]}}}
+.divTable, .divTableCell, .divTableHead, .form input, .form label, .label span, .label2 span, .label2 select{border-color:{{@global.styleAndNavigation.borderColor}}!important}
+		.divTableRow.headRow{background:{{@global.styleAndNavigation.title[2]}}; color:{{@global.styleAndNavigation.title[3]}}}
+		.bmrResult span{color:{{@global.styleAndNavigation.activeColor}} }
+
+     </style>
+        <div class="calculatorPage">
+            <form id="Fitness_BMR" class="formDiv">
+                <div class="form {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}">
+
+                    <div class="label {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}">
+                        <span><input id="calcAge" class="fitness_cal" type="number" name="age" placeholder="{{list[0].languageSetting.fitness_age}}" /> </span>
+                        <span><input id="calcHeight" class="fitness_cal" type="number" name="height" placeholder="{{list[0].languageSetting.fitness_height}}" /></span>
+                    </div>
+
+                    <label class="label label2 {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}">
+                        <span><p>{{list[0].languageSetting.weight}}</p></span> <span><input id="calcWeight" class="fitness_cal" type="number" name="weight" placeholder="{{list[0].languageSetting.fitness_weight}}"/></span></label>
+
+                    <label class="label label2"><span class="label">{{list[0].languageSetting.gender}}</span>
+                        <select id="fitness_gender" name="gender" class="hideSelect" onchange="hideChange(this)">
+                            <option value="">Select</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                        </select>
+
+                        <select id="fitness_gender" name="gender" onchange="fitness_updateVal();">
+                            <option value="">Select</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                        </select>
+                    </label>
+
+                    <label class="label label2"><span class="label">{{list[0].languageSetting.fitness_activity_level}}</span>
+                        <select id ="fitness_activity_level" name="activityLevel" onchange="fitness.updateNutrition(this)" class="hideSelect">
+                            <option value="">Select</option>
+                            <option value="1">Sedentary - Little or no exercise</option>
+                            <option value="1.375">Lightly - 1-3 Times/Week</option>
+                            <option value="1.55">Moderatetely - 3-5 Times/Week</option>
+                            <option value="1.725">Very - 6-7 Times/Week</option>
+                            <option value="1.9">Extra - 1-2 Times/Day</option>
+                        </select>
+
+                        <select id ="fitness_activity_level" name="activityLevel" onchange="fitness.updateNutrition(this)">
+                            <option value="">Select</option>
+                            <option value="1">Sedentary - Little or no exercise</option>
+                            <option value="1.375">Lightly - 1-3 Times/Week</option>
+                            <option value="1.55">Moderatetely - 3-5 Times/Week</option>
+                            <option value="1.725">Very - 6-7 Times/Week</option>
+                            <option value="1.9">Extra - 1-2 Times/Day</option>
+                        </select>
+                    </label>
+                </div>
+            </form>
+            <!-- <a onclick="BMR_Calculator()">{{list[0].languageSetting.calculate}}</a> -->
+
+
+            <div class="bmr">
+                <h3 id="fitness-bmr" class="{{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}">{{list[0].languageSetting.fitness_your_bmr}}</h3>
+                <div class="divTable {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}">
+                    <div class="divTableBody">
+
+                        <div class="divTableRow headRow {{@global.styleAndNavigation.title[0]}} {{@global.styleAndNavigation.title[1]}}">
+                            <div class="divTableCell">Table</div>
+                            <div class="divTableCell">A</div>
+                            <div class="divTableCell">B</div>
+                            <div class="divTableCell">C</div>
+                        </div>
+
+                        <div class="divTableRow" id="fitness_calories">
+                            <div class="divTableCell">{{list[0].languageSetting.fitness_calories}}</div>
+                            <div class="divTableCell">0</div>
+                            <div class="divTableCell">0</div>
+                            <div class="divTableCell">0</div>
+                        </div>
+
+                        <div class="divTableRow" id="fitness_protein">
+                            <div class="divTableCell">{{list[0].languageSetting.fitness_protein}}</div>
+                            <div class="divTableCell">0</div>
+                            <div class="divTableCell">0</div>
+                            <div class="divTableCell">0</div>
+                        </div>
+
+                        <div class="divTableRow" id="fitness_fats">
+                            <div class="divTableCell">{{list[0].languageSetting.fitness_fat}}</div>
+                            <div class="divTableCell">0</div>
+                            <div class="divTableCell">0</div>
+                            <div class="divTableCell">0</div>
+                        </div>
+
+                        <div class="divTableRow" id="fitness_carbs">
+                            <div class="divTableCell">{{list[0].languageSetting.fitness_carbs}}</div>
+                            <div class="divTableCell">0</div>
+                            <div class="divTableCell">0</div>
+                            <div class="divTableCell">0</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- DivTable.com -->
+
+
+            </div>
+
+            <!--<a onclick="fitness_BMR_Print()">Print</a>-->
+
+            <ul class="bmrResult {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}">
+                <li><span>A</span> {{list[0].languageSetting.fitness_current_weight}}</li>
+                <li><span>B</span> {{list[0].languageSetting.fitness_loose_weight}}</li>
+                <li><span>C</span>{{list[0].languageSetting.fitness_gain_weight}}</li>
+            </ul>
+
+
+        </div>
+    </div>
+
+</div>

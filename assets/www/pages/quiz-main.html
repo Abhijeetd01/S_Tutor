@@ -1,0 +1,96 @@
+<div class="navbar"><div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+    <div class="left sliding">
+        <a href="index" class="link back" style="color:{{@global.style.headerBarIconColor}};">
+            <i class="icon icon-left-open-2"></i>
+        </a>
+    </div>
+    <div class="center sliding {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">{{quizName}}</div>
+    <div class="right"></div>
+</div></div>
+
+<div data-page="quiz-PageMain" class="page navbar-through {{@global.style.layout}} quiz-page">
+    <!-- Page content-->
+<div class="backgroundAnimation">{{> innerBackground}}</div>
+<div class="toolbar toolbar-hidden">
+		<div class="toolbar-inner">
+         <div class="bottom-btn">
+         
+         <a rel="quiz-end" class="{{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" style="background:{{@global.styleAndNavigation.button[2]}}; color:{{@global.styleAndNavigation.button[3]}}">{{setting.submit}}</a>
+         
+         <a rel="quiz-thanks" class="{{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" style="background:{{@global.styleAndNavigation.button[2]}}; color:{{@global.styleAndNavigation.button[3]}}">{{setting.startbutton}}</a>
+         
+         
+</div>
+</div>
+</div>
+    <div class="page-content {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}} content-{{@global.styleAndNavigation.content[3]}} subheading-{{@global.styleAndNavigation.subheading[3]}} hideBorder-{{@global.styleAndNavigation.hideBorder}}" style="background:{{@global.styleAndNavigation.pageBackroundColor}}; color: {{@global.styleAndNavigation.content[2]}}">
+    <style type="text/css">
+    label.label-radio input[type=checkbox]+.item-media i.icon-form-radio::after,
+	label.label-radio input[type=radio]+.item-media i.icon-form-radio::after,
+    label.label-checkbox input[type=checkbox]+.item-media i.icon-form-checkbox::after,
+	label.label-checkbox input[type=radio]+.item-media i.icon-form-checkbox::after {  		
+        border-color:{{@global.styleAndNavigation.content[2]}};
+        background:none;        
+ 	}
+    
+    label.label-radio input[type=checkbox]:checked + .item-media i.icon-form-radio::after,
+	label.label-radio input[type=radio]:checked + .item-media i.icon-form-radio::after,
+    label.label-checkbox input[type=checkbox]:checked + .item-media i.icon-form-checkbox:after,
+	label.label-checkbox input[type=radio]:checked + .item-media i.icon-form-checkbox:after {  		
+        border-color:{{@global.styleAndNavigation.button[3]}};
+        color:{{@global.styleAndNavigation.button[3]}}
+        background:none;
+ 	}
+    
+    li.checked {
+		background:{{@global.styleAndNavigation.button[2]}};
+        color:{{@global.styleAndNavigation.button[3]}}
+    }
+    </style>
+        <div id="quiz-main">
+            <div class="feeds-init quiz-content">
+                <div class="swiper-container slider-container-h quiz-slide">
+                    <div id="quiz_timer" class="{{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}};background:{{@global.styleAndNavigation.heading[3]}}"></div>
+                    <div class="swiper-wrapper">
+
+                    </div>
+                    <div class="bottom">
+                    	<a class="quiz_previous icon-left-open" style="background:{{@global.styleAndNavigation.secondaryButton[2]}}; color:{{@global.styleAndNavigation.secondaryButton[3]}}"></a>
+                        <a class="quiz_submit {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" style="background:{{@global.styleAndNavigation.button[2]}}; color:{{@global.styleAndNavigation.button[3]}}">{{setting.submit}}</a>
+                        <a class="quiz_finish {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" style="display: none; background:{{@global.styleAndNavigation.button[2]}}; color:{{@global.styleAndNavigation.button[3]}}">{{setting.finishbutton}}</a>
+                        <a class="quiz_next icon-right-open" style="background:{{@global.styleAndNavigation.secondaryButton[2]}}; color:{{@global.styleAndNavigation.secondaryButton[3]}}"></a>
+                    </div>
+
+                </div></div>
+
+        </div>
+
+        <div class="quiz-end" style="display:block">
+            <div class="quiz-end-content" style="border-color:{{@global.styleAndNavigation.borderColor}}">
+                <h1 class="{{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}" style="color:{{@global.styleAndNavigation.subheading[2]}}">{{setting.resultscreentitle}}</h1>
+                <ul>
+                </ul>
+                <p class="{{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}};background:{{@global.styleAndNavigation.heading[3]}}">{{setting.questionAndSoOn}}</p>
+                <a class="share icon-share-1" style="background:{{@global.styleAndNavigation.button[2]}}; color:{{@global.styleAndNavigation.button[3]}}"></a>
+            </div>
+            <div class="question-status">
+            </div>
+            
+
+        </div>
+
+        <div class="quiz-thanks">
+            <!--<h1>{{setting.title}}</h1>-->
+            <div class="msg-code">
+
+                <div class="msg-container">
+                    {{#root_Compare @root.setting.thanksImagePath "==" ""}}{{else}}<img src="{{setting.thanksImagePath}}" class="imgIcon">{{/root_Compare}}
+                    {{#if heading}}<h2 clas="{{@global.styleAndNavigation.heading[1]}}" style="color: {{@global.styleAndNavigation.heading[2]}};">{{heading}}</h2>  {{/if}}
+                    <h2 class="{{@global.styleAndNavigation.content[1]}}" style="color: {{@global.styleAndNavigation.content[2]}};">{{escape setting.thanksText}}</h2>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>

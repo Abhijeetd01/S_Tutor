@@ -1,0 +1,38 @@
+<div class="navbar">
+    <div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+            <div class="left sliding">
+              <a href="index" class="link back" style="color:{{@global.style.headerBarIconColor}};">
+                <i class="icon icon-left-open-2"></i>
+              </a>
+            </div>
+            
+            <div class="center sliding">
+                <div class="topHeader {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">{{@global.pageLanguageSetting.Bookmarks_hyp}}</div>
+            </div>
+           <!--  <div class="right">
+                {{#if @global.setting.mapDisplay}}
+               <a href="#" style="color:{{@global.style.headerBarIconColor}};">
+               <i class="iconz-location-3"  onclick="Appyscript.showServicePageMapNew('{{#listingWithSubCategory.jobs}}{{latitude}},{{/listingWithSubCategory.jobs}}','{{#listingWithSubCategory.jobs}}{{longitude}},{{/listingWithSubCategory.jobs}}','{{#listingWithSubCategory.jobs}}{{@index}},{{/listingWithSubCategory.jobs}}','{{#listingWithSubCategory.jobs}}{{address}},{{/listingWithSubCategory.jobs}}','Bookmark','0','{{@root.isFromPage}}')"></i>
+                 </a>
+                {{/if}
+              
+              <a href="#" style="color:{{@global.style.headerBarIconColor}};">
+                   <i class="icon iconz-filter cursor-pointer" onclick="Appyscript.popupHyperLocalFilter('hyperlocal-Filter')"></i>&lt;!&ndash;iconz-location-3&ndash;&gt;
+              </a>
+            </div>-->
+    </div>
+</div>
+
+<div data-page="hyperlocal-Bookmark" class="page navbar-through no-toolbar hideBorder-{{@global.styleAndNavigation.hideBorder}}" style="background-color: {{@global.styleAndNavigation.pageBgColor}}">
+            <!-- Page content-->
+            <div class="page-content">
+
+<ul class="main-cat-listing">
+{{#listingWithSubCategory.jobs}}
+{{> hyperListing}}
+{{/listingWithSubCategory.jobs}}
+
+</ul>
+
+</div>
+</div>

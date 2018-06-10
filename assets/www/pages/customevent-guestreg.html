@@ -1,0 +1,59 @@
+<div class="navbar"><div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}}; font-size: {{@global.style.headerBarSize}} ">
+            <div class="left sliding">
+              <a href="index" class="link back" style="color:{{@global.style.headerBarTextColor}};">
+                <i class="icon icon-left-open-2"></i>
+              </a>
+            </div>
+           <div class="center sliding">
+              {{@global.pageLanguageSetting.guest_login}}
+            </div> 
+            <div class="right"></div>
+          </div></div>
+
+<div data-page="customevent-guestpage" class="page navbar-through no-toolbar" style="background-color: {{@global.style.appPageBackgroundColor}}" >
+<!-- Page content-->
+    <div class="page-content {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="color:{{@global.styleAndNavigation.content[2]}}; background:{{@global.styleAndNavigation.pageBackroundColor}}">
+        <style type="text/css">
+            .filter-page input[type='date'],
+            .filter-page .search-for li,
+            .noUi-handle,
+            .noUi-target {
+                background:{{@global.styleAndNavigation.fieldBgColor}};
+                color:{{@global.styleAndNavigation.fieldTextColor}};
+                border-color:{{@global.styleAndNavigation.borderColor}};
+            }
+      </style>
+    <div class="bodypan">
+        <section class="section-events filter-page">
+            <div class="filter-row short-by">
+                {{@global.pageLanguageSetting.name_events}}<sup>*</sup>
+                <input id="guestName" type="text" placeholder="{{@global.pageLanguageSetting.name_events}}" value="{{name}}" style="color:black"/>
+            </div>
+            <div class="filter-row short-by">
+                {{@global.pageLanguageSetting.email_id_events}}<sup>*</sup>
+                <input id="guestEmail" type="text" placeholder="{{@global.pageLanguageSetting.email_id_events}}" value="{{email}}" style="color:black"/>
+                {{#js_compare "this.isLogin == 'no'"}}
+                <p>Already a User, please <a onclick="ce_loginFromMakePayment()">Login/Signup</a></p>
+                {{/js_compare}}
+            </div>
+            <div class="filter-row short-by">
+                {{@global.pageLanguageSetting.phone_no_events}}<sup>*</sup>
+                <input id="guestPhone" type="text" placeholder="{{@global.pageLanguageSetting.phone_no_events}}" value="{{phone}}" style="color:black"/>
+            </div>
+        </section>
+    </div>
+    
+    
+   <section class="section-events booking-form event-back">
+
+<div>
+<p>{{@global.pageLanguageSetting.guest_email_password_sent}}</p>
+
+</div>
+<a href="#" class="btn {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" style="background-color: {{@global.styleAndNavigation.button[2]}}; color: {{@global.styleAndNavigation.button[3]}};" onclick="ce_initGuestLogin()">{{@global.commonLanguageSetting.common_confirm}}</a>
+</section>
+    
+    
+    </div>
+</div>
+

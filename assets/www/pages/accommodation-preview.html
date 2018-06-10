@@ -1,0 +1,155 @@
+<div class="navbar">
+	<div class="navbar-inner" style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+            
+            <div class="left sliding">
+                <a href="index" class="link back icon icon-left-open-2" style="color:{{@global.style.headerBarIconColor}};"></a>
+            </div>
+            
+             <div class="center sliding">
+               <div class="topHeader {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">
+ {{@global.pageLanguageSetting.booking_details}}
+              </div>
+            </div>
+
+            <div class="right">
+                
+            </div>
+	</div>
+</div>
+
+<div data-page="accommodation-preview-page" class="page navbar-through toolbar-fixed no-toolbar">
+<style>
+#couponcodeapply::-webkit-input-placeholder {color:{{@global.styleAndNavigation.fieldTextColor}}}
+#couponcodeapply:-moz-placeholder  {color:{{@global.styleAndNavigation.fieldTextColor}}}
+#couponcodeapply::-moz-placeholder  {color:{{@global.styleAndNavigation.fieldTextColor}}}
+#couponcodeapply:-ms-input-placeholder  {color:{{@global.styleAndNavigation.fieldTextColor}}}
+.hotelListCommen li{border-color:{{@global.styleAndNavigation.borderColor}}}
+</style>
+  <!-- Page content-->
+    <div class="page-content {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}} hideBorder-{{@global.styleAndNavigation.hideBorder}}" style="color:{{@global.styleAndNavigation.content[2]}};  background:{{@global.styleAndNavigation.pageBgColor}}"> 
+    <div class="scrolling-bottom">
+    	<ul class="hotelListCommen">
+        
+             <li>
+                 <h3 class="{{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}" style="color:{{@global.styleAndNavigation.subheading[2]}};">{{hoteldata[0].data.name}}</h3>
+                <p>{{hoteldata[0].data.address}}</p>
+            </li>
+           
+           {{#js_compare "this.hoteldata[0].data.showEmail == 1"}}
+           <li>
+            	<div class="hostedBy">
+            	<div class="hName">
+            	 <h3 class="{{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}" style="color:{{@global.styleAndNavigation.subheading[2]}};">{{@global.pageLanguageSetting.entire_home}} </h3>
+                <p>{{@global.pageLanguageSetting.hosted_by}} {{hoteldata[0].data.owner}}</p>
+                </div>
+                <img class="img-style" src="images/image-1x1.png" style="background:url({{hoteldata[0].data.ownerImg}}); border-color:{{@global.styleAndNavigation.borderColor}}"/>
+            </div>
+            </li>
+           {{else}}
+           
+           {{/js_compare}}
+           
+            <li>
+            	<div class="timeContainer">
+            	<div class="checkIn {{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}" style="color:{{@global.styleAndNavigation.subheading[2]}};" onclick="" >
+                    <span> {{@global.pageLanguageSetting.Check_In_Dir}} {{hoteldata[0].data.checkInTime}}</span>
+                    
+                    <p id="">{{@global.hotelcheckindatelanguge}}<p>
+                    
+                </div>
+                <div class="checkOut {{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}" style="color:{{@global.styleAndNavigation.subheading[2]}};" onclick="">
+                	<span> {{@global.pageLanguageSetting.check_out}} {{hoteldata[0].data.checkOutTime}}</span>
+                    
+                    <p id="">{{@global.hotelcheckoutdatelanguge}}<p>
+                    
+                   
+                </div>
+            </div>
+            </li>
+            
+            
+            <li>
+            {{@global.pageLanguageSetting.room_type}} <span class="f-right">    {{@global.hotelroomtype}}</span>
+            </li>
+            <li>
+            	{{@global.pageLanguageSetting.night}} <span class="f-right">{{hoteldata[1].totalnight}}</span>
+            </li>
+            <li>
+                 {{@global.pageLanguageSetting.rooms}} <span class="f-right">{{hoteldata[1].totalroom}}</span>
+            </li>
+            
+            
+            <li>
+     {{@global.pageLanguageSetting.guest}} <span class="f-right">{{hoteldata[1].checktotalguest}}</span>
+            </li>
+            
+<!--            <li class="border-none">-->
+<!--            	<div class="applyCouponwp">-->
+<!--                     <h2 class="text-left {{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}};">{{@global.pageLanguageSetting.apply_coupon}}</h2>-->
+<!--                     <input type="text" id="couponcodeapply" placeholder="{{@global.pageLanguageSetting.coupon_code}}" style="background:{{@global.styleAndNavigation.fieldBgColor}}; color:{{@global.styleAndNavigation.fieldTextColor}};"/>-->
+<!--                      <span onclick="hotelapplycoupon()" class="applyofferbtn {{@global.styleAndNavigation.secondaryButton[0]}}" style="color:{{@global.styleAndNavigation.secondaryButton[3]}};background:{{@global.styleAndNavigation.secondaryButton[2]}};">{{@global.pageLanguageSetting.apply_coupon}}</span>-->
+<!--                 </div>-->
+<!--               -->
+<!--            </li>-->
+<li class="border-none">
+    <div class="applyCouponwp">
+        <h2 class="text-left {{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}};">{{@global.pageLanguageSetting.apply_coupon}}</h2>
+        <input type="text" id="couponcodeapply" placeholder="{{@global.pageLanguageSetting.coupon_code}}" style="border-color:{{@global.styleAndNavigation.fieldBgColor}}; color:{{@global.styleAndNavigation.fieldTextColor}};"/>
+        <span onclick="hotelapplycoupon()" class="applyofferbtn" style="color:{{@global.styleAndNavigation.activeColor}}">{{@global.pageLanguageSetting.apply_coupon}}</span>
+    </div>
+    
+</li>
+            <li>
+            	 <h2 class="text-left {{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}};"> {{@global.pageLanguageSetting.paymentdetails}}</h2>
+            </li>
+                    <li>{{@global.pageLanguageSetting.stotal}}  <span class="f-right">{{@global.hotelcurency}} {{hoteldata[1].subtotal}}</span></li>
+                    
+             
+
+     {{#js_compare "this.hoteltax.rules.tax.length != 0"}}
+     
+            <li>{{hoteltax.rules.tax[0].taxType}} <span class="f-right">{{@global.hotelcurency}} {{hoteldata[1].taxprice}}</span></li>
+            
+            {{else}}
+            {{/js_compare}}
+            
+            {{#hoteltax.rules.misctax}}
+            <li>{{taxType}} <span class="f-right">
+                
+                {{@global.hotelcurency}} {{accommodationpercentage discountRate discountPrice}}
+           
+            </span></li>
+            {{/hoteltax.rules.misctax}}
+     
+            
+           
+      {{#js_compare "this.hoteltax.rules.discount.length != 0"}}
+
+            <li >{{hoteltax.rules.discount[0].taxType}} <span class="f-right">-{{@global.hotelcurency}} {{hoteldata[1].discountprice}}</span></li>
+    {{else}}
+    {{/js_compare}}
+    
+
+     <li id="couponapply" style="display:none" ></li>
+
+      {{#js_compare "this.hoteldata[0].data.offer == true"}}
+      
+      <li>{{@global.pageLanguageSetting.offers_mcom}} <span class="f-right" >-{{@global.hotelcurency}} {{hoteldata[1].offerprice}}</span></li>
+      
+      {{else}} {{/js_compare}}
+
+<li> {{@global.pageLanguageSetting.gtotal}} <span class="f-right" id="grandtotalhotal">{{@global.hotelcurency}} {{hoteldata[1].finalprice}}</span></li>
+            <li><p>    {{@global.pageLanguageSetting.bookingalert}}  </p></li>
+            
+   
+        </ul>
+    </div>
+    </div>
+  <!-- End Page content-->  
+  <div class="toolbar ">
+    <div class="toolbar-inner">
+	    <a href="#"  class="toolbarButton {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" style="background-color: {{@global.styleAndNavigation.button[2]}}; color: {{@global.styleAndNavigation.button[3]}};" onclick="Appyscript.hotelGuestDetail(this);">{{@global.pageLanguageSetting.book_now}}  </a>
+    </div>
+</div>
+</div>
+

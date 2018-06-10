@@ -1,0 +1,64 @@
+<div class="navbar">
+    <div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+        <div class="left sliding">
+            <a href="index" class="link back" style="color:{{@global.style.headerBarIconColor}};">
+                <i class="icon icon-left-open-2"></i>
+            </a>
+        </div>
+        <div class="center sliding">
+            <div class="topHeader {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">{{#ifCond data.userData.id @global.pageLanguageSetting.checkdatingprofileedit}}
+                {{@global.pageLanguageSetting.pageMyprofile}}
+                {{else}}
+                 {{data.userData.name}}   {{/ifCond}}  </div>
+        </div>
+        <div class="right"><a class="icon-edit" {{#ifCond data.userData.id @global.pageLanguageSetting.checkdatingprofileedit}}
+ 
+            {{else}}
+      style="display:none"
+            {{/ifCond}}   onclick="Appyscript.datingPhotoProfileEdit()" style="color:{{@global.style.headerBarIconColor}};"></a>
+        </div>
+    </div>
+</div>
+
+<div data-page="dating-Profile" class="page navbar-through toolbar-fixed toolbar-through dating hideBorder-{{@global.styleAndNavigation.hideBorder}}">
+ 
+    <!-- Page content-->
+    <div class="page-content" style="background-color:{{@global.styleAndNavigation.pageBackroundColor}};">
+        <div class="view-profile">
+            <div data-pagination=".swiper-pagination" data-next-button=".swiper-button-next" data-loop="true" data-prev-button=".swiper-button-prev" data-preload-images="false" data-lazy-loading="true" class="swiper-container">
+                <div class="swiper-wrapper">
+                    {{#data.userPics}}
+                    {{#if imgUrl}}
+                    <div class="swiper-slide" id="datingimageslide" >
+                        <img src="images/image-1x1.png" ontouchstart="return false" id="userprofilepic" style="background:url({{imgUrl}})" class="swiper-lazy"  class="img"/>
+                       
+                       
+                        
+                        <div class="preloader"></div>
+                        
+                    </div>
+                    {{/if}}
+                    {{/data.userPics}}
+                </div>
+                <div class="swiper-pagination "></div>
+            </div>
+            <div class="profile-des"  style="border-color: {{@global.styleAndNavigation.fieldBorderColor}};">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h2 class="user-name {{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}}; text-align:{{@global.styleAndNavigation.heading[3]}}; border-color:{{@global.styleAndNavigation.fieldBorderColor}};">{{data.userData.name}}, {{data.age}}</h2>
+                        <p class="user-des {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="color:{{@global.styleAndNavigation.content[2]}}; text-align:{{@global.styleAndNavigation.content[3]}}">{{data.userDescription.jobTitle}}<br>
+                        {{data.userData.company}} </p>
+                        <!--<p class="distance {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="color:{{@global.styleAndNavigation.content[2]}}; text-align:{{@global.styleAndNavigation.content[3]}}">{{data.userInterests.distance}}  {{data.userInterests.rangeType}} </p>-->
+                        <b class=" {{@global.styleAndNavigation.heading[0]}}" style="color:{{@global.styleAndNavigation.heading[2]}}; text-align:{{@global.styleAndNavigation.heading[3]}}; border-color:{{@global.styleAndNavigation.fieldBorderColor}};" >{{@global.pageLanguageSetting.goal}}<b>
+                            <p class="distance {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="color:{{@global.styleAndNavigation.content[2]}}; text-align:{{@global.styleAndNavigation.content[3]}};white-space: normal;
+                            word-wrap: break-word">{{data.userDescription.goal}} </p>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    
+    
+</div>
+

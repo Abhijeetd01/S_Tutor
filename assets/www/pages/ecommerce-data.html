@@ -1,0 +1,67 @@
+<div class="mcomContainer"> 
+<ul>
+{{#subCategories}}
+<li><a onclick="Appyscript.ecomList(this)">
+<img src="images/image-2x1.png" alt="" style="background-image:url({{categoryImage}})" class="ImgMain"/>
+<small>{{categoryName}}</small></a></li>
+{{/subCategories}}
+</ul>
+
+<ul>
+{{#productList}}
+<li>
+<img src="images/image-2x1.png" alt="" style="background-image:url(http://snappy.appypie.com/media/ecomm/ecomm_1465563013_2111.jpg)" class="ImgMain" onclick="Appyscript.ecomProductDetail(this);"/>
+
+<div class="discription_box">
+<div class="mComLeft">
+<h1 class="title">{{productName}}</h1>
+<div class="productPrice">
+<div class="price">{{format_currency currency}}{{price}}</div>
+<!--<div class="oldPrice"></div> --> 
+<div class="price">{{offeredDiscount}}% OFF</div>                      
+</div>
+</div>
+
+<div class="mComRight">
+<a href="#" onclick="Appyscript.ecomorderingProduct(this);" class="addtoCart">+ Add</a>
+</div>
+</div>
+</li>
+{{/productList}}   
+</ul>
+</div>
+
+        <div class="mcomContainer"> 
+<ul>
+{{#subCategories}}
+<li><a onclick="Appyscript.ecomList(this)">
+<img src="images/image-2x1.png" alt="" style="background-image:url({{categoryImage}})" class="ImgMain"/>
+<small>{{categoryName}}</small></a></li>
+{{/subCategories}}
+</ul>
+
+<ul>
+{{#productList}}
+<li>
+<img src="images/image-2x1.png" alt="" style="background-image:url(http://snappy.appypie.com/media/ecomm/ecomm_1465563013_2111.jpg)" class="ImgMain" onclick="Appyscript.ecomProductDetail(this);"/>
+
+<div class="discription_box">
+<div class="mComLeft">
+<h1 class="title">{{productName}}</h1>
+<div class="productPrice">
+<div class="price">{{format_currency currency}}{{price}}</div>
+<!--<div class="oldPrice"></div> --> 
+<div class="price">{{offeredDiscount}}% OFF</div>                      
+</div>
+</div>
+
+<div class="mComRight">
+<a href="#" onclick="Appyscript.ecomorderingProduct(this);" class="addtoCart">+ Add</a>
+</div>
+</div>
+</li>
+{{/productList}}   
+</ul>
+</div>
+
+        

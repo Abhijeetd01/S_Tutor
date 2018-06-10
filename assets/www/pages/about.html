@@ -1,0 +1,130 @@
+<div class="navbar"><div class="navbar-inner" style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+    <div class="left sliding">
+        		{{getSlideBack ""}}
+    </div>
+    <div class="center sliding {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">{{pageTitle}}</div>
+    <div class="right"></div>
+</div></div>
+
+
+<div data-page="about-page" class="page navbar-through no-toolbar">
+    <!-- Page content-->
+    <div class="backgroundAnimation">{{> innerBackground}}</div>
+    <div class="page-content">
+
+
+        <div class="about-us {{#@global.styleAndNavigation}}  {{content[0]}} {{content[1]}} layout-{{layout}} content-{{content[3]}} heading-{{heading[3]}} subHeading-{{subheading[3]}} hideBorder-{{hideBorder}}" style="color:{{content[2]}};  {{/@global.styleAndNavigation}}">
+
+
+            {{#if description}} <div class="description" style="border-color: {{@global.styleAndNavigation.borderColor}};">{{description}}</div>{{/if}}
+            <ul class="founderList">
+                {{#founderList}}
+                <li>{{#js_compare "this.image != 'none' "}}
+                    <img src="{{image}}" />
+                    {{/js_compare}}
+                  {{#if title}}  <h3 class="{{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}" style="color:{{@global.styleAndNavigation.subheading[2]}}">{{label}}
+                        <span class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="color:{{@global.styleAndNavigation.subheading[2]}}">{{title}}</span></h3>{{/if}}
+                    <p>{{text}}</p>
+                    <div class="smo-urls">
+                        {{#url}}
+                        {{#js_compare "this.urlPath != '' "}}
+                        <a {{#js_compare "this.urlType === 'weburl' "}}
+                        onclick="openWebViewAboutNative('{{urlPath}}','{{@root.pageTitle}}')"
+                        {{/js_compare}}
+
+                        {{#js_compare "this.urlType === 'email' "}}
+                        onclick="openSendMailAboutNative('{{urlPath}}','','')"
+                        {{/js_compare}}
+
+                        {{#js_compare "this.urlType === 'skype' "}}
+                        onclick="openSkypeAboutNative('{{urlPath}}')"
+                        {{/js_compare}}
+
+                        {{#js_compare "this.urlType === 'phone' "}}
+                        onclick="openCallAboutNative('{{urlPath}}')"
+                        {{/js_compare}}
+
+                        style="background-color:{{@global.styleAndNavigation.icon[0]}}">
+                        {{#js_compare "this.urlIconType === 'img' "}}
+                        <img src="{{urlImage}}" />
+                        {{else}}
+                        <i class="{{urlImage}}" style="color:{{@global.styleAndNavigation.icon[1]}};"></i>
+                        {{/js_compare}}
+                        </a>
+                        {{/js_compare}}
+                        {{/url}}
+                    </div>
+                </li>{{/founderList}}
+            </ul>
+            <ul class="missionList">
+            	{{#js_compare "this.foundedYear != '' "}}
+                <li><h3 class="{{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}" style="color:{{@global.styleAndNavigation.subheading[2]}}; border-color: {{@global.styleAndNavigation.borderColor}}">
+            	<span class="foundedicon">
+                {{#js_compare "this.foundedIconType === 'img' "}}
+                        	<img src="{{foundedIcon}}">
+                        {{else}}
+							<i class="{{foundedIcon}}" style="color:{{@global.styleAndNavigation.icon[1]}};"></i>
+                        {{/js_compare}}
+                 {{foundedTitle}}:</span>
+                    <span class="year {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="color:{{@global.styleAndNavigation.content[2]}}">{{foundedYear}}</span>
+                </h3></li>
+                {{/js_compare}}
+                {{#missionList}}
+                <li>
+                    <h3 class="{{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}" style="color:{{@global.styleAndNavigation.subheading[2]}}; border-color: {{@global.styleAndNavigation.borderColor}}">
+                        {{#js_compare "this.imageType === 'img' "}}
+                        <img src="{{image}}">
+                        {{else}}
+                        <i class="{{image}}" style="color:{{@global.styleAndNavigation.icon[1]}};"></i>
+                        {{/js_compare}}
+                        {{label}}
+                    </h3>
+                    <p>{{text}}</p>
+                </li>
+                {{/missionList}}
+
+            </ul>
+            {{#businessHours}}
+            <ul class="missionList">
+                <li>
+                    <h3 class="{{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}" style="color:{{@global.styleAndNavigation.subheading[2]}}; border-color: {{@global.styleAndNavigation.borderColor}}">
+                        {{#js_compare "this.imageType === 'img' "}}
+                        <img  class="mainpageimgsrc" src="{{image}}">
+                        {{else}}
+                        <i class="{{image}}" style="color:{{@global.styleAndNavigation.icon[1]}};"></i>
+                        {{/js_compare}}
+                        {{label}}
+                    </h3>
+                    {{#js_compare "this.alwaysOpen==='1'"}}
+                    <p>{{changeLangSetting "openalways"}}</p>
+                    {{/js_compare}}
+
+                </li>
+            </ul>
+
+            <ul class="hourListSimulator" style="margin:0; padding:0; float:left;">
+             {{#workingHours}}
+                <li class="day_hours">
+                    {{#js_compare "this.duration.length!='0'"}}
+                    <span class="day_name">{{changeLangSetting day}}</span>
+                    <ul class="hours_list">
+                        <li class="hour_list">
+                            {{#duration}}
+                            <span class="hour-time">{{changeTimeTo12HourFormat alwaysFrom}}</span> <span class="hour-time">{{changeTimeTo12HourFormat alwaysTo}}</span>
+                            <div></div>
+                            {{/duration}}
+                        </li>
+                    </ul>
+                    {{/js_compare}}
+                </li>
+                {{/workingHours}}
+            </ul>
+            {{/businessHours}}
+        </div>
+
+
+
+
+    \</div>
+
+</div>

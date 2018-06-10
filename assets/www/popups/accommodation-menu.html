@@ -1,0 +1,53 @@
+<div data-page="accommodation-Menu"   class="popup menu-popup">
+    <div class="view toolbar-through">
+        <div class="pages">
+            <div data-page="accommodation-menu-page" class="page">
+                <div class="toolbar">
+                </div>
+                <div class="page-content {{@global.styleAndNavigation.menu[0]}} hideBorder-{{@global.styleAndNavigation.hideBorder}}" style="background:{{@global.styleAndNavigation.menu[1]}}; color:{{@global.styleAndNavigation.menu[2]}}">
+                    <div class="black-bg">
+                        <div class="profile-image">
+                            <div class="profileBackground" id="accompic2"  style="background: url(images/dummy.jpg);">
+                            </div>
+                            <div class="profileContentBx">
+                                <div class="profileBx">
+                                    <span class="image"   style="border-color:{{@global.styleAndNavigation.borderColor}}"><img src="../images/image-1x1.png" style="background-image:url(images/dummy.jpg)"; class="close-tutorial";  onclick="Appyscript.notificationprofile();" id="accompic" alt=""></span>
+                                </div>
+                                <a href="#" class="editProfilebutton  icon-cancel popupToPage"  data-animate="true" style="color:{{@global.styleAndNavigation.menu[3]}};"></a>
+                                <span  class="name {{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}};" id="accomuser"></span>
+                            </div>
+                        </div>
+                        <div class="sub-menu hyperlocal-menu"  id="menuservice">
+                            <ul class="leftMenu">
+                                  {{#if @global.setting.homeButtonStatus}}{{else}}
+                                <li style="border-color:{{@global.styleAndNavigation.borderColor}}"><a href="#" onclick="Appyscript.hotelhomescreen();" style="color:{{@global.styleAndNavigation.menu[2]}}"><i class="iconz-home" style="color:{{@global.styleAndNavigation.menu[3]}}"></i> {{@global.pageLanguageSetting.Home}}</a></li>
+                                
+                                {{/if}}
+                                <li   onclick="Appyscript.openHotel();"  style="border-color:{{@global.styleAndNavigation.borderColor}}"><a href="#" class="close-tutorial" style="color:{{@global.styleAndNavigation.menu[2]}}"><i class="iconz-login" style="color:{{@global.styleAndNavigation.menu[3]}}"></i> {{@global.pageLanguageSetting.Main_Menu}} </a></li>
+                                <li  id="Hotelbookingmenu"  style="border-color:{{@global.styleAndNavigation.borderColor}}"><a href="#"  class="close-tutorial" onclick="Appyscript.hotelhistorypage();" style="color:{{@global.styleAndNavigation.menu[2]}}"><i class="icon-calendar-4" style="color:{{@global.styleAndNavigation.menu[3]}}"></i> {{@global.pageLanguageSetting.mybooking}}</a></li>
+                                <li id="Hotelfavmenu" style="border-color:{{@global.styleAndNavigation.borderColor}}"><a href="#"  class="close-tutorial" onclick="Appyscript.hotelfavpage();" style="color:{{@global.styleAndNavigation.menu[2]}}"><i class="icon-heart-1" style="color:{{@global.styleAndNavigation.menu[3]}}"></i> {{@global.pageLanguageSetting.my_favorite}}</a></li>
+<!--                                <li style="border-color:{{@global.styleAndNavigation.borderColor}}"><a href="#"  class="close-tutorial" onclick="Appyscript.hotelnotificationpage();" style="color:{{@global.styleAndNavigation.menu[2]}}"><i class="icon-bell-alt" style="color:{{@global.styleAndNavigation.menu[3]}}"></i> {{@global.pageLanguageSetting.notification}}</a></li>-->
+                                <li style="border-color:{{@global.styleAndNavigation.borderColor}}"><a href="#"  class="close-tutorial" onclick="Appyscript.hotelofferpage();" style="color:{{@global.styleAndNavigation.menu[2]}}"><i class="appyicon-pricetag" style="color:{{@global.styleAndNavigation.menu[3]}}"></i>  {{@global.pageLanguageSetting.offers_mcom}}</a></li>
+                                {{#if @global.setting.addListing}}
+                                <li id="accomaddlisting" style="border-color:{{@global.styleAndNavigation.borderColor}}"><a href="#" onclick="add_Listing();" style="color:{{@global.styleAndNavigation.menu[2]}}"><i class="iconz-home" style="color:{{@global.styleAndNavigation.menu[3]}}"></i> Add listing</a></li>
+
+                                <li id="accomupdatelisting" style="border-color:{{@global.styleAndNavigation.borderColor}}"><a href="#" onclick="update_Listing();" style="color:{{@global.styleAndNavigation.menu[2]}}"><i class="iconz-home" style="color:{{@global.styleAndNavigation.menu[3]}}"></i> Update listing </a></li>
+                                {{/if}}
+
+                                <li style="border-color:{{@global.styleAndNavigation.borderColor}}"><a class="popupToPage" onclick="Appyscript.hoteltermanc();" style="color:{{@global.styleAndNavigation.menu[2]}}"><i class="iconz-newspaper" style="color:{{@global.styleAndNavigation.menu[3]}}"></i> {{@global.pageLanguageSetting.term_and_condition}}
+                                </a>
+                                </li>
+                                <li style="border-color:{{@global.styleAndNavigation.borderColor}}"><a class="popupToPage" onclick="Appyscript.hoteltermprivacypolicy();" style="color:{{@global.styleAndNavigation.menu[2]}}"><i class="iconz-newspaper" style="color:{{@global.styleAndNavigation.menu[3]}}"></i> {{@global.pageLanguageSetting.p_p}}
+                                </a>
+                                </li>
+
+
+                                <li id="hotellogin" onclick=" Appyscript.loginPage('true');"  style="border-color:{{@global.styleAndNavigation.borderColor}}"><a href="#" class="" style="color:{{@global.styleAndNavigation.menu[2]}}"><i class="iconz-login" style="color:{{@global.styleAndNavigation.menu[3]}}"></i>  {{@global.pageLanguageSetting.login_food}}</a></li>
+                                <li id="hotellogout"  onclick="Appyscript.hotellogout();"  style="border-color:{{@global.styleAndNavigation.borderColor}}"><a href="#" class="" style="color:{{@global.styleAndNavigation.menu[2]}}"><i class="iconz-login" style="color:{{@global.styleAndNavigation.menu[3]}}"></i>  {{@global.pageLanguageSetting.LogOut}}</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

@@ -1,0 +1,66 @@
+<div class="navbar">
+    <div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+        <div class="left sliding">
+            <a href="index" class="link back" style="color:{{@global.style.headerBarIconColor}};">
+                <i class="icon icon-left-open-2"></i>
+            </a>
+        </div>
+        <div class="center sliding">
+            <div class="topHeader {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">{{@global.pageLanguageSetting.pageEditprofile}}</div>
+        </div>
+        <div class="right"><a class="icon-ok-4" href="#"  onclick="Appyscript.saveProfileDetails();" style="color:{{@global.style.headerBarIconColor}};"></a>
+        </div>
+    </div>
+</div>
+
+
+<div data-page="dating-PhotoProfileEdit" class="page navbar-through toolbar-fixed no-toolbar dating hideBorder-{{@global.styleAndNavigation.hideBorder}}">
+    <!-- Page content-->
+    <div class="page-content" style="background-color:{{@global.styleAndNavigation.pageBackroundColor}};">
+        <div class="bodypan upload-photo">
+            
+            <div class="row uploaded-img">
+                <div class="col-md-6">
+                    <i class="icon iconz-close"  id="close1" onclick="Appyscript.removepic('picupload1');"></i>
+                    <img src="images/image-1x1.png"  checkimage="" id="picupload1" alt="" width="100%" height="150" onclick="Appyscript.actionshee(this);" style="background:url({{@global.style.reseller}}/newui/images/user-pic-news.png);">
+                        </div>
+                <div class="col-md-6">
+                    <i class="icon iconz-close" id="close2" onclick="Appyscript.removepic('picupload2');"></i>
+                    <img src="images/image-1x1.png" checkimage="" width="100%" height="150"  onclick="Appyscript.actionshee(this);"  id="picupload2" alt="" style="background:url({{@global.style.reseller}}/newui/images/user-pic-news.png);">
+                        </div>
+                <div class="col-md-6">
+                    <i class="icon iconz-close"  id="close3" onclick="Appyscript.removepic('picupload3');"></i>
+                    <img src="images/image-1x1.png" checkimage="" width="100%" height="150" onclick="Appyscript.actionshee(this);" id="picupload3" alt="" style="background:url({{@global.style.reseller}}/newui/images/user-pic-news.png);">
+                        </div>
+                <div class="col-md-6">
+                    <i class="icon iconz-close"  id="close4" onclick="Appyscript.removepic('picupload4');"></i>
+                    <img src="images/image-1x1.png" checkimage="" width="100%" height="150" onclick="Appyscript.actionshee(this);"  id="picupload4" alt="" style="background:url({{@global.style.reseller}}/newui/images/user-pic-news.png);">
+                        </div>
+                
+            </div>
+            
+            <div class="profile-form">
+                <div class="row">
+                  <div class="col-md-12 ">
+                        <input class="form-control"  id="company" placeholder="{{@global.pageLanguageSetting.company}}" type="text" style="background-color: {{@global.styleAndNavigation.fieldBgColor}}; color: {{@global.styleAndNavigation.fieldTextColor}};">
+                            </div>
+                </div>
+                
+                
+                
+            </div>
+            
+            <div class="row">
+                <div class="col-md-12">
+                    <button class="btn login-btn {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" style="background-color: {{@global.styleAndNavigation.button[2]}}; color: {{@global.styleAndNavigation.button[3]}};"  onclick="Appyscript.saveProfileDetails();" >
+                        {{@global.pageLanguageSetting.edit}}</button>
+                </div>
+            </div>
+            
+            
+        </div>
+        
+        
+    </div>
+</div>
+

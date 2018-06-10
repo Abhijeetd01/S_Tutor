@@ -1,0 +1,109 @@
+<div class="navbar"><div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+    <div class="left sliding">
+        <a href="index" class="link back" style="color:{{@global.style.headerBarIconColor}};">
+            <i class="icon icon-left-open-2"></i>
+        </a>
+    </div>
+
+
+    <div class="center sliding  {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">
+        <div class="topHeader">{{@global.pageLanguageSetting.My_Orders_food}}
+            <span class="locate"><span style="color: {{@global.style.headerBarTextColor}};text-transform: uppercase;">{{@global.pageLanguageSetting.order_id_food}} #{{@global.orderId}}</span></span>
+        </div>
+    </div>
+      {{#orderDetail}}
+    <div class="right">
+        <a class="localHeaderIconRight ui-link" style="color:{{@global.style.headerBarIconColor}};">
+            {{#js_compare "this.status == 'In Transit'"}}
+            <div class="headerText" onclick="foodCourtTrackDeliveryBack('{{orderId}}')">{{@global.pageLanguageSetting.track_delivery_boy}}</div>
+          {{/js_compare}}
+        </a>
+    </div>
+</div>
+</div>
+
+
+<div data-page="foodcourt-OrderDetail" class="page navbar-through toolbar-fixed no-toolbar">
+    <style>
+	.myOrders .accordion-item-expanded .order-row, .myOrders .order-row ul li {border-color:{{@global.styleAndNavigation.borderColor}}; }
+	.mainHeading{background-color:{{@global.styleAndNavigation.title[2]}}; color:{{@global.styleAndNavigation.title[3]}} }
+	.order-List .message, .order-Detail ul{border-color:{{@global.styleAndNavigation.borderColor}} }
+	.order-List .message i, .notify {border-color:{{@global.styleAndNavigation.iconColor}}; color:{{@global.styleAndNavigation.iconColor}}}
+	.order-List h2, .detailHead{color:{{@global.styleAndNavigation.subheading[2]}}}
+	.order-List span, .order-List p{color:{{@global.styleAndNavigation.content[2]}} }
+</style>
+    
+	<div class="toolbar">
+        <div class="toolbar-inner toolbar-bottom"  style="background-color:{{@global.styleAndNavigation.button[2]}}; color:{{@global.styleAndNavigation.button[3]}}">
+            <div class="totalAmnt">
+                {{@global.pageLanguageSetting.grand_total_food}} <span class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="color:{{@global.styleAndNavigation.content[2]}}">{{format_currency currency}}{{gtotal}}</span>
+                </div>
+        </div>
+    </div>
+       {{/orderDetail}}
+    <!-- Page content-->
+    <div class="page-content {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}} content-{{@global.styleAndNavigation.content[3]}} heading-{{@global.styleAndNavigation.heading[3]}}" style="color:{{@global.styleAndNavigation.content[2]}}; background:{{@global.styleAndNavigation.pageBgColor}}">
+        
+        {{#items}}
+         <div class="order-List">
+    <div class="message detailList">
+        <circle class="notify">{{quantity}}</circle>
+        <h2>{{productName}}
+            {{#js_compare "this.custom_option != ''"}}
+                <li><p class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}">{{custom_option}}</p></li>
+            {{/js_compare}}
+        </h2>
+        <span>{{format_currency currency}}{{quantityprice price quantity}}</span>
+    </div>
+         </div>
+         {{/items}}
+         {{#orderDetail}}
+            <div  class="order-Detail">
+                <div>
+                    <h3 class="detailHead {{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}">Order Details</h3>
+                    <ul>
+                        <li class="first">
+                <label>Order Date </label><span>{{orderDate}}</span></li>
+               {{#js_compare "this.pickupComment != '' "}}<li><label>{{@global.pageLanguageSetting.instructions_foodorder}}</label><span> {{pickupComment}} </span></li>{{/js_compare}}
+                {{#js_compare "this.orderType != 'pickup'"}}
+                    <li><label>{{@global.pageLanguageSetting.delivery_time_food}}  </label><span>{{deliveryPickupTime}}</span></li>
+                 {{else}}
+                    <li><label>{{@global.pageLanguageSetting.Pickup_time_food}}  </label><span>{{deliveryPickupTime}}</span></li>
+                {{/js_compare}}
+                {{#js_compare "this.status == 'Complete'"}}
+                        <li><label>{{@global.pageLanguageSetting.DelivereFd_time}}  </label><span>{{delivertimefoodcourt orderLastUpdateDate}}</span></li>
+                {{/js_compare}}
+                    <li><label>{{@global.pageLanguageSetting.payment_method_food}}  </label><span>{{paymentMethod}}</span></li>
+                    <li><label>{{@global.pageLanguageSetting.payment_status_foodcourt}} </label>
+                        {{#js_compare "this.paymentStatus == 'Complete'"}}<span>{{@global.pageLanguageSetting.complete}}</span>{{/js_compare}}
+                        {{#js_compare "this.paymentStatus == 'processing'"}}<span>{{@global.pageLanguageSetting.processing}}</span>{{/js_compare}}
+                        {{#js_compare "this.paymentStatus == 'Success'"}}<span>{{@global.pageLanguageSetting.success_food}}</span>{{/js_compare}}
+                        {{#js_compare "this.paymentStatus == 'Cancelled'"}}<span>{{@global.pageLanguageSetting.store_cancelled}}</span>{{/js_compare}}
+                        {{#js_compare "this.paymentStatus == 'failure'"}}<span>{{@global.pageLanguageSetting.failure}}</span>{{/js_compare}}
+                        <!--<span>{{paymentStatus}}</span>-->
+                    </li>
+                    <li><label>{{@global.pageLanguageSetting.order_status_food}} </label>
+                        {{#js_compare "this.status == 'Pending'"}}<span>{{@global.pageLanguageSetting.pending}}</span>{{/js_compare}}
+                        {{#js_compare "this.status == 'Processing'"}}<span>{{@global.pageLanguageSetting.processing}}</span>{{/js_compare}}
+                        {{#js_compare "this.status == 'Complete'"}}<span>{{@global.pageLanguageSetting.complete}}</span>{{/js_compare}}
+                        {{#js_compare "this.status == 'Cancelled'"}}<span>{{@global.pageLanguageSetting.store_cancelled}}</span>{{/js_compare}}
+                        {{#js_compare "this.status == 'In Transit'"}}<span>{{@global.pageLanguageSetting.in_transit}}</span>{{/js_compare}}
+
+                    </li>
+                    {{#js_compare "this.subtotal != '0.00' "}}<li> <label>{{@global.pageLanguageSetting.subtotal_food}}</label> <span>{{format_currency currency}}{{subtotal}}</span></li>{{/js_compare}}
+                    {{#js_compare "this.vendorDiscount != '' "}}<li> <label>{{@global.pageLanguageSetting.restaurant_discount}}  </label> <span>- {{format_currency currency}}{{vendorDiscount}}</span></li>{{/js_compare}}
+                    {{#js_compare "this.discount != '0' "}}<li><label>{{@global.pageLanguageSetting.discount_food}} </label> <span>- {{format_currency currency}}{{discount}}</span></li>{{/js_compare}}
+                    {{#js_compare "this.coupon != '0' "}}<li> <label>{{@global.pageLanguageSetting.coupon_food}} </label> <span>- {{format_currency currency}}{{coupon}}</span></li>{{/js_compare}}
+                    {{#js_compare "this.tax != '0' "}}<li> <label>{{@global.pageLanguageSetting.tax_food}} </label> <span>{{format_currency currency}}{{tax}}</span></li>{{/js_compare}}
+                    {{#misctax}}
+                        {{#js_compare "this.tax != '0.00' "}}<li><label> {{taxType}} </label> <span>{{format_currency currency}}{{tax}}</span></li>{{/js_compare}}
+                    {{/misctax}}
+                    {{#js_compare "this.delivery != '0.00' "}}<li><label>{{@global.pageLanguageSetting.shipping_food}}</label>  <span>{{format_currency currency}}{{delivery}}</span></li>{{/js_compare}}
+                    {{#js_compare "this.tip != '0.00' "}}<li> <label>Tip </label> <span>{{format_currency currency}}{{tip}}</span></li>{{/js_compare}}
+
+                    </ul>
+                </div>
+            </div>
+         {{/orderDetail}}
+    </div>
+</div>

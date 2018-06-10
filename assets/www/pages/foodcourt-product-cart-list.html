@@ -1,0 +1,143 @@
+<div class="navbar"><div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+	<div class="left sliding">
+		<a href="index" class="link back" style="color:{{@global.style.headerBarIconColor}};">
+			<i class="icon icon-left-open-2"></i>
+		</a>
+	</div>
+	<div class="center sliding {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">
+		<div class="topHeader">{{@global.pageLanguageSetting.cart_food}}</div>
+	</div>
+</div>
+</div>
+
+
+<div data-page="foodcourt-CartList" class="page navbar-through no-toolbar toolbar-through">
+	<div class="toolbar ">
+		<div class="toolbar-inner toolbar-bottom">
+			{{#root_Compare @root.totalproduct "==" "0"}}
+			<a class="checkout  {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" style="color:{{@global.styleAndNavigation.button[3]}};background:{{@global.styleAndNavigation.button[2]}};" data-animate="true" onclick="Appyscript.foodcourtBackFunction()">{{@global.pageLanguageSetting.continue_shopping_food}}</a>
+			{{else}}
+			<a data-animate="true" data-back="back" onclick="foodcortContinueCheckout(this);" class="checkout {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" style="color:{{@global.styleAndNavigation.button[3]}};background:{{@global.styleAndNavigation.button[2]}};">{{@global.pageLanguageSetting.checkout_food}}</a>
+			{{/root_Compare}}
+		</div>
+	</div>
+
+
+	<style>
+    	.cart-details ul li, .payment-details ul li {border-color:{{@global.styleAndNavigation.borderColor}} }
+		.noUi-handle{background:{{@global.styleAndNavigation.secondaryButton[2]}}; }
+
+    </style>
+	<!-- Page content-->
+
+	<div class="page-content {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}} content-{{@global.styleAndNavigation.content[3]}} heading-{{@global.styleAndNavigation.heading[3]}}" style="color:{{@global.styleAndNavigation.content[2]}}; background:{{@global.styleAndNavigation.pageBgColor}}">
+		{{#root_Compare @root.totalproduct "==" "0"}}
+		<div class="msg-code">{{> errorpage errorIcon="appyicon-empty-cart"}}</div>
+		{{else}}
+		<div class="cart-page">
+			<div id="user_tab1" class="cart-item">
+				<div class="user_tab pDetailhideImage-{{@global.styleAndNavigation.hideImage}}">
+					{{#productList}}
+					<div class="product_box foodEqhight  product_box_foodcourt" data-productid="{{id}}" index="{{@index}}">
+						{{#productImage}}
+						{{#if mainImage}}
+						<img style="background-image:url({{url}})" src="images/image-2x1.png" alt="">
+						{{/if}}
+						{{/productImage}}
+						<div class="discription_box">
+							<h3 class="{{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[1]}}">{{name}}</h3>							{{#if customOption}}
+							<div class="customOptionPrice">
+								{{foodcourthelpercourt custom_optioncart}}
+							</div>
+							{{/if}}
+							<div class="product_price">
+								<big>
+									{{#if offered}}
+										{{#if offeredDiscount}}
+								     		{{#js_compare "this.custom_optioncart != ''"}}
+												<div class="price" style="color:{{@global.styleAndNavigation.activeColor}}">{{format_currency currency}}{{js "parseFloat((this.price - this.price *  this.offeredDiscount / 100) * this.orderQuantity).toFixed(2)"}}</div>
+												<div class="oldPrice">{{format_currency currency}}{{js " parseFloat(this.productoldprice * this.orderQuantity).toFixed(2)"}}</div>
+												<div class="off">{{offeredDiscount}}% {{@global.pageLanguageSetting.off}}</div>
+											{{else}}
+												<div class="price" style="color:{{@global.styleAndNavigation.activeColor}}">{{format_currency currency}}{{js "parseFloat((this.price - this.price *  this.offeredDiscount / 100) * this.orderQuantity).toFixed(2)"}}</div>
+												<div class="oldPrice">{{format_currency currency}}{{js " parseFloat(this.price * this.orderQuantity).toFixed(2)"}}</div>
+												<div class="off">{{offeredDiscount}}% {{@global.pageLanguageSetting.off}}</div>
+											{{/js_compare}}
+										{{else}}
+											<div class="price" style="color:{{@global.styleAndNavigation.activeColor}}">{{format_currency currency}}{{js "parseFloat(this.price * this.orderQuantity).toFixed(2)"}}</div>
+										{{/if}}
+									{{else}}
+										<div class="price" style="color:{{@global.styleAndNavigation.activeColor}}">{{format_currency currency}}{{js " parseFloat(this.price * this.orderQuantity).toFixed(2)"}}</div>
+									{{/if}}
+								</big>
+							</div>
+							<div class="product-qty">
+								<a class="less" style="color:{{@global.styleAndNavigation.secondaryButton[3]}};background:{{@global.styleAndNavigation.secondaryButton[2]}};">-</a>
+								<input type="number" value={{orderQuantity}} id="qty1" class="qty" readonly />
+								<a class="add" style="color:{{@global.styleAndNavigation.secondaryButton[3]}};background:{{@global.styleAndNavigation.secondaryButton[2]}};">+</a>
+							</div>
+						</div>
+						<a class="iconz-remove delete" style="color:{{@global.styleAndNavigation.secondaryButton[3]}};background:{{@global.styleAndNavigation.secondaryButton[2]}};"> </a>
+					</div>
+					{{/productList}}
+				</div>
+			</div>
+			<div class="cart-details">
+				<p class="total">{{@global.pageLanguageSetting.total_payable_amount_food}} <strong id="grandTotal"><span style="color:{{@global.styleAndNavigation.activeColor}}"> {{format_currency currency}}{{grandTotal}}</span></strong>
+				</p>
+				<p class="coupen">
+					<input type="text" onclick="foodCourtFocusInput2(this)" onfocus="foodCourtFocusInput2(this)" placeholder="{{@global.pageLanguageSetting.apply_coupon_code_food}}" data-role="none" id="couponCode" name="couponCode"/>
+					<a class="apply {{@global.styleAndNavigation.secondaryButton[0]}} {{@global.styleAndNavigation.secondaryButton[1]}}" style="color:{{@global.styleAndNavigation.secondaryButton[3]}};background:{{@global.styleAndNavigation.secondaryButton[2]}};" onclick="ApplyFoodCourtCouponCode(this);">{{@global.pageLanguageSetting.apply_food}}</a>
+				</p>
+				<div id="user_tab3">
+					<div class="billing-address payment-details clearfix">
+						<h4 class="{{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}}">{{@global.pageLanguageSetting.payment_details_food}}</h4>
+						<ul class="pay-mobile-cart">
+							<li  id="subtotalecom">{{@global.pageLanguageSetting.subtotal_food}}<span> {{format_currency currency}}{{subTotal}}</span></li>
+							{{#root_Compare @root.vendordiscount "!=" "0.00"}}
+							<li  id="vendordiscount">{{@global.pageLanguageSetting.restaurant_discount}} <span> <small style="color:{{@global.styleAndNavigation.activeColor}}">-</small> {{format_currency currency}}{{vendordiscount}}</span></li>
+							{{/root_Compare}}
+							{{#root_Compare @root.discountPrice "!=" "0.00"}}
+							<li  id="discountecom">{{@global.pageLanguageSetting.discount_food}} <span> <small style="color:{{@global.styleAndNavigation.activeColor}}">-</small> {{format_currency currency}}{{discountPrice}}</span></li>
+							{{/root_Compare}}
+							{{#js_compare "this.couponDiscount != '0.00'"}}
+								<li   id="coupanPrice">{{@global.pageLanguageSetting.coupon_food}}  <span> <small style="color:{{@global.styleAndNavigation.activeColor}}">-</small>{{format_currency currency}}{{couponDiscount}}</span></li>
+							{{else}}
+								<li  style="display:none" id="coupanPrice">{{@global.pageLanguageSetting.coupon_food}}  <span> {{format_currency currency}}{{couponDiscount}}</span></li>
+							{{/js_compare}}
+							{{#root_Compare @root.taxPrice "!=" "0.00"}}
+							<li  id="taxecomecom">{{@global.pageLanguageSetting.tax_food}}  <span> {{format_currency currency}}{{taxPrice}}</span></li>
+							{{/root_Compare}}
+							{{#if miscTax.list}}{{#miscTax.list}}
+							{{#root_Compare @root.taxAmount "!=" "0.00"}}
+							<li  id="miscTaxecom">{{taxType}} <span> {{format_currency currency}}{{taxAmount}}</span></li>
+							{{/root_Compare}}
+							{{/miscTax.list}}{{/if}}
+
+							{{#if @global.setting.is_tip_allowed}}<li id="tivalue">{{@global.pageLanguageSetting.Tip}} <span> {{format_currency currency}}{{tipamount}}</span>
+								<div id="distance-slider">
+									<span style="display:none" class="max" id="foodrangeValue"></span>
+									<div class="sd_bg_wp">
+										<input id="foodiscountvalue" type="text" min ="0" max="100" step ="1" value ="0" style="width:100%; display:none;" readonly/>
+										<div id="datingYearGet"></div>
+									</div>
+								</div>
+							</li>{{/if}}
+
+
+
+
+
+							<li  id="gtotal">{{@global.pageLanguageSetting.grand_total_food}} <span class="gtotal grand-total">{{format_currency currency}}{{grandTotal}}</span></li>
+						</ul>
+						<a onclick="Appyscript.foodcourtBackFunction()"  class="checkoutHyper  {{@global.styleAndNavigation.secondaryButton[0]}} {{@global.styleAndNavigation.secondaryButton[1]}}" style="color:{{@global.styleAndNavigation.secondaryButton[3]}};">{{@global.pageLanguageSetting.continue_shopping_food}}</a>
+
+					</div>
+				</div>
+				<div>
+				</div>
+			</div>
+		</div>
+		{{/root_Compare}}
+	</div>
+</div>

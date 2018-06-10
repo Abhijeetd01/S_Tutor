@@ -1,0 +1,49 @@
+<div class="popup popup-map tablet-fullscreen">
+    <div class="navbar">
+        <div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+        <div class="left sliding">
+            <a href="index" class="link close-popup" style="color:{{@global.style.headerBarIconColor}};">
+                <i class="icon icon-left-open-2"></i>
+            </a>
+        </div>
+        <div class="center sliding {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">{{@global.name}}</div>
+        {{#js_compare "this.type == 'small'"}}<div class="right" id="doneMap" {{#if this.groupId}} onclick="sendLocation('{{this.groupId}}')" {{else}} onclick="sendLocation('')" {{/if}} >{{@global.pageLanguageSetting.Done}} &nbsp; </div>{{else}}<div class="right"></div>{{/js_compare}}
+    </div>
+    </div>
+    
+    <div class="page navbar-through" data-page="messenger-map">
+        <div class="page-content">
+            <style>
+            .searchbar{ background:{{@global.styleAndNavigation.submenu[2]}};
+                    color:background:{{@global.styleAndNavigation.submenu[3]}}; z-index:1000}
+            .searchbar a{color:{{@global.styleAndNavigation.submenu[3]}}}
+            .searchbar input {
+                border-color:{{@global.styleAndNavigation.submenu[4]}} !important;
+                background-color:{{@global.styleAndNavigation.submenu[4]}};
+                color:{{@global.styleAndNavigation.submenu[5]}};
+            }
+            .searchbarListing{position: absolute;
+                z-index: 1;background: rgba(0, 0, 0, 0.38);width: 100%;height: 100%}
+            .list-block ul{background: {{@global.styleAndNavigation.menu[2]}}; color:{{@global.styleAndNavigation.menu[3]}} }
+                #map{height: calc(100% - 44px);}
+            </style>
+            {{#js_compare "this.type == 'small'"}}
+            <div class="searchbar {{@global.styleAndNavigation.submenu[0]}} {{@global.styleAndNavigation.submenu[1]}}">
+                <div class="searchbar-input">
+                    <input type="search" placeholder="{{@global.pageLanguageSetting.Search_Placeholder_Text}}" id="locationinputtext" onkeyup="searchGoogleMap()" onblur="searchGoogleMap()" >
+                        <a href="#" class="searchbar-clear"></a>
+                        </div>
+                <a href="#" class="searchbar-cancel"  onclick="searchGoogleMap()">{{@global.pageLanguageSetting.Search_Placeholder_Text}}</a>
+            </div>
+            
+            
+                <div id="locationsearchresult" class="searchbarListing">
+                    <div  class="list-block">
+                        <ul id="locationsearchresultlist">
+                        </ul>
+                    </div>
+                </div>
+                <div id="map"></div> {{else}}
+            <div id="mapLargeChat" style="width:100%;height:100%;"> </div> {{/js_compare}} </div>
+    </div>
+</div>

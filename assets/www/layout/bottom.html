@@ -1,0 +1,114 @@
+<style type="text/css">
+	.app_navigation_bottom[scroll='NO'].rounded-option .swiper-wrapper a i,
+	.app_navigation_bottom[scroll='NO'].rounded-option .swiper-wrapper a img {
+		border:solid 1px {{@global.style.navBorderColor}};
+		background:{{@global.style.navBackgroundColor}};
+	}
+</style>
+{{#root_Compare @global.style.layout "==" "bottom"}}
+{{#root_Compare @global.style.moreBottomScroll "==" "NO"}} 
+{{#if @global.style.moreNavigation}} 
+	
+     {{#root_Compare @global.style.moreNavigation.layout "==" "slidemenu"}}  
+        	<div id="app_navigation_bottom" class="{{@global.style.navigationSize}} {{@global.style.navigationFont}} app_navigation_slidemore newLayoutSliderMenu {{#home.appData.moreNavigation.layoutOption}} {{this}}-option {{/home.appData.moreNavigation.layoutOption}}  {{#home.appData.moreNavigation.hideLayout}} hide-{{this}} {{/home.appData.moreNavigation.hideLayout}}" navbar="{{home.appData.headerBarType}}" style="background:{{@global.style.navBackgroundColor}}">
+       {{#home.home}}
+           <a href="#" data-productidentifier="{{pageIdentifierBecon}}" data-productid="{{pageid}}" class="page-link" style="border-color: {{@global.style.navBorderColor}};">
+                 {{#js_compare "this.pageiconType === 'img' "}} <img src="{{@global.homeIconPath}}{{iconName}}">
+                    {{else}}
+                     <i class="{{iconName}}" style="color: {{@global.style.navIconColor}}; "></i> 
+               {{/js_compare}} 
+               <span class="" style="color: {{@global.style.navTextColor}} ">{{pageNewid}}</span>
+           </a>
+    {{/home.home}}
+        </div> 
+	{{/root_Compare}}
+	
+	 {{#root_Compare @global.style.moreNavigation.layout "==" "list"}} 
+ 		<div id="app_navigation_bottom" class="{{@global.style.navigationSize}} {{#home.appData.moreNavigation.layoutOption}} {{this}}-option {{/home.appData.moreNavigation.layoutOption}}  {{#home.appData.moreNavigation.hideLayout}} hide-{{this}} {{/home.appData.moreNavigation.hideLayout}}  {{@global.style.navigationFont}} app_navigation_newLayout_list animation-{{@global.style.animation}}" navbar="{{home.appData.headerBarType}}" style="display:none;">
+           <div class="scroll">
+    {{#home.home}}
+           <a href="#" data-productidentifier="{{pageIdentifierBecon}}" data-productid="{{pageid}}" class="page-link" style="border-color: {{@global.style.navBorderColor}}; background:{{@global.style.navBackgroundColor}}">
+                 {{#js_compare "this.pageiconType === 'img' "}} <img src="{{@global.homeIconPath}}{{iconName}}">
+                    {{else}}
+                     <i class="{{iconName}}" style="color: {{@global.style.navIconColor}}; "></i> 
+               {{/js_compare}} 
+               <span class="" style="color: {{@global.style.navTextColor}} ">{{pageNewid}}</span>
+           </a>
+    {{/home.home}} 
+    </div>
+    </div>
+     {{/root_Compare}}  
+    
+     
+     {{#root_Compare @global.style.moreNavigation.layout "==" "matrix"}}  
+       <div id="app_navigation_bottom" class="{{@global.style.navigationSize}} {{#home.appData.moreNavigation.layoutOption}} {{this}}-option {{/home.appData.moreNavigation.layoutOption}}  {{#home.appData.moreNavigation.hideLayout}} hide-{{this}} {{/home.appData.moreNavigation.hideLayout}}  {{@global.style.navigationFont}} app_navigation_newLayout_matrix showMatrix-{{@global.style.moreNavigation.showMatrixBackgrondText}} animation-{{@global.style.animation}}" navbar="{{home.appData.headerBarType}}" style="display:none">
+            {{#home.home}}
+                <a href="#" data-productid="{{pageid}}"  data-productidentifier="{{pageIdentifierBecon}}" class="page-link" style="border-color:{{@global.style.navBorderColor}}; {{#if @global.style.moreNavigation.showMatrixBackgrondText}} {{else}} background-color:{{@global.style.navBackgroundColor}};{{/if}}">
+            {{#js_compare "this.pageiconType === 'img' "}} <img src="images/image-1x1.png" style="border-color:{{@global.style.navBorderColor}};{{#if @global.style.moreNavigation.showMatrixBackgrondText}} {{else}} background-color:{{@global.style.navBackgroundColor}};{{/if}} background-image:url({{@global.homeIconPath}}{{iconName}})">{{else}}
+            <img src="images/image-1x1.png" style="border-color:rgba(0,0,0,0);background-color:rgba(0,0,0,0)" />
+            <i class="{{iconName}}" style="border-color:{{@global.style.navBorderColor}};color:{{@global.style.navIconColor}}; {{#if @global.style.moreNavigation.showMatrixBackgrondText}} {{else}} background-color:{{@global.style.navBackgroundColor}};{{/if}}"></i>{{/js_compare}} <span style="background-color:{{@global.style.navBackgroundColor}}; color:{{@global.style.navTextColor}}">{{pageNewid}}</span></a>
+            {{/home.home}}                
+            </div>
+     {{/root_Compare}}
+
+     {{#root_Compare @global.style.moreNavigation.layout "==" "imgmatrix"}}  
+        <div  id="app_navigation_bottom" class="{{@global.style.navigationSize}} {{#home.appData.moreNavigation.layoutOption}} {{this}} {{/home.appData.moreNavigation.layoutOption}}   {{#home.appData.moreNavigation.layoutAlign}} {{this}}-align {{/home.appData.moreNavigation.layoutAlign}} {{#home.appData.moreNavigation.hideLayout}} hide-{{this}} {{/home.appData.moreNavigation.hideLayout}}  {{@global.style.navigationFont}} app_navigation_newLayout_imgmatrix" style="display:none;">
+            {{#home.home}}
+                   <a href="#" data-productid="{{pageid}}" data-productIdentifier="{{pageIdentifierBecon}}" class="page-link" style="border-color:{{@global.style.navBorderColor}}">
+                       {{#js_compare "this.pageiconType === 'img' "}} <img src="images/transparent-bg_1x1.png" style="background-image:url({{@global.homeIconPath}}{{iconName}});"/>
+                            {{else}}
+                             <i class="{{iconName}}" style="color: {{@global.style.navIconColor}}; "></i> 
+                       {{/js_compare}} 
+                       <span class="" style="color:{{@global.style.navTextColor}}; background:{{@global.style.navBackgroundColor}}">{{pageNewid}}</span>
+                   </a>
+            {{/home.home}}
+            </div>
+     {{/root_Compare}}
+     
+{{else}}
+
+   <div id="app_navigation_bottom" class="{{@global.style.navigationSize}}  {{#home.appData.hideLayout}} hide-{{this}} {{/home.appData.hideLayout}} {{@global.style.navigationFont}} app_navigation_list" navbar="{{home.appData.headerBarType}}" style="display:none">
+
+    {{#home.home}}
+           <a href="#" data-productidentifier="{{pageIdentifierBecon}}" data-productid="{{pageid}}" class="page-link" style="border-color: {{@global.style.navBorderColor}}; background:{{@global.style.navBackgroundColor}}">
+               {{#js_compare "this.pageiconType === 'img' "}} <img src="{{@global.homeIconPath}}{{iconName}}">
+                    {{else}}
+                     <i class="{{iconName}}" style="color: {{@global.style.navIconColor}}; "></i> 
+               {{/js_compare}} 
+               <span class="" style="color: {{@global.style.navTextColor}} ">{{pageNewid}}</span>
+           </a>
+    {{/home.home}}
+
+    </div>
+
+{{/if}}
+{{/root_Compare}}
+{{/root_Compare}}
+
+{{#if @global.style.animation}}
+<div class="layout-preloader"><span class="preloader preloader-white"></span></div>
+<div class="layout-disabled" ontouchstart="return false;" ontouchmove="return false;" ontouchend="return false;"></div>
+{{/if}}
+
+<div class="toolbar-inner">
+	<div class="swiper-container app_navigation_bottom {{@global.style.navigationSize}} {{@global.style.navigationFont}} {{#home.appData.hideLayout}} hide-{{this}} {{/home.appData.hideLayout}} {{#home.appData.layoutOption}} {{this}}-option {{/home.appData.layoutOption}} animation-{{@global.style.animation}}" scroll="{{@global.style.moreBottomScroll}}" animation="{{@global.style.animationEffect}}"> 
+        <div class="swiper-wrapper">
+      
+            {{#home.home}}
+               <a data-productidentifier="{{pageIdentifierBecon}}" data-productid="{{pageid}}" class="swiper-slide page-link" style="border-color: {{@global.style.navBorderColor}}; background:{{@global.style.navBackgroundColor}}">
+                   {{#js_compare "this.pageiconType === 'img' "}} <img src="{{@global.homeIconPath}}{{iconName}}">
+                        {{else}}
+                         <i class="{{iconName}}" style="color: {{@global.style.navIconColor}}; "></i> 
+                   {{/js_compare}} 
+                   <span class="" style="color: {{@global.style.navTextColor}} ">{{pageNewid}}</span>
+               </a>          
+            {{/home.home}}  
+         {{#root_Compare @global.style.moreBottomScroll "==" "NO"}}
+            	 <a class="swiper-slide more {{#if @global.style.moreNavigation}}{{#root_Compare @global.style.moreNavigation.layout "==" "slidemenu"}}morewithSlide{{/root_Compare}}{{/if}}" style="border-color: {{@global.style.navBorderColor}}; background:{{@global.style.navBackgroundColor}}">
+                <i class="icon-dot-3" style="color: {{@global.style.navIconColor}}; "></i> 
+                <span class="" style="color: {{@global.style.navTextColor}} ">{{@global.style.more}}</span>
+            	</a>
+         {{/root_Compare}}  
+         </div>
+	</div>
+</div>

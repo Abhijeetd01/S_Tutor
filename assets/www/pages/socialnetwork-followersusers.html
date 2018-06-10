@@ -1,0 +1,50 @@
+
+<div class="navbar">
+    <div class="navbar-inner" style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+        <div class="left sliding">
+            <a href="index" class="link back" style="color:{{@global.style.headerBarIconColor}};">
+                <i class="icon icon-left-open-2"></i>
+            </a>
+        </div>
+        <div class="center sliding  {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">{{@global.socialpagetitle}} </div>
+        <div class="right">
+            
+        </div>
+    </div>
+</div>
+<div data-page="socialnetwork-Followers" class="page navbar-through toolbar-fixed no-toolbar">
+	<!-- Page content-->
+       <div class="backgroundAnimation">{{> innerBackground}}</div>
+<div class="page-content  theam-{{@global.styleAndNavigation.layout}} hideBorder-{{@global.styleAndNavigation.hideBorder}}">
+		<div class="bodypan">
+			<div class="row">
+				<ul class="SearchResult">
+                 
+                    {{#data}}
+					<li  style="border-color:{{@global.styleAndNavigation.fieldBorderColor}}">
+					<div class="title-container">
+						<div class="post-title">
+							<div class="profile-snap">
+								<img style="background:url({{avatar}}) no-repeat center center" alt="" src="images/image-1x1.png">
+							</div>
+                            <a href="#" class="{{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}}; text-align:{{@global.styleAndNavigation.heading[3]}}"> {{name}} </a>
+                               
+                              
+						</div>
+                        
+						<div class="search-elem">
+
+
+                            
+						</div>
+                        
+                        
+					</div>
+					</li>
+					{{/data}}
+					   
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>

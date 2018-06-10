@@ -1,0 +1,46 @@
+
+<div class="navbar">
+    <div class="navbar-inner" style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+        <div class="left sliding">
+            {{getNavigation @global.style.layout "menu"}}
+        </div>
+        <div class="center sliding  {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">{{@global.socialpagetitle}}</div>
+        <div class="right">
+            
+        </div>
+    </div>
+</div>
+
+
+<div data-page="socialnetwork-Tags" class="page navbar-through toolbar-fixed no-toolbar">
+    <!-- Page content-->
+    <style>
+        .theam-4 .counter{background: {{@global.styleAndNavigation.iconColor}} !important;}
+		.search-view ::-webkit-input-placeholder,.status-bx textarea::-webkit-input-placeholder{
+            color:{{@global.styleAndNavigation.fieldTextColor}} !important;
+        }
+    .search-view :-moz-placeholder,.status-bx textarea:-moz-placeholder{
+        color:{{@global.styleAndNavigation.fieldTextColor}} !important;
+    }
+    .search-view  ::-moz-placeholder,.status-bx textarea::-moz-placeholder{color:{{@global.styleAndNavigation.fieldTextColor}} !important;
+    }
+    .search-view  :-ms-input-placeholder,.status-bx textarea:-ms-input-placeholder{
+        color:{{@global.styleAndNavigation.fieldTextColor}} !important;
+    }
+        </style>
+    <div class="backgroundAnimation">{{> innerBackground}}</div>
+    <div class="page-content theam-{{@global.styleAndNavigation.layout}} hideBorder-{{@global.styleAndNavigation.hideBorder}}" id="socialtagscontent" onscroll="Appyscript.Socialscroltagpage(this);">
+        <div class="search-view">
+            <input type="text"  id="socialtagsearch" class="searchstart"  placeholder="{{@global.pageLanguageSetting.Search}} {{@global.pageLanguageSetting.tag}} " style="background:{{@global.styleAndNavigation.fieldBgColor}}; color:{{@global.styleAndNavigation.fieldTextColor}};">
+                <!--<input type="button" onclick="Appyscript.getuserpost()" data-role="none" id="btnSearch">-->
+                <button type="button" onclick="Appyscript.getuserpost()" data-role="none" id="btnSearch" class="srButton"><span class="iconz-search" style="color:{{@global.styleAndNavigation.iconColor}};"></span></button>
+                
+                </div>
+        <div class="bodypan">
+            <div class="streamContainer" id="tagstream" >
+                
+                
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,116 @@
+<div class="navbar"><div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+    <div class="left sliding">
+        <a href="index" class="link back" style="color:{{@global.style.headerBarIconColor}};">
+            <i class="icon icon-left-open-2"></i>
+        </a>
+    </div>
+    <div class="center sliding {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">{{fld_card_name}}</div>
+    <div class="right"></div>
+</div></div>
+
+<div data-page="services-loyaltyStamp" class="page navbar-through no-toolbar " style="background-color:{{appPageBackgroundColor}}">
+    <div class="backgroundAnimation">{{> innerBackground}}</div>
+    <!-- Page content-->
+    <div class="page-content {{@global.styleAndNavigation.appPageFont}} layout1 hideBorder-{{@global.styleAndNavigation.hideBorder}}" style="color:{{@global.styleAndNavigation.pageTextColor}};  ">
+        
+        <div class="loyaltyPage">
+          
+            
+            <div class="loyalty-appContainer" id ="forshopper">
+                <center class="loyalStemp">
+                    {{#js_compare "this.iconType == 'img' "}}
+                    <img src="{{cardstampicon}}" /> {{else}} {{#if addMidCard}}  <i class="icon {{#js_compare "this.stampindex == this.midCardFreebieSlot"}}  {{midCardFreebieIcon}} {{else}}  {{cardstampicon}}  {{/js_compare}}" style="color:{{@global.styleAndNavigation.icon[1]}};"></i>
+                    {{/js_compare}}
+                    
+                    
+                     {{#if addMidCard}} <h1 style="color:{{@global.styleAndNavigation.content[2]}};text-align: left; font-style:italic; {{#js_compare "this.stampindex == this.midCardFreebieSlot"}} {{else}} display:none {{/js_compare}}">Congratulations</h1> {{/if}}
+                     
+                     
+                         {{#if addMidCard}} <span style="color:{{@global.styleAndNavigation.content[2]}}; font-style:italic; {{#js_compare "this.stampindex == this.midCardFreebieSlot"}} {{else}} display:none {{/js_compare}}">{{midCardFreebieName}}</span> {{/if}}
+                    
+                <h1 class="{{@global.styleAndNavigation.title[0]}} {{@global.styleAndNavigation.title[1]}}" style="color:{{@global.styleAndNavigation.content[2]}};  border-color:{{@global.styleAndNavigation.borderColor}}">{{fld_card_name}}</h1>
+                    <div id="brifDiscription" class="brifDiscription {{@global.styleAndNavigation.content[0]}} font-size:{{@global.styleAndNavigation.content[1]}}" style="color:{{@global.styleAndNavigation.content[2]}}; text-align:{{@global.styleAndNavigation.content[3]}}">
+                        
+                        
+                        {{@global.pageLanguageSetting.loyaltyhanddevice}}
+                        
+                        
+                     
+                        
+                        
+                        
+                        <!--                       <a href="#" onclick="Appyscript.popupPage('loyalty-recipt')" style="font-family:{{@global.styleAndNavigation.content[0]}}; font-size:{{@global.styleAndNavigation.content[1]}}; color:{{@global.styleAndNavigation.content[2]}}"><strong>View Your Recipt</strong></a>-->
+                    </div>
+                           <h1 id="multicardlabel" class="{{@global.styleAndNavigation.title[0]}} {{@global.styleAndNavigation.title[1]}}" style="color:{{@global.styleAndNavigation.content[2]}}; border-color:{{@global.styleAndNavigation.borderColor}}">{{languageSetting.selectnoofcardtoberedeem}}</h1>
+                         <div id="renderList"></div>
+                    <div id="redeemOption">
+                        
+                        <a id="viewrecieptbtn" class="view-receipt {{@global.styleAndNavigation.content[0]}} font-size:{{@global.styleAndNavigation.content[1]}}" href="#"  style="color:{{@global.styleAndNavigation.content[2]}}; text-align:{{@global.styleAndNavigation.content[3]}}"><strong>View Your Reciept</strong></a>
+                        <a class="loyalty-btn {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" style="background:{{@global.styleAndNavigation.button[2]}}; color:{{@global.styleAndNavigation.button[3]}}" onclick="Appyscript.ServiceQrCode()" >{{languageSetting.validateScanning}} </a>
+                        <a class="loyalty-btn {{@global.styleAndNavigation.secondaryButton[0]}} {{@global.styleAndNavigation.secondaryButton[1]}}" style="background:{{@global.styleAndNavigation.secondaryButton[2]}}; color:{{@global.styleAndNavigation.secondaryButton[3]}}" onclick="$$('#pinRedeem').show();$$('#redeemOption').hide()"> {{languageSetting.validateTyping}}  </a>
+                    </div>
+                    
+                    
+                    <div id="pinRedeem" style="display:none"><div>
+                     <input type="password" id="loyaltyPassword" maxlength="4" data-value="{{cardno}}" data-index="{{index}}" icon="{{cardstampicon}}" class="loyalty-code-field" onfocus="inputNumberFocus()" style="background-color:{{@global.styleAndNavigation.primaryButtonBgColor}}; color:{{@global.styleAndNavigation.buttonTextColor}}; border-color:{{@global.styleAndNavigation.borderColor}}" />
+                        
+                    </div>
+                    <div id="validateOptions">
+                        <a class="loyalty-btn {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" style="background:{{@global.styleAndNavigation.button[2]}}; color:{{@global.styleAndNavigation.button[3]}}" onclick="Appyscript.serviceLoyaltySuccess(this)"> {{languageSetting.loyaltyvalidate}} </a>
+                        <a  class="loyalty-btn {{@global.styleAndNavigation.secondaryButton[0]}} {{@global.styleAndNavigation.secondaryButton[1]}}" style="background:{{@global.styleAndNavigation.secondaryButton[2]}}; color:{{@global.styleAndNavigation.secondaryButton[3]}}" onclick="$$('#pinRedeem').hide();$$('#redeemOption').show()"> {{languageSetting.loyaltycancel}} </a>
+                    </div></div>
+                </center>
+            </div>
+            <!--            ////-->
+            <div class="loyalty-appContainer" id="foruser">
+                <center class="loyalStemp">
+                    {{#js_compare "this.iconType == 'img' "}}
+                    <img src="{{cardstampicon}}" /> {{else}}
+<!--                     <i class="icon {{cardstampicon}}" style="color:{{@global.styleAndNavigation.icon[1]}}"></i>-->
+
+<!--                    {{#if addMidCard}}  <i style="{{#js_compare "this.stampindex == this.midCardFreebieSlot"}} {{else}}  class="icon {{cardstampicon}}" {{/js_compare}}"></i>-->
+        {{#if addMidCard}}  <i class="icon {{#js_compare "this.stampindex == this.midCardFreebieSlot"}}  {{midCardFreebieIcon}} {{else}}  {{cardstampicon}}  {{/js_compare}}" style="color:{{@global.styleAndNavigation.icon[1]}};"></i>
+                    
+                    {{/js_compare}}
+                    
+                     {{#if addMidCard}} <h1 style="color:{{@global.styleAndNavigation.content[2]}};text-align: left; font-style:italic; {{#js_compare "this.stampindex == this.midCardFreebieSlot"}} {{else}} display:none {{/js_compare}}">Congratulations</h1> {{/if}}
+                     
+                     {{#if addMidCard}} <span style="color:{{@global.styleAndNavigation.content[2]}}; font-style:italic; {{#js_compare "this.stampindex == this.midCardFreebieSlot"}} {{else}} display:none {{/js_compare}}">{{midCardFreebieName}}</span> {{/if}}
+                    
+                    <h1 class="{{@global.styleAndNavigation.title[0]}} {{@global.styleAndNavigation.title[1]}}" style="color:{{@global.styleAndNavigation.content[2]}}; border-color:{{@global.styleAndNavigation.borderColor}}">{{fld_card_name}}</h1>
+                    <div id="brifDiscription" class="brifDiscription {{@global.styleAndNavigation.content[0]}} font-size:{{@global.styleAndNavigation.content[1]}}" style="color:{{@global.styleAndNavigation.content[2]}}; text-align:{{@global.styleAndNavigation.content[3]}}"> Please fill your details
+                        
+                     
+                     
+                        
+                    </div>
+                    
+                    <div id="renderList"></div>
+                    
+                    <div id="pinRedeem"><div>
+                        <input type="invoiceField" placeholder="Invoice No." id="invoicetextfield" maxlength="19" data-value="{{cardno}}" data-index="{{index}}" icon="{{cardstampicon}}" class="loyalty-code-field" style="background-color:{{@global.styleAndNavigation.primaryButtonBgColor}}; color:{{@global.styleAndNavigation.buttonTextColor}}" />
+                        
+                    </div>
+                    
+                    <div id="redeemOption">
+                        
+                        
+                        
+                        <a id="imageUploadBtn" class="loyalty-btn {{@global.styleAndNavigation.secondaryButton[0]}} {{@global.styleAndNavigation.secondaryButton[1]}}" style="background:{{@global.styleAndNavigation.secondaryButton[2]}}; color:{{@global.styleAndNavigation.secondaryButton[3]}}"> Image upload </a>
+                    </div>
+                    
+                    
+                    
+                    <div id="validateOptions">
+                        
+                        <a  id="addBtn" class="loyalty-btn {{@global.styleAndNavigation.secondaryButton[0]}} {{@global.styleAndNavigation.secondaryButton[1]}}" style="background:{{@global.styleAndNavigation.secondaryButton[2]}}; color:{{@global.styleAndNavigation.secondaryButton[3]}}"> Add </a>
+                    </div></div>
+                </center>
+            </div>
+            
+            <!--/////-->
+            
+        </div>
+        
+    </div>
+</div>

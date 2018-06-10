@@ -1,0 +1,26 @@
+<div class="navbar"><div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+            <div class="left sliding">
+              <a href="index" class="link back" style="color:{{@global.style.headerBarIconColor}};">
+                <i class="icon icon-left-open-2"></i>
+              </a>
+            </div>
+            <div class="center sliding {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">{{@global.EcommLanguageSettings.Thank_mcom}}</div>
+            <div class="right"></div>
+          </div></div>
+
+
+<div data-page="thankyou" class="page navbar-through no-toolbar">
+    <!-- Page content-->
+<div class="page-content">
+
+<div class="thankyou">
+	<h1>{{@global.EcommLanguageSettings.Thank_mcom}} <span>{{@global.EcommLanguageSettings.You_mcom}}</span></h1>
+	<p id="message">{{@global.EcommLanguageSettings.your_order_was_successful_mcom}}</p>
+	<p id="mess">{{@global.EcommLanguageSettings.thank_you_for_your_Order_mcom}}<br />
+	<strong id="orderId"></strong><br />
+	<strong id="null"></strong></p>
+	<a onclick="ClearHistryHomePage();" class="continue-shopping ">{{@global.EcommLanguageSettings.Continue_My_Orders_mcom}}</a>
+</div>   
+
+</div>
+</div>

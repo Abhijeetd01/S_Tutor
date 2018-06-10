@@ -1,0 +1,113 @@
+<div class="navbar"><div class="navbar-inner" style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+    <div class="left sliding">
+       		{{getSlideBack ""}}
+    </div>
+    <div class="center sliding {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">{{pageTitle}}</div>
+    <div class="right"></div>
+</div></div>
+
+
+<div data-page="audio-SpotifyPage" class="page navbar-through no-toolbar">
+    <!-- Page content-->
+    <div class="backgroundAnimation">{{> innerBackground}}</div>
+    <style>
+        
+        .spotify-gallery{
+            margin:0px;
+            padding:0px;
+            width:100%;
+            float:left;
+        }
+    .spotify-gallery{
+        padding:5px;
+        box-sizing:border-box;
+    }
+    
+    .spotify-gallery a{
+        float:left;
+        width:33.33%;
+        padding:5px;
+        box-sizing:border-box;
+        position:relative;
+    }
+    .spotify-gallery a span{
+        line-height: 20px;
+        text-align: center;
+        background: rgba(255,255,255, 0.6);
+        padding: 5px;
+        box-sizing: border-box;
+        width: calc(100% - 10px);
+        float: left;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        position: absolute;
+        left: 5px;
+        bottom: 5px;
+    }
+    
+    .spotify-gallery a img{
+        width:100%;
+        float:left;
+        background-size:cover;
+        background-repeat:no-repeat;
+        background-position:center center;
+    }
+    
+    .Spotify-user {
+        float:left;
+        width:100%;
+        overflow:hidden;
+        position:relative;
+        z-index:1;
+        box-sizing:border-box;
+        padding:10px 10px 5px 10px;
+    }
+    
+    .Spotify_options {float:right; text-align: right;}
+    
+    .Spotify-user h3 {
+        color: rgb(67, 67, 67);
+        font-weight: bold;
+        font-size: 18px;
+        line-height: 26px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        margin:0px;
+        font-weight:normal;
+        width:calc(100% - 100px);
+        float:left;
+    }
+    .Spotify_photo span{display:block;}
+    
+    
+    /* for SA */
+    
+    .sa .spotify-gallery a{
+        float:right;
+    }
+    
+    
+        </style>
+    
+    
+    <div class="page-content {{@global.style.appPageFont}} {{@global.style.appPageCsize}}">
+        <div class="Spotify-user">
+            <h3 style="color:{{@global.style.pageTextColor}}">{{artName}}</h3>
+            <div class="Spotify_options">
+                <div class="Spotify_photo"  style="color:{{@global.style.pageTextColor}}">{{size}} <span>{{spotifyType}}</span></div>
+            </div> 
+        </div>
+        <div class="spotify-gallery">
+        {{#appData}}
+        <a onclick="spotifyPlayList('{{file}}');" style="color:{{@global.style.pageTextColor}}">
+            <img src="images/transparent-bg_1x1.png" style="background-image:url({{dataWithspotify}})" /><span>{{dataWithspotifyNametemp}}</span>
+        </a>
+        {{/appData}}
+    </div>
+    
+        
+    </div>
+
+</div>

@@ -1,0 +1,247 @@
+<div class="navbar"><div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+    <div class="left sliding">
+        <a href="index" class="link back" style="color:{{@global.style.headerBarIconColor}};">
+            <i class="icon icon-left-open-2"></i>
+        </a>
+    </div>
+    <div class="center sliding">
+        <div class="topHeader {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">{{@global.pageLanguageSetting.Post_Job}}</div>
+    </div>
+</div></div>
+
+<div data-page="hyperlocal-subPage" class="page navbar-through no-toolbar hideBorder-{{@global.styleAndNavigation.hideBorder}}" style="background-color: {{@global.styleAndNavigation.pageBgColor}}">
+    <!-- Page content-->
+    <div class="page-content">
+        <style>.items-scroller span a, .items-scroller span.add-more {border-color:{{@global.styleAndNavigation.borderColor}}}
+            .listing-tabs a, .listing-tabs-view .providers .selectEveBlo li a, .listing-tabs-view .providers .selectEveBlo li a span, .items-scroller span a{
+            background: {{@global.styleAndNavigation.secondaryButton[2]}};
+            color: {{@global.styleAndNavigation.secondaryButton[3]}};
+            }
+            .listing-tabs a.active, .listing-tabs-view .providers .selectEveBlo li a.active, .listing-tabs-view .providers .selectEveBlo li a.active span, .items-scroller span.add-more {
+            background: {{@global.styleAndNavigation.button[2]}};
+            color: {{@global.styleAndNavigation.button[3]}};
+            }
+
+            ::-webkit-input-placeholder {
+            color:{{@global.styleAndNavigation.content[2]}} !important;
+            }
+            :-moz-placeholder {
+            color:{{@global.styleAndNavigation.content[2]}} !important;
+            }
+            ::-moz-placeholder {color:{{@global.styleAndNavigation.content[2]}} !important;
+            }
+            :-ms-input-placeholder {
+            color:{{@global.styleAndNavigation.content[2]}} !important;
+            }
+			.hideBorder-1 ul.add-listing li input, .hideBorder-1 ul.add-listing li select, .hideBorder-1 ul.add-listing li textarea {
+				border: 1px solid {{@global.styleAndNavigation.borderColor}} !important;
+			}
+
+        </style>
+        {{#jobData}}
+        <ul class="add-listing">
+            <li>
+                <select id="hyperLocal_catid" onchange="hyperLocalCatIdChange(this)"  class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="border-color:{{@global.styleAndNavigation.borderColor}}; color:{{@global.styleAndNavigation.content[2]}}" {{#if catId}}readonly="readonly"{{/if}}>
+
+                {{#if catId}}
+                <option value="{{catId}}">{{@root.catName}}</option>
+                {{else}}
+                <option value="">{{@global.pageLanguageSetting.Choose_a_Category}}</option>
+                {{#if categoryList}}
+                {{#categoryList}}
+                <option value="{{catId}}">{{categoryName}}</option>
+                {{/categoryList}}
+                {{/if}}
+
+                {{/if}}
+                </select>
+            </li>
+            <li id="dir_SubcatLIid">
+                <select  id="hyperLocal_Subcatid" onchange="hyperLocalSubCatIdChange()"  class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="border-color:{{@global.styleAndNavigation.borderColor}}; color:{{@global.styleAndNavigation.content[2]}};  display:none;" >
+                    <option value="" >{{@global.pageLanguageSetting.select_sub_category}}</option>
+                </select>
+            </li>
+
+            <li><input type="text" placeholder="{{@global.pageLanguageSetting.job_title_placeholder}}"  id="jobTitle_Pj" value="{{#if header}}{{header}}{{/if}}" class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="border-color:{{@global.styleAndNavigation.borderColor}}; color:{{@global.styleAndNavigation.content[2]}}"/>
+            </li>
+
+            <li class="select-usd"><input type="text" placeholder="{{@global.pageLanguageSetting.What_is_your_budget_for_this_service}}"  id="budget_Pj"  value="{{#if chargingCost}}{{chargingCost}}{{/if}}" class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="border-color:{{@global.styleAndNavigation.borderColor}}; color:{{@global.styleAndNavigation.content[2]}}"/>
+
+
+                <select id="currency_Pj" class="currency_Pj {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="border-color:{{@global.styleAndNavigation.borderColor}}; color:{{@global.styleAndNavigation.content[2]}}" >
+                    <option value="{{@global.setting.currency}}" selected="selected" label="{{@global.setting.currency}}">{{@global.setting.currency}}</option>
+                    {{currenyCodeArrayHelper "a"}}
+                </select>
+            </li>
+
+            <li>
+                {{#if workingHoursEditable}}
+
+                {{#js_compare "this.workingHoursEditable.app_schedule_status === '1' "}}
+                <span class="map-checkbox"><input type="checkbox" checked="checked" onclick="ActivateScheduleClick(this);" name="chkSL" id="ActivateSchedule" class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="border-color:{{@global.styleAndNavigation.borderColor}}; color:{{@global.styleAndNavigation.content[2]}}"> <span class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="color:{{@global.styleAndNavigation.content[2]}}"> {{@global.pageLanguageSetting.activate_availability_schedule_hyp}}</span>
+                            </span>
+
+                {{else}}
+                <span class="map-checkbox"><input type="checkbox"  onclick="ActivateScheduleClick(this);" name="chkSL" id="ActivateSchedule" class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="border-color:{{@global.styleAndNavigation.borderColor}}; color:{{@global.styleAndNavigation.content[2]}}"> <span class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="color:{{@global.styleAndNavigation.content[2]}}"> {{@global.pageLanguageSetting.activate_availability_schedule_hyp}}</span>
+                                </span>
+
+                {{/js_compare}}
+
+                {{else}}
+                <span class="map-checkbox"><input type="checkbox"  onclick="ActivateScheduleClick(this);" name="chkSL" id="ActivateSchedule" class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="border-color:{{@global.styleAndNavigation.borderColor}}; color:{{@global.styleAndNavigation.content[2]}}"> <span class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="color:{{@global.styleAndNavigation.content[2]}}"> {{@global.pageLanguageSetting.activate_availability_schedule_hyp}}</span>
+                                    </span>
+                {{/if}}
+
+            </li>
+            <li>
+                {{#if workingHoursEditable}}
+                {{#js_compare "this.workingHoursEditable.app_schedule_status === '1' "}}
+                <div class="form formTimeInput {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}"  id="availabilityScheduleForm"  style="color:{{@global.styleAndNavigation.content[2]}}">
+                    {{else}}
+                    <div class="form formTimeInput {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="display:none; color:{{@global.styleAndNavigation.content[2]}}" id="availabilityScheduleForm">
+                        {{/js_compare}}
+                        {{else}}
+                        <div class="form formTimeInput {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="display:none; color:{{@global.styleAndNavigation.content[2]}}" id="availabilityScheduleForm">
+                            {{/if}}
+                            <div class="row open">
+                                <h4><span class="close">{{@global.pageLanguageSetting.Monday}}</span><span class="open">{{@global.pageLanguageSetting.will_not_be_available_on}} {{@global.pageLanguageSetting.Monday}}</span> <a class="open" onclick="timeRowOpen(this)" style="background-color: {{@global.styleAndNavigation.secondaryButton[2]}}">{{@global.pageLanguageSetting.fc_open}}</a>  <a class="close" onclick="timeRowClose(this)" style="background-color: {{@global.styleAndNavigation.secondaryButton[2]}}">{{@global.pageLanguageSetting.close}}</a> <a class="add" onclick="addTypeInput(this)" style="background-color: {{@global.styleAndNavigation.button[2]}}">+</a></h4>
+                                <div class="timeInput none" day="mon">
+                                    <input type="button" class="start" placeholder="start" style="border-color:{{@global.styleAndNavigation.borderColor}};  color:{{@global.styleAndNavigation.content[2]}};" onclick="showTime(this)" value="08:00 AM" >
+                                    <input type="button" class="end" placeholder="end" style="border-color:{{@global.styleAndNavigation.borderColor}}; color:{{@global.styleAndNavigation.content[2]}};" onclick="showTime(this)" value="04:00 PM">
+                                    <a class="remove" onclick="removeInput(this)" style="background-color: {{@global.styleAndNavigation.secondaryButton[2]}}">x</a>
+                                </div>
+                            </div>
+                            <div class="row open">
+                                <h4><span class="close">{{@global.pageLanguageSetting.Tuesday}}</span><span class="open">{{@global.pageLanguageSetting.will_not_be_available_on}} {{@global.pageLanguageSetting.Tuesday}}</span> <a class="open" onclick="timeRowOpen(this)" style="background-color: {{@global.styleAndNavigation.secondaryButton[2]}}">{{@global.pageLanguageSetting.fc_open}}</a>  <a class="close" onclick="timeRowClose(this)" style="background-color: {{@global.styleAndNavigation.secondaryButton[2]}}">{{@global.pageLanguageSetting.close}}</a> <a class="add" onclick="addTypeInput(this)" style="background-color: {{@global.styleAndNavigation.button[2]}}">+</a></h4>
+                                <div class="timeInput none" day="tue">
+                                    <input type="button" class="start" placeholder="start" style="border-color:{{@global.styleAndNavigation.borderColor}}; color:{{@global.styleAndNavigation.content[2]}};" onclick="showTime(this)" value="08:00 AM">
+                                    <input type="button" class="end" placeholder="end" style="border-color:{{@global.styleAndNavigation.borderColor}}; color:{{@global.styleAndNavigation.content[2]}};" onclick="showTime(this)" value="04:00 PM">
+                                    <a class="remove" onclick="removeInput(this)" style="background-color: {{@global.styleAndNavigation.secondaryButton[2]}}">x</a>
+                                </div>
+                            </div>
+
+                            <div class="row open">
+                                <h4><span class="close">{{@global.pageLanguageSetting.Wednesday}}</span><span class="open">{{@global.pageLanguageSetting.will_not_be_available_on}} {{@global.pageLanguageSetting.Wednesday}}</span> <a class="open" onclick="timeRowOpen(this)" style="background-color: {{@global.styleAndNavigation.secondaryButton[2]}}">{{@global.pageLanguageSetting.fc_open}}</a>  <a class="close" onclick="timeRowClose(this)" style="background-color: {{@global.styleAndNavigation.secondaryButton[2]}}">{{@global.pageLanguageSetting.close}}</a> <a class="add" onclick="addTypeInput(this)" style="background-color: {{@global.styleAndNavigation.button[2]}}">+</a></h4>
+                                <div class="timeInput none" day="wed">
+                                    <input type="button" class="start" placeholder="start" style="border-color:{{@global.styleAndNavigation.borderColor}}; color:{{@global.styleAndNavigation.content[2]}};" onclick="showTime(this)" value="08:00 AM">
+                                    <input type="button" class="end" placeholder="end" style="border-color:{{@global.styleAndNavigation.borderColor}}; color:{{@global.styleAndNavigation.content[2]}};" onclick="showTime(this)" value="04:00 PM">
+                                    <a class="remove" onclick="removeInput(this)" style="background-color: {{@global.styleAndNavigation.secondaryButton[2]}}">x</a>
+                                </div>
+                            </div>
+
+                            <div class="row open">
+                                <h4><span class="close">{{@global.pageLanguageSetting.Thursday}}</span><span class="open">{{@global.pageLanguageSetting.will_not_be_available_on}} {{@global.pageLanguageSetting.Thursday}}</span> <a class="open" onclick="timeRowOpen(this)" style="background-color: {{@global.styleAndNavigation.secondaryButton[2]}}">{{@global.pageLanguageSetting.fc_open}}</a>  <a class="close" onclick="timeRowClose(this)" style="background-color: {{@global.styleAndNavigation.secondaryButton[2]}}">{{@global.pageLanguageSetting.close}}</a> <a class="add" onclick="addTypeInput(this)" style="background-color: {{@global.styleAndNavigation.button[2]}}">+</a></h4>
+                                <div class="timeInput none" day="thu">
+                                    <input type="button" class="start" placeholder="start" style="border-color:{{@global.styleAndNavigation.borderColor}}; color:{{@global.styleAndNavigation.content[2]}};" onclick="showTime(this)" value="08:00 AM">
+                                    <input type="button" class="end" placeholder="end" style="border-color:{{@global.styleAndNavigation.borderColor}}; color:{{@global.styleAndNavigation.content[2]}};" onclick="showTime(this)" value="04:00 PM">
+                                    <a class="remove" onclick="removeInput(this)" style="background-color: {{@global.styleAndNavigation.secondaryButton[2]}}">x</a>
+                                </div>
+                            </div>
+
+
+                            <div class="row open">
+                                <h4><span class="close">{{@global.pageLanguageSetting.Friday}}</span><span class="open">{{@global.pageLanguageSetting.will_not_be_available_on}} {{@global.pageLanguageSetting.Friday}}</span> <a class="open" onclick="timeRowOpen(this)" style="background-color: {{@global.styleAndNavigation.secondaryButton[2]}}">{{@global.pageLanguageSetting.fc_open}}</a>  <a class="close" onclick="timeRowClose(this)" style="background-color: {{@global.styleAndNavigation.secondaryButton[2]}}">{{@global.pageLanguageSetting.close}}</a> <a class="add" onclick="addTypeInput(this)" style="background-color: {{@global.styleAndNavigation.button[2]}}">+</a></h4>
+                                <div class="timeInput none" day="fri">
+                                    <input type="button" class="start" placeholder="start" style="border-color:{{@global.styleAndNavigation.borderColor}}; color:{{@global.styleAndNavigation.content[2]}};" onclick="showTime(this)" value="08:00 AM">
+                                    <input type="button" class="end" placeholder="end" style="border-color:{{@global.styleAndNavigation.borderColor}}; color:{{@global.styleAndNavigation.content[2]}};" onclick="showTime(this)" value="04:00 PM">
+                                    <a class="remove" onclick="removeInput(this)" style="background-color: {{@global.styleAndNavigation.secondaryButton[2]}}">x</a>
+                                </div>
+                            </div>
+
+                            <div class="row open">
+                                <h4><span class="close">{{@global.pageLanguageSetting.Saturday}}</span><span class="open">{{@global.pageLanguageSetting.will_not_be_available_on}} {{@global.pageLanguageSetting.Saturday}}</span> <a class="open" onclick="timeRowOpen(this)" style="background-color: {{@global.styleAndNavigation.secondaryButton[2]}}">{{@global.pageLanguageSetting.fc_open}}</a>  <a class="close" onclick="timeRowClose(this)" style="background-color: {{@global.styleAndNavigation.secondaryButton[2]}}">{{@global.pageLanguageSetting.close}}</a> <a class="add" onclick="addTypeInput(this)" style="background-color: {{@global.styleAndNavigation.button[2]}}">+</a></h4>
+                                <div class="timeInput none" day="sat">
+                                    <input type="button" class="start" placeholder="start" style="border-color:{{@global.styleAndNavigation.borderColor}}; color:{{@global.styleAndNavigation.content[2]}};" onclick="showTime(this)" value="08:00 AM">
+                                    <input type="button" class="end" placeholder="end" style="border-color:{{@global.styleAndNavigation.borderColor}}; color:{{@global.styleAndNavigation.content[2]}};" onclick="showTime(this)" value="04:00 PM">
+                                    <a class="remove" onclick="removeInput(this)" style="background-color: {{@global.styleAndNavigation.secondaryButton[2]}}">x</a>
+                                </div>
+                            </div>
+
+
+                            <div class="row open">
+                                <h4><span class="close">{{@global.pageLanguageSetting.Sunday}}</span><span class="open">{{@global.pageLanguageSetting.will_not_be_available_on}} {{@global.pageLanguageSetting.Sunday}}</span> <a class="open" onclick="timeRowOpen(this)" style="background-color: {{@global.styleAndNavigation.secondaryButton[2]}}">{{@global.pageLanguageSetting.fc_open}}</a>  <a class="close" onclick="timeRowClose(this)" style="background-color: {{@global.styleAndNavigation.secondaryButton[2]}}">{{@global.pageLanguageSetting.close}}</a> <a class="add" onclick="addTypeInput(this)" style="background-color: {{@global.styleAndNavigation.button[2]}}">+</a></h4>
+                                <div class="timeInput none" day="sun">
+                                    <input type="button" class="start" placeholder="start" style="border-color:{{@global.styleAndNavigation.borderColor}}; color:{{@global.styleAndNavigation.content[2]}};" onclick="showTime(this)" value="08:00 AM">
+                                    <input type="button" class="end" placeholder="end" style="border-color:{{@global.styleAndNavigation.borderColor}}; color:{{@global.styleAndNavigation.content[2]}};" onclick="showTime(this)" value="04:00 PM">
+                                    <a class="remove" onclick="removeInput(this)" style="background-color: {{@global.styleAndNavigation.secondaryButton[2]}}">x</a>
+                                </div>
+                            </div>
+
+                        </div>
+                        <input type="hidden" id="timeData" name="timeData" />
+
+            </li>
+
+
+            <li><textarea placeholder="{{@global.pageLanguageSetting.summary_dir}}" id="summary_Pj" class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="border-color:{{@global.styleAndNavigation.borderColor}}; color:{{@global.styleAndNavigation.content[2]}}">{{#if summary}}{{summary}}{{/if}}</textarea> </li>
+
+
+            <li style=" clear: both;margin-bottom: 10px;">
+                <div class="listing-tabs" style="border-color:{{@global.styleAndNavigation.borderColor}}">
+                    <a href="#tab1" class="active tab-link {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" value="Distance"><i class="iconz-picture"></i></a>
+                    <a href="#tab2" class="tab-link {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" value="Distance"><i class="iconz-video"></i></a>
+
+                </div>
+
+                <div class="tabs-wrap">
+                    <div class="tabs" style="border-color:{{@global.styleAndNavigation.borderColor}}">
+                        <div id="tab1" class="tab active">
+                            <div  class="listing-tabs-view" style="display: table; table-layout: fixed; width:100%">
+                                <div class="items-scroller" >
+
+                                    <div class="items">
+
+                                        {{#if catId}}
+                                        {{else}}
+                                        <span class="add-more" onclick="addMoreClick2(this,0)">+</span>
+                                        {{/if}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="tab2" class="tab">
+                            <div class="listing-tabs-view">
+                                <h3 class="{{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}" style="color:{{@global.styleAndNavigation.subheading[2]}}; text-align:{{@global.styleAndNavigation.subheading[3]}}"></h3>
+                                <input type="text" placeholder="{{@global.pageLanguageSetting.youtube_url_hyp}}"  id="youtubeUrl_Pj"  value="{{#if youtubeUrl}}{{youtubeUrl}}{{/if}}" class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="border-color:{{@global.styleAndNavigation.borderColor}}; color:{{@global.styleAndNavigation.content[2]}}"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="form myInputView">
+                    <div class="row">
+                        <div class="myInput none" data-type="url">
+                            <input type="text" id="url" style="border-color:{{@global.styleAndNavigation.borderColor}}; color:{{@global.styleAndNavigation.content[2]}}" placeholder="{{@global.pageLanguageSetting.url_hyp}}" />
+                            <a class="add" onclick="addInput(this)" style="background-color: {{@global.styleAndNavigation.button[2]}}">+</a>
+                            <a class="remove" onclick="removeInput(this)" style="background-color: {{@global.styleAndNavigation.secondaryButton[2]}}">x</a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="myInput none" data-type="email">
+                            <input type="text" id="email"  style="border-color:{{@global.styleAndNavigation.borderColor}}; color:{{@global.styleAndNavigation.content[2]}}" placeholder="{{@global.pageLanguageSetting.email_hyp}}" />
+                            <a class="add" onclick="addInput(this)" style="background-color: {{@global.styleAndNavigation.button[2]}}">+</a>
+                            <a class="remove" onclick="removeInput(this)" style="background-color: {{@global.styleAndNavigation.secondaryButton[2]}}">x</a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="myInput none" data-type="call">
+                            <input type="number" id="call" class="numberlength numberValidation" maxlength="15" style="border-color:{{@global.styleAndNavigation.borderColor}}; color:{{@global.styleAndNavigation.content[2]}}" placeholder="{{@global.pageLanguageSetting.phone_hyp}}" />
+                            <a class="add" onclick="addInput(this)" style="background-color: {{@global.styleAndNavigation.button[2]}}">+</a>
+                            <a class="remove" onclick="removeInput(this)" style="background-color: {{@global.styleAndNavigation.secondaryButton[2]}}">x</a>
+                        </div>
+                    </div>
+                </div>
+                <textarea placeholder="{{@global.pageLanguageSetting.location_hyp}}" id="add_Pj" class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="border-color:{{@global.styleAndNavigation.borderColor}}; color:{{@global.styleAndNavigation.content[2]}}">{{#if address}}{{address}}{{/if}}</textarea></li>
+            <li>{{#js_compare "this.mapThirdParty === '1' "}}
+                <span class="map-checkbox"><input type="checkbox"  name="chkMapPj" id="chkMapPj" checked="checked" class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="border-color:{{@global.styleAndNavigation.borderColor}}; color:{{@global.styleAndNavigation.content[2]}}"> <span class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="color:{{@global.styleAndNavigation.content[2]}}">{{@global.pageLanguageSetting.Launch_map_in_application}}</span></span>
+                {{else}}
+                <span class="map-checkbox"><input type="checkbox"  name="chkMapPj" id="chkMapPj"  class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="border-color:{{@global.styleAndNavigation.borderColor}}; color:{{@global.styleAndNavigation.content[2]}}"> <span class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="color:{{@global.styleAndNavigation.content[2]}}">{{@global.pageLanguageSetting.Launch_map_in_application}}</span></span>
+
+                {{/js_compare}}</li>
+        </ul>
+
+        <div class="hyper-gray-wrapper">{{#if jobId}}<button class="hyper-sent-btn {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" style="background-color: {{@global.styleAndNavigation.button[2]}}; color: {{@global.styleAndNavigation.button[3]}};"  onclick="addPostJobClick('update','{{../../catName}}','{{jobId}}','{{catId}}')">{{@global.pageLanguageSetting.update_hyp}}</button>{{else}}<button class="hyper-sent-btn {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" style="background-color: {{@global.styleAndNavigation.button[2]}}; color: {{@global.styleAndNavigation.button[3]}};"  onclick="addPostJobClick('add','')">{{@global.pageLanguageSetting.add_hyp}}</button>{{/if}}</div>
+        {{/jobData}}
+    </div>
+</div>

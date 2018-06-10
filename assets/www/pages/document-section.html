@@ -1,0 +1,63 @@
+<div class="navbar">
+	<div class="navbar-inner" style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+            
+             <div class="left sliding">
+                 <a href="index" class="link back" style="color:{{@global.style.headerBarIconColor}};">
+                     <i class="icon icon-left-open-2" ></i>
+                 </a>
+            </div>
+             
+            <div class="center sliding">
+              <div class="topHeader {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">
+                  {{docheader}}
+              </div>
+            </div>
+
+            <div class="right">
+                
+            </div>
+	</div>
+</div>
+
+<div data-page="document-section" class="page navbar-through no-toolbar">
+<div class="backgroundAnimation">{{> innerBackground}}</div>
+  <!-- Page content-->
+    <div class="page-content">
+<!--       {{#js_compare "this.drive =='gdrive'"}}-->
+<!--{{drive}}-->
+{{#js_compare "this.drive == 'gdrive'"}}
+
+        {{#list}}
+    	<a class="appypie-list" onclick="Appyscript.DocumentGdriveopenpage('{{token}}','{{clientId}}','{{secretKey}}','{{email}}');" style="color:{{@global.style.pageTextColor}}">
+             <span>
+             {{#js_compare "this.iconType== 'img' "}}
+              <img src=""/>
+              {{else}}
+              <i class="{{iconName}}" style="color:{{@global.style.pageIconColor}}"></i>
+    		  {{/js_compare}}
+              </span>
+             <span>{{name}}</span>
+         </a>
+  {{/list}}
+  {{else}}
+  {{#list}}
+  <a class="appypie-list" onclick="Appyscript.DocumentOnedriveaccesToken('{{token}}','{{clientId}}','{{secretKey}}','{{email}}');" style="color:{{@global.style.pageTextColor}}">
+      <span>
+          {{#js_compare "this.iconType== 'img' "}}
+          <img src=""/>
+          {{else}}
+          <i class="{{iconName}}" style="color:{{@global.style.pageIconColor}}"></i>
+          {{/js_compare}}
+      </span>
+      <span>{{name}}</span>
+  </a>
+  {{/list}}
+  
+  
+  {{/js_compare}}
+
+    </div>
+
+  <!-- End Page content-->
+</div>
+

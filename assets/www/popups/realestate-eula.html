@@ -1,0 +1,34 @@
+<div class="popup menu-popup tablet-fullscreen">
+    <div class="view loginView">
+        <div class="backgroundAnimation">
+            <div class="view background-view">{{> mainBackground}}</div>
+        </div>
+        <div class="pages">
+            <div class="navbar"> <div class="navbar-inner" style="background-color:{{@global.style.headerBarBackgroundColor}}">
+                <div class="left sliding">
+
+                </div>
+                <div class="center sliding"  style="color:{{@global.style.headerBarTextColor}};" >{{@global.glblheading}}</div>
+                <div class="right"></div>
+
+            </div></div>
+
+
+            <div class="page navbar-through toolbar-through">
+                <div class="toolbar">
+                    <div class="toolbar-inner submit-button" style="background:{{@global.style.secondaryButtonBgColor}};">
+                        <a href="#" style="color:{{@global.style.buttonTextColor}}" onclick="realaccept()" id="termscondition">{{@global.glblAcceptButton}}</a>
+                    </div>
+                </div>
+                <div class="page-content" style="color:{{@global.style.pageTextColor}}; font-family:{{@global.style.appPageFont}};">
+                    <div style="padding:15px;">
+                        {{@global.glbltermsdata}}
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

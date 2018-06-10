@@ -1,0 +1,74 @@
+<div class="navbar"><div class="navbar-inner" style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+    <div class="left sliding">
+        {{getSlideBack ""}}
+    </div>
+    <div class="center sliding  {{@global.style.headerBarSize}}  {{@global.style.headerBarFont}}">{{pageTitle}}</div>
+    <div class="right"></div>
+</div></div>
+
+<div data-page="appypiedb-page" class="page navbar-through no-toolbar">
+    <div class="backgroundAnimation">{{> innerBackground}}</div>
+    <!-- Page content-->
+    {{#root_Compare @root.list.length "!=" "0"}}
+    <div class="search-view">
+        <div data-search-list=".dbListView" data-search-in=".searchnow" class="searchbar-inner searchbar-init">
+            <input type="search"  placeholder="{{@global.commonLanguageSetting.please_enter_a_keyword}}" class="on" id="txtSearch" style="color:{{@global.styleAndNavigation.icon[1]}}; background:{{@global.styleAndNavigation.icon[0]}}"/>
+            <button class="iconz-search" style="color:{{@global.styleAndNavigation.icon[1]}}" id="btnSearch" type="button"  onclick="Appyscript.searchClick('#txtSearch')"></button>
+        </div>
+
+    </div>
+    <div class="searchbar-overlay"></div>
+    {{/root_Compare}}
+
+    <div class="page-content hideBorder-{{@global.styleAndNavigation.hideBorder}}" style="background:{{@global.styleAndNavigation.pageBackground}}">
+
+        <!-- Search code-->
+        {{#root_Compare @root.list.length "==" "0"}}
+        <div class="msg-code">{{> errorpage errorIcon="appyicon-no-data"}}</div>
+        {{else}}
+        <ul class="dbListView searchbar-found">
+            {{#list}}
+            <li data-index="{{@index}}" onclick="Appyscript.appypiedbDetail({{@index}});" class="{{@global.styleAndNavigation.list[0]}} {{@global.styleAndNavigation.list[1]}}" style="color:{{@global.styleAndNavigation.list[2]}}; background-color:{{@global.styleAndNavigation.list[3]}}">
+                <div class="info-left">
+
+                    {{#if image}}
+
+                    <img src="images/image-1x1.png" style="background:url({{image}})" alt="" class="img-style"/>
+
+                    {{/if}}
+
+                </div>
+                <div class="info-right">
+                    <ul>
+                        {{#list}}
+                        {{#if value}}
+                        {{#js_compare "this.showInListing == '1' "}}
+                        {{#js_compare "this.identifier != 'file' "}}
+
+
+
+                        <li>{{#js_compare "this.showHideLabel == '1' "}}<span> {{DisplayLabel}}:</span> {{/js_compare}}<span class="rtRight"><strong class="name searchnow"> {{value}}</strong></span></li>
+
+
+                        {{/js_compare}}
+                        {{/js_compare}}
+                        {{/if}}
+                        {{/list}}
+
+
+
+
+
+                    </ul>
+                </div>
+            </li>
+            {{/list}}
+
+        </ul>
+        <div class="searchbar-not-found msg-code">
+            {{> errorpage errorIcon="appyicon-no-data"}}</div>
+        {{/root_Compare}}
+    </div>
+
+</div>
+</div>

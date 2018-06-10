@@ -1,0 +1,45 @@
+<div data-page="dating-Menus"  class="popup menu-popup tablet-fullscreen">
+    <div class="view toolbar-through">
+        <div class="pages  hideBorder-{{@global.styleAndNavigation.hideBorder}}">
+            <div class="page no-toolbar">
+                <div class="page-content {{@global.styleAndNavigation.menu[0]}} {{@global.styleAndNavigation.menu[1]}}" style="background-color: {{@global.styleAndNavigation.menu[2]}}; color: {{@global.styleAndNavigation.menu[3]}};">
+                    <div class="profile-image">
+                        <div class="profileBackground" id="dprofileBackground" style="background-image:url({{@global.style.reseller}}/newui/images/user-pic-news.png);"></div>
+                        <div class="profileContentBx">
+                            <div class="profileBx">
+                                <span class="image"><img id="menuprofile" src="images/image-1x1.png" style="background-image:url({{@global.style.reseller}}/newui/images/user-pic-news.png); border-color:{{@global.styleAndNavigation.fieldBorderColor}};" alt=""></span>
+                            </div>
+                            <a href="#" class="editProfilebutton icon-cancel close-tutorial"    style="color:{{@global.styleAndNavigation.iconColor}}"></a>
+                            <span class="name {{@global.styleAndNavigation.menu[1]}}" id="userName">Rk@rk</span>
+                            <span class="location {{@global.styleAndNavigation.menu[1]}}" id="userLocation">My Location</span>
+                        </div>
+                    </div>
+                    <div class="sub-menu hyperlocal-menu" id="menuservice">
+                        <ul class="leftMenu">
+                            {{#if @global.setting.homeButtonStatus}}{{else}}
+                            <li><a onclick="Appyscript.datingmainmenu()" class="close-tutorial"  style="border-color:{{@global.styleAndNavigation.fieldBorderColor}}; color: {{@global.styleAndNavigation.menu[3]}};"><i class="iconz-home" style="color:{{@global.styleAndNavigation.iconColor}}"></i> {{@global.pageLanguageSetting.dhome}}</a></li>
+                            {{/if}}
+                            <li><a href="#" class="close-tutorial"  data-animate="true" data-page="dating-find" data-back="back" style="border-color:{{@global.styleAndNavigation.fieldBorderColor}}; color: {{@global.styleAndNavigation.menu[3]}};"><i class="icon-indent-left" style="color:{{@global.styleAndNavigation.iconColor}}"></i> {{@global.pageLanguageSetting.mainmenu}} </a></li>
+                            <li><a href="#" class="close-tutorial" onclick="Appyscript.datingProfile();"  data-back="back" style="border-color:{{@global.styleAndNavigation.fieldBorderColor}}; color: {{@global.styleAndNavigation.menu[3]}};"><i class="iconz-user" style="color:{{@global.styleAndNavigation.iconColor}}"></i> {{@global.pageLanguageSetting.myprofile}}</a></li>
+
+                            <li><a class="close-tutorial" data-animate="true"  onclick="Appyscript.datingMatchProfile({{@global.pageLanguageSetting.countmsg}});" data-back="back" style="border-color:{{@global.styleAndNavigation.fieldBorderColor}}; color: {{@global.styleAndNavigation.menu[3]}};"><i class="icon-heart-1" style="color:{{@global.styleAndNavigation.iconColor}}"></i> {{@global.pageLanguageSetting.matches}} </a></li>
+
+
+
+                            <li><a class="close-tutorial" data-animate="true"  onclick="Appyscript.datingchatProfile();" data-back="back" style="border-color:{{@global.styleAndNavigation.fieldBorderColor}}; color: {{@global.styleAndNavigation.menu[3]}};"><i class="icon-chat-1" style="color:{{@global.styleAndNavigation.iconColor}}"></i> {{@global.pageLanguageSetting.messages}}<span >{{@global.pageLanguageSetting.countmsg}}</span></a></li>
+
+                            <li><a class="close-tutorial" data-animate="true"  onclick="Appyscript.datingnotification();" data-back="back" style="border-color:{{@global.styleAndNavigation.fieldBorderColor}}; color: {{@global.styleAndNavigation.menu[3]}};"><i class="icon-bell-2" style="color:{{@global.styleAndNavigation.iconColor}}"></i> {{@global.pageLanguageSetting.notifications}}  <span>{{@global.pageLanguageSetting.notifycount}}</span></a></li>
+
+                            <li><a href="#" class="popupToPage" data-animate="true" data-page="dating-setting" data-back="back" style="border-color:{{@global.styleAndNavigation.fieldBorderColor}}; color: {{@global.styleAndNavigation.menu[3]}};"><i class="icon-cog" style="color:{{@global.styleAndNavigation.iconColor}}"></i> {{@global.pageLanguageSetting.setting}}</a></li>
+                            <li id="datingtcshow"  style="display:none"><a  href="#"  class="close-tutorial" onclick="Appyscript.datingtc();" data-back="back" style="border-color:{{@global.styleAndNavigation.fieldBorderColor}}; color: {{@global.styleAndNavigation.menu[3]}};"><i class="iconz-newspaper" style="color:{{@global.styleAndNavigation.iconColor}}"></i> {{@global.pageLanguageSetting.t_c}}</a></li>
+                            <li id="datingpshow"   style="display:none"><a href="#"  class="close-tutorial" onclick="Appyscript.datingpp();"  data-back="back" style="border-color:{{@global.styleAndNavigation.fieldBorderColor}}; color: {{@global.styleAndNavigation.menu[3]}};"><i class="icon-book-2" style="color:{{@global.styleAndNavigation.iconColor}}"></i> {{@global.pageLanguageSetting.p_p}}</a></li>
+                            <li><a   onclick="Appyscript.AppLogout();" class="close-tutorial"  style="border-color:{{@global.styleAndNavigation.fieldBorderColor}}; color: {{@global.styleAndNavigation.menu[3]}};"><i class="iconz-login" style="color:{{@global.styleAndNavigation.iconColor}}"></i> {{@global.pageLanguageSetting.dlogout}}</a></li>
+
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,107 @@
+
+<div class="navbar">
+    <div class="navbar-inner" style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+
+        <div class="left sliding">
+            <a href="index"  onclick="backRoomAmenities()" class="link back icon icon-left-open-2" style="color:{{@global.style.headerBarIconColor}};"></a>
+        </div>
+
+        <div class="center sliding">
+            <div class="topHeader {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">
+                Amenities
+            </div>
+        </div>
+
+        <div class="right">
+
+        </div>
+    </div>
+</div>
+
+<div data-page="accommodation-privacy" class="page navbar-through no-toolbar" style="background-color:">
+    <!-- Page content-->
+    <div class="page-content {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}} hideBorder-{{@global.styleAndNavigation.hideBorder}}" style="color:{{@global.styleAndNavigation.content[2]}}; background:{{@global.styleAndNavigation.pageBgColor}}">
+        <section class="amenities">
+            <ul class="accAmenities">
+                {{#roomAmenities}}
+                <li>
+                    <div class="accAmenitiesname">
+                        <span> <i class="new_icon  {{image}}"></i>{{facility}}</span>
+                        <p class="amenitiesSelect">
+                            <input id="selectroomamenities{{@index}}" value = "{{id}}" type="checkbox" onchange="accommodation_room_myFunction(this);" {{checkuncehckroomlistanimites id}}>
+
+                        </p>
+                    </div>
+                </li>
+                {{/roomAmenities}}
+               <!-- <li>
+                    <i class="appyslim-cafe-fork-knife-sign accAmenitiesIcon"></i>
+                    <div class="accAmenitiesname">
+                        <span> Kitchen</span>
+                        <p class="amenitiesSelect">
+                            <input id="test2" type="checkbox">
+                            <label for="test2"></label>
+                        </p>
+                    </div>
+                </li>
+                <li>
+                    <i class="appyslim-sports-swimming-pool accAmenitiesIcon"></i>
+                    <div class="accAmenitiesname">
+                        <span> Pool</span>
+                        <p class="amenitiesSelect">
+                            <input id="test3" type="checkbox">
+                            <label for="test3"></label>
+                        </p>
+                    </div>
+                </li>
+                <li>
+                    <i class="appyslim-electronics-air-condition accAmenitiesIcon"></i>
+                    <div class="accAmenitiesname">
+                        <span> Air Conditioning</span>
+                        <p class="amenitiesSelect">
+                            <input id="test4" type="checkbox">
+                            <label for="test4"></label>
+                        </p>
+                    </div>
+                </li>
+                <li>
+                    <i class="appyslim-electronics-tv accAmenitiesIcon"></i>
+                    <div class="accAmenitiesname">
+                        <span> TV</span>
+                        <p class="amenitiesSelect">
+                            <input id="test5" type="checkbox">
+                            <label for="test5"></label>
+                        </p>
+                    </div>
+                </li>
+                <li>
+                    <i class="appyslim-sports-wight-lifting accAmenitiesIcon"></i>
+                    <div class="accAmenitiesname">
+                        <span> Gym</span>
+                        <p class="amenitiesSelect">
+                            <input id="test6" type="checkbox">
+                            <label for="test6"></label>
+                        </p>
+                    </div>
+                </li>
+                <li>
+                    <i class="appyslim-transport-car accAmenitiesIcon"></i>
+                    <div class="accAmenitiesname">
+                        <span> Parking</span>
+                        <p class="amenitiesSelect">
+                            <input id="test6" type="checkbox">
+                            <label for="test6"></label>
+                        </p>
+                    </div>
+                </li>-->
+
+
+
+
+            </ul>
+
+        </section>
+    </div>
+    <!-- End Page content-->
+</div>
+

@@ -1,0 +1,952 @@
+.reviews,
+.reviews ul,
+.reviews ul li,
+.reviews ul li p,
+.reviews ul li span {
+ 	float:left;
+  	width:100%;
+   	margin:0px;
+    padding:0px;
+    list-style:none;
+    border:0px;
+    box-sizing:border-box;
+    border-radius:0px;
+}
+
+.reviews {
+    -webkit-backface-visibility: hidden;
+    -webkit-transform:translate3d(0,0,0);
+}
+
+.reviews.bg-image {
+	box-shadow: inset 0 0 0 1000px rgba(0,0,0,0.4);
+}
+
+.reviews ul {
+ 	padding:12px;  
+}
+
+.reviews ul li {
+ 	padding:45px 10px 10px 80px;
+	background:#f7f7f7;
+ 	border-radius:7px;
+  	margin:10px 0 0 0;
+   	position:relative;
+    min-height:80px;
+}
+
+.reviews ul li.no-image {
+ 	padding:15px 10px 10px 30px;
+}
+
+
+.reviews ul li img {
+ 	position:absolute;
+  	left:10px;
+   	top:40px;
+    width:58px;
+    height:58px;
+    border-radius:100%;
+    background:#e1e1e1;
+    border:solid 1px #000;
+}
+
+.reviews ul li p {
+    text-align:left;
+    position:relative;
+    padding-top: 20px;
+}
+.reviews ul li p {
+    text-align:left;
+    position:relative;
+    padding-top: 20px; white-space:normal; word-break:break-all; word-wrap:break-word;
+}
+
+.reviews.content-left ul li p {
+ 	text-align:left;
+}
+
+.reviews.content-center ul li p {
+ 	text-align:center;
+}
+
+.reviews.content-right ul li p {
+ 	text-align:right;
+}
+
+.reviews.content-justify ul li p {
+ 	text-align:justify;
+}
+
+.reviews.theme-1 ul li p {
+ 	text-indent:30px;
+  	padding-top: 10px;
+    overflow: hidden;
+}
+
+.reviews.theme-1 ul li.no-image p {
+	padding: 0 0 0 5px;
+ 	text-indent:0;
+}
+
+.reviews ul li span {
+    font-weight:bold;
+    color:#333;
+    text-align:right;
+    line-height:24px;
+    padding: 5px 36px 0 36px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.reviews ul li .arrow {
+ 	display:none;
+}
+
+.reviews ul li .before-quote,
+.reviews ul li .after-quote {
+    font-size: 70px;    
+    /*font-family:Georgia;*/
+	font-family:Georgia, "Times New Roman", Times, serif;
+    position:absolute;
+    left:0px;
+    top:0px;
+    opacity:0;
+    font-style:normal;
+    line-height:40px;
+    width:30px;
+    text-align:center;
+}
+
+
+.reviews.theme-1 ul li .before-quote {
+    left: 74px;
+    top: 56px;
+}
+
+
+.reviews.theme-1 ul li.no-image .before-quote {
+	opacity: 1;
+    top: 18px;
+    left: 8px;
+}
+
+.reviews ul li .after-quote {
+    left:auto;
+    right:10px;
+    top:auto;
+	bottom: -8px;
+}
+
+.reviews ul li .head_rating {
+    float: left;
+    width: 100%;
+    color: #999;
+    font-size: 20px;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+}
+
+.reviews ul li .head_rating i {
+    float:left;
+    width:26px;
+    height:26px;
+    line-height:26px;
+    text-align:center;
+}
+
+.reviews ul li .head_rating i.on {
+}
+
+.reviews.theme-1 ul li .before-quote,
+.reviews.theme-1 ul li .after-quote {
+ 	opacity:1;  	
+}
+
+
+.reviews.theme-1 ul li span {
+	padding: 5px 36px 10px 0;
+}
+
+.reviews.theme-1 ul li.no-image span {
+	padding: 5px 36px 10px 0;
+}
+
+.reviews ul li:first-child {
+ 	margin:0px;
+}
+
+
+.review-box,
+.rating-box {
+    float:left;
+    width:calc(100% - 20px);
+    margin:10px;
+    border:5px;
+    box-sizing:border-box;
+    padding:15px;
+    text-align:center;
+    border-radius:5px;
+    position:relative;
+}
+
+.review-box a,
+.rating-box a {
+    display: inline-block;
+    margin: auto;
+    text-align: center;
+    padding: 10px 15px;
+    border-radius:5px;
+}
+
+.review-box h1,
+.rating-box h1 {
+ 	border-bottom:0;
+  	margin:0px;
+}
+
+.review-box  .icons {
+	text-align:center;
+ 	font-size:20px;
+}
+
+.review-box ul,
+.review-box ul li,
+.review-box ul li span,
+.review-box ul li .icons,
+.review-box ul li p,
+.review-box ul li div {
+    float:left;
+    width:100%;
+    list-style:none;
+    padding:0px;
+    margin:0px;
+}
+
+.review-box ul li.box1 p {
+    width: 50%;
+    line-height: 30px;
+    text-align: left;
+    padding: 0 0 0 29px;
+    box-sizing: border-box;
+}
+
+.review-box ul li {
+ 	display:none;
+}
+
+.review-box ul li div.averageRatings,
+.review-box ul li div.totalReviews {
+    width:50%;
+    float:left;
+    text-align:center;
+    margin:0 0 12px 0;
+}
+
+.review-box ul li.box3 .size,
+.review-box ul li.box1 .size {
+ 	position:relative;
+  	box-sizing:border-box;
+	width:100%;
+ 	padding:0 0 0 55px;
+  	line-height:26px;
+   	height:26px;
+}
+
+.review-box ul li.box3 .size i,
+.review-box ul li.box3 .size b {
+    float:left;
+    width:30px;
+    position:absolute;
+    left:0px;
+    top:0px;
+}
+
+.review-box ul li.box3 .size i {
+	font-size:20px;
+	line-height:26px;
+}
+
+.review-box ul li.box3 .size b {
+	width:20px;
+	font-weight:normal;
+ 	left:30px;
+	text-align:center;
+}
+
+.review-box ul li.box3 .size em,
+.review-box ul li.box1 .size em {
+ 	width:100%;
+  	height:14px;
+	background:#f1f1f1;
+ 	margin:6px 0;
+	float:left;	
+}
+
+.review-box ul li.box1 .size em em,
+.review-box ul li.box3 .size em em {
+ 	margin:0;
+}
+
+.review-box ul li.box4 span,
+.review-box ul li.box3 .ratings {
+ 	font-size:30px;
+}
+
+.review-box ul li.box2 .averageRatings {
+	width:100%;
+ 	margin:0;
+}
+
+.review-box ul li.box2 p {
+    text-align:center;
+    line-height:30px;
+}
+
+.review-box ul li.box2 p b {
+ 	font-weight:normal;
+}
+
+.review-box ul li.box1 .icons {
+ 	font-size:18px;
+}
+
+.review-box ul li.box1 .icons i {
+ 	float:right;
+  	margin:0 5px 0 0;
+}
+
+.review-box ul li.box1 .iconsTop i {
+ 	margin:0 2px;
+  	float:none;
+}
+
+.review-box ul li.box1 .size {
+ 	height:26px;
+  	padding:0 0 0 10px;
+}
+
+.review-box ul li.box1 .size b {
+ 	position:absolute;
+  	left:0px;
+   	line-height:26px;
+    text-align:center;
+}
+
+.review-box ul li.box1 .size em {
+ 	height:4px;
+  	margin:11px 0;
+}
+
+.rating-box .field,
+.rating-box .field input,
+.rating-box .field textarea {
+ 	float:left;
+	width:100%;
+ 	position:relative;
+}
+
+.rating-box .field label {
+ 	float:left;
+  	line-height:24px;
+   	margin:0 0 0 0;
+    width:100%;
+}
+
+.rating-box .field span.rating {
+ 	font-size:20px;
+  	float:left;
+    position: relative;
+    left: 50%;
+    margin: 0 0 0 -56px;
+}
+
+.rating-box .field span.rating i {
+ 	float:left;
+  	margin:0 0 0 3px;
+}
+
+.rating-box .field {
+ 	padding:0 0 10px 0;
+}
+
+.rating-box .field input,
+.rating-box .field textarea {
+    border:solid 1px #ccc;
+    border-radius:6px;
+    padding:10px 10px 10px 40px;
+    box-sizing:border-box;
+    resize:none;
+    color:#666;
+}
+
+.rating-box .field textarea {
+ 	height:100px;
+}
+
+.rating-box .field.input i {
+    font-size:15px;
+    color:#000;
+    position:absolute;
+    left:0px;
+    top:0px;
+    line-height:36px;
+    width:40px;
+    text-align:center;
+    z-index:2;
+    color:#666;
+}
+
+.rating-new {
+    float:left;
+    position:relative;
+    width:100px !important;
+    line-height:20px;
+}
+
+.rating-box .close {
+    position:absolute;
+    right:0px;
+    top:0px;
+    padding:10px;
+    z-index:1;
+    line-height:20px;
+    width:20px;
+    text-align:center;
+    font-size:22px;
+    border-radius:0;
+}
+
+.rating-new b  {
+ 	float:left;
+	width:100px;
+}
+
+.rating-new b i {
+    font-size:18px;
+    width:20px;
+    display:inline-block;
+    float:left;
+    overflow:hidden;
+}
+
+.rating-new b.on {
+    left:0px;
+    top:0px;
+    position:absolute;
+    white-space:nowrap;
+    overflow:hidden;
+    height:21px;
+}
+
+.rating-new b.on i {
+ 	position:absolute;
+  	left:0px;
+}
+
+.rating-new b.on i.star-2 {
+ 	left:20px;
+}
+
+.rating-new b.on i.star-3 {
+ 	left:40px;
+}
+
+.rating-new b.on i.star-4 {
+ 	left:60px;
+}
+
+.rating-new b.on i.star-5 {
+ 	left:80px; 	
+}
+
+.rating-view {
+ 	height:30px;
+  	position:relative;
+}
+
+.review-box.theme-1 ul li.box1 .rating-view {
+ 	width:50%;
+}
+   
+.rating-view .rating-new {
+	position: absolute;
+    top: 3px;
+    left: 50%;
+    margin: 0 0 0 -50px;
+}
+
+.review-box.theme-1 ul li.box1 .rating-view .rating-new {
+    position: absolute;
+    top: 3px;
+    left:auto;
+    right: -22px;
+    margin: 0 0 0 -50px;
+}
+
+.review-box.theme-1 ul li.box1,
+.review-box.theme-2 ul li.box2,
+.review-box.theme-3 ul li.box3,
+.review-box.theme-4 ul li.box4 {
+ 	display:block;
+}
+
+.reviews.theme-2 ul li {
+ 	border-left:solid 8px #fdb128;
+  	border-radius:0 0 30px 0;
+   	padding:30px 20px 10px 40px;
+    font-style:italic;
+}
+
+.reviews.theme-2 ul li p {
+ 	overflow:hidden;
+}
+
+.reviews.theme-2 ul li img {
+    border-radius:0;
+    width:40px;
+    height:40px;
+    left: 40px;
+    top: auto;
+    bottom: 14px;
+}
+
+.reviews.theme-2 ul li .before-quote {
+	opacity:1;
+ 	top:50px;
+  	left:10px;
+	font-style:normal;
+}
+
+.reviews.theme-2 ul li span {
+ 	text-align:left;
+  	padding:5px 0 20px 50px;
+   	margin:8px 0 0 0;
+	border-top:solid 1px #eaeaea;
+ 	line-height:26px;
+}
+
+.reviews.theme-2 ul li.no-image span {
+  	padding:5px 0 10px 0px;
+}
+
+.review-box.theme-2 a,
+.rating-box.theme-2 a {
+ 	border-radius:30px;
+}
+
+.rating-box.theme-2 .field input,
+.rating-box.theme-2 .field textarea {
+ 	border-radius:20px;
+}
+
+.rating-box.theme-2 .close {
+	border-radius:0px;
+}
+
+.reviews.theme-3 ul li .before-quote,
+.reviews.theme-3 ul li .after-quote {
+ 	opacity:1;
+}
+
+.reviews.theme-3 ul li .after-quote {
+ 	bottom: -5px;
+  	right:10px;
+}
+
+.reviews.theme-3 ul li .before-quote {
+    opacity: 1;
+    top: 48px;
+    left: 8px;
+	font-style:normal;
+}
+
+.reviews.theme-3 ul li {
+ 	padding:30px 40px 25px 40px;
+  	margin:0 0 70px 0;
+}
+
+.reviews.theme-3 ul li.no-image {
+  	margin:0 0 55px 0;
+}
+
+.reviews.theme-3 ul li img {
+ 	top:auto;
+ 	bottom:-60px;
+    width:60px;
+    height:60px;
+    border-width:5px;
+}
+
+.reviews.theme-3 ul li span {
+    position:absolute;
+    left:0px;
+    bottom:-50px;
+    text-align:left;
+    padding:0 0 10px 88px;
+    line-height:30px;
+    color:#fff;
+}
+
+.reviews.theme-3 ul li p {
+ 	position:relative;
+  	overflow:hidden;
+}
+
+.reviews.theme-3 ul li .arrow {
+ 	display:block;
+	bottom: -20px;
+    left: 97px;
+    border: solid transparent;
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border-color: rgba(194, 225, 245, 0);
+    border-top-color: #c2e1f5;
+    border-width: 10px;
+    margin-left: 0;  
+}
+
+.reviews.theme-4 {
+    height:100%;
+    width:100%;
+    overflow:hidden;
+    box-sizing:border-box;
+    padding:10px;
+}
+
+
+.reviews.theme-4 ul li {
+  	border-radius:0px;
+    padding:180px 40px 50px 40px;
+    -webkit-backface-visibility: hidden;
+    margin:0px;
+    border:solid 0 #F00;
+    overflow:hidden;
+}
+
+.reviews.theme-4 ul li .head_rating {
+     top: 137px;
+     left:0px;
+     text-align:center;
+}
+
+.reviews.theme-4 ul li .head_rating i {
+ 	float:none;
+	display:inline-block;
+}
+
+.reviews.theme-4 ul li.no-image {
+ 	padding:60px 40px 50px 40px;
+}
+
+.reviews.theme-4 ul li p {
+    overflow:auto;
+    max-height:100%;
+	-webkit-backface-visibility: hidden;
+    -webkit-transform:translate3d(0,0,0);
+    padding:0px;
+}
+
+.reviews.theme-4 ul li img {
+    left:50%;
+    top:10px;
+    width:90px;
+    height:90px;
+    margin:0 0 0 -45px;
+}
+
+.reviews.theme-4 ul li span {
+    position:absolute;
+    top:105px;
+    left:0px;
+    line-height:40px;
+    text-align:center;
+    padding:0 40px;    
+}
+
+.reviews.theme-4 ul li.no-image span {
+ 	top:15px;
+}
+
+.reviews.theme-4 .swiper-container {
+    height:100%;
+    width:100%; 
+    float:left;
+    z-index:0;
+    overflow:hidden;
+}
+
+.reviews.theme-4 .swiper-container .list {
+    width:auto;
+    z-index:1;
+    padding:0px;
+}
+
+.reviews.theme-4 ul li .before-quote {
+ 	opacity:1;
+ 	top: 190px;
+	left: 8px;
+}
+
+.reviews.theme-4 ul li.no-image .before-quote {
+ 	top:69px;
+}
+
+.reviews.theme-4 ul li p:after {
+    content:'"';
+    font-size:70px;
+    font-family:Georgia;
+    position:absolute;
+    right:0px;
+    bottom:-40px;
+    display:none;
+}
+
+.reviews.theme-4 ul li .after-quote {
+	position: relative;
+    float: right;
+    opacity: 1;
+    right: -22px;
+    top: -11px;
+}
+
+.hideBorder-1 * {
+	border:0px !important;
+}
+
+.sa .rating-box .field input,
+.sa .rating-box .field textarea {
+	padding:10px 40px 10px 10px;
+}
+
+.sa .rating-box .field.input i {
+ 	left:auto;
+  	right:0px;
+}
+
+.sa .rating-box .close {
+    right:auto;
+    left:0;
+}
+
+.sa .rating-box .field span.rating i {
+    float: right;
+    margin: 0 3px 0 0;
+}
+
+.sa .review-box ul li div.averageRatings,
+.sa .review-box ul li div.totalReviews {
+	float:right;
+}
+
+.sa .review-box ul li.box3 .size,
+.review-box ul li.box1 .size {
+	padding:0 55px 0 0;
+}
+
+.sa .review-box ul li.box3 .size i, 
+.sa .review-box ul li.box3 .size b {
+	float:right;
+     left:auto;
+     right:0px;
+}
+
+.sa .review-box ul li.box3 .size b {
+ 	left:auto;
+	right:30px;
+}
+
+.sa  .review-box ul li.box1 .size em em, 
+.sa  .review-box ul li.box3 .size em em {
+ 	float:right;
+}
+
+.sa .review-box ul li.box1 .icons i {
+ 	float:left;
+	margin:0 0 0 5px;
+}
+
+.sa .review-box ul li.box1 .size {
+ 	padding:0 10px 0 0;
+}
+
+.sa .reviews ul li .head_rating {
+    left:auto;
+    right:10px;
+    top: 10px;
+}
+
+.sa .reviews ul li .head_rating i {
+	float:right;
+}
+
+.sa .reviews ul li img {
+ 	left:auto;
+  	right:10px;
+}
+
+.sa .rating-new b.on {
+ 	right:0px;
+  	left:auto;
+}
+
+.sa .rating-new b.on i {
+ 	left:auto;
+	right:0px;
+}
+
+.sa .rating-new b.on i.star-2 {
+ 	right:20px;
+}
+
+.sa .rating-new b.on i.star-3 {
+ 	right:40px;
+}
+
+.sa .rating-new b.on i.star-4 {
+ 	right:60px;
+}
+
+.sa .rating-new b.on i.star-5 {
+ 	right:80px; 	
+}
+
+.sa .reviews ul li .before-quote,
+.sa .reviews ul li .after-quote {
+    transform: rotate(180deg);
+}
+
+.sa .reviews ul li {
+ 	padding:45px 80px 10px 10px;
+}
+
+.sa .reviews ul li img {
+ 	left:auto;
+  	right:10px;
+}
+
+.sa .reviews.theme-1 ul li span {
+     padding: 5px 0 10px 36px;
+     text-align:left;
+}
+
+.sa .review-box.theme-1 ul li.box1 .rating-view {
+ 	float:right;  	 	
+}
+
+.sa .review-box.theme-1 ul li.box1 .rating-view .rating-new {
+	margin: 0 0 0 0;
+    left: -22px;
+    right: auto;
+}
+
+.sa .review-box ul li.box1 p {	
+    text-align:right;
+    padding: 0 29px 0 0;
+    float:right;
+}
+
+.sa .reviews.theme-1 ul li .after-quote {
+    bottom: 34px;
+    left: 10px;
+    right: auto;
+}
+.sa .reviews.theme-1 ul li.no-image .before-quote {
+    right: 6px;
+    left: auto;
+    top: -12px;
+}
+
+.sa .reviews.theme-1 ul li .before-quote {
+    right: 80px;
+    left: auto;
+    top: 15px;
+}
+
+.sa .reviews.theme-2 ul li {
+    border-left: solid 0px #fdb128;
+    border-right: solid 8px #fdb128;
+    padding:30px 40px 10px 20px;
+    border-radius:0 0 0 30px;
+}
+
+.sa .reviews.theme-2 ul li span {
+    padding:5px 50px 20px 0;
+    text-align:right;
+}
+
+.sa .reviews.theme-2 ul li img {
+    left:auto;
+    right:40px;
+}
+
+.sa .reviews.theme-2 ul li .before-quote {
+    left: auto;
+    right: 10px;
+    top: 18px;
+}
+
+.sa .reviews.theme-3 ul li {
+    padding:15px 40px 25px 40px;
+}
+
+.sa .reviews.theme-3 ul li .before-quote {
+    left: auto;
+    right: 10px;
+    top: 8px;
+}
+
+.sa .reviews.theme-3 ul li .after-quote {
+    left: 9px;
+    right: auto;
+    bottom: 34px;
+}
+
+.sa .reviews.theme-3 ul li span {
+    padding:0 88px 10px 0;
+    text-align:right;
+}
+
+.sa .reviews.theme-3 ul li .arrow {
+    left:auto;
+    right:97px;
+}
+
+.sa .reviews.theme-4 ul li .head_rating {
+    top:137px;
+    left:auto;
+    right:0px;
+    text-align: center;
+}
+
+.sa .reviews.theme-4 ul li {
+    padding:180px 40px 50px 40px;
+}
+
+.sa .reviews.theme-4 ul li img {
+    left: 50%;
+    right:auto;
+}
+
+.sa .reviews.theme-4 ul li .head_rating i {
+    float: none;
+    display: inline-block;
+}
+
+.sa  .reviews.theme-4 ul li .before-quote {
+    left: auto;
+    right: 12px;
+    top: 151px;    
+}
+
+.sa .reviews.theme-4 ul li .after-quote {
+    left: -30px;
+    right: auto;
+    float: left;
+    top: -50px;
+}
+

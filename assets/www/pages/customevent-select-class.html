@@ -1,0 +1,55 @@
+<div class="navbar"><div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}}; font-size: {{@global.style.headerBarSize}} ">
+    <div class="left sliding">
+        <a href="index" class="link back" style="color:{{@global.style.headerBarTextColor}};">
+            <i class="icon icon-left-open-2"></i>
+        </a>
+    </div>
+    <div class="center sliding">
+        {{getEventName ""}}
+    </div>
+    <div class="right"><a  style="color:{{@global.style.headerBarTextColor}};">
+        <i class="icon iconz-location-chat--r"></i>
+    </a>
+    </div>
+</div></div>
+
+<div data-page="customevent-selectSeat" class="page navbar-through no-toolbar {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="color:{{@global.styleAndNavigation.content[2]}}; background:{{@global.styleAndNavigation.pageBackroundColor}}">
+    <style>
+.day-page .time-list a.on{color: {{@global.styleAndNavigation.tab[2]}} !important;}
+.day-page .time-list a.on::after{background: {{@global.styleAndNavigation.tab[2]}} !important;}  
+.available{color:{{@global.styleAndNavigation.availableColor}}}
+.not-available{color:{{@global.styleAndNavigation.notavailableColor}}}
+.event-page .content li {
+            border-color: {
+                {
+                    @global.styleAndNavigation.borderColor
+                }
+            }
+        }
+</style>
+    <!-- Page content-->
+    <div class="page-content">
+
+
+
+        <section class="section-events day-page event-back">
+            <div class="day-head">
+                <a class="dateSlider" style="color:{{@global.styleAndNavigation.content[2]}}">{{eDay}} <strong>{{eDate}}</strong> {{eMonth}} {{eYear}}</a>
+                <h4 class="{{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}};">{{eName}}</h4>
+                <span>{{eVenue}}</span>
+                <!--<a date="{{date}}">{{formatDateMe date "DDD <strong>dd</strong> mmm"}}</a>-->
+
+            </div>
+            <div class="days-list time-list" style="background-color: {{@global.styleAndNavigation.tab[0]}}; color: {{@global.styleAndNavigation.tab[1]}}; border-color: {{@global.styleAndNavigation.tab[2]}};">
+                {{#timeArr}}
+                <a href="#" onclick="getClasses(this,'{{start_time}}')" class="timeArr {{passedClass}}" style="color:{{@global.styleAndNavigation.content[2]}}; border-color: {{@global.styleAndNavigation.tab[2]}};">{{start_time}} <span>({{timeZone}})</span></a>
+                {{/timeArr}}
+            </div>
+
+            <div id="classListView">
+            </div>
+        </section>
+
+
+    </div>
+</div>

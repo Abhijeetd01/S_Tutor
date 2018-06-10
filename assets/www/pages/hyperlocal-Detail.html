@@ -1,0 +1,42 @@
+<div class="navbar">
+    <div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+            <div class="left sliding">
+              <a href="index" class="link back" style="color:{{@global.style.headerBarIconColor}};">
+                <i class="icon icon-left-open-2"></i>
+              </a>
+            </div>
+
+           <div class="center sliding">
+              <div class="topHeader {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}" id="headerHyper">{{#if header}}{{header}} {{/if}}</div>
+            </div>
+           <div class="right">
+               <a href="#" style="color:{{@global.style.headerBarIconColor}};" onclick="Appyscript.hyperLocalSaveDeleteBookMark(this)" id="bookmarkHyperlocal" value="">
+                   <i class="icon-bookmark-empty" ></i>
+                   
+               </a></div>
+           
+    </div>
+</div>
+
+<div data-page="hyperlocal-Detail" class="page navbar-through no-toolbar hideBorder-{{@global.styleAndNavigation.hideBorder}}" style="background-color: {{@global.styleAndNavigation.pageBgColor}}">
+
+            <!-- Page content-->
+            <div class="page-content">
+            <!-- Search code-->
+	<div data-loop="true" data-preload-images="false" data-lazy-loading="true" class="swiper-services swiper-container"> 
+        <div class="swiper-wrapper hyper-swiper">
+       
+        
+        {{#listingWithSubCategory.jobs}}
+        
+    <div class="swiper-slide service-slide data-{{@index}}" data-index="{{@index}}" data-id={{jobId}} data-lattitude={{latitude}} data-longitude={{longitude}} data-header={{#if header}}{{header}} {{/if}} data-address={{address}} data-mapThirdParty={{mapThirdParty}}  data-bookmark={{#if bookmark}}{{bookmark}}{{/if}} >
+        </div>
+        {{/listingWithSubCategory.jobs}}
+        
+        
+        </div>
+         
+    </div> 
+     
+            </div>
+          </div>

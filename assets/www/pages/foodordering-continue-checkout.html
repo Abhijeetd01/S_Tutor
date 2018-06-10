@@ -1,0 +1,274 @@
+<div class="navbar"><div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+    <div class="left sliding">
+        <a href="index" class="link back" style="color:{{@global.style.headerBarIconColor}};">
+            <i class="icon icon-left-open-2"></i>
+        </a>
+    </div>
+    <div class="center sliding {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">{{@global.pageLanguageSetting.checkout_food}}</div>
+    <div class="right"></div>
+</div></div>
+
+
+<div data-page="foodordering-ContinueCheckout" class="page navbar-through no-toolbar">
+
+
+    <div id="foodPopup" class="form-popup" ontouchmove="return false;">
+        <div class="form-view">
+            <h2 class="{{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}}">{{@global.pageLanguageSetting.store_time_food}}</h2>
+            <ul>
+                {{#rules.storeTime}}
+                <li>
+                    <div class="openingHour">
+                        <span class="day">{{@global.pageLanguageSetting.opening_time_food}} </span>
+                        <span class="day">{{open}}</span>
+                    </div>
+                    <div class="workingHour">
+                        <span class="day">{{@global.pageLanguageSetting.working_hours_food}} </span>
+                        <span class="day">{{close}}</span>
+                    </div>
+                </li>
+                {{/rules.storeTime}}
+            </ul>
+            <h2>{{@global.pageLanguageSetting.customer_time_food}}</h2>
+            <ul>
+                {{#rules.storeOperationTime}}
+                <li>
+                    <div class="openingHour">
+                        <span class="day">{{@global.pageLanguageSetting.start_time_food}} </span>
+                        <span class="day">{{open}}</span>
+                    </div>
+                    <div class="workingHour">
+                        <span class="day">{{@global.pageLanguageSetting.working_hours_food}} </span>
+                        <span class="day">{{close}}</span>
+                    </div>
+                </li>
+                {{/rules.storeOperationTime}}
+            </ul>
+            <a onclick="Appyscript.openPopupFood()" style="color:{{@global.styleAndNavigation.button[3]}};background:{{@global.styleAndNavigation.button[2]}};" class="icon-cancel"></a>
+        </div>
+    </div>
+
+    <!-- Page content-->
+    <div class="page-content {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}} content-{{@global.styleAndNavigation.content[3]}} heading-{{@global.styleAndNavigation.heading[3]}} hideBorder-{{@global.styleAndNavigation.hideBorder}}" style="color:{{@global.styleAndNavigation.content[2]}}; background:{{@global.styleAndNavigation.pageBgColor}}">
+        <style>
+            .newsTand-MobileTab a {
+            color:{{@global.styleAndNavigation.tab[1]}};
+            background:{{@global.styleAndNavigation.tab[0]}};
+            }
+
+            .newsTand-MobileTab .tabViewall a.active,
+            .newsTand-MobileTab .tabmyCollection a.active {
+            color:{{@global.styleAndNavigation.tab[1]}};
+            background:{{@global.styleAndNavigation.tab[2]}};
+            }
+            .dashboard ::-webkit-input-placeholder {
+            color:{{@global.styleAndNavigation.content[2]}} !important;
+            }
+            .dashboard :-moz-placeholder {
+            color:{{@global.styleAndNavigation.content[2]}} !important;
+            }
+            .dashboard ::-moz-placeholder {color:{{@global.styleAndNavigation.content[2]}} !important;
+            }
+            .dashboard :-ms-input-placeholder {
+            color:{{@global.styleAndNavigation.content[2]}} !important;
+            }
+            .payment-details ul li{border-color:{{@global.styleAndNavigation.borderColor}} !important}
+            }
+        </style>
+        <div class="dashboard scrolling-bottom">
+            <div class="wrap">
+                <div class="newsTand-MobileTab">
+
+                    <div class="tabViewall"><a href="#billingAddress" class="active" onclick="foodTabs(this)">{{@global.pageLanguageSetting.delivery_food}}</a></div>
+                    <div class="tabmyCollection"><a href="#picup" onclick="foodTabs(this)">{{@global.pageLanguageSetting.pickup_food}}</a></div>
+
+                </div>
+                <div class="tabs-wrap">
+                    <div class="tabs">
+                        <div class="billing-address tab active" id="billingAddress">
+                            <form id="foodOrderBilling">
+                                <h2 class="{{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}}">{{@global.pageLanguageSetting.default_billing_address_food}}</h2>
+                                <input data-role="none" id="bfname" type="text" value="{{billing.name}}" placeholder="{{@global.pageLanguageSetting.name_food}} *" name="name" class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="border-color:{{@global.styleAndNavigation.borderColor}}; color:{{@global.styleAndNavigation.content[2]}}">
+                                <input data-role="none" id="bpNo" type="text" value="{{billing.phone}}" class="numberlength numberValidation {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="border-color:{{@global.styleAndNavigation.borderColor}}; color:{{@global.styleAndNavigation.content[2]}}" maxlength="15" placeholder="{{@global.pageLanguageSetting.telephone_food}} *" name="phone">
+                                {{#if contactInfo.email}}
+                                <input data-role="none" id="bemail" type="text" value="{{contactInfo.email}}" placeholder="{{@global.pageLanguageSetting.email_id_food}} *"  name="email"  class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="border-color:{{@global.styleAndNavigation.borderColor}}; color:{{@global.styleAndNavigation.content[2]}}">
+                                {{else}}
+                                <input data-role="none" id="bemail" type="text" value="" placeholder="{{@global.pageLanguageSetting.email_id_food}} *"  name="email" class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="border-color:{{@global.styleAndNavigation.borderColor}}; color:{{@global.styleAndNavigation.content[2]}}">
+                                {{/if}}
+                                <textarea data-role="none" rows="2" id="bAddress" type="text" value="{{billing.address}}" placeholder="{{@global.pageLanguageSetting.address_food}} *" name="address" class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="border-color:{{@global.styleAndNavigation.borderColor}}; color:{{@global.styleAndNavigation.content[2]}}">{{billing.address}}</textarea>
+                                <input data-role="none" id="bCity" type="text" value="{{billing.city}}" placeholder="{{@global.pageLanguageSetting.city_food}} *" name="city" class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="border-color:{{@global.styleAndNavigation.borderColor}}; color:{{@global.styleAndNavigation.content[2]}}">
+                                <input data-role="none" id="bState" type="text" value="{{billing.state}}" placeholder="{{@global.pageLanguageSetting.state_province_food}} " name="state" class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="border-color:{{@global.styleAndNavigation.borderColor}}; color:{{@global.styleAndNavigation.content[2]}}">
+                                <input data-role="none" id="bZip" type="text" value="{{billing.zip}}" placeholder="{{@global.pageLanguageSetting.zip_postal_code_food}} " name="zip" class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="border-color:{{@global.styleAndNavigation.borderColor}}; color:{{@global.styleAndNavigation.content[2]}}">
+                                {{#if billing}}
+                                {{#if billing.country}}
+                                <div id="bcountryTry"><select id="bCountry" name="country" class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="border-color:{{@global.styleAndNavigation.borderColor}}; color:{{@global.styleAndNavigation.content[2]}}"><option value="{{billing.country}}">{{billing.country}}</option>{{getCountry "country"}}</select></div>
+                                {{else}}
+                                <div id="bcountryTry"><select id="bCountry" name="country" class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="border-color:{{@global.styleAndNavigation.borderColor}}; color:{{@global.styleAndNavigation.content[2]}}"><option value="{{billing.country}}">Select Country</option>{{getCountry "country"}}</select></div>
+                                {{/if}}
+                                {{else}}
+                                <div id="bcountryTry"><select id="bCountry" name="country" class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="border-color:{{@global.styleAndNavigation.borderColor}}; color:{{@global.styleAndNavigation.content[2]}}"><option value="{{billing.country}}">Select Country</option>{{getCountry "country"}}</select></div>
+                                {{/if}}
+                            </form>
+                            <div>
+                            </div>
+                            <div onclick="foodProfileCheckbox(this)" class="showBillingAddress {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" style="color:{{@global.styleAndNavigation.button[3]}};background:{{@global.styleAndNavigation.button[2]}};"  dir=".shipping-address">
+                                <span class="checkbox"></span>
+                                <input data-role="none" type="checkbox" id="show_billing_address">
+                                {{@global.pageLanguageSetting.shipping_add_diff_from_billing_food}}
+                            </div>
+
+                            <div class="shipping-address shippingView" id="billing_address" style="display: none;">
+                                <form id="foodOrderShipping">
+                                    <h2 class="{{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}}">{{@global.pageLanguageSetting.shipping_address_food}}</h2>
+                                    <input data-role="none" type="text" id="sfname" value="{{shipping.name}}" placeholder="{{@global.pageLanguageSetting.name_food}} *" name="name" class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="border-color:{{@global.styleAndNavigation.borderColor}}; color:{{@global.styleAndNavigation.content[2]}}">
+                                    <input data-role="none" type="text" id="spNo" value="{{shipping.phone}}" class="numberlength numberValidation {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="border-color:{{@global.styleAndNavigation.borderColor}}; color:{{@global.styleAndNavigation.content[2]}}" maxlength="15" placeholder="{{@global.pageLanguageSetting.telephone_food}} *" name="phone">
+                                    <textarea data-role="none" rows="2" type="text" id="ssAddress" value="{{shipping.address}}" placeholder="{{@global.pageLanguageSetting.address_food}} *" name="address" class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="border-color:{{@global.styleAndNavigation.borderColor}}; color:{{@global.styleAndNavigation.content[2]}}">{{shipping.address}}</textarea>
+                                    <input data-role="none" type="text" id="sCity" value="{{shipping.city}}" placeholder="{{@global.pageLanguageSetting.city_food}} *" name="city" class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="border-color:{{@global.styleAndNavigation.borderColor}}; color:{{@global.styleAndNavigation.content[2]}}">
+                                    <input data-role="none" type="text" id="sState" value="{{shipping.state}}" placeholder="{{@global.pageLanguageSetting.state_province_food}} *"  name="state" class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="border-color:{{@global.styleAndNavigation.borderColor}}; color:{{@global.styleAndNavigation.content[2]}}">
+                                    <input data-role="none" type="text" id="sZip" value="{{shipping.zip}}" placeholder="{{@global.pageLanguageSetting.zip_postal_code_food}} *" name="zip" class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="
+                                    border-color:{{@global.styleAndNavigation.borderColor}}; color:{{@global.styleAndNavigation.content[2]}}">
+                                    {{#if shipping}}
+                                    {{#if shipping.country}}
+                                    <div id="scountryTry" name="country"><select id="sCountry" class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="border-color:{{@global.styleAndNavigation.borderColor}}; color:{{@global.styleAndNavigation.content[2]}}"><option selected="selected"  value="{{shipping.country}}">{{shipping.country}}</option>{{getCountry "country"}}</select></div>
+                                    {{else}}
+                                    <div id="scountryTry" name="country"><select id="sCountry" class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="border-color:{{@global.styleAndNavigation.borderColor}}; color:{{@global.styleAndNavigation.content[2]}}"><option value="{{shipping.country}}">Select Country</option>{{getCountry "country"}}</select> </div>
+                                    {{/if}}
+                                    {{else}}
+                                    <div id="scountryTry" name="country"><select id="sCountry" class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="border-color:{{@global.styleAndNavigation.borderColor}}; color:{{@global.styleAndNavigation.content[2]}}"><option value="{{shipping.country}}">Select Country</option>{{getCountry "country"}}</select> </div>
+                                    {{/if}}
+                                </form>
+                            </div>
+                            <div class="e-mobileOH_tab open_tab billing-address" id="InstructionsTab">
+
+                                <form id="foodOrderInstructionsText">
+                                    <h2 class="{{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}}">{{@global.pageLanguageSetting.instructions_foodorder}}</h2>
+                                    <textarea name="instructionsText" placeholder={{@global.pageLanguageSetting.instructions_foodorder}} id="deliveryInstructionsText" data-role="none" class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="border-color:{{@global.styleAndNavigation.borderColor}}; color:{{@global.styleAndNavigation.content[2]}}"></textarea>
+                                </form>
+                            </div>
+
+                            <h2 class="{{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}}">{{@global.pageLanguageSetting.time_your_order}}</h2>
+                            <div onclick="foodasapCheckbox(this)" class="showBillingAddress {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" style="color:{{@global.styleAndNavigation.button[3]}};background:{{@global.styleAndNavigation.button[2]}};"  dir=".shipping-address">
+                                <span class="checkbox icon-ok-4" icon-ok-4"></span>
+                                <input data-role="none" type="checkbox" id="foodasapCheckboxid" >
+                                {{@global.pageLanguageSetting.asap}}
+                            </div>
+                            <div class="timeInput" id="deliveryTimececk" style="display:none">
+                                <input data-role="none" name="deliveryTime" id="dTime" type="time" placeholder="{{@global.pageLanguageSetting.preferred_deliverytime_Text_food}}" class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="border-color:{{@global.styleAndNavigation.borderColor}}; color:{{@global.styleAndNavigation.content[2]}}" value={{totalPickupETA}}>
+                                <input onclick="calenderopenfood()"  data-role="none" name="deliveryDate" id="dDate" type="date" placeholder="Preferred Delivery Time:-" class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="border-color:{{@global.styleAndNavigation.borderColor}}; color:{{@global.styleAndNavigation.content[2]}}" value={{totalPickupDate}} >
+
+                                <a class="view-store {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" style="color:{{@global.styleAndNavigation.button[3]}};background:{{@global.styleAndNavigation.button[2]}};" onclick="Appyscript.openPopupFood()">{{@global.pageLanguageSetting.view_storetime_food}}</a>
+                            </div>
+
+
+
+                            <!--  <select id="deliveryAddress">
+                                  <option value={{@global.pageLanguageSetting.Please_select_address_food}} selected="selected">{{@global.pageLanguageSetting.Please_select_address_food}}</option>
+                                  {{#rules.storeAddress}}
+                                  <option value="{{@index}}">{{this}}</option>
+                                  {{/rules.storeAddress}}
+                              </select>-->
+                            <div class="payment-details">
+                                <h2 class="{{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}}">{{@global.pageLanguageSetting.payment_details_food}}</h2>
+                                <ul class="pay-mobile-cart {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="color: {{@global.styleAndNavigation.content[2]}};">
+                                    <li  id="subtotalecom">{{@global.pageLanguageSetting.subtotal_food}}<span>{{format_currency currency}}{{subTotal}}</span></li>
+                                    {{#root_Compare @root.discountPrice "!=" "0.00"}}
+                                    <li  id="discountecom">{{@global.pageLanguageSetting.discount_food}} <span> {{format_currency currency}}{{discountPrice}}</span></li>
+                                    {{/root_Compare}}
+                                    {{#if couponDiscount}}
+                                    <li  style="display:block" id="coupanPrice">{{@global.pageLanguageSetting.coupon_food}}  <span>{{format_currency currency}}{{couponDiscount}}</span></li>
+                                    {{else}}
+                                    <li  style="display:none" id="coupanPrice">{{@global.pageLanguageSetting.coupon_food}}  <span>{{format_currency currency}}{{couponDiscount}}</span></li>
+                                    {{/if}}
+                                    {{#root_Compare @root.deliveryPrice "!=" "0.00"}}
+                                    <li  id="deliverychargeecom">{{@global.pageLanguageSetting.delivery_food}} <span> {{format_currency currency}}{{deliveryPrice}}</span></li>
+                                    {{/root_Compare}}
+                                    {{#root_Compare @root.taxPrice "!=" "0.00"}}
+                                    <li  id="taxecomecom">{{@global.pageLanguageSetting.tax_food}}  <span> {{format_currency currency}}{{taxPrice}}</span></li>
+                                    {{/root_Compare}}
+                                    {{#miscTax.list}}
+                                    {{#root_Compare @root.taxAmount "!=" "0.00"}}
+                                    <li  id="miscTaxecom">{{taxType}} <span> {{format_currency currency}}{{taxAmount}}</span></li>
+                                    {{/root_Compare}}
+                                    {{/miscTax.list}}
+                                    {{#if is_tip_allowed}}
+                                    <li  id="tipcharge">{{@global.pageLanguageSetting.tip_food}} <span> {{format_currency currency}}{{tipAmount}} </span></li>
+                                    {{/if}}
+                                    <li  id="gtotal">{{@global.pageLanguageSetting.grand_total_food}} <span class="gtotal grand-total">{{format_currency currency}}{{grandTotal}}</span></li>
+
+                                </ul>
+
+                            </div>
+                            <a class="e-user_save {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" style="color:{{@global.styleAndNavigation.button[3]}};background:{{@global.styleAndNavigation.button[2]}};" onclick="foodConfirmPayment(this,'delivery')">{{@global.pageLanguageSetting.confirm_food}}</a>
+                        </div>
+
+                        <div class="billing-address tab" id="picup">
+                            {{#if rules.storeAddress.length>1}}
+                            <select id="pickAddress">
+                                <option value={{@global.pageLanguageSetting.Please_select_address_food}} selected="selected">{{@global.pageLanguageSetting.Please_select_address_food}}</option>
+                                {{#rules.storeAddress}}
+                                <option value="{{@index}}">{{this}}</option>
+                                {{/rules.storeAddress}}
+                            </select>
+                            {{/if}}
+                            <div class="timeInput" >
+                            <input data-role="none" id="totalDeliveryETA" type="time" name="pickCurrentTime" placeholder="{{@global.pageLanguageSetting.Pickup_time_food}}" class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="border-color:{{@global.styleAndNavigation.borderColor}}; color:{{@global.styleAndNavigation.content[2]}}" value={{totalDeliveryETA}}></div>
+                            <input onclick="calenderopenfoodpick()"  data-role="none" name="pickCurrentDate" id="pickupDate" type="text" placeholder="Preferred Delivery Time:-" class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="border-color:{{@global.styleAndNavigation.borderColor}}; color:{{@global.styleAndNavigation.content[2]}}" value={{totalDeliveryDate}} >
+                            <a class="view-store {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" style="color:{{@global.styleAndNavigation.button[3]}};background:{{@global.styleAndNavigation.button[2]}};" onclick="Appyscript.openPopupFood()">{{@global.pageLanguageSetting.view_storetime_food}}</a>
+
+                            <textarea placeholder={{@global.pageLanguageSetting.instructions_foodorder}} id="pickInstruction" class="comments {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="border-color:{{@global.styleAndNavigation.borderColor}}; color:{{@global.styleAndNavigation.content[2]}}"></textarea>
+
+                            {{#root_Compare @root.rules.apply_online_payment_at_pickup "==" "1"}}
+
+
+                            <div onclick="foodOrderProfileCheckboxPickup(this)" class="showBillingAddress {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" style="color:{{@global.styleAndNavigation.button[3]}};background:{{@global.styleAndNavigation.button[2]}};"  dir=".shipping-address">
+                                <span class="checkbox"></span>
+                                <input data-role="none" type="checkbox" id="show_billing_address">
+                                Billing Address
+                            </div>
+                            {{/root_Compare}}  
+                            <div class="shipping-address shippingView" id="billing_address" style="display: none;">
+                                <form id="foodorderBillingpickup">
+                                    <h2 class="{{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}}">Billing Address</h2>
+                                    <input data-role="none" id="bfname" type="text" value="{{billing.name}}" placeholder="Name *" name="name" class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="border-color:{{@global.styleAndNavigation.borderColor}}; color:{{@global.styleAndNavigation.content[2]}}">
+                                    <input data-role="none" id="bpNo" type="text" value="{{billing.phone}}" class="numberlength numberValidation {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="border-color:{{@global.styleAndNavigation.borderColor}}; color:{{@global.styleAndNavigation.content[2]}}" maxlength="15" placeholder="{{@global.pageLanguageSetting.telephone_food}} *" name="phone">
+                                    {{#if contactInfo.email}}
+                                    <input data-role="none" id="bemail" type="text" value="{{contactInfo.email}}" placeholder="Email *"  name="email"  class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="border-color:{{@global.styleAndNavigation.borderColor}}; color:{{@global.styleAndNavigation.content[2]}}">
+                                    {{else}}
+                                    <input data-role="none" id="bemail" type="text" value="" placeholder="Email *"  name="email" class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="border-color:{{@global.styleAndNavigation.borderColor}}; color:{{@global.styleAndNavigation.content[2]}}">
+                                    {{/if}}
+                                    <textarea data-role="none" rows="2" id="bAddress" type="text" value="{{billing.address}}" placeholder="{{@global.pageLanguageSetting.address_food}} *" name="address" class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="border-color:{{@global.styleAndNavigation.borderColor}}; color:{{@global.styleAndNavigation.content[2]}}">{{billing.address}}</textarea>
+                                    <input data-role="none" id="bCity" type="text" value="{{billing.city}}" placeholder="{{@global.pageLanguageSetting.city_food}} *" name="city" class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="border-color:{{@global.styleAndNavigation.borderColor}}; color:{{@global.styleAndNavigation.content[2]}}">
+                                    <input data-role="none" id="bState" type="text" value="{{billing.state}}" placeholder="{{@global.pageLanguageSetting.state_province_food}} " name="state" class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="border-color:{{@global.styleAndNavigation.borderColor}}; color:{{@global.styleAndNavigation.content[2]}}">
+                                    <input data-role="none" id="bZip" type="text" value="{{billing.zip}}" placeholder="{{@global.pageLanguageSetting.zip_postal_code_food}} " name="zip" class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="border-color:{{@global.styleAndNavigation.borderColor}}; color:{{@global.styleAndNavigation.content[2]}}">
+                                    {{#if billing}}
+                                    {{#if billing.country}}
+                                    <div id="bcountryTry"><select id="bCountry" name="country" class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="border-color:{{@global.styleAndNavigation.borderColor}}; color:{{@global.styleAndNavigation.content[2]}}"><option value="{{billing.country}}">{{billing.country}}</option>{{getCountry "country"}}</select></div>
+                                    {{else}}
+                                    <div id="bcountryTry"><select id="bCountry" name="country" class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="border-color:{{@global.styleAndNavigation.borderColor}}; color:{{@global.styleAndNavigation.content[2]}}"><option value="{{billing.country}}">Select Country</option>{{getCountry "country"}}</select></div>
+                                    {{/if}}
+                                    {{else}}
+                                    <div id="bcountryTry"><select id="bCountry" name="country" class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="border-color:{{@global.styleAndNavigation.borderColor}}; color:{{@global.styleAndNavigation.content[2]}}"><option value="{{billing.country}}">Select Country</option>{{getCountry "country"}}</select></div>
+                                    {{/if}}
+                                </form>
+
+                            </div>
+
+                            <a class="e-user_save {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" style="color:{{@global.styleAndNavigation.button[3]}};background:{{@global.styleAndNavigation.button[2]}};" onclick="foodConfirmPayment(this,'pickup')">{{@global.pageLanguageSetting.confirm_food}}</a>
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+
+</div>
+</div>

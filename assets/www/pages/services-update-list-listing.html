@@ -1,0 +1,31 @@
+<div class="navbar"><div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+            <div class="left sliding">
+              <a href="index" class="link back" style="color:{{@global.style.headerBarIconColor}};">
+                <i class="icon icon-left-open-2"></i>
+              </a>
+            </div>
+           <div class="center sliding">
+               <div class="topHeader  {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">{{@global.pageLanguageSetting.add_update_listing_dir}}</div>
+            </div> 
+          </div></div>
+
+<div data-page="services-updateListListing" class="page navbar-through no-toolbar hideBorder-{{@global.styleAndNavigation.hideBorder}}" style="background-color: {{@global.styleAndNavigation.pageBgColor}}">
+   
+            <!-- Page content-->
+            <div class="page-content">
+                <ul class="review bookmark-list">
+                    {{#listing.list}}
+                    <li id='{{listId}}addList' style="border-color:{{@global.styleAndNavigation.borderColor}}; position:relative;" ><span style="display: inline-block; width: calc(100% - 35px);" onclick="Appyscript.updateListingDeatil({{listId}},{{catId}})"><span class="hyper-comt-pic">
+                      <img width="50px" src="images/image-1x1.png" alt="" style="background-image:url({{image}}); background-size:cover" class="dirImgMain"> </span><p class="hyper-comt-txt"><strong class="{{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}" style="color:{{@global.styleAndNavigation.subheading[2]}}; text-align:{{@global.styleAndNavigation.subheading[3]}}">{{header}}</strong><br><span class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="color:{{@global.styleAndNavigation.content[2]}}; text-align:{{@global.styleAndNavigation.content[3]}}">{{summary}}</span>
+                        </p></span>
+                        <a class="close icon-cancel link close-popup deleteListing" style="color:
+                            {{@global.styleAndNavigation.icon[1]}}; right: 5px;
+                            font-size: 24px;
+                            top: -5px;
+                            padding: 5px;
+                            z-index: 1;" href="#" onclick="directoryPageDeleteMobile({{listId}})"></a>
+                  </li>
+                  {{/listing.list}}
+                </ul>
+			</div>
+      </div>

@@ -1,0 +1,50 @@
+<div class="navbar"><div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}}; font-size: {{@global.style.headerBarSize}} ">
+            <div class="left sliding">
+              <a href="index" class="link back" style="color:{{@global.style.headerBarTextColor}};">
+                <i class="icon icon-left-open-2"></i>
+              </a>
+            </div>
+           <div class="center sliding">
+               {{getEventName "false"}}
+            </div>
+            <div class="right"></div>
+          </div></div>
+
+<div data-page="customevent-detailListVenue" class="page navbar-through no-toolbar {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="color:{{@global.styleAndNavigation.content[2]}}; background:{{@global.styleAndNavigation.pageBackroundColor}}">
+<style>
+ .day-page .days-list a.on{color: {{@global.styleAndNavigation.tab[2]}} !important;}
+.day-page .days-list a.on::after{background: {{@global.styleAndNavigation.tab[2]}} !important;}  
+.day-page .ticket-type.border {
+    border-color:{{@global.styleAndNavigation.borderColor}};
+}
+</style>
+<!-- Page content-->
+    <div class="page-content">	
+    
+    
+    
+    <section class="section-events day-page event-search">
+        
+        
+<div class="days-list" style="background-color: {{@global.styleAndNavigation.tab[0]}}; color: {{@global.styleAndNavigation.tab[1]}}; border-color: {{@global.styleAndNavigation.tab[2]}};">
+    {{#dates}}
+    <a href="#" onclick="changeEventsSlide(this, {{ts}})" data-index = "{{@index}}" class="dateSlider" style="color:{{@global.styleAndNavigation.content[2]}}; border-color: {{@global.styleAndNavigation.tab[2]}};">{{day}} <strong>{{date}}</strong> {{month}} {{#if occursOn}} {{year}} {{/if}}</a>
+    {{/dates}}
+<!--    {{/dates}}-->
+<!--<a href="#" class="">MON <strong>21</strong> DEC</a>-->
+<!--<a href="#" class="">MON <strong>21</strong> DEC</a>-->
+<!--<a href="#">MON <strong>21</strong> DEC</a>-->
+<!--<a href="#">MON <strong>21</strong> DEC</a>-->
+<!--<a href="#">MON <strong>21</strong> DEC</a>-->
+<!--<a href="#">MON <strong>21</strong> DEC</a>-->
+</div>
+
+<div id="eventListByVenue">
+
+</div>
+
+<!--{{/if}}-->
+</section>
+    
+    </div>
+</div>

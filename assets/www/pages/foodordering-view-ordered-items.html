@@ -1,0 +1,64 @@
+<div class="navbar"><div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+    <div class="left sliding">
+			<a href="index" class="link back" style="color:{{@global.style.headerBarIconColor}};">
+			<i class="icon icon-left-open-2"></i>
+			</a>
+		</div>
+		<div class="center sliding {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">
+			<div class="topHeader">{{@global.pageLanguageSetting.order_detail_food}}</div>
+		</div>
+		<div class="right">
+            <a onclick="Appyscript.foodcardview(this)" class="localHeaderIconRight ui-link" style="color:{{@global.style.headerBarIconColor}};"> <span class="subValue" style="color:{{@global.styleAndNavigation.button[3]}};background:{{@global.styleAndNavigation.button[2]}};">{{@global.foodCartCount}}</span><div class="headerIcon"><i class="icon-cart"></i></div></a>
+		</div>
+	</div>
+</div>
+
+
+<div data-page="foodordering-ViewOrderedItems" class="page navbar-through toolbar-fixed no-toolbar">
+    <!-- Page content-->
+<div class="page-content {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}} content-{{@global.styleAndNavigation.content[3]}} heading-{{@global.styleAndNavigation.heading[3]}} hideBorder-{{@global.styleAndNavigation.hideBorder}}" style="color:{{@global.styleAndNavigation.content[2]}}; background:{{@global.styleAndNavigation.pageBgColor}}">
+<div class="mcomContainer">
+    <ul>
+    	<li>
+         <div class="swiper-container  swiper-init  orderproduct-swiper" index="{{index}}">
+         <div class="swiper-wrapper">
+            {{#productList}}
+             <div class="swiper-slide detailsoredr-swiper-slide" data-id="{{id}}">
+             	<div class="slideImage">
+                 {{#productImages}}                 
+                    <img class="ImgMain" style="background-image:url({{productImage}})" alt="" src="images/image-2x1.png">
+                 {{/productImages}}
+                 <h3 class="view-order-items {{@global.styleAndNavigation.title[0]}} {{@global.styleAndNavigation.title[1]}}" style="color:{{@global.styleAndNavigation.title[3]}};background:{{@global.styleAndNavigation.title[2]}};">
+                     {{#js_compare "this.foodType == 'Veg'"}}
+                     <span class="appyicon-veg-nonveg" style="color:green; font-size:22px; float: left; margin-right: 5px;"></span>
+                     {{/js_compare}}
+                     {{#js_compare "this.foodType == 'Non-Veg'"}}
+                     <span class="appyicon-veg-nonveg" style="color:red; font-size:22px; float: left; margin-right: 5px;"></span>
+                     {{/js_compare}}
+                     {{productName}}</h3>
+                 </div>
+                
+                <div class="discription_box" style="position:relative;">
+                    <ul class="view-product-attribute">
+                        <li><span>{{@global.pageLanguageSetting.quantity_food}}:</span><strong>{{quantity}}</strong></li>
+                        <li><span>{{@global.pageLanguageSetting.price_food}}:</span><strong>{{format_currency currency}}{{price}}</strong></li>
+                        <li><span>{{@global.pageLanguageSetting.subtotal_food}}:</span><strong>{{format_currency currency}}{{js "parseFloat(this.price  *  this.quantity).toFixed(2)"}}</strong></li>
+                        {{#js_compare "this.custom_option != ''"}}
+                            <li><span>Custom option:</span><strong>{{custom_option}}</strong></li>
+                        {{/js_compare}}
+                        <li>
+                            <a class="viewItem pull-left {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" style="color:{{@global.styleAndNavigation.button[3]}};background:{{@global.styleAndNavigation.button[2]}};" data-animate="true" onclick="foodPostReview(this, '{{id}}');"  product-id="{{id}}" data-head="{{productName}}" data-back="back">{{@global.pageLanguageSetting.post_review_food}}</a>
+                            <a class="viewItem pull-right {{@global.styleAndNavigation.secondaryButton[0]}} {{@global.styleAndNavigation.secondaryButton[1]}}" style="color:{{@global.styleAndNavigation.secondaryButton[3]}};background:{{@global.styleAndNavigation.secondaryButton[2]}};" data-animate="true" onclick="foodProductReOrder(this, '{{id}}', '{{catId}}');"  product-id="{{id}}" data-head="{{productName}}"  data-back="back">{{@global.pageLanguageSetting.reorder_food}}</a>
+                        </li>
+                    </ul>
+                </div>
+                </div>
+            {{/productList}}
+            </div>
+            </div>
+        </li>
+    </ul>
+</div>
+
+</div>
+</div>

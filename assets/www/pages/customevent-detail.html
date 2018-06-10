@@ -1,0 +1,132 @@
+<div class="navbar"><div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}}; font-size: {{@global.style.headerBarSize}} ">
+            <div class="left sliding">
+              <a href="index" class="link back" style="color:{{@global.style.headerBarTextColor}};">
+                <i class="icon icon-left-open-2"></i>
+              </a>
+            </div>
+            
+           <div class="center sliding">
+               <div class="topHeader">{{eventName}}
+            </div>              
+
+            </div> 
+            <div class="right">
+            {{#js_compare "this.isBookmarked == false"}}
+            <a id="bookmarkIcon" onclick="Appyscript.bookmarkIt('{{eventId}}')" style="color:{{@global.style.headerBarTextColor}};">
+                <i class="icon icon-bookmark-empty"></i>
+              </a>
+            {{else}}
+            <a onclick="Appyscript.remBookmark('{{bId}}')" style="color:{{@global.style.headerBarTextColor}};">
+                <i class="icon icon-bookmark-1"></i>
+            </a>
+            {{/js_compare}}
+            </div>
+          </div></div>
+
+<div data-page="customevent-detail" class="page navbar-through  toolbar-through   toolbar-bottom {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="color:{{@global.styleAndNavigation.content[2]}}; background:{{@global.styleAndNavigation.pageBackroundColor}}">
+<!-- Page content-->
+    <div class="page-content">	
+    
+    
+    
+<section class="section-events event-page event-detail">
+<div class="detail-banner">
+  
+
+ <div data-pagination=".swiper-pagination" data-preload-images="false" data-lazy-loading="true" class="swiper-container swiper-init">  
+        <div class="swiper-wrapper">
+            
+           {{#media}}
+                {{#js_compare "this.type == 'image'"}}
+                
+              <div class="swiper-slide" >
+                  <div class="event-item-price"  style="background:{{@global.styleAndNavigation.title[2]}}; color:{{@global.styleAndNavigation.title[3]}};">{{getPriceRange @root.priceRange}}</div>
+              <img data-src="images/image-2x1.png" class="swiper-lazy img-style" style="background-image:url({{src}});"/>
+              <div class="preloader"></div>
+              </div>
+              {{else}}
+              {{#js_compare "this.type == 'video'"}}
+              <div class="swiper-slide" onclick="ce_playVideo('{{youtubeID src}}');">
+                  <div class="event-item-price"  style="background:{{@global.styleAndNavigation.title[2]}}; color:{{@global.styleAndNavigation.title[3]}};">{{getPriceRange @root.priceRange}}</div>
+                  <img src="images/transparent-bg.png" class="swiper-lazy" style="background-image:url(http://img.youtube.com/vi/{{youtubeID src}}/default.jpg); "/>
+                  <div class="video-icon icon-play-circle2-1"></div>
+                  <div class="preloader"></div>
+              </div>
+              {{/js_compare}}
+              {{/js_compare}}
+           {{/media}}
+           
+           
+        </div>
+       <!-- <div class="swiper-pagination "></div>-->
+    </div>
+
+
+<div class="customEvContainer" style="background:none">
+
+<span class="customEv-left">
+ 
+</span>
+<span class="customEv-addons">
+	
+    <a href="#" class="icon-share-1" onclick="shareThisEvent('{{eventName}}','{{media[0].src}}','');" style="background:{{@global.styleAndNavigation.iconBackground}}; color:{{@global.styleAndNavigation.iconColor}}"></a>
+    <a href="#" class="icon-location-2" onclick="startMap('{{eventId}}')" style="background:{{@global.styleAndNavigation.iconBackground}}; color:{{@global.styleAndNavigation.iconColor}}"></a>
+    <a href="#" onclick="Appyscript.readReview('{{eventId}}');" class="rating-icon" style="background:{{@global.styleAndNavigation.iconBackground}}; color:{{@global.styleAndNavigation.iconColor}}"><i class="iconz-star"></i>{{rating}}</a>
+    <!--<a href="#" class="icon-calendar-4"></a>-->
+</span> 
+</div>
+</div>
+<div class="content">
+ 
+<ul>
+
+<li style="border-color:{{@global.styleAndNavigation.borderColor}}"><span class="{{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}};"><strong>{{@global.pageLanguageSetting.genre}}</strong></span>
+    <p>{{genre}}</p>
+</li>
+
+{{#attributes}}
+{{#js_compare "this.attributeTitle != '' "}}
+<li style="border-color:{{@global.styleAndNavigation.borderColor}}"><span>{{attributeTitle}}</span> <span class="ftevRight">{{attributeValue}}</span></li>
+{{/js_compare}}
+{{/attributes}}
+  
+  <li style="border-color:{{@global.styleAndNavigation.borderColor}}"><span class="{{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}};"><strong>{{descriptionKey}}</strong></span>
+<p>{{description}}</p>
+</li>
+  
+  
+</ul>
+</div>
+
+
+<!--add style and nav-->
+{{#js_compare "this.termsCondition != '' "}}
+<div class="accordion-item">
+    <a class="order-id item-link genre icon-right-open" onclick="ce_expandTerms(this)" style="border-top:solid 1px {{@global.styleAndNavigation.borderColor}}; border-color:{{@global.styleAndNavigation.borderColor}};color:{{@global.styleAndNavigation.content[2]}}">{{termsConditionKey}}</a>
+        <div id="containerTNC" class="order-row" style="display:none">
+        <div class="accordion-item" style="padding:10px;">
+            <p>{{termsCondition}}</p>
+        </div>
+    </div>
+</div>
+{{/js_compare}}
+
+
+
+
+
+
+
+
+
+</section>
+
+
+
+    </div>
+    <div class="toolbar">
+    <div class="toolbar-inner">
+        <a onclick="getVenuesByEvent('{{eventId}}')" data-id="{{../id}}" class="btn {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" style="background-color: {{@global.styleAndNavigation.button[2]}}; color: {{@global.styleAndNavigation.button[3]}};">{{@global.pageLanguageSetting.book}}</a>
+    </div>
+</div>
+</div>

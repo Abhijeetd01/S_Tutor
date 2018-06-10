@@ -1,0 +1,101 @@
+<div class="popup menu-popup tablet-fullscreen">
+    <div class="view">
+        <div class="navbar">
+    <div class="navbar-inner" style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+        
+        <div class="left sliding">
+             <a class="close  link close-popup" href="#" style="color:{{@global.style.headerBarIconColor}};font-size:14px" >{{@global.pageLanguageSetting.common_cancel}} </a>
+        </div>
+        
+        <div class="center sliding">
+            <div class="topHeader {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">
+                {{@global.pageLanguageSetting.Filter}}
+            </div>
+        </div>
+        
+        <div class="right">
+            <a href="#" style="color:{{@global.style.headerBarIconColor}};font-size:14px" onclick="Appyscript.hotelresetparamsearch()" class="icon  cursor-pointer close-popup" >        {{@global.pageLanguageSetting.fc_reset}}</a>
+        </div>
+    </div>
+</div>
+        <div data-page="accommodation-filter-page"  class="page navbar-through toolbar-through">
+    <div class="page-content {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}} hideBorder-{{@global.styleAndNavigation.hideBorder}}" style="color:{{@global.styleAndNavigation.content[2]}};  background:{{@global.styleAndNavigation.pageBgColor}}">
+    <style>
+		.hotelListCommen li{border-color:{{@global.styleAndNavigation.borderColor}}}
+		.hotelListCommen li#allmenitiesfilter i{color:{{@global.styleAndNavigation.icon[1]}}}
+		.filterCheck label{color:{{@global.styleAndNavigation.activeColor}}}
+		.filterCheck label.on{color:{{@global.styleAndNavigation.content[2]}}}
+		.noUi-connect {background-color: {{@global.styleAndNavigation.secondaryButton[2]}}}
+        .ratingclassess{color:{{@global.styleAndNavigation.secondaryButton[3]}};background:{{@global.styleAndNavigation.secondaryButton[2]}}}
+		.htRating li.active{background-color: {{@global.styleAndNavigation.button[2]}} !important; color: {{@global.styleAndNavigation.button[3]}} !important}
+        
+	</style>
+        <ul class="hotelListCommen">
+            <li>
+                
+                <div class="hotelRangSlider offsetbottom25">
+                    <h2 class="{{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}}; text-align:{{@global.styleAndNavigation.heading[3]}};">{{@global.pageLanguageSetting.pricerange}}</h2>
+                    
+                    
+                       <span  >{{@global.hotelcurency}}</span>
+                    <span class="min" id="hotelRangeValueMin">{{pageList.priceRange.minPrice}}</span>
+                    <span style="float: right" >{{@global.hotelcurency}}</span>
+                    <span class="max" id="hotelRangeValueMax">{{pageList.priceRange.maxPrice}}</span>
+                    
+                    <input id="hotelrangMin" type="text" min ="{{pageList.priceRange.minPrice}}" max="{{pageList.priceRange.maxPrice}}" step ="1" value ="" style="width:100%;" />
+                    <input id="hotelrangMax" type="text" min ="{{pageList.priceRange.minPrice}}" max="{{pageList.priceRange.maxPrice}}" step ="1" value ="" style="width:100%;" />
+                    <div id="accommodationrangGet"></div>
+                </div>
+                
+                
+            </li>
+            <li   id="roomtypefilter" class="filterCheck">
+                   <h2 class="{{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}}; text-align:{{@global.styleAndNavigation.heading[3]}};"> {{@global.pageLanguageSetting.property_type}}</h2>
+                {{#pageList.propertyType}}
+                <input type="checkbox" name="checkbox1"/>
+                <label for="checkbox1" id="{{id}}" class="on iconz-uncheckbox">
+                    {{name}}</label>
+                {{/pageList.propertyType}}
+            </li>
+            <li><h2 class="{{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}}; text-align:{{@global.styleAndNavigation.heading[3]}};">{{@global.pageLanguageSetting.rating_dir}}</h2> </li>
+            
+            <li>
+                <ul class="htRating">
+                    <li class="ratingclassess" >1 <i class="icon-star-1"></i></li>
+                     <li class="ratingclassess" >2<i class="icon-star-1"></i></li>
+                     <li class="ratingclassess" >3<i class="icon-star-1"></i></li>
+                     <li class="ratingclassess" >4 <i class="icon-star-1"></i></li>
+                     <li class="ratingclassess" >5<i class="icon-star-1"></i></li>
+                </ul>
+            </li>
+            
+            <li id="allmenities"><h2 class="margin-top-30 {{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}}; text-align:{{@global.styleAndNavigation.heading[3]}};">{{@global.pageLanguageSetting.amenities}} </h2> </li>
+            
+            <div id="amini" style="overflow: scroll !important;
+                max-height: 300px;
+                height: 300px;
+                width: 100%;
+                display: inline-block;">
+            {{#pageList.amenitiesType}}
+            <li  id="allmenitiesfilter"   class="filterCheck">
+                <input type="checkbox" name="checkbox1"/>
+                <label for="checkbox1" id="{{id}}" class="on iconz-uncheckbox">{{#js_compare "this.imageType === 'custom' "}}
+                    <img src="{{image}}" >
+                        
+                        {{else}}<i class="{{image}}"></i>{{/js_compare}} {{name}}</label>
+                
+            </li>
+            {{/pageList.amenitiesType}}
+                   </div>
+            
+        </ul>
+    </div>
+    
+    <div class="toolbar close-tutorial" onclick="openfilterhotel();">
+        <div class="toolbar-inner">
+            <a  class="toolbarButton {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}} " style="background-color: {{@global.styleAndNavigation.button[2]}}; color: {{@global.styleAndNavigation.button[3]}};">Search </a>
+        </div>
+    </div>
+</div>
+	</div>
+</div>

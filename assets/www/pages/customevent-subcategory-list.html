@@ -1,0 +1,57 @@
+<div class="navbar"><div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}}; font-size: {{@global.style.headerBarSize}} ">
+            <div class="left sliding">
+              <a href="index" class="link back" style="color:{{@global.style.headerBarTextColor}};">
+                <i class="icon icon-left-open-2"></i>
+              </a>
+            </div>
+           <div class="center sliding">
+               <div class="topHeader">{{subCatName}}</div>
+            </div> 
+            
+          </div></div>
+
+<div data-page="customevent-subcategorylist" class="page navbar-through toolbar-through {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="color:{{@global.styleAndNavigation.content[2]}}; background:{{@global.styleAndNavigation.pageBackroundColor}}">
+<style>
+.ratingView i{color:{{@global.styleAndNavigation.iconColor}}}
+</style>
+<!-- Page content-->
+    <div class="page-content">	 
+        {{#js_compare "this.list.length == 0"}}
+        <div class="msg-code">{{> errorpage errorIcon="appyicon-no-data"}}</div>
+        {{/js_compare}}
+        {{#js_compare "this.list.length != 0"}}
+<section id="results" class="section-events list-view">
+<div class="swiper-container">
+
+
+    <div class="swiper-slide">
+    
+        <ul class="events-list">
+        {{#list}} 
+<!--           <li>-->
+<!--            <img src="images/image-2x1.png" class="subcategory" style="background-image:url({{images[0]}})" index="{{@index}}" onclick="Appyscript.customeventDetails(this)" data-id="{{eventId}}">-->
+<!--<div class="{{@global.styleAndNavigation.title[0]}} {{@global.styleAndNavigation.title[1]}}" style="background:{{@global.styleAndNavigation.title[2]}}; color:{{@global.styleAndNavigation.title[3]}};">-->
+<!--<h2>{{eventName}}</h2>-->
+<!--<span class="type {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="color:{{@global.styleAndNavigation.content[2]}};">{{eventName}}</span>-->
+<!--<span class="event-date {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="color:{{@global.styleAndNavigation.content[2]}};">{{formatDateMe date "mmm dd, yyyy"}}</span>-->
+<!--<span class="rating  {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="color:{{@global.styleAndNavigation.content[2]}};">Rating {{formatRating rating}}</span>-->
+<!--<a onclick="Appyscript.customeventDetails(this)" index="{{@index}}" data-id="{{eventId}}" class="{{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" style="background-color: {{@global.styleAndNavigation.button[2]}}; color: {{@global.styleAndNavigation.button[3]}};">Book</a>-->
+<!--</div>-->
+<!--            </li>-->
+
+           
+           <li class="eventslist">
+               <div class="event-item-price {{@global.styleAndNavigation.title[0]}} {{@global.styleAndNavigation.title[1]}}" style="background:{{@global.styleAndNavigation.title[2]}}; color:{{@global.styleAndNavigation.title[3]}};" showPrice="{{show_price}}">{{getPriceRange priceRange}}</div> <img src="images/image-2x1.png" style="background-image:url({{imagePath}}{{images[0]}})" index="{{@index}}" onclick="Appyscript.customeventDetails(this)" data-id="{{eventId}}">
+                   <div onclick="Appyscript.customeventDetails(this)" data-id="{{eventId}}"  class="{{@global.styleAndNavigation.title[0]}} {{@global.styleAndNavigation.title[1]}}" style="background:{{@global.styleAndNavigation.title[2]}}; color:{{@global.styleAndNavigation.title[3]}};">
+                       <h2>{{eventName}}</h2> <span class="type  {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="color:{{@global.styleAndNavigation.content[2]}}">{{getDateForRange dateRange}}</span><span class="rating  {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="color:{{@global.styleAndNavigation.content[2]}}">{{formatRating rating}}</span>
+                       <!--Summary will be come here not cat name--> </div><a onclick="getVenuesByEvent('{{eventId}}')" index="{{@index}}" data-id="{{eventId}}" class="{{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" style="background-color: {{@global.styleAndNavigation.button[2]}}; color: {{@global.styleAndNavigation.button[3]}};">{{@global.pageLanguageSetting.book}}</a>
+                   </li>
+           {{/list}} 
+        </ul>
+    
+</div>
+</div>
+</section>
+{{/js_compare}}
+    </div>
+</div>

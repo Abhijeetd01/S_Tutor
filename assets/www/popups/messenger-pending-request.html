@@ -1,0 +1,41 @@
+<div class="popup menu-popup tablet-fullscreen">
+    
+    <div class="navbar"><div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+        <div class="left sliding">
+            <a href="index" class="link close-popup" style="color:{{@global.style.headerBarIconColor}};">
+                <i class="icon icon-left-open-2"></i>
+            </a>
+        </div>
+        <div class="center sliding {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">{{@global.pageLanguageSetting.Contacts_Tab_Pending_Request}}</div>
+        <div class="right">
+        </div>
+    </div></div>
+    
+    
+    <div class="page navbar-through no-toolbar">
+        <div class="backgroundAnimation">
+            <div class="view background-view">{{> mainBackground}}</div>
+        </div>
+        <div class="page-content">
+     {{#js_compare "this.data == null"}} {{> nodata}} {{else}} {{#if this.data.length}}
+        <div class="list-block media-list inset nopadding nomargin" style="margin-left:0px;margin-right:0px;">
+            <ul style="background: rgba(57, 57, 57, 0.09);"> {{#each data}}
+                <li onclick="acceptRequest('{{this.name}}','{{this.profilepic}}','{{this.userId}}','{{filterCountryName this.country}}',this,'pending')">
+                    <a href="#" class="item-link item-content">
+                        <div class="item-media"> {{#if profilepic}} <img src="{{this.profilepic}}" class="avatar avatar-rounded chatlistimgprofile " width="44"> {{else}}
+                            <div class="avatar avatar-lg avatar-rounded {{getRandomColor name}}" style="line-height: 44px; font-size: 2.5rem;width:44px;height:44px;" title="" data-original-title="a_5mith">{{filterFirstName name}}</div> {{/if}} </div>
+                        <div class="item-inner">
+                            <div class="item-title-row">
+                                <div class="item-title">{{name}}</div>
+                            </div>
+                            <div class="item-subtitle" style="font-size: 12px;">{{filterCountryName country}}</div>
+                        </div>
+                    </a>
+                </li> {{/each}} </ul>
+        </div> {{else}} {{> nodata}} {{/if}} {{/js_compare}}
+    
+    
+        </div>
+     </div>
+</div>
+<!--popup-->

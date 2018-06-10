@@ -1,0 +1,64 @@
+<div class="navbar"><div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+
+            <div class="left sliding">
+              <a href="index" class="link back" style="color:{{@global.style.headerBarIconColor}};">
+                <i class="icon icon-left-open-2"></i>
+              </a>
+            </div>
+           <div class="center sliding">
+              <div class="topHeader {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">{{languageSetting.listNameRnR}}</div>
+            </div> 
+          </div></div>
+
+<div data-page="hyperlocal-reviewAndRating" class="page navbar-through no-toolbar hideBorder-{{@global.styleAndNavigation.hideBorder}}" style="background-color: {{@global.styleAndNavigation.pageBgColor}}">
+    <style type="text/css">
+        .head_rating i{color:{{@global.styleAndNavigation.icon[1]}}}
+        .head_rating i.on {color:{{@global.styleAndNavigation.activeColor}}}
+        .ratingList li .pull-left span{color:{{@global.styleAndNavigation.icon[1]}}}
+        .ratingList li .pull-left span.on {color:{{@global.styleAndNavigation.activeColor}}!important;}
+
+
+      </style>
+            <!-- Page content-->
+      <div class="page-content">
+          <div class="hyper-review">
+              <div class="review-bx">
+                  <ul class="ratingList">
+                                  <li>
+                                      <div class="pull-left">
+                                          <span onclick="Appyscript.starClkHyperlocal(this)" class="iconz-star"></span>
+                                          <span onclick="Appyscript.starClkHyperlocal(this)" class="iconz-star"></span>
+                                          <span onclick="Appyscript.starClkHyperlocal(this)" class="iconz-star"></span>
+                                          <span onclick="Appyscript.starClkHyperlocal(this)" class="iconz-star"></span>
+                                          <span onclick="Appyscript.starClkHyperlocal(this)" class="iconz-star"></span>
+                                      </div>
+                                  </li>
+                                  <li><textarea id="rnrTextArea"  placeholder="{{@global.pageLanguageSetting.please_post_your_review}}"></textarea></li></ul>
+
+                  <button onclick="Appyscript.hyperlocalsubmitReviewAndRating()" class="hyper-sent-btn {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" style="background-color:{{@global.styleAndNavigation.button[2]}}; color:{{@global.styleAndNavigation.button[3]}}">{{@global.pageLanguageSetting.Submit}}</button>
+
+
+              </div>
+
+                <ul class="review" id="RnRId">
+                {{#reviewList}}
+                    <li style="border-color:{{@global.styleAndNavigation.borderColor}}"><span class="hyper-comt-pic {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="color:{{@global.styleAndNavigation.content[2]}}">
+                        {{#js_compare "this.profileImage == '' "}}
+                                         <img class="dirImgReview"  src="images/image-1x1.png" style="background:url({{@global.style.reseller}}/newui/images/user-pic-news.png)">
+                                             {{else}}
+                                             <img class="dirImgReview" src="images/image-1x1.png" style="background:url({{profileImage}})">
+                                                 {{/js_compare}}
+
+                    </span>
+                        <p class="hyper-comt-txt" style="height:auto;"><strong class="{{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}" style="color:{{@global.styleAndNavigation.subheading[2]}}">{{name}} <span class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}"  style="color:{{@global.styleAndNavigation.content[2]}}">{{addedon}} </span></strong>
+                       <!-- <small class="email">{{email}}</small> -->
+                        <span class="reviewTxt {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="color:{{@global.styleAndNavigation.content[2]}}">{{review}}</span>
+                        
+                        <span class="head_rating {{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}" style="color:{{@global.styleAndNavigation.subheading[2]}}" ratting={{rating}}> </span>
+                        </p>
+                    </li>
+                {{/reviewList}}
+                </ul>
+              </div>
+			</div>
+</div>

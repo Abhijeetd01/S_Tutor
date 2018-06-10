@@ -1,0 +1,62 @@
+<div class="navbar">
+    <div class="navbar-inner" style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+        <div class="left sliding">
+            <a href="index" class="link back" style="color:{{@global.style.headerBarIconColor}};">
+                <i class="icon icon-left-open-2"></i>
+            </a>
+        </div>
+        <div class="center sliding {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">
+            <div class="topHeader">{{#if @root.innerlanguage}}{{innerlanguagedata.payment_method}} {{else}} {{@global.commonLanguageSetting.common_payment_method}}{{/if}}
+            </div>
+        </div>
+    </div>
+</div>
+
+<div data-page="paymentPage" class="page navbar-through toolbar-fixed no-toolbar">
+    <!-- Page content-->
+    <div class="page-content " style="color:{{@global.loginData.loginStyleAndNavigation.loginContent[2]}}">
+
+        <div class="payment-mode">
+            <div class="listing-tabs">
+                <div class="payment-nav tabs-click" style="border-color:{{@global.loginData.loginStyleAndNavigation.loginBorderColor}}">
+                    <a href="#tab{{method}}" class="{{getPayment tabClassId}} {{tabClassId}}{{tabActive}} tab-link " label="{{label}}" style="color:{{@global.loginData.loginStyleAndNavigation.loginBorderColor}}"></a>
+                </div>
+            </div>
+            <div class="tabs-animated-wrap">
+                <div class="wrap" id="paymentTabs">
+                    <div class="tabs">
+                        <div class="tab clearfix" style="display:block">
+                            <form id="creditCardThroughStripe">
+                                <p>{{label}}</p>
+
+                                <div class="login-feald">
+                                    <input type="number" id="cnumber" name="cardNumber" placeholder="XXXX-XXXX-XXXX-XXXX" class="card-number numberlength numberValidation"   maxlength="20" style="background:{{@global.loginData.loginStyleAndNavigation.loginFieldBgColor[1]}}; color:{{@global.loginData.loginStyleAndNavigation.loginFieldBgColor[0]}}; border-color:{{@global.loginData.loginStyleAndNavigation.loginBorderColor}}">
+                                </div>
+                                <div class="expiry-date">
+                                    <span><input type="number" id="ExpairyMonth" name="expairyMonth" placeholder="MM" class="numberlength numberValidation" maxlength="2"  style="background:{{@global.loginData.loginStyleAndNavigation.loginFieldBgColor[1]}}; color:{{@global.loginData.loginStyleAndNavigation.loginFieldBgColor[0]}}; border-color:{{@global.loginData.loginStyleAndNavigation.loginBorderColor}}"> {{#if @root.innerlanguage}}{{@root.innerlanguagedata.expiry_month}} {{else}}  {{@global.commonLanguageSetting.common_expiry_month}}{{/if}} </span><span class="mid"> &nbsp; </span><span><input type="number" id="ExpairyYear" name="expairyYear" placeholder="YYYY" class="numberlength numberValidation" maxlength="4" style="background:{{@global.loginData.loginStyleAndNavigation.loginFieldBgColor[1]}}; color:{{@global.loginData.loginStyleAndNavigation.loginFieldBgColor[0]}}; border-color:{{@global.loginData.loginStyleAndNavigation.loginBorderColor}}"> {{#if @root.innerlanguage}}{{@root.innerlanguagedata.expiry_year}} {{else}}  {{@global.commonLanguageSetting.common_expiry_year}}{{/if}}</span>
+                                </div>
+                                <div class="login-feald" style="display:none">
+                                    <label>Card Security Code</label>
+                                </div>
+                                <div class="cvv">
+                                    <input type="number" id="cvvCode" name="cvvCode" placeholder="CVV" class="numberlength numberValidation" maxlength="4"  style="background:{{@global.loginData.loginStyleAndNavigation.loginFieldBgColor[1]}}; color:{{@global.loginData.loginStyleAndNavigation.loginFieldBgColor[0]}}; border-color:{{@global.loginData.loginStyleAndNavigation.loginBorderColor}}">
+                                    <p>{{#if @root.innerlanguage}}{{@root.innerlanguagedata.cvv_code}} {{else}}{{@global.commonLanguageSetting.common_check_the_back_of_your_credit_card_for_cvv}}{{/if}}</p>
+                                </div>
+                                <div class="login-feald">
+                                    <input type="text" id="cHolder" name="cardHolder" placeholder="{{#if @root.innerlanguage}}{{@root.innerlanguagedata.card_holder_name}} {{else}} {{@global.commonLanguageSetting.common_card_holder_name}}{{/if}}" class="card-number card-name"  style="background:{{@global.loginData.loginStyleAndNavigation.loginFieldBgColor[1]}}; color:{{@global.loginData.loginStyleAndNavigation.loginFieldBgColor[0]}}; border-color:{{@global.loginData.loginStyleAndNavigation.loginBorderColor}}">
+                                </div>
+
+                                <footer id="footer-nav" data-label="{{label}}" data-key="{{paymentMethodKey}}"  data-clientId="{{clientId}}" data-secretKey="{{secretKey}}">
+
+                                    <a class="paynowbtn {{@global.loginData.loginStyleAndNavigation.loginButton[0]}} {{@global.loginData.loginStyleAndNavigation.loginButton[1]}}"  onClick="Appyscript.paymentRegistrationInfo(this,'{{page}}');" style="background:{{@global.loginData.loginStyleAndNavigation.loginButton[2]}}; color:{{@global.loginData.loginStyleAndNavigation.loginButton[3]}}">{{#if @root.innerlanguage}}{{@root.innerlanguagedata.place_order}} {{else}} {{@global.commonLanguageSetting.common_place_order}}{{/if}}</a>
+
+                                </footer>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

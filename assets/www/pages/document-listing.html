@@ -1,0 +1,63 @@
+<div class="navbar">
+	<div class="navbar-inner" style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+            
+            <div class="left sliding">
+                <a href="index" class="link back" style="color:{{@global.style.headerBarIconColor}};">
+                    <i class="icon icon-left-open-2" ></i>
+                </a>
+            </div>
+             
+            <div class="center sliding">
+              <div class="topHeader {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">
+              Documents
+              </div>
+            </div>
+
+            <div class="right">
+                
+            </div>
+	</div>
+</div>
+
+<div data-page="document-listpage" class="page navbar-through no-toolbar"   style="background-color:{{@global.styleAndNavigation.pageBgColor}}">
+    <div class="dcHeader clearfix" style="background-color:{{@global.styleAndNavigation.pageBgColor}}">
+        <div class="dcHeaderTitle">
+            <div class="search-box">
+                <input id="docsearchid2" data-role="none" type="search" placeholder="Search"  name="search" class="on" onKeyUp="DocumentListFilter(this)" style="background:{{@global.styleAndNavigation.searchBgColor}}; color:{{@global.styleAndNavigation.searchColor}}">
+                    <a class="icon-search" id="docsearchid" data-role="none"  onclick="Appyscript.DocumnetsearchClick('#docsearchid2')" style="color:{{@global.styleAndNavigation.iconColor}}"></a>
+                    </div></div>
+        <div class="dcHeaderRight">
+            <span class="dc_header_icon dc-view iconz-list"  onclick="Appyscript.dcGridView(this)" style="cursor:pointer; color:{{@global.styleAndNavigation.iconColor}}"></span>
+        </div>
+    </div>
+    
+    <!-- Page content-->
+    <div class="page-content">
+     <style>
+            .search-box ::-webkit-input-placeholder {
+            color:{{@global.styleAndNavigation.searchColor}};
+            }
+            .search-box :-moz-placeholder {
+            color:{{@global.styleAndNavigation.searchColor}};
+            }
+            .search-box ::-moz-placeholder {
+				color:{{@global.styleAndNavigation.searchColor}};
+            }
+            .search-box :-ms-input-placeholder {
+           color:{{@global.styleAndNavigation.searchColor}};
+            }
+     </style>
+
+
+        <ul class="dc_list ">
+            {{#if items}}
+            {{GoogleDriveDocumnetFilterHelper items}}
+            {{else}}
+           {{OneDriveDocumnetFilterHelper value}}
+            {{/if}}
+        </ul>
+      
+        <div class="msg-code" id="Documentslisting" style="display:none" >{{> errorpage errorIcon="appyicon-no-data"}}</div>
+        <!-- End Page content-->  
+</div>
+

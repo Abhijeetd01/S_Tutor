@@ -1,0 +1,26 @@
+<div data-page="slideMenu" class="page no-toolbar no-navbar">
+	<div class="page-content {{@global.style.appTheme}}" style="background:{{@global.style.navBackgroundColor}}">    
+    
+<!--  Main Container -->
+         <div id="app_navigation" class="{{@global.style.navigationSize}} {{#home.appData.layoutOption}} {{this}}-option {{/home.appData.layoutOption}}  {{#home.appData.hideLayout}} hide-{{this}} {{/home.appData.hideLayout}}  {{@global.style.navigationFont}} app_navigation_{{@global.style.layout}} animation-{{@global.style.animation}} done" animation="{{@global.style.animationEffect}}">
+    
+    
+
+    {{#home.home}}
+           <a href="#" data-productidentifier="{{pageIdentifierBecon}}" data-productid="{{pageid}}" class="page-link" style="border-color: {{@global.style.navBorderColor}};">
+               {{#js_compare "this.pageiconType === 'img' "}} <img src="{{@global.iconpath}}{{iconName}}">
+                    {{else}}
+                     <i class="{{iconName}}" style="color: {{@global.style.navIconColor}}; "></i> 
+               {{/js_compare}} 
+               <span class="" style="color: {{@global.style.navTextColor}} ">{{pageNewid}}</span>
+           </a>
+    {{/home.home}}
+   
+
+    </div>
+        
+
+       
+    </div>
+</div>
+

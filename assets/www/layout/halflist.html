@@ -1,0 +1,63 @@
+<div class="navbar"><div class="navbar-inner" style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};{{#root_Compare @global.style.headerBarType "==" "image"}} background-image:url({{@global.style.nav_header_image_name}}){{/root_Compare}}">
+    <div class="center sliding {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}" {{#root_Compare @global.style.headerBarType "==" "image"}}style="visibility:hidden;"{{/root_Compare}}>{{#root_Compare @global.style.headerBarTitle "==" ""}}{{@global.style.appName}} {{else}}{{@global.style.headerBarTitle}}{{/root_Compare}}</div>
+<div class="right">
+
+</div>
+</div>
+</div>
+<!-- content section  -->
+<div data-page="halflist" class="page {{#js_compare "this.home.appData.headerBarType === 'none' "}}no-navbar {{else}} navbar-through  {{/js_compare}} no-toolbar">
+<style>
+	 .app_navigation_halflist .right_side .right_menu li:after {
+        background-color:{{@global.style.navBorderColor}};
+        }
+
+</style>
+
+<div class="page-content {{@global.style.appTheme}}" >
+
+    <div class="app_navigation_halflist"  {{#js_compare "this.home.appData.bannerPostion === 'none' "}}{{/js_compare}}>
+
+
+
+
+    {{#if @global.style.layoutHeader}}
+    <div class="app_navigation_halflist left_side"  {{#js_compare "this.home.appData.bannerPostion === 'left' "}}style="background-color:{{@global.style.navBackgroundColor}};"{{/js_compare}}>
+    <div class="left-img">
+        {{#root_Compare @global.style.bannerPostion "==" "left"}}
+       <img src="{{@global.style.navigationSlider[0]}} ">
+{{/root_Compare}}
+    </div>
+    {{/if}}
+
+
+
+    <div class="right_side" style="background-color:{{@global.style.navBackgroundColor}};">
+        <div class="overlaybar" >
+            {{#if @global.style.layoutHeader}}
+        <div class="topbanner">
+        {{#root_Compare style="background-color:none;" @global.style.bannerPostion "==" "top"}}
+
+        <img src="{{@global.style.navigationSlider[0]}} ">
+        {{/root_Compare}}
+        </div>
+{{/if}}
+        <ul class="right_menu menuBgcolor {{@global.style.navigationSize}} {{#home.appData.layoutOption}} {{this}}-option {{/home.appData.layoutOption}}  {{#home.appData.hideLayout}} hide-{{this}} {{/home.appData.hideLayout}}  {{@global.style.navigationFont}} app_navigation_{{@global.style.layout}} ">
+            {{#home.home}}
+
+            <li>
+                <a href="#" data-productidentifier="{{pageIdentifierBecon}}" data-productid="{{pageid}}" class="page-link">
+                    <span style="color: {{@global.style.navTextColor}};">{{pageNewid}}</span>
+
+                </a>
+            </li>
+
+            {{/home.home}}
+
+        </ul>
+            </div>
+    </div>
+</div>
+</div>
+</div>
+

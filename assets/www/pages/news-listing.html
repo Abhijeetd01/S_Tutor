@@ -1,0 +1,103 @@
+<div class="navbar">
+    <div class="navbar-inner" style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+        <div class="left sliding">
+            {{getNavigation @global.style.layout "menu"}}
+        </div>
+        <div class="center sliding {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">{{catName}}</div>
+        <div class="right">
+            <a class="settings" onClick="Appyscript.openSetting()" style="color:{{@global.style.headerBarIconColor}};">
+                <i class="icon icon-cog-4"></i>
+            </a>
+        </div>
+    </div>
+</div>
+
+
+<div data-page="news-listPage" class="page navbar-through no-toolbar">
+    <!-- Page content-->
+<div class="backgroundAnimation">{{> innerBackground}}</div>
+<div class="page-content content-{{@global.styleAndNavigation.content[3]}} heading-{{@global.styleAndNavigation.heading[3]}} image-{{@global.styleAndNavigation.hideImage}} hideBorder-{{@global.styleAndNavigation.hideBorder}} theme-{{@global.styleAndNavigation.layout}}" style="background:{{@global.styleAndNavigation.pageBgColor}}">
+<style type="text/css">
+.theme-3 .news-detail ul li .text-detail,
+.theme-4 .news-detail ul li .text-detail {
+	background-color:{{@global.styleAndNavigation.listmenu[3]}}		
+}
+
+.theme-3 .news-detail ul li h4 {
+	border-color:{{@global.styleAndNavigation.borderColor}};
+}
+</style>
+        <div  data-preload-images="false" id="news-swiper" data-lazy-loading="true" class="news-container {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="color:{{@global.styleAndNavigation.content[2]}}">
+
+            <div class="news-detail" rel="{{catId}}">
+                <ul>
+                    {{#if item}}
+                        {{#item}}
+                            <li onclick="Appyscript.newsDetailsPageRss(this)" data-id="{{../catName}}" data-catID="Rss" index="{{@index}}" style="border-color:{{@global.styleAndNavigation.borderColor}}; background-color:{{@global.styleAndNavigation.listmenu[3]}}">
+                          
+							{{#root_Compare @global.styleAndNavigation.layout "==" "3"}}                
+		                		{{#js_compare "this.imageUrl == '' "}}
+                                <img src="images/image-1x1.png" style="background-image:url(http://snappy.appypie.com/images/no-image.jpg)" />
+                                <img src="images/image-1x1.png" style="background-image:url(http://snappy.appypie.com/images/no-image.jpg)" />
+	                			{{else}}
+                                <img src="images/image-1x1.png" style="background-image:url({{imageUrl}})" />
+                                <img src="images/image-1x1.png" style="background-image:url({{imageUrl}})" />
+                                {{/js_compare}}
+                            {{else}}
+                            	{{#js_compare "this.imageUrl == '' "}}
+                                <img src="http://snappy.appypie.com/images/no-image.jpg">
+                                {{else}}
+                                <img src="{{imageUrl}}">
+                                {{/js_compare}}
+			                {{/root_Compare}}   
+
+                            
+								<div class="text-detail">
+								<h4 style="color:{{@global.styleAndNavigation.listmenu[2]}}" class="{{@global.styleAndNavigation.listmenu[0]}} {{@global.styleAndNavigation.listmenu[1]}}">{{title}}</h4>
+                                <span class="date"><small>{{pubDate}}</small></span>
+                                </div>
+                            </li>
+                        {{/item}}
+                        {{else}}
+                            {{#if list}}
+                            {{#list}}
+                                <li onclick="Appyscript.newsDetailsPage(this)" data-id="{{newsId}}" data-catID="{{../catId}}" data-accessStatus="{{accessStatus}}" index="{{@index}}" style="border-color:{{@global.styleAndNavigation.borderColor}}; background-color:{{@global.styleAndNavigation.listmenu[3]}}">
+                                    
+                            {{#root_Compare @global.styleAndNavigation.layout "==" "3"}}                
+		                		{{#js_compare "this.imageUrl == '' "}}
+                                <img src="images/image-1x1.png" style="background-image:url(http://snappy.appypie.com/images/no-image.jpg)" />
+                                <img src="images/image-1x1.png" style="background-image:url(http://snappy.appypie.com/images/no-image.jpg)" />
+	                			{{else}}
+                                <img src="images/image-1x1.png" style="background-image:url({{imageUrl}})" />
+                                <img src="images/image-1x1.png" style="background-image:url({{imageUrl}})" />
+                                {{/js_compare}}
+                            {{else}}
+                            	{{#js_compare "this.imageUrl == '' "}}
+                                <img src="http://snappy.appypie.com/images/no-image.jpg">
+                                {{else}}
+                                <img src="{{imageUrl}}">
+                                {{/js_compare}}
+			                {{/root_Compare}}   
+
+                                    
+									<div class="text-detail">
+                                    <h4 style="color:{{@global.styleAndNavigation.listmenu[2]}}" class="{{@global.styleAndNavigation.listmenu[0]}} {{@global.styleAndNavigation.listmenu[1]}}">{{newsHeading}}</h4>
+                                    <span class="date"><small>{{newsDate}}</small></span>
+	                                </div>
+                                </li>
+                            {{/list}}
+                    {{else}}
+                        {{#js_compare "this.catName == 'Bookmark' "}}
+                            {{> errorpage errorIcon="appyicon-no-bookmark"}}
+                        {{else}}
+                            {{> errorpage errorIcon="appyicon-no-data"}}
+                        {{/js_compare}}
+                        {{/if}}
+                    {{/if}}
+                </ul>
+
+            </div>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,71 @@
+<div class="popup menu-popup tablet-fullscreen">
+
+
+
+    <div class="view">
+    
+    <div class="backgroundAnimation">
+        <div class="view background-view">{{> mainBackground}}</div>
+    </div>
+    
+    
+    <div class="navbar"><div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+    <div class="left sliding">
+        <a href="index" class="link close-popup" style="color:{{@global.style.headerBarIconColor}};">
+            <i class="icon icon-left-open-2"></i>
+        </a>
+    </div>
+    <div class="center sliding {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">{{updateSettings.search}}</div>
+    <div class="right">        
+    </div>
+</div></div>
+    
+        <div class="pages">
+        
+        <div data-page="search-page" class="page navbar-through no-toolbar">
+    <!-- Page content-->
+    <div class="page-content">    	
+    <div class="page-search-box">
+        <div>
+        <input type="search"  placeholder="{{@global.commonLanguageSetting.please_enter_a_keyword}}" class="on" id="pageSearch"/>            
+		<a id="btnSearch" type="button" onclick="Appyscript.searchClick('#txtSearch')" ><i class="iconz-search"></i></a>
+        </div>    
+    </div>
+    <div class="searchbar-overlay"></div>        
+	<div class="{{@global.style.appPageCsize}} {{@global.style.appPageFont}} app_navigation_list pageSearch">   
+    {{#home}}    
+	<a href="#" data-productidentifier="{{pageIdentifierBecon}}" data-productid="{{pageid}}" class="page-link close-popup">
+        {{#js_compare "this.pageiconType === 'img' "}}
+        <img src="{{@global.iconpath}}{{iconName}}">
+        {{else}}
+        <i class="{{iconName}}" style="color:{{@global.style.pageIconColor}};"></i> 
+        {{/js_compare}} 
+		<span class="searchText" style="color:{{@global.style.pageTextColor}}">{{pageNewid}}</span>
+	</a>
+    {{#js_compare "this.pageid === 'folder' "}}
+        {{#this.folderPages}}
+        <a href="#" data-productidentifier="{{pageIdentifierBecon}}--{{../pageIdentifierBecon}}" data-productid="{{pageid}}" class="page-link close-popup">
+            {{#js_compare "this.pageiconType === 'img' "}}
+            <img src="{{@global.iconpath}}{{iconName}}">
+            {{else}}
+            <i class="{{iconName}}" style="color:{{@global.style.pageIconColor}};"></i>
+            {{/js_compare}}
+            <span class="searchText" style="color:{{@global.style.pageTextColor}}">{{pageNewid}}</span>
+        </a>
+        {{/this.folderPages}}
+    {{/js_compare}}
+    {{/home}}
+
+    <p class="search-nodata {{@global.style.appPageCsize}} {{@global.style.appPageFont}}" style="color:{{@global.style.pageTextColor}}">{{@global.commonLanguageSetting.empty_search_mcom}}</p>
+    </div>   
+    
+
+    </div>    
+</div>
+        
+</div>
+</div>
+</div>
+
+
+

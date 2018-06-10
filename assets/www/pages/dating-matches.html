@@ -1,0 +1,70 @@
+<div class="navbar">
+    <div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}}; font-size: {{@global.style.headerBarSize}} ">
+        <div class="left sliding">
+            
+            <a href="index" class="link back" style="color:{{@global.style.headerBarIconColor}};">
+                <i class="icon icon-left-open-2"></i>
+            </a>
+        </div>
+        <div class="center sliding">
+            <div class="topHeader {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">{{@global.pageLanguageSetting.pageMymacth}}</div>
+        </div>
+        <div class="right">
+            <div class="notification_dating_wp"><a href="#" onclick="Appyscript.datingnotification();"   style="color:{{@global.style.headerBarIconColor}};"><i class="icon-bell-2"><span class="count"  style="background-color: {{@global.styleAndNavigation.button[2]}}; color: {{@global.styleAndNavigation.button[3]}};border-color:{{@global.styleAndNavigation.fieldBorderColor}};" >{{@global.pageLanguageSetting.notifycount}}</span></i></a></div>
+        </div>
+    </div>
+</div>
+
+
+<div data-page="dating-Matches" class="page navbar-through toolbar-fixed no-toolbar dating hideBorder-{{@global.styleAndNavigation.hideBorder}}">
+    <!-- Page content-->
+    <div class="page-content" style="background-color:{{@global.styleAndNavigation.pageBackroundColor}};">
+        <div class="bodypan matching-page  {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="color:{{@global.styleAndNavigation.content[2]}}; text-align:{{@global.styleAndNavigation.content[3]}}">
+            <div class="row ">
+                <div class="col-md-12 search-box">
+                    <div class="right-inner-addon ">
+                        <i class="icon-search-3" style="color:{{@global.styleAndNavigation.iconColor}}"></i>
+                        <input class="form-control" placeholder="{{@global.pageLanguageSetting.Search}}" type="text"  onKeyUp="datingMatchFilter(this)">
+                            </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="matching-bx" >
+                        <div id="Datingmatcheslist" style="display:none" >
+                            
+                            <center>  </span><center> <span class='mediumContent' style='color:#fff; font-family:arial;'>No Match Found </span> </div>
+                        <ul class="matchingList">
+                            
+                            
+                            {{#machedData}}
+                            <li >
+                                <a href="#" onclick="Appyscript.datingchatProfiles({{userData.id}});" data-name="{{userData.name}}" id="{{userData.id}}" >
+                                    <span class="matchingImageWrapper" style="border-color:{{@global.styleAndNavigation.fieldBorderColor}};">
+                                        <img style="background:url(
+                                            {{userData.profile_image}}) no-repeat 0 0;" src="images/image-1x1.png" alt="">
+                                            </span>
+                                    <div class="matchingListText">
+                                        <h2 class="name trunkTxt {{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}}; text-align:{{@global.styleAndNavigation.heading[3]}};">{{userData.name}}</h2>
+                                        <p class="position {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="color:{{@global.styleAndNavigation.content[2]}}">  {{userDescription.jobTitle}}</p>
+                                    </div>
+                                </a>
+                                
+                                <a href="#"  id="block{{userData.id}}" onclick="Appyscript.blockunblokdating({{userData.id}},{{isBlocked}});"   datablock="{{isBlocked}}" class="follow {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" style="background-color: {{@global.styleAndNavigation.button[2]}}; color: {{@global.styleAndNavigation.button[3]}};"> {{#js_compare "this.isBlocked == 0"}} {{@global.pageLanguageSetting.block}} {{else}} Unblock{{/js_compare}}</a>
+                       
+                            </li>
+                            {{/machedData}}
+                        </ul>
+                        
+                        
+                        
+                    </div>
+                </div>
+                
+                
+                
+            </div>
+        </div>
+        
+        

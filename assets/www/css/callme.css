@@ -1,0 +1,74 @@
+@charset "UTF-8";
+/* CSS Document */
+
+.call-me {
+ 	padding:0;
+    width:100%;
+    float:left;
+}
+
+.call-me h1 {
+ 	margin:10px;
+}
+
+.call-me ul,
+.call-me ul li {
+ 	margin:0px;
+  	padding:0px;
+   	list-style:none;
+    float:left;
+    width:100%;
+}
+
+.call-me ul li {
+    padding:15px 0 15px 110px;
+    margin:0 0 0 0;
+    box-sizing:border-box;
+    min-height:90px;
+    position:relative;
+    border-top:solid 1px #fff;
+}
+
+.call-me ul li span {
+ 	position:absolute;
+  	left:0px;
+   	top:15px;
+    width:110px;
+    text-align:center;
+}
+
+.call-me ul li span i {
+ 	display:block;
+	text-align:center;
+    font-size: 35px;
+    line-height:40px;
+}
+
+.call-me ul li span i:before {
+    line-height:40px;
+}
+
+.call-me ul li span b {
+ 	line-height:26px;
+	display:block;
+}
+
+.call-me ul li p {
+ 	margin:0px;
+  	line-height:20px;
+   float:left;
+   width:100%;
+}
+
+/*============FOR SA==============*/
+.sa .call-me ul li {
+ 	padding:15px 110px 15px 0;
+}
+
+.sa .call-me ul li span {
+ 	left:auto;
+  	right:0px;
+}
+.sa .call-me ul li p {
+    text-align: right;
+}

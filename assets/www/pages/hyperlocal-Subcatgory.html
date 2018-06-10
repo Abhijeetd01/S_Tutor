@@ -1,0 +1,79 @@
+<div class="navbar"><div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+    <div class="left sliding">
+        <a href="index" class="link back" style="color:{{@global.style.headerBarIconColor}};">
+            <i class="icon icon-left-open-2"></i>
+        </a>
+    </div>
+
+    <div class="center sliding">
+        <div class="topHeader {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">{{#if header}}{{header}} {{/if}}</div>
+    </div>
+    <div class="right">
+        {{#if @global.setting.mapDisplay}}
+        <a href="#" style="color:{{@global.style.headerBarIconColor}};">
+            <i class="iconz-location-3" onclick="Appyscript.showServicePageMapNew('{{#listingWithSubCategory.jobs}}{{latitude}},{{/listingWithSubCategory.jobs}}','{{#listingWithSubCategory.jobs}}{{longitude}},{{/listingWithSubCategory.jobs}}','{{#listingWithSubCategory.jobs}}{{@index}},{{/listingWithSubCategory.jobs}}','{{#listingWithSubCategory.jobs}}{{filterAddressString header}},{{/listingWithSubCategory.jobs}}','{{header}}','0','{{@root.isFromPage}}')"></i>
+        </a>
+        {{/if}}
+
+        <a href="#" style="color:{{@global.style.headerBarIconColor}};">
+            <i class="icon iconz-filter cursor-pointer" onclick="Appyscript.popupHyperLocalFilter('hyperlocal-Filter')"></i><!--iconz-location-3-->
+        </a>
+    </div>
+</div></div>
+
+<div data-page="hyperlocal-subCatPage" class="page navbar-through no-toolbar hideBorder-{{@global.styleAndNavigation.hideBorder}}" style="background-color: {{@global.styleAndNavigation.pageBgColor}}">
+    <div class="backgroundAnimation">{{> innerBackground}}</div>
+    <!-- Page content-->
+    <style>
+        #search-box.on ul{border-color:{{@global.styleAndNavigation.borderColor}}}
+        #search-box.on ul li{border-color:{{@global.styleAndNavigation.borderColor}}}
+     </style>
+    <!--{{#root_Compare @global.setting.keywordSearch "==" "true"}}-->
+    <!--{{#js_compare "this.setting.hyperlocalAutoSuggestSearchKey == \'1\' "}}-->
+    <!--<div id="search-box" class="search-box dir_cat_search">-->
+    <!--<input id="txtSearch" data-role="none" type="search" placeholder="{{@root.languageSetting.searchBtn_Hyper}}"-->
+    <!--onkeydown="if(event.keyCode == 13) Appyscript.saerchAndFilterDataHyperLocal('textSearch','mainpagesearchauto')">-->
+    <!--<a class="icon-search" style="color:{{@global.styleAndNavigation.icon[1]}}" id="btnSearch" data-role="none"  onclick="Appyscript.saerchAndFilterDataHyperLocal('textSearch','mainpagesearchauto')"></a>-->
+    <!--<ul id="resHyper">-->
+    <!--</ul>-->
+    <!--</div>-->
+    <!--{{else}}-->
+    <!--<div class="search-box">-->
+    <!--<input id="txtSearchsub" data-role="none" type="search" placeholder="{{@root.languageSetting.searchBtn_Hyper}}"-->
+    <!--onkeydown="if(event.keyCode == 13) Appyscript.saerchAndFilterDataHyperLocal('textSearch','mainpagesearchpage')" name="search" class="off" >-->
+    <!--<a class="icon-search" id="btnSearch" data-role="none"  onclick="Appyscript.searchClickHyper('#txtSearchsub')"></a>-->
+    <!--</div>-->
+    <!--{{/js_compare}}-->
+    <!--{{/root_Compare}}-->
+
+    <div class="page-content serviceLayout-{{@global.styleAndNavigation.layout}} infinite-scroll" data-distance="200">
+
+
+
+        <ul class="main-cat-listing" id="subPageListing">
+            {{#listingWithSubCategory.subcategoryList}}
+            {{> hyperSubListing}}
+            {{/listingWithSubCategory.subcategoryList}}
+
+
+            {{#listingWithSubCategory.jobs}}
+            {{> hyperLocalSubListingListing}}
+            {{/listingWithSubCategory.jobs}}
+
+        </ul>
+
+        {{#if listingWithSubCategory.jobs}}
+        {{#if @global.isSearchInLargeHyp}}{{else}}
+        {{#root_Compare listingWithSubCategory.jobs.length ">" "299"}}
+
+        <div class="listMoreSearch" style="background-color:{{@global.styleAndNavigation.title[2]}}">
+            <h2 class="{{@global.styleAndNavigation.title[0]}} {{@global.styleAndNavigation.title[1]}}" style="
+        color:{{@global.styleAndNavigation.title[3]}}">For more listing, search here</h2>
+            <input id="subCatList" data-role="none" type="search" placeholder="{{@root.languageSetting.enter_your_search_here_dir}}" onkeydown="if(event.keyCode == 13) Appyscript.saerchAndFilterDataHyperLocal('textSearch','subCatList',this)"  name="search" class="off">
+        </div>
+        {{/root_Compare}}
+        {{/if}}
+        {{/if}}
+
+    </div>
+</div>

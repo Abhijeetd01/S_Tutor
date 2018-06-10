@@ -1,0 +1,74 @@
+<div class="navbar">
+    <div class="navbar-inner"
+         style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+        <div class="left sliding">
+            <a href="index" class="link back" style="color:{{@global.style.headerBarIconColor}};">
+                <i class="icon icon-left-open-2"></i>
+            </a>
+        </div>
+        <div class="center sliding  {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">
+            <div class="topHeader">
+                Workout Record
+            </div>
+        </div>
+        <div class="right">
+            <a class="link" style="color:{{@global.style.headerBarIconColor}};">
+
+                <i class="iconz-option-vertical"onclick="toggle_menu(this);"></i>
+            </a>
+        </div>
+    </div>
+</div>
+
+<div data-page="fitness-timesheet" class="page navbar-through no-toolbar" style="background-color: {{@global.styleAndNavigation.pageBgColor}}">
+    <!-- Page content-->
+    <div class="page-content"  style="background:{{@global.styleAndNavigation.pageBgColor}};">
+        <style>
+     	.form input, .form label, .form label select, .divTable, ul.bmrResult, .label{color: {{@global.styleAndNavigation.content[2]}}; }
+		::-webkit-input-placeholder {  color: {{@global.styleAndNavigation.content[2]}};}
+		::-moz-placeholder { color: {{@global.styleAndNavigation.content[2]}};}
+		:-ms-input-placeholder{  color: {{@global.styleAndNavigation.content[2]}};}
+		:-moz-placeholder { color: {{@global.styleAndNavigation.content[2]}};}
+		.bmr h3{color: {{@global.styleAndNavigation.subheading[2]}}}
+		.divTable, .divTableCell, .divTableHead, .form input, .form label, .form .label, ul.bmrResult li{border-color:{{@global.styleAndNavigation.borderColor}}}
+		.divTableRow.headRow{background:{{@global.styleAndNavigation.title[2]}}; color:{{@global.styleAndNavigation.title[3]}}}
+		.bmrResult span{color:{{@global.styleAndNavigation.activeColor}} }
+
+     </style>
+        <div class="calculatorPage">
+
+
+
+            <div class="bmr">
+                <div class="divTable {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}">
+                    <div class="divTableBody">
+                        <div class="divTableCell"><b>Date</b></div>
+                        <div class="divTableCell"><b>Start Time</b></div>
+                        <div class="divTableCell"><b>End Time</b></div>
+
+                        {{#each list.list}}
+                        <div class="divTableRow headRow {{@global.styleAndNavigation.title[0]}} {{@global.styleAndNavigation.title[1]}}">
+                            <div class="divTableCell">{{date}}</div>
+                            <div class="divTableCell">{{start}}</div>
+                            <div class="divTableCell">{{stop}}</div>
+
+                        </div>
+                        {{/each}}
+
+                    </div>
+                </div>
+                <!-- DivTable.com -->
+
+
+            </div>
+
+            <!--<a onclick="fitness_BMR_Print()">Print</a>-->
+            <ul class="bmrResult {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}">
+                <li><span>Total Workout : </span>{{list.today.time}}</li>
+                <li>Today {{list.today.date}}</li>
+            </ul>
+
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,45 @@
+<div class="navbar"><div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+    
+    <div class="left sliding">
+        <a href="index" class="link back" style="color:{{@global.style.headerBarIconColor}};">
+            <i class="icon icon-left-open-2"></i>
+        </a>
+    </div>
+    <div class="center sliding">
+        <div class="topHeader {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">  {{@global.accomtitle}}</div>
+    </div>
+</div></div>
+
+<div data-page="accommodation-review" class="page navbar-through no-toolbar hideBorder-{{@global.styleAndNavigation.hideBorder}}">
+    <style type="text/css">
+        .head_rating i{color:{{@global.styleAndNavigation.icon[1]}}}
+        .head_rating i.on {color:{{@global.styleAndNavigation.activeColor}}}
+        .ratingList li .pull-left span{color:{{@global.styleAndNavigation.icon[1]}}}
+        .ratingList li .pull-left span.on {color:{{@global.styleAndNavigation.activeColor}}!important;}
+        
+        
+        </style>
+    <!-- Page content-->
+    <div class="page-content {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}} hideBorder-{{@global.styleAndNavigation.hideBorder}}" style="color:{{@global.styleAndNavigation.content[2]}};  background:{{@global.styleAndNavigation.pageBgColor}}">
+        <div class="hyper-review">
+            <div class="review-bx">
+                <ul class="ratingList">
+                    <li>
+                        <div class="pull-left">
+                            <span onclick="Appyscript.starClk(this)" class="iconz-star"></span>
+                            <span onclick="Appyscript.starClk(this)" class="iconz-star"></span>
+                            <span onclick="Appyscript.starClk(this)" class="iconz-star"></span>
+                            <span onclick="Appyscript.starClk(this)" class="iconz-star"></span>
+                            <span onclick="Appyscript.starClk(this)" class="iconz-star"></span>
+                        </div>
+                    </li>
+                    <li><textarea id="rnrTextArea"  placeholder="Please post your review."></textarea></li></ul>
+                
+                <button class="hotel-sent-btn" id="{{accomid}}" onclick="Appyscript.hotelsubmitReviewAndRating(this)">Submit</button>
+                
+                
+            </div>
+            
+        </div>
+    </div>
+</div>

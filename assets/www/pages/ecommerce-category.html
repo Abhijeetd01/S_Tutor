@@ -1,0 +1,85 @@
+<div class="navbar">
+	<div class="navbar-inner" style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+		<div class="left sliding">
+			<a href="index" class="link back" style="color:{{@global.style.headerBarIconColor}};">
+                <i class="icon icon-left-open-2"></i>
+              </a>
+		</div>
+		<div class="center sliding  {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">
+			<div class="topHeader">
+				{{categoryName}}
+			</div>
+		</div>
+		<div class="right">
+            <a href="#" class="link" style="color:{{@global.style.headerBarIconColor}};">
+                <i class="icon-cart cursor-pointer" onclick="Appyscript.ecomAddToCartProduct('cartview');"><span class="cartNotification"></span></i>
+            </a>
+		</div>
+	</div>
+</div>
+
+<div data-page="ecommerce-Category" class="page navbar-through no-toolbar">
+<style type="text/css"> 
+	div[data-page="ecommerce-Category"] .categories.theme-2 .categories-list li.category {height: auto; border-bottom:2px solid {{@global.styleAndNavigation.borderColor}}}
+</style>
+	<!-- Page content-->    
+	<div class="page-content infinite-scroll {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}} content-{{@global.styleAndNavigation.content[3]}} heading-{{@global.styleAndNavigation.heading[3]}} hideBorder-{{@global.styleAndNavigation.hideBorder}}" style="color:{{@global.styleAndNavigation.content[2]}}; background:{{@global.styleAndNavigation.pageBgColor}}" data-distance="200" data-page="{{categoryPage}}" data-id="{{categoryId}}">
+    	<div class="categories theme-{{@global.styleAndNavigation.layout}}">
+            {{#if productList.length}}
+            <div class="top_toolBar">
+                <p>{{@global.pageLanguageSetting.sortby_mcom}}</p>
+                <div class="cat">
+                <select id="searchpopupval" onchange="sortingEcomList(this, {{categoryId}});">
+                <option  value="sortby">{{@global.pageLanguageSetting.sortby_mcom}}</option>
+                <option  value="pricelowtohigh">{{@global.pageLanguageSetting.pricelowhigh_mcom}}</option>
+                <option  value="pricehightolow">{{@global.pageLanguageSetting.pricehighlow_mcom}}</option>
+                <option  value="popularity">{{@global.pageLanguageSetting.popularity_mcom}}</option>
+                </select>
+                </div>
+            </div>
+            {{/if}}
+        	<ul class="categories-list dataProduct">
+                {{#if subCategories}}
+                {{#subCategories}}
+                <li class="category">
+                    {{#root_Compare @global.styleAndNavigation.layout "==" "1"}}
+                    	<img src="images/image-2x1.png" style="background-image:url({{categoryImage}})" />
+                    {{/root_Compare}}
+                    {{#root_Compare @global.styleAndNavigation.layout "==" "2"}}
+                    	<img src="images/image-1x1.png" style="background-image:url({{categoryImage}})" />
+                    {{/root_Compare}}
+                    {{#root_Compare @global.styleAndNavigation.layout "==" "3"}}
+                    	<img src="images/image-1x1.png" style="background-image:url({{categoryImage}})" />
+                    {{/root_Compare}}
+                    {{#root_Compare @global.styleAndNavigation.layout "==" "5"}}
+                    	<img src="images/image-1x1.png" />
+                    	<img src="images/image-1x1.png" style="background-image:url({{categoryImage}})" class="icon-view" />
+                    {{/root_Compare}}
+                    <div class="details" style="background:{{@global.styleAndNavigation.title[2]}};">
+                    	<h3 class="{{@global.styleAndNavigation.title[0]}} {{@global.styleAndNavigation.title[1]}}" style="color:{{@global.styleAndNavigation.title[3]}}">{{categoryName}}<span class="icon-right-open"></span></h3>                    
+                    </div> 
+                <div class="overlay" onclick="Appyscript.ecomSubcatProductList(this);" subcat-id="{{categoryId}}" data-head="{{categoryName}}" dataimage="{{categoryImage}}"></div>
+                </li>                        
+                {{/subCategories}}
+                {{/if}}
+                {{#if productList}}
+                {{#productList}}
+                {{> ecomcatProduct}}
+                {{/productList}}
+                {{/if}}
+
+
+            </ul>
+            <div class="infinite-scroll-preloader" style="display:none">
+            	<div class="preloader-view"><div class="preloader"></div></div>            	
+            </div>
+        </div>
+            {{#js_compare "this.totalproduct == '0'"}}
+                <div class="msg-code">{{> errorpage errorIcon="appyicon-no-data"}}</div>
+            {{/js_compare}}
+	</div>
+</div>
+
+
+
+        

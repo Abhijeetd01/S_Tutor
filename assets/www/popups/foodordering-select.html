@@ -1,0 +1,53 @@
+<div class="popup menu-popup tablet-fullscreen">
+    <div class="view">
+        <div class="navbar"><div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+            <div class="left sliding">
+                <a class="close link icon-left-open-2 close-popup" style="color:{{@global.style.headerBarTextColor}};"></a>
+            </div>
+            <div class="center sliding {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">
+               {{title}}
+            </div>
+            <div class="right"></div>
+            
+            <div class="subnavbar" style="background:{{@global.styleAndNavigation.menu[0]}};color:{{@global.styleAndNavigation.menu[2]}};border-bottom:solid 1px {{@global.styleAndNavigation.borderColor}}">
+                {{#js_compare "this.option_max == '0' "}}
+                <span  class="foodordering-max foodordering-max{{option_max}}">{{@global.pageLanguageSetting.choose_any_one}}</span>
+                {{else}} {{#js_compare "this.option_max>=this.row.length "}}
+                <span  class="foodordering-max foodordering-max{{option_max}}">{{@global.pageLanguageSetting.choose_any}}</span>
+                {{else}}
+                <span  class="foodordering-max foodordering-max{{option_max}}">{{@global.pageLanguageSetting.choose_any}} {{option_max}}</span>
+                {{/js_compare}}{{/js_compare}}
+                
+            </div>
+            
+        </div></div>
+        <div class="pages" >
+
+            <div data-page="foodordering-select" class="page navbar-through no-toolbar toolbar-through">
+            	<div class="toolbar ">
+		<div class="toolbar-inner toolbar-bottom" style="background-color: {{@global.styleAndNavigation.button[2]}}; color: {{@global.styleAndNavigation.button[3]}};">
+			<a class="foodordering-done" style="color: {{@global.styleAndNavigation.button[3]}};">{{@global.pageLanguageSetting.done_food}}</a>
+		</div>
+	</div>
+    
+                <div class="page-content hideBorder-{{@global.styleAndNavigation.hideBorder}}" style="background:{{@global.styleAndNavigation.menu[0]}}">
+                	<style>
+					.foodordering-select li i {
+						border-color:{{@global.styleAndNavigation.menu[1]}};
+						color:{{@global.styleAndNavigation.menu[1]}};
+					}
+					.foodordering-select.select li.on i:before {
+						background:{{@global.styleAndNavigation.menu[1]}};
+					}
+					</style>
+                    <ul class="foodordering-select {{#js_compare "this.option_box == 'option' "}}select{{/js_compare}} {{#js_compare "this.option_box == 'check' "}}multiselect{{/js_compare}}" max="{{option_max}}">
+                    	{{#row}}
+                    	<li style="color:{{@global.styleAndNavigation.menu[2]}};border-color:{{@global.styleAndNavigation.borderColor}}" value="{{row_title}}">{{row_title}} <b>{{#js_compare "this.row_pricetype == 'm' "}} - {{/js_compare}} {{format_currency ../currency}}{{row_price}}</b><i></i></li>
+                    	{{/row}}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

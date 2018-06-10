@@ -1,0 +1,28 @@
+<div class="navbar">
+<div class="navbar-inner" style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+            <div class="left sliding">
+              <a href="index" class="link back" style="color:{{@global.style.headerBarIconColor}};">
+                <i class="icon icon-left-open-2"></i>
+              </a>
+            </div>
+            <div class="center sliding  {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">{{title}}</div>
+            <div class="right"></div>
+          </div></div>
+
+<div data-page="cms-page" class="page navbar-through no-toolbar" style='background-size: cover; {{#root_Compare @global.style.backgroundType "==" "custom_color"}}background-color:{{@global.style.appBackground[0]}} {{/root_Compare}} {{#root_Compare @global.style.backgroundType "==" "library_image"}} background-image:url({{@global.style.appBackground[0]}}) {{/root_Compare}}'>
+    <!-- Page content-->
+    <div class="page-content {{@global.style.appPageFont}} {{@global.style.appPageCsize}}">
+   {{#list}}
+    	<a class="appypie-list" onclick="Appyscript.openWebView('{{url}}')" style="color:{{@global.style.pageTextColor}}">
+             <span>
+             {{#js_compare "this.pageiconType == 'img' "}}
+              <img src="{{iconName}}" />
+              {{else}}
+              <i class="{{iconName}}" style="color:{{@global.style.pageIconColor}}"></i>
+    		  {{/js_compare}}
+              </span>
+              <span>{{name}}</span>
+         </a>
+   {{/list}}
+    </div>
+</div>

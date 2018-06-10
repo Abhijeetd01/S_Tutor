@@ -1,0 +1,67 @@
+<div class="navbar">
+    <div class="navbar-inner" style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};{{#root_Compare @global.style.headerBarType "==" "image"}} background-image:url({{@global.style.nav_header_image_name}}){{/root_Compare}}">
+     <div class="center sliding {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}" {{#root_Compare @global.style.headerBarType "==" "image"}}style="visibility:hidden;"{{/root_Compare}}>{{#root_Compare @global.style.headerBarTitle "==" ""}}{{@global.style.appName}}{{else}}{{@global.style.headerBarTitle}}{{/root_Compare}}</div>
+<div class="right">
+
+</div>
+</div>
+</div>
+<div data-page="colorlist" class="page {{#js_compare "this.home.appData.headerBarType === 'none' "}}no-navbar {{else}} navbar-through  {{/js_compare}} no-toolbar">
+
+
+
+
+<div class="page-content {{@global.style.appTheme}}">
+
+    <!------------ Swiper  --------->
+    {{#if @global.style.layoutHeader}}
+    <div {{#root_Compare @global.style.navigationSlider.length ">" "1"}} data-pagination=".swiper-pagination" {{/root_Compare}} data-next-button=".swiper-button-next" {{#root_Compare @global.style.navigationSlider.length ">" "1"}}  data-loop="true" {{/root_Compare}} data-prev-button=".swiper-button-prev" data-preload-images="false" {{#root_Compare @global.style.navigationSlider.length ">" "1"}}   data-autoplay="3000" {{/root_Compare}}  data-speed="600" data-lazy-loading="true" class="swiper-container swiper-init">
+    <div class="swiper-wrapper">
+        {{#@global.style.navigationSlider}}
+        <div class="swiper-slide" style="background-image:url({{this}});" onclick="Appyscript.openDeepLinkImageSlider('slidebardeeplink',{{@index}})">
+            <img data-src="images/transparent-bg.png" class="swiper-lazy"/>
+            <div class="preloader"></div>
+        </div>
+        {{/@global.style.navigationSlider}}
+    </div>
+    <div class="swiper-pagination "></div>
+</div>
+{{/if}}
+<!------------ Swiper  --------->
+
+<div id="app_navigation" class="{{@global.style.navigationSize}} {{#home.appData.layoutOption}} {{this}}-option {{/home.appData.layoutOption}}  {{#home.appData.hideLayout}} hide-{{this}} {{/home.appData.hideLayout}}  {{@global.style.navigationFont}} app_navigation_{{@global.style.layout}} animation-{{@global.style.animation}}" animation="{{@global.style.animationEffect}}">
+
+
+
+    <div class="scroll">
+        {{#home.home}}
+        <a href="#" data-productidentifier="{{pageIdentifierBecon}}" data-productid="{{pageid}}" class="page-link" style="background-color:{{backgroundColor}}">
+           <div class="right_icon">
+
+            {{#js_compare "this.pageiconType === 'img' "}} <img src="{{@global.homeIconPath}}{{iconName}}">
+            {{else}}
+            <i class="{{iconName}}" style="color: {{@global.style.navIconColor}}; "></i>
+            {{/js_compare}}
+           </div>
+            <span class="" style="color: {{@global.style.navTextColor}} ">{{pageNewid}}</span>
+        </a>
+        {{/home.home}}
+    </div>
+
+</div>
+
+{{#if @global.style.animation}}
+<div class="layout-preloader"><span class="preloader preloader-white"></span></div>
+<div class="layout-disabled" ontouchstart="return false;" ontouchmove="return false;" ontouchend="return false;"></div>
+{{/if}}
+
+</div>
+
+</div>
+
+
+
+
+
+
+

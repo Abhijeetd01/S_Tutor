@@ -1,0 +1,92 @@
+<div class="navbar"><div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}}; font-size: {{@global.style.headerBarSize}} ">
+    <div class="left sliding">
+        <a href="index" class="link back" style="color:{{@global.style.headerBarTextColor}};">
+            <i class="icon icon-left-open-2"></i>
+        </a>
+    </div>
+    <div class="center sliding">
+        {{getEventName ""}}
+    </div>
+    <div class="right"><a  style="color:{{@global.style.headerBarTextColor}};">
+        <i class="icon iconz-location-chat--r"></i>
+    </a>
+    </div>
+</div></div>
+
+<div data-page="customevent-selectTicket" class="page navbar-through toolbar-through   toolbar-bottom {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="color:{{@global.styleAndNavigation.content[2]}}; background:{{@global.styleAndNavigation.pageBackroundColor}};">
+    <style>
+.number-select .fixed{color:{{@global.styleAndNavigation.secondaryButton[3]}};background:{{@global.styleAndNavigation.secondaryButton[2]}};border-color:{{@global.styleAndNavigation.borderColor}}}
+.day-page .ticket-type li, .ticket-select, .number-select{ border-color:{{@global.styleAndNavigation.borderColor}}}
+.available{color:{{@global.styleAndNavigation.availableColor}}}
+.not-available{color:{{@global.styleAndNavigation.notavailableColor}}}
+.day-page .ticket-type.border {
+    border-color:{{@global.styleAndNavigation.borderColor}};
+}
+.number-select div.swiper-slide-active span {
+   color:{{@global.styleAndNavigation.secondaryButton[3]}};
+}
+</style>
+    <!-- Page content-->
+    <div class="page-content">
+
+        <section class="section-events day-page event-back">
+            <div class="day-head">
+                <a class="dateSlider" style="color:{{@global.styleAndNavigation.content[2]}}">{{eDay}} <strong>{{eDate}}</strong> {{eMonth}} {{eYear}}</a>
+                <h4 class="{{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}};">{{eName}}</h4>
+                <span>{{eVenue}}</span>
+                <!--<a date="{{date}}">{{formatDateMe date "DDD <strong>dd</strong> mmm"}}</a>-->
+
+            </div>
+            <ul class="ticket-type border">
+                <li>
+                    <h4 class="{{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}};">{{eRowName}}</h4>
+                    <span class="available" style="display:none;">{{@global.pageLanguageSetting.available}}</span>
+                    <strong class="price">{{#js_compare "this.eRowPrice != 0"}}{{@global.pageLanguageSetting.ce_currencySymbol}} {{eRowPrice}}{{else}}{{@global.pageLanguageSetting.free}}{{/js_compare}}</strong>
+                </li>
+            </ul>
+            <div class="ticket-select">
+                <h4 class="{{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}};">{{@global.pageLanguageSetting.how_many_tickets}}</h4>
+                <div class="swiper-container number-select" data-number="{{eRowSeats}}">
+                    <div class="swiper-wrapper"></div>
+                </div>
+            </div>
+            <div class="total">
+                <span>{{#js_compare "this.eRowPrice != 0"}}{{@global.pageLanguageSetting.ce_currencySymbol}} {{eRowPrice}}{{else}}{{@global.pageLanguageSetting.free}}{{/js_compare}}</span>
+            </div>
+
+            <!--<ul class="offerDiscountRow">-->
+            <!--<li onclick="Appyscript.customeventBooking(this)">-->
+            <!--<div class="offPrice">20% <span>OFF</span></div>-->
+            <!--<div class="offPriceDiscript"> -->
+            <!--Group of 2-->
+            <!-- -->
+            <!--</div> -->
+            <!--</li> -->
+            <!--<li onclick="Appyscript.customeventBooking(this)">-->
+            <!--<div class="offPrice">30% <span>OFF</span></div>-->
+            <!--<div class="offPriceDiscript"> -->
+            <!--Group of 3-->
+            <!-- -->
+            <!--</div> -->
+            <!--</li> -->
+            <!--  -->
+            <!--<li onclick="Appyscript.customeventBooking(this)">-->
+            <!--<div class="offPrice">40% <span>OFF</span></div>-->
+            <!--<div class="offPriceDiscript"> -->
+            <!--Group of 4-->
+            <!-- -->
+            <!--</div> -->
+            <!--</li>  -->
+            <!--</ul>-->
+
+
+        </section>
+
+
+    </div>
+    <div class="toolbar">
+        <div class="toolbar-inner">
+            <a class="btn {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" style="background-color: {{@global.styleAndNavigation.button[2]}}; color: {{@global.styleAndNavigation.button[3]}};" onclick="completeMyOrder();">{{@global.pageLanguageSetting.continue_food}}</a>
+        </div>
+    </div>
+</div>

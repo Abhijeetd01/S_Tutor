@@ -1,0 +1,44 @@
+
+<div class="navbar">
+    <div class="navbar-inner" style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+
+        <div class="left sliding">
+            <a href="index" class="link back icon icon-left-open-2" style="color:{{@global.style.headerBarIconColor}};"></a>
+        </div>
+
+        <div class="center sliding">
+            <div class="topHeader {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">
+                Accommodation Amenities
+            </div>
+        </div>
+
+        <div class="right">
+
+        </div>
+    </div>
+</div>
+
+<div data-page="accommodation-privacy" class="page navbar-through no-toolbar" style="background-color:">
+    <!-- Page content-->
+    <div class="page-content {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}} hideBorder-{{@global.styleAndNavigation.hideBorder}}" style="color:{{@global.styleAndNavigation.content[2]}}; background:{{@global.styleAndNavigation.pageBgColor}}">
+        <section class="amenities">
+            <ul class="accAmenities">
+                {{#facilitiesList}}
+                <li>
+                    <div class="accAmenitiesname">
+                        <span>{{facility}}</span>
+                        <p class="amenitiesSelect">
+                            <input id="accomoameniselect{{@index}}" value="{{id}}" type="checkbox" onchange="accommodation_image_myFunction(this);" {{checkuncehckroomanimites id}}>
+                        </p>
+                    </div>
+                </li>
+                {{/facilitiesList}}
+
+
+            </ul>
+
+        </section>
+    </div>
+    <!-- End Page content-->
+</div>
+

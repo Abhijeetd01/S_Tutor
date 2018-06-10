@@ -1,0 +1,467 @@
+<div class="navbar"><div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+   <div class="left sliding">
+      {{#root_Compare @global.style.layout "==" "slidemenu"}}
+      {{#if @global.innerLayout}}
+      <a href="index" class="link back" style="color:{{@global.style.headerBarIconColor}};">
+         <i class="icon icon-left-open-2"></i>
+      </a>
+      {{else}}
+      <a onclick="Appyscript.openSlide()" style="color:{{@global.style.headerBarIconColor}};">
+         <i class="icon icon-menu"></i>
+      </a>
+      {{/if}}
+      {{else}}
+      <a href="index" class="link back" style="color:{{@global.style.headerBarIconColor}};">
+         <i class="icon icon-left-open-2"></i>
+      </a>
+      {{/root_Compare}}
+   </div>
+   <div class="center sliding {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">{{title}}</div>
+   <div class="right"></div>
+</div></div>
+
+<div data-page="services-add-coupon" class="page navbar-through toolbar-through page-on-center toolbar-fixed" style="background-color: {{@global.styleAndNavigation.pageBgColor}}">
+
+   <!-- Page content-->
+   <div class="backgroundAnimation">{{> innerBackground}}</div>
+
+   <div class="page-content {{@global.style.appPageFont}} {{@global.style.appPageCsize}} hideBorder-{{@global.styleAndNavigation.hideBorder}}" style="color:{{@global.style.pageTextColor}}; ">
+      <style type="text/css">
+      ::-webkit-input-placeholder {
+      color:{{@global.styleAndNavigation.content[2]}} !important;
+      }
+      :-moz-placeholder {
+      color:{{@global.styleAndNavigation.content[2]}} !important;
+      }
+      ::-moz-placeholder {color:{{@global.styleAndNavigation.content[2]}} !important;
+      }
+      :-ms-input-placeholder {
+      color:{{@global.styleAndNavigation.content[2]}} !important;
+      }
+      .input-group-cop>.form-control{border:1px solid {{@global.styleAndNavigation.borderColor}} !important;}
+      .input-group-cop .icon-info-circled{color:{{@global.styleAndNavigation.icon[0]}}}
+      .tab-link{border:1px solid {{@global.styleAndNavigation.secondaryButton[2]}}; color:  {{@global.styleAndNavigation.secondaryButton[2]}}}
+      .tab-link.active{background-color:{{@global.styleAndNavigation.button[2]}}; outline:1px dashed {{@global.styleAndNavigation.button[2]}}; color:{{@global.styleAndNavigation.button[3]}}; border:0px !important}
+   </style>
+      <div class="wrap_form">
+         <h1 class="{{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}" style="color:{{@global.styleAndNavigation.subheading[2]}}">{{@global.pageLanguageSetting.dir_coupon_type}}</h1>
+         <div class="cop-tabs">
+            <a href="#tab-1" class="tab-link {{#if editMode}}{{#js_compare "this.data.couponType == \'discount\' "}}active{{/js_compare}}{{else}}{{/if}}" id="discount" postId="1" onclick="c_clickedTab(this)">10%<span>{{@global.pageLanguageSetting.discount_mcom}}</span></a>
+            <a href="#tab-2" class="tab-link {{#if editMode}}{{#js_compare "this.data.couponType == \'buyget\' "}}active{{/js_compare}}{{else}}{{/if}}" id="buyget" postId="2" onclick="c_clickedTab(this)" style="margin: 0 8px;">2+1<span>{{@global.pageLanguageSetting.dir_bye_get}}</span></a>
+            <a href="#tab-3" class="tab-link {{#if editMode}}{{#js_compare "this.data.couponType == \'scratchwin\' "}}active{{/js_compare}}{{else}}{{/if}}" id="scratchwin" postId="3" onclick="c_clickedTab(this)"><i class="iconz-scissors" ></i><span>{{@global.pageLanguageSetting.dir_scratch_win}}</span></a>
+         </div>
+         <div class="tabs-animated-wrap">
+            <div class="tabs">
+               <div id="tab-1" class="tab  {{#if editMode}}{{#js_compare "this.data.couponType == \'discount\' "}}tab-active{{/js_compare}}{{else}}tab-active{{/if}}">
+               <div class="block">
+                  <div class="input-group-cop">
+                     <div class="input-group-prepend">
+                        <span class="input-group-cop-text" style="background:{{@global.styleAndNavigation.borderColor}}">{{@global.pageLanguageSetting.dir_coupon_name_tag}}<span class="mandatory">*</span></span>
+                     </div>
+                     <input id="cName1" type="text" class="form-control" placeholder="{{@global.pageLanguageSetting.dir_coupon_name_tag}}" aria-label="Username" aria-describedby="basic-addon1">
+                  </div>
+                  <div class="input-group-cop">
+                     <div class="input-group-prepend">
+                        <span class="input-group-cop-text" style="background:{{@global.styleAndNavigation.borderColor}}">{{@global.pageLanguageSetting.brief_description}}<span class="mandatory">*</span></span>
+                     </div>
+                     <input id="cDesc1" type="text" class="form-control" placeholder="{{@global.pageLanguageSetting.dir_discount_detail}}" aria-label="Username" aria-describedby="basic-addon1">
+                  </div>
+                  <div class="input-group-cop">
+                     <label class="{{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}" style="color:{{@global.styleAndNavigation.subheading[2]}};">{{@global.pageLanguageSetting.add_cover_image}}</label>
+                     <img id="coverImage1" class="displayImage" {{#if editMode}}src="{{data.coverImage}}" style="display:inline !important"{{else}}src=""{{/if}} width="90px" height="90">
+                     <div class="files {{@global.styleAndNavigation.secondaryButton[0]}} {{@global.styleAndNavigation.secondaryButton[1]}}" style="background-color: {{@global.styleAndNavigation.secondaryButton[2]}}; color: {{@global.styleAndNavigation.secondaryButton[3]}}">
+
+                        <input id="cCover1" class="form-control coverUpload" name="screenshot" type="file" onchange="dir_displayImage(this);" accept="image/*">
+
+                        <span><i class="icon icon-plus"></i> {{@global.pageLanguageSetting.add_cover_image}} (700x350)</span>
+                     </div>
+                  </div>
+                  <div class="input-group-cop">
+                     <label class="{{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}" style="color:{{@global.styleAndNavigation.subheading[2]}};">{{@global.pageLanguageSetting.dir_terms_conditions}}</label>
+                     <textarea id="cTnc1" class="form-control"></textarea>
+                  </div>
+                  <div class="accordion-list myOrders">
+                     <div class="accordion-item accordion-closed">
+                        <a class="item-link {{@global.styleAndNavigation.secondaryButton[0]}} {{@global.styleAndNavigation.secondaryButton[1]}}" style="background-color: {{@global.styleAndNavigation.secondaryButton[2]}}; color: {{@global.styleAndNavigation.secondaryButton[3]}}; border-color:{{@global.styleAndNavigation.secondaryButton[2]}}">{{@global.pageLanguageSetting.dir_savings}} <i class="icon-right-open"></i><i class="icon-down-open"></i></a>
+                        <div class="accordion-item-content order-row" style="border-color:{{@global.styleAndNavigation.secondaryButton[2]}}">
+                           <div class="wrap_form">
+                              <div class="input-group-cop">
+                                 <label class="{{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}" style="color:{{@global.styleAndNavigation.subheading[2]}};">{{@global.pageLanguageSetting.dir_discount_type}}</label>
+                                 <label class=""><input type="radio" name="cSavings1" value="percentage" checked> {{@global.pageLanguageSetting.dir_percentage}}</label>
+                                 <label class=""><input type="radio" name="cSavings1" value="flat"> {{@global.pageLanguageSetting.dir_flat}}</label>
+                              </div>
+                              <div class="input-group-cop m-0">
+                                 <label class="{{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}" style="color:{{@global.styleAndNavigation.subheading[2]}};">{{@global.pageLanguageSetting.discount_mcom}}*</label>
+                                 <input type="number" placeholder="10%" id="cSavingsDisc1" class="form-control"/>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="accordion-item accordion-closed">
+                        <a class="item-link {{@global.styleAndNavigation.secondaryButton[0]}} {{@global.styleAndNavigation.secondaryButton[1]}}" style="background-color: {{@global.styleAndNavigation.secondaryButton[2]}}; color: {{@global.styleAndNavigation.secondaryButton[3]}}; border-color:{{@global.styleAndNavigation.secondaryButton[2]}}">{{@global.pageLanguageSetting.dir_validation}} <i class="icon-right-open"></i><i class="icon-down-open"></i></a>
+                        <div class="accordion-item-content order-row"  style="border-color:{{@global.styleAndNavigation.secondaryButton[2]}}">
+                           <div class="wrap_form">
+                              <div class="input-group-cop">
+                                 <label class="{{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}" style="color:{{@global.styleAndNavigation.subheading[2]}};">{{@global.pageLanguageSetting.dir_validation_process}}</label>
+                                 <label class=""><input type="radio" name="cValidation1" class="to-be-disabled" value="promo" checked > {{@global.pageLanguageSetting.dir_promo_code_tag}}</label>
+                                 <label class=""><input type="radio" name="cValidation1" class="to-be-disabled" value="pin" > {{@global.pageLanguageSetting.dir_pin_authentication}} <i class="icon-info-circled"></i></label>
+                                 <label class=""><input type="radio" name="cValidation1" class="to-be-disabled" value="redeem" > {{@global.pageLanguageSetting.dir_redeem_button}} <i class="icon-info-circled"></i></label>
+                              </div>
+                              <div class="input-group-cop promoDiv1">
+                                 <div class="input-group-prepend">
+                                    <span class="input-group-cop-text" style="background:{{@global.styleAndNavigation.borderColor}}"><span>{{@global.pageLanguageSetting.coupon_code}}</span><span class="mandatory">*</span></span>
+                                 </div>
+                                 <input type="text" id="cValidationPromo1" class="form-control to-be-disabled" placeholder="OFFER10" />
+                                 {{#if editMode}}{{else}}
+                                 <div class="input-group-prepend" onclick="updateMyCode(this)">
+                                    <span class="input-group-cop-text" style="background:transparent !important;border:none !important" ><i class="refresh-icon icon-spin3 animate-spin"></i></span>
+                                 </div>
+                                 {{/if}}
+                              </div>
+                              <div class="input-group-cop pinDiv1" style="display:none">
+                                 <div class="input-group-prepend">
+                                    <span class="input-group-cop-text" style="background:{{@global.styleAndNavigation.borderColor}}"><span>{{@global.pageLanguageSetting.dir_pin_tag}}</span><span class="mandatory">*</span></span>
+                                 </div>
+                                 <input type="text" id="cValidationPin1" class="form-control to-be-disabled" placeholder="OFFER10" />
+                                 {{#if editMode}}{{else}}
+                                 <div class="input-group-prepend to-be-disabled" onclick="updateMyCode(this,'pin')">
+                                    <span class="input-group-cop-text" style="background:transparent !important;border:none !important" ><i class="refresh-icon icon-spin3 animate-spin"></i></span>
+                                 </div>
+                                 {{/if}}
+                              </div>
+                              <div class="input-group-cop showScanner1">
+                                 <label class=""><input type="checkbox" name="cShowScanner1" class="to-be-disabled" onchange="dir_toggleCodes(this)" > {{@global.pageLanguageSetting.dir_scanner_code}}</label>
+                                 <div class="bar-qr" style="width:100%;display:none;">
+                                    <label class="" style="width:50%"><input type="radio" name="bar_qr1" class="to-be-disabled" value="bar" checked >{{@global.pageLanguageSetting.dir_bar_code}}
+                                    </label>
+                                    <label class="" style="width:50%;float:right">
+                                       <input type="radio" name="bar_qr1" value="qr" class="to-be-disabled" >{{@global.pageLanguageSetting.dir_qr_code}}</label>
+                                 </div>
+                              </div>
+                              <div class="input-group-cop validType1" style="display:none">
+                                 <div class="input-group-prepend">
+                                    <span class="input-group-cop-text" style="background:{{@global.styleAndNavigation.borderColor}}"><span>{{@global.pageLanguageSetting.dir_coupon_type}}</span><span class="mandatory">*</span></span>
+                                 </div>
+                                 <select id="validType1" class="form-control" class"to-be-disabled">
+                                 <option value="reusable" data-role="none">{{@global.pageLanguageSetting.dir_reusable}}</option>
+                                 <option value="onetime" data-role="none">{{@global.pageLanguageSetting.one_time}}</option>
+                                 </select>
+
+                              </div>
+                              <div style="border-bottom: 1px dashed {{@global.styleAndNavigation.borderColor}}; width: 100%; margin: 10px 0 30px 0; height: 1px;"></div>
+                              <div class="input-group-cop m-0 m-13">
+                                 <div class="wid-45 pull-left">
+                                    <input type="text" placeholder="{{@global.pageLanguageSetting.dir_date_of_issue}}" readonly="readonly" class="form-control"/>
+                                 </div>
+                                 <div class="wid-45 pull-rightside">
+                                    <input id="cDateIssue1" type="date" placeholder="2018-01-08" class="form-control"/>
+                                 </div>
+                              </div>
+                              <div class="input-group-cop m-0">
+                                 <div class="wid-45 pull-left">
+                                    <input type="text" placeholder="{{@global.pageLanguageSetting.dir_valid_till}}" readonly="readonly" class="form-control"/>
+                                 </div>
+                                 <div class="wid-45 pull-rightside">
+                                    <input id="cDateValid1" type="date" placeholder="2018-01-09" class="form-control"/>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="input-group-cop" style="">
+                     <label class="{{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}" style="color:{{@global.styleAndNavigation.subheading[2]}};">{{@global.pageLanguageSetting.status}}<span class="mandatory">*</span></label>
+                     <div class="radio wid-50 pull-left">
+                        <label class="btn-style {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" style="background-color: {{@global.styleAndNavigation.button[2]}}; color: {{@global.styleAndNavigation.button[3]}};"><input type="radio" name="isActive1" value="true" checked>{{@global.pageLanguageSetting.dir_active}}</label>
+                     </div>
+                     <div class="radio wid-50 pull-left">
+                        <label class="btn-style {{@global.styleAndNavigation.secondaryButton[0]}} {{@global.styleAndNavigation.secondaryButton[1]}}" style="background-color: {{@global.styleAndNavigation.secondaryButton[2]}}; color: {{@global.styleAndNavigation.secondaryButton[3]}};"><input type="radio" name="isActive1" value="false">{{@global.pageLanguageSetting.dir_inactive}}</label>
+                     </div>
+                  </div>
+               </div>
+            </div>
+
+            <div id="tab-2" class="tab {{#if editMode}}{{#js_compare "this.data.couponType == \'buyget\' "}}tab-active{{/js_compare}}{{/if}}">
+            <div class="input-group-cop">
+               <div class="input-group-prepend">
+                  <span class="input-group-cop-text" style="background:{{@global.styleAndNavigation.borderColor}}">{{@global.pageLanguageSetting.dir_coupon_name_tag}}<span class="mandatory">*</span></span>
+               </div>
+               <input id="cName2" type="text" class="form-control" placeholder="{{@global.pageLanguageSetting.dir_coupon_name_tag}}" aria-label="Username" aria-describedby="basic-addon1">
+            </div>
+            <div class="input-group-cop">
+               <div class="input-group-prepend">
+                  <span class="input-group-cop-text" style="background:{{@global.styleAndNavigation.borderColor}}">{{@global.pageLanguageSetting.brief_description}}<span class="mandatory">*</span></span>
+               </div>
+               <input id="cDesc2" type="text" class="form-control" placeholder="{{@global.pageLanguageSetting.dir_discount_detail}}" aria-label="Username" aria-describedby="basic-addon1">
+            </div>
+            <div class="input-group-cop">
+               <label class="{{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}" style="color:{{@global.styleAndNavigation.subheading[2]}};">{{@global.pageLanguageSetting.add_cover_image}}</label>
+               <img id="coverImage2" class="displayImage" {{#if editMode}}src="{{data.coverImage}}" style="display:inline !important"{{else}}src=""{{/if}} width="90px" height="90">
+               <div class="files {{@global.styleAndNavigation.secondaryButton[0]}} {{@global.styleAndNavigation.secondaryButton[1]}}" style="background-color: {{@global.styleAndNavigation.secondaryButton[2]}}; color: {{@global.styleAndNavigation.secondaryButton[3]}}">
+
+                  <input id="cCover2" class="form-control coverUpload" name="screenshot" type="file" onchange="dir_displayImage(this);" accept="image/*">
+
+                  <span><i class="icon icon-plus"></i> {{@global.pageLanguageSetting.add_cover_image}} (700x350)</span>
+               </div>
+            </div>
+            <div class="input-group-cop">
+               <label class="{{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}" style="color:{{@global.styleAndNavigation.subheading[2]}};">{{@global.pageLanguageSetting.dir_terms_conditions}}</label>
+               <textarea id="cTnc2" class="form-control"></textarea>
+            </div>
+            <div class="accordion-list myOrders">
+               <div class="accordion-item accordion-closed">
+                  <a class="item-link {{@global.styleAndNavigation.secondaryButton[0]}} {{@global.styleAndNavigation.secondaryButton[1]}}" style="background-color: {{@global.styleAndNavigation.secondaryButton[2]}}; color: {{@global.styleAndNavigation.secondaryButton[3]}}; border-color:{{@global.styleAndNavigation.secondaryButton[2]}}">{{@global.pageLanguageSetting.dir_savings}} <i class="icon-right-open"></i><i class="icon-down-open"></i></a>
+                  <div class="accordion-item-content order-row"  style="border-color:{{@global.styleAndNavigation.secondaryButton[2]}}">
+                     <div class="wrap_form">
+                        <div class="input-group-cop">
+                           <label class="{{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}" style="color:{{@global.styleAndNavigation.subheading[2]}};">{{@global.pageLanguageSetting.dir_buy_tag}}<span class="mandatory">*</span></label>
+                           <input id="cSavingsBuy" type="number" placeholder="2" class="form-control"/>
+                        </div>
+                        <div class="input-group-cop">
+                           <label class="{{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}" style="color:{{@global.styleAndNavigation.subheading[2]}};">{{@global.pageLanguageSetting.dir_get_tag}}<span class="mandatory">*</span></label>
+                           <input id="cSavingsGet" type="number" placeholder="2" class="form-control"/>
+                        </div>
+                        <div class="input-group-cop m-0">
+                           <label class="{{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}" style="color:{{@global.styleAndNavigation.subheading[2]}};">{{@global.pageLanguageSetting.dir_deal_display}}</label>
+                           <label class=""><input type="radio" name="cSavingsDisp" value="1" checked> {{@global.pageLanguageSetting.dir_buy_two_get_one}}</label>
+                           <label class=""><input type="radio" name="cSavingsDisp" value="2"> {{@global.pageLanguageSetting.dir_two_plus_one}}</label>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="accordion-item accordion-closed">
+                  <a class="item-link {{@global.styleAndNavigation.secondaryButton[0]}} {{@global.styleAndNavigation.secondaryButton[1]}}" style="background-color: {{@global.styleAndNavigation.secondaryButton[2]}}; color: {{@global.styleAndNavigation.secondaryButton[3]}}; border-color:{{@global.styleAndNavigation.secondaryButton[2]}}">{{@global.pageLanguageSetting.dir_validation}} <i class="icon-right-open"></i><i class="icon-down-open"></i></a>
+                  <div class="accordion-item-content order-row"  style="border-color:{{@global.styleAndNavigation.secondaryButton[2]}}">
+                     <div class="wrap_form">
+                        <div class="input-group-cop">
+                           <label class="{{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}" style="color:{{@global.styleAndNavigation.subheading[2]}};">{{@global.pageLanguageSetting.dir_validation_process}}</label>
+                           <label class=""><input type="radio" name="cValidation2" class="to-be-disabled" value="promo" checked > {{@global.pageLanguageSetting.dir_promo_code_tag}}</label>
+                           <label class=""><input type="radio" name="cValidation2" class="to-be-disabled" value="pin" > {{@global.pageLanguageSetting.dir_pin_authentication}} <i class="icon-info-circled"></i></label>
+                           <label class=""><input type="radio" name="cValidation2" class="to-be-disabled" value="redeem" > {{@global.pageLanguageSetting.dir_redeem_button}} <i class="icon-info-circled"></i></label>
+                        </div>
+                        <div class="input-group-cop promoDiv2">
+                           <div class="input-group-prepend">
+                              <span class="input-group-cop-text" style="background:{{@global.styleAndNavigation.borderColor}}">{{@global.pageLanguageSetting.coupon_code}}<span class="mandatory">*</span></span>
+                           </div>
+                           <input type="text" id="cValidationPromo2" class="form-control to-be-disabled" placeholder="OFFER10" />
+                           {{#if editMode}}{{else}}
+                           <div class="input-group-prepend to-be-disabled" onclick="updateMyCode(this)">
+                              <span class="input-group-cop-text" style="background:transparent !important;border:none !important" ><i class="refresh-icon icon-spin3 animate-spin"></i></span>
+                           </div>
+                           {{/if}}
+                        </div>
+                        <div class="input-group-cop pinDiv2" style="display:none">
+                           <div class="input-group-prepend">
+                              <span class="input-group-cop-text" style="background:{{@global.styleAndNavigation.borderColor}}"><span>{{@global.pageLanguageSetting.dir_pin_tag}}</span><span class="mandatory">*</span></span>
+                           </div>
+                           <input type="text" id="cValidationPin2" class="form-control to-be-disabled" placeholder="3142" />
+                           {{#if editMode}}{{else}}
+                           <div class="input-group-prepend" onclick="updateMyCode(this,'pin')">
+                              <span class="input-group-cop-text" style="background:transparent !important;border:none !important" ><i class="refresh-icon icon-spin3 animate-spin"></i></span>
+                           </div>
+                           {{/if}}
+                        </div>
+                        <div class="input-group-cop showScanner2">
+                           <label class=""><input type="checkbox" name="cShowScanner2" class="to-be-disabled" onchange="dir_toggleCodes(this);" > {{@global.pageLanguageSetting.dir_scanner_code}} Type</label>
+                           <div class="bar-qr" style="width:100%;display:none;">
+                              <label class="" style="width:50%"><input type="radio" name="bar_qr2" class="to-be-disabled" value="bar" checked >{{@global.pageLanguageSetting.dir_bar_code}}
+                              </label>
+                              <label class="" style="width:50%;float:right">
+                                 <input type="radio" name="bar_qr2" value="qr" class="to-be-disabled" >{{@global.pageLanguageSetting.dir_qr_code}}</label>
+                           </div>
+                        </div>
+                        <div class="input-group-cop validType2" style="display:none">
+                           <div class="input-group-prepend">
+                              <span class="input-group-cop-text" style="background:{{@global.styleAndNavigation.borderColor}}"><span>{{@global.pageLanguageSetting.dir_coupon_type}}</span><span class="mandatory">*</span></span>
+                           </div>
+                           <select id="validType2" class="form-control to-be-disabled" >
+                              <option value="reusable" data-role="none">{{@global.pageLanguageSetting.dir_reusable}}</option>
+                              <option value="onetime" data-role="none">{{@global.pageLanguageSetting.one_time}}</option>
+                           </select>
+
+                        </div>
+                        <div style="border-bottom: 1px dashed {{@global.styleAndNavigation.borderColor}}; width: 100%; margin: 10px 0 30px 0; height: 1px;"></div>
+                        <div class="input-group-cop m-0 m-13">
+                           <div class="wid-45 pull-left">
+                              <input type="text" placeholder="{{@global.pageLanguageSetting.dir_date_of_issue}}" readonly="readonly" class="form-control"/>
+                           </div>
+                           <div class="wid-45 pull-rightside">
+                              <input type="date" id="cDateIssue2" placeholder="2018-01-08" class="form-control"/>
+                           </div>
+                        </div>
+                        <div class="input-group-cop m-0">
+                           <div class="wid-45 pull-left">
+                              <input type="text" placeholder="{{@global.pageLanguageSetting.dir_valid_till}}" readonly="readonly" class="form-control"/>
+                           </div>
+                           <div class="wid-45 pull-rightside">
+                              <input type="date" id="cDateValid2" placeholder="2018-01-09" class="form-control"/>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="input-group-cop" style="">
+               <label class="{{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}" style="color:{{@global.styleAndNavigation.subheading[2]}};">{{@global.pageLanguageSetting.status}}<span class="mandatory">*</span></label>
+               <div class="radio wid-50 pull-left">
+                  <label class="btn-style {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" style="background-color: {{@global.styleAndNavigation.button[2]}}; color: {{@global.styleAndNavigation.button[3]}};"><input type="radio" name="isActive2" value="true" checked>{{@global.pageLanguageSetting.dir_active}}</label>
+               </div>
+               <div class="radio wid-50 pull-left">
+                  <label class="btn-style {{@global.styleAndNavigation.secondaryButton[0]}} {{@global.styleAndNavigation.secondaryButton[1]}}" style="background-color: {{@global.styleAndNavigation.secondaryButton[2]}}; color: {{@global.styleAndNavigation.secondaryButton[3]}};"><input type="radio" name="isActive2" value="false">{{@global.pageLanguageSetting.dir_inactive}}</label>
+               </div>
+            </div>
+         </div>
+
+         <div id="tab-3" class="tab {{#if editMode}}{{#js_compare "this.data.couponType == \'scratchwin\' "}}tab-active{{/js_compare}}{{/if}}">
+         <div class="block">
+            <div class="input-group-cop">
+               <div class="input-group-prepend">
+                  <span class="input-group-cop-text" style="background:{{@global.styleAndNavigation.borderColor}}">{{@global.pageLanguageSetting.dir_coupon_name_tag}}<span class="mandatory">*</span></span>
+               </div>
+               <input type="text" id="cName3" class="form-control" placeholder="{{@global.pageLanguageSetting.dir_coupon_name_tag}}" aria-label="Username" aria-describedby="basic-addon1">
+            </div>
+            <div class="input-group-cop">
+               <div class="input-group-prepend">
+                  <span class="input-group-cop-text" style="background:{{@global.styleAndNavigation.borderColor}}">{{@global.pageLanguageSetting.brief_description}}<span class="mandatory">*</span></span>
+               </div>
+               <input type="text" id="cDesc3" class="form-control" placeholder="{{@global.pageLanguageSetting.dir_discount_detail}}" aria-label="Username" aria-describedby="basic-addon1">
+            </div>
+            <div class="input-group-cop">
+               <label class="{{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}" style="color:{{@global.styleAndNavigation.subheading[2]}};">{{@global.pageLanguageSetting.add_cover_image}}</label>
+               <img id="coverImage3" class="displayImage" {{#if editMode}}src="{{data.coverImage}}" style="display:inline !important"{{else}}src=""{{/if}} width="90px" height="90">
+               <div class="files {{@global.styleAndNavigation.secondaryButton[0]}} {{@global.styleAndNavigation.secondaryButton[1]}}" style="background-color: {{@global.styleAndNavigation.secondaryButton[2]}}; color: {{@global.styleAndNavigation.secondaryButton[3]}}">
+
+                  <input class="form-control coverUpload" id="cCover3" name="screenshot" type="file" onchange="dir_displayImage(this);" accept="image/*">
+
+                  <span><i class="icon icon-plus"></i> {{@global.pageLanguageSetting.add_cover_image}} (700x350)</span>
+               </div>
+            </div>
+            <div class="input-group-cop">
+               <label class="{{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}" style="color:{{@global.styleAndNavigation.subheading[2]}};">{{@global.pageLanguageSetting.dir_terms_conditions}}</label>
+               <textarea id="cTnc3" class="form-control"></textarea>
+            </div>
+            <div class="accordion-list myOrders">
+               <div class="accordion-item accordion-closed">
+                  <a class="item-link {{@global.styleAndNavigation.secondaryButton[0]}} {{@global.styleAndNavigation.secondaryButton[1]}}" style="background-color: {{@global.styleAndNavigation.secondaryButton[2]}}; color: {{@global.styleAndNavigation.secondaryButton[3]}}; border-color:{{@global.styleAndNavigation.secondaryButton[2]}}">{{@global.pageLanguageSetting.dir_savings}} <i class="icon-right-open"></i><i class="icon-down-open"></i></a>
+                  <div class="accordion-item-content order-row"  style="border-color:{{@global.styleAndNavigation.secondaryButton[2]}}">
+                     {{#if editMode}}
+                     <span id="luckyAppendHere"></span>
+                     {{else}}
+                     <div class="wrap_form lucky-card">
+                        <div class="input-group-cop">
+                           <label class="{{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}" style="color:{{@global.styleAndNavigation.subheading[2]}};">{{@global.pageLanguageSetting.dir_lucky_card_tags}} <i class="icon-info-circled"></i></label>
+                           <label class="{{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}" style="color:{{@global.styleAndNavigation.subheading[2]}};">{{@global.pageLanguageSetting.dir_odds}}<span class="mandatory">*</span> <i class="icon-info-circled"></i></label>
+                           <input type="number" class="form-control luckyOdds" placeholder="{{@global.pageLanguageSetting.dir_discount_detail}}" aria-label="Username" aria-describedby="basic-addon1">
+                        </div>
+                        <div class="input-group-cop">
+                           <label class="{{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}" style="color:{{@global.styleAndNavigation.subheading[2]}};">{{@global.pageLanguageSetting.dir_price_announce}}</label>
+                           <input type="text" placeholder="{{@global.pageLanguageSetting.dir_customer_whatwon}}" class="form-control luckyWon"/>
+                        </div>
+                        <div class="input-group-cop">
+                           <img class="displayImage" src="" width="90px" height="90">
+                           <div class="files {{@global.styleAndNavigation.secondaryButton[0]}} {{@global.styleAndNavigation.secondaryButton[1]}}" style="background-color: {{@global.styleAndNavigation.secondaryButton[2]}}; color: {{@global.styleAndNavigation.secondaryButton[3]}}">
+
+                              <input class="form-control luckyImage to-be-disabled" name="screenshot" type="file" indie="0" onchange="dir_displayImage(this);" accept="image/*">
+
+                              <span><i class="icon icon-plus"></i>{{@global.pageLanguageSetting.social_choose_picture}}</span>
+                           </div>
+                        </div>
+                     </div>
+                     {{/if}}
+                     <a href="#" class="btn-style {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" style="background-color: {{@global.styleAndNavigation.button[2]}}; color: {{@global.styleAndNavigation.button[3]}}; {{#if editMode}}display:none{{/if}}" onclick="dir_addLuckyCard();">{{@global.pageLanguageSetting.add_more_dir}}</a>
+                  </div>
+               </div>
+               <div class="accordion-item accordion-closed">
+                  <a class="item-link {{@global.styleAndNavigation.secondaryButton[0]}} {{@global.styleAndNavigation.secondaryButton[1]}} unluckyDiv" style="background-color: {{@global.styleAndNavigation.secondaryButton[2]}}; color: {{@global.styleAndNavigation.secondaryButton[3]}}; border-color:{{@global.styleAndNavigation.secondaryButton[2]}}">{{@global.pageLanguageSetting.dir_unlucky_card}} <i class="icon-right-open"></i><i class="icon-down-open"></i></a>
+                  <div class="accordion-item-content order-row"  style="border-color:{{@global.styleAndNavigation.secondaryButton[2]}}">
+                     <div class="wrap_form">
+                        <div class="input-group-cop">
+                           <label class="{{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}" style="color:{{@global.styleAndNavigation.subheading[2]}};">{{@global.pageLanguageSetting.dir_unlucky_card}}<i class="icon-info-circled"></i></label>
+                           <label class="{{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}" style="color:{{@global.styleAndNavigation.subheading[2]}};">{{@global.pageLanguageSetting.dir_odds}}<span class="mandatory">*</span> <i class="icon-info-circled"></i></label>
+                           <input type="number" class="form-control to-be-disabled" id="unluckyOdds" placeholder="{{@global.pageLanguageSetting.dir_discount_detail}}" aria-label="Username" aria-describedby="basic-addon1" readonly>
+                        </div>
+                        <div class="input-group-cop">
+                           <label class="{{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}" style="color:{{@global.styleAndNavigation.subheading[2]}};">{{@global.pageLanguageSetting.dir_message}}<span class="mandatory">*</span></label>
+                           <input type="text" placeholder="{{@global.pageLanguageSetting.dir_message}}" id="unluckyText" class="form-control to-be-disabled"/>
+                        </div>
+                        <div class="input-group-cop m-0">
+                           {{#if editMode}}
+                           <img id="unluckyImage" src="" width="90px" height="90">
+                           {{else}}
+                           <img class="displayImage" src="" width="90px" height="90">
+                           <div class="files {{@global.styleAndNavigation.secondaryButton[0]}} {{@global.styleAndNavigation.secondaryButton[1]}}" style="background-color: {{@global.styleAndNavigation.secondaryButton[2]}}; color: {{@global.styleAndNavigation.secondaryButton[3]}}">
+
+                              <input class="form-control" id="unluckyImage" name="screenshot" type="file" onchange="dir_displayImage(this);" accept="image/*">
+
+                              <span><i class="icon icon-plus"></i> {{@global.pageLanguageSetting.social_choose_picture}}</span>
+                           </div>
+                           {{/if}}
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="accordion-item accordion-closed">
+                  <a class="item-link {{@global.styleAndNavigation.secondaryButton[0]}} {{@global.styleAndNavigation.secondaryButton[1]}}" style="background-color: {{@global.styleAndNavigation.secondaryButton[2]}}; color: {{@global.styleAndNavigation.secondaryButton[3]}}; border-color:{{@global.styleAndNavigation.secondaryButton[2]}}">{{@global.pageLanguageSetting.dir_validation}} <i class="icon-right-open"></i><i class="icon-down-open"></i></a>
+                  <div class="accordion-item-content order-row"  style="border-color:{{@global.styleAndNavigation.secondaryButton[2]}}">
+                     <div class="wrap_form">
+                        <div class="input-group-cop">
+                           <label class="{{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}" style="color:{{@global.styleAndNavigation.subheading[2]}};">{{@global.pageLanguageSetting.dir_validation_process}}</label>
+                           <label class=""><input type="radio" class="to-be-disabled" name="cValidation3" value="redeem" checked > {{@global.pageLanguageSetting.dir_redeem_button}}</label>
+                           <label class=""><input type="radio" class="to-be-disabled" name="cValidation3" value="pin" > {{@global.pageLanguageSetting.dir_pin_authentication}} <i class="icon-info-circled"></i></label>
+                        </div>
+                        <div class="input-group-cop pinDiv3" style="display:none">
+                           <div class="input-group-prepend">
+                              <span class="input-group-cop-text" style="background:{{@global.styleAndNavigation.borderColor}}"><span>{{@global.pageLanguageSetting.dir_pin_tag}}</span><span class="mandatory">*</span></span>
+                           </div>
+                           <input type="text" id="cValidationPin3" class="form-control to-be-disabled" placeholder="3142" />
+                           {{#if editMode}}{{else}}
+                           <div class="input-group-prepend" onclick="updateMyCode(this,'pin')">
+                              <span class="input-group-cop-text" style="background:transparent !important;border:none !important" ><i class="refresh-icon icon-spin3 animate-spin"></i></span>
+                           </div>
+                           {{/if}}
+                        </div>
+                        <div style="border-bottom: 1px dashed {{@global.styleAndNavigation.borderColor}}; width: 100%; margin: 10px 0 30px 0; height: 1px;"></div>
+                        <div class="input-group-cop m-0 m-13">
+                           <div class="wid-45 pull-left">
+                              <input type="text" placeholder="{{@global.pageLanguageSetting.dir_date_of_issue}}" readonly="readonly" class="form-control"/>
+                           </div>
+                           <div class="wid-45 pull-rightside">
+                              <input type="date" id="cDateIssue3" placeholder="2018-01-08" class="form-control"/>
+                           </div>
+                        </div>
+                        <div class="input-group-cop m-0">
+                           <div class="wid-45 pull-left">
+                              <input type="text" placeholder="{{@global.pageLanguageSetting.dir_valid_till}}" readonly="readonly" class="form-control"/>
+                           </div>
+                           <div class="wid-45 pull-rightside">
+                              <input type="date" id="cDateValid3" placeholder="2018-01-09" class="form-control"/>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="input-group-cop" style="">
+               <label class="{{@global.styleAndNavigation.subheading[0]}} {{@global.styleAndNavigation.subheading[1]}}" style="color:{{@global.styleAndNavigation.subheading[2]}};">{{@global.pageLanguageSetting.status}}<span class="mandatory">*</span></label>
+               <div class="radio wid-50 pull-left">
+                  <label class="btn-style {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" style="background-color: {{@global.styleAndNavigation.button[2]}}; color: {{@global.styleAndNavigation.button[3]}};"><input type="radio" name="isActive3" value="true" checked>{{@global.pageLanguageSetting.dir_active}}</label>
+               </div>
+               <div class="radio wid-50 pull-left">
+                  <label class="btn-style {{@global.styleAndNavigation.secondaryButton[0]}} {{@global.styleAndNavigation.secondaryButton[1]}}" style="background-color: {{@global.styleAndNavigation.secondaryButton[2]}}; color: {{@global.styleAndNavigation.secondaryButton[3]}};"><input type="radio" name="isActive3" value="false">{{@global.pageLanguageSetting.dir_inactive}}</label>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+</div>
+</div>
+
+<div class="toolbar ">
+   <div class="toolbar-inner">
+      <div class="input-group-cop" style="margin:0px;">
+         <a href="#" class="btn-style pull-left wid-50  {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" style="background-color: {{@global.styleAndNavigation.button[2]}}; color: {{@global.styleAndNavigation.button[3]}};" onclick="dir_createCoupon();">{{@global.pageLanguageSetting.dir_save_btn}}	</a>
+         <a href="#" class="btn-style pull-left wid-50  {{@global.styleAndNavigation.secondaryButton[0]}} {{@global.styleAndNavigation.secondaryButton[1]}}" style="background-color: {{@global.styleAndNavigation.secondaryButton[2]}}; color: {{@global.styleAndNavigation.secondaryButton[3]}};" onclick="dir_cancelCoupon();">{{@global.pageLanguageSetting.common_cancel}}</a>
+      </div>
+   </div>
+</div>

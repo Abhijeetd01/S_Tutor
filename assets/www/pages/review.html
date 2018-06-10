@@ -1,0 +1,237 @@
+<div class="navbar"><div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+    <div class="left sliding">
+		{{getSlideBack "common"}}       
+    </div>
+    <div class="center sliding {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">{{formData.name}}</div>
+            <div class="right"></div>
+          </div></div>
+
+
+
+<div data-page="review-Page" class="page navbar-through no-toolbar">
+    <!-- Page content-->
+<div class="backgroundAnimation">{{> innerBackground}}</div>
+    <div class="page-content hideBorder-{{@global.styleAndNavigation.hideBorder}}" style="color:{{@global.styleAndNavigation.content[2]}}">
+    <div class="review-user" style="display:none">
+        <div class="review-user-image">
+	        <img src="images/logo.png">
+        </div>
+        <div class="review-user-details">
+            <h3>{{formData.ratingAndReview}}</h3>
+            <div class="review_options">
+                <div class="insta_photo"></div>
+                <div class="insta_photo">
+                    <span>{{formData.review}}/</span>
+                </div>
+            </div>            
+        </div> 
+    </div>
+   
+   <div class="review-box theme-{{@global.styleAndNavigation.layout}} {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}} content-{{@global.styleAndNavigation.content[3]}};" style="background: {{@global.styleAndNavigation.boxBackground}}">
+   <h1 class="{{@global.styleAndNavigation.title[0]}} {{@global.styleAndNavigation.title[1]}}" style="color:{{@global.styleAndNavigation.title[3]}};">{{formData.ratingAndReview}}</h1>
+   
+   
+   <ul>
+   	<li class="box1">
+    	<div class="rating-view">
+            <div class="rating-new" style="color:{{@global.styleAndNavigation.starColor}}">
+                <b>
+                    <i class="icon-star-empty-1"></i>
+                    <i class="icon-star-empty-1"></i>
+                    <i class="icon-star-empty-1"></i>
+                    <i class="icon-star-empty-1"></i>
+                    <i class="icon-star-empty-1"></i>
+                </b>
+                <b class="on">
+                    <i class="icon-star-1 star-1"></i>
+                    <i class="icon-star-1 star-2"></i>
+                    <i class="icon-star-1 star-3"></i>
+                    <i class="icon-star-1 star-4"></i>
+                    <i class="icon-star-1 star-5"></i>
+                </b>
+            </div>
+        </div>
+    	
+    	<p>
+		    <b class="ratings">4.5</b>
+            {{formData.reviewRating}}
+        </p>
+    	<div class="averageRatings">
+        	<div class="icons" style="color:{{@global.styleAndNavigation.starColor}}">
+                <i class="icon-star-1"></i>
+                <i class="icon-star-1"></i>
+                <i class="icon-star-1"></i>
+                <i class="icon-star-1"></i>
+                <i class="icon-star-1"></i>
+			</div>
+            <div class="icons" style="color:{{@global.styleAndNavigation.starColor}}">
+                <i class="icon-star-1"></i>
+                <i class="icon-star-1"></i>
+                <i class="icon-star-1"></i>
+                <i class="icon-star-1"></i>
+			</div>
+            <div class="icons" style="color:{{@global.styleAndNavigation.starColor}}">
+                <i class="icon-star-1"></i>
+                <i class="icon-star-1"></i>
+                <i class="icon-star-1"></i>
+			</div>
+            <div class="icons" style="color:{{@global.styleAndNavigation.starColor}}">
+                <i class="icon-star-1"></i>
+                <i class="icon-star-1"></i>
+			</div>
+            <div class="icons" style="color:{{@global.styleAndNavigation.starColor}}">
+                <i class="icon-star-1"></i>
+			</div>
+        </div>
+        <div class="totalReviews">
+        	<span class="size" type="5"><em><em style="background:{{@global.styleAndNavigation.starColor}}">&nbsp;</em></em></span>
+            <span class="size" type="4"><em><em style="background:{{@global.styleAndNavigation.starColor}}">&nbsp;</em></em></span>
+            <span class="size" type="3"><em><em style="background:{{@global.styleAndNavigation.starColor}}">&nbsp;</em></em></span>
+            <span class="size" type="2"><em><em style="background:{{@global.styleAndNavigation.starColor}}">&nbsp;</em></em></span>
+            <span class="size" type="1"><em><em style="background:{{@global.styleAndNavigation.starColor}}">&nbsp;</em></em></span>
+        </div>        
+	</li>
+   	<li class="box2">
+    	<div class="averageRatings">
+        	<a class="{{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" style="background-color: {{@global.styleAndNavigation.button[2]}}; color:{{@global.styleAndNavigation.button[3]}};">
+                <b class="ratings">4.5</b>
+                <i class="icon-star-1" style="color:{{@global.styleAndNavigation.starColor}}"></i>
+            </a>
+            <p style="display:none"><b class="ratings">4.5</b> of <b>5</b> stars</p>
+            <p><b class="total">80</b> {{formData.review}}</p>
+        </div>        
+	</li>
+   	<li class="box3">
+    	<div class="averageRatings">
+        	<span class="ratings">4.5</span>
+            <div class="rating-view">
+            <div class="rating-new" style="color:{{@global.styleAndNavigation.starColor}}">
+                <b>
+                    <i class="icon-star-empty-1"></i>
+                    <i class="icon-star-empty-1"></i>
+                    <i class="icon-star-empty-1"></i>
+                    <i class="icon-star-empty-1"></i>
+                    <i class="icon-star-empty-1"></i>
+                </b>
+                <b class="on">
+                    <i class="icon-star-1 star-1"></i>
+                    <i class="icon-star-1 star-2"></i>
+                    <i class="icon-star-1 star-3"></i>
+                    <i class="icon-star-1 star-4"></i>
+                    <i class="icon-star-1 star-5"></i>
+                </b>
+            </div>
+        </div>
+            <p>
+            	<i class="iconz-user" style="color:{{@global.styleAndNavigation.starColor}}; position: relative; left: -3px; top: -3px;"></i>
+                <b class="total">80</b> {{formData.review}}
+			</p>
+        </div>
+        <div class="totalReviews">
+            <span class="size" type="5"><i class="icon-star-1" style="color:{{@global.styleAndNavigation.starColor}}"></i><b class="size5">5</b><em><em style="background:{{@global.styleAndNavigation.starColor}}">&nbsp;</em></em></span>
+            <span class="size" type="4"><i class="icon-star-1" style="color:{{@global.styleAndNavigation.starColor}}"></i><b class="size4">4</b><em><em style="background:{{@global.styleAndNavigation.starColor}}">&nbsp;</em></em></span>
+            <span class="size" type="3"><i class="icon-star-1" style="color:{{@global.styleAndNavigation.starColor}}"></i><b class="size3">3</b><em><em style="background:{{@global.styleAndNavigation.starColor}}">&nbsp;</em></em></span>
+            <span class="size" type="2"><i class="icon-star-1" style="color:{{@global.styleAndNavigation.starColor}}"></i><b class="size2">2</b><em><em style="background:{{@global.styleAndNavigation.starColor}}">&nbsp;</em></em></span>
+            <span class="size" type="1"><i class="icon-star-1" style="color:{{@global.styleAndNavigation.starColor}}"></i><b class="size1">1</b><em><em style="background:{{@global.styleAndNavigation.starColor}}">&nbsp;</em></em></span>
+        </div>
+	</li>
+   	<li class="box4">
+    	<div class="averageRatings">
+        	<span class="ratings">4.5</span>
+            <div class="rating-view">
+            <div class="rating-new" style="color:{{@global.styleAndNavigation.starColor}}">
+                <b>
+                    <i class="icon-star-empty-1"></i>
+                    <i class="icon-star-empty-1"></i>
+                    <i class="icon-star-empty-1"></i>
+                    <i class="icon-star-empty-1"></i>
+                    <i class="icon-star-empty-1"></i>
+                </b>
+                <b class="on">
+                    <i class="icon-star-1 star-1"></i>
+                    <i class="icon-star-1 star-2"></i>
+                    <i class="icon-star-1 star-3"></i>
+                    <i class="icon-star-1 star-4"></i>
+                    <i class="icon-star-1 star-5"></i>
+                </b>
+            </div>
+        </div>
+            <p>{{formData.reviewRating}}</p>
+        </div>
+        <div class="totalReviews">
+        	<span class="total">80</span>
+            <div class="icons" style="color:{{@global.styleAndNavigation.starColor}}">
+                <i class="iconz-user"></i>
+			</div>
+            <p>{{formData.review}}</p>
+        </div>
+	</li>
+   </ul>
+   
+   <a class="btnShow {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" style="background-color: {{@global.styleAndNavigation.button[2]}}; color:{{@global.styleAndNavigation.button[3]}};">{{formData.writeAReviewBt}}</a>
+   </div>
+  
+    <div class="appointment rating-box theme-{{@global.styleAndNavigation.layout}} {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}} content-{{@global.styleAndNavigation.content[3]}};" style="background: {{@global.styleAndNavigation.boxBackground}}" data-auto="{{formData.autoAprove}}">
+    	<h1 class="{{@global.styleAndNavigation.title[0]}} {{@global.styleAndNavigation.title[1]}}" style="color:{{@global.styleAndNavigation.title[3]}};">{{formData.writeAReviewBt}}</h1>
+        <div class="field">        
+            <label>{{formData.rateNow}} <sup>*</sup></label>
+            <span class="rating" style="color:{{@global.styleAndNavigation.starColor}};"></span>
+            <input type="hidden" name="score" id="score" value="">
+        </div>
+        <div class="field input">
+        	<i class="iconz-user"></i>
+            <input data-role="none" id="reviewName" type="text" placeholder="{{formData.reviewname}}*">
+        </div>
+        <div class="field input">
+        	<i class="icon-email"></i>
+            <input data-role="none" id="reviewEmail" type="text" placeholder="{{formData.reviewemail}}*">
+        </div>
+        <div class="field input">
+        	<i class="iconz-chat"></i>
+	        <textarea name="reviewRemark" id="reviewRemark" placeholder="{{formData.reviewcomment}}*"></textarea>
+        </div>        
+        <a class="{{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" style="background-color: {{@global.styleAndNavigation.button[2]}}; color:{{@global.styleAndNavigation.button[3]}};" onclick="Appyscript.ReviewSave('{{formData.subject}}','{{formData.email}}')">
+       {{formData.reviewsubmit}} 
+        </a>
+        
+        <a class="close icon-cancel" style="background-color: {{@global.styleAndNavigation.button[2]}}; color:{{@global.styleAndNavigation.button[3]}};">
+      
+        </a>
+    
+    </div>
+  
+  
+  <div class="reviews theme-{{@global.styleAndNavigation.layout}} {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}} content-{{@global.styleAndNavigation.content[3]}}">
+        	{{#@global.styleAndNavigation}}
+            {{#js_compare "this.layout == '4' "}}
+        	<div data-lazy-loading="true" class="swiper-container reviewSwiper">
+            {{/js_compare}}
+            {{/@global.styleAndNavigation}}
+            {{#if reviewList}}
+            <ul class="list {{#root_Compare @global.styleAndNavigation.layout "==" "4"}} swiper-wrapper{{/root_Compare}}">
+            {{#reviewList}}   
+            <li class="swiper-slide" style="background: {{@global.styleAndNavigation.boxBackground}}; border-color:{{@global.styleAndNavigation.borderColor}}">
+            <div class="head_rating" ratting="{{ratting}}" style="color:{{@global.styleAndNavigation.starColor}};"></div>
+            <i class="before-quote" style="color:{{@global.styleAndNavigation.quoteColor}}">&ldquo;</i>
+            <img src="images/dummy.jpg" style="border-color:{{@global.styleAndNavigation.borderColor}}" />
+            <p>{{reviewBreak comments}}</p>
+            <span class="{{@global.styleAndNavigation.title[0]}} {{@global.styleAndNavigation.title[1]}}" style="color:{{@global.styleAndNavigation.title[3]}};border-color:{{@global.styleAndNavigation.borderColor}}">{{name}}</span>
+            <b class="arrow" style="border-top-color: {{@global.styleAndNavigation.boxBackground}}"></b>
+            <i class="after-quote" style="color:{{@global.styleAndNavigation.quoteColor}}">&rdquo;</i>
+            </li>
+           {{/reviewList}}
+            </ul>
+             {{/reviewList}}
+             {{#root_Compare @global.styleAndNavigation.layout "==" "4"}}
+            <div class="swiper-pagination"></div>
+        </div>
+        {{/root_Compare}}
+    </div>
+    
+  
+  
+
+       
+       
+    </div>
+</div>

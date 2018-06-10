@@ -1,0 +1,61 @@
+<div class="navbar"><div class="navbar-inner " style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}}; font-size: {{@global.style.headerBarSize}} ">
+    <div class="left sliding">
+        <a href="index" class="link back" style="color:{{@global.style.headerBarTextColor}};">
+            <i class="icon icon-left-open-2"></i>
+        </a>
+    </div>
+    <div class="center sliding">
+        {{@global.pageLanguageSetting.review_order}}
+    </div>
+    <div class="right"></div>
+</div></div>
+
+<div data-page="customevent-booking" class="page navbar-through  toolbar-through   toolbar-bottom {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="color:{{@global.styleAndNavigation.content[2]}}; background:{{@global.styleAndNavigation.pageBackroundColor}};">
+    <style>
+.booking-page ul.booking-total,.booking-page ul.booking-total li, .booking-page ul.sitting-row,.booking-page ul.sitting-row li{border-color:{{@global.styleAndNavigation.borderColor}}}
+</style>
+    <!-- Page content-->
+    <div class="page-content">
+
+
+
+        <section class="section-events booking-page event-back">
+            <div class="booking-head">
+                <h4 class="{{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}};">{{eName}}</h4>
+                <p>{{eVenue}}</p>
+
+            </div>
+            <ul class="sitting-row">
+                <!--<li class="date">{{formatDateMe date "<strong>mmm dd, yyyy</strong>DDD"}}</li>-->
+                <li class="date">{{eDay}}, {{eDate}}, {{eMonth}} {{eYear}}</li>
+                <!--<a class="dateSlider">{{eDay}} <strong>{{eDate}}</strong> {{eMonth}}</a>-->
+                <li class="time"><strong>{{eStartTime}} {{etimeZone}}</strong></li>
+                <li><strong>{{eTicketCount}} {{@global.pageLanguageSetting.tickets}}</strong></li>
+            </ul>
+            <section id="promoSection" class="section-events booking-form">
+                <label class="{{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="display:none;color:{{@global.styleAndNavigation.heading[2]}};">{{@global.pageLanguageSetting.enter_promocode}}</label>
+                <input id="promocode" type="text" placeholder="{{@global.pageLanguageSetting.enter_promocode}}" style="background:{{@global.styleAndNavigation.fieldBgColor}}; color:{{@global.styleAndNavigation.fieldTextColor}}">
+                <a href="#" onclick="applyPromo()" class="btn apply close-popup {{@global.styleAndNavigation.secondaryButton[0]}} {{@global.styleAndNavigation.secondaryButton[1]}}" style="color:{{@global.styleAndNavigation.secondaryButton[3]}};background:{{@global.styleAndNavigation.secondaryButton[2]}};">{{@global.pageLanguageSetting.apply_mcom}}</a>
+            </section>
+            <ul class="booking-total">
+                <li>{{@global.pageLanguageSetting.subtotal_mcom}} <span id="subtotalAmount">{{#js_compare "this.eTotalAmount != 0"}}{{eTotalAmount}}{{else}}{{@global.pageLanguageSetting.free}}{{/js_compare}}</span></li>
+                <!--    space for tax additions-->
+                <!--	<li>Internet handling fees <span price="05">$05.00</span></li>-->
+            </ul>
+            <ul id="taxArea" class="booking-total">
+            </ul>
+            <ul class="booking-total">
+                <li class="total-row">{{@global.pageLanguageSetting.gtotal}} <span class="price">{{#js_compare "this.eTotalAmount != 0"}}{{@global.pageLanguageSetting.ce_currencySymbol}}{{/js_compare}}<span id="grossAmount">{{eTotalAmount}}</span></span></li>
+            </ul>
+
+        </section>
+
+
+
+    </div>
+    <div class="toolbar">
+        <div class="toolbar-inner">
+            <a class="btn {{@global.styleAndNavigation.button[0]}} {{@global.styleAndNavigation.button[1]}}" style="background-color: {{@global.styleAndNavigation.button[2]}}; color: {{@global.styleAndNavigation.button[3]}};"  onclick="makePayment();" style="background:#60a32e; border-bottom: solid 3px #60a32e;" id="btn-payment">{{@global.pageLanguageSetting.make_payment}}</a>
+        </div>
+    </div>
+</div>

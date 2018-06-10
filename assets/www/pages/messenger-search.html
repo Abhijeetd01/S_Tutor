@@ -1,0 +1,57 @@
+
+<div class="navbar"><div class="navbar-inner" style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+    
+    <div class="left sliding">
+        <a href="index" class="link back "  style="color:{{@global.style.headerBarIconColor}};">
+            <i class="icon icon-left-open-2"></i>
+        </a>
+    </div>
+    
+    <div class="center sliding {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}" >{{@global.pageLanguageSetting.Search_Page_Header_Text}}</div>
+    
+    <div class="right"></div>
+    
+</div></div>
+
+<div data-page="messenger-friend-search" class="page navbar-through">
+    
+    <div class="backgroundAnimation">{{> innerBackground}}</div>
+   
+    <div id="search-friend-form" class="searchbar searchbar-init  {{@global.styleAndNavigation.submenu[0]}} {{@global.styleAndNavigation.submenu[1]}}" target="_self">
+        <div class="searchbar-input">
+            <input type="search" name="spphone" placeholder="{{@global.pageLanguageSetting.Search_Placeholder_Text}}" onclick="searchFriend()"  onblur="searchFriend()">
+            <a href="#" class="searchbar-clear"></a>
+        </div><a href="#" onclick="searchFriend()" class="searchbar-cancel">Done</a> </div>
+    <!--searchbar-cancel-->
+    <!-- Scrollable page content -->
+    <div class="page-content">
+        <style>
+            .searchbar{ background:{{@global.styleAndNavigation.submenu[2]}};
+                color:background:{{@global.styleAndNavigation.submenu[3]}}; z-index:1000}
+        .searchbar a{color:{{@global.styleAndNavigation.submenu[3]}}}
+        .searchbar input[type=search] {
+            border-color:{{@global.styleAndNavigation.submenu[4]}} !important;
+            background-color:{{@global.styleAndNavigation.submenu[4]}};
+            color:{{@global.styleAndNavigation.submenu[5]}};
+        }
+        .list-block{margin: 0px;}
+        .list-block ul{background: none;border-radius: 0px;}
+        .list-block ul:after, .list-block ul:before{
+            background-color:transparent;
+        }
+        .list-block ul li{border-top:1px solid {{@global.styleAndNavigation.borderColor}}}
+        .list-block ul li:first-child{border-top:0px; }
+        .list-block .item-inner:after{background:none }
+        
+            </style>
+        <div id="searchResultArea">
+            
+        </div>
+    </div>
+</div>
+<!-- Bottom Toolbar-->
+<div class="toolbar">
+    <div class="toolbar-inner">
+        <!-- Toolbar links -->
+    </div>
+</div>

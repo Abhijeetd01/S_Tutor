@@ -1,0 +1,51 @@
+<div class="navbar"><div class="navbar-inner" style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};">
+    <div class="left sliding">
+       		{{getSlideBack ""}}
+    </div>
+    <div class="center sliding {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}">{{pageTitle}}</div>
+    <div class="right"></div>
+</div></div>
+
+
+<div data-page="chatbot-page" class="page navbar-through  no-toolbar" style="background-color:{{@global.styleAndNavigation.pageBackroundColor}}">
+    <!-- Page content-->
+    <div class="backgroundAnimation">{{> innerBackground}}</div>
+    <div class="page-content" id="chat-box">
+        <style>
+    .chat-left {
+    background:{{@global.styleAndNavigation.systemChat[2]}};
+    color:{{@global.styleAndNavigation.systemChat[3]}};
+    }
+    .chat-left:before {
+    background-color:{{@global.styleAndNavigation.systemChat[2]}};
+    }
+    .chat-right {
+    background:{{@global.styleAndNavigation.userChat[2]}};
+    color:{{@global.styleAndNavigation.userChat[3]}};
+    }
+    .chat-right:before {
+    background-color:{{@global.styleAndNavigation.userChat[2]}};
+    }
+
+ .chat-left a, .chat-right a{color:{{@global.styleAndNavigation.linkColor}}}
+
+ .chat-left img, .chat-right img{max-width:95%}
+    .user-chat-time {color: {{@global.styleAndNavigation.userChat[4]}}}
+    .system-chat-time {color: {{@global.styleAndNavigation.systemChat[4]}}}
+    .chat-footer {background: {{@global.styleAndNavigation.toolbar[2]}};}
+    .chat-footer textarea { background: {{@global.styleAndNavigation.toolbar[4]}}; color:{{@global.styleAndNavigation.toolbar[3]}}; }
+    .chat-send{ border: 0px; background: {{@global.styleAndNavigation.toolbar[5]}}; color:{{@global.styleAndNavigation.toolbar[6]}}; }
+    .typing-indicator span{color:{{@global.styleAndNavigation.linkColor}};}
+            </style>
+        <div class="chat">
+
+
+        </div>
+    </div>
+
+    <div class="chat-footer">
+        <textarea placeholder="{{@global.pageLanguageSetting.type_your_message}}" autofocus id="btn-input" class="{{@global.styleAndNavigation.toolbar[0]}} {{@global.styleAndNavigation.toolbar[1]}}"></textarea>
+        <a class="chat-send iconz-send" id="btn-chat"></a>
+    </div>
+
+</div>

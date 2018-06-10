@@ -1,0 +1,73 @@
+<div class="popup menu-popup tablet-fullscreen">
+    <div class="view toolbar-through">
+        <div class="pages">
+            <div class="page">
+
+
+                <!--<div class="toolbar">-->
+                <!--<div class="toolbar-inner" style="background-color:{{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}}; ">-->
+                <!--<div class="searchBxContainer">-->
+                <!--<a class="close icon-cancel link close-popup" href="#"  style="color: {{@global.style.headerBarTextColor}};"></a>-->
+                <!--<div class="searchBx icon-search-3"><input type="search" id="searchmenu" placeholder="Search for..." onkeyup="searchEventDir(event, this)" data-role="none" class="">-->
+                <!--</div>-->
+                <!--</div>-->
+
+                <!--</div>-->
+                <!--</div>-->
+
+                <style>
+                .realestate-navs ul li a{color:{{@global.styleAndNavigation.menu[2]}} }
+                .realestate-navs .profile-image a.edit {color:{{@global.styleAndNavigation.icon[1]}} }
+                .realestate-navs ul li a i { color:{{@global.styleAndNavigation.menu[3]}} }
+                .realestate-navs .profile-image h3{color:{{@global.styleAndNavigation.heading[2]}} }
+                .realestate-navs .profile-image span{color:{{@global.styleAndNavigation.content[2]}}}
+
+                </style>
+
+
+                <div class="realestate-navs {{@global.styleAndNavigation.menu[0]}} {{@global.styleAndNavigation.menu[5]}}" style="background-color: {{@global.styleAndNavigation.menu[1]}}; color: {{@global.styleAndNavigation.menu[2]}}">
+                    <div class="profile-image" style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}}; font-size: {{@global.style.headerBarSize}}">
+                        {{#if @global.loginCheck}}<img src="{{@global.realimage}}" id="useimgreal" onClick="Appyscript.realEditProfile(this)">
+                        {{else}}
+                        <img src="http://gurucul.com/wp-content/uploads/2015/01/default-user-icon-profile.png" onClick="Appyscript.realEditProfile(this)">
+                        {{/if}}
+                        <h3 class="{{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" onClick="Appyscript.realEditProfile(this)">{{@global.username}}</h3>
+                        <!--<span onclick="Appyscript.popupPage('location')" class="{{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}"><i class="icon-location"></i>{{@global.CurrentCityreal}}</span>-->
+                        <a class="close icon-cancel link close-popup edit"  style="border-color:{{@global.styleAndNavigation.borderColor}}"></a>
+                    </div>
+                    <ul>
+                        {{#if @global.setting.homeButtonStatus}}{{else}}
+                        <li><a onclick="Appyscript.clickHome()" style="border-color:{{@global.styleAndNavigation.borderColor}}"><i class="iconz-home"></i>{{@global.pageLanguageSetting.Home_Realestate}}</a></li>
+                        {{/if}}
+                        <li><a onclick="Appyscript.popupClose()" style="border-color:{{@global.styleAndNavigation.borderColor}}"><i class="icon-menu-1"></i>{{@global.pageLanguageSetting.main_menu_realestate}}</a></li>
+                        <li ><a class="popupToPage" data-animate="true" data-page="realestate-wishlist" data-back="back" onclick="Appyscript.favourite()" style="border-color:{{@global.styleAndNavigation.borderColor}}"><i class="icon-heart-1"></i>{{@global.pageLanguageSetting.Favourites}}</a></li>
+                        {{#root_Compare @global.cms.length "!=" "1"}}
+                        {{#if @global.cms[1].data_exist}}
+                        <li ><a class="popupToPage" data-animate="true" data-page="realestate-wishlist" data-back="back" onclick="Appyscript.termsandcondition()" style="border-color:{{@global.styleAndNavigation.borderColor}}"><i class="icon-doc-alt"></i>{{@global.pageLanguageSetting.Terms_Conditions_realestate}}</a></li>
+                        {{/if}}
+                        {{#if @global.cms[0].data_exist}}
+                        <li ><a class="popupToPage" data-animate="true" data-page="realestate-wishlist" data-back="back" onclick="Appyscript.privecyandpolicy()" style="border-color:{{@global.styleAndNavigation.borderColor}}"><i class="iconz-user-asterisk"></i>{{@global.pageLanguageSetting.Privacy_Policy_realestate}}</a></li>
+                        {{/if}}
+                        {{/if}}
+                        {{/root_Compare}}
+                        {{#root_Compare @global.configuration.addListing "==" "On"}} <li><a class="" data-animate="true" data-page="realestate-addlisting" data-back="back" onclick="Appyscript.realestateAddListing()" style="border-color:{{@global.styleAndNavigation.borderColor}}"><i class="icon-listing"></i>{{@global.pageLanguageSetting.ADD_PROPERTY}}</a></li>
+                        <li><a class="popupToPage" data-animate="true" data-page="realestate-update-listing" data-back="back" onclick="updateListing()" style="border-color:{{@global.styleAndNavigation.borderColor}}"><i class="icon-listing"></i>{{@global.pageLanguageSetting.UPDATE_PROPERTY}}</a></li>{{/root_Compare}}
+
+
+                        {{#if @global.loginCheck}}
+                        <li><a class="close-tutorial" onclick="Appyscript.AppLogout();" style="border-color:{{@global.styleAndNavigation.borderColor}}"><i class="iconz-login" ></i> {{@global.pageLanguageSetting.LogOut}}</a></li>
+                        {{else}}
+                        <li><a onclick="Appyscript.loginPage('true');" style="border-color:{{@global.styleAndNavigation.borderColor}}"><i class="iconz-login" ></i> {{@global.pageLanguageSetting.Login_Signup_realestate}}</a>
+                            {{/if}}
+
+                    </ul>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

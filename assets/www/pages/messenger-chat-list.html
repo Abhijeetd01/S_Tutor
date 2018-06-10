@@ -1,0 +1,15 @@
+<li class="item-content" {{#if this.userId}} list-userid="{{this.userId}}" {{else}} list-groupid="{{this.groupId}}" {{/if}} {{#if this.userId}} onclick="openChatWindow('{{this.name}}','{{this.profilepic}}','{{this.userId}}','{{filterCountryName this.country}}',true,this)" {{else}} onclick="openGroup('{{this.groupId}}','{{this.name}}',this,'')" {{/if}} >
+    <div class="item-media">
+        <img src="{{#if this.profilepic}} {{this.profilepic}}{{else}}{{@global.style.reseller}}/newui/images/user-pic-news.png{{/if}}" class="avatar avatar-rounded chatlistimgprofile">
+            </div>
+    <div class="item-inner">
+        <div class="item-title-row {{@global.styleAndNavigation.heading[0]}} {{@global.styleAndNavigation.heading[1]}}" style="color:{{@global.styleAndNavigation.heading[2]}}" >
+            <div class="item-title ">{{this.name}}</div>
+            <div {{#if this.userId}} id="messagedatehome{{this.userId}}" {{else}} id="messagedatehome{{this.groupId}}" {{/if}}  class="item-after {{@global.styleAndNavigation.content[0]}}  {{@global.styleAndNavigation.content[1]}}"  style="color:{{@global.styleAndNavigation.timeColor}}">{{notificationdate this.time "home"}}</div>
+        </div>
+        <div class="item-title-row {{@global.styleAndNavigation.content[0]}} {{@global.styleAndNavigation.content[1]}}" style="color:{{@global.styleAndNavigation.content[2]}}" >
+            <div class="item-title subtitle" style="color:{{@global.styleAndNavigation.content[2]}}" id="renderdivchathome ">{{#if this.userId}}{{removebrelement this.content}}{{else}}{{removebrelement this.message}}{{/if}}</div>
+            <div class="item-after badge-icon">{{#if this.unread}}{{#js_compare "this.unread == '0'"}} {{else}} <span  class="badge">{{this.unread}}{{/if}}</span> {{/js_compare}}</div>
+        </div>
+    </div>
+</li>

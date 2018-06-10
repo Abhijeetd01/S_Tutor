@@ -1,0 +1,587 @@
+html,body {
+    margin:0px;
+    padding:0px;
+    width:100%;
+    height:100%;
+    font-family:Verdana, Geneva, sans-serif;
+    color:#333;
+}
+
+.photo-page,
+.photo-gallery header,
+.photo-gallery,
+.photo-sets {
+    margin:0px;
+    padding:0px;
+    width:100%;
+    float:left;
+}
+
+.photo-page {
+    height:100%;
+    overflow-y:scroll;
+}
+
+.photo-page a.show-more {
+    width:90%;
+    float:left;
+    margin:0 5% 10px 5%;
+    line-height:36px;
+    border-radius:15px;
+    color:#FFF;
+    background:#06F;
+    text-align:center;
+}
+
+.photo-page header {
+    line-height:20px;
+    overflow:hidden;
+    position:relative;
+}
+
+.photo-page header.header-YES {
+    text-align:center;
+}
+
+.photo-page header i,
+.photo-page header img {
+    display:none;
+}
+
+.photo-page header.header-YES i,
+.photo-page header.header-YES img {
+    width: 80px;
+    height: 80px;
+    margin: auto;
+    line-height: 80px;
+    font-size: 65px;
+    display:inline-block;
+    text-align: center;
+}
+
+.photo-page header.header-YES img {
+    width: 70px;
+    height: 70px;
+    margin: 5px auto;
+    border-radius:100%;
+}
+
+.photo-page header h1 {
+    font-weight:normal;
+    padding:10px 80px 10px 10px;
+    margin:0px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    border-bottom:0px;
+}
+
+.photo-page header.header-YES h1 {
+    padding:10px 0;
+    width:100%;
+    text-align:center;
+}
+
+.photo-page header span {
+    position:absolute;
+    right:10px;
+   	top:10px;
+}
+
+.photo-page header.header-YES span {
+    position:static;
+    width:100%;
+    float:left;
+    text-align:center;
+    padding:0 0 10px 0;
+}
+
+.photo-gallery,
+.photo-sets {
+    padding:3px;
+    box-sizing:border-box;
+}
+
+.photo-gallery a,
+.photo-sets a {
+    float:left;
+    width:33.33%;
+   	padding:3px;
+    box-sizing:border-box;
+    position:relative;
+}
+
+.photo-sets a {
+    width:50%;
+    position:relative;
+}
+
+.photo-gallery a span,
+.photo-sets a span {
+    line-height: 20px;
+    text-align: center;
+    padding: 5px;
+    box-sizing: border-box;
+    width: calc(100% - 10px);
+    float: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    position: absolute;
+    left: 5px;
+    bottom: 5px;
+    background: rgba(150, 150, 150, 0.46);
+    color: #FFF;
+}
+
+.photo-sets a b {
+    position:absolute;
+    right:5px;
+    top:5px;
+    height:26px;
+    padding:0 5px;
+    line-height:26px;
+    text-align:center;
+    border-radius:0 0 0 6px;
+    background:rgba(0,0,0,0.5);
+    color:#fff;
+}
+
+.photo-gallery a img,
+.photo-sets a img {
+width: 100%;
+    float: left;
+    background-size: cover, 50px 50px;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+
+.photo-tabs {
+    float:left;
+    width:100%;
+    line-height:40px;
+    background:#333;
+}
+
+.photo-tabs a {
+    width:50%;
+    padding:0 10px;
+    color:#fff;
+    float:left;
+    box-sizing:border-box;
+    text-align:center;
+}
+
+.photo-tabs a.on {
+    background:rgba(0,0,0,0.5);
+}
+
+.instagram-user {
+    float:left;
+    width:100%;
+    overflow:hidden;
+    position:relative;
+    z-index:1;
+    background-color: rgb(255, 255, 255);
+    box-shadow: rgba(0, 0, 0, 0.592157) 1px 1px 3px;
+    box-sizing:border-box;
+    padding:0 0 0 80px;
+}
+
+.instagram-user-image{-webkit-border-radius:5px; border-radius: 5px; -moz-border-radius: 5px;width: 60px; height:60px; float:left; margin:0; overflow:hidden;
+    position:absolute;
+    left:10px;
+    top:10px;
+}
+.instagram-user-image img{ width:100%; width:100%; }
+
+.instagram-user-details,
+.instagram-user-details h3,
+.instagram_options {
+    width: 100%;
+    float:left;
+}
+
+.instagram-user-details {
+    margin:10px 0;
+}
+
+
+.instagram_options{ clear:both; margin:8px 0 0 0;  font-weight:bold; font-size:18px; line-height:21px; min-height:40px; color: rgb(108, 157, 34);}
+.instagram_options .insta_photo, .instagram_options .insta_follow, .instagram_options .insta_following{ float:left; margin:0  10% 0 0; display:inline-block;  }
+.instagram_options span{font-weight:bold; font-size:12px; line-height:20px;  display:block;}
+
+.instagram-user-details h3 {
+    color: rgb(67, 67, 67);
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 26px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    margin:0px;
+    font-weight:normal;
+}
+
+/* Theme 2 */
+.photo-page.theme-2 .photo-gallery {
+    width:50%;
+    padding:3px 3px 3px 6px;
+}
+
+.photo-page.theme-2 .photo-gallery.last {
+    padding:3px 6px 3px 3px;
+}
+
+.photo-page.theme-2 .photo-gallery a {
+    width:100%;
+    padding:3px 0;
+}
+
+.photo-page.theme-2 .photo-gallery a span {
+    width: 100%;
+    left: 0;
+}
+
+.photo-page.theme-2 .photo-gallery a.fullview img {
+    padding:0 0 6px 0;
+}
+
+/* Theme 3 */
+.photo-page.theme-3 .photo-gallery a {
+    width:100%;
+}
+
+/* Theme 4 */
+.photo-page.theme-4 .photo-gallery .col {
+    width:33.33%;
+    padding:0 3px;
+   	float:left;
+    box-sizing:border-box;
+}
+
+.photo-page.theme-4 .photo-gallery a {
+    width:100%;
+    padding:3px 0;
+}
+
+.photo-page.theme-4 .photo-gallery a span {
+    width:100%;
+    left:0px;
+}
+
+.photo-page.theme-4 .photo-gallery a.fullview img {
+    padding:0 0 6px 0;
+}
+
+/* Theme 5 */
+
+.photo-page.theme-5 .photo-gallery {
+    width:50%;
+    padding:3px 0px 3px 3px;
+}
+
+.photo-page.theme-5 .photo-gallery.last {
+    padding:3px 3px 3px 0;
+}
+
+.photo-page.theme-5 .photo-gallery a {
+    width:50%;
+}
+
+.photo-page.theme-5 .photo-gallery a.fullview {
+    width:100%;
+}
+
+.photo-page.theme-6 .photo-gallery {
+    padding:0;
+    margin:15px;
+    width:calc(100% - 30px);
+    border:solid 2px #fff;
+    background:#fff;
+}
+.photo-page.theme-6 .photo-gallery a {
+    width:50%;
+    padding:2px;
+    background:#fff;
+}
+
+.photo-page.theme-6 header .photo-logo {
+    text-align:center;
+    width:100%;
+    float:left;
+    margin:10px 0 0 0;
+}
+
+.photo-page.theme-6 header .photo-logo img {
+    width:100px;
+}
+
+.photo-page.theme-6 header h1,
+.photo-page.theme-6 header span {
+    padding:10px 0 0 0;
+    text-align:center;
+    float:left;
+    width:100%;
+}
+
+.photo-page.theme-6 header span {
+    position:static;
+    padding:5px 0 0 0;
+}
+
+.editButton{
+    width: 50px;
+    position: absolute;
+    bottom: 50px;
+    right: 22px;
+    z-index: 111
+}
+.editButton .plus, .editButton .gallery, .editButton .photo{
+    font-size: 30px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: red;
+    color: #fff;
+    display: inline-block;
+    line-height: 50px;
+    text-align: center;
+}
+.editButton .gallery, .editButton .photo{
+    background: #fff;
+    color: red;
+    margin-bottom: 15px;
+}
+.editButton .photo{line-height: 53px; font-size: 20px;}
+.editButton .plus .icon-cancel{display:none;}
+.editButton.active .icon-plus {
+    display: none;
+}
+.editButton.active .icon-cancel {
+    display: block!important;
+}
+.threeIcon{display:none;}
+.editButton.active .threeIcon{
+    display: block!important;
+}
+
+.editButton .threeIcon span {
+    transition-property: all;
+    transition-duration: 0.4s;
+    transition-timing-function: ease;
+    opacity:0;
+    transform: scale(0);
+    transform-origin: 50% 50%;
+}
+
+.editButton.active .threeIcon span {
+    opacity:1;
+    transform: scale(1);
+}
+.editButton .threeIcon span:nth-child(2) {transition-delay: 0.0s;}
+.editButton .threeIcon span:nth-child(1) {transition-delay: 0.2s;}
+
+/*---- Photo Send ----- */
+.photo-send{position:relative; width:100%; height:100%;}
+.message-send{ bottom:0; width:100%;}
+
+.photo-send.on .message-send {
+    bottom:60px;
+}
+
+.photo-send .photo-slider {
+    float:left;
+    width:100%;
+    height:calc(100% - 50px);
+}
+
+
+.photo-send.on .photo-slider {
+    float:left;
+    width:100%;
+    height:calc(100% - 120px);
+    margin-bottom:10px;
+}
+.hideThumb{
+height: calc(100% - 50px)!important
+}
+.photo-slider .swiper-slide {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.item-input {
+    display:flex;
+    padding: 0 10px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.item-input span {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 25px;
+    color: #fff;
+    text-align: center;
+    background: blue;
+    line-height:40px;
+}
+
+.item-input span:before {
+    line-height:40px;
+}
+::-webkit-input-placeholder {
+    font-size: 16px;
+    line-height:12px;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+    font-size: 16px;
+    line-height:12px;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+    font-size: 16px;
+    line-height:12px;
+}
+
+:-ms-input-placeholder {
+    font-size: 16px;
+    line-height:12px;
+}
+.item-input span.sendBtn {font-size:18px;}
+
+.thumbImageList {
+    float:left;
+    width:100%;
+    position:absolute;
+    left:0px;
+    bottom:0px;
+    display:none;
+    overflow:auto;
+}
+
+.photo-send.on .thumbImageList {
+    display:block;
+}
+
+.thumbImageList ul {
+    list-style: none;
+    margin: 0;
+    padding:0;
+    box-sizing: border-box;
+    float: left;
+    width: 100%;
+}
+
+.thumbImageList ul li {
+    float:left;
+    width:50px;
+    height:50px;
+    margin: 3px;
+    outline:solid 2px rgba(0, 0 , 0, 0);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.thumbImageList ul li.on {
+    outline:solid 2px #F00;
+}
+
+
+
+.img-style {
+    background-position:center center;
+    background-repeat:no-repeat;
+    background-size:contain;
+    width:100%;
+    float:left;
+}
+.inputItem {
+    width: calc(100% - 45px - 45px);
+    margin: 0 5px;
+    border-radius: 30px;
+    border: none;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+/*---- Photo Send Cam ----- */
+.photo-sendCam .photo-slider {
+    height: calc(100% - 60px);
+    margin-bottom: 10px;
+}
+.photo-sendCam .message-send{bottom: 22px;}
+
+@media only screen and (min-width:480px){
+   	.photo-page.theme-1 .photo-gallery a {
+        width:25%;
+    }
+}
+
+@media only screen and (min-width:640px){
+    .photo-sets  a {
+        width:25%;
+    }
+   	.photo-page.theme-1 .photo-gallery a {
+        width:20%;
+    }
+}
+
+@media only screen and (min-width:800px){
+   	.photo-page.theme-1 .photo-gallery a {
+        width:16.66%;
+    }
+}
+
+
+
+.item-input2 .inputItem{
+    
+    width: calc(100% - 60px);
+}
+/*.hidenavbar,*/
+/*.hidenavbar .navbar-inner {*/
+/*    background:rgba(0,0,0,0) !important;*/
+/*}*/
+
+/* for SA */
+
+.sa .photo-gallery a,
+.sa .photo-sets a,
+.sa .photo-tabs a {
+    float:right;
+}
+
+.sa .photo-page header span {
+    left:10px;
+    right:auto;
+}
+
+.sa .instagram-user {
+    padding: 0 80px 0 0;
+}
+.sa .instagram-user-image {
+    left:auto;
+    right:10px;
+}
+
+
+.sa .instagram-user-details {
+    float:right;
+}
+
+.sa .instagram_options .insta_photo,
+.sa .instagram_options .insta_follow,
+.sa .instagram_options .insta_following {
+    float:right;
+    margin:0 0 0 10%;
+}
+
+.sa .photo-page header h1 {
+    padding:10px 10px 10px 80px
+}

@@ -1,0 +1,198 @@
+<div class="navbar"><div class="navbar-inner" style="background-color: {{@global.style.headerBarBackgroundColor}}; color: {{@global.style.headerBarTextColor}};{{#root_Compare @global.style.headerBarType "==" "image"}} background-image:url({{@global.style.nav_header_image_name}}){{/root_Compare}}">
+    <div class="left"> <a href="#" class="fixedback" style="color:{{@global.style.headerBarIconColor}}; display:none;">
+        <i class="icon icon-left-open-2"></i>
+    </a></div>
+    <div class="center sliding {{@global.style.headerBarSize}} {{@global.style.headerBarFont}}" {{#root_Compare @global.style.headerBarType "==" "image"}}style="visibility:hidden;"{{/root_Compare}}>{{#root_Compare @global.style.headerBarTitle "==" ""}}{{@global.style.appName}}{{else}}{{@global.style.headerBarTitle}}{{/root_Compare}}</div>
+<div class="right"></div>
+</div>
+</div>
+<!-- content section  -->
+<div data-page="fixedmatrix" class="page fixedmatrix {{#js_compare "this.home.appData.headerBarType === 'none' "}}no-navbar {{else}} navbar-through  {{/js_compare}} no-toolbar">
+
+<div class="page-content {{@global.style.appTheme}}" >
+    <style type="text/css">
+/*------ layout 1 ----------*/
+.app_navigation_fixedmatrix .inner_box.round0 {
+	 background-image: radial-gradient(circle at 100% 100% , transparent 25%, {{@global.style.navBackgroundColor}} 0px);
+}
+.app_navigation_fixedmatrix .inner_box.round0::after {
+    background-image: radial-gradient(circle at 0 0 , #c00 0px, rgba(255, 255, 255, 0) 0px), radial-gradient(circle at 100% 0 , #c00 0px, rgba(255, 255, 255, 0) 0px), radial-gradient(circle at 100% 100% , transparent 25%, {{@global.style.navBackgroundColor}} 0px), radial-gradient(circle at 0 100% , transparent 0px, transparent 0px);
+}
+.app_navigation_fixedmatrix.layout-1 .inner_box.round0{width: 100%; background-image:radial-gradient(circle at 100% 100% , transparent 0%, {{@global.style.navBackgroundColor}} 0px);}
+.app_navigation_fixedmatrix.layout-1 .inner_box.round0::after{background-image: radial-gradient(circle at 0 0 , #c00 0px, rgba(255, 255, 255, 0) 0px), radial-gradient(circle at 100% 0 , #c00 0px, rgba(255, 255, 255, 0) 0px), radial-gradient(circle at 100% 100% , transparent 0%, {{@global.style.navBackgroundColor}} 0px), radial-gradient(circle at 0 100% , transparent 0px, transparent 0px);}
+/*------ layout 2 ----------*/
+.app_navigation_fixedmatrix .inner_box.round1 {
+	 background-image: radial-gradient(circle at 0% 100% , transparent 25%, {{@global.style.navBackgroundColor}} 0px);
+}
+.app_navigation_fixedmatrix .inner_box.round1::after {
+    background-image: radial-gradient(circle at 0 0 , #c00 0px, rgba(255, 255, 255, 0) 0px), radial-gradient(circle at 100% 0 , #c00 0px, rgba(255, 255, 255, 0) 0px), radial-gradient(circle at 100% 100% , #c00 0px, rgba(255, 255, 255, 0) 0px), radial-gradient(circle at 0 100% , transparent 25%, {{@global.style.navBackgroundColor}} 0px);
+
+}
+.app_navigation_fixedmatrix.layout-2 .inner_box.round0, .layout-2 .inner_box.round1{ background-image: radial-gradient(circle at 100% 100% , transparent 0%, {{@global.style.navBackgroundColor}} 0px);}
+.app_navigation_fixedmatrix.layout-2 .inner_box.round0:after, .layout-2 .inner_box.round1:after{background-image:radial-gradient(circle at 0 0 , #c00 0px, rgba(255, 255, 255, 0) 0px), radial-gradient(circle at 100% 0 , #c00 0px, rgba(255, 255, 255, 0) 0px), radial-gradient(circle at 100% 100% , transparent 0%, {{@global.style.navBackgroundColor}} 0px), radial-gradient(circle at 0 100% , transparent 0px, transparent 0px);}
+
+/*------ layout 3 ----------*/
+.app_navigation_fixedmatrix .inner_box.round2 {
+	 background-image: radial-gradient(circle at 100% 0% , transparent 25%, {{@global.style.navBackgroundColor}} 0px);
+}
+.app_navigation_fixedmatrix .inner_box.round2::after {
+    background-image: radial-gradient(circle at 0 0 , #c00 0px, transparent 0px), radial-gradient(circle at 100% 0 , transparent 25%, {{@global.style.navBackgroundColor}} 0px), radial-gradient(circle at 100% 100% , #c00 0px, transparent 0px), radial-gradient(circle at 0 100% , #c00 0px, transparent 0px);
+
+}
+.app_navigation_fixedmatrix.layout-3 .inner_box.round0, .layout-3 .inner_box.round1{ background-image: radial-gradient(circle at 100% 100% , transparent 0%, {{@global.style.navBackgroundColor}} 0px);}
+.app_navigation_fixedmatrix.layout-3 .inner_box.round0:after, .layout-3 .inner_box.round1:after{background-image:radial-gradient(circle at 0 0 , #c00 0px, rgba(255, 255, 255, 0) 0px), radial-gradient(circle at 100% 0 , #c00 0px, rgba(255, 255, 255, 0) 0px), radial-gradient(circle at 100% 100% , transparent 0%, {{@global.style.navBackgroundColor}} 0px), radial-gradient(circle at 0 100% , transparent 0px, transparent 0px);}
+.app_navigation_fixedmatrix.layout-3 .inner_box.round2 {background-image:radial-gradient(circle at 100% 0% , transparent 0%, {{@global.style.navBackgroundColor}} 0px)}
+.app_navigation_fixedmatrix.layout-3 .inner_box.round2::after{background-image: radial-gradient(circle at 0 0 , #c00 0px, transparent 0px), radial-gradient(circle at 100% 0 , transparent 0%, {{@global.style.navBackgroundColor}} 0px), radial-gradient(circle at 100% 100% , #c00 0px, transparent 0px), radial-gradient(circle at 0 100% , #c00 0px, transparent 0px); }
+/*------ layout 4 ----------*/
+.app_navigation_fixedmatrix .inner_box.round3 {
+	 background-image: radial-gradient(circle at 0% 0% , transparent 25%, {{@global.style.navBackgroundColor}} 0px);
+}
+.app_navigation_fixedmatrix .inner_box.round3::after {
+    background-image: radial-gradient(circle at 0 0 , transparent 25%, {{@global.style.navBackgroundColor}} 0px), radial-gradient(circle at 100% 0 , #c00 0px, transparent 0px), radial-gradient(circle at 100% 100% , #c00 0px, transparent 0px), radial-gradient(circle at 0 100% , #c00 0px, transparent 0px);
+}
+
+
+.app_navigation_fixedmatrix.layout-4 .inner_box.round0,.app_navigation_fixedmatrix.layout-4 .inner_box.round1{ background-image: radial-gradient(circle at 100% 100% , transparent 0%, {{@global.style.navBackgroundColor}} 0px);}
+.app_navigation_fixedmatrix.layout-4 .inner_box.round0:after, .app_navigation_fixedmatrix.layout-4 .inner_box.round1:after{background-image:radial-gradient(circle at 0 0 , #c00 0px, rgba(255, 255, 255, 0) 0px), radial-gradient(circle at 100% 0 , #c00 0px, rgba(255, 255, 255, 0) 0px), radial-gradient(circle at 100% 100% , transparent 0%, {{@global.style.navBackgroundColor}} 0px), radial-gradient(circle at 0 100% , transparent 0px, transparent 0px);}
+
+.app_navigation_fixedmatrix.layout-4 .inner_box.round2 {background-image:radial-gradient(circle at 100% 0% , transparent 0%, {{@global.style.navBackgroundColor}} 0px)}
+.app_navigation_fixedmatrix.layout-4 .inner_box.round2::after{background-image: radial-gradient(circle at 0 0 , #c00 0px, transparent 0px), radial-gradient(circle at 100% 0 , transparent 0%, {{@global.style.navBackgroundColor}} 0px), radial-gradient(circle at 100% 100% , #c00 0px, transparent 0px), radial-gradient(circle at 0 100% , #c00 0px, transparent 0px);}
+
+.app_navigation_fixedmatrix.layout-4 .inner_box.round3 {
+    background-image: radial-gradient(circle at 0% 0% , transparent 0%, {{@global.style.navBackgroundColor}} 0px);
+}
+.app_navigation_fixedmatrix.layout-4 .inner_box.round3:after{background-image:radial-gradient(circle at 0 0 , transparent 0%, {{@global.style.navBackgroundColor}} 0px), radial-gradient(circle at 100% 0 , #c00 0px, transparent 0px), radial-gradient(circle at 100% 100% , #c00 0px, transparent 0px), radial-gradient(circle at 0 100% , #c00 0px, transparent 0px)}
+/*------ layout 5 ----------*/
+.app_navigation_fixedmatrix .inner_box.round4 {
+  background:{{@global.style.navBackgroundColor}};
+}
+
+/*------ layout 6 ----------*/
+.app_navigation_fixedmatrix .inner_box.round5 {
+  background:{{@global.style.navBackgroundColor}};
+}
+
+
+/*===== SA ======*/
+.sa .app_navigation_fixedmatrix .inner_box.round0 {
+    background-image: radial-gradient(circle at 0 100% , transparent 25%, {{@global.style.navBackgroundColor}} 0px);
+}
+.sa .app_navigation_fixedmatrix .inner_box.round0::after {
+    background-image: radial-gradient(circle at 0 0 , #c00 0px, rgba(255, 255, 255, 0) 0px), radial-gradient(circle at 100% 0 , #c00 0px, rgba(255, 255, 255, 0) 0px), radial-gradient(circle at 100% 100% , transparent 25%, rgba(255, 255, 255, 0) 0px), radial-gradient(circle at 0 100% , transparent 25%, {{@global.style.navBackgroundColor}} 0px);
+}
+.sa .app_navigation_fixedmatrix .inner_box.round1 {
+	  background-image: radial-gradient(circle at 100% 100% , transparent 25%, {{@global.style.navBackgroundColor}} 0px);
+}
+.sa .app_navigation_fixedmatrix .inner_box.round1::after {
+      background-image: radial-gradient(circle at 0 0 , #c00 0px, rgba(255, 255, 255, 0) 0px), radial-gradient(circle at 100% 0 , #c00 0px, rgba(255, 255, 255, 0) 0px), radial-gradient(circle at 100% 100% , rgba(156, 21, 21, 0) 25%, {{@global.style.navBackgroundColor}} 0px), radial-gradient(circle at 0 100% , transparent 25%, rgba(255, 255, 255, 0) 0px);
+}
+.sa .app_navigation_fixedmatrix .inner_box.round2 {
+	 background-image: radial-gradient(circle at 0% 0% , transparent 25%, {{@global.style.navBackgroundColor}} 0px);
+}
+.sa .app_navigation_fixedmatrix .inner_box.round2::after {
+    background-image: radial-gradient(circle at 0 0 , transparent 25%, {{@global.style.navBackgroundColor}} 0px), radial-gradient(circle at 100% 0 , #c00 0px, transparent 0px), radial-gradient(circle at 100% 100% , #c00 0px, transparent 0px), radial-gradient(circle at 0 100% , #c00 0px, transparent 0px);
+}
+
+.sa .app_navigation_fixedmatrix .inner_box.round3 {
+	 background-image: radial-gradient(circle at 100% 0% , transparent 25%, {{@global.style.navBackgroundColor}} 0px);
+}
+.sa .app_navigation_fixedmatrix .inner_box.round3::after {
+    background-image: radial-gradient(circle at 0 0 , #c00 0px, transparent 0px), radial-gradient(circle at 100% 0 , transparent 25%, {{@global.style.navBackgroundColor}} 0px), radial-gradient(circle at 100% 100% , #c00 0px, transparent 0px), radial-gradient(circle at 0 100% , #c00 0px, transparent 0px);
+
+}
+
+
+
+
+</style>
+    {{#if @global.style.layoutHeader}}
+    <div {{#root_Compare @global.style.navigationSlider.length ">" "1"}} data-pagination=".swiper-pagination" {{/root_Compare}}  data-next-button=".swiper-button-next" {{#root_Compare @global.style.navigationSlider.length ">" "1"}} data-loop="true" {{/root_Compare}}  data-prev-button=".swiper-button-prev" data-preload-images="false" data-lazy-loading="true" {{#root_Compare @global.style.navigationSlider.length ">" "1"}}  data-autoplay="3000" {{/root_Compare}} data-speed="600" class="navigationSlider swiper-container swiper-init">
+    <div class="swiper-wrapper">
+        {{#@global.style.navigationSlider}}
+        <div class="swiper-slide" style="background-image:url({{this}});">
+            <img data-src="images/transparent-bg.png" class="swiper-lazy"/>
+            <div class="preloader"></div>
+        </div>
+        {{/@global.style.navigationSlider}}
+    </div>
+    <div class="swiper-pagination "></div>
+</div>
+{{/if}}
+
+
+
+{{#root_Compare @global.style.moreNavigation.layout "==" "list"}}
+<div class="closeLt" style="background:{{@global.style.navBackgroundColor}}; display:none;display:none;"><i class="iconz-close" style="color:{{@global.style.navIconColor}};"></i></div>
+<div id="app_navigation" class="{{@global.style.navigationSize}} {{#home.appData.moreNavigation.layoutOption}} {{this}}-option {{/home.appData.moreNavigation.layoutOption}}  {{#home.appData.moreNavigation.hideLayout}} hide-{{this}} {{/home.appData.moreNavigation.hideLayout}}  {{@global.style.navigationFont}} app_navigation_newLayout_list animation-{{@global.style.animation}}" navbar="{{home.appData.headerBarType}}" style="display:none;">
+    <div class="scroll">
+        {{#home.home}}
+        <a href="#" data-productidentifier="{{pageIdentifierBecon}}" data-productid="{{pageid}}" class="page-link" style="border-color: {{@global.style.navBorderColor}}; background:{{@global.style.navBackgroundColor}}">
+            {{#js_compare "this.pageiconType === 'img' "}} <img src="{{@global.homeIconPath}}{{iconName}}">
+            {{else}}
+            <i class="{{iconName}}" style="color: {{@global.style.navIconColor}}; "></i>
+            {{/js_compare}}
+            <span class="" style="color: {{@global.style.navTextColor}} ">{{pageNewid}}</span>
+        </a>
+        {{/home.home}}
+    </div>
+</div>
+{{/root_Compare}}
+
+
+{{#root_Compare @global.style.moreNavigation.layout "==" "matrix"}}
+<div class="closeLt" style="background:{{@global.style.navBackgroundColor}};display:none;"><i class="iconz-close" style="color:{{@global.style.navIconColor}};"></i></div>
+<div id="app_navigation" class="{{@global.style.navigationSize}} {{#home.appData.moreNavigation.layoutOption}} {{this}}-option {{/home.appData.moreNavigation.layoutOption}}  {{#home.appData.moreNavigation.hideLayout}} hide-{{this}} {{/home.appData.moreNavigation.hideLayout}}  {{@global.style.navigationFont}} app_navigation_newLayout_matrix showMatrix-{{@global.style.moreNavigation.showMatrixBackgrondText}} animation-{{@global.style.animation}}" navbar="{{home.appData.headerBarType}}" style="display:none">
+    {{#home.home}}
+    <a href="#" data-productid="{{pageid}}"  data-productidentifier="{{pageIdentifierBecon}}" class="page-link" style="border-color:{{@global.style.navBorderColor}}; {{#if @global.style.moreNavigation.showMatrixBackgrondText}} {{else}} background-color:{{@global.style.navBackgroundColor}};{{/if}}">
+        {{#js_compare "this.pageiconType === 'img' "}} <img src="images/image-1x1.png" style="border-color:{{@global.style.navBorderColor}};{{#if @global.style.moreNavigation.showMatrixBackgrondText}} {{else}} background-color:{{@global.style.navBackgroundColor}};{{/if}} background-image:url({{@global.homeIconPath}}{{iconName}})">{{else}}
+        <img src="images/image-1x1.png" style="border-color:rgba(0,0,0,0);background-color:rgba(0,0,0,0)" />
+        <i class="{{iconName}}" style="border-color:{{@global.style.navBorderColor}};color:{{@global.style.navIconColor}}; {{#if @global.style.moreNavigation.showMatrixBackgrondText}} {{else}} background-color:{{@global.style.navBackgroundColor}};{{/if}}"></i>{{/js_compare}} <span style="background-color:{{@global.style.navBackgroundColor}}; color:{{@global.style.navTextColor}}">{{pageNewid}}</span></a>
+    {{/home.home}}
+</div>
+{{/root_Compare}}
+
+{{#root_Compare @global.style.moreNavigation.layout "==" "imgmatrix"}}
+<div class="closeLt" style="background:{{@global.style.navBackgroundColor}};display:none;"><i class="iconz-close" style="color:{{@global.style.navIconColor}};"></i></div>
+<div  id="app_navigation" class="{{@global.style.navigationSize}} {{#home.appData.moreNavigation.layoutOption}} {{this}} {{/home.appData.moreNavigation.layoutOption}}   {{#home.appData.moreNavigation.layoutAlign}} {{this}}-align {{/home.appData.moreNavigation.layoutAlign}} {{#home.appData.moreNavigation.hideLayout}} hide-{{this}} {{/home.appData.moreNavigation.hideLayout}}  {{@global.style.navigationFont}} app_navigation_newLayout_imgmatrix" style="display:none;">
+
+    {{#home.home}}
+    <a href="#" data-productid="{{pageid}}" data-productIdentifier="{{pageIdentifierBecon}}" class="page-link" style="border-color:{{@global.style.navBorderColor}}">
+        {{#js_compare "this.pageiconType === 'img' "}} <img src="images/transparent-bg_1x1.png" style="background-image:url({{@global.homeIconPath}}{{iconName}});"/>
+        {{else}}
+        <i class="{{iconName}}" style="color: {{@global.style.navIconColor}}; "></i>
+        {{/js_compare}}
+        <span class="" style="color:{{@global.style.navTextColor}}; background:{{@global.style.navBackgroundColor}}">{{pageNewid}}</span>
+    </a>
+    {{/home.home}}
+</div>
+{{/root_Compare}}
+
+{{#if home.home.length}}
+<div id="app_navigation" class="{{@global.style.navigationSize}} {{#home.appData.layoutOption}} {{this}}-o
+ption {{/home.appData.layoutOption}}  {{#home.appData.hideLayout}} hide-{{this}} {{/home.appData.hideLayout}}  {{@global.style.navigationFont}} app_navigation_{{@global.style.layout}} layout-{{home.home.length}}">
+    {{#home.home}}
+
+    <a class="inner_box page-link round{{@index}}"  data-productidentifier="{{pageIdentifierBecon}}" data-productid="{{pageid}}">
+        <img src="images/image-1x1.png" class="transparent" />
+        <img src="images/image-2x1.png" class="twointo-one" />
+        <span class="icon">
+                {{#js_compare "this.pageiconType === 'img' "}} <img src="{{@global.homeIconPath}}{{iconName}}">
+                    {{else}}
+                     <i class="{{iconName}}" style="color: {{@global.style.navIconColor}}; "></i>
+               	{{/js_compare}}
+            	<span class="" style="color: {{@global.style.navTextColor}} ">{{pageNewid}}</span>
+         </span>
+    </a>
+    {{/home.home}}
+    <a class="inner_box more round5">
+        <img src="images/image-1x1.png" class="transparent" />
+        <span class="icon">
+                <i class="icon-dot-3" style="color: {{@global.style.navIconColor}}; "></i>
+                <span class="" style="color: {{@global.style.navTextColor}} ">{{@global.moreStuffKey}}</span>
+            </span>
+    </a>
+</div>{{/if}}
+
+
+</div>
+</div>    
